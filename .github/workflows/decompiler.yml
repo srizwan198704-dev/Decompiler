@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       apk_url:
-        description: 'Google Drive Direct Link or Any APK URL'
+        description: 'Google Drive Link or Any APK URL'
         required: true
 
 jobs:
@@ -13,10 +13,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Download APK
         run: |
-          # গুগল ড্রাইভ বা অন্য লিঙ্ক থেকে ডাউনলোড
-          curl -L "${{ github.event.inputs.apk_url }}" -o input_app.apk
+          pip install gdown
+          # গুগল ড্রাইভ লিঙ্ক হলে gdown ব্যবহার করবে, অন্যথায় curl
+          if [[ "${{ github.event.inputs.apk_url }}" == *"drive.google.com"* ]]; then
+            gdown --fuzzy "${{ github.event.inputs.apk_url }}" -O input_app.apk
+          else
+            curl -L "${{ github.event.inputs.apk_url }}" -o input_app.apk
+          fi
+
+      - name: Check File Size
+        run: ls -lh input_app.apk
 
       - name: Setup Java & APKTool
         run: |
