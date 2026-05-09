@@ -62,154 +62,55 @@ jobs:
           echo "OLD_PACKAGE=$OLD_PACKAGE" >> $GITHUB_ENV
           echo "Detected Old Package: $OLD_PACKAGE"
 
-      - name: Fix and Clean AndroidManifest.xml
+      - name: Rename Package in AndroidManifest.xml ONLY
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           MANIFEST="$DECOMPILED_DIR/AndroidManifest.xml"
 
-          # Create backup
+          # Backup original
           cp "$MANIFEST" "$MANIFEST.bak"
 
-          echo "=== BEFORE (first 5 lines) ==="
+          echo "=== BEFORE ==="
           head -5 "$MANIFEST"
 
-          # -------------------------------------------------------
-          # SAFE ATTRIBUTE REMOVAL — only remove the specific
-          # attributes that cause aapt2 errors. Never touch
-          # "android:" namespace prefix or XML declarations.
-          # -------------------------------------------------------
-
-          # Remove split-related attributes (not standard SDK attrs)
-          sed -i 's/\s*requiredSplitTypes="[^"]*"//g' "$MANIFEST"
-          sed -i 's/\s*splitTypes="[^"]*"//g' "$MANIFEST"
-          sed -i 's/\s*isSplitRequired="[^"]*"//g' "$MANIFEST"
-
-          # Remove trailing whitespace only
-          sed -i 's/[[:space:]]*$//' "$MANIFEST"
-
-          # -------------------------------------------------------
-          # FIX XML DECLARATION
-          # Ensure there is exactly ONE <?xml ...?> at line 1,
-          # nothing else before the root <manifest> tag.
-          # -------------------------------------------------------
-
-          # Remove ALL existing xml declarations first
-          sed -i '/^<?xml/d' "$MANIFEST"
-
-          # Remove any blank lines at top
-          sed -i '/^[[:space:]]*$/d' "$MANIFEST"
-
-          # Prepend clean XML declaration
-          sed -i '1s/^/<?xml version="1.0" encoding="utf-8"?>\n/' "$MANIFEST"
-
-          # -------------------------------------------------------
-          # PACKAGE NAME RENAME — only rename the package attribute
-          # and string occurrences of the old package name.
-          # -------------------------------------------------------
-          sed -i "s|package=\"${OLD_PACKAGE}\"|package=\"com.whatsapp.w4b\"|g" "$MANIFEST"
+          # ONLY rename the package= attribute value and any
+          # occurrence of the old package string — touch NOTHING else.
+          # No XML declaration changes, no attribute removal, nothing.
           sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$MANIFEST"
 
-          echo "=== AFTER (first 10 lines) ==="
-          head -10 "$MANIFEST"
+          echo "=== AFTER ==="
+          head -5 "$MANIFEST"
 
-          # Validate XML is well-formed before continuing
-          echo "=== Validating XML ==="
-          if python3 -c "
-          import xml.etree.ElementTree as ET
+          # Validate XML is still well-formed
+          python3 - <<'PYEOF'
+          import xml.etree.ElementTree as ET, sys
           try:
-              ET.parse('$MANIFEST')
-              print('✅ XML is well-formed')
+              ET.parse("$MANIFEST".replace('$MANIFEST', '${MANIFEST}'))
+              print("✅ AndroidManifest.xml is well-formed")
           except ET.ParseError as e:
-              print(f'❌ XML parse error: {e}')
-              exit(1)
-          "; then
-            echo "✓ AndroidManifest.xml is valid"
-          else
-            echo "❌ AndroidManifest.xml is invalid — restoring backup"
-            cp "$MANIFEST.bak" "$MANIFEST"
-            # Apply ONLY the package rename on the backup (no XML touching)
-            sed -i "s|package=\"${OLD_PACKAGE}\"|package=\"com.whatsapp.w4b\"|g" "$MANIFEST"
-            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$MANIFEST"
-            echo "=== Restored + renamed (first 10 lines) ==="
-            head -10 "$MANIFEST"
-          fi
+              print(f"❌ XML parse error: {e}")
+              sys.exit(1)
+          PYEOF
 
-      - name: Rename Smali Directories
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-
-          OLD_PATH=$(echo "$OLD_PACKAGE" | tr '.' '/')
-          NEW_PATH="com/whatsapp/w4b"
-
-          echo "Old path: $OLD_PATH"
-          echo "New path: $NEW_PATH"
-
-          for smali_dir in $(find "$DECOMPILED_DIR" -type d -name "smali*" 2>/dev/null); do
-            if [ -d "$smali_dir/$OLD_PATH" ]; then
-              echo "Processing: $smali_dir"
-              cd "$smali_dir"
-              mkdir -p com/whatsapp
-              if [ -d "$OLD_PATH" ]; then
-                mv "$OLD_PATH" "com/whatsapp/w4b" 2>/dev/null || true
-                echo "✓ Renamed in: $smali_dir"
-              fi
-              rmdir -p "$(dirname "$OLD_PATH")" 2>/dev/null || true
-              cd - > /dev/null
-            fi
-          done
-
-      - name: Update Smali Files Content
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          OLD_PACKAGE_SLASH=$(echo "$OLD_PACKAGE" | tr '.' '/')
-          NEW_PACKAGE_SLASH="com/whatsapp/w4b"
-
-          echo "Updating smali files..."
-
-          find "$DECOMPILED_DIR" -type f -name "*.smali" 2>/dev/null | while read file; do
-            sed -i "s|L${OLD_PACKAGE_SLASH}/|L${NEW_PACKAGE_SLASH}/|g" "$file"
-            sed -i "s|L${OLD_PACKAGE_SLASH};|L${NEW_PACKAGE_SLASH};|g" "$file"
-            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$file"
-          done
-
-          echo "✓ Updated smali files"
-
-      - name: Update XML and Other Files
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-
-          find "$DECOMPILED_DIR" -type f -name "*.xml" ! -name "AndroidManifest.xml" 2>/dev/null | while read file; do
-            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$file"
-          done
-
-          find "$DECOMPILED_DIR" -type f -name "*.json" 2>/dev/null | while read file; do
-            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$file"
-          done
-
-          find "$DECOMPILED_DIR" -type f -name "*.properties" 2>/dev/null | while read file; do
-            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$file"
-          done
-
-          echo "✓ Updated XML and configuration files"
+        env:
+          MANIFEST: ${{ github.event.inputs.decompiled_folder }}/AndroidManifest.xml
 
       - name: Recompile APK
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           export PATH="$PATH:/opt/android-sdk/build-tools/34.0.0"
 
-          echo "=== Recompiling APK ==="
-
-          # Show manifest state before compile
-          echo "--- AndroidManifest.xml (first 15 lines) ---"
+          echo "=== AndroidManifest.xml (first 15 lines before compile) ==="
           head -15 "$DECOMPILED_DIR/AndroidManifest.xml"
-          echo "--------------------------------------------"
+          echo "============================================================"
 
+          echo "=== Recompiling APK ==="
           if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --verbose 2>&1; then
             echo "✅ Recompilation successful!"
           else
-            echo "❌ Recompilation failed, trying with --use-aapt2..."
+            echo "❌ First attempt failed, trying with --use-aapt2..."
             if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1; then
-              echo "✅ Recompilation successful with aapt2!"
+              echo "✅ Recompilation successful with --use-aapt2!"
             else
               echo "❌ Both recompilation attempts failed"
               exit 1
