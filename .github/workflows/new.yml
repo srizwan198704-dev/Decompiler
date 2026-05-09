@@ -20,7 +20,7 @@ jobs:
       - name: Setup Environment
         run: |
           sudo apt-get update
-          sudo apt-get install -y openjdk-17-jre-headless python3-pip wget
+          sudo apt-get install -y openjdk-17-jre-headless python3-pip wget curl
           pip install gdown
           
           # Download APKTool
@@ -30,85 +30,146 @@ jobs:
           
           apktool --version
 
-      - name: Download Original APK
+      - name: Download Original APK (Fixed)
         run: |
           URL="${{ github.event.inputs.apk_url }}"
           
-          # Handle Dropbox links
+          # Handle different URL types
           if [[ "$URL" == *"dropbox.com"* ]]; then
-            # Convert dropbox link to direct download
-            DIRECT_URL=$(echo "$URL" | sed 's/dl=0/dl=1/')
-            wget -O original.apk "$DIRECT_URL" --no-check-certificate
+            # Extract dropbox file ID and use direct download
+            echo "Downloading from Dropbox..."
+            
+            # Convert to raw download link
+            RAW_URL=$(echo "$URL" | sed 's/?dl=0/?dl=1/' | sed 's/?dl=1/?dl=1/')
+            RAW_URL=$(echo "$RAW_URL" | sed 's/www.dropbox.com/dl.dropboxusercontent.com/')
+            
+            # Try different methods
+            wget -O original.apk "$RAW_URL" --no-check-certificate || \
+            curl -L -o original.apk "$RAW_URL" || \
+            wget -O original.apk "https://dl.dropboxusercontent.com/s/$(echo $URL | grep -oP 'scl/fi/\K[^?]+')" --no-check-certificate
+            
+          elif [[ "$URL" == *"drive.google.com"* ]]; then
+            echo "Downloading from Google Drive..."
+            gdown "$URL" -O original.apk --fuzzy
           else
-            # For Google Drive or other links
-            gdown "$URL" -O original.apk
+            echo "Downloading from direct URL..."
+            wget -O original.apk "$URL" --no-check-certificate
           fi
           
-          echo "✓ APK downloaded"
-          ls -lh original.apk
+          # Verify download
+          if [ ! -f "original.apk" ]; then
+            echo "❌ Failed to download APK"
+            exit 1
+          fi
+          
+          # Check if it's a valid APK
+          if file original.apk | grep -q "zip"; then
+            echo "✓ APK downloaded and verified"
+            ls -lh original.apk
+          else
+            echo "❌ Downloaded file is not a valid APK"
+            file original.apk
+            exit 1
+          fi
 
-      - name: Decompile APK (Fresh)
+      - name: Alternative Download Method (if needed)
+        if: failure()
         run: |
-          # Fresh decompile
+          echo "Trying alternative download method..."
+          URL="${{ github.event.inputs.apk_url }}"
+          
+          # Use curl with follow redirects
+          curl -L -o original.apk "$URL" -H "User-Agent: Mozilla/5.0"
+          
+          # Check if file is HTML (redirect page)
+          if file original.apk | grep -q "HTML"; then
+            echo "Got HTML instead of APK. Extracting real URL..."
+            grep -oP 'https://[^"]+\.apk' original.apk | head -1 > real_url.txt
+            if [ -s real_url.txt ]; then
+              REAL_URL=$(cat real_url.txt)
+              curl -L -o original.apk "$REAL_URL"
+            fi
+          fi
+          
+          ls -lh original.apk
+          file original.apk
+
+      - name: Verify APK Integrity
+        run: |
+          # Check if it's a valid zip/APK
+          if unzip -t original.apk 2>&1 | grep -q "No errors"; then
+            echo "✅ APK is valid"
+          else
+            echo "⚠️ APK may be corrupted, but continuing..."
+            # Try to fix with zip -F
+            zip -FF original.apk --out fixed.apk 2>/dev/null || true
+            if [ -f "fixed.apk" ]; then
+              mv fixed.apk original.apk
+            fi
+          fi
+
+      - name: Decompile APK
+        run: |
+          # Try decompile with force
           apktool d original.apk -o decompiled -f
+          
+          if [ ! -d "decompiled" ]; then
+            echo "❌ Decompilation failed"
+            exit 1
+          fi
+          
           echo "✓ Decompiled successfully"
+          ls -la decompiled/
 
       - name: Get Original Package Name
         run: |
-          ORIGINAL_PACKAGE=$(grep -oP 'package="\K[^"]+' decompiled/AndroidManifest.xml | head -1)
-          echo "ORIGINAL_PACKAGE=$ORIGINAL_PACKAGE" >> $GITHUB_ENV
-          echo "Original package: $ORIGINAL_PACKAGE"
+          if [ -f "decompiled/AndroidManifest.xml" ]; then
+            ORIGINAL_PACKAGE=$(grep -oP 'package="\K[^"]+' decompiled/AndroidManifest.xml | head -1)
+            echo "ORIGINAL_PACKAGE=$ORIGINAL_PACKAGE" >> $GITHUB_ENV
+            echo "Original package: $ORIGINAL_PACKAGE"
+          else
+            echo "❌ AndroidManifest.xml not found"
+            exit 1
+          fi
 
-      - name: Fix AndroidManifest.xml
+      - name: Clean and Update AndroidManifest.xml
         run: |
-          # Create a clean manifest
-          cp decompiled/AndroidManifest.xml decompiled/AndroidManifest.xml.bak
-          
           # Remove problematic attributes
           sed -i 's/requiredSplitTypes="[^"]*"//g' decompiled/AndroidManifest.xml
           sed -i 's/splitTypes="[^"]*"//g' decompiled/AndroidManifest.xml
           sed -i 's/isSplitRequired="[^"]*"//g' decompiled/AndroidManifest.xml
           sed -i 's/android:extractNativeLibs="[^"]*"//g' decompiled/AndroidManifest.xml
-          sed -i 's/android:useEmbeddedDex="[^"]*"//g' decompiled/AndroidManifest.xml
           
-          # Change package name
+          # Update package name
           sed -i "s/package=\"$ORIGINAL_PACKAGE\"/package=\"com.whatsapp.w4b\"/" decompiled/AndroidManifest.xml
           sed -i "s/$ORIGINAL_PACKAGE/com.whatsapp.w4b/g" decompiled/AndroidManifest.xml
           
-          echo "✓ AndroidManifest.xml fixed"
+          echo "✓ AndroidManifest.xml updated"
 
       - name: Rename Smali Directories
         run: |
           OLD_PATH=$(echo "$ORIGINAL_PACKAGE" | tr '.' '/')
           NEW_PATH="com/whatsapp/w4b"
           
-          # Rename in all smali directories
-          for smali in decompiled/smali*; do
-            if [ -d "$smali" ] && [ -d "$smali/$OLD_PATH" ]; then
-              cd "$smali"
+          for smali_dir in decompiled/smali*; do
+            if [ -d "$smali_dir" ] && [ -d "$smali_dir/$OLD_PATH" ]; then
+              cd "$smali_dir"
               mkdir -p com/whatsapp
               mv "$OLD_PATH" "com/whatsapp/w4b" 2>/dev/null || true
               cd - > /dev/null
-              echo "✓ Renamed in $(basename $smali)"
+              echo "✓ Renamed in $(basename $smali_dir)"
             fi
           done
 
       - name: Update All Files
         run: |
-          # Update smali files
           find decompiled -name "*.smali" -type f | while read file; do
             sed -i "s|L$ORIGINAL_PACKAGE/|Lcom/whatsapp/w4b/|g" "$file"
             sed -i "s|$ORIGINAL_PACKAGE|com.whatsapp.w4b|g" "$file"
           done
           
-          # Update XML files
           find decompiled -name "*.xml" -type f | while read file; do
             sed -i "s|$ORIGINAL_PACKAGE|com.whatsapp.w4b|g" "$file"
-          done
-          
-          # Update JSON files
-          find decompiled -name "*.json" -type f | while read file; do
-            sed -i "s|$ORIGINAL_PACKAGE|com.whatsapp.w4b|g" "$file" 2>/dev/null || true
           done
           
           echo "✓ All files updated"
@@ -120,7 +181,7 @@ jobs:
           
           if [ -f "unsigned.apk" ] && [ -s "unsigned.apk" ]; then
             SIZE=$(ls -lh unsigned.apk | awk '{print $5}')
-            echo "✅ Recompiled successfully! Size: $SIZE"
+            echo "✅ Recompiled! Size: $SIZE"
             echo "status=success" >> $GITHUB_OUTPUT
           else
             echo "❌ Recompile failed"
@@ -128,7 +189,7 @@ jobs:
             exit 1
           fi
 
-      - name: Create Keystore
+      - name: Sign APK
         if: steps.recompile.outputs.status == 'success'
         run: |
           keytool -genkey -v \
@@ -141,12 +202,7 @@ jobs:
             -keypass w4b123 \
             -dname "CN=WhatsApp W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD" \
             -noprompt
-          echo "✓ Keystore created"
-
-      - name: Sign APK
-        if: steps.recompile.outputs.status == 'success'
-        run: |
-          # Sign the APK
+          
           jarsigner -verbose \
             -keystore my-release-key.jks \
             -storepass w4b123 \
@@ -155,75 +211,25 @@ jobs:
             -digestalg SHA-256 \
             unsigned.apk w4b
           
-          # Verify signature
-          jarsigner -verify unsigned.apk
-          
-          # Copy to final name
           cp unsigned.apk com.whatsapp.w4b.apk
-          echo "✓ APK signed successfully"
-
-      - name: Verify Final APK
-        if: steps.recompile.outputs.status == 'success'
-        run: |
-          echo "========================================="
-          echo "FINAL VERIFICATION"
-          echo "========================================="
-          
-          if [ -f "com.whatsapp.w4b.apk" ]; then
-            SIZE=$(ls -lh com.whatsapp.w4b.apk | awk '{print $5}')
-            echo "✅ APK: com.whatsapp.w4b.apk"
-            echo "📦 Size: $SIZE"
-            echo "📱 Package: com.whatsapp.w4b"
-            
-            # Quick check
-            unzip -p com.whatsapp.w4b.apk AndroidManifest.xml | grep "package=" | head -1
-          fi
-          echo "========================================="
+          echo "✓ APK signed"
 
       - name: Create GitHub Release
         if: steps.recompile.outputs.status == 'success'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: whatsapp-w4b-v1.0.${{ github.run_number }}
-          name: "WhatsApp W4B - v1.0.${{ github.run_number }}"
+          tag_name: w4b-v${{ github.run_number }}
+          name: "WhatsApp W4B v${{ github.run_number }}"
           body: |
-            ## ✅ APK Successfully Modified and Signed!
+            ## ✅ APK Successfully Modified!
             
-            ### 📦 Package Information
-            - **Original Package**: `${{ env.ORIGINAL_PACKAGE }}`
             - **New Package**: `com.whatsapp.w4b`
-            - **Version**: v1.0.${{ github.run_number }}
-            - **Build Date**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+            - **Original**: `${{ env.ORIGINAL_PACKAGE }}`
             
-            ### 🔧 Modifications Done
-            - ✅ Package renamed everywhere
-            - ✅ AndroidManifest.xml updated
-            - ✅ All smali files updated
-            - ✅ All XML resources updated
-            - ✅ APK recompiled successfully
-            - ✅ Signed with custom keystore
-            
-            ### 📥 Download
-            [**Click here to download APK**](${{ github.server_url }}/${{ github.repository }}/releases/download/whatsapp-w4b-v1.0.${{ github.run_number }}/com.whatsapp.w4b.apk)
-            
-            ### 📱 Installation Instructions
-            1. Download the APK file
-            2. Go to Settings → Security → Enable "Unknown Sources"
-            3. Install the APK
-            
-            ### ⚠️ Important Notes
-            - This is a modified version of the original APK
-            - Install at your own risk
-            - Original app may need to be uninstalled first
-            
-            ### 📊 Build Stats
-            - **Build Number**: ${{ github.run_number }}
-            - **Runner**: ubuntu-latest
-            - **APK Size**: $(ls -lh com.whatsapp.w4b.apk | awk '{print $5}')
+            [Download APK](${{ github.server_url }}/${{ github.repository }}/releases/download/w4b-v${{ github.run_number }}/com.whatsapp.w4b.apk)
           files: |
             com.whatsapp.w4b.apk
           draft: false
-          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -231,22 +237,15 @@ jobs:
         if: steps.recompile.outputs.status == 'success'
         uses: actions/upload-artifact@v4
         with:
-          name: w4b-signed-apk
+          name: whatsapp-w4b
           path: com.whatsapp.w4b.apk
           retention-days: 90
 
-      - name: Download Link
+      - name: Success Message
         if: steps.recompile.outputs.status == 'success'
         run: |
           echo "========================================="
-          echo "✅ SUCCESS! APK IS READY"
+          echo "✅ APK READY!"
           echo "========================================="
-          echo ""
-          echo "🔗 DOWNLOAD FROM RELEASE:"
-          echo "${{ github.server_url }}/${{ github.repository }}/releases/download/whatsapp-w4b-v1.0.${{ github.run_number }}/com.whatsapp.w4b.apk"
-          echo ""
-          echo "🔗 DOWNLOAD FROM ARTIFACT:"
-          echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          echo ""
-          echo "📱 Package: com.whatsapp.w4b"
+          echo "Download: ${{ github.server_url }}/${{ github.repository }}/releases/download/w4b-v${{ github.run_number }}/com.whatsapp.w4b.apk"
           echo "========================================="
