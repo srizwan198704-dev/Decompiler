@@ -13,47 +13,48 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Java & APKTool
+      - name: Setup Java
         run: |
           sudo apt-get update
-          sudo apt-get install -y openjdk-17-jre-headless zipalign wget unzip python3
+          sudo apt-get install -y openjdk-17-jre-headless zipalign wget unzip
 
-          # Download and setup Android SDK tools properly
-          mkdir -p $HOME/android-sdk/cmdline-tools
-          cd $HOME/android-sdk
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
-          unzip -q commandlinetools-linux-11076708_latest.zip
-          mv cmdline-tools latest
-          mkdir -p cmdline-tools
-          mv latest cmdline-tools/
-          
-          # Set environment variables
-          export ANDROID_SDK_ROOT=$HOME/android-sdk
-          export PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/build-tools/34.0.0"
-          
-          # Accept licenses and install build tools
-          yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null 2>&1 || true
-          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "build-tools;34.0.0" > /dev/null 2>&1
-          
-          # Add to PATH
-          echo "ANDROID_SDK_ROOT=$HOME/android-sdk" >> $GITHUB_ENV
-          echo "PATH=$PATH:$HOME/android-sdk/build-tools/34.0.0" >> $GITHUB_ENV
-          
-          # Download APKTool
+      - name: Setup Android SDK and aapt2
+        run: |
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
+          sudo mkdir -p /opt/android-sdk/cmdline-tools
+          sudo unzip -q cmdline-tools.zip -d /opt/android-sdk/cmdline-tools
+          sudo mv /opt/android-sdk/cmdline-tools/cmdline-tools /opt/android-sdk/cmdline-tools/latest
+
+          export ANDROID_SDK_ROOT=/opt/android-sdk
+          export PATH="$PATH:/opt/android-sdk/cmdline-tools/latest/bin"
+
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager "build-tools;34.0.0"
+
+          sudo ln -sf /opt/android-sdk/build-tools/34.0.0/aapt2 /usr/local/bin/aapt2
+
+          echo "ANDROID_SDK_ROOT=/opt/android-sdk" >> $GITHUB_ENV
+          echo "/opt/android-sdk/build-tools/34.0.0" >> $GITHUB_PATH
+
+          aapt2 version
+
+      - name: Setup APKTool
+        run: |
           sudo wget -q https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /usr/local/bin/apktool
           sudo wget -q https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar -O /usr/local/bin/apktool.jar
           sudo chmod +x /usr/local/bin/apktool /usr/local/bin/apktool.jar
-          
           apktool --version
 
       - name: Detect Old Package Name
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
 
+          OLD_PACKAGE=""
           if [ -f "$DECOMPILED_DIR/AndroidManifest.xml" ]; then
             OLD_PACKAGE=$(grep -oP 'package="\K[^"]+' "$DECOMPILED_DIR/AndroidManifest.xml" | head -1)
           fi
@@ -63,7 +64,7 @@ jobs:
           fi
 
           echo "OLD_PACKAGE=$OLD_PACKAGE" >> $GITHUB_ENV
-          echo "Detected Old Package: $OLD_PACKAGE"
+          echo "✅ Detected Old Package: $OLD_PACKAGE"
 
       - name: Rename Package in AndroidManifest.xml ONLY
         run: |
@@ -77,12 +78,48 @@ jobs:
           echo "=== BEFORE (first 5 lines) ==="
           head -5 "$MANIFEST"
 
-          # Simple sed replacement for package name
-          sed -i "s/package=\"$OLD_PKG\"/package=\"$NEW_PACKAGE\"/" "$MANIFEST"
-          
-          # Also replace any other occurrences in the manifest
-          sed -i "s/$OLD_PKG/$NEW_PACKAGE/g" "$MANIFEST"
+          cat > /tmp/rename_pkg.py << EOF
+import re, sys
 
+manifest_path = "$MANIFEST"
+old = "$OLD_PKG"
+new = "$NEW_PACKAGE"
+
+print(f"Old package: {old}")
+print(f"New package: {new}")
+
+with open(manifest_path, "r", encoding="utf-8") as f:
+    content = f.read()
+
+escaped_old = re.escape(old)
+
+# double rename এড়াতে negative lookahead
+if new.startswith(old):
+    extra_suffix = re.escape(new[len(old):])
+    pattern = escaped_old + r'(?!' + extra_suffix + r')'
+else:
+    pattern = escaped_old
+
+count = len(re.findall(pattern, content))
+new_content = re.sub(pattern, new, content)
+
+print(f"Replaced {count} occurrence(s) of '{old}' -> '{new}'")
+
+with open(manifest_path, "w", encoding="utf-8") as f:
+    f.write(new_content)
+
+import xml.etree.ElementTree as ET
+try:
+    ET.parse(manifest_path)
+    print("✅ XML is well-formed")
+except ET.ParseError as e:
+    print(f"❌ XML parse error: {e}")
+    sys.exit(1)
+EOF
+
+          python3 /tmp/rename_pkg.py
+
+          echo ""
           echo "=== AFTER (first 5 lines) ==="
           head -5 "$MANIFEST"
 
@@ -99,78 +136,57 @@ jobs:
             echo "=== apktool.yml (before) ==="
             cat "$APKTOOL_YML"
 
-            # Update apkFileName
-            sed -i "s/apkFileName: .*/apkFileName: recompiled_unsigned.apk/" "$APKTOOL_YML"
-            
-            # Remove problematic aapt2 lines
-            sed -i "/useAapt2:/d" "$APKTOOL_YML"
-            sed -i "/aapt2:/d" "$APKTOOL_YML"
-            
-            # Add correct flags
-            echo "useAapt2: false" >> "$APKTOOL_YML"
+            # useAapt2 set করা
+            if grep -q "useAapt2:" "$APKTOOL_YML"; then
+              sed -i "s/useAapt2: .*/useAapt2: true/" "$APKTOOL_YML"
+            else
+              echo "useAapt2: true" >> "$APKTOOL_YML"
+            fi
 
+            echo ""
             echo "=== apktool.yml (after) ==="
             cat "$APKTOOL_YML"
           else
-            echo "⚠️ apktool.yml not found, creating minimal one..."
-            cat > "$APKTOOL_YML" << 'YML'
-!!brut.androlib.meta.MetaInfo
-apkFileName: recompiled_unsigned.apk
-compressionType: false
-doNotCompress:
-- arsc
-isFrameworkApk: false
-packageInfo:
-  forcedPackageId: '127'
-  renameManifestPackage: null
-sdkInfo:
-  minSdkVersion: '19'
-  targetSdkVersion: '30'
-sharedLibrary: false
-sparseResources: false
-useAapt2: false
-versionInfo:
-  versionCode: '10351'
-  versionName: 4.4.3.5
-YML
+            echo "⚠️ apktool.yml not found, skipping"
           fi
 
       - name: Recompile APK
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
 
-          echo "=== AndroidManifest.xml (first 15 lines) ==="
-          head -15 "$DECOMPILED_DIR/AndroidManifest.xml"
+          echo "=== AndroidManifest.xml (first 10 lines) ==="
+          head -10 "$DECOMPILED_DIR/AndroidManifest.xml"
           echo "============================================="
 
-          echo "=== apktool.yml ==="
-          cat "$DECOMPILED_DIR/apktool.yml" 2>/dev/null || echo "not found"
-          echo "==================="
-
-          # Try recompilation without aapt2 first (more stable)
-          echo "=== Recompiling APK ==="
+          echo ""
+          echo "=== Attempt 1: normal ==="
           if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f 2>&1; then
-            echo "✅ Recompilation successful!"
+            echo "✅ Success!"
           else
-            echo "❌ Recompilation failed"
             echo ""
-            echo "=== ERROR DETAILS ==="
-            apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f 2>&1 | tail -50
-            exit 1
+            echo "=== Attempt 2: --use-aapt2 ==="
+            if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1; then
+              echo "✅ Success with --use-aapt2!"
+            else
+              echo ""
+              echo "=== Attempt 3: --use-aapt2 --no-crunch ==="
+              if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 --no-crunch 2>&1; then
+                echo "✅ Success with --no-crunch!"
+              else
+                echo "❌ All attempts failed — full error below:"
+                echo "============================================="
+                apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1
+                echo "============================================="
+                exit 1
+              fi
+            fi
           fi
 
-          if [ -f "recompiled_unsigned.apk" ] && [ -s "recompiled_unsigned.apk" ]; then
-            echo ""
-            echo "✅ APK created successfully!"
-            ls -lh recompiled_unsigned.apk
-          else
-            echo "❌ APK file is empty or missing"
-            exit 1
-          fi
+          echo ""
+          ls -lh recompiled_unsigned.apk
 
       - name: Sign APK
         run: |
-          # Create keystore
           keytool -genkey -v \
             -keystore my.keystore \
             -alias w4b \
@@ -182,59 +198,49 @@ YML
             -dname "CN=W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD" \
             -noprompt
 
-          # Align APK
-          zipalign -v -p 4 recompiled_unsigned.apk aligned.apk 2>/dev/null || true
+          zipalign -v -p 4 recompiled_unsigned.apk aligned.apk
 
-          # Sign APK
-          jarsigner -keystore my.keystore \
+          jarsigner \
+            -keystore my.keystore \
             -storepass w4b123 \
             -keypass w4b123 \
             -sigalg SHA256withRSA \
             -digestalg SHA-256 \
-            recompiled_unsigned.apk w4b
+            aligned.apk w4b
 
-          mv recompiled_unsigned.apk signed_app.apk
-          echo "✅ APK signed"
+          jarsigner -verify aligned.apk
+          cp aligned.apk signed_app.apk
+          echo "✅ APK signed successfully"
 
       - name: Verify APK
         run: |
           echo "========================================="
           echo "VERIFICATION"
           echo "========================================="
-
           if [ -f "signed_app.apk" ]; then
-            SIZE=$(ls -lh signed_app.apk | awk '{print $5}')
-            echo "✅ APK created: $SIZE"
-            
-            # Verify package name in manifest
-            unzip -p signed_app.apk AndroidManifest.xml > /tmp/manifest.xml 2>/dev/null || true
-            if grep -q "com.whatsapp.w4b" /tmp/manifest.xml 2>/dev/null; then
-              echo "✅ Package name verified: com.whatsapp.w4b"
-            fi
+            echo "✅ APK size: $(ls -lh signed_app.apk | awk '{print $5}')"
+            echo ""
+            echo "APK Contents (first 20):"
+            unzip -l signed_app.apk | head -20
           else
             echo "❌ APK not found"
             exit 1
           fi
-
           echo "========================================="
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: w4b-v1.0.${{ github.run_number }}
-          name: "WhatsApp W4B v1.0.${{ github.run_number }}"
+          name: "W4B v1.0.${{ github.run_number }}"
           body: |
             ✅ APK Successfully Recompiled!
 
             **Details:**
             - Package: com.whatsapp.w4b
-            - Build Number: ${{ github.run_number }}
+            - Build: ${{ github.run_number }}
             - Original Package: ${{ env.OLD_PACKAGE }}
-
-            **Download:**
-            Download the APK from assets below.
-          files: |
-            signed_app.apk
+          files: signed_app.apk
           draft: false
           prerelease: false
         env:
@@ -250,11 +256,10 @@ YML
       - name: Show Download Link
         run: |
           echo "========================================="
-          echo "🎉 SUCCESS! 🎉"
+          echo "🎉 SUCCESS!"
           echo "========================================="
-          echo ""
-          echo "📱 Download APK from:"
+          echo "📱 APK Download:"
           echo "${{ github.server_url }}/${{ github.repository }}/releases/download/w4b-v1.0.${{ github.run_number }}/signed_app.apk"
           echo ""
-          echo "📦 Or check GitHub Actions Artifacts tab"
+          echo "🔑 Keystore: w4b123 / alias: w4b"
           echo "========================================="
