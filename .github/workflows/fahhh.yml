@@ -1,0 +1,225 @@
+name: Direct APK Upload, Recompile & Rename
+
+on:
+  workflow_dispatch:
+    inputs:
+      apk_file:
+        description: 'Upload your APK file here'
+        required: true
+        type: choice
+        options:
+          - 'Click "Run workflow" then upload file below'
+
+jobs:
+  recompile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jre-headless
+          
+          # Download APKTool
+          sudo wget https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar -O /usr/local/bin/apktool.jar
+          sudo wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /usr/local/bin/apktool
+          sudo chmod +x /usr/local/bin/apktool /usr/local/bin/apktool.jar
+          
+          echo "✅ Environment ready"
+
+      - name: Download Uploaded APK
+        uses: actions/download-artifact@v4
+        with:
+          name: uploaded-apk
+          path: ./input
+        continue-on-error: true
+
+      - name: Check for APK file
+        id: check
+        run: |
+          # Check if APK exists from upload
+          if [ -f "./input/*.apk" ]; then
+            cp ./input/*.apk original.apk
+            echo "✅ APK found from upload"
+          elif [ -f "*.apk" ]; then
+            cp *.apk original.apk
+            echo "✅ APK found in root"
+          else
+            echo "⚠️ No APK uploaded yet"
+            echo "status=no_file" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Wait for APK Upload
+        if: steps.check.outputs.status == 'no_file'
+        run: |
+          echo "========================================="
+          echo "📱 HOW TO UPLOAD APK:"
+          echo "========================================="
+          echo ""
+          echo "1️⃣ Go to 'Summary' tab after workflow starts"
+          echo "2️⃣ Find 'Artifacts' section"
+          echo "3️⃣ Click 'uploaded-apk'"
+          echo "4️⃣ Upload your .apk file"
+          echo "5️⃣ Re-run this workflow"
+          echo ""
+          echo "Or use this alternative method:"
+          echo "1️⃣ Go to repository root"
+          echo "2️⃣ Upload your APK file directly"
+          echo "3️⃣ Rename it to 'app.apk'"
+          echo "4️⃣ Re-run this workflow"
+          echo "========================================="
+          exit 1
+
+      - name: Decompile APK
+        run: |
+          apktool d original.apk -o decompiled -f
+          echo "✅ Decompiled successfully"
+
+      - name: Get Original Package Name
+        run: |
+          ORIGINAL_PACKAGE=$(grep -oP 'package="\K[^"]+' decompiled/AndroidManifest.xml | head -1)
+          echo "ORIGINAL_PACKAGE=$ORIGINAL_PACKAGE" >> $GITHUB_ENV
+          echo "Original package: $ORIGINAL_PACKAGE"
+
+      - name: Fix AndroidManifest.xml
+        run: |
+          # Remove problematic attributes
+          sed -i 's/requiredSplitTypes="[^"]*"//g' decompiled/AndroidManifest.xml
+          sed -i 's/splitTypes="[^"]*"//g' decompiled/AndroidManifest.xml
+          sed -i 's/isSplitRequired="[^"]*"//g' decompiled/AndroidManifest.xml
+          
+          # Change package name
+          sed -i "s/package=\"$ORIGINAL_PACKAGE\"/package=\"com.whatsapp.w4b\"/" decompiled/AndroidManifest.xml
+          sed -i "s/$ORIGINAL_PACKAGE/com.whatsapp.w4b/g" decompiled/AndroidManifest.xml
+          
+          echo "✅ AndroidManifest.xml updated"
+
+      - name: Rename Smali Directories
+        run: |
+          OLD_PATH=$(echo "$ORIGINAL_PACKAGE" | tr '.' '/')
+          NEW_PATH="com/whatsapp/w4b"
+          
+          for smali_dir in decompiled/smali*; do
+            if [ -d "$smali_dir" ] && [ -d "$smali_dir/$OLD_PATH" ]; then
+              cd "$smali_dir"
+              mkdir -p com/whatsapp
+              mv "$OLD_PATH" "com/whatsapp/w4b" 2>/dev/null || true
+              cd - > /dev/null
+              echo "✅ Renamed in $(basename $smali_dir)"
+            fi
+          done
+
+      - name: Update All Files
+        run: |
+          # Update smali files
+          find decompiled -name "*.smali" -type f | while read file; do
+            sed -i "s|L$ORIGINAL_PACKAGE/|Lcom/whatsapp/w4b/|g" "$file"
+            sed -i "s|$ORIGINAL_PACKAGE|com.whatsapp.w4b|g" "$file"
+          done
+          
+          # Update XML files
+          find decompiled -name "*.xml" -type f | while read file; do
+            sed -i "s|$ORIGINAL_PACKAGE|com.whatsapp.w4b|g" "$file"
+          done
+          
+          echo "✅ All files updated"
+
+      - name: Recompile APK
+        id: recompile
+        run: |
+          apktool b decompiled -o unsigned.apk -f
+          
+          if [ -f "unsigned.apk" ] && [ -s "unsigned.apk" ]; then
+            echo "✅ Recompiled successfully"
+            echo "status=success" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Recompile failed"
+            echo "status=failed" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Sign APK
+        if: steps.recompile.outputs.status == 'success'
+        run: |
+          # Create keystore
+          keytool -genkey -v \
+            -keystore my-release-key.jks \
+            -alias w4b \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass w4b123 \
+            -keypass w4b123 \
+            -dname "CN=WhatsApp W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD" \
+            -noprompt
+          
+          # Sign
+          jarsigner -verbose \
+            -keystore my-release-key.jks \
+            -storepass w4b123 \
+            -keypass w4b123 \
+            -sigalg SHA256withRSA \
+            -digestalg SHA-256 \
+            unsigned.apk w4b
+          
+          cp unsigned.apk com.whatsapp.w4b.apk
+          echo "✅ APK signed"
+
+      - name: Create GitHub Release
+        if: steps.recompile.outputs.status == 'success'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: w4b-v${{ github.run_number }}
+          name: "WhatsApp W4B - Modified APK v${{ github.run_number }}"
+          body: |
+            ## ✅ Success! APK Ready for Download
+            
+            ### 📦 Package Info
+            - **Original Package**: `${{ env.ORIGINAL_PACKAGE }}`
+            - **New Package**: `com.whatsapp.w4b`
+            - **Build**: #${{ github.run_number }}
+            
+            ### 📥 Download
+            [**Click here to download APK**](${{ github.server_url }}/${{ github.repository }}/releases/download/w4b-v${{ github.run_number }}/com.whatsapp.w4b.apk)
+            
+            ### 📱 Installation
+            1. Download the APK
+            2. Enable "Unknown Sources" in Settings
+            3. Install
+            
+            ### ⚠️ Note
+            Modified version - use at your own risk
+          files: |
+            com.whatsapp.w4b.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifact
+        if: steps.recompile.outputs.status == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: whatsapp-w4b-apk
+          path: com.whatsapp.w4b.apk
+          retention-days: 90
+
+      - name: Success Message
+        if: steps.recompile.outputs.status == 'success'
+        run: |
+          echo "========================================="
+          echo "🎉 SUCCESS! APK IS READY 🎉"
+          echo "========================================="
+          echo ""
+          echo "📱 Package: com.whatsapp.w4b"
+          echo ""
+          echo "🔗 DOWNLOAD LINK:"
+          echo "${{ github.server_url }}/${{ github.repository }}/releases/download/w4b-v${{ github.run_number }}/com.whatsapp.w4b.apk"
+          echo ""
+          echo "📦 Or check Artifacts tab"
+          echo "========================================="
