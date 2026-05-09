@@ -22,7 +22,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y openjdk-17-jre-headless zipalign wget unzip
 
-          # Install Android SDK build-tools for aapt2
           CMDLINE_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip"
           wget -q "$CMDLINE_TOOLS_URL" -O cmdline-tools.zip
           sudo mkdir -p /opt/android-sdk/cmdline-tools
@@ -39,7 +38,6 @@ jobs:
           echo "ANDROID_SDK_ROOT=/opt/android-sdk" >> $GITHUB_ENV
           echo "PATH=$PATH:/opt/android-sdk/build-tools/34.0.0" >> $GITHUB_ENV
 
-          # Download APKTool
           sudo wget -q https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /usr/local/bin/apktool
           sudo wget -q https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar -O /usr/local/bin/apktool.jar
           sudo chmod +x /usr/local/bin/apktool /usr/local/bin/apktool.jar
@@ -66,34 +64,62 @@ jobs:
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           MANIFEST="$DECOMPILED_DIR/AndroidManifest.xml"
+          NEW_PACKAGE="com.whatsapp.w4b"
+          OLD_PKG="${{ env.OLD_PACKAGE }}"
 
-          # Backup original
           cp "$MANIFEST" "$MANIFEST.bak"
 
-          echo "=== BEFORE ==="
+          echo "=== BEFORE (first 5 lines) ==="
           head -5 "$MANIFEST"
 
-          # ONLY rename the package= attribute value and any
-          # occurrence of the old package string — touch NOTHING else.
-          # No XML declaration changes, no attribute removal, nothing.
-          sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$MANIFEST"
+          # Python script আলাদা ফাইলে লিখে execute করা হচ্ছে
+          # এতে shell variable expansion সমস্যা থাকবে না
+          cat > /tmp/rename_pkg.py << EOF
+          import re, sys
 
-          echo "=== AFTER ==="
-          head -5 "$MANIFEST"
+          manifest_path = "$MANIFEST"
+          old = "$OLD_PKG"
+          new = "$NEW_PACKAGE"
 
-          # Validate XML is still well-formed
-          python3 - <<'PYEOF'
-          import xml.etree.ElementTree as ET, sys
+          with open(manifest_path, "r", encoding="utf-8") as f:
+              content = f.read()
+
+          escaped_old = re.escape(old)
+
+          # Negative lookahead: old package যদি new package এর prefix হয়
+          # তাহলে double rename এড়াতে lookahead ব্যবহার করা হচ্ছে
+          if new.startswith(old):
+              extra_suffix = re.escape(new[len(old):])
+              pattern = escaped_old + r'(?!' + extra_suffix + r')'
+          else:
+              pattern = escaped_old
+
+          new_content = re.sub(pattern, new, content)
+
+          count = len(re.findall(pattern, content))
+          print(f"Replaced {count} occurrence(s) of '{old}' -> '{new}'")
+
+          with open(manifest_path, "w", encoding="utf-8") as f:
+              f.write(new_content)
+
+          # XML validation
+          import xml.etree.ElementTree as ET
           try:
-              ET.parse("$MANIFEST".replace('$MANIFEST', '${MANIFEST}'))
-              print("✅ AndroidManifest.xml is well-formed")
+              ET.parse(manifest_path)
+              print("XML is well-formed")
           except ET.ParseError as e:
-              print(f"❌ XML parse error: {e}")
+              print(f"XML parse error: {e}")
               sys.exit(1)
-          PYEOF
+          EOF
 
-        env:
-          MANIFEST: ${{ github.event.inputs.decompiled_folder }}/AndroidManifest.xml
+          python3 /tmp/rename_pkg.py
+
+          echo "=== AFTER (first 5 lines) ==="
+          head -5 "$MANIFEST"
+
+          echo ""
+          echo "=== All com.whatsapp.w4b occurrences in manifest ==="
+          grep -n "com.whatsapp.w4b" "$MANIFEST" || echo "(none found)"
 
       - name: Recompile APK
         run: |
