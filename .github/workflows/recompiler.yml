@@ -72,45 +72,40 @@ jobs:
           echo "=== BEFORE (first 5 lines) ==="
           head -5 "$MANIFEST"
 
-          # Python script আলাদা ফাইলে লিখে execute করা হচ্ছে
-          # এতে shell variable expansion সমস্যা থাকবে না
           cat > /tmp/rename_pkg.py << EOF
-          import re, sys
+import re, sys
 
-          manifest_path = "$MANIFEST"
-          old = "$OLD_PKG"
-          new = "$NEW_PACKAGE"
+manifest_path = "$MANIFEST"
+old = "$OLD_PKG"
+new = "$NEW_PACKAGE"
 
-          with open(manifest_path, "r", encoding="utf-8") as f:
-              content = f.read()
+with open(manifest_path, "r", encoding="utf-8") as f:
+    content = f.read()
 
-          escaped_old = re.escape(old)
+escaped_old = re.escape(old)
 
-          # Negative lookahead: old package যদি new package এর prefix হয়
-          # তাহলে double rename এড়াতে lookahead ব্যবহার করা হচ্ছে
-          if new.startswith(old):
-              extra_suffix = re.escape(new[len(old):])
-              pattern = escaped_old + r'(?!' + extra_suffix + r')'
-          else:
-              pattern = escaped_old
+if new.startswith(old):
+    extra_suffix = re.escape(new[len(old):])
+    pattern = escaped_old + r'(?!' + extra_suffix + r')'
+else:
+    pattern = escaped_old
 
-          new_content = re.sub(pattern, new, content)
+new_content = re.sub(pattern, new, content)
 
-          count = len(re.findall(pattern, content))
-          print(f"Replaced {count} occurrence(s) of '{old}' -> '{new}'")
+count = len(re.findall(pattern, content))
+print(f"Replaced {count} occurrence(s) of '{old}' -> '{new}'")
 
-          with open(manifest_path, "w", encoding="utf-8") as f:
-              f.write(new_content)
+with open(manifest_path, "w", encoding="utf-8") as f:
+    f.write(new_content)
 
-          # XML validation
-          import xml.etree.ElementTree as ET
-          try:
-              ET.parse(manifest_path)
-              print("XML is well-formed")
-          except ET.ParseError as e:
-              print(f"XML parse error: {e}")
-              sys.exit(1)
-          EOF
+import xml.etree.ElementTree as ET
+try:
+    ET.parse(manifest_path)
+    print("✅ XML is well-formed")
+except ET.ParseError as e:
+    print(f"❌ XML parse error: {e}")
+    sys.exit(1)
+EOF
 
           python3 /tmp/rename_pkg.py
 
@@ -118,28 +113,87 @@ jobs:
           head -5 "$MANIFEST"
 
           echo ""
-          echo "=== All com.whatsapp.w4b occurrences in manifest ==="
+          echo "=== All com.whatsapp.w4b occurrences ==="
           grep -n "com.whatsapp.w4b" "$MANIFEST" || echo "(none found)"
+
+      - name: Fix apktool.yml
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          APKTOOL_YML="$DECOMPILED_DIR/apktool.yml"
+
+          if [ -f "$APKTOOL_YML" ]; then
+            echo "=== apktool.yml (before) ==="
+            cat "$APKTOOL_YML"
+
+            # unknownFiles বা aapt2 সংক্রান্ত সমস্যা এড়াতে
+            # versionInfo ঠিক রেখে শুধু compressionType ঠিক করা হচ্ছে
+            # apkFileName rename করা হচ্ছে
+            sed -i "s/apkFileName: .*/apkFileName: recompiled_unsigned.apk/" "$APKTOOL_YML"
+
+            # aapt2 force করা
+            if grep -q "useAapt2:" "$APKTOOL_YML"; then
+              sed -i "s/useAapt2: .*/useAapt2: true/" "$APKTOOL_YML"
+            else
+              echo "useAapt2: true" >> "$APKTOOL_YML"
+            fi
+
+            echo "=== apktool.yml (after) ==="
+            cat "$APKTOOL_YML"
+          else
+            echo "⚠️ apktool.yml not found, creating minimal one..."
+            cat > "$APKTOOL_YML" << 'YML'
+!!brut.androlib.meta.MetaInfo
+apkFileName: recompiled_unsigned.apk
+compressionType: false
+doNotCompress:
+- arsc
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '19'
+  targetSdkVersion: '30'
+sharedLibrary: false
+sparseResources: false
+useAapt2: true
+versionInfo:
+  versionCode: '1'
+  versionName: 1.0
+YML
+          fi
 
       - name: Recompile APK
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           export PATH="$PATH:/opt/android-sdk/build-tools/34.0.0"
 
-          echo "=== AndroidManifest.xml (first 15 lines before compile) ==="
+          echo "=== AndroidManifest.xml (first 15 lines) ==="
           head -15 "$DECOMPILED_DIR/AndroidManifest.xml"
-          echo "============================================================"
+          echo "============================================="
 
-          echo "=== Recompiling APK ==="
-          if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --verbose 2>&1; then
-            echo "✅ Recompilation successful!"
+          echo "=== apktool.yml ==="
+          cat "$DECOMPILED_DIR/apktool.yml" 2>/dev/null || echo "not found"
+          echo "==================="
+
+          echo "=== Attempt 1: default ==="
+          if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f 2>&1; then
+            echo "✅ Success!"
           else
-            echo "❌ First attempt failed, trying with --use-aapt2..."
+            echo "=== Attempt 2: --use-aapt2 ==="
             if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1; then
-              echo "✅ Recompilation successful with --use-aapt2!"
+              echo "✅ Success with --use-aapt2!"
             else
-              echo "❌ Both recompilation attempts failed"
-              exit 1
+              echo "=== Attempt 3: --no-crunch ==="
+              if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 --no-crunch 2>&1; then
+                echo "✅ Success with --no-crunch!"
+              else
+                echo "❌ All attempts failed"
+                echo ""
+                echo "=== FULL ERROR LOG ==="
+                apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1 | tail -50
+                exit 1
+              fi
             fi
           fi
 
@@ -182,6 +236,7 @@ jobs:
           if [ -f "signed_app.apk" ]; then
             SIZE=$(ls -lh signed_app.apk | awk '{print $5}')
             echo "✅ APK created: $SIZE"
+            echo ""
             echo "APK Contents (first 20):"
             unzip -l signed_app.apk | head -20
           else
