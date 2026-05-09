@@ -1,0 +1,37 @@
+name: Decompile from URL
+on:
+  workflow_dispatch:
+    inputs:
+      apk_url:
+        description: 'Google Drive Direct Link or Any APK URL'
+        required: true
+
+jobs:
+  decompile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download APK
+        run: |
+          # গুগল ড্রাইভ বা অন্য লিঙ্ক থেকে ডাউনলোড
+          curl -L "${{ github.event.inputs.apk_url }}" -o input_app.apk
+
+      - name: Setup Java & APKTool
+        run: |
+          sudo wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /usr/local/bin/apktool
+          sudo wget https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool_2.9.3.jar -O /usr/local/bin/apktool.jar
+          sudo chmod +x /usr/local/bin/apktool /usr/local/bin/apktool.jar
+
+      - name: Decompile
+        run: |
+          apktool d input_app.apk -o decompiled_app
+
+      - name: Commit Decompiled Files
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add decompiled_app/
+          git commit -m "Decompiled from URL"
+          git push
