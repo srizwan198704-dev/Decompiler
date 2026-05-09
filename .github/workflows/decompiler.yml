@@ -9,6 +9,8 @@ on:
 jobs:
   decompile:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -21,15 +23,20 @@ jobs:
       - name: Download APK
         run: |
           pip install gdown
-          # গুগল ড্রাইভ লিঙ্ক হলে gdown ব্যবহার করবে, অন্যথায় curl
-          if [[ "${{ github.event.inputs.apk_url }}" == *"drive.google.com"* ]]; then
-            gdown --fuzzy "${{ github.event.inputs.apk_url }}" -O input_app.apk
+          URL="${{ github.event.inputs.apk_url }}"
+          
+          if [[ "$URL" == *"drive.google.com"* ]]; then
+            # গুগল ড্রাইভ লিঙ্ক থেকে আইডি বের করে ডাউনলোড করা
+            gdown "$URL" -O input_app.apk --remaining-ok
           else
-            curl -L "${{ github.event.inputs.apk_url }}" -o input_app.apk
+            # সরাসরি লিঙ্ক হলে curl ব্যবহার করা
+            curl -L "$URL" -o input_app.apk
           fi
 
-      - name: Check File Size
-        run: ls -lh input_app.apk
+      - name: Check File
+        run: |
+          ls -lh input_app.apk
+          file input_app.apk
 
       - name: Setup Java & APKTool
         run: |
@@ -39,12 +46,14 @@ jobs:
 
       - name: Decompile
         run: |
+          # যদি আগে ডিকম্পাইল করা ফোল্ডার থাকে তবে তা মুছে ফেলা
+          rm -rf decompiled_app
           apktool d input_app.apk -o decompiled_app
 
       - name: Commit Decompiled Files
         run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add decompiled_app/
-          git commit -m "Decompiled from URL"
+          git commit -m "Decompiled APK from URL" || echo "No changes to commit"
           git push
