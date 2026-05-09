@@ -20,10 +20,9 @@ jobs:
       - name: Setup Java & APKTool
         run: |
           sudo apt-get update
-          sudo apt-get install -y openjdk-17-jre-headless zipalign
+          sudo apt-get install -y openjdk-17-jre-headless zipalign wget unzip
 
           # Install Android SDK build-tools for aapt2
-          sudo apt-get install -y wget unzip
           CMDLINE_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip"
           wget -q "$CMDLINE_TOOLS_URL" -O cmdline-tools.zip
           sudo mkdir -p /opt/android-sdk/cmdline-tools
@@ -51,15 +50,15 @@ jobs:
       - name: Detect Old Package Name
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          
+
           if [ -f "$DECOMPILED_DIR/AndroidManifest.xml" ]; then
             OLD_PACKAGE=$(grep -oP 'package="\K[^"]+' "$DECOMPILED_DIR/AndroidManifest.xml" | head -1)
           fi
-          
+
           if [ -z "$OLD_PACKAGE" ]; then
             OLD_PACKAGE="com.whatsapp"
           fi
-          
+
           echo "OLD_PACKAGE=$OLD_PACKAGE" >> $GITHUB_ENV
           echo "Detected Old Package: $OLD_PACKAGE"
 
@@ -67,40 +66,84 @@ jobs:
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           MANIFEST="$DECOMPILED_DIR/AndroidManifest.xml"
-          
+
+          # Create backup
           cp "$MANIFEST" "$MANIFEST.bak"
-          
-          sed -i 's/requiredSplitTypes="[^"]*"//g' "$MANIFEST"
-          sed -i 's/splitTypes="[^"]*"//g' "$MANIFEST"
-          sed -i 's/isSplitRequired="[^"]*"//g' "$MANIFEST"
-          sed -i 's/android:extractNativeLibs="[^"]*"//g' "$MANIFEST"
-          sed -i 's/android:useEmbeddedDex="[^"]*"//g' "$MANIFEST"
-          sed -i 's/android:hasCode="[^"]*"//g' "$MANIFEST"
+
+          echo "=== BEFORE (first 5 lines) ==="
+          head -5 "$MANIFEST"
+
+          # -------------------------------------------------------
+          # SAFE ATTRIBUTE REMOVAL — only remove the specific
+          # attributes that cause aapt2 errors. Never touch
+          # "android:" namespace prefix or XML declarations.
+          # -------------------------------------------------------
+
+          # Remove split-related attributes (not standard SDK attrs)
+          sed -i 's/\s*requiredSplitTypes="[^"]*"//g' "$MANIFEST"
+          sed -i 's/\s*splitTypes="[^"]*"//g' "$MANIFEST"
+          sed -i 's/\s*isSplitRequired="[^"]*"//g' "$MANIFEST"
+
+          # Remove trailing whitespace only
           sed -i 's/[[:space:]]*$//' "$MANIFEST"
-          
-          if ! grep -q '<?xml version="1.0" encoding="utf-8"?>' "$MANIFEST"; then
-            sed -i '1i<?xml version="1.0" encoding="utf-8"?>' "$MANIFEST"
+
+          # -------------------------------------------------------
+          # FIX XML DECLARATION
+          # Ensure there is exactly ONE <?xml ...?> at line 1,
+          # nothing else before the root <manifest> tag.
+          # -------------------------------------------------------
+
+          # Remove ALL existing xml declarations first
+          sed -i '/^<?xml/d' "$MANIFEST"
+
+          # Remove any blank lines at top
+          sed -i '/^[[:space:]]*$/d' "$MANIFEST"
+
+          # Prepend clean XML declaration
+          sed -i '1s/^/<?xml version="1.0" encoding="utf-8"?>\n/' "$MANIFEST"
+
+          # -------------------------------------------------------
+          # PACKAGE NAME RENAME — only rename the package attribute
+          # and string occurrences of the old package name.
+          # -------------------------------------------------------
+          sed -i "s|package=\"${OLD_PACKAGE}\"|package=\"com.whatsapp.w4b\"|g" "$MANIFEST"
+          sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$MANIFEST"
+
+          echo "=== AFTER (first 10 lines) ==="
+          head -10 "$MANIFEST"
+
+          # Validate XML is well-formed before continuing
+          echo "=== Validating XML ==="
+          if python3 -c "
+          import xml.etree.ElementTree as ET
+          try:
+              ET.parse('$MANIFEST')
+              print('✅ XML is well-formed')
+          except ET.ParseError as e:
+              print(f'❌ XML parse error: {e}')
+              exit(1)
+          "; then
+            echo "✓ AndroidManifest.xml is valid"
+          else
+            echo "❌ AndroidManifest.xml is invalid — restoring backup"
+            cp "$MANIFEST.bak" "$MANIFEST"
+            # Apply ONLY the package rename on the backup (no XML touching)
+            sed -i "s|package=\"${OLD_PACKAGE}\"|package=\"com.whatsapp.w4b\"|g" "$MANIFEST"
+            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$MANIFEST"
+            echo "=== Restored + renamed (first 10 lines) ==="
+            head -10 "$MANIFEST"
           fi
-          
-          sed -i "s/package=\"$OLD_PACKAGE\"/package=\"com.whatsapp.w4b\"/" "$MANIFEST"
-          sed -i "s/$OLD_PACKAGE/com.whatsapp.w4b/g" "$MANIFEST"
-          
-          sed -i '/<?xml version=/d' "$MANIFEST"
-          sed -i '1i<?xml version="1.0" encoding="utf-8"?>' "$MANIFEST"
-          
-          echo "✓ AndroidManifest.xml cleaned and updated"
-          head -20 "$MANIFEST"
 
       - name: Rename Smali Directories
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          
+
           OLD_PATH=$(echo "$OLD_PACKAGE" | tr '.' '/')
           NEW_PATH="com/whatsapp/w4b"
-          
+
           echo "Old path: $OLD_PATH"
           echo "New path: $NEW_PATH"
-          
+
           for smali_dir in $(find "$DECOMPILED_DIR" -type d -name "smali*" 2>/dev/null); do
             if [ -d "$smali_dir/$OLD_PATH" ]; then
               echo "Processing: $smali_dir"
@@ -110,7 +153,7 @@ jobs:
                 mv "$OLD_PATH" "com/whatsapp/w4b" 2>/dev/null || true
                 echo "✓ Renamed in: $smali_dir"
               fi
-              rmdir -p $(dirname "$OLD_PATH") 2>/dev/null || true
+              rmdir -p "$(dirname "$OLD_PATH")" 2>/dev/null || true
               cd - > /dev/null
             fi
           done
@@ -120,57 +163,65 @@ jobs:
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           OLD_PACKAGE_SLASH=$(echo "$OLD_PACKAGE" | tr '.' '/')
           NEW_PACKAGE_SLASH="com/whatsapp/w4b"
-          
+
+          echo "Updating smali files..."
+
           find "$DECOMPILED_DIR" -type f -name "*.smali" 2>/dev/null | while read file; do
-            sed -i "s|L$OLD_PACKAGE/|Lcom/whatsapp/w4b/|g" "$file"
-            sed -i "s|L$OLD_PACKAGE;|Lcom/whatsapp/w4b;|g" "$file"
-            sed -i "s|L$OLD_PACKAGE_SLASH/|L$NEW_PACKAGE_SLASH/|g" "$file"
-            sed -i "s|$OLD_PACKAGE|com.whatsapp.w4b|g" "$file"
+            sed -i "s|L${OLD_PACKAGE_SLASH}/|L${NEW_PACKAGE_SLASH}/|g" "$file"
+            sed -i "s|L${OLD_PACKAGE_SLASH};|L${NEW_PACKAGE_SLASH};|g" "$file"
+            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$file"
           done
-          
+
           echo "✓ Updated smali files"
 
       - name: Update XML and Other Files
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          
+
           find "$DECOMPILED_DIR" -type f -name "*.xml" ! -name "AndroidManifest.xml" 2>/dev/null | while read file; do
-            sed -i "s|$OLD_PACKAGE|com.whatsapp.w4b|g" "$file"
+            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$file"
           done
+
           find "$DECOMPILED_DIR" -type f -name "*.json" 2>/dev/null | while read file; do
-            sed -i "s|$OLD_PACKAGE|com.whatsapp.w4b|g" "$file"
+            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$file"
           done
+
           find "$DECOMPILED_DIR" -type f -name "*.properties" 2>/dev/null | while read file; do
-            sed -i "s|$OLD_PACKAGE|com.whatsapp.w4b|g" "$file"
+            sed -i "s|${OLD_PACKAGE}|com.whatsapp.w4b|g" "$file"
           done
-          
+
           echo "✓ Updated XML and configuration files"
 
       - name: Recompile APK
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           export PATH="$PATH:/opt/android-sdk/build-tools/34.0.0"
-          
+
           echo "=== Recompiling APK ==="
-          
-          if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --verbose; then
+
+          # Show manifest state before compile
+          echo "--- AndroidManifest.xml (first 15 lines) ---"
+          head -15 "$DECOMPILED_DIR/AndroidManifest.xml"
+          echo "--------------------------------------------"
+
+          if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --verbose 2>&1; then
             echo "✅ Recompilation successful!"
           else
             echo "❌ Recompilation failed, trying with --use-aapt2..."
-            if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2; then
+            if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1; then
               echo "✅ Recompilation successful with aapt2!"
             else
-              echo "❌ Recompilation failed"
+              echo "❌ Both recompilation attempts failed"
               exit 1
             fi
           fi
-          
+
           ls -lh recompiled_unsigned.apk
 
       - name: Sign APK
         run: |
           export PATH="$PATH:/opt/android-sdk/build-tools/34.0.0"
-          
+
           keytool -genkey -v \
             -keystore my.keystore \
             -alias w4b \
@@ -181,16 +232,16 @@ jobs:
             -keypass w4b123 \
             -dname "CN=W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD" \
             -noprompt
-          
+
           zipalign -v -p 4 recompiled_unsigned.apk aligned.apk
-          
+
           jarsigner -keystore my.keystore \
             -storepass w4b123 \
             -keypass w4b123 \
             -sigalg SHA256withRSA \
             -digestalg SHA-256 \
             aligned.apk w4b
-          
+
           jarsigner -verify aligned.apk
           cp aligned.apk signed_app.apk
           echo "✅ APK signed and aligned"
@@ -200,18 +251,17 @@ jobs:
           echo "========================================="
           echo "VERIFICATION"
           echo "========================================="
-          
+
           if [ -f "signed_app.apk" ]; then
             SIZE=$(ls -lh signed_app.apk | awk '{print $5}')
             echo "✅ APK created: $SIZE"
-            unzip -p signed_app.apk AndroidManifest.xml > /tmp/manifest_bin.xml 2>/dev/null
             echo "APK Contents (first 20):"
             unzip -l signed_app.apk | head -20
           else
             echo "❌ APK not found"
             exit 1
           fi
-          
+
           echo "========================================="
 
       - name: Create GitHub Release
@@ -221,14 +271,18 @@ jobs:
           name: "WhatsApp W4B v1.0.${{ github.run_number }}"
           body: |
             ✅ APK Successfully Recompiled!
-            
+
             **Details:**
             - Package: com.whatsapp.w4b
             - Build Number: ${{ github.run_number }}
             - Original Package: ${{ env.OLD_PACKAGE }}
-            
+
             **Download:**
             Download the APK from assets below.
+
+            **Verification:**
+            - Successfully recompiled and signed
+            - Package name changed to com.whatsapp.w4b
           files: |
             signed_app.apk
           draft: false
@@ -248,8 +302,11 @@ jobs:
           echo "========================================="
           echo "🎉 SUCCESS! 🎉"
           echo "========================================="
+          echo ""
           echo "📱 Download APK from:"
           echo "${{ github.server_url }}/${{ github.repository }}/releases/download/w4b-v1.0.${{ github.run_number }}/signed_app.apk"
+          echo ""
+          echo "📦 Or check GitHub Actions Artifacts tab"
           echo ""
           echo "🔑 Keystore Info:"
           echo "   Password: w4b123"
