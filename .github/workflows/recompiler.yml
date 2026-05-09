@@ -1,4 +1,4 @@
-name: Fix AndroidManifest and Recompile
+name: Full Package Rename to com.whatsapp.w4b
 
 on:
   workflow_dispatch:
@@ -20,8 +20,8 @@ jobs:
       - name: Setup Java & APKTool
         run: |
           sudo apt-get update
-          sudo apt-get install -y openjdk-17-jre-headless
-          
+          sudo apt-get install -y openjdk-17-jre-headless aapt2
+        
           # Download APKTool
           sudo wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /usr/local/bin/apktool
           sudo wget https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar -O /usr/local/bin/apktool.jar
@@ -29,41 +29,181 @@ jobs:
           
           apktool --version
 
-      - name: Fix AndroidManifest.xml Only
+      - name: Detect Old Package Name
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          # Get package from AndroidManifest
+          if [ -f "$DECOMPILED_DIR/AndroidManifest.xml" ]; then
+            OLD_PACKAGE=$(grep -oP 'package="\K[^"]+' "$DECOMPILED_DIR/AndroidManifest.xml" | head -1)
+          fi
+          
+          if [ -z "$OLD_PACKAGE" ]; then
+            OLD_PACKAGE="com.whatsapp"
+          fi
+          
+          echo "OLD_PACKAGE=$OLD_PACKAGE" >> $GITHUB_ENV
+          echo "Detected Old Package: $OLD_PACKAGE"
+
+      - name: Fix and Clean AndroidManifest.xml
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           MANIFEST="$DECOMPILED_DIR/AndroidManifest.xml"
           
-          echo "Original manifest:"
-          head -5 "$MANIFEST"
+          # Create backup
+          cp "$MANIFEST" "$MANIFEST.bak"
           
-          # Create a clean manifest
-          cat > "$MANIFEST" << 'EOF'
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.whatsapp.w4b"
-    android:versionCode="10351"
-    android:versionName="4.4.3.5">
-EOF
+          # Remove invalid XML attributes and fix formatting
+          sed -i 's/requiredSplitTypes="[^"]*"//g' "$MANIFEST"
+          sed -i 's/splitTypes="[^"]*"//g' "$MANIFEST"
+          sed -i 's/isSplitRequired="[^"]*"//g' "$MANIFEST"
+          sed -i 's/android:extractNativeLibs="[^"]*"//g' "$MANIFEST"
+          sed -i 's/android:useEmbeddedDex="[^"]*"//g' "$MANIFEST"
+          sed -i 's/android:hasCode="[^"]*"//g' "$MANIFEST"
+          sed -i 's/ android://g' "$MANIFEST"
+          sed -i 's/  / /g' "$MANIFEST"
           
-          # Copy only the necessary parts from original manifest
-          # Extract activities, services, permissions etc.
-          echo "✓ AndroidManifest.xml recreated with correct package name"
+          # Remove any trailing spaces and fix XML declaration
+          sed -i 's/[[:space:]]*$//' "$MANIFEST"
+          
+          # Ensure proper XML structure
+          xmlstarlet ed -L -d "//*[@android:extractNativeLibs]" "$MANIFEST" 2>/dev/null || true
+          xmlstarlet ed -L -d "//*[@android:useEmbeddedDex]" "$MANIFEST" 2>/dev/null || true
+          
+          # Fix the XML declaration if needed
+          if ! grep -q '<?xml version="1.0" encoding="utf-8"?>' "$MANIFEST"; then
+            sed -i '1i<?xml version="1.0" encoding="utf-8"?>' "$MANIFEST"
+          fi
+          
+          # Update package name
+          sed -i "s/package=\"$OLD_PACKAGE\"/package=\"com.whatsapp.w4b\"/" "$MANIFEST"
+          sed -i "s/$OLD_PACKAGE/com.whatsapp.w4b/g" "$MANIFEST"
+          
+          # Remove any duplicate XML declarations
+          sed -i '/<?xml version=/d' "$MANIFEST"
+          sed -i '1i<?xml version="1.0" encoding="utf-8"?>' "$MANIFEST"
+          
+          echo "✓ AndroidManifest.xml cleaned and updated"
+          
+          # Validate manifest
+          echo "Manifest preview:"
+          head -20 "$MANIFEST"
+
+      - name: Rename Smali Directories
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          OLD_PATH=$(echo "$OLD_PACKAGE" | tr '.' '/')
+          NEW_PATH="com/whatsapp/w4b"
+          
+          echo "Old path: $OLD_PATH"
+          echo "New path: $NEW_PATH"
+          
+          # Find all smali directories and rename
+          for smali_dir in $(find "$DECOMPILED_DIR" -type d -name "smali*" 2>/dev/null); do
+            if [ -d "$smali_dir/$OLD_PATH" ]; then
+              echo "Processing: $smali_dir"
+              cd "$smali_dir"
+              
+              # Create parent directories
+              mkdir -p com/whatsapp
+              
+              # Move directory if exists
+              if [ -d "$OLD_PATH" ]; then
+                mv "$OLD_PATH" "com/whatsapp/w4b" 2>/dev/null || true
+                echo "✓ Renamed in: $smali_dir"
+              fi
+              
+              # Remove old empty directories
+              rmdir -p $(dirname "$OLD_PATH") 2>/dev/null || true
+              
+              cd - > /dev/null
+            fi
+          done
+
+      - name: Update Smali Files Content
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          # Convert package paths for regex
+          OLD_PACKAGE_SLASH=$(echo "$OLD_PACKAGE" | tr '.' '/')
+          NEW_PACKAGE_SLASH="com/whatsapp/w4b"
+          
+          echo "Updating smali files..."
+          
+          # Update all smali files
+          find "$DECOMPILED_DIR" -type f -name "*.smali" 2>/dev/null | while read file; do
+            # Update class references
+            sed -i "s|L$OLD_PACKAGE/|Lcom/whatsapp/w4b/|g" "$file"
+            sed -i "s|L$OLD_PACKAGE;|Lcom/whatsapp/w4b;|g" "$file"
+            sed -i "s|L$OLD_PACKAGE_SLASH/|L$NEW_PACKAGE_SLASH/|g" "$file"
+            
+            # Update string references
+            sed -i "s|$OLD_PACKAGE|com.whatsapp.w4b|g" "$file"
+          done
+          
+          echo "✓ Updated smali files"
+
+      - name: Update XML and Other Files
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          # Update all XML files except AndroidManifest (already handled)
+          find "$DECOMPILED_DIR" -type f -name "*.xml" ! -name "AndroidManifest.xml" 2>/dev/null | while read file; do
+            sed -i "s|$OLD_PACKAGE|com.whatsapp.w4b|g" "$file"
+          done
+          
+          # Update JSON files
+          find "$DECOMPILED_DIR" -type f -name "*.json" 2>/dev/null | while read file; do
+            sed -i "s|$OLD_PACKAGE|com.whatsapp.w4b|g" "$file"
+          done
+          
+          # Update properties files
+          find "$DECOMPILED_DIR" -type f -name "*.properties" 2>/dev/null | while read file; do
+            sed -i "s|$OLD_PACKAGE|com.whatsapp.w4b|g" "$file"
+          done
+          
+          echo "✓ Updated XML and configuration files"
 
       - name: Recompile APK
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           
           echo "=== Recompiling APK ==="
-          apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f
           
-          if [ -f "recompiled_unsigned.apk" ] && [ -s "recompiled_unsigned.apk" ]; then
+          # Try recompilation with verbose output
+          if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --verbose; then
             echo "✅ Recompilation successful!"
             ls -lh recompiled_unsigned.apk
           else
-            echo "❌ Recompilation failed"
+            echo "❌ Recompilation failed, trying with --use-aapt2..."
+            
+            # Alternative approach with aapt2
+            if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2; then
+              echo "✅ Recompilation successful with aapt2!"
+              ls -lh recompiled_unsigned.apk
+            else
+              echo "❌ Recompilation failed"
+              exit 1
+            fi
+          fi
+          
+          # Verify APK is valid
+          if [ -f "recompiled_unsigned.apk" ] && [ -s "recompiled_unsigned.apk" ]; then
+            echo "APK size: $(ls -lh recompiled_unsigned.apk | awk '{print $5}')"
+          else
+            echo "❌ APK file is empty or missing"
             exit 1
           fi
+
+      - name: Install zipalign
+        run: |
+          sudo apt-get install -y zipalign || {
+            wget https://dl.google.com/android/repository/build-tools_r34-linux.zip
+            unzip -j build-tools_r34-linux.zip */zipalign -d /tmp/
+            sudo mv /tmp/zipalign /usr/local/bin/
+            sudo chmod +x /usr/local/bin/zipalign
+          }
 
       - name: Sign APK
         run: |
@@ -79,25 +219,79 @@ EOF
             -dname "CN=W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD" \
             -noprompt
           
+          # Align APK
+          zipalign -v -p 4 recompiled_unsigned.apk aligned.apk
+          
           # Sign APK
           jarsigner -keystore my.keystore \
             -storepass w4b123 \
             -keypass w4b123 \
             -sigalg SHA256withRSA \
             -digestalg SHA-256 \
-            recompiled_unsigned.apk w4b
+            -verbose \
+            aligned.apk w4b
           
-          cp recompiled_unsigned.apk signed_app.apk
-          echo "✅ APK signed"
+          # Verify signature
+          jarsigner -verify -verbose aligned.apk
+          
+          # Copy to final name
+          cp aligned.apk signed_app.apk
+          echo "✅ APK signed and aligned"
 
-      - name: Verify and Release
+      - name: Verify APK
         run: |
           echo "========================================="
-          echo "✅ SUCCESS!"
+          echo "VERIFICATION"
           echo "========================================="
-          echo "APK: signed_app.apk"
-          echo "Package: com.whatsapp.w4b"
-          ls -lh signed_app.apk
+          
+          if [ -f "signed_app.apk" ]; then
+            SIZE=$(ls -lh signed_app.apk | awk '{print $5}')
+            echo "✅ APK created: $SIZE"
+            
+            # Extract and check manifest
+            unzip -p signed_app.apk AndroidManifest.xml > /tmp/manifest.xml 2>/dev/null
+            if grep -q "com.whatsapp.w4b" /tmp/manifest.xml; then
+              echo "✅ Package name verified: com.whatsapp.w4b"
+            else
+              echo "⚠️ Package name verification failed"
+            fi
+            
+            # Check APK structure
+            echo ""
+            echo "APK Contents:"
+            unzip -l signed_app.apk | head -20
+          else
+            echo "❌ APK not found"
+            exit 1
+          fi
+          
+          echo "========================================="
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: w4b-v1.0.${{ github.run_number }}
+          name: "WhatsApp W4B v1.0.${{ github.run_number }}"
+          body: |
+            ✅ APK Successfully Recompiled!
+            
+            **Details:**
+            - Package: com.whatsapp.w4b
+            - Build Number: ${{ github.run_number }}
+            - Original Package: ${{ env.OLD_PACKAGE }}
+            
+            **Download:**
+            Download the APK from assets below.
+            
+            **Verification:**
+            - Successfully recompiled and signed
+            - Package name changed to com.whatsapp.w4b
+          files: |
+            signed_app.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -105,3 +299,19 @@ EOF
           name: w4b-apk
           path: signed_app.apk
           retention-days: 90
+
+      - name: Show Download Link
+        run: |
+          echo "========================================="
+          echo "🎉 SUCCESS! 🎉"
+          echo "========================================="
+          echo ""
+          echo "📱 Download APK from:"
+          echo "${{ github.server_url }}/${{ github.repository }}/releases/download/w4b-v1.0.${{ github.run_number }}/signed_app.apk"
+          echo ""
+          echo "📦 Or check GitHub Actions Artifacts tab"
+          echo ""
+          echo "🔑 Keystore Info:"
+          echo "   Password: w4b123"
+          echo "   Alias: w4b"
+          echo "========================================="
