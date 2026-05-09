@@ -6,7 +6,7 @@ on:
       apk_url:
         description: 'Google Drive Link or Any APK URL'
         required: true
-        default: 'https://drive.google.com/uc?export=download&id=1Lkaz5n_nV49bC-JLip2AUSuVKlOFMdV8'
+        default: 'https://www.dropbox.com/scl/fi/m0o5dientxi4bj0170n3v/ES_File_Explorer_v4.apk?rlkey=kw4hh09pq6z7ieozhmzwh1cwt&st=qzf1hxgn&dl=1'
 
 jobs:
   decompile:
