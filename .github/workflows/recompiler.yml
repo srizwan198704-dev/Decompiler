@@ -1,4 +1,4 @@
-name: Full Package Rename to com.whatsapp.w4b
+name: W4B Recompile
 
 on:
   workflow_dispatch:
@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,24 +22,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y openjdk-17-jre-headless zipalign wget unzip
 
-      - name: Setup Android SDK and aapt2
+      - name: Setup Android SDK
         run: |
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
           sudo mkdir -p /opt/android-sdk/cmdline-tools
           sudo unzip -q cmdline-tools.zip -d /opt/android-sdk/cmdline-tools
           sudo mv /opt/android-sdk/cmdline-tools/cmdline-tools /opt/android-sdk/cmdline-tools/latest
-
-          export ANDROID_SDK_ROOT=/opt/android-sdk
           export PATH="$PATH:/opt/android-sdk/cmdline-tools/latest/bin"
-
           yes | sdkmanager --licenses > /dev/null 2>&1 || true
           sdkmanager "build-tools;34.0.0"
-
           sudo ln -sf /opt/android-sdk/build-tools/34.0.0/aapt2 /usr/local/bin/aapt2
-
-          echo "ANDROID_SDK_ROOT=/opt/android-sdk" >> $GITHUB_ENV
           echo "/opt/android-sdk/build-tools/34.0.0" >> $GITHUB_PATH
-
           aapt2 version
 
       - name: Setup APKTool
@@ -53,198 +45,75 @@ jobs:
       - name: Detect Old Package Name
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-
           OLD_PACKAGE=""
           if [ -f "$DECOMPILED_DIR/AndroidManifest.xml" ]; then
             OLD_PACKAGE=$(grep -oP 'package="\K[^"]+' "$DECOMPILED_DIR/AndroidManifest.xml" | head -1)
           fi
-
           if [ -z "$OLD_PACKAGE" ]; then
             OLD_PACKAGE="com.whatsapp"
           fi
-
           echo "OLD_PACKAGE=$OLD_PACKAGE" >> $GITHUB_ENV
-          echo "✅ Detected Old Package: $OLD_PACKAGE"
+          echo "Detected: $OLD_PACKAGE"
 
-      - name: Rename Package in AndroidManifest.xml ONLY
+      - name: Rename Package in AndroidManifest.xml
         run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          MANIFEST="$DECOMPILED_DIR/AndroidManifest.xml"
-          NEW_PACKAGE="com.whatsapp.w4b"
-          OLD_PKG="${{ env.OLD_PACKAGE }}"
-
+          MANIFEST="${{ github.event.inputs.decompiled_folder }}/AndroidManifest.xml"
+          OLD="${{ env.OLD_PACKAGE }}"
+          NEW="com.whatsapp.w4b"
           cp "$MANIFEST" "$MANIFEST.bak"
-
-          echo "=== BEFORE (first 5 lines) ==="
+          cat > /tmp/fix.py << PYEOF
+          import re, sys, xml.etree.ElementTree as ET
+          old = "$OLD"
+          new = "$NEW"
+          path = "$MANIFEST"
+          with open(path, "r", encoding="utf-8") as f:
+              content = f.read()
+          escaped = re.escape(old)
+          if new.startswith(old):
+              suffix = re.escape(new[len(old):])
+              pattern = escaped + r'(?!' + suffix + r')'
+          else:
+              pattern = escaped
+          count = len(re.findall(pattern, content))
+          result = re.sub(pattern, new, content)
+          with open(path, "w", encoding="utf-8") as f:
+              f.write(result)
+          print(f"Replaced {count} occurrences: {old} -> {new}")
+          try:
+              ET.parse(path)
+              print("XML OK")
+          except ET.ParseError as e:
+              print(f"XML ERROR: {e}")
+              sys.exit(1)
+          PYEOF
+          python3 /tmp/fix.py
+          echo "=== AFTER ==="
           head -5 "$MANIFEST"
-
-          cat > /tmp/rename_pkg.py << EOF
-import re, sys
-
-manifest_path = "$MANIFEST"
-old = "$OLD_PKG"
-new = "$NEW_PACKAGE"
-
-print(f"Old package: {old}")
-print(f"New package: {new}")
-
-with open(manifest_path, "r", encoding="utf-8") as f:
-    content = f.read()
-
-escaped_old = re.escape(old)
-
-# double rename এড়াতে negative lookahead
-if new.startswith(old):
-    extra_suffix = re.escape(new[len(old):])
-    pattern = escaped_old + r'(?!' + extra_suffix + r')'
-else:
-    pattern = escaped_old
-
-count = len(re.findall(pattern, content))
-new_content = re.sub(pattern, new, content)
-
-print(f"Replaced {count} occurrence(s) of '{old}' -> '{new}'")
-
-with open(manifest_path, "w", encoding="utf-8") as f:
-    f.write(new_content)
-
-import xml.etree.ElementTree as ET
-try:
-    ET.parse(manifest_path)
-    print("✅ XML is well-formed")
-except ET.ParseError as e:
-    print(f"❌ XML parse error: {e}")
-    sys.exit(1)
-EOF
-
-          python3 /tmp/rename_pkg.py
-
-          echo ""
-          echo "=== AFTER (first 5 lines) ==="
-          head -5 "$MANIFEST"
-
-          echo ""
-          echo "=== All com.whatsapp.w4b occurrences ==="
-          grep -n "com.whatsapp.w4b" "$MANIFEST" || echo "(none found)"
-
-      - name: Fix apktool.yml
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          APKTOOL_YML="$DECOMPILED_DIR/apktool.yml"
-
-          if [ -f "$APKTOOL_YML" ]; then
-            echo "=== apktool.yml (before) ==="
-            cat "$APKTOOL_YML"
-
-            # useAapt2 set করা
-            if grep -q "useAapt2:" "$APKTOOL_YML"; then
-              sed -i "s/useAapt2: .*/useAapt2: true/" "$APKTOOL_YML"
-            else
-              echo "useAapt2: true" >> "$APKTOOL_YML"
-            fi
-
-            echo ""
-            echo "=== apktool.yml (after) ==="
-            cat "$APKTOOL_YML"
-          else
-            echo "⚠️ apktool.yml not found, skipping"
-          fi
 
       - name: Recompile APK
         run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-
-          echo "=== AndroidManifest.xml (first 10 lines) ==="
-          head -10 "$DECOMPILED_DIR/AndroidManifest.xml"
-          echo "============================================="
-
-          echo ""
-          echo "=== Attempt 1: normal ==="
-          if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f 2>&1; then
-            echo "✅ Success!"
+          DIR="${{ github.event.inputs.decompiled_folder }}"
+          echo "=== Attempt 1 ==="
+          if apktool b "$DIR" -o recompiled_unsigned.apk -f 2>&1; then
+            echo "Success"
           else
-            echo ""
-            echo "=== Attempt 2: --use-aapt2 ==="
-            if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1; then
-              echo "✅ Success with --use-aapt2!"
+            echo "=== Attempt 2 with aapt2 ==="
+            if apktool b "$DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1; then
+              echo "Success"
             else
-              echo ""
-              echo "=== Attempt 3: --use-aapt2 --no-crunch ==="
-              if apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 --no-crunch 2>&1; then
-                echo "✅ Success with --no-crunch!"
-              else
-                echo "❌ All attempts failed — full error below:"
-                echo "============================================="
-                apktool b "$DECOMPILED_DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1
-                echo "============================================="
-                exit 1
-              fi
+              echo "=== Attempt 3 no-crunch ==="
+              apktool b "$DIR" -o recompiled_unsigned.apk -f --use-aapt2 --no-crunch 2>&1
             fi
           fi
-
-          echo ""
           ls -lh recompiled_unsigned.apk
 
       - name: Sign APK
         run: |
-          keytool -genkey -v \
-            -keystore my.keystore \
-            -alias w4b \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -storepass w4b123 \
-            -keypass w4b123 \
-            -dname "CN=W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD" \
-            -noprompt
-
+          keytool -genkey -v -keystore my.keystore -alias w4b -keyalg RSA -keysize 2048 -validity 10000 -storepass w4b123 -keypass w4b123 -dname "CN=W4B,OU=Dev,O=W4B,L=Dhaka,ST=Dhaka,C=BD" -noprompt
           zipalign -v -p 4 recompiled_unsigned.apk aligned.apk
-
-          jarsigner \
-            -keystore my.keystore \
-            -storepass w4b123 \
-            -keypass w4b123 \
-            -sigalg SHA256withRSA \
-            -digestalg SHA-256 \
-            aligned.apk w4b
-
-          jarsigner -verify aligned.apk
+          jarsigner -keystore my.keystore -storepass w4b123 -keypass w4b123 -sigalg SHA256withRSA -digestalg SHA-256 aligned.apk w4b
           cp aligned.apk signed_app.apk
-          echo "✅ APK signed successfully"
-
-      - name: Verify APK
-        run: |
-          echo "========================================="
-          echo "VERIFICATION"
-          echo "========================================="
-          if [ -f "signed_app.apk" ]; then
-            echo "✅ APK size: $(ls -lh signed_app.apk | awk '{print $5}')"
-            echo ""
-            echo "APK Contents (first 20):"
-            unzip -l signed_app.apk | head -20
-          else
-            echo "❌ APK not found"
-            exit 1
-          fi
-          echo "========================================="
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: w4b-v1.0.${{ github.run_number }}
-          name: "W4B v1.0.${{ github.run_number }}"
-          body: |
-            ✅ APK Successfully Recompiled!
-
-            **Details:**
-            - Package: com.whatsapp.w4b
-            - Build: ${{ github.run_number }}
-            - Original Package: ${{ env.OLD_PACKAGE }}
-          files: signed_app.apk
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "Signed OK"
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -253,13 +122,14 @@ EOF
           path: signed_app.apk
           retention-days: 90
 
-      - name: Show Download Link
-        run: |
-          echo "========================================="
-          echo "🎉 SUCCESS!"
-          echo "========================================="
-          echo "📱 APK Download:"
-          echo "${{ github.server_url }}/${{ github.repository }}/releases/download/w4b-v1.0.${{ github.run_number }}/signed_app.apk"
-          echo ""
-          echo "🔑 Keystore: w4b123 / alias: w4b"
-          echo "========================================="
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: w4b-v1.0.${{ github.run_number }}
+          name: W4B v1.0.${{ github.run_number }}
+          body: |
+            Package: com.whatsapp.w4b
+            Original: ${{ env.OLD_PACKAGE }}
+          files: signed_app.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
