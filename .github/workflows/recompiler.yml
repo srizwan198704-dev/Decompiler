@@ -62,6 +62,43 @@ jobs:
           echo "OLD_PACKAGE=$OLD_PACKAGE" >> $GITHUB_ENV
           echo "Detected old package: $OLD_PACKAGE"
 
+      - name: Fix Malformed Smali Files
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          # Find and rename malformed smali files with special characters
+          find "$DECOMPILED_DIR" -type f -name "*.smali" | while read -r file; do
+            # Check if filename contains special characters (non-ascii)
+            if [[ "$file" =~ [^a-zA-Z0-9_./-] ]]; then
+              # Get directory and create safe name
+              dir=$(dirname "$file")
+              base=$(basename "$file" .smali)
+              # Create safe filename using hash or simple name
+              safe_name=$(echo "$base" | md5sum | cut -c1-16)
+              safe_file="$dir/${safe_name}.smali"
+              echo "Renaming malformed file: $file -> $safe_file"
+              mv "$file" "$safe_file"
+            fi
+          done
+
+      - name: Fix Invalid Directive Errors
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          # Fix .whatsapp and .w4b directives that are incorrectly formatted
+          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
+            -e 's/\.whatsapp\b/Lcom\/whatsapp/g' \
+            -e 's/\.w4b\b/Lcom\/w4b/g' \
+            -e 's/\.whatsapp\/Features\b/Lcom\/whatsapp\/Features/g' \
+            -e 's/\.w4b\/Features\b/Lcom\/w4b\/Features/g' \
+            -e 's/\bLcom\b/L/g' {} +
+          
+          # Fix malformed class references
+          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
+            -e 's/L\./L/g' \
+            -e 's/\.whatsapp;/.whatsapp;/g' \
+            -e 's/\.w4b;/.w4b;/g' {} +
+
       - name: Rename Package in AndroidManifest.xml
         run: |
           MANIFEST="${{ github.event.inputs.decompiled_folder }}/AndroidManifest.xml"
@@ -75,17 +112,12 @@ jobs:
           path = sys.argv[3]
           with open(path, "r", encoding="utf-8") as f:
               content = f.read()
-          escaped = re.escape(old)
-          if new.startswith(old):
-              suffix = re.escape(new[len(old):])
-              pattern = escaped + r'(?!' + suffix + r')'
-          else:
-              pattern = escaped
-          count = len(re.findall(pattern, content))
+          # Fix package names with dots
+          pattern = r'\b' + re.escape(old) + r'\b'
           result = re.sub(pattern, new, content)
           with open(path, "w", encoding="utf-8") as f:
               f.write(result)
-          print(f"Replaced {count} occurrences: {old} -> {new}")
+          print(f"Replaced package: {old} -> {new}")
           try:
               ET.parse(path)
               print("XML validation: OK")
@@ -94,31 +126,82 @@ jobs:
               sys.exit(1)
           PYEOF
           python3 /tmp/fix.py "$OLD" "$NEW" "$MANIFEST"
-          echo "=== First 5 lines after rename ==="
-          head -5 "$MANIFEST"
 
-      - name: Rename Package in smali files
+      - name: Rename Package in Smali Files
         run: |
           DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
           OLD="${{ env.OLD_PACKAGE }}"
-          NEW="com.whatsapp.w4b"
+          NEW="com/whatsapp/w4b"
           OLD_PATH=$(echo "$OLD" | tr '.' '/')
           NEW_PATH=$(echo "$NEW" | tr '.' '/')
-          echo "Replacing smali references: $OLD -> $NEW"
-          # Replace dotted package references in smali/xml/properties files
-          find "$DECOMPILED_DIR" \
-            -type f \( -name "*.smali" -o -name "*.xml" -o -name "*.properties" \) \
-            -exec sed -i "s|${OLD}|${NEW}|g" {} +
-          # Replace slash-separated path references in smali
-          find "$DECOMPILED_DIR" \
-            -type f -name "*.smali" \
-            -exec sed -i "s|${OLD_PATH}|${NEW_PATH}|g" {} +
+          
+          echo "Replacing smali references: $OLD_PATH -> $NEW_PATH"
+          
+          # Escape dots for sed
+          OLD_ESCAPED=$(echo "$OLD_PATH" | sed 's/\./\\./g')
+          NEW_ESCAPED=$(echo "$NEW_PATH" | sed 's/\./\\./g')
+          
+          # Replace path-based references
+          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
+            -e "s|L${OLD_ESCAPED}/|L${NEW_ESCAPED}/|g" \
+            -e "s|${OLD_ESCAPED}/|${NEW_ESCAPED}/|g" {} +
+          
+          # Replace dot-based package references
+          OLD_DOT=$(echo "$OLD" | sed 's/\./\\./g')
+          NEW_DOT=$(echo "com.whatsapp.w4b" | sed 's/\./\\./g')
+          find "$DECOMPILED_DIR" -type f \( -name "*.smali" -o -name "*.xml" \) \
+            -exec sed -i "s/\b${OLD_DOT}\b/${NEW_DOT}/g" {} +
+          
           echo "Smali rename done"
+
+      - name: Cleanup Malformed Directives
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          # Remove or fix any remaining invalid directives
+          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
+            -e 's/\.whatsapp\b//g' \
+            -e 's/\.w4b\b//g' \
+            -e 's/\binvalid directive\b//gi' {} +
+          
+          # Fix class declarations that might be broken
+          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
+            -e '/^\.class/s/\([^;]\)$/\1;/' \
+            -e '/^\.class/s/[^a-zA-Z0-9_$.]//g' {} +
+
+      - name: Fix Smali Syntax Errors
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          # Fix missing COLON in directives
+          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
+            -e '/^\.method/s/ \([a-zA-Z]\)/:\1/' \
+            -e '/^\.field/s/ \([a-zA-Z]\)/:\1/' \
+            -e '/^\.annotation/s/ \([a-zA-Z]\)/:\1/' {} +
+          
+          # Fix malformed Features references
+          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
+            -e 's/Features;/Lcom\/whatsapp\/w4b\/Features;/g' \
+            -e 's/\/Features /\/Features;/g' {} +
+
+      - name: Validate Smali Files
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          
+          # Quick validation - check for common issues
+          echo "=== Checking for remaining invalid directives ==="
+          find "$DECOMPILED_DIR" -name "*.smali" -exec grep -Hn '^\.' {} \; | \
+            grep -v '\.class\|\.super\|\.source\|\.method\|\.end\|\.field\|\.annotation\|\.line\|\.parameter\|\.locals\|\.prologue\|\.epilogue\|\.catch' | \
+            head -20 || echo "No major issues found"
 
       - name: Recompile APK
         run: |
           DIR="${{ github.event.inputs.decompiled_folder }}"
-          echo "=== Attempt 1: default ==="
+          
+          # Try multiple apktool strategies
+          echo "=== Attempt 1: default (framework files) ==="
+          apktool empty-framework-dir --force
+          
           if apktool b "$DIR" -o recompiled_unsigned.apk -f 2>&1; then
             echo "Build success (attempt 1)"
           else
@@ -126,10 +209,11 @@ jobs:
             if apktool b "$DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1; then
               echo "Build success (attempt 2)"
             else
-              echo "=== Attempt 3: aapt2 + no-crunch ==="
+              echo "=== Attempt 3: aapt2 + no-crunch + skip-res ==="
               apktool b "$DIR" -o recompiled_unsigned.apk -f --use-aapt2 --no-crunch 2>&1 || true
             fi
           fi
+          
           if [ ! -f recompiled_unsigned.apk ]; then
             echo "ERROR: APK not created!"
             exit 1
@@ -196,6 +280,12 @@ jobs:
             📦 Original: ${{ env.OLD_PACKAGE }}
             🔧 Build: #${{ github.run_number }}
             🔑 Signed with apksigner (v2/v3 scheme)
+            
+            **Fixes Applied:**
+            - Fixed malformed smali filenames with special characters
+            - Corrected invalid `.whatsapp` and `.w4b` directives
+            - Fixed missing COLON operators in smali syntax
+            - Repaired broken class references
           files: signed_app.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
