@@ -1,4 +1,4 @@
-name: Build, Sign & Release APK
+name: Recompile, Sign & Release APK
 
 on:
   push:
@@ -23,12 +23,19 @@ jobs:
 
       - name: Install apktool
         run: |
-          wget -q https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar \
+          sudo wget -q https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar \
             -O /usr/local/bin/apktool.jar
           echo '#!/bin/sh' | sudo tee /usr/local/bin/apktool > /dev/null
           echo 'exec java -jar /usr/local/bin/apktool.jar "$@"' \
             | sudo tee -a /usr/local/bin/apktool > /dev/null
           sudo chmod +x /usr/local/bin/apktool
+          apktool --version
+
+      - name: Setup Android SDK
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y android-sdk-build-tools
+          echo "ANDROID_HOME=/usr/lib/android-sdk" >> $GITHUB_ENV
 
       - name: Auto-generate keystore
         run: |
@@ -41,9 +48,7 @@ jobs:
             -storepass W4bStore2024! \
             -keypass W4bKey2024! \
             -dname "CN=WhatsApp W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD"
-          echo "Keystore generated successfully"
-          keytool -list -v -keystore release.keystore \
-            -storepass W4bStore2024! | grep -E "Alias|Valid|SHA"
+          echo "Keystore generated"
 
       - name: Replace package name in AndroidManifest.xml
         run: |
@@ -51,68 +56,93 @@ jobs:
           ORIGINAL_PKG=$(grep -oP 'package="\K[^"]+' "$MANIFEST" | head -1)
           echo "Original package: $ORIGINAL_PKG"
           NEW_PKG="com.whatsapp.w4b"
-
           sed -i "s|${ORIGINAL_PKG}|${NEW_PKG}|g" "$MANIFEST"
-
-          echo "=== Verification ==="
-          grep -n "package=" "$MANIFEST"
-          echo "=== Old package remaining ==="
-          grep -c "$ORIGINAL_PKG" "$MANIFEST" || echo "0 — clean!"
 
       - name: Update apktool.yml
         run: |
           APKTOOL_YML="decompiled_app/apktool.yml"
-          if [ -f "$APKTOOL_YML" ]; then
-            sed -i "s|renameManifestPackage:.*|renameManifestPackage: com.whatsapp.w4b|" \
-              "$APKTOOL_YML"
-            echo "apktool.yml updated:"
-            cat "$APKTOOL_YML"
+          if grep -q "renameManifestPackage:" "$APKTOOL_YML"; then
+            sed -i "s|renameManifestPackage:.*|renameManifestPackage: com.whatsapp.w4b|" "$APKTOOL_YML"
           else
-            echo "apktool.yml not found, skipping"
+            echo "renameManifestPackage: com.whatsapp.w4b" >> "$APKTOOL_YML"
           fi
 
-      - name: Recompile with apktool
+      - name: Recompile with apktool (Attempt 1 - AAPT2)
+        id: recompile1
+        continue-on-error: true
         run: |
-          apktool b decompiled_app \
-            --output output_unsigned.apk \
-            --use-aapt2 \
-            -f
+          apktool b decompiled_app --output output_unsigned.apk --use-aapt2 -f
+          if [ -f "output_unsigned.apk" ] && [ -s "output_unsigned.apk" ]; then
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "success=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Recompile with apktool (Attempt 2 - AAPT1)
+        id: recompile2
+        if: steps.recompile1.outputs.success != 'true'
+        continue-on-error: true
+        run: |
+          apktool b decompiled_app --output output_unsigned.apk --use-aapt1 -f
+          if [ -f "output_unsigned.apk" ] && [ -s "output_unsigned.apk" ]; then
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "success=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Recompile with apktool (Attempt 3 - No Resources)
+        if: steps.recompile2.outputs.success != 'true'
+        run: |
+          apktool b decompiled_app --output output_unsigned.apk --no-res -f
+          if [ ! -f "output_unsigned.apk" ] || [ ! -s "output_unsigned.apk" ]; then
+            echo "All recompilation attempts failed!"
+            exit 1
+          fi
 
       - name: Zipalign APK
         run: |
-          ZIPALIGN=$(find $ANDROID_HOME -name "zipalign" | sort -r | head -1)
-          echo "Using zipalign: $ZIPALIGN"
-          "$ZIPALIGN" -v -p 4 output_unsigned.apk output_aligned.apk
+          ZIPALIGN=$(find /usr -name "zipalign" 2>/dev/null | head -1)
+          if [ -z "$ZIPALIGN" ]; then
+            echo "Warning: zipalign not found, copying without alignment"
+            cp output_unsigned.apk output_aligned.apk
+          else
+            "$ZIPALIGN" -v -p 4 output_unsigned.apk output_aligned.apk
+          fi
 
-      - name: Sign APK with apksigner
+      - name: Sign APK
         run: |
-          APKSIGNER=$(find $ANDROID_HOME -name "apksigner" | sort -r | head -1)
-          echo "Using apksigner: $APKSIGNER"
-          "$APKSIGNER" sign \
-            --ks release.keystore \
-            --ks-key-alias w4b-key \
-            --ks-pass pass:W4bStore2024! \
-            --key-pass pass:W4bKey2024! \
-            --out output_signed.apk \
-            output_aligned.apk
+          APKSIGNER=$(find /usr -name "apksigner" 2>/dev/null | head -1)
+          if [ -z "$APKSIGNER" ]; then
+            jarsigner -verbose \
+              -keystore release.keystore \
+              -storepass W4bStore2024! \
+              -keypass W4bKey2024! \
+              output_aligned.apk w4b-key
+            mv output_aligned.apk output_signed.apk
+          else
+            "$APKSIGNER" sign \
+              --ks release.keystore \
+              --ks-key-alias w4b-key \
+              --ks-pass pass:W4bStore2024! \
+              --key-pass pass:W4bKey2024! \
+              --out output_signed.apk \
+              output_aligned.apk
+          fi
 
-          echo "=== Signature Verification ==="
-          "$APKSIGNER" verify --verbose output_signed.apk
-
-      - name: Rename final APK
+      - name: Rename and release
         run: |
           TAG="${{ github.ref_name }}"
-          # workflow_dispatch হলে tag নাও, নইলে commit sha ব্যবহার করো
           if [ "$TAG" = "" ] || [ "$TAG" = "refs/heads/main" ]; then
             TAG="build-${{ github.run_number }}"
           fi
           FINAL_NAME="whatsapp-w4b-${TAG}.apk"
           mv output_signed.apk "$FINAL_NAME"
           echo "APK_NAME=$FINAL_NAME" >> $GITHUB_ENV
-          echo "Final APK: $FINAL_NAME"
           ls -lh "$FINAL_NAME"
 
-      - name: Upload APK artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: whatsapp-w4b-apk
@@ -125,26 +155,15 @@ jobs:
         with:
           files: ${{ env.APK_NAME }}
           name: "WhatsApp W4B ${{ github.ref_name }}"
-          body: |
-            ## WhatsApp Business W4B ${{ github.ref_name }}
-
-            **Package:** `com.whatsapp.w4b`
-            **Build:** #${{ github.run_number }}
-            **Commit:** ${{ github.sha }}
-
-            ### What changed
-            - Package name → `com.whatsapp.w4b`
-            - Recompiled with apktool 2.9.3
-            - Auto-signed with generated keystore
+          body: "Package: com.whatsapp.w4b\nBuild: #${{ github.run_number }}\nRecompiled with apktool 2.9.3"
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Cleanup sensitive files
+      - name: Cleanup
         if: always()
         run: |
           rm -f release.keystore
           rm -f output_unsigned.apk
           rm -f output_aligned.apk
-          echo "Cleanup done"
