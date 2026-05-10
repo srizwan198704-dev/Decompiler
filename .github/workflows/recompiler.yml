@@ -20,7 +20,7 @@ jobs:
       - name: Setup Java
         run: |
           sudo apt-get update
-          sudo apt-get install -y openjdk-17-jre-headless zipalign wget unzip
+          sudo apt-get install -y openjdk-17-jre-headless zipalign wget unzip python3
 
       - name: Setup Android SDK
         run: |
@@ -28,17 +28,24 @@ jobs:
           sudo mkdir -p /opt/android-sdk/cmdline-tools
           sudo unzip -q cmdline-tools.zip -d /opt/android-sdk/cmdline-tools
           sudo mv /opt/android-sdk/cmdline-tools/cmdline-tools /opt/android-sdk/cmdline-tools/latest
+          export ANDROID_SDK_ROOT=/opt/android-sdk
           export PATH="$PATH:/opt/android-sdk/cmdline-tools/latest/bin"
           yes | sdkmanager --licenses > /dev/null 2>&1 || true
           sdkmanager "build-tools;34.0.0"
           sudo ln -sf /opt/android-sdk/build-tools/34.0.0/aapt2 /usr/local/bin/aapt2
+          sudo ln -sf /opt/android-sdk/build-tools/34.0.0/apksigner /usr/local/bin/apksigner
+          sudo ln -sf /opt/android-sdk/build-tools/34.0.0/zipalign /usr/local/bin/zipalign
           echo "/opt/android-sdk/build-tools/34.0.0" >> $GITHUB_PATH
+          echo "ANDROID_SDK_ROOT=/opt/android-sdk" >> $GITHUB_ENV
           aapt2 version
+          apksigner version
 
       - name: Setup APKTool
         run: |
-          sudo wget -q https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /usr/local/bin/apktool
-          sudo wget -q https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar -O /usr/local/bin/apktool.jar
+          sudo wget -q https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool \
+            -O /usr/local/bin/apktool
+          sudo wget -q https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar \
+            -O /usr/local/bin/apktool.jar
           sudo chmod +x /usr/local/bin/apktool /usr/local/bin/apktool.jar
           apktool --version
 
@@ -53,7 +60,7 @@ jobs:
             OLD_PACKAGE="com.whatsapp"
           fi
           echo "OLD_PACKAGE=$OLD_PACKAGE" >> $GITHUB_ENV
-          echo "Detected: $OLD_PACKAGE"
+          echo "Detected old package: $OLD_PACKAGE"
 
       - name: Rename Package in AndroidManifest.xml
         run: |
@@ -61,11 +68,11 @@ jobs:
           OLD="${{ env.OLD_PACKAGE }}"
           NEW="com.whatsapp.w4b"
           cp "$MANIFEST" "$MANIFEST.bak"
-          cat > /tmp/fix.py << PYEOF
+          cat > /tmp/fix.py << 'PYEOF'
           import re, sys, xml.etree.ElementTree as ET
-          old = "$OLD"
-          new = "$NEW"
-          path = "$MANIFEST"
+          old = sys.argv[1]
+          new = sys.argv[2]
+          path = sys.argv[3]
           with open(path, "r", encoding="utf-8") as f:
               content = f.read()
           escaped = re.escape(old)
@@ -81,39 +88,96 @@ jobs:
           print(f"Replaced {count} occurrences: {old} -> {new}")
           try:
               ET.parse(path)
-              print("XML OK")
+              print("XML validation: OK")
           except ET.ParseError as e:
               print(f"XML ERROR: {e}")
               sys.exit(1)
           PYEOF
-          python3 /tmp/fix.py
-          echo "=== AFTER ==="
+          python3 /tmp/fix.py "$OLD" "$NEW" "$MANIFEST"
+          echo "=== First 5 lines after rename ==="
           head -5 "$MANIFEST"
+
+      - name: Rename Package in smali files
+        run: |
+          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
+          OLD="${{ env.OLD_PACKAGE }}"
+          NEW="com.whatsapp.w4b"
+          OLD_PATH=$(echo "$OLD" | tr '.' '/')
+          NEW_PATH=$(echo "$NEW" | tr '.' '/')
+          echo "Replacing smali references: $OLD -> $NEW"
+          # Replace dotted package references in smali/xml/properties files
+          find "$DECOMPILED_DIR" \
+            -type f \( -name "*.smali" -o -name "*.xml" -o -name "*.properties" \) \
+            -exec sed -i "s|${OLD}|${NEW}|g" {} +
+          # Replace slash-separated path references in smali
+          find "$DECOMPILED_DIR" \
+            -type f -name "*.smali" \
+            -exec sed -i "s|${OLD_PATH}|${NEW_PATH}|g" {} +
+          echo "Smali rename done"
 
       - name: Recompile APK
         run: |
           DIR="${{ github.event.inputs.decompiled_folder }}"
-          echo "=== Attempt 1 ==="
+          echo "=== Attempt 1: default ==="
           if apktool b "$DIR" -o recompiled_unsigned.apk -f 2>&1; then
-            echo "Success"
+            echo "Build success (attempt 1)"
           else
-            echo "=== Attempt 2 with aapt2 ==="
+            echo "=== Attempt 2: with aapt2 ==="
             if apktool b "$DIR" -o recompiled_unsigned.apk -f --use-aapt2 2>&1; then
-              echo "Success"
+              echo "Build success (attempt 2)"
             else
-              echo "=== Attempt 3 no-crunch ==="
-              apktool b "$DIR" -o recompiled_unsigned.apk -f --use-aapt2 --no-crunch 2>&1
+              echo "=== Attempt 3: aapt2 + no-crunch ==="
+              apktool b "$DIR" -o recompiled_unsigned.apk -f --use-aapt2 --no-crunch 2>&1 || true
             fi
+          fi
+          if [ ! -f recompiled_unsigned.apk ]; then
+            echo "ERROR: APK not created!"
+            exit 1
           fi
           ls -lh recompiled_unsigned.apk
 
-      - name: Sign APK
+      - name: Verify APK structure
         run: |
-          keytool -genkey -v -keystore my.keystore -alias w4b -keyalg RSA -keysize 2048 -validity 10000 -storepass w4b123 -keypass w4b123 -dname "CN=W4B,OU=Dev,O=W4B,L=Dhaka,ST=Dhaka,C=BD" -noprompt
+          # Basic check — aapt2 dump should not error
+          aapt2 dump badging recompiled_unsigned.apk | head -5 || \
+            echo "Warning: aapt2 dump failed (may still be installable)"
+
+      - name: Generate Keystore
+        run: |
+          keytool -genkey -v \
+            -keystore my.keystore \
+            -alias w4b \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass w4b123 \
+            -keypass w4b123 \
+            -dname "CN=W4B,OU=Dev,O=W4B,L=Dhaka,ST=Dhaka,C=BD" \
+            -noprompt
+          echo "Keystore generated"
+
+      - name: Zipalign APK
+        run: |
+          # Must zipalign BEFORE signing
           zipalign -v -p 4 recompiled_unsigned.apk aligned.apk
-          jarsigner -keystore my.keystore -storepass w4b123 -keypass w4b123 -sigalg SHA256withRSA -digestalg SHA-256 aligned.apk w4b
-          cp aligned.apk signed_app.apk
-          echo "Signed OK"
+          echo "Zipalign done"
+          # Verify alignment
+          zipalign -c -v 4 aligned.apk && echo "Alignment check: PASSED" || echo "Alignment check: FAILED"
+
+      - name: Sign APK with apksigner
+        run: |
+          # apksigner must be used AFTER zipalign (correct order)
+          apksigner sign \
+            --ks my.keystore \
+            --ks-pass pass:w4b123 \
+            --key-pass pass:w4b123 \
+            --ks-key-alias w4b \
+            --out signed_app.apk \
+            aligned.apk
+          echo "Signing done"
+          # Verify signature
+          apksigner verify --verbose signed_app.apk && echo "Signature verify: PASSED" || echo "Signature verify: FAILED"
+          ls -lh signed_app.apk
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -128,8 +192,10 @@ jobs:
           tag_name: w4b-v1.0.${{ github.run_number }}
           name: W4B v1.0.${{ github.run_number }}
           body: |
-            Package: com.whatsapp.w4b
-            Original: ${{ env.OLD_PACKAGE }}
+            ✅ Package: com.whatsapp.w4b
+            📦 Original: ${{ env.OLD_PACKAGE }}
+            🔧 Build: #${{ github.run_number }}
+            🔑 Signed with apksigner (v2/v3 scheme)
           files: signed_app.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
