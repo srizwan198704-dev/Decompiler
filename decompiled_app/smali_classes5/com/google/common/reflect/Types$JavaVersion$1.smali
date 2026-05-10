@@ -14,18 +14,12 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/google/common/reflect/Types$JavaVersion;-><init>(Ljava/lang/String;ILcom/google/common/reflect/Types$a;)V
+    invoke-direct {p0, p1, p2, v0}, Lcom/google/common/reflect/Types$JavaVersion;-><init>(Ljava/lang/String;ILcom/google/common/reflect/Types$1;)V
 
     return-void
 .end method
@@ -55,7 +49,7 @@
 .method public usedInGenericType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
     .locals 2
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     instance-of v0, p1, Ljava/lang/Class;
 

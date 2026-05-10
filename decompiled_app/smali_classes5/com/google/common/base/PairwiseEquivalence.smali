@@ -6,6 +6,13 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/base/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -35,12 +42,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/base/Equivalence;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -53,7 +54,7 @@
 
     invoke-direct {p0}, Lcom/google/common/base/Equivalence;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 

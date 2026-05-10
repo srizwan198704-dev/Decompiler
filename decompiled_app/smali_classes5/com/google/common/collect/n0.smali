@@ -2,36 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BinaryOperator;
+.implements Ljava/util/Comparator;
+
+
+# instance fields
+.field public final synthetic a:Ljava/util/Comparator;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>()V
+.method public synthetic constructor <init>(Ljava/util/Comparator;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/common/collect/n0;->a:Ljava/util/Comparator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 1
 
-    check-cast p1, Lcom/google/common/collect/ImmutableList$a;
+    iget-object v0, p0, Lcom/google/common/collect/n0;->a:Ljava/util/Comparator;
 
-    check-cast p2, Lcom/google/common/collect/ImmutableList$a;
+    check-cast p1, Lcom/google/common/collect/PeekingIterator;
 
-    invoke-virtual {p1, p2}, Lcom/google/common/collect/ImmutableList$a;->p(Lcom/google/common/collect/ImmutableList$a;)Lcom/google/common/collect/ImmutableList$a;
+    check-cast p2, Lcom/google/common/collect/PeekingIterator;
 
-    move-result-object p1
+    invoke-static {v0, p1, p2}, Lcom/google/common/collect/Iterators$MergingIterator;->a(Ljava/util/Comparator;Lcom/google/common/collect/PeekingIterator;Lcom/google/common/collect/PeekingIterator;)I
 
-    return-object p1
+    move-result p1
+
+    return p1
 .end method

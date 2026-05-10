@@ -2,30 +2,26 @@
 .super Landroid/widget/CheckedTextView;
 
 # interfaces
+.implements Landroidx/core/widget/TintableCheckedTextView;
 .implements Landroidx/core/view/TintableBackgroundView;
-.implements Landroidx/core/widget/o;
+.implements Landroidx/appcompat/widget/EmojiCompatConfigurationView;
+.implements Landroidx/core/widget/TintableCompoundDrawablesView;
 
 
 # instance fields
-.field public final a:Landroidx/appcompat/widget/d;
-
-.field public final b:Landroidx/appcompat/widget/c;
-
-.field public final c:Landroidx/appcompat/widget/AppCompatTextHelper;
-
-.field public d:Landroidx/appcompat/widget/h;
+.field private mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
+.field private final mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+
+.field private final mCheckedHelper:Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
+
+.field private final mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
+
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1    # Landroid/content/Context;
@@ -69,7 +65,7 @@
         .end annotation
     .end param
 
-    invoke-static {p1}, Landroidx/appcompat/widget/h0;->b(Landroid/content/Context;)Landroid/content/Context;
+    invoke-static {p1}, Landroidx/appcompat/widget/TintContextWrapper;->wrap(Landroid/content/Context;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -79,60 +75,60 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/appcompat/widget/f0;->a(Landroid/view/View;Landroid/content/Context;)V
+    invoke-static {p0, p1}, Landroidx/appcompat/widget/ThemeUtils;->checkAppCompatTheme(Landroid/view/View;Landroid/content/Context;)V
 
     new-instance p1, Landroidx/appcompat/widget/AppCompatTextHelper;
 
     invoke-direct {p1, p0}, Landroidx/appcompat/widget/AppCompatTextHelper;-><init>(Landroid/widget/TextView;)V
 
-    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatTextHelper;->m(Landroid/util/AttributeSet;I)V
+    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
-    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->b()V
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
-    new-instance p1, Landroidx/appcompat/widget/c;
+    new-instance p1, Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    invoke-direct {p1, p0}, Landroidx/appcompat/widget/c;-><init>(Landroid/view/View;)V
+    invoke-direct {p1, p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;-><init>(Landroid/view/View;)V
 
-    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->b:Landroidx/appcompat/widget/c;
+    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/c;->e(Landroid/util/AttributeSet;I)V
+    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
-    new-instance p1, Landroidx/appcompat/widget/d;
+    new-instance p1, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
 
-    invoke-direct {p1, p0}, Landroidx/appcompat/widget/d;-><init>(Landroid/widget/CheckedTextView;)V
+    invoke-direct {p1, p0}, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;-><init>(Landroid/widget/CheckedTextView;)V
 
-    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->a:Landroidx/appcompat/widget/d;
+    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mCheckedHelper:Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
 
-    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/d;->d(Landroid/util/AttributeSet;I)V
+    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
-    invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatCheckedTextView;->getEmojiTextViewHelper()Landroidx/appcompat/widget/h;
+    invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatCheckedTextView;->getEmojiTextViewHelper()Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     move-result-object p1
 
-    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/h;->c(Landroid/util/AttributeSet;I)V
+    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
     return-void
 .end method
 
-.method private getEmojiTextViewHelper()Landroidx/appcompat/widget/h;
+.method private getEmojiTextViewHelper()Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
     .locals 1
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->d:Landroidx/appcompat/widget/h;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     if-nez v0, :cond_0
 
-    new-instance v0, Landroidx/appcompat/widget/h;
+    new-instance v0, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    invoke-direct {v0, p0}, Landroidx/appcompat/widget/h;-><init>(Landroid/widget/TextView;)V
+    invoke-direct {v0, p0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;-><init>(Landroid/widget/TextView;)V
 
-    iput-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->d:Landroidx/appcompat/widget/h;
+    iput-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     :cond_0
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->d:Landroidx/appcompat/widget/h;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     return-object v0
 .end method
@@ -144,25 +140,25 @@
 
     invoke-super {p0}, Landroid/widget/CheckedTextView;->drawableStateChanged()V
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatTextHelper;->b()V
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
     :cond_0
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->b:Landroidx/appcompat/widget/c;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/c;->b()V
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->applySupportBackgroundTint()V
 
     :cond_1
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->a:Landroidx/appcompat/widget/d;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mCheckedHelper:Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
 
     if-eqz v0, :cond_2
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/d;->a()V
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;->applyCheckMarkTint()V
 
     :cond_2
     return-void
@@ -177,7 +173,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Landroidx/core/widget/l;->r(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
+    invoke-static {v0}, Landroidx/core/widget/TextViewCompat;->unwrapCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
 
     move-result-object v0
 
@@ -189,11 +185,17 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->b:Landroidx/appcompat/widget/c;
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/c;->c()Landroid/content/res/ColorStateList;
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
@@ -211,11 +213,17 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->b:Landroidx/appcompat/widget/c;
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/c;->d()Landroid/graphics/PorterDuff$Mode;
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
 
     move-result-object v0
 
@@ -233,11 +241,17 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->a:Landroidx/appcompat/widget/d;
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mCheckedHelper:Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/d;->b()Landroid/content/res/ColorStateList;
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;->getSupportCheckMarkTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
@@ -255,11 +269,17 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->a:Landroidx/appcompat/widget/d;
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mCheckedHelper:Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/d;->c()Landroid/graphics/PorterDuff$Mode;
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;->getSupportCheckMarkTintMode()Landroid/graphics/PorterDuff$Mode;
 
     move-result-object v0
 
@@ -277,9 +297,15 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatTextHelper;->j()Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
+
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatTextHelper;->getCompoundDrawableTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
@@ -291,9 +317,15 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatTextHelper;->k()Landroid/graphics/PorterDuff$Mode;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
+
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatTextHelper;->getCompoundDrawableTintMode()Landroid/graphics/PorterDuff$Mode;
 
     move-result-object v0
 
@@ -303,11 +335,11 @@
 .method public isEmojiCompatEnabled()Z
     .locals 1
 
-    invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatCheckedTextView;->getEmojiTextViewHelper()Landroidx/appcompat/widget/h;
+    invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatCheckedTextView;->getEmojiTextViewHelper()Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/h;->b()Z
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->isEnabled()Z
 
     move-result v0
 
@@ -327,7 +359,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1, p0}, Landroidx/appcompat/widget/i;->a(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroid/view/View;)Landroid/view/inputmethod/InputConnection;
+    invoke-static {v0, p1, p0}, Landroidx/appcompat/widget/AppCompatHintHelper;->onCreateInputConnection(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroid/view/View;)Landroid/view/inputmethod/InputConnection;
 
     move-result-object p1
 
@@ -339,11 +371,11 @@
 
     invoke-super {p0, p1}, Landroid/widget/CheckedTextView;->setAllCaps(Z)V
 
-    invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatCheckedTextView;->getEmojiTextViewHelper()Landroidx/appcompat/widget/h;
+    invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatCheckedTextView;->getEmojiTextViewHelper()Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/h;->d(Z)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->setAllCaps(Z)V
 
     return-void
 .end method
@@ -357,11 +389,11 @@
 
     invoke-super {p0, p1}, Landroid/widget/CheckedTextView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->b:Landroidx/appcompat/widget/c;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/c;->f(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :cond_0
     return-void
@@ -369,14 +401,18 @@
 
 .method public setBackgroundResource(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroidx/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     invoke-super {p0, p1}, Landroid/widget/CheckedTextView;->setBackgroundResource(I)V
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->b:Landroidx/appcompat/widget/c;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/c;->g(I)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundResource(I)V
 
     :cond_0
     return-void
@@ -384,12 +420,16 @@
 
 .method public setCheckMarkDrawable(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroidx/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Lh/a;->b(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, p1}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
@@ -407,11 +447,11 @@
 
     invoke-super {p0, p1}, Landroid/widget/CheckedTextView;->setCheckMarkDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->a:Landroidx/appcompat/widget/d;
+    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mCheckedHelper:Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroidx/appcompat/widget/d;->e()V
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;->onSetCheckMarkDrawable()V
 
     :cond_0
     return-void
@@ -438,11 +478,11 @@
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/CheckedTextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->p()V
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->onSetCompoundDrawables()V
 
     :cond_0
     return-void
@@ -466,14 +506,17 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/RequiresApi;
+        value = 0x11
+    .end annotation
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/CheckedTextView;->setCompoundDrawablesRelative(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->p()V
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->onSetCompoundDrawables()V
 
     :cond_0
     return-void
@@ -486,7 +529,7 @@
         .end annotation
     .end param
 
-    invoke-static {p0, p1}, Landroidx/core/widget/l;->s(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
+    invoke-static {p0, p1}, Landroidx/core/widget/TextViewCompat;->wrapCustomSelectionActionModeCallback(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
 
     move-result-object p1
 
@@ -498,11 +541,11 @@
 .method public setEmojiCompatEnabled(Z)V
     .locals 1
 
-    invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatCheckedTextView;->getEmojiTextViewHelper()Landroidx/appcompat/widget/h;
+    invoke-direct {p0}, Landroidx/appcompat/widget/AppCompatCheckedTextView;->getEmojiTextViewHelper()Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/h;->e(Z)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->setEnabled(Z)V
 
     return-void
 .end method
@@ -513,12 +556,17 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->b:Landroidx/appcompat/widget/c;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/c;->i(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
     :cond_0
     return-void
@@ -530,12 +578,17 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->b:Landroidx/appcompat/widget/c;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/c;->j(Landroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
     :cond_0
     return-void
@@ -547,12 +600,17 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->a:Landroidx/appcompat/widget/d;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mCheckedHelper:Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/d;->f(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;->setSupportCheckMarkTintList(Landroid/content/res/ColorStateList;)V
 
     :cond_0
     return-void
@@ -564,12 +622,17 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->a:Landroidx/appcompat/widget/d;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mCheckedHelper:Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/d;->g(Landroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatCheckedTextViewHelper;->setSupportCheckMarkTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
     :cond_0
     return-void
@@ -581,14 +644,19 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->w(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->setCompoundDrawableTintList(Landroid/content/res/ColorStateList;)V
 
-    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->b()V
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
     return-void
 .end method
@@ -599,14 +667,19 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->x(Landroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->setCompoundDrawableTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->b()V
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
     return-void
 .end method
@@ -620,11 +693,11 @@
 
     invoke-super {p0, p1, p2}, Landroid/widget/CheckedTextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->c:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatCheckedTextView;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1, p2}, Landroidx/appcompat/widget/AppCompatTextHelper;->q(Landroid/content/Context;I)V
+    invoke-virtual {v0, p1, p2}, Landroidx/appcompat/widget/AppCompatTextHelper;->onSetTextAppearance(Landroid/content/Context;I)V
 
     :cond_0
     return-void

@@ -2,29 +2,34 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/asynclayoutinflater/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "style"
+.end annotation
+
+
 # static fields
-.field public static TextAppearance_Compat_Notification:I = 0x7f130233
+.field public static final TextAppearance_Compat_Notification:I = 0x7f1402b8
 
-.field public static TextAppearance_Compat_Notification_Info:I = 0x7f130234
+.field public static final TextAppearance_Compat_Notification_Info:I = 0x7f1402b9
 
-.field public static TextAppearance_Compat_Notification_Line2:I = 0x7f130236
+.field public static final TextAppearance_Compat_Notification_Line2:I = 0x7f1402bb
 
-.field public static TextAppearance_Compat_Notification_Time:I = 0x7f130239
+.field public static final TextAppearance_Compat_Notification_Time:I = 0x7f1402be
 
-.field public static TextAppearance_Compat_Notification_Title:I = 0x7f13023b
+.field public static final TextAppearance_Compat_Notification_Title:I = 0x7f1402c0
 
-.field public static Widget_Compat_NotificationActionContainer:I = 0x7f1303bc
+.field public static final Widget_Compat_NotificationActionContainer:I = 0x7f14044d
 
-.field public static Widget_Compat_NotificationActionText:I = 0x7f1303bd
+.field public static final Widget_Compat_NotificationActionText:I = 0x7f14044e
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

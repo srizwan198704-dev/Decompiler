@@ -1,5 +1,5 @@
 .class final Lcom/google/common/collect/Tables$ImmutableCell;
-.super Lcom/google/common/collect/Tables$b;
+.super Lcom/google/common/collect/Tables$AbstractCell;
 
 # interfaces
 .implements Ljava/io/Serializable;
@@ -24,7 +24,7 @@
         "V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/Tables$b<",
+        "Lcom/google/common/collect/Tables$AbstractCell<",
         "TR;TC;TV;>;",
         "Ljava/io/Serializable;"
     }
@@ -37,6 +37,9 @@
 
 # instance fields
 .field private final columnKey:Ljava/lang/Object;
+    .annotation runtime Lcom/google/common/collect/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TC;"
@@ -45,6 +48,9 @@
 .end field
 
 .field private final rowKey:Ljava/lang/Object;
+    .annotation runtime Lcom/google/common/collect/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TR;"
@@ -53,6 +59,9 @@
 .end field
 
 .field private final value:Ljava/lang/Object;
+    .annotation runtime Lcom/google/common/collect/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TV;"
@@ -62,21 +71,27 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TC;TV;)V"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/Tables$b;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/Tables$AbstractCell;-><init>()V
 
     iput-object p1, p0, Lcom/google/common/collect/Tables$ImmutableCell;->rowKey:Ljava/lang/Object;
 
@@ -91,6 +106,9 @@
 # virtual methods
 .method public getColumnKey()Ljava/lang/Object;
     .locals 1
+    .annotation runtime Lcom/google/common/collect/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -104,6 +122,9 @@
 
 .method public getRowKey()Ljava/lang/Object;
     .locals 1
+    .annotation runtime Lcom/google/common/collect/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -117,6 +138,9 @@
 
 .method public getValue()Ljava/lang/Object;
     .locals 1
+    .annotation runtime Lcom/google/common/collect/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

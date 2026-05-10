@@ -48,12 +48,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/hash/BloomFilter;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -66,13 +60,13 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/hash/BloomFilter;->access$000(Lcom/google/common/hash/BloomFilter;)Lcom/google/common/hash/BloomFilterStrategies$a;
+    invoke-static {p1}, Lcom/google/common/hash/BloomFilter;->access$000(Lcom/google/common/hash/BloomFilter;)Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/google/common/hash/BloomFilterStrategies$a;->a:Ljava/util/concurrent/atomic/AtomicLongArray;
+    iget-object v0, v0, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->data:Ljava/util/concurrent/atomic/AtomicLongArray;
 
-    invoke-static {v0}, Lcom/google/common/hash/BloomFilterStrategies$a;->h(Ljava/util/concurrent/atomic/AtomicLongArray;)[J
+    invoke-static {v0}, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->toPlainArray(Ljava/util/concurrent/atomic/AtomicLongArray;)[J
 
     move-result-object v0
 
@@ -106,11 +100,11 @@
 
     new-instance v6, Lcom/google/common/hash/BloomFilter;
 
-    new-instance v1, Lcom/google/common/hash/BloomFilterStrategies$a;
+    new-instance v1, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;
 
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter$SerialForm;->data:[J
 
-    invoke-direct {v1, v0}, Lcom/google/common/hash/BloomFilterStrategies$a;-><init>([J)V
+    invoke-direct {v1, v0}, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;-><init>([J)V
 
     iget v2, p0, Lcom/google/common/hash/BloomFilter$SerialForm;->numHashFunctions:I
 
@@ -122,7 +116,7 @@
 
     move-object v0, v6
 
-    invoke-direct/range {v0 .. v5}, Lcom/google/common/hash/BloomFilter;-><init>(Lcom/google/common/hash/BloomFilterStrategies$a;ILcom/google/common/hash/Funnel;Lcom/google/common/hash/BloomFilter$Strategy;Lcom/google/common/hash/BloomFilter$a;)V
+    invoke-direct/range {v0 .. v5}, Lcom/google/common/hash/BloomFilter;-><init>(Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;ILcom/google/common/hash/Funnel;Lcom/google/common/hash/BloomFilter$Strategy;Lcom/google/common/hash/BloomFilter$1;)V
 
     return-object v6
 .end method

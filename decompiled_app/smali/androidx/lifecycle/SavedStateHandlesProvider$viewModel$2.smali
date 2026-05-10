@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/lifecycle/SavedStateHandlesProvider;-><init>(Lq4/c;Landroidx/lifecycle/z0;)V
+    value = Landroidx/lifecycle/SavedStateHandlesProvider;-><init>(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/ViewModelStoreOwner;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,45 +19,21 @@
     value = {
         "Lkotlin/jvm/internal/Lambda;",
         "Lkotlin/jvm/functions/Function0<",
-        "Landroidx/lifecycle/q0;",
+        "Landroidx/lifecycle/SavedStateHandlesVM;",
         ">;"
-    }
-.end annotation
-
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\u0008\n\u0002\u0018\u0002\n\u0002\u0008\u0003\u0010\u0003\u001a\u00020\u0000H\n\u00a2\u0006\u0004\u0008\u0001\u0010\u0002"
-    }
-    d2 = {
-        "Landroidx/lifecycle/q0;",
-        "invoke",
-        "()Landroidx/lifecycle/q0;",
-        "<anonymous>"
-    }
-    k = 0x3
-    mv = {
-        0x1,
-        0x8,
-        0x0
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic $viewModelStoreOwner:Landroidx/lifecycle/z0;
+.field final synthetic $viewModelStoreOwner:Landroidx/lifecycle/ViewModelStoreOwner;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroidx/lifecycle/z0;)V
+.method public constructor <init>(Landroidx/lifecycle/ViewModelStoreOwner;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->$viewModelStoreOwner:Landroidx/lifecycle/z0;
+    iput-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->$viewModelStoreOwner:Landroidx/lifecycle/ViewModelStoreOwner;
 
     const/4 p1, 0x0
 
@@ -68,12 +44,12 @@
 
 
 # virtual methods
-.method public final invoke()Landroidx/lifecycle/q0;
+.method public final invoke()Landroidx/lifecycle/SavedStateHandlesVM;
     .locals 1
 
-    iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->$viewModelStoreOwner:Landroidx/lifecycle/z0;
+    iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->$viewModelStoreOwner:Landroidx/lifecycle/ViewModelStoreOwner;
 
-    invoke-static {v0}, Landroidx/lifecycle/p0;->e(Landroidx/lifecycle/z0;)Landroidx/lifecycle/q0;
+    invoke-static {v0}, Landroidx/lifecycle/SavedStateHandleSupport;->getSavedStateHandlesVM(Landroidx/lifecycle/ViewModelStoreOwner;)Landroidx/lifecycle/SavedStateHandlesVM;
 
     move-result-object v0
 
@@ -83,7 +59,7 @@
 .method public bridge synthetic invoke()Ljava/lang/Object;
     .locals 1
 
-    invoke-virtual {p0}, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->invoke()Landroidx/lifecycle/q0;
+    invoke-virtual {p0}, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;->invoke()Landroidx/lifecycle/SavedStateHandlesVM;
 
     move-result-object v0
 

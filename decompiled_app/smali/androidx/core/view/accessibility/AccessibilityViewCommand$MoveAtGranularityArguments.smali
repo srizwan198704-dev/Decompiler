@@ -14,12 +14,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -37,7 +31,7 @@
 
     const-string v1, "ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -51,7 +45,7 @@
 
     const-string v1, "ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

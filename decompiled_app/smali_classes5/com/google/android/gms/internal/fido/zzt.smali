@@ -10,12 +10,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/app/PendingIntent;)V
     .locals 0
 
@@ -61,13 +55,13 @@
 
     move-result-object v2
 
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
     const/4 v4, 0x0
 
     const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
 
     move-object v1, p1
 

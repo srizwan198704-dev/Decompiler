@@ -2,14 +2,22 @@
 .super Lcom/google/common/collect/ImmutableMap;
 
 # interfaces
-.implements Lcom/google/common/collect/k;
+.implements Lcom/google/common/collect/BiMap;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/ImmutableBiMap$a;,
-        Lcom/google/common/collect/ImmutableBiMap$SerializedForm;
+        Lcom/google/common/collect/ImmutableBiMap$SerializedForm;,
+        Lcom/google/common/collect/ImmutableBiMap$Builder;
     }
 .end annotation
 
@@ -22,7 +30,7 @@
         ">",
         "Lcom/google/common/collect/ImmutableMap<",
         "TK;TV;>;",
-        "Lcom/google/common/collect/k<",
+        "Lcom/google/common/collect/BiMap<",
         "TK;TV;>;"
     }
 .end annotation
@@ -33,12 +41,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -47,7 +49,7 @@
     return-void
 .end method
 
-.method public static builder()Lcom/google/common/collect/ImmutableBiMap$a;
+.method public static builder()Lcom/google/common/collect/ImmutableBiMap$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -56,19 +58,19 @@
             "V:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/collect/ImmutableBiMap$a<",
+            "Lcom/google/common/collect/ImmutableBiMap$Builder<",
             "TK;TV;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableBiMap$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableBiMap$Builder;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableBiMap$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/collect/ImmutableBiMap$Builder;-><init>()V
 
     return-object v0
 .end method
 
-.method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableBiMap$a;
+.method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableBiMap$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,18 +79,18 @@
             "V:",
             "Ljava/lang/Object;",
             ">(I)",
-            "Lcom/google/common/collect/ImmutableBiMap$a<",
+            "Lcom/google/common/collect/ImmutableBiMap$Builder<",
             "TK;TV;>;"
         }
     .end annotation
 
     const-string v0, "expectedSize"
 
-    invoke-static {p0, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
+    invoke-static {p0, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
-    new-instance v0, Lcom/google/common/collect/ImmutableBiMap$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableBiMap$Builder;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableBiMap$a;-><init>(I)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableBiMap$Builder;-><init>(I)V
 
     return-object v0
 .end method
@@ -129,15 +131,15 @@
     const/4 v0, 0x4
 
     :goto_0
-    new-instance v1, Lcom/google/common/collect/ImmutableBiMap$a;
+    new-instance v1, Lcom/google/common/collect/ImmutableBiMap$Builder;
 
-    invoke-direct {v1, v0}, Lcom/google/common/collect/ImmutableBiMap$a;-><init>(I)V
+    invoke-direct {v1, v0}, Lcom/google/common/collect/ImmutableBiMap$Builder;-><init>(I)V
 
-    invoke-virtual {v1, p0}, Lcom/google/common/collect/ImmutableBiMap$a;->s(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableBiMap$a;
+    invoke-virtual {v1, p0}, Lcom/google/common/collect/ImmutableBiMap$Builder;->putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableBiMap$Builder;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableBiMap$a;->m()Lcom/google/common/collect/ImmutableBiMap;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableBiMap$Builder;->build()Lcom/google/common/collect/ImmutableBiMap;
 
     move-result-object p0
 
@@ -221,7 +223,7 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -256,9 +258,9 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -301,11 +303,11 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p4, p5}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p4, p5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -356,13 +358,13 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p4, p5}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p4, p5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p6, p7}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p6, p7}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -421,15 +423,15 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p4, p5}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p4, p5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p6, p7}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p6, p7}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p8, p9}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p8, p9}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -496,17 +498,17 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p4, p5}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p4, p5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p6, p7}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p6, p7}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p8, p9}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p8, p9}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p10, p11}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p10, p11}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -581,19 +583,19 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p4, p5}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p4, p5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p6, p7}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p6, p7}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p8, p9}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p8, p9}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p10, p11}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p10, p11}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p12 .. p13}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p12 .. p13}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -676,21 +678,21 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p4, p5}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p4, p5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p6, p7}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p6, p7}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p8, p9}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p8, p9}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p10, p11}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p10, p11}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p12 .. p13}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p12 .. p13}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p14 .. p15}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p14 .. p15}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -781,23 +783,23 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p4, p5}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p4, p5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p6, p7}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p6, p7}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p8, p9}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p8, p9}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p10, p11}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p10, p11}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p12 .. p13}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p12 .. p13}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p14 .. p15}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p14 .. p15}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p16 .. p17}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p16 .. p17}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -896,25 +898,25 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p2, p3}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p2, p3}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p4, p5}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p4, p5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p6, p7}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p6, p7}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p8, p9}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p8, p9}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {p10, p11}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {p10, p11}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p12 .. p13}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p12 .. p13}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p14 .. p15}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p14 .. p15}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p16 .. p17}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p16 .. p17}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static/range {p18 .. p19}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {p18 .. p19}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableBiMap;
 
@@ -1039,6 +1041,9 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -1056,6 +1061,9 @@
 
 .method public static toImmutableBiMap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
     .locals 0
+    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1076,7 +1084,7 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/d2;->N(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectCollectors;->toImmutableBiMap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
     move-result-object p0
 
@@ -1085,6 +1093,13 @@
 
 .method public static toImmutableMap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
     .locals 0
+    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Use toImmutableBiMap"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1117,6 +1132,13 @@
 
 .method public static toImmutableMap(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;
     .locals 0
+    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Use toImmutableBiMap"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1182,6 +1204,13 @@
 
 .method public final forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1198,6 +1227,16 @@
     throw p1
 .end method
 
+.method public bridge synthetic inverse()Lcom/google/common/collect/BiMap;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableBiMap;->inverse()Lcom/google/common/collect/ImmutableBiMap;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public abstract inverse()Lcom/google/common/collect/ImmutableBiMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1206,16 +1245,6 @@
             "TV;TK;>;"
         }
     .end annotation
-.end method
-
-.method public bridge synthetic inverse()Lcom/google/common/collect/k;
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableBiMap;->inverse()Lcom/google/common/collect/ImmutableBiMap;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public bridge synthetic values()Lcom/google/common/collect/ImmutableCollection;
@@ -1271,6 +1300,8 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     new-instance v0, Lcom/google/common/collect/ImmutableBiMap$SerializedForm;
 

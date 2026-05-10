@@ -2,7 +2,7 @@
 .super Ljava/lang/Enum;
 
 # interfaces
-.implements Lcom/google/common/base/n;
+.implements Lcom/google/common/base/Predicate;
 
 
 # annotations
@@ -20,7 +20,7 @@
         "Ljava/lang/Enum<",
         "Lcom/google/common/base/Predicates$ObjectPredicate;",
         ">;",
-        "Lcom/google/common/base/n<",
+        "Lcom/google/common/base/Predicate<",
         "Ljava/lang/Object;",
         ">;"
     }
@@ -47,29 +47,29 @@
 
     new-array v0, v0, [Lcom/google/common/base/Predicates$ObjectPredicate;
 
-    sget-object v1, Lcom/google/common/base/Predicates$ObjectPredicate;->ALWAYS_TRUE:Lcom/google/common/base/Predicates$ObjectPredicate;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/base/Predicates$ObjectPredicate;->ALWAYS_TRUE:Lcom/google/common/base/Predicates$ObjectPredicate;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/base/Predicates$ObjectPredicate;->ALWAYS_FALSE:Lcom/google/common/base/Predicates$ObjectPredicate;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Lcom/google/common/base/Predicates$ObjectPredicate;->ALWAYS_FALSE:Lcom/google/common/base/Predicates$ObjectPredicate;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/base/Predicates$ObjectPredicate;->IS_NULL:Lcom/google/common/base/Predicates$ObjectPredicate;
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    sget-object v2, Lcom/google/common/base/Predicates$ObjectPredicate;->IS_NULL:Lcom/google/common/base/Predicates$ObjectPredicate;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/base/Predicates$ObjectPredicate;->NOT_NULL:Lcom/google/common/base/Predicates$ObjectPredicate;
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    sget-object v2, Lcom/google/common/base/Predicates$ObjectPredicate;->NOT_NULL:Lcom/google/common/base/Predicates$ObjectPredicate;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -139,7 +139,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/base/Predicates$a;)V
+.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/base/Predicates$1;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/common/base/Predicates$ObjectPredicate;-><init>(Ljava/lang/String;I)V
@@ -177,17 +177,14 @@
 
 
 # virtual methods
-.method public abstract synthetic apply(Ljava/lang/Object;)Z
-.end method
-
-.method public withNarrowedType()Lcom/google/common/base/n;
+.method public withNarrowedType()Lcom/google/common/base/Predicate;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/base/n<",
+            "Lcom/google/common/base/Predicate<",
             "TT;>;"
         }
     .end annotation

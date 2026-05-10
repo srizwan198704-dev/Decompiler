@@ -3,34 +3,42 @@
 
 
 # static fields
+.field public static final BRANCH:Ljava/lang/String; = ""
+
 .field public static final BUILD_TYPE:Ljava/lang/String; = "release"
+
+.field public static final CHANNEL:Ljava/lang/String; = "main"
+
+.field public static final COMMIT_HASH:Ljava/lang/String; = "a5b2d15201"
 
 .field public static final DEBUG:Z = false
 
-.field public static final IS_TEST:Z = false
+.field public static final EXT_API_VERSION_CODE:I = 0x3e7
+
+.field public static final INCLUDE_LIVE:Z = true
+
+.field public static final IS_BOOST:Z = true
+
+.field public static final IS_PLUGIN:Z = false
 
 .field public static final LIBRARY_PACKAGE_NAME:Ljava/lang/String; = "com.bytedance.sdk.openadsdk"
 
-.field public static final VERSION_CODE:I
+.field public static final LIVE_PLUGIN_PACKAGE_NAME:Ljava/lang/String; = "com.byted.live.lite"
 
-.field public static final VERSION_NAME:Ljava/lang/String; = "7.1.0.8"
+.field public static final ONLY_API:Z = false
+
+.field public static final PC_BOOST_ABI:Z = false
+
+.field public static final PLUGIN_ADAPTER_PACKAGE_NAME:Ljava/lang/String; = "com.byted.mixed"
+
+.field public static final PLUGIN_PACKAGE_NAME:Ljava/lang/String; = "com.byted.pangle"
+
+.field public static final VERSION_CODE:I = 0x1c41
+
+.field public static final VERSION_NAME:Ljava/lang/String; = "7.2.3.3"
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const v0, 0x19ec
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/BuildConfig;->VERSION_CODE:I
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 

@@ -3,14 +3,11 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public static zaa()Z
     .locals 2
+    .annotation build Landroidx/annotation/ChecksSdkIntAtLeast;
+        api = 0x21
+    .end annotation
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 

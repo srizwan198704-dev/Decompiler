@@ -30,12 +30,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V
     .locals 0
 

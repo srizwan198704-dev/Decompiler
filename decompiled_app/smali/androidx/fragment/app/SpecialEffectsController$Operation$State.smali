@@ -236,7 +236,7 @@
         .end annotation
     .end param
 
-    sget-object v0, Landroidx/fragment/app/SpecialEffectsController$a;->a:[I
+    sget-object v0, Landroidx/fragment/app/SpecialEffectsController$3;->$SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State:[I
 
     invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
@@ -267,7 +267,7 @@
     goto/16 :goto_0
 
     :cond_0
-    invoke-static {v3}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
+    invoke-static {v3}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
 
     move-result v0
 
@@ -297,7 +297,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-static {v3}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
+    invoke-static {v3}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
 
     move-result v0
 
@@ -329,7 +329,7 @@
     goto :goto_0
 
     :cond_4
-    invoke-static {v3}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
+    invoke-static {v3}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
 
     move-result v0
 
@@ -369,7 +369,7 @@
 
     if-eqz v0, :cond_8
 
-    invoke-static {v3}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
+    invoke-static {v3}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
 
     move-result v1
 

@@ -27,10 +27,10 @@
 
 
 # instance fields
-.field final callback:Lcom/google/common/util/concurrent/o;
+.field final callback:Lcom/google/common/util/concurrent/FutureCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/util/concurrent/o<",
+            "Lcom/google/common/util/concurrent/FutureCallback<",
             "-TV;>;"
         }
     .end annotation
@@ -47,20 +47,14 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/util/concurrent/Future;Lcom/google/common/util/concurrent/o;)V
+.method public constructor <init>(Ljava/util/concurrent/Future;Lcom/google/common/util/concurrent/FutureCallback;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/concurrent/Future<",
             "TV;>;",
-            "Lcom/google/common/util/concurrent/o<",
+            "Lcom/google/common/util/concurrent/FutureCallback<",
             "-TV;>;)V"
         }
     .end annotation
@@ -69,7 +63,7 @@
 
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->future:Ljava/util/concurrent/Future;
 
-    iput-object p2, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/o;
+    iput-object p2, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/FutureCallback;
 
     return-void
 .end method
@@ -81,21 +75,21 @@
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->future:Ljava/util/concurrent/Future;
 
-    instance-of v1, v0, Lbd/a;
+    instance-of v1, v0, Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;
 
     if-eqz v1, :cond_0
 
-    check-cast v0, Lbd/a;
+    check-cast v0, Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;
 
-    invoke-static {v0}, Lbd/b;->a(Lbd/a;)Ljava/lang/Throwable;
+    invoke-static {v0}, Lcom/google/common/util/concurrent/internal/InternalFutures;->tryInternalFastPathGetFailure(Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;)Ljava/lang/Throwable;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/o;
+    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/FutureCallback;
 
-    invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/o;->onFailure(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
 
     return-void
 
@@ -103,16 +97,16 @@
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->future:Ljava/util/concurrent/Future;
 
-    invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->d(Ljava/util/concurrent/Future;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v0
     :try_end_0
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/o;
+    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/FutureCallback;
 
-    invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/o;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/FutureCallback;->onSuccess(Ljava/lang/Object;)V
 
     return-void
 
@@ -127,20 +121,20 @@
     goto :goto_1
 
     :goto_0
-    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/o;
+    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/FutureCallback;
 
-    invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/o;->onFailure(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
 
     return-void
 
     :goto_1
-    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/o;
+    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/FutureCallback;
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v0
 
-    invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/o;->onFailure(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Lcom/google/common/util/concurrent/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
 
     return-void
 .end method
@@ -148,17 +142,17 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    invoke-static {p0}, Lcom/google/common/base/h;->b(Ljava/lang/Object;)Lcom/google/common/base/h$b;
+    invoke-static {p0}, Lcom/google/common/base/MoreObjects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/o;
+    iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$CallbackListener;->callback:Lcom/google/common/util/concurrent/FutureCallback;
 
-    invoke-virtual {v0, v1}, Lcom/google/common/base/h$b;->j(Ljava/lang/Object;)Lcom/google/common/base/h$b;
+    invoke-virtual {v0, v1}, Lcom/google/common/base/MoreObjects$ToStringHelper;->addValue(Ljava/lang/Object;)Lcom/google/common/base/MoreObjects$ToStringHelper;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/base/h$b;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/common/base/MoreObjects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v0
 

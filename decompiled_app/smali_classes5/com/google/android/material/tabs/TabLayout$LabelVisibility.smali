@@ -14,11 +14,3 @@
     accessFlags = 0x2609
     name = "LabelVisibility"
 .end annotation
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method

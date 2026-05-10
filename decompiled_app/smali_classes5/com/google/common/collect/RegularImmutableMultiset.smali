@@ -3,10 +3,18 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;,
-        Lcom/google/common/collect/RegularImmutableMultiset$SerializedForm;
+        Lcom/google/common/collect/RegularImmutableMultiset$SerializedForm;,
+        Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;
     }
 .end annotation
 
@@ -34,9 +42,19 @@
 
 
 # instance fields
-.field public final transient a:I
+.field final transient contents:Lcom/google/common/collect/ObjectCountHashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/common/collect/ObjectCountHashMap<",
+            "TE;>;"
+        }
+    .end annotation
+.end field
 
-.field public transient b:Lcom/google/common/collect/ImmutableSet;
+.field private transient elementSet:Lcom/google/common/collect/ImmutableSet;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSet<",
@@ -45,14 +63,7 @@
     .end annotation
 .end field
 
-.field final transient contents:Lcom/google/common/collect/o3;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/common/collect/o3<",
-            "TE;>;"
-        }
-    .end annotation
-.end field
+.field private final transient size:I
 
 
 # direct methods
@@ -61,43 +72,43 @@
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableMultiset;
 
-    invoke-static {}, Lcom/google/common/collect/o3;->b()Lcom/google/common/collect/o3;
+    invoke-static {}, Lcom/google/common/collect/ObjectCountHashMap;->create()Lcom/google/common/collect/ObjectCountHashMap;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/google/common/collect/RegularImmutableMultiset;-><init>(Lcom/google/common/collect/o3;)V
+    invoke-direct {v0, v1}, Lcom/google/common/collect/RegularImmutableMultiset;-><init>(Lcom/google/common/collect/ObjectCountHashMap;)V
 
     sput-object v0, Lcom/google/common/collect/RegularImmutableMultiset;->EMPTY:Lcom/google/common/collect/RegularImmutableMultiset;
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/google/common/collect/o3;)V
+.method public constructor <init>(Lcom/google/common/collect/ObjectCountHashMap;)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/o3<",
+            "Lcom/google/common/collect/ObjectCountHashMap<",
             "TE;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableMultiset;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMultiset;->contents:Lcom/google/common/collect/o3;
+    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMultiset;->contents:Lcom/google/common/collect/ObjectCountHashMap;
 
     const-wide/16 v0, 0x0
 
     const/4 v2, 0x0
 
     :goto_0
-    invoke-virtual {p1}, Lcom/google/common/collect/o3;->C()I
+    invoke-virtual {p1}, Lcom/google/common/collect/ObjectCountHashMap;->size()I
 
     move-result v3
 
     if-ge v2, v3, :cond_0
 
-    invoke-virtual {p1, v2}, Lcom/google/common/collect/o3;->k(I)I
+    invoke-virtual {p1, v2}, Lcom/google/common/collect/ObjectCountHashMap;->getValue(I)I
 
     move-result v3
 
@@ -110,11 +121,11 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->n(J)I
+    invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
 
     move-result p1
 
-    iput p1, p0, Lcom/google/common/collect/RegularImmutableMultiset;->a:I
+    iput p1, p0, Lcom/google/common/collect/RegularImmutableMultiset;->size:I
 
     return-void
 .end method
@@ -124,9 +135,9 @@
 .method public count(Ljava/lang/Object;)I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->contents:Lcom/google/common/collect/o3;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->contents:Lcom/google/common/collect/ObjectCountHashMap;
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/o3;->f(Ljava/lang/Object;)I
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/ObjectCountHashMap;->get(Ljava/lang/Object;)I
 
     move-result p1
 
@@ -143,7 +154,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->b:Lcom/google/common/collect/ImmutableSet;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->elementSet:Lcom/google/common/collect/ImmutableSet;
 
     if-nez v0, :cond_0
 
@@ -151,9 +162,9 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;-><init>(Lcom/google/common/collect/RegularImmutableMultiset;Lcom/google/common/collect/RegularImmutableMultiset$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/RegularImmutableMultiset$ElementSet;-><init>(Lcom/google/common/collect/RegularImmutableMultiset;Lcom/google/common/collect/RegularImmutableMultiset$1;)V
 
-    iput-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->b:Lcom/google/common/collect/ImmutableSet;
+    iput-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->elementSet:Lcom/google/common/collect/ImmutableSet;
 
     :cond_0
     return-object v0
@@ -169,19 +180,19 @@
     return-object v0
 .end method
 
-.method public getEntry(I)Lcom/google/common/collect/l3$a;
+.method public getEntry(I)Lcom/google/common/collect/Multiset$Entry;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/l3$a<",
+            "Lcom/google/common/collect/Multiset$Entry<",
             "TE;>;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->contents:Lcom/google/common/collect/o3;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->contents:Lcom/google/common/collect/ObjectCountHashMap;
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/o3;->g(I)Lcom/google/common/collect/l3$a;
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/ObjectCountHashMap;->getEntry(I)Lcom/google/common/collect/Multiset$Entry;
 
     move-result-object p1
 
@@ -199,17 +210,22 @@
 .method public size()I
     .locals 1
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->a:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableMultiset;->size:I
 
     return v0
 .end method
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableMultiset$SerializedForm;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/RegularImmutableMultiset$SerializedForm;-><init>(Lcom/google/common/collect/l3;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/RegularImmutableMultiset$SerializedForm;-><init>(Lcom/google/common/collect/Multiset;)V
 
     return-object v0
 .end method

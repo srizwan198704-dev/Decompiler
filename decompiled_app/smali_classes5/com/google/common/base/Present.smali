@@ -3,6 +3,12 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/base/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",
@@ -29,12 +35,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -145,22 +145,22 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     return-object p0
 .end method
 
-.method public or(Lcom/google/common/base/q;)Ljava/lang/Object;
+.method public or(Lcom/google/common/base/Supplier;)Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/base/q<",
+            "Lcom/google/common/base/Supplier<",
             "+TT;>;)TT;"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object p1, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
@@ -177,7 +177,7 @@
 
     const-string v0, "use Optional.orNull() instead of Optional.or(null)"
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object p1, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
@@ -223,14 +223,14 @@
     return-object v0
 .end method
 
-.method public transform(Lcom/google/common/base/f;)Lcom/google/common/base/Optional;
+.method public transform(Lcom/google/common/base/Function;)Lcom/google/common/base/Optional;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/base/f<",
+            "Lcom/google/common/base/Function<",
             "-TT;TV;>;)",
             "Lcom/google/common/base/Optional<",
             "TV;>;"
@@ -241,13 +241,13 @@
 
     iget-object v1, p0, Lcom/google/common/base/Present;->reference:Ljava/lang/Object;
 
-    invoke-interface {p1, v1}, Lcom/google/common/base/f;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     const-string v1, "the Function passed to Optional.transform() must not return null."
 
-    invoke-static {p1, v1}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 

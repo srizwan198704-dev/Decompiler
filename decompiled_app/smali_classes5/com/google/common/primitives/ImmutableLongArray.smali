@@ -6,10 +6,19 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/primitives/ElementTypesAreNonnullByDefault;
+.end annotation
+
+.annotation runtime Lcom/google/errorprone/annotations/Immutable;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/primitives/ImmutableLongArray$b;,
-        Lcom/google/common/primitives/ImmutableLongArray$AsList;
+        Lcom/google/common/primitives/ImmutableLongArray$AsList;,
+        Lcom/google/common/primitives/ImmutableLongArray$Builder;
     }
 .end annotation
 
@@ -69,7 +78,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>([JIILcom/google/common/primitives/ImmutableLongArray$a;)V
+.method public synthetic constructor <init>([JIILcom/google/common/primitives/ImmutableLongArray$1;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/google/common/primitives/ImmutableLongArray;-><init>([JII)V
@@ -101,19 +110,19 @@
     return-object v0
 .end method
 
-.method public static builder()Lcom/google/common/primitives/ImmutableLongArray$b;
+.method public static builder()Lcom/google/common/primitives/ImmutableLongArray$Builder;
     .locals 2
 
-    new-instance v0, Lcom/google/common/primitives/ImmutableLongArray$b;
+    new-instance v0, Lcom/google/common/primitives/ImmutableLongArray$Builder;
 
     const/16 v1, 0xa
 
-    invoke-direct {v0, v1}, Lcom/google/common/primitives/ImmutableLongArray$b;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/google/common/primitives/ImmutableLongArray$Builder;-><init>(I)V
 
     return-object v0
 .end method
 
-.method public static builder(I)Lcom/google/common/primitives/ImmutableLongArray$b;
+.method public static builder(I)Lcom/google/common/primitives/ImmutableLongArray$Builder;
     .locals 2
 
     if-ltz p0, :cond_0
@@ -128,11 +137,11 @@
     :goto_0
     const-string v1, "Invalid initialCapacity: %s"
 
-    invoke-static {v0, v1, p0}, Lcom/google/common/base/m;->f(ZLjava/lang/String;I)V
+    invoke-static {v0, v1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
 
-    new-instance v0, Lcom/google/common/primitives/ImmutableLongArray$b;
+    new-instance v0, Lcom/google/common/primitives/ImmutableLongArray$Builder;
 
-    invoke-direct {v0, p0}, Lcom/google/common/primitives/ImmutableLongArray$b;-><init>(I)V
+    invoke-direct {v0, p0}, Lcom/google/common/primitives/ImmutableLongArray$Builder;-><init>(I)V
 
     return-object v0
 .end method
@@ -162,15 +171,15 @@
     return-object p0
 
     :cond_0
-    invoke-static {}, Lcom/google/common/primitives/ImmutableLongArray;->builder()Lcom/google/common/primitives/ImmutableLongArray$b;
+    invoke-static {}, Lcom/google/common/primitives/ImmutableLongArray;->builder()Lcom/google/common/primitives/ImmutableLongArray$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/google/common/primitives/ImmutableLongArray$b;->b(Ljava/lang/Iterable;)Lcom/google/common/primitives/ImmutableLongArray$b;
+    invoke-virtual {v0, p0}, Lcom/google/common/primitives/ImmutableLongArray$Builder;->addAll(Ljava/lang/Iterable;)Lcom/google/common/primitives/ImmutableLongArray$Builder;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/google/common/primitives/ImmutableLongArray$b;->d()Lcom/google/common/primitives/ImmutableLongArray;
+    invoke-virtual {p0}, Lcom/google/common/primitives/ImmutableLongArray$Builder;->build()Lcom/google/common/primitives/ImmutableLongArray;
 
     move-result-object p0
 
@@ -202,7 +211,7 @@
     :cond_0
     new-instance v0, Lcom/google/common/primitives/ImmutableLongArray;
 
-    invoke-static {p0}, Lcom/google/common/primitives/Longs;->j(Ljava/util/Collection;)[J
+    invoke-static {p0}, Lcom/google/common/primitives/Longs;->toArray(Ljava/util/Collection;)[J
 
     move-result-object p0
 
@@ -461,17 +470,17 @@
 
     if-gt v0, v1, :cond_0
 
-    move v0, v3
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
     :goto_0
     const-string v1, "the total number of elements must fit in an int"
 
-    invoke-static {v0, v1}, Lcom/google/common/base/m;->e(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     array-length v0, p2
 
@@ -509,7 +518,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/primitives/ImmutableLongArray$AsList;-><init>(Lcom/google/common/primitives/ImmutableLongArray;Lcom/google/common/primitives/ImmutableLongArray$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/primitives/ImmutableLongArray$AsList;-><init>(Lcom/google/common/primitives/ImmutableLongArray;Lcom/google/common/primitives/ImmutableLongArray$1;)V
 
     return-object v0
 .end method
@@ -535,7 +544,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .locals 8
 
     const/4 v0, 0x1
 
@@ -568,7 +577,7 @@
     return v2
 
     :cond_2
-    move v1, v2
+    const/4 v1, 0x0
 
     :goto_0
     invoke-virtual {p0}, Lcom/google/common/primitives/ImmutableLongArray;->length()I
@@ -585,9 +594,9 @@
 
     move-result-wide v5
 
-    cmp-long v3, v3, v5
+    cmp-long v7, v3, v5
 
-    if-eqz v3, :cond_3
+    if-eqz v7, :cond_3
 
     return v2
 
@@ -607,7 +616,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->m(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     iget-object v0, p0, Lcom/google/common/primitives/ImmutableLongArray;->array:[J
 
@@ -638,7 +647,7 @@
 
     aget-wide v3, v2, v0
 
-    invoke-static {v3, v4}, Lcom/google/common/primitives/Longs;->e(J)I
+    invoke-static {v3, v4}, Lcom/google/common/primitives/Longs;->hashCode(J)I
 
     move-result v2
 
@@ -781,7 +790,7 @@
 
     move-result v0
 
-    invoke-static {p1, p2, v0}, Lcom/google/common/base/m;->t(III)V
+    invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     if-ne p1, p2, :cond_0
 

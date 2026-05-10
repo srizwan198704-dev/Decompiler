@@ -2,41 +2,46 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/transition/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "id"
+.end annotation
+
+
 # static fields
-.field public static ghost_view:I = 0x7f0a0365
+.field public static final ghost_view:I = 0x7f0a069a
 
-.field public static ghost_view_holder:I = 0x7f0a0366
+.field public static final ghost_view_holder:I = 0x7f0a069b
 
-.field public static parent_matrix:I = 0x7f0a0887
+.field public static final parent_matrix:I = 0x7f0a0e8d
 
-.field public static save_non_transition_alpha:I = 0x7f0a098f
+.field public static final save_non_transition_alpha:I = 0x7f0a1000
 
-.field public static save_overlay_view:I = 0x7f0a0990
+.field public static final save_overlay_view:I = 0x7f0a1001
 
-.field public static transition_clip:I = 0x7f0a0b3f
+.field public static final transition_clip:I = 0x7f0a1289
 
-.field public static transition_current_scene:I = 0x7f0a0b40
+.field public static final transition_current_scene:I = 0x7f0a128a
 
-.field public static transition_image_transform:I = 0x7f0a0b41
+.field public static final transition_image_transform:I = 0x7f0a128b
 
-.field public static transition_layout_save:I = 0x7f0a0b42
+.field public static final transition_layout_save:I = 0x7f0a128c
 
-.field public static transition_pause_alpha:I = 0x7f0a0b43
+.field public static final transition_pause_alpha:I = 0x7f0a128d
 
-.field public static transition_position:I = 0x7f0a0b44
+.field public static final transition_position:I = 0x7f0a128e
 
-.field public static transition_scene_layoutid_cache:I = 0x7f0a0b45
+.field public static final transition_scene_layoutid_cache:I = 0x7f0a128f
 
-.field public static transition_transform:I = 0x7f0a0b46
+.field public static final transition_transform:I = 0x7f0a1290
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

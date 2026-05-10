@@ -3,12 +3,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/google/android/gms/common/internal/ClientSettings;Lcom/google/android/gms/common/api/internal/ConnectionCallbacks;Lcom/google/android/gms/common/api/internal/OnConnectionFailedListener;)V
     .locals 7
 
@@ -73,19 +67,19 @@
 .end method
 
 .method public final disconnect(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "GoogleAuthServiceClientImpl disconnected with reason: "
+    const-string v1, "GoogleAuthSvcClientImpl"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+    const-string v2, "GoogleAuthServiceClientImpl disconnected with reason: "
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
-
-    const-string v1, "GoogleAuthSvcClientImpl"
 
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -101,23 +95,23 @@
 
     new-array v0, v0, [Lcom/google/android/gms/common/Feature;
 
-    sget-object v1, Lcom/google/android/gms/auth/zze;->zzj:Lcom/google/android/gms/common/Feature;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/android/gms/auth/zze;->zzl:Lcom/google/android/gms/common/Feature;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/android/gms/auth/zze;->zzi:Lcom/google/android/gms/common/Feature;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Lcom/google/android/gms/auth/zze;->zzk:Lcom/google/android/gms/common/Feature;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/android/gms/auth/zze;->zza:Lcom/google/android/gms/common/Feature;
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    sget-object v2, Lcom/google/android/gms/auth/zze;->zza:Lcom/google/android/gms/common/Feature;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method

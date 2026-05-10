@@ -7,29 +7,25 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/MapMakerInternalMap$i;,
-        Lcom/google/common/collect/MapMakerInternalMap$Segment;,
-        Lcom/google/common/collect/MapMakerInternalMap$Strength;,
-        Lcom/google/common/collect/MapMakerInternalMap$m;,
-        Lcom/google/common/collect/MapMakerInternalMap$n;,
-        Lcom/google/common/collect/MapMakerInternalMap$r;,
-        Lcom/google/common/collect/MapMakerInternalMap$s;,
-        Lcom/google/common/collect/MapMakerInternalMap$l;,
-        Lcom/google/common/collect/MapMakerInternalMap$q;,
-        Lcom/google/common/collect/MapMakerInternalMap$u;,
-        Lcom/google/common/collect/MapMakerInternalMap$h;,
-        Lcom/google/common/collect/MapMakerInternalMap$k;,
-        Lcom/google/common/collect/MapMakerInternalMap$p;,
-        Lcom/google/common/collect/MapMakerInternalMap$f;,
         Lcom/google/common/collect/MapMakerInternalMap$SerializationProxy;,
         Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;,
-        Lcom/google/common/collect/MapMakerInternalMap$e;,
-        Lcom/google/common/collect/MapMakerInternalMap$w;,
-        Lcom/google/common/collect/MapMakerInternalMap$o;,
-        Lcom/google/common/collect/MapMakerInternalMap$j;,
-        Lcom/google/common/collect/MapMakerInternalMap$g;,
+        Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;,
+        Lcom/google/common/collect/MapMakerInternalMap$EntrySet;,
+        Lcom/google/common/collect/MapMakerInternalMap$Values;,
+        Lcom/google/common/collect/MapMakerInternalMap$KeySet;,
+        Lcom/google/common/collect/MapMakerInternalMap$EntryIterator;,
+        Lcom/google/common/collect/MapMakerInternalMap$WriteThroughEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$ValueIterator;,
+        Lcom/google/common/collect/MapMakerInternalMap$KeyIterator;,
+        Lcom/google/common/collect/MapMakerInternalMap$HashIterator;,
         Lcom/google/common/collect/MapMakerInternalMap$CleanupMapTask;,
         Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueSegment;,
         Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueSegment;,
@@ -37,11 +33,23 @@
         Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueSegment;,
         Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueSegment;,
         Lcom/google/common/collect/MapMakerInternalMap$StrongKeyStrongValueSegment;,
-        Lcom/google/common/collect/MapMakerInternalMap$v;,
-        Lcom/google/common/collect/MapMakerInternalMap$d;,
-        Lcom/google/common/collect/MapMakerInternalMap$c;,
-        Lcom/google/common/collect/MapMakerInternalMap$t;,
-        Lcom/google/common/collect/MapMakerInternalMap$b;
+        Lcom/google/common/collect/MapMakerInternalMap$Segment;,
+        Lcom/google/common/collect/MapMakerInternalMap$WeakValueReferenceImpl;,
+        Lcom/google/common/collect/MapMakerInternalMap$DummyInternalEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;,
+        Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$WeakKeyStrongValueEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$AbstractWeakKeyEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$StrongKeyStrongValueEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$WeakValueEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$StrongValueEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$AbstractStrongKeyEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;,
+        Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;,
+        Lcom/google/common/collect/MapMakerInternalMap$Strength;
     }
 .end annotation
 
@@ -52,7 +60,7 @@
         "V:",
         "Ljava/lang/Object;",
         "E::",
-        "Lcom/google/common/collect/MapMakerInternalMap$h<",
+        "Lcom/google/common/collect/MapMakerInternalMap$InternalEntry<",
         "TK;TV;TE;>;S:",
         "Lcom/google/common/collect/MapMakerInternalMap$Segment<",
         "TK;TV;TE;TS;>;>",
@@ -76,13 +84,13 @@
 
 .field static final MAX_SEGMENTS:I = 0x10000
 
-.field static final UNSET_WEAK_VALUE_REFERENCE:Lcom/google/common/collect/MapMakerInternalMap$u;
+.field static final UNSET_WEAK_VALUE_REFERENCE:Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/MapMakerInternalMap$u<",
+            "Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference<",
             "Ljava/lang/Object;",
             "Ljava/lang/Object;",
-            "Lcom/google/common/collect/MapMakerInternalMap$d;",
+            "Lcom/google/common/collect/MapMakerInternalMap$DummyInternalEntry;",
             ">;"
         }
     .end annotation
@@ -94,16 +102,19 @@
 # instance fields
 .field final concurrencyLevel:I
 
-.field final transient entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+.field final transient entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/MapMakerInternalMap$i<",
+            "Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper<",
             "TK;TV;TE;TS;>;"
         }
     .end annotation
 .end field
 
 .field transient entrySet:Ljava/util/Set;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -124,6 +135,9 @@
 .end field
 
 .field transient keySet:Ljava/util/Set;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -147,6 +161,9 @@
 .end field
 
 .field transient values:Ljava/util/Collection;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Collection<",
@@ -160,29 +177,29 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$a;
+    new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$1;
 
-    invoke-direct {v0}, Lcom/google/common/collect/MapMakerInternalMap$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/collect/MapMakerInternalMap$1;-><init>()V
 
-    sput-object v0, Lcom/google/common/collect/MapMakerInternalMap;->UNSET_WEAK_VALUE_REFERENCE:Lcom/google/common/collect/MapMakerInternalMap$u;
+    sput-object v0, Lcom/google/common/collect/MapMakerInternalMap;->UNSET_WEAK_VALUE_REFERENCE:Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$i;)V
+.method private constructor <init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/google/common/collect/MapMaker;",
-            "Lcom/google/common/collect/MapMakerInternalMap$i<",
+            "Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper<",
             "TK;TV;TE;TS;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/util/AbstractMap;-><init>()V
 
-    invoke-virtual {p1}, Lcom/google/common/collect/MapMaker;->b()I
+    invoke-virtual {p1}, Lcom/google/common/collect/MapMaker;->getConcurrencyLevel()I
 
     move-result v0
 
@@ -194,15 +211,15 @@
 
     iput v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->concurrencyLevel:I
 
-    invoke-virtual {p1}, Lcom/google/common/collect/MapMaker;->d()Lcom/google/common/base/Equivalence;
+    invoke-virtual {p1}, Lcom/google/common/collect/MapMaker;->getKeyEquivalence()Lcom/google/common/base/Equivalence;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->keyEquivalence:Lcom/google/common/base/Equivalence;
 
-    iput-object p2, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+    iput-object p2, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
 
-    invoke-virtual {p1}, Lcom/google/common/collect/MapMaker;->c()I
+    invoke-virtual {p1}, Lcom/google/common/collect/MapMaker;->getInitialCapacity()I
 
     move-result p1
 
@@ -216,9 +233,9 @@
 
     const/4 v0, 0x1
 
-    move v2, p2
+    const/4 v1, 0x1
 
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
     iget v3, p0, Lcom/google/common/collect/MapMakerInternalMap;->concurrencyLevel:I
@@ -248,7 +265,7 @@
 
     div-int v2, p1, v1
 
-    mul-int/2addr v1, v2
+    mul-int v1, v1, v2
 
     if-ge v1, p1, :cond_1
 
@@ -284,6 +301,16 @@
     return-void
 .end method
 
+.method public static synthetic access$1800(Ljava/util/Collection;)Ljava/util/ArrayList;
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/common/collect/MapMakerInternalMap;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static create(Lcom/google/common/collect/MapMaker;)Lcom/google/common/collect/MapMakerInternalMap;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -297,12 +324,12 @@
             ")",
             "Lcom/google/common/collect/MapMakerInternalMap<",
             "TK;TV;+",
-            "Lcom/google/common/collect/MapMakerInternalMap$h<",
+            "Lcom/google/common/collect/MapMakerInternalMap$InternalEntry<",
             "TK;TV;*>;*>;"
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->e()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getKeyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -310,7 +337,7 @@
 
     if-ne v0, v1, :cond_0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getValueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -318,22 +345,22 @@
 
     new-instance v0, Lcom/google/common/collect/MapMakerInternalMap;
 
-    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$m$a;->h()Lcom/google/common/collect/MapMakerInternalMap$m$a;
+    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$StrongKeyStrongValueEntry$Helper;->instance()Lcom/google/common/collect/MapMakerInternalMap$StrongKeyStrongValueEntry$Helper;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$i;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;)V
 
     return-object v0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->e()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getKeyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
     if-ne v0, v1, :cond_1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getValueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -343,16 +370,16 @@
 
     new-instance v0, Lcom/google/common/collect/MapMakerInternalMap;
 
-    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$n$a;->h()Lcom/google/common/collect/MapMakerInternalMap$n$a;
+    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry$Helper;->instance()Lcom/google/common/collect/MapMakerInternalMap$StrongKeyWeakValueEntry$Helper;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$i;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;)V
 
     return-object v0
 
     :cond_1
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->e()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getKeyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -360,7 +387,7 @@
 
     if-ne v0, v2, :cond_2
 
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getValueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -368,22 +395,22 @@
 
     new-instance v0, Lcom/google/common/collect/MapMakerInternalMap;
 
-    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$r$a;->h()Lcom/google/common/collect/MapMakerInternalMap$r$a;
+    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$WeakKeyStrongValueEntry$Helper;->instance()Lcom/google/common/collect/MapMakerInternalMap$WeakKeyStrongValueEntry$Helper;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$i;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;)V
 
     return-object v0
 
     :cond_2
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->e()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getKeyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
     if-ne v0, v2, :cond_3
 
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getValueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -391,11 +418,11 @@
 
     new-instance v0, Lcom/google/common/collect/MapMakerInternalMap;
 
-    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$s$a;->h()Lcom/google/common/collect/MapMakerInternalMap$s$a;
+    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry$Helper;->instance()Lcom/google/common/collect/MapMakerInternalMap$WeakKeyWeakValueEntry$Helper;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$i;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;)V
 
     return-object v0
 
@@ -420,14 +447,14 @@
             "TK;",
             "Lcom/google/common/collect/MapMaker$Dummy;",
             "+",
-            "Lcom/google/common/collect/MapMakerInternalMap$h<",
+            "Lcom/google/common/collect/MapMakerInternalMap$InternalEntry<",
             "TK;",
             "Lcom/google/common/collect/MapMaker$Dummy;",
             "*>;*>;"
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->e()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getKeyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -435,7 +462,7 @@
 
     if-ne v0, v1, :cond_0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getValueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -443,16 +470,16 @@
 
     new-instance v0, Lcom/google/common/collect/MapMakerInternalMap;
 
-    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$l$a;->h()Lcom/google/common/collect/MapMakerInternalMap$l$a;
+    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueEntry$Helper;->instance()Lcom/google/common/collect/MapMakerInternalMap$StrongKeyDummyValueEntry$Helper;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$i;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;)V
 
     return-object v0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->e()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getKeyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -460,7 +487,7 @@
 
     if-ne v0, v2, :cond_1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getValueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -468,16 +495,16 @@
 
     new-instance v0, Lcom/google/common/collect/MapMakerInternalMap;
 
-    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$q$a;->h()Lcom/google/common/collect/MapMakerInternalMap$q$a;
+    invoke-static {}, Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry$Helper;->instance()Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry$Helper;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$i;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/MapMakerInternalMap;-><init>(Lcom/google/common/collect/MapMaker;Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;)V
 
     return-object v0
 
     :cond_1
-    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-virtual {p0}, Lcom/google/common/collect/MapMaker;->getValueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object p0
 
@@ -501,6 +528,9 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -552,7 +582,38 @@
     return p0
 .end method
 
-.method public static unsetWeakValueReference()Lcom/google/common/collect/MapMakerInternalMap$u;
+.method private static toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/Collection<",
+            "TE;>;)",
+            "Ljava/util/ArrayList<",
+            "TE;>;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-interface {p0}, Ljava/util/Collection;->size()I
+
+    move-result v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Lcom/google/common/collect/Iterators;->addAll(Ljava/util/Collection;Ljava/util/Iterator;)Z
+
+    return-object v0
+.end method
+
+.method public static unsetWeakValueReference()Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -561,14 +622,14 @@
             "V:",
             "Ljava/lang/Object;",
             "E::",
-            "Lcom/google/common/collect/MapMakerInternalMap$h<",
+            "Lcom/google/common/collect/MapMakerInternalMap$InternalEntry<",
             "TK;TV;TE;>;>()",
-            "Lcom/google/common/collect/MapMakerInternalMap$u<",
+            "Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference<",
             "TK;TV;TE;>;"
         }
     .end annotation
 
-    sget-object v0, Lcom/google/common/collect/MapMakerInternalMap;->UNSET_WEAK_VALUE_REFERENCE:Lcom/google/common/collect/MapMakerInternalMap$u;
+    sget-object v0, Lcom/google/common/collect/MapMakerInternalMap;->UNSET_WEAK_VALUE_REFERENCE:Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;
 
     return-object v0
 .end method
@@ -642,18 +703,18 @@
 
     const-wide/16 v4, -0x1
 
-    move v6, v1
+    const/4 v6, 0x0
 
     :goto_0
     const/4 v7, 0x3
 
-    if-ge v6, v7, :cond_6
+    if-ge v6, v7, :cond_5
 
     array-length v7, v3
 
     const-wide/16 v8, 0x0
 
-    move v10, v1
+    const/4 v10, 0x0
 
     :goto_1
     if-ge v10, v7, :cond_4
@@ -664,7 +725,7 @@
 
     iget-object v12, v11, Lcom/google/common/collect/MapMakerInternalMap$Segment;->table:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
-    move v13, v1
+    const/4 v13, 0x0
 
     :goto_2
     invoke-virtual {v12}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->length()I
@@ -677,12 +738,12 @@
 
     move-result-object v14
 
-    check-cast v14, Lcom/google/common/collect/MapMakerInternalMap$h;
+    check-cast v14, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
 
     :goto_3
     if-eqz v14, :cond_2
 
-    invoke-virtual {v11, v14}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->getLiveValue(Lcom/google/common/collect/MapMakerInternalMap$h;)Ljava/lang/Object;
+    invoke-virtual {v11, v14}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->getLiveValue(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Ljava/lang/Object;
 
     move-result-object v15
 
@@ -703,7 +764,7 @@
     return v0
 
     :cond_1
-    invoke-interface {v14}, Lcom/google/common/collect/MapMakerInternalMap$h;->k()Lcom/google/common/collect/MapMakerInternalMap$h;
+    invoke-interface {v14}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getNext()Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
 
     move-result-object v14
 
@@ -734,13 +795,14 @@
     :cond_4
     cmp-long v1, v8, v4
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_6
 
+    :cond_5
     const/4 v0, 0x0
 
     goto :goto_4
 
-    :cond_5
+    :cond_6
     add-int/lit8 v6, v6, 0x1
 
     move-wide v4, v8
@@ -749,22 +811,22 @@
 
     goto :goto_0
 
-    :cond_6
-    move v0, v1
-
     :goto_4
     return v0
 .end method
 
-.method public copyEntry(Lcom/google/common/collect/MapMakerInternalMap$h;Lcom/google/common/collect/MapMakerInternalMap$h;)Lcom/google/common/collect/MapMakerInternalMap$h;
+.method public copyEntry(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
     .locals 1
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)TE;"
         }
     .end annotation
 
-    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$h;->b()I
+    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getHash()I
 
     move-result v0
 
@@ -772,7 +834,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->copyEntry(Lcom/google/common/collect/MapMakerInternalMap$h;Lcom/google/common/collect/MapMakerInternalMap$h;)Lcom/google/common/collect/MapMakerInternalMap$h;
+    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->copyEntry(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
 
     move-result-object p1
 
@@ -789,9 +851,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
 
-    invoke-interface {v0, p0, p1}, Lcom/google/common/collect/MapMakerInternalMap$i;->a(Lcom/google/common/collect/MapMakerInternalMap;I)Lcom/google/common/collect/MapMakerInternalMap$Segment;
+    invoke-interface {v0, p0, p1}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;->newSegment(Lcom/google/common/collect/MapMakerInternalMap;I)Lcom/google/common/collect/MapMakerInternalMap$Segment;
 
     move-result-object p1
 
@@ -816,9 +878,9 @@
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$f;
+    new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$EntrySet;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/MapMakerInternalMap$f;-><init>(Lcom/google/common/collect/MapMakerInternalMap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MapMakerInternalMap$EntrySet;-><init>(Lcom/google/common/collect/MapMakerInternalMap;)V
 
     iput-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entrySet:Ljava/util/Set;
 
@@ -858,7 +920,7 @@
     return-object p1
 .end method
 
-.method public getEntry(Ljava/lang/Object;)Lcom/google/common/collect/MapMakerInternalMap$h;
+.method public getEntry(Ljava/lang/Object;)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -883,14 +945,14 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p1, v0}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->getEntry(Ljava/lang/Object;I)Lcom/google/common/collect/MapMakerInternalMap$h;
+    invoke-virtual {v1, p1, v0}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->getEntry(Ljava/lang/Object;I)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public getLiveValue(Lcom/google/common/collect/MapMakerInternalMap$h;)Ljava/lang/Object;
+.method public getLiveValue(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -898,7 +960,7 @@
         }
     .end annotation
 
-    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$h;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -909,7 +971,7 @@
     return-object p1
 
     :cond_0
-    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$h;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getValue()Ljava/lang/Object;
 
     move-result-object p1
 
@@ -943,7 +1005,7 @@
 
     move-wide v5, v1
 
-    move v4, v3
+    const/4 v4, 0x0
 
     :goto_0
     array-length v7, v0
@@ -972,20 +1034,20 @@
     goto :goto_0
 
     :cond_1
-    cmp-long v4, v5, v1
+    const/4 v4, 0x1
 
-    const/4 v7, 0x1
+    cmp-long v7, v5, v1
 
-    if-eqz v4, :cond_5
+    if-eqz v7, :cond_5
 
-    move v4, v3
+    const/4 v7, 0x0
 
     :goto_1
     array-length v8, v0
 
-    if-ge v4, v8, :cond_3
+    if-ge v7, v8, :cond_3
 
-    aget-object v8, v0, v4
+    aget-object v8, v0, v7
 
     iget v8, v8, Lcom/google/common/collect/MapMakerInternalMap$Segment;->count:I
 
@@ -994,7 +1056,7 @@
     return v3
 
     :cond_2
-    aget-object v8, v0, v4
+    aget-object v8, v0, v7
 
     iget v8, v8, Lcom/google/common/collect/MapMakerInternalMap$Segment;->modCount:I
 
@@ -1002,7 +1064,7 @@
 
     sub-long/2addr v5, v8
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
@@ -1011,26 +1073,29 @@
 
     if-nez v0, :cond_4
 
-    move v3, v7
+    const/4 v3, 0x1
 
     :cond_4
     return v3
 
     :cond_5
-    return v7
+    return v4
 .end method
 
-.method public isLiveForTesting(Lcom/google/common/collect/MapMakerInternalMap$h;)Z
+.method public isLiveForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Z
     .locals 1
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/MapMakerInternalMap$h<",
+            "Lcom/google/common/collect/MapMakerInternalMap$InternalEntry<",
             "TK;TV;*>;)Z"
         }
     .end annotation
 
-    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$h;->b()I
+    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getHash()I
 
     move-result v0
 
@@ -1038,7 +1103,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->getLiveValueForTesting(Lcom/google/common/collect/MapMakerInternalMap$h;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->getLiveValueForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -1072,9 +1137,9 @@
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$k;
+    new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$KeySet;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/MapMakerInternalMap$k;-><init>(Lcom/google/common/collect/MapMakerInternalMap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MapMakerInternalMap$KeySet;-><init>(Lcom/google/common/collect/MapMakerInternalMap;)V
 
     iput-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->keySet:Ljava/util/Set;
 
@@ -1084,10 +1149,12 @@
 
 .method public keyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
     .locals 1
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
 
-    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$i;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;->keyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -1111,15 +1178,18 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0, p1}, Lcom/google/common/collect/MapMakerInternalMap;->hash(Ljava/lang/Object;)I
 
@@ -1187,15 +1257,18 @@
 
 .method public putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0, p1}, Lcom/google/common/collect/MapMakerInternalMap;->hash(Ljava/lang/Object;)I
 
@@ -1214,7 +1287,7 @@
     return-object p1
 .end method
 
-.method public reclaimKey(Lcom/google/common/collect/MapMakerInternalMap$h;)V
+.method public reclaimKey(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1222,7 +1295,7 @@
         }
     .end annotation
 
-    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$h;->b()I
+    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getHash()I
 
     move-result v0
 
@@ -1230,26 +1303,26 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p1, v0}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->reclaimKey(Lcom/google/common/collect/MapMakerInternalMap$h;I)Z
+    invoke-virtual {v1, p1, v0}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->reclaimKey(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;I)Z
 
     return-void
 .end method
 
-.method public reclaimValue(Lcom/google/common/collect/MapMakerInternalMap$u;)V
+.method public reclaimValue(Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/MapMakerInternalMap$u<",
+            "Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference<",
             "TK;TV;TE;>;)V"
         }
     .end annotation
 
-    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$u;->a()Lcom/google/common/collect/MapMakerInternalMap$h;
+    invoke-interface {p1}, Lcom/google/common/collect/MapMakerInternalMap$WeakValueReference;->getEntry()Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$h;->b()I
+    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getHash()I
 
     move-result v1
 
@@ -1257,17 +1330,20 @@
 
     move-result-object v2
 
-    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$h;->getKey()Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0, v1, p1}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->reclaimValue(Ljava/lang/Object;ILcom/google/common/collect/MapMakerInternalMap$u;)Z
+    invoke-virtual {v2, v0, v1, p1}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->reclaimValue(Ljava/lang/Object;ILcom/google/common/collect/MapMakerInternalMap$WeakValueReference;)Z
 
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1300,6 +1376,8 @@
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 2
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -1331,15 +1409,18 @@
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0, p1}, Lcom/google/common/collect/MapMakerInternalMap;->hash(Ljava/lang/Object;)I
 
@@ -1358,15 +1439,18 @@
 
 .method public replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 2
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;TV;)Z"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p3}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     if-nez p2, :cond_0
 
@@ -1442,7 +1526,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {v1, v2}, Lcom/google/common/primitives/Ints;->n(J)I
+    invoke-static {v1, v2}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
 
     move-result v0
 
@@ -1451,6 +1535,9 @@
 
 .method public valueEquivalence()Lcom/google/common/base/Equivalence;
     .locals 1
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1460,9 +1547,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
 
-    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$i;->c()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;->valueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -1475,10 +1562,12 @@
 
 .method public valueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
     .locals 1
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
 
-    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$i;->c()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;->valueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 
@@ -1502,9 +1591,9 @@
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$p;
+    new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$Values;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/MapMakerInternalMap$p;-><init>(Lcom/google/common/collect/MapMakerInternalMap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MapMakerInternalMap$Values;-><init>(Lcom/google/common/collect/MapMakerInternalMap;)V
 
     iput-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->values:Ljava/util/Collection;
 
@@ -1517,23 +1606,23 @@
 
     new-instance v7, Lcom/google/common/collect/MapMakerInternalMap$SerializationProxy;
 
-    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
 
-    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$i;->f()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;->keyStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v1
 
-    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
 
-    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$i;->c()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;->valueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/google/common/collect/MapMakerInternalMap;->keyEquivalence:Lcom/google/common/base/Equivalence;
 
-    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$i;
+    iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap;->entryHelper:Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;
 
-    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$i;->c()Lcom/google/common/collect/MapMakerInternalMap$Strength;
+    invoke-interface {v0}, Lcom/google/common/collect/MapMakerInternalMap$InternalEntryHelper;->valueStrength()Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
     move-result-object v0
 

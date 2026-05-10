@@ -6,12 +6,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public synthetic constructor <init>()V
     .locals 0
 
@@ -25,9 +19,9 @@
 .method public final get()Ljava/lang/Object;
     .locals 1
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableSet;->builder()Lcom/google/common/collect/ImmutableSet$a;
+    new-instance v0, Lcom/google/common/collect/MoreCollectors$ToOptionalState;
 
-    move-result-object v0
+    invoke-direct {v0}, Lcom/google/common/collect/MoreCollectors$ToOptionalState;-><init>()V
 
     return-object v0
 .end method

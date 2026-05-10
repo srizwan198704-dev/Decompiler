@@ -1,32 +1,29 @@
-.class public abstract Lcom/google/common/collect/j;
-.super Lcom/google/common/collect/c;
+.class public final synthetic Lcom/google/common/collect/j;
+.super Ljava/lang/Object;
 
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<K:",
-        "Ljava/lang/Object;",
-        "V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Lcom/google/common/collect/c<",
-        "TK;TV;>;"
-    }
-.end annotation
+# interfaces
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public synthetic constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public constructor <init>()V
+
+# virtual methods
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/common/collect/c;-><init>()V
+    check-cast p1, Lcom/google/common/collect/Multiset;
 
-    return-void
+    invoke-static {p1}, Lcom/google/common/collect/CollectCollectors;->p(Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/ImmutableMultiset;
+
+    move-result-object p1
+
+    return-object p1
 .end method

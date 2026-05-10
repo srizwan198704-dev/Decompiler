@@ -3,6 +3,14 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -27,9 +35,12 @@
 
 
 # instance fields
-.field public final transient a:I
-
 .field final transient array:[Ljava/lang/Object;
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
+.end field
+
+.field private final transient size:I
 
 
 # direct methods
@@ -56,7 +67,7 @@
 
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableList;->array:[Ljava/lang/Object;
 
-    iput p2, p0, Lcom/google/common/collect/RegularImmutableList;->a:I
+    iput p2, p0, Lcom/google/common/collect/RegularImmutableList;->size:I
 
     return-void
 .end method
@@ -70,11 +81,11 @@
 
     const/4 v1, 0x0
 
-    iget v2, p0, Lcom/google/common/collect/RegularImmutableList;->a:I
+    iget v2, p0, Lcom/google/common/collect/RegularImmutableList;->size:I
 
     invoke-static {v0, v1, p1, p2, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iget p1, p0, Lcom/google/common/collect/RegularImmutableList;->a:I
+    iget p1, p0, Lcom/google/common/collect/RegularImmutableList;->size:I
 
     add-int/2addr p2, p1
 
@@ -89,9 +100,9 @@
         }
     .end annotation
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableList;->a:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableList;->size:I
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->m(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableList;->array:[Ljava/lang/Object;
 
@@ -113,7 +124,7 @@
 .method public internalArrayEnd()I
     .locals 1
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableList;->a:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableList;->size:I
 
     return v0
 .end method
@@ -137,13 +148,18 @@
 .method public size()I
     .locals 1
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableList;->a:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableList;->size:I
 
     return v0
 .end method
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableList;->writeReplace()Ljava/lang/Object;
 

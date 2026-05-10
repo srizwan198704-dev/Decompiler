@@ -12,12 +12,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/android/gms/internal/common/zzx;Ljava/lang/CharSequence;)V
     .locals 0
 
@@ -124,5 +118,11 @@
 
     invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
+    goto :goto_3
+
+    :goto_2
     throw v1
+
+    :goto_3
+    goto :goto_2
 .end method

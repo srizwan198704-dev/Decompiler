@@ -2,35 +2,38 @@
 .super Landroid/widget/FrameLayout;
 
 # interfaces
-.implements Lhc/g;
-.implements Luc/q;
+.implements Lcom/google/android/material/carousel/Maskable;
+.implements Lcom/google/android/material/shape/Shapeable;
+
+
+# static fields
+.field private static final NOT_SET:I = -0x1
 
 
 # instance fields
-.field public a:F
+.field private final maskRect:Landroid/graphics/RectF;
 
-.field public final b:Landroid/graphics/RectF;
+.field private maskXPercentage:F
 
-.field public c:Luc/n;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field public final d:Luc/r;
-
-.field public e:Ljava/lang/Boolean;
+.field private onMaskChangedListener:Lcom/google/android/material/carousel/OnMaskChangedListener;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
+.field private savedForceCompatClippingEnabled:Ljava/lang/Boolean;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field private final shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
+
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1    # Landroid/content/Context;
@@ -78,77 +81,58 @@
 
     const/high16 v0, -0x40800000    # -1.0f
 
-    iput v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->a:F
+    iput v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskXPercentage:F
 
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->b:Landroid/graphics/RectF;
+    iput-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskRect:Landroid/graphics/RectF;
 
-    invoke-static {p0}, Luc/r;->a(Landroid/view/View;)Luc/r;
+    invoke-static {p0}, Lcom/google/android/material/shape/ShapeableDelegate;->create(Landroid/view/View;)Lcom/google/android/material/shape/ShapeableDelegate;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->d:Luc/r;
+    iput-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->e:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->savedForceCompatClippingEnabled:Ljava/lang/Boolean;
 
     const/4 v0, 0x0
 
-    invoke-static {p1, p2, p3, v0, v0}, Luc/n;->f(Landroid/content/Context;Landroid/util/AttributeSet;III)Luc/n$b;
+    invoke-static {p1, p2, p3, v0, v0}, Lcom/google/android/material/shape/ShapeAppearanceModel;->builder(Landroid/content/Context;Landroid/util/AttributeSet;III)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Luc/n$b;->m()Luc/n;
+    invoke-virtual {p1}, Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;->build()Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lcom/google/android/material/carousel/MaskableFrameLayout;->setShapeAppearanceModel(Luc/n;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/carousel/MaskableFrameLayout;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     return-void
 .end method
 
-.method public static synthetic a(Luc/d;)Luc/d;
+.method public static synthetic a(Lcom/google/android/material/carousel/MaskableFrameLayout;Landroid/graphics/Canvas;)V
     .locals 0
 
-    invoke-static {p0}, Lcom/google/android/material/carousel/MaskableFrameLayout;->d(Luc/d;)Luc/d;
+    invoke-direct {p0, p1}, Lcom/google/android/material/carousel/MaskableFrameLayout;->lambda$dispatchDraw$1(Landroid/graphics/Canvas;)V
+
+    return-void
+.end method
+
+.method public static synthetic b(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/android/material/carousel/MaskableFrameLayout;->lambda$setShapeAppearanceModel$0(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static synthetic b(Lcom/google/android/material/carousel/MaskableFrameLayout;Landroid/graphics/Canvas;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/google/android/material/carousel/MaskableFrameLayout;->c(Landroid/graphics/Canvas;)V
-
-    return-void
-.end method
-
-.method public static synthetic d(Luc/d;)Luc/d;
-    .locals 1
-
-    instance-of v0, p0, Luc/a;
-
-    if-eqz v0, :cond_0
-
-    check-cast p0, Luc/a;
-
-    invoke-static {p0}, Luc/c;->b(Luc/a;)Luc/c;
-
-    move-result-object p0
-
-    :cond_0
-    return-object p0
-.end method
-
-
-# virtual methods
-.method public final synthetic c(Landroid/graphics/Canvas;)V
+.method private synthetic lambda$dispatchDraw$1(Landroid/graphics/Canvas;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchDraw(Landroid/graphics/Canvas;)V
@@ -156,36 +140,48 @@
     return-void
 .end method
 
-.method public dispatchDraw(Landroid/graphics/Canvas;)V
+.method private static synthetic lambda$setShapeAppearanceModel$0(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;
+    .locals 1
+
+    instance-of v0, p0, Lcom/google/android/material/shape/AbsoluteCornerSize;
+
+    if-eqz v0, :cond_0
+
+    check-cast p0, Lcom/google/android/material/shape/AbsoluteCornerSize;
+
+    invoke-static {p0}, Lcom/google/android/material/shape/ClampedCornerSize;->createFromCornerSize(Lcom/google/android/material/shape/AbsoluteCornerSize;)Lcom/google/android/material/shape/ClampedCornerSize;
+
+    move-result-object p0
+
+    :cond_0
+    return-object p0
+.end method
+
+.method private onMaskChanged()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->d:Luc/r;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
 
-    new-instance v1, Lhc/i;
+    iget-object v1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskRect:Landroid/graphics/RectF;
 
-    invoke-direct {v1, p0}, Lhc/i;-><init>(Lcom/google/android/material/carousel/MaskableFrameLayout;)V
+    invoke-virtual {v0, p0, v1}, Lcom/google/android/material/shape/ShapeableDelegate;->onMaskChanged(Landroid/view/View;Landroid/graphics/RectF;)V
 
-    invoke-virtual {v0, p1, v1}, Luc/r;->e(Landroid/graphics/Canvas;Lfc/a$a;)V
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->onMaskChangedListener:Lcom/google/android/material/carousel/OnMaskChangedListener;
 
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskRect:Landroid/graphics/RectF;
+
+    invoke-interface {v0, v1}, Lcom/google/android/material/carousel/OnMaskChangedListener;->onMaskChanged(Landroid/graphics/RectF;)V
+
+    :cond_0
     return-void
 .end method
 
-.method public final e()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->d:Luc/r;
-
-    iget-object v1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->b:Landroid/graphics/RectF;
-
-    invoke-virtual {v0, p0, v1}, Luc/r;->f(Landroid/view/View;Landroid/graphics/RectF;)V
-
-    return-void
-.end method
-
-.method public final f()V
+.method private updateMaskRectForMaskXPercentage()V
     .locals 5
 
-    iget v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->a:F
+    iget v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskXPercentage:F
 
     const/high16 v1, -0x40800000    # -1.0f
 
@@ -205,11 +201,11 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    iget v2, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->a:F
+    iget v2, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskXPercentage:F
 
     const/4 v3, 0x0
 
-    invoke-static {v3, v0, v3, v1, v2}, Lec/b;->b(FFFFF)F
+    invoke-static {v3, v0, v3, v1, v2}, Lcom/google/android/material/animation/AnimationUtils;->lerp(FFFFF)F
 
     move-result v0
 
@@ -237,10 +233,26 @@
     return-void
 .end method
 
+
+# virtual methods
+.method public dispatchDraw(Landroid/graphics/Canvas;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
+
+    new-instance v1, Les/tf3;
+
+    invoke-direct {v1, p0}, Les/tf3;-><init>(Lcom/google/android/material/carousel/MaskableFrameLayout;)V
+
+    invoke-virtual {v0, p1, v1}, Lcom/google/android/material/shape/ShapeableDelegate;->maybeClip(Landroid/graphics/Canvas;Lcom/google/android/material/canvas/CanvasCompat$CanvasOperation;)V
+
+    return-void
+.end method
+
 .method public getFocusedRect(Landroid/graphics/Rect;)V
     .locals 4
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->b:Landroid/graphics/RectF;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskRect:Landroid/graphics/RectF;
 
     iget v1, v0, Landroid/graphics/RectF;->left:F
 
@@ -268,7 +280,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->b:Landroid/graphics/RectF;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskRect:Landroid/graphics/RectF;
 
     return-object v0
 .end method
@@ -278,17 +290,17 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    iget v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->a:F
+    iget v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskXPercentage:F
 
     return v0
 .end method
 
-.method public getShapeAppearanceModel()Luc/n;
+.method public getShapeAppearanceModel()Lcom/google/android/material/shape/ShapeAppearanceModel;
     .locals 1
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->c:Luc/n;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     return-object v0
 .end method
@@ -298,17 +310,17 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->e:Ljava/lang/Boolean;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->savedForceCompatClippingEnabled:Ljava/lang/Boolean;
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->d:Luc/r;
+    iget-object v1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    invoke-virtual {v1, p0, v0}, Luc/r;->h(Landroid/view/View;Z)V
+    invoke-virtual {v1, p0, v0}, Lcom/google/android/material/shape/ShapeableDelegate;->setForceCompatClippingEnabled(Landroid/view/View;Z)V
 
     :cond_0
     return-void
@@ -317,9 +329,9 @@
 .method public onDetachedFromWindow()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->d:Luc/r;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
 
-    invoke-virtual {v0}, Luc/r;->c()Z
+    invoke-virtual {v0}, Lcom/google/android/material/shape/ShapeableDelegate;->isForceCompatClippingEnabled()Z
 
     move-result v0
 
@@ -327,13 +339,13 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->e:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->savedForceCompatClippingEnabled:Ljava/lang/Boolean;
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->d:Luc/r;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, p0, v1}, Luc/r;->h(Landroid/view/View;Z)V
+    invoke-virtual {v0, p0, v1}, Lcom/google/android/material/shape/ShapeableDelegate;->setForceCompatClippingEnabled(Landroid/view/View;Z)V
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
 
@@ -345,7 +357,7 @@
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->onSizeChanged(IIII)V
 
-    iget p1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->a:F
+    iget p1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskXPercentage:F
 
     const/high16 p2, -0x40800000    # -1.0f
 
@@ -353,7 +365,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Lcom/google/android/material/carousel/MaskableFrameLayout;->f()V
+    invoke-direct {p0}, Lcom/google/android/material/carousel/MaskableFrameLayout;->updateMaskRectForMaskXPercentage()V
 
     :cond_0
     return-void
@@ -367,7 +379,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->b:Landroid/graphics/RectF;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskRect:Landroid/graphics/RectF;
 
     invoke-virtual {v0}, Landroid/graphics/RectF;->isEmpty()Z
 
@@ -389,7 +401,7 @@
 
     move-result v1
 
-    iget-object v2, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->b:Landroid/graphics/RectF;
+    iget-object v2, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskRect:Landroid/graphics/RectF;
 
     invoke-virtual {v2, v0, v1}, Landroid/graphics/RectF;->contains(FF)Z
 
@@ -411,10 +423,18 @@
 
 .method public setForceCompatClipping(Z)V
     .locals 1
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->d:Luc/r;
+    .annotation build Landroidx/annotation/VisibleForTesting;
+    .end annotation
 
-    invoke-virtual {v0, p0, p1}, Luc/r;->h(Landroid/view/View;Z)V
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
+
+    invoke-virtual {v0, p0, p1}, Lcom/google/android/material/shape/ShapeableDelegate;->setForceCompatClippingEnabled(Landroid/view/View;Z)V
 
     return-void
 .end method
@@ -426,11 +446,11 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->b:Landroid/graphics/RectF;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskRect:Landroid/graphics/RectF;
 
     invoke-virtual {v0, p1}, Landroid/graphics/RectF;->set(Landroid/graphics/RectF;)V
 
-    invoke-virtual {p0}, Lcom/google/android/material/carousel/MaskableFrameLayout;->e()V
+    invoke-direct {p0}, Lcom/google/android/material/carousel/MaskableFrameLayout;->onMaskChanged()V
 
     return-void
 .end method
@@ -444,54 +464,56 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-static {p1, v0, v1}, Lj1/a;->a(FFF)F
+    invoke-static {p1, v0, v1}, Landroidx/core/math/MathUtils;->clamp(FFF)F
 
     move-result p1
 
-    iget v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->a:F
+    iget v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskXPercentage:F
 
     cmpl-float v0, v0, p1
 
     if-eqz v0, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->a:F
+    iput p1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->maskXPercentage:F
 
-    invoke-virtual {p0}, Lcom/google/android/material/carousel/MaskableFrameLayout;->f()V
+    invoke-direct {p0}, Lcom/google/android/material/carousel/MaskableFrameLayout;->updateMaskRectForMaskXPercentage()V
 
     :cond_0
     return-void
 .end method
 
-.method public setOnMaskChangedListener(Lhc/k;)V
+.method public setOnMaskChangedListener(Lcom/google/android/material/carousel/OnMaskChangedListener;)V
     .locals 0
-    .param p1    # Lhc/k;
+    .param p1    # Lcom/google/android/material/carousel/OnMaskChangedListener;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
 
+    iput-object p1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->onMaskChangedListener:Lcom/google/android/material/carousel/OnMaskChangedListener;
+
     return-void
 .end method
 
-.method public setShapeAppearanceModel(Luc/n;)V
+.method public setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
     .locals 1
-    .param p1    # Luc/n;
+    .param p1    # Lcom/google/android/material/shape/ShapeAppearanceModel;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    new-instance v0, Lhc/h;
+    new-instance v0, Les/uf3;
 
-    invoke-direct {v0}, Lhc/h;-><init>()V
+    invoke-direct {v0}, Les/uf3;-><init>()V
 
-    invoke-virtual {p1, v0}, Luc/n;->y(Luc/n$c;)Luc/n;
+    invoke-virtual {p1, v0}, Lcom/google/android/material/shape/ShapeAppearanceModel;->withTransformedCornerSizes(Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;)Lcom/google/android/material/shape/ShapeAppearanceModel;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->c:Luc/n;
+    iput-object p1, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
 
-    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->d:Luc/r;
+    iget-object v0, p0, Lcom/google/android/material/carousel/MaskableFrameLayout;->shapeableDelegate:Lcom/google/android/material/shape/ShapeableDelegate;
 
-    invoke-virtual {v0, p0, p1}, Luc/r;->g(Landroid/view/View;Luc/n;)V
+    invoke-virtual {v0, p0, p1}, Lcom/google/android/material/shape/ShapeableDelegate;->onShapeAppearanceChanged(Landroid/view/View;Lcom/google/android/material/shape/ShapeAppearanceModel;)V
 
     return-void
 .end method

@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/activity/OnBackPressedDispatcher;->j(Landroidx/activity/u;)Landroidx/activity/c;
+    value = Landroidx/activity/OnBackPressedDispatcher;->addCancellableCallback$activity_release(Landroidx/activity/OnBackPressedCallback;)Landroidx/activity/Cancellable;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,41 +19,25 @@
     value = {
         "Lkotlin/jvm/internal/FunctionReferenceImpl;",
         "Lkotlin/jvm/functions/Function0<",
-        "Lkotlin/Unit;",
+        "Les/qg6;",
         ">;"
     }
 .end annotation
 
-.annotation runtime Lkotlin/Metadata;
-    k = 0x3
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x30
-.end annotation
-
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 7
-
-    const-string v5, "updateEnabledCallbacks()V"
-
-    const/4 v6, 0x0
 
     const/4 v1, 0x0
 
     const-class v3, Landroidx/activity/OnBackPressedDispatcher;
 
-    const-string v4, "updateEnabledCallbacks"
+    const-string/jumbo v4, "updateEnabledCallbacks"
+
+    const-string/jumbo v5, "updateEnabledCallbacks()V"
+
+    const/4 v6, 0x0
 
     move-object v0, p0
 
@@ -71,7 +55,7 @@
 
     invoke-virtual {p0}, Landroidx/activity/OnBackPressedDispatcher$addCancellableCallback$1;->invoke()V
 
-    sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+    sget-object v0, Les/qg6;->a:Les/qg6;
 
     return-object v0
 .end method
@@ -83,7 +67,7 @@
 
     check-cast v0, Landroidx/activity/OnBackPressedDispatcher;
 
-    invoke-static {v0}, Landroidx/activity/OnBackPressedDispatcher;->g(Landroidx/activity/OnBackPressedDispatcher;)V
+    invoke-static {v0}, Landroidx/activity/OnBackPressedDispatcher;->access$updateEnabledCallbacks(Landroidx/activity/OnBackPressedDispatcher;)V
 
     return-void
 .end method

@@ -1,18 +1,33 @@
 .class public final synthetic Lcom/google/android/material/timepicker/a;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+
+
+# instance fields
+.field public final synthetic a:Lcom/google/android/material/timepicker/ClockHandView;
+
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public synthetic constructor <init>(Lcom/google/android/material/timepicker/ClockHandView;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/material/timepicker/a;->a:Lcom/google/android/material/timepicker/ClockHandView;
 
     return-void
 .end method
 
-.method public static bridge synthetic a(Landroid/widget/EditText;Landroid/os/LocaleList;)V
-    .locals 0
 
-    invoke-virtual {p0, p1}, Landroid/widget/EditText;->setImeHintLocales(Landroid/os/LocaleList;)V
+# virtual methods
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/timepicker/a;->a:Lcom/google/android/material/timepicker/ClockHandView;
+
+    invoke-static {v0, p1}, Lcom/google/android/material/timepicker/ClockHandView;->a(Lcom/google/android/material/timepicker/ClockHandView;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

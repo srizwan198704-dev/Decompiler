@@ -21,12 +21,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/appcompat/widget/SearchView$SearchAutoComplete;)V
     .locals 0
 
@@ -44,7 +38,7 @@
 
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$SearchAutoComplete$1;->this$0:Landroidx/appcompat/widget/SearchView$SearchAutoComplete;
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/SearchView$SearchAutoComplete;->d()V
+    invoke-virtual {v0}, Landroidx/appcompat/widget/SearchView$SearchAutoComplete;->showSoftInputIfNecessary()V
 
     return-void
 .end method

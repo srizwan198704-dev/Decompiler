@@ -14,47 +14,41 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/google/common/collect/TreeMultiset$Aggregate;-><init>(Ljava/lang/String;ILcom/google/common/collect/TreeMultiset$a;)V
+    invoke-direct {p0, p1, p2, v0}, Lcom/google/common/collect/TreeMultiset$Aggregate;-><init>(Ljava/lang/String;ILcom/google/common/collect/TreeMultiset$1;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public nodeAggregate(Lcom/google/common/collect/TreeMultiset$e;)I
+.method public nodeAggregate(Lcom/google/common/collect/TreeMultiset$AvlNode;)I
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/TreeMultiset$e<",
+            "Lcom/google/common/collect/TreeMultiset$AvlNode<",
             "*>;)I"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/collect/TreeMultiset$e;->d(Lcom/google/common/collect/TreeMultiset$e;)I
+    invoke-static {p1}, Lcom/google/common/collect/TreeMultiset$AvlNode;->access$200(Lcom/google/common/collect/TreeMultiset$AvlNode;)I
 
     move-result p1
 
     return p1
 .end method
 
-.method public treeAggregate(Lcom/google/common/collect/TreeMultiset$e;)J
+.method public treeAggregate(Lcom/google/common/collect/TreeMultiset$AvlNode;)J
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/TreeMultiset$e<",
+            "Lcom/google/common/collect/TreeMultiset$AvlNode<",
             "*>;)J"
         }
     .end annotation
@@ -66,7 +60,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {p1}, Lcom/google/common/collect/TreeMultiset$e;->f(Lcom/google/common/collect/TreeMultiset$e;)J
+    invoke-static {p1}, Lcom/google/common/collect/TreeMultiset$AvlNode;->access$300(Lcom/google/common/collect/TreeMultiset$AvlNode;)J
 
     move-result-wide v0
 

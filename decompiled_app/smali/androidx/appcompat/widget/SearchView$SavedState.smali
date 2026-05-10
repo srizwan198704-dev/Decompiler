@@ -26,16 +26,16 @@
 
 
 # instance fields
-.field public a:Z
+.field isIconified:Z
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroidx/appcompat/widget/SearchView$SavedState$a;
+    new-instance v0, Landroidx/appcompat/widget/SearchView$SavedState$1;
 
-    invoke-direct {v0}, Landroidx/appcompat/widget/SearchView$SavedState$a;-><init>()V
+    invoke-direct {v0}, Landroidx/appcompat/widget/SearchView$SavedState$1;-><init>()V
 
     sput-object v0, Landroidx/appcompat/widget/SearchView$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -59,7 +59,7 @@
 
     move-result p1
 
-    iput-boolean p1, p0, Landroidx/appcompat/widget/SearchView$SavedState;->a:Z
+    iput-boolean p1, p0, Landroidx/appcompat/widget/SearchView$SavedState;->isIconified:Z
 
     return-void
 .end method
@@ -99,11 +99,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Landroidx/appcompat/widget/SearchView$SavedState;->a:Z
+    iget-boolean v1, p0, Landroidx/appcompat/widget/SearchView$SavedState;->isIconified:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v1, "}"
+    const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -119,7 +119,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    iget-boolean p2, p0, Landroidx/appcompat/widget/SearchView$SavedState;->a:Z
+    iget-boolean p2, p0, Landroidx/appcompat/widget/SearchView$SavedState;->isIconified:Z
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 

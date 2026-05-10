@@ -2,21 +2,26 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/fragment/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "id"
+.end annotation
+
+
 # static fields
-.field public static fragment_container_view_tag:I = 0x7f0a035e
+.field public static final fragment_container_view_tag:I = 0x7f0a0680
 
-.field public static special_effects_controller_view_tag:I = 0x7f0a0a29
+.field public static final special_effects_controller_view_tag:I = 0x7f0a1138
 
-.field public static visible_removing_fragment_view_tag:I = 0x7f0a0eff
+.field public static final visible_removing_fragment_view_tag:I = 0x7f0a13f1
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/google/android/material/snackbar/BaseTransientBottomBar;->O()V
+    value = Lcom/google/android/material/snackbar/BaseTransientBottomBar;->onDetachedFromWindow()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,12 +21,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
     .locals 0
 
@@ -46,7 +40,7 @@
 
     const/4 v1, 0x3
 
-    invoke-virtual {v0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->Q(I)V
+    invoke-virtual {v0, v1}, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->onViewHidden(I)V
 
     return-void
 .end method

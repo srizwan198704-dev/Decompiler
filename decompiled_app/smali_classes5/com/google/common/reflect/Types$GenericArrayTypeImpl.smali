@@ -26,12 +26,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/reflect/Type;)V
     .locals 1
 
@@ -67,7 +61,7 @@
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -108,7 +102,7 @@
 
     iget-object v1, p0, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;
 
-    invoke-static {v1}, Lcom/google/common/reflect/Types;->s(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/google/common/reflect/Types;->toString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
     move-result-object v1
 

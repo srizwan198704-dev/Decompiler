@@ -5,10 +5,21 @@
 .implements Ljava/lang/Runnable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->search(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
 
-.field final synthetic val$callback:Landroid/support/v4/media/MediaBrowserCompat$k;
+.field final synthetic val$callback:Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;
 
 .field final synthetic val$extras:Landroid/os/Bundle;
 
@@ -16,13 +27,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;Landroid/support/v4/media/MediaBrowserCompat$k;Ljava/lang/String;Landroid/os/Bundle;)V
+.method public constructor <init>(Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -30,7 +35,9 @@
         }
     .end annotation
 
-    iput-object p2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$5;->val$callback:Landroid/support/v4/media/MediaBrowserCompat$k;
+    iput-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$5;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
+
+    iput-object p2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$5;->val$callback:Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;
 
     iput-object p3, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$5;->val$query:Ljava/lang/String;
 
@@ -46,13 +53,13 @@
 .method public run()V
     .locals 3
 
-    iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$5;->val$callback:Landroid/support/v4/media/MediaBrowserCompat$k;
+    iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$5;->val$callback:Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;
 
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$5;->val$query:Ljava/lang/String;
 
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$5;->val$extras:Landroid/os/Bundle;
 
-    invoke-virtual {v0, v1, v2}, Landroid/support/v4/media/MediaBrowserCompat$k;->a(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;->onError(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method

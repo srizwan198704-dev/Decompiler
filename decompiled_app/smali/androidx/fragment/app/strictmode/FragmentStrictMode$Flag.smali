@@ -20,33 +20,6 @@
     }
 .end annotation
 
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\u000c\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\u0008\n\u0008\u0080\u0001\u0018\u00002\u0008\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\u0008\u0002\u00a2\u0006\u0002\u0010\u0002j\u0002\u0008\u0003j\u0002\u0008\u0004j\u0002\u0008\u0005j\u0002\u0008\u0006j\u0002\u0008\u0007j\u0002\u0008\u0008j\u0002\u0008\tj\u0002\u0008\n\u00a8\u0006\u000b"
-    }
-    d2 = {
-        "Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;",
-        "",
-        "(Ljava/lang/String;I)V",
-        "PENALTY_LOG",
-        "PENALTY_DEATH",
-        "DETECT_FRAGMENT_REUSE",
-        "DETECT_FRAGMENT_TAG_USAGE",
-        "DETECT_RETAIN_INSTANCE_USAGE",
-        "DETECT_SET_USER_VISIBLE_HINT",
-        "DETECT_TARGET_FRAGMENT_USAGE",
-        "DETECT_WRONG_FRAGMENT_CONTAINER",
-        "fragment_release"
-    }
-    k = 0x1
-    mv = {
-        0x1,
-        0x6,
-        0x0
-    }
-    xi = 0x30
-.end annotation
-
 
 # static fields
 .field private static final synthetic $VALUES:[Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
@@ -76,53 +49,53 @@
 
     new-array v0, v0, [Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->PENALTY_LOG:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->PENALTY_LOG:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->PENALTY_DEATH:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->PENALTY_DEATH:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_FRAGMENT_REUSE:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_FRAGMENT_REUSE:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_FRAGMENT_TAG_USAGE:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_FRAGMENT_TAG_USAGE:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_RETAIN_INSTANCE_USAGE:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
+    const/4 v1, 0x4
 
-    const/4 v2, 0x4
+    sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_RETAIN_INSTANCE_USAGE:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_SET_USER_VISIBLE_HINT:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
+    const/4 v1, 0x5
 
-    const/4 v2, 0x5
+    sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_SET_USER_VISIBLE_HINT:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_TARGET_FRAGMENT_USAGE:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
+    const/4 v1, 0x6
 
-    const/4 v2, 0x6
+    sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_TARGET_FRAGMENT_USAGE:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_WRONG_FRAGMENT_CONTAINER:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
+    const/4 v1, 0x7
 
-    const/4 v2, 0x7
+    sget-object v2, Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;->DETECT_WRONG_FRAGMENT_CONTAINER:Landroidx/fragment/app/strictmode/FragmentStrictMode$Flag;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method

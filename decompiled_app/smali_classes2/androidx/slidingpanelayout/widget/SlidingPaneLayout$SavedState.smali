@@ -26,18 +26,16 @@
 
 
 # instance fields
-.field public a:Z
-
-.field public b:I
+.field isOpen:Z
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState$a;
+    new-instance v0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState$1;
 
-    invoke-direct {v0}, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState$a;-><init>()V
+    invoke-direct {v0}, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState$1;-><init>()V
 
     sput-object v0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -51,25 +49,19 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result p2
+    move-result p1
 
-    if-eqz p2, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 p2, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iput-boolean p2, p0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;->a:Z
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result p1
-
-    iput p1, p0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;->b:I
+    iput-boolean p1, p0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;->isOpen:Z
 
     return-void
 .end method
@@ -89,11 +81,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    iget-boolean p2, p0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;->a:Z
-
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget p2, p0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;->b:I
+    iget-boolean p2, p0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;->isOpen:Z
 
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 

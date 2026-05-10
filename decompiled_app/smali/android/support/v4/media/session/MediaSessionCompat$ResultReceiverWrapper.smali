@@ -35,16 +35,16 @@
 
 
 # instance fields
-.field public a:Landroid/os/ResultReceiver;
+.field mResultReceiver:Landroid/os/ResultReceiver;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper$a;
+    new-instance v0, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper$1;
 
-    invoke-direct {v0}, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper$a;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper$1;-><init>()V
 
     sput-object v0, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -64,7 +64,21 @@
 
     check-cast p1, Landroid/os/ResultReceiver;
 
-    iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;->a:Landroid/os/ResultReceiver;
+    iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;->mResultReceiver:Landroid/os/ResultReceiver;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/ResultReceiver;)V
+    .locals 0
+    .param p1    # Landroid/os/ResultReceiver;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;->mResultReceiver:Landroid/os/ResultReceiver;
 
     return-void
 .end method
@@ -82,7 +96,7 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
-    iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;->a:Landroid/os/ResultReceiver;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;->mResultReceiver:Landroid/os/ResultReceiver;
 
     invoke-virtual {v0, p1, p2}, Landroid/os/ResultReceiver;->writeToParcel(Landroid/os/Parcel;I)V
 

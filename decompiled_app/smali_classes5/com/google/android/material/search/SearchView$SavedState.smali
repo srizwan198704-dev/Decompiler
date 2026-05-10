@@ -26,18 +26,18 @@
 
 
 # instance fields
-.field public a:Ljava/lang/String;
+.field text:Ljava/lang/String;
 
-.field public b:I
+.field visibility:I
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/search/SearchView$SavedState$a;
+    new-instance v0, Lcom/google/android/material/search/SearchView$SavedState$1;
 
-    invoke-direct {v0}, Lcom/google/android/material/search/SearchView$SavedState$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/search/SearchView$SavedState$1;-><init>()V
 
     sput-object v0, Lcom/google/android/material/search/SearchView$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -67,13 +67,13 @@
 
     move-result-object p2
 
-    iput-object p2, p0, Lcom/google/android/material/search/SearchView$SavedState;->a:Ljava/lang/String;
+    iput-object p2, p0, Lcom/google/android/material/search/SearchView$SavedState;->text:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result p1
 
-    iput p1, p0, Lcom/google/android/material/search/SearchView$SavedState;->b:I
+    iput p1, p0, Lcom/google/android/material/search/SearchView$SavedState;->visibility:I
 
     return-void
 .end method
@@ -93,11 +93,11 @@
 
     invoke-super {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    iget-object p2, p0, Lcom/google/android/material/search/SearchView$SavedState;->a:Ljava/lang/String;
+    iget-object p2, p0, Lcom/google/android/material/search/SearchView$SavedState;->text:Ljava/lang/String;
 
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget p2, p0, Lcom/google/android/material/search/SearchView$SavedState;->b:I
+    iget p2, p0, Lcom/google/android/material/search/SearchView$SavedState;->visibility:I
 
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 

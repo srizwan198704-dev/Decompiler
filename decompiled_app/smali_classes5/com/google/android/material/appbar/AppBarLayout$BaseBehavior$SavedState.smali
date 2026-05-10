@@ -41,9 +41,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState$a;
+    new-instance v0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState$1;
 
-    invoke-direct {v0}, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState$1;-><init>()V
 
     sput-object v0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -63,18 +63,18 @@
 
     move-result p2
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     if-eqz p2, :cond_0
 
-    move p2, v1
+    const/4 p2, 0x1
 
     goto :goto_0
 
     :cond_0
-    move p2, v0
+    const/4 p2, 0x0
 
     :goto_0
     iput-boolean p2, p0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState;->fullyScrolled:Z
@@ -85,12 +85,12 @@
 
     if-eqz p2, :cond_1
 
-    move p2, v1
+    const/4 p2, 0x1
 
     goto :goto_1
 
     :cond_1
-    move p2, v0
+    const/4 p2, 0x0
 
     :goto_1
     iput-boolean p2, p0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState;->fullyExpanded:Z
@@ -113,9 +113,12 @@
 
     if-eqz p1, :cond_2
 
-    move v0, v1
+    goto :goto_2
 
     :cond_2
+    const/4 v0, 0x0
+
+    :goto_2
     iput-boolean v0, p0, Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState;->firstVisibleChildAtMinimumHeight:Z
 
     return-void

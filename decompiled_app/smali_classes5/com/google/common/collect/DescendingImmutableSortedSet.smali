@@ -3,6 +3,12 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -26,12 +32,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/ImmutableSortedSet;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -94,6 +94,10 @@
 
 .method public createDescendingSet()Lcom/google/common/collect/ImmutableSortedSet;
     .locals 2
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+        value = "NavigableSet"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -111,19 +115,23 @@
     throw v0
 .end method
 
-.method public descendingIterator()Lcom/google/common/collect/r4;
+.method public descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+        value = "NavigableSet"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "TE;>;"
         }
     .end annotation
 
     iget-object v0, p0, Lcom/google/common/collect/DescendingImmutableSortedSet;->forward:Lcom/google/common/collect/ImmutableSortedSet;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSortedSet;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSortedSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -132,8 +140,11 @@
 
 .method public bridge synthetic descendingIterator()Ljava/util/Iterator;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+        value = "NavigableSet"
+    .end annotation
 
-    invoke-virtual {p0}, Lcom/google/common/collect/DescendingImmutableSortedSet;->descendingIterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/DescendingImmutableSortedSet;->descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -142,6 +153,10 @@
 
 .method public descendingSet()Lcom/google/common/collect/ImmutableSortedSet;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+        value = "NavigableSet"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -157,6 +172,9 @@
 
 .method public bridge synthetic descendingSet()Ljava/util/NavigableSet;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+        value = "NavigableSet"
+    .end annotation
 
     invoke-virtual {p0}, Lcom/google/common/collect/DescendingImmutableSortedSet;->descendingSet()Lcom/google/common/collect/ImmutableSortedSet;
 
@@ -261,19 +279,19 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/r4;
+.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "TE;>;"
         }
     .end annotation
 
     iget-object v0, p0, Lcom/google/common/collect/DescendingImmutableSortedSet;->forward:Lcom/google/common/collect/ImmutableSortedSet;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSortedSet;->descendingIterator()Lcom/google/common/collect/r4;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSortedSet;->descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -283,7 +301,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/DescendingImmutableSortedSet;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/DescendingImmutableSortedSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -367,6 +385,8 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableSortedSet;->writeReplace()Ljava/lang/Object;
 

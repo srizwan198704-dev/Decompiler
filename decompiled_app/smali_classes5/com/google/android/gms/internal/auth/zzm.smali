@@ -5,16 +5,12 @@
 .implements Landroid/os/IInterface;
 
 
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public abstract zzb(Lcom/google/android/gms/common/api/Status;Lcom/google/android/gms/auth/AccountChangeEventsResponse;)V
+    .param p2    # Lcom/google/android/gms/auth/AccountChangeEventsResponse;
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

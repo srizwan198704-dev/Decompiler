@@ -7,6 +7,9 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/primitives/Ints;
 .end annotation
@@ -40,12 +43,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>([I)V
     .locals 2
 
@@ -93,7 +90,7 @@
 
     iget v2, p0, Lcom/google/common/primitives/Ints$IntArrayAsList;->end:I
 
-    invoke-static {v0, p1, v1, v2}, Lcom/google/common/primitives/Ints;->a([IIII)I
+    invoke-static {v0, p1, v1, v2}, Lcom/google/common/primitives/Ints;->access$000([IIII)I
 
     move-result p1
 
@@ -143,7 +140,7 @@
     return v3
 
     :cond_1
-    move v2, v3
+    const/4 v2, 0x0
 
     :goto_0
     if-ge v2, v1, :cond_3
@@ -191,7 +188,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->m(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     iget-object v0, p0, Lcom/google/common/primitives/Ints$IntArrayAsList;->array:[I
 
@@ -236,7 +233,7 @@
 
     aget v2, v2, v0
 
-    invoke-static {v2}, Lcom/google/common/primitives/Ints;->i(I)I
+    invoke-static {v2}, Lcom/google/common/primitives/Ints;->hashCode(I)I
 
     move-result v2
 
@@ -269,7 +266,7 @@
 
     iget v2, p0, Lcom/google/common/primitives/Ints$IntArrayAsList;->end:I
 
-    invoke-static {v0, p1, v1, v2}, Lcom/google/common/primitives/Ints;->a([IIII)I
+    invoke-static {v0, p1, v1, v2}, Lcom/google/common/primitives/Ints;->access$000([IIII)I
 
     move-result p1
 
@@ -314,7 +311,7 @@
 
     iget v2, p0, Lcom/google/common/primitives/Ints$IntArrayAsList;->end:I
 
-    invoke-static {v0, p1, v1, v2}, Lcom/google/common/primitives/Ints;->b([IIII)I
+    invoke-static {v0, p1, v1, v2}, Lcom/google/common/primitives/Ints;->access$100([IIII)I
 
     move-result p1
 
@@ -339,7 +336,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->m(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     iget-object v0, p0, Lcom/google/common/primitives/Ints$IntArrayAsList;->array:[I
 
@@ -351,7 +348,7 @@
 
     add-int/2addr v1, p1
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -409,7 +406,7 @@
 
     move-result v0
 
-    invoke-static {p1, p2, v0}, Lcom/google/common/base/m;->t(III)V
+    invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     if-ne p1, p2, :cond_0
 

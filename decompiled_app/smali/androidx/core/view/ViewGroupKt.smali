@@ -2,76 +2,7 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000T\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0010\u000b\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0010)\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\t\u001a\u0015\u0010\u0010\u001a\u00020\u0011*\u00020\u00032\u0006\u0010\u0012\u001a\u00020\u0002H\u0086\n\u001a0\u0010\u0013\u001a\u00020\u0014*\u00020\u00032!\u0010\u0015\u001a\u001d\u0012\u0013\u0012\u00110\u0002\u00a2\u0006\u000c\u0008\u0017\u0012\u0008\u0008\u0018\u0012\u0004\u0008\u0008(\u0012\u0012\u0004\u0012\u00020\u00140\u0016H\u0086\u0008\u001aE\u0010\u0019\u001a\u00020\u0014*\u00020\u000326\u0010\u0015\u001a2\u0012\u0013\u0012\u00110\r\u00a2\u0006\u000c\u0008\u0017\u0012\u0008\u0008\u0018\u0012\u0004\u0008\u0008(\u001b\u0012\u0013\u0012\u00110\u0002\u00a2\u0006\u000c\u0008\u0017\u0012\u0008\u0008\u0018\u0012\u0004\u0008\u0008(\u0012\u0012\u0004\u0012\u00020\u00140\u001aH\u0086\u0008\u001a\u0015\u0010\u001c\u001a\u00020\u0002*\u00020\u00032\u0006\u0010\u001b\u001a\u00020\rH\u0086\u0002\u001a\r\u0010\u001d\u001a\u00020\u0011*\u00020\u0003H\u0086\u0008\u001a\r\u0010\u001e\u001a\u00020\u0011*\u00020\u0003H\u0086\u0008\u001a\u0013\u0010\u001f\u001a\u0008\u0012\u0004\u0012\u00020\u00020 *\u00020\u0003H\u0086\u0002\u001a\u0015\u0010!\u001a\u00020\u0014*\u00020\u00032\u0006\u0010\u0012\u001a\u00020\u0002H\u0086\n\u001a\u0015\u0010\"\u001a\u00020\u0014*\u00020\u00032\u0006\u0010\u0012\u001a\u00020\u0002H\u0086\n\u001a\u0017\u0010#\u001a\u00020\u0014*\u00020$2\u0008\u0008\u0001\u0010\u000c\u001a\u00020\rH\u0086\u0008\u001a5\u0010%\u001a\u00020\u0014*\u00020$2\u0008\u0008\u0003\u0010&\u001a\u00020\r2\u0008\u0008\u0003\u0010\'\u001a\u00020\r2\u0008\u0008\u0003\u0010(\u001a\u00020\r2\u0008\u0008\u0003\u0010)\u001a\u00020\rH\u0086\u0008\u001a5\u0010*\u001a\u00020\u0014*\u00020$2\u0008\u0008\u0003\u0010+\u001a\u00020\r2\u0008\u0008\u0003\u0010\'\u001a\u00020\r2\u0008\u0008\u0003\u0010,\u001a\u00020\r2\u0008\u0008\u0003\u0010)\u001a\u00020\rH\u0086\u0008\"\u001b\u0010\u0000\u001a\u0008\u0012\u0004\u0012\u00020\u00020\u0001*\u00020\u00038F\u00a2\u0006\u0006\u001a\u0004\u0008\u0004\u0010\u0005\"\u001b\u0010\u0006\u001a\u0008\u0012\u0004\u0012\u00020\u00020\u0001*\u00020\u00038F\u00a2\u0006\u0006\u001a\u0004\u0008\u0007\u0010\u0005\"\u0016\u0010\u0008\u001a\u00020\t*\u00020\u00038\u00c6\u0002\u00a2\u0006\u0006\u001a\u0004\u0008\n\u0010\u000b\"\u0016\u0010\u000c\u001a\u00020\r*\u00020\u00038\u00c6\u0002\u00a2\u0006\u0006\u001a\u0004\u0008\u000e\u0010\u000f\u00a8\u0006-"
-    }
-    d2 = {
-        "children",
-        "Lkotlin/sequences/Sequence;",
-        "Landroid/view/View;",
-        "Landroid/view/ViewGroup;",
-        "getChildren",
-        "(Landroid/view/ViewGroup;)Lkotlin/sequences/Sequence;",
-        "descendants",
-        "getDescendants",
-        "indices",
-        "Lkotlin/ranges/IntRange;",
-        "getIndices",
-        "(Landroid/view/ViewGroup;)Lkotlin/ranges/IntRange;",
-        "size",
-        "",
-        "getSize",
-        "(Landroid/view/ViewGroup;)I",
-        "contains",
-        "",
-        "view",
-        "forEach",
-        "",
-        "action",
-        "Lkotlin/Function1;",
-        "Lkotlin/ParameterName;",
-        "name",
-        "forEachIndexed",
-        "Lkotlin/Function2;",
-        "index",
-        "get",
-        "isEmpty",
-        "isNotEmpty",
-        "iterator",
-        "",
-        "minusAssign",
-        "plusAssign",
-        "setMargins",
-        "Landroid/view/ViewGroup$MarginLayoutParams;",
-        "updateMargins",
-        "left",
-        "top",
-        "right",
-        "bottom",
-        "updateMarginsRelative",
-        "start",
-        "end",
-        "core-ktx_release"
-    }
-    k = 0x2
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x30
-.end annotation
-
-
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public static final contains(Landroid/view/ViewGroup;Landroid/view/View;)Z
     .locals 0
 
@@ -103,7 +34,7 @@
             "Lkotlin/jvm/functions/Function1<",
             "-",
             "Landroid/view/View;",
-            "Lkotlin/Unit;",
+            "Les/qg6;",
             ">;)V"
         }
     .end annotation
@@ -142,7 +73,7 @@
             "Ljava/lang/Integer;",
             "-",
             "Landroid/view/View;",
-            "Lkotlin/Unit;",
+            "Les/qg6;",
             ">;)V"
         }
     .end annotation
@@ -217,14 +148,14 @@
     throw v0
 .end method
 
-.method public static final getChildren(Landroid/view/ViewGroup;)Lkotlin/sequences/Sequence;
+.method public static final getChildren(Landroid/view/ViewGroup;)Les/jp5;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/view/ViewGroup;",
             ")",
-            "Lkotlin/sequences/Sequence<",
+            "Les/jp5<",
             "Landroid/view/View;",
             ">;"
         }
@@ -237,14 +168,14 @@
     return-object v0
 .end method
 
-.method public static final getDescendants(Landroid/view/ViewGroup;)Lkotlin/sequences/Sequence;
+.method public static final getDescendants(Landroid/view/ViewGroup;)Les/jp5;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/view/ViewGroup;",
             ")",
-            "Lkotlin/sequences/Sequence<",
+            "Les/jp5<",
             "Landroid/view/View;",
             ">;"
         }
@@ -257,7 +188,7 @@
     return-object v0
 .end method
 
-.method public static final getIndices(Landroid/view/ViewGroup;)Lkotlin/ranges/IntRange;
+.method public static final getIndices(Landroid/view/ViewGroup;)Les/hv2;
     .locals 1
 
     const/4 v0, 0x0
@@ -266,7 +197,7 @@
 
     move-result p0
 
-    invoke-static {v0, p0}, Lkotlin/ranges/a;->s(II)Lkotlin/ranges/IntRange;
+    invoke-static {v0, p0}, Les/j65;->g(II)Les/hv2;
 
     move-result-object p0
 
@@ -361,6 +292,10 @@
 
 .method public static final setMargins(Landroid/view/ViewGroup$MarginLayoutParams;I)V
     .locals 0
+    .param p1    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
 
     invoke-virtual {p0, p1, p1, p1, p1}, Landroid/view/ViewGroup$MarginLayoutParams;->setMargins(IIII)V
 
@@ -369,6 +304,22 @@
 
 .method public static final updateMargins(Landroid/view/ViewGroup$MarginLayoutParams;IIII)V
     .locals 0
+    .param p1    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
+    .param p3    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
+    .param p4    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
 
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup$MarginLayoutParams;->setMargins(IIII)V
 
@@ -413,6 +364,22 @@
 
 .method public static final updateMarginsRelative(Landroid/view/ViewGroup$MarginLayoutParams;IIII)V
     .locals 0
+    .param p1    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
+    .param p3    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
+    .param p4    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
 
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 

@@ -14,12 +14,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -37,7 +31,7 @@
 
     const-string v1, "android.view.accessibility.action.ARGUMENT_COLUMN_INT"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -51,7 +45,7 @@
 
     const-string v1, "android.view.accessibility.action.ARGUMENT_ROW_INT"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

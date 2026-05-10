@@ -13,14 +13,6 @@
 .end annotation
 
 
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public abstract onConfigureTab(Lcom/google/android/material/tabs/TabLayout$Tab;I)V
     .param p1    # Lcom/google/android/material/tabs/TabLayout$Tab;

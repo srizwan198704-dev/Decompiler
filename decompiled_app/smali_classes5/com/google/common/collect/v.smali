@@ -2,16 +2,10 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Ljava/util/function/BinaryOperator;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public synthetic constructor <init>()V
     .locals 0
 
@@ -22,12 +16,16 @@
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableRangeMap;->builder()Lcom/google/common/collect/ImmutableRangeMap$a;
+    check-cast p1, Lcom/google/common/collect/CollectCollectors$EnumSetAccumulator;
 
-    move-result-object v0
+    check-cast p2, Lcom/google/common/collect/CollectCollectors$EnumSetAccumulator;
 
-    return-object v0
+    invoke-virtual {p1, p2}, Lcom/google/common/collect/CollectCollectors$EnumSetAccumulator;->combine(Lcom/google/common/collect/CollectCollectors$EnumSetAccumulator;)Lcom/google/common/collect/CollectCollectors$EnumSetAccumulator;
+
+    move-result-object p1
+
+    return-object p1
 .end method

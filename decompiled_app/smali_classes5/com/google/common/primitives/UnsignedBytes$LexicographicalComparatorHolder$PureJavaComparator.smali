@@ -6,6 +6,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "PureJavaComparator"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum<",
@@ -31,11 +40,11 @@
 
     new-array v0, v0, [Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator;
 
-    sget-object v1, Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator;->INSTANCE:Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator;->INSTANCE:Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -139,7 +148,7 @@
 
     aget-byte v3, p2, v1
 
-    invoke-static {v2, v3}, Lcom/google/common/primitives/f;->b(BB)I
+    invoke-static {v2, v3}, Lcom/google/common/primitives/UnsignedBytes;->compare(BB)I
 
     move-result v2
 

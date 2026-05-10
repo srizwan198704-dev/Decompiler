@@ -6,6 +6,9 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/ImmutableSortedMultiset;
 .end annotation
@@ -48,31 +51,25 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/google/common/collect/a4;)V
+.method public constructor <init>(Lcom/google/common/collect/SortedMultiset;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/a4<",
+            "Lcom/google/common/collect/SortedMultiset<",
             "TE;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-interface {p1}, Lcom/google/common/collect/a4;->comparator()Ljava/util/Comparator;
+    invoke-interface {p1}, Lcom/google/common/collect/SortedMultiset;->comparator()Ljava/util/Comparator;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;->comparator:Ljava/util/Comparator;
 
-    invoke-interface {p1}, Lcom/google/common/collect/a4;->entrySet()Ljava/util/Set;
+    invoke-interface {p1}, Lcom/google/common/collect/SortedMultiset;->entrySet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -88,7 +85,7 @@
 
     iput-object v0, p0, Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;->counts:[I
 
-    invoke-interface {p1}, Lcom/google/common/collect/a4;->entrySet()Ljava/util/Set;
+    invoke-interface {p1}, Lcom/google/common/collect/SortedMultiset;->entrySet()Ljava/util/Set;
 
     move-result-object p1
 
@@ -109,11 +106,11 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/common/collect/l3$a;
+    check-cast v1, Lcom/google/common/collect/Multiset$Entry;
 
     iget-object v2, p0, Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;->elements:[Ljava/lang/Object;
 
-    invoke-interface {v1}, Lcom/google/common/collect/l3$a;->getElement()Ljava/lang/Object;
+    invoke-interface {v1}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -121,7 +118,7 @@
 
     iget-object v2, p0, Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;->counts:[I
 
-    invoke-interface {v1}, Lcom/google/common/collect/l3$a;->getCount()I
+    invoke-interface {v1}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
 
     move-result v1
 
@@ -144,11 +141,11 @@
 
     array-length v0, v0
 
-    new-instance v1, Lcom/google/common/collect/ImmutableSortedMultiset$a;
+    new-instance v1, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
 
     iget-object v2, p0, Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;->comparator:Ljava/util/Comparator;
 
-    invoke-direct {v1, v2}, Lcom/google/common/collect/ImmutableSortedMultiset$a;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v1, v2}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;-><init>(Ljava/util/Comparator;)V
 
     const/4 v2, 0x0
 
@@ -163,14 +160,14 @@
 
     aget v4, v4, v2
 
-    invoke-virtual {v1, v3, v4}, Lcom/google/common/collect/ImmutableSortedMultiset$a;->r(Ljava/lang/Object;I)Lcom/google/common/collect/ImmutableSortedMultiset$a;
+    invoke-virtual {v1, v3, v4}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;->addCopies(Ljava/lang/Object;I)Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
 
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableSortedMultiset$a;->s()Lcom/google/common/collect/ImmutableSortedMultiset;
+    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;->build()Lcom/google/common/collect/ImmutableSortedMultiset;
 
     move-result-object v0
 

@@ -2,38 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Landroid/view/View$OnFocusChangeListener;
 
 
 # instance fields
-.field public final synthetic a:Lcom/google/android/material/textfield/f;
+.field public final synthetic a:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Lcom/google/android/material/textfield/f;)V
+.method public synthetic constructor <init>(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/textfield/e;->a:Lcom/google/android/material/textfield/f;
+    iput-object p1, p0, Lcom/google/android/material/textfield/e;->a:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onFocusChange(Landroid/view/View;Z)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/textfield/e;->a:Lcom/google/android/material/textfield/f;
+    iget-object v0, p0, Lcom/google/android/material/textfield/e;->a:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/textfield/f;->y(Lcom/google/android/material/textfield/f;Landroid/animation/ValueAnimator;)V
+    invoke-static {v0, p1, p2}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->d(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;Landroid/view/View;Z)V
 
     return-void
 .end method

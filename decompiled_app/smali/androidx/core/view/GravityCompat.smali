@@ -3,54 +3,16 @@
 
 
 # static fields
-.field public static final END:I
+.field public static final END:I = 0x800005
 
-.field public static final RELATIVE_HORIZONTAL_GRAVITY_MASK:I
+.field public static final RELATIVE_HORIZONTAL_GRAVITY_MASK:I = 0x800007
 
-.field public static final RELATIVE_LAYOUT_DIRECTION:I
+.field public static final RELATIVE_LAYOUT_DIRECTION:I = 0x800000
 
-.field public static final START:I
+.field public static final START:I = 0x800003
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const v0, 0x80022d
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Landroidx/core/view/GravityCompat;->END:I
-
-    const v0, 0x80022f
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Landroidx/core/view/GravityCompat;->RELATIVE_HORIZONTAL_GRAVITY_MASK:I
-
-    const v0, 0x800228
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Landroidx/core/view/GravityCompat;->RELATIVE_LAYOUT_DIRECTION:I
-
-    const v0, 0x80022b
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Landroidx/core/view/GravityCompat;->START:I
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 
@@ -61,6 +23,14 @@
 
 .method public static apply(IIILandroid/graphics/Rect;IILandroid/graphics/Rect;I)V
     .locals 0
+    .param p3    # Landroid/graphics/Rect;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p6    # Landroid/graphics/Rect;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
 
     invoke-static/range {p0 .. p7}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;IILandroid/graphics/Rect;I)V
 
@@ -69,6 +39,14 @@
 
 .method public static apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
     .locals 0
+    .param p3    # Landroid/graphics/Rect;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p4    # Landroid/graphics/Rect;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
 
     invoke-static/range {p0 .. p5}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 
@@ -77,6 +55,14 @@
 
 .method public static applyDisplay(ILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
     .locals 0
+    .param p1    # Landroid/graphics/Rect;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/graphics/Rect;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
 
     invoke-static {p0, p1, p2, p3}, Landroid/view/Gravity;->applyDisplay(ILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 

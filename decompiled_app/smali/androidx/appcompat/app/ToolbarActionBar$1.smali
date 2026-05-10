@@ -21,12 +21,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/appcompat/app/ToolbarActionBar;)V
     .locals 0
 
@@ -44,7 +38,7 @@
 
     iget-object v0, p0, Landroidx/appcompat/app/ToolbarActionBar$1;->this$0:Landroidx/appcompat/app/ToolbarActionBar;
 
-    invoke-virtual {v0}, Landroidx/appcompat/app/ToolbarActionBar;->x()V
+    invoke-virtual {v0}, Landroidx/appcompat/app/ToolbarActionBar;->populateOptionsMenu()V
 
     return-void
 .end method

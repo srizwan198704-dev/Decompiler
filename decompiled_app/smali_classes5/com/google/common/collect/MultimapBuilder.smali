@@ -3,12 +3,23 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/MultimapBuilder$e;,
-        Lcom/google/common/collect/MultimapBuilder$f;,
-        Lcom/google/common/collect/MultimapBuilder$d;,
+        Lcom/google/common/collect/MultimapBuilder$SortedSetMultimapBuilder;,
+        Lcom/google/common/collect/MultimapBuilder$SetMultimapBuilder;,
+        Lcom/google/common/collect/MultimapBuilder$ListMultimapBuilder;,
+        Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;,
+        Lcom/google/common/collect/MultimapBuilder$EnumSetSupplier;,
+        Lcom/google/common/collect/MultimapBuilder$TreeSetSupplier;,
         Lcom/google/common/collect/MultimapBuilder$LinkedHashSetSupplier;,
+        Lcom/google/common/collect/MultimapBuilder$HashSetSupplier;,
+        Lcom/google/common/collect/MultimapBuilder$LinkedListSupplier;,
         Lcom/google/common/collect/MultimapBuilder$ArrayListSupplier;
     }
 .end annotation
@@ -25,14 +36,12 @@
 .end annotation
 
 
+# static fields
+.field private static final DEFAULT_EXPECTED_KEYS:I = 0x8
+
+
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>()V
+.method private constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +49,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/collect/MultimapBuilder$a;)V
+.method public synthetic constructor <init>(Lcom/google/common/collect/MultimapBuilder$1;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/common/collect/MultimapBuilder;-><init>()V
@@ -48,12 +57,35 @@
     return-void
 .end method
 
-.method public static a()Lcom/google/common/collect/MultimapBuilder$e;
+.method public static enumKeys(Ljava/lang/Class;)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K0:",
+            "Ljava/lang/Enum<",
+            "TK0;>;>(",
+            "Ljava/lang/Class<",
+            "TK0;>;)",
+            "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys<",
+            "TK0;>;"
+        }
+    .end annotation
+
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/common/collect/MultimapBuilder$4;
+
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MultimapBuilder$4;-><init>(Ljava/lang/Class;)V
+
+    return-object v0
+.end method
+
+.method public static hashKeys()Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/MultimapBuilder$e<",
+            "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys<",
             "Ljava/lang/Object;",
             ">;"
         }
@@ -61,19 +93,19 @@
 
     const/16 v0, 0x8
 
-    invoke-static {v0}, Lcom/google/common/collect/MultimapBuilder;->b(I)Lcom/google/common/collect/MultimapBuilder$e;
+    invoke-static {v0}, Lcom/google/common/collect/MultimapBuilder;->hashKeys(I)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public static b(I)Lcom/google/common/collect/MultimapBuilder$e;
+.method public static hashKeys(I)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/MultimapBuilder$e<",
+            "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys<",
             "Ljava/lang/Object;",
             ">;"
         }
@@ -81,21 +113,21 @@
 
     const-string v0, "expectedKeys"
 
-    invoke-static {p0, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
+    invoke-static {p0, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
-    new-instance v0, Lcom/google/common/collect/MultimapBuilder$a;
+    new-instance v0, Lcom/google/common/collect/MultimapBuilder$1;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/MultimapBuilder$a;-><init>(I)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MultimapBuilder$1;-><init>(I)V
 
     return-object v0
 .end method
 
-.method public static c()Lcom/google/common/collect/MultimapBuilder$e;
+.method public static linkedHashKeys()Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/MultimapBuilder$e<",
+            "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys<",
             "Ljava/lang/Object;",
             ">;"
         }
@@ -103,19 +135,19 @@
 
     const/16 v0, 0x8
 
-    invoke-static {v0}, Lcom/google/common/collect/MultimapBuilder;->d(I)Lcom/google/common/collect/MultimapBuilder$e;
+    invoke-static {v0}, Lcom/google/common/collect/MultimapBuilder;->linkedHashKeys(I)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public static d(I)Lcom/google/common/collect/MultimapBuilder$e;
+.method public static linkedHashKeys(I)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/MultimapBuilder$e<",
+            "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys<",
             "Ljava/lang/Object;",
             ">;"
         }
@@ -123,21 +155,21 @@
 
     const-string v0, "expectedKeys"
 
-    invoke-static {p0, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
+    invoke-static {p0, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
-    new-instance v0, Lcom/google/common/collect/MultimapBuilder$b;
+    new-instance v0, Lcom/google/common/collect/MultimapBuilder$2;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/MultimapBuilder$b;-><init>(I)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MultimapBuilder$2;-><init>(I)V
 
     return-object v0
 .end method
 
-.method public static e()Lcom/google/common/collect/MultimapBuilder$e;
+.method public static treeKeys()Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/MultimapBuilder$e<",
+            "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys<",
             "Ljava/lang/Comparable;",
             ">;"
         }
@@ -147,14 +179,14 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/MultimapBuilder;->f(Ljava/util/Comparator;)Lcom/google/common/collect/MultimapBuilder$e;
+    invoke-static {v0}, Lcom/google/common/collect/MultimapBuilder;->treeKeys(Ljava/util/Comparator;)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public static f(Ljava/util/Comparator;)Lcom/google/common/collect/MultimapBuilder$e;
+.method public static treeKeys(Ljava/util/Comparator;)Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -163,16 +195,49 @@
             ">(",
             "Ljava/util/Comparator<",
             "TK0;>;)",
-            "Lcom/google/common/collect/MultimapBuilder$e<",
+            "Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys<",
             "TK0;>;"
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/google/common/collect/MultimapBuilder$c;
+    new-instance v0, Lcom/google/common/collect/MultimapBuilder$3;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/MultimapBuilder$c;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MultimapBuilder$3;-><init>(Ljava/util/Comparator;)V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public abstract build()Lcom/google/common/collect/Multimap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:TK0;V:TV0;>()",
+            "Lcom/google/common/collect/Multimap<",
+            "TK;TV;>;"
+        }
+    .end annotation
+.end method
+
+.method public build(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/Multimap;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:TK0;V:TV0;>(",
+            "Lcom/google/common/collect/Multimap<",
+            "+TK;+TV;>;)",
+            "Lcom/google/common/collect/Multimap<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder;->build()Lcom/google/common/collect/Multimap;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/google/common/collect/Multimap;->putAll(Lcom/google/common/collect/Multimap;)Z
 
     return-object v0
 .end method

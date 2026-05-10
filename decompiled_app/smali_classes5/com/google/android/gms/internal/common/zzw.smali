@@ -15,12 +15,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/android/gms/internal/common/zzx;Ljava/lang/CharSequence;)V
     .locals 1
 
@@ -80,7 +74,7 @@
 
     iput v2, p0, Lcom/google/android/gms/internal/common/zzw;->zze:I
 
-    move v3, v2
+    const/4 v3, -0x1
 
     goto :goto_1
 

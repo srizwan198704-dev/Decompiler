@@ -5,6 +5,17 @@
 .implements Ljava/lang/Runnable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/google/android/material/badge/BadgeUtils;->attachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroidx/appcompat/widget/Toolbar;ILandroid/widget/FrameLayout;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
 # instance fields
 .field final synthetic val$badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
@@ -16,12 +27,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/appcompat/widget/Toolbar;ILcom/google/android/material/badge/BadgeDrawable;Landroid/widget/FrameLayout;)V
     .locals 0
 
@@ -47,7 +52,7 @@
 
     iget v1, p0, Lcom/google/android/material/badge/BadgeUtils$1;->val$menuItemId:I
 
-    invoke-static {v0, v1}, Lcom/google/android/material/internal/ToolbarUtils;->a(Landroidx/appcompat/widget/Toolbar;I)Landroidx/appcompat/view/menu/ActionMenuItemView;
+    invoke-static {v0, v1}, Lcom/google/android/material/internal/ToolbarUtils;->getActionMenuItemView(Landroidx/appcompat/widget/Toolbar;I)Landroidx/appcompat/view/menu/ActionMenuItemView;
 
     move-result-object v0
 
@@ -61,17 +66,17 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/google/android/material/badge/c;->h(Lcom/google/android/material/badge/BadgeDrawable;Landroid/content/res/Resources;)V
+    invoke-static {v1, v2}, Lcom/google/android/material/badge/BadgeUtils;->setToolbarOffset(Lcom/google/android/material/badge/BadgeDrawable;Landroid/content/res/Resources;)V
 
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeUtils$1;->val$badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
     iget-object v2, p0, Lcom/google/android/material/badge/BadgeUtils$1;->val$customBadgeParent:Landroid/widget/FrameLayout;
 
-    invoke-static {v1, v0, v2}, Lcom/google/android/material/badge/c;->c(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;Landroid/widget/FrameLayout;)V
+    invoke-static {v1, v0, v2}, Lcom/google/android/material/badge/BadgeUtils;->attachBadgeDrawable(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;Landroid/widget/FrameLayout;)V
 
     iget-object v1, p0, Lcom/google/android/material/badge/BadgeUtils$1;->val$badgeDrawable:Lcom/google/android/material/badge/BadgeDrawable;
 
-    invoke-static {v1, v0}, Lcom/google/android/material/badge/c;->a(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;)V
+    invoke-static {v1, v0}, Lcom/google/android/material/badge/BadgeUtils;->access$000(Lcom/google/android/material/badge/BadgeDrawable;Landroid/view/View;)V
 
     :cond_0
     return-void

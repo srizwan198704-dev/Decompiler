@@ -6,6 +6,17 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/base/ElementTypesAreNonnullByDefault;
+.end annotation
+
+.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
+    value = "Use Optional.of(value) or Optional.absent()"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",
@@ -22,12 +33,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -100,7 +105,7 @@
 
     new-instance v0, Lcom/google/common/base/Present;
 
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -125,11 +130,11 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/google/common/base/Optional$a;
+    new-instance v0, Lcom/google/common/base/Optional$1;
 
-    invoke-direct {v0, p0}, Lcom/google/common/base/Optional$a;-><init>(Ljava/lang/Iterable;)V
+    invoke-direct {v0, p0}, Lcom/google/common/base/Optional$1;-><init>(Ljava/lang/Iterable;)V
 
     return-object v0
 .end method
@@ -175,11 +180,11 @@
     .end annotation
 .end method
 
-.method public abstract or(Lcom/google/common/base/q;)Ljava/lang/Object;
+.method public abstract or(Lcom/google/common/base/Supplier;)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/base/q<",
+            "Lcom/google/common/base/Supplier<",
             "+TT;>;)TT;"
         }
     .end annotation
@@ -204,13 +209,13 @@
 .method public abstract toString()Ljava/lang/String;
 .end method
 
-.method public abstract transform(Lcom/google/common/base/f;)Lcom/google/common/base/Optional;
+.method public abstract transform(Lcom/google/common/base/Function;)Lcom/google/common/base/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/base/f<",
+            "Lcom/google/common/base/Function<",
             "-TT;TV;>;)",
             "Lcom/google/common/base/Optional<",
             "TV;>;"

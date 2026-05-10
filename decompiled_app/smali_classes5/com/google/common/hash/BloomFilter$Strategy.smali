@@ -16,16 +16,12 @@
 .end annotation
 
 
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-
 # virtual methods
-.method public abstract mightContain(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$a;)Z
+.method public abstract mightContain(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)Z
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/hash/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -33,7 +29,7 @@
             ">(TT;",
             "Lcom/google/common/hash/Funnel<",
             "-TT;>;I",
-            "Lcom/google/common/hash/BloomFilterStrategies$a;",
+            "Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;",
             ")Z"
         }
     .end annotation
@@ -42,7 +38,11 @@
 .method public abstract ordinal()I
 .end method
 
-.method public abstract put(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$a;)Z
+.method public abstract put(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)Z
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/hash/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -50,7 +50,7 @@
             ">(TT;",
             "Lcom/google/common/hash/Funnel<",
             "-TT;>;I",
-            "Lcom/google/common/hash/BloomFilterStrategies$a;",
+            "Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;",
             ")Z"
         }
     .end annotation

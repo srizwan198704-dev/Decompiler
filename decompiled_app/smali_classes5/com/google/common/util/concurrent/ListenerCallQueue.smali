@@ -1,12 +1,21 @@
-.class public final Lcom/google/common/util/concurrent/ListenerCallQueue;
+.class final Lcom/google/common/util/concurrent/ListenerCallQueue;
 .super Ljava/lang/Object;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;,
-        Lcom/google/common/util/concurrent/ListenerCallQueue$a;
+        Lcom/google/common/util/concurrent/ListenerCallQueue$Event;
     }
 .end annotation
 
@@ -21,11 +30,11 @@
 
 
 # static fields
-.field public static final b:Lcom/google/common/util/concurrent/s;
+.field private static final logger:Lcom/google/common/util/concurrent/LazyLogger;
 
 
 # instance fields
-.field public final a:Ljava/util/List;
+.field private final listeners:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -42,13 +51,13 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Lcom/google/common/util/concurrent/s;
+    new-instance v0, Lcom/google/common/util/concurrent/LazyLogger;
 
     const-class v1, Lcom/google/common/util/concurrent/ListenerCallQueue;
 
-    invoke-direct {v0, v1}, Lcom/google/common/util/concurrent/s;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v0, v1}, Lcom/google/common/util/concurrent/LazyLogger;-><init>(Ljava/lang/Class;)V
 
-    sput-object v0, Lcom/google/common/util/concurrent/ListenerCallQueue;->b:Lcom/google/common/util/concurrent/s;
+    sput-object v0, Lcom/google/common/util/concurrent/ListenerCallQueue;->logger:Lcom/google/common/util/concurrent/LazyLogger;
 
     return-void
 .end method
@@ -66,76 +75,25 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->a:Ljava/util/List;
+    iput-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
 
     return-void
 .end method
 
-.method public static synthetic a()Lcom/google/common/util/concurrent/s;
+.method public static synthetic access$000()Lcom/google/common/util/concurrent/LazyLogger;
     .locals 1
 
-    sget-object v0, Lcom/google/common/util/concurrent/ListenerCallQueue;->b:Lcom/google/common/util/concurrent/s;
+    sget-object v0, Lcom/google/common/util/concurrent/ListenerCallQueue;->logger:Lcom/google/common/util/concurrent/LazyLogger;
 
     return-object v0
 .end method
 
-
-# virtual methods
-.method public b()V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->a:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_0
-
-    iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->a:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;
-
-    invoke-virtual {v1}, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->dispatch()V
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public c(Lcom/google/common/util/concurrent/ListenerCallQueue$a;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/common/util/concurrent/ListenerCallQueue$a<",
-            "T",
-            "L;",
-            ">;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p0, p1, p1}, Lcom/google/common/util/concurrent/ListenerCallQueue;->d(Lcom/google/common/util/concurrent/ListenerCallQueue$a;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public final d(Lcom/google/common/util/concurrent/ListenerCallQueue$a;Ljava/lang/Object;)V
+.method private enqueueHelper(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/Object;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/ListenerCallQueue$a<",
+            "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<",
             "T",
             "L;",
             ">;",
@@ -146,18 +104,18 @@
 
     const-string v0, "event"
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "label"
 
-    invoke-static {p2, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->a:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->a:Ljava/util/List;
+    iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -176,7 +134,7 @@
 
     check-cast v2, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;
 
-    invoke-virtual {v2, p1, p2}, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->add(Lcom/google/common/util/concurrent/ListenerCallQueue$a;Ljava/lang/Object;)V
+    invoke-virtual {v2, p1, p2}, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->add(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -195,5 +153,111 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    goto :goto_3
+
+    :goto_2
     throw p1
+
+    :goto_3
+    goto :goto_2
+.end method
+
+
+# virtual methods
+.method public addListener(Ljava/lang/Object;Ljava/util/concurrent/Executor;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(T",
+            "L;",
+            "Ljava/util/concurrent/Executor;",
+            ")V"
+        }
+    .end annotation
+
+    const-string v0, "listener"
+
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "executor"
+
+    invoke-static {p2, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
+
+    new-instance v1, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;
+
+    invoke-direct {v1, p1, p2}, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;-><init>(Ljava/lang/Object;Ljava/util/concurrent/Executor;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public dispatch()V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_0
+
+    iget-object v1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue;->listeners:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;
+
+    invoke-virtual {v1}, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->dispatch()V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public enqueue(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<",
+            "T",
+            "L;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-direct {p0, p1, p1}, Lcom/google/common/util/concurrent/ListenerCallQueue;->enqueueHelper(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public enqueue(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/String;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<",
+            "T",
+            "L;",
+            ">;",
+            "Ljava/lang/String;",
+            ")V"
+        }
+    .end annotation
+
+    invoke-direct {p0, p1, p2}, Lcom/google/common/util/concurrent/ListenerCallQueue;->enqueueHelper(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/Object;)V
+
+    return-void
 .end method

@@ -2,32 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Lcom/google/common/collect/Maps$EntryTransformer;
+
+
+# instance fields
+.field public final synthetic a:Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/common/collect/w0;->a:Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final transformEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
-    check-cast p1, Lcom/google/common/collect/i3;
+    iget-object v0, p0, Lcom/google/common/collect/w0;->a:Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;
 
-    invoke-static {p1}, Lcom/google/common/collect/ImmutableListMultimap;->copyOf(Lcom/google/common/collect/j3;)Lcom/google/common/collect/ImmutableListMultimap;
+    check-cast p2, Ljava/util/Collection;
+
+    invoke-static {v0, p1, p2}, Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;->a(Lcom/google/common/collect/Multimaps$TransformedEntriesMultimap;Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
 
     move-result-object p1
 

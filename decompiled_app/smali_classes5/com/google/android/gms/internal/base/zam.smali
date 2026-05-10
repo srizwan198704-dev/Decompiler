@@ -1,20 +1,14 @@
 .class public final Lcom/google/android/gms/internal/base/zam;
-.super Landroidx/collection/z;
+.super Landroidx/collection/LruCache;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
     const/16 v0, 0xa
 
-    invoke-direct {p0, v0}, Landroidx/collection/z;-><init>(I)V
+    invoke-direct {p0, v0}, Landroidx/collection/LruCache;-><init>(I)V
 
     return-void
 .end method

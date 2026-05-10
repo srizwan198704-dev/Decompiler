@@ -2,46 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/util/Comparator;
 
 
 # instance fields
-.field public final synthetic a:Ljava/util/function/Function;
+.field public final synthetic a:Ljava/util/Comparator;
 
-.field public final synthetic b:Ljava/util/function/ToIntFunction;
+.field public final synthetic b:Ljava/util/Comparator;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)V
+.method public synthetic constructor <init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/y0;->a:Ljava/util/function/Function;
+    iput-object p1, p0, Lcom/google/common/collect/y0;->a:Ljava/util/Comparator;
 
-    iput-object p2, p0, Lcom/google/common/collect/y0;->b:Ljava/util/function/ToIntFunction;
+    iput-object p2, p0, Lcom/google/common/collect/y0;->b:Ljava/util/Comparator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 2
 
-    iget-object v0, p0, Lcom/google/common/collect/y0;->a:Ljava/util/function/Function;
+    iget-object v0, p0, Lcom/google/common/collect/y0;->a:Ljava/util/Comparator;
 
-    iget-object v1, p0, Lcom/google/common/collect/y0;->b:Ljava/util/function/ToIntFunction;
+    iget-object v1, p0, Lcom/google/common/collect/y0;->b:Ljava/util/Comparator;
 
-    check-cast p1, Lcom/google/common/collect/l3;
+    check-cast p1, Lcom/google/common/collect/Table$Cell;
 
-    invoke-static {v0, v1, p1, p2}, Lcom/google/common/collect/d2;->c(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;Lcom/google/common/collect/l3;Ljava/lang/Object;)V
+    check-cast p2, Lcom/google/common/collect/Table$Cell;
 
-    return-void
+    invoke-static {v0, v1, p1, p2}, Lcom/google/common/collect/RegularImmutableTable;->a(Ljava/util/Comparator;Ljava/util/Comparator;Lcom/google/common/collect/Table$Cell;Lcom/google/common/collect/Table$Cell;)I
+
+    move-result p1
+
+    return p1
 .end method

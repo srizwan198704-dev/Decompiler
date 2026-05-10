@@ -21,12 +21,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/appcompat/widget/DropDownListView;)V
     .locals 0
 
@@ -46,7 +40,7 @@
 
     const/4 v1, 0x0
 
-    iput-object v1, v0, Landroidx/appcompat/widget/DropDownListView;->m:Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;
+    iput-object v1, v0, Landroidx/appcompat/widget/DropDownListView;->mResolveHoverRunnable:Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;
 
     invoke-virtual {v0, p0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
@@ -70,7 +64,7 @@
 
     const/4 v1, 0x0
 
-    iput-object v1, v0, Landroidx/appcompat/widget/DropDownListView;->m:Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;
+    iput-object v1, v0, Landroidx/appcompat/widget/DropDownListView;->mResolveHoverRunnable:Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/DropDownListView;->drawableStateChanged()V
 

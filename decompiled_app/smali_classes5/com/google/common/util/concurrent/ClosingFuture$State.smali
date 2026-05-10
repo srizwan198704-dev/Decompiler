@@ -45,41 +45,41 @@
 
     new-array v0, v0, [Lcom/google/common/util/concurrent/ClosingFuture$State;
 
-    sget-object v1, Lcom/google/common/util/concurrent/ClosingFuture$State;->OPEN:Lcom/google/common/util/concurrent/ClosingFuture$State;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/util/concurrent/ClosingFuture$State;->OPEN:Lcom/google/common/util/concurrent/ClosingFuture$State;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/util/concurrent/ClosingFuture$State;->SUBSUMED:Lcom/google/common/util/concurrent/ClosingFuture$State;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Lcom/google/common/util/concurrent/ClosingFuture$State;->SUBSUMED:Lcom/google/common/util/concurrent/ClosingFuture$State;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/util/concurrent/ClosingFuture$State;->WILL_CLOSE:Lcom/google/common/util/concurrent/ClosingFuture$State;
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    sget-object v2, Lcom/google/common/util/concurrent/ClosingFuture$State;->WILL_CLOSE:Lcom/google/common/util/concurrent/ClosingFuture$State;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/util/concurrent/ClosingFuture$State;->CLOSING:Lcom/google/common/util/concurrent/ClosingFuture$State;
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    sget-object v2, Lcom/google/common/util/concurrent/ClosingFuture$State;->CLOSING:Lcom/google/common/util/concurrent/ClosingFuture$State;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/util/concurrent/ClosingFuture$State;->CLOSED:Lcom/google/common/util/concurrent/ClosingFuture$State;
+    const/4 v1, 0x4
 
-    const/4 v2, 0x4
+    sget-object v2, Lcom/google/common/util/concurrent/ClosingFuture$State;->CLOSED:Lcom/google/common/util/concurrent/ClosingFuture$State;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/util/concurrent/ClosingFuture$State;->WILL_CREATE_VALUE_AND_CLOSER:Lcom/google/common/util/concurrent/ClosingFuture$State;
+    const/4 v1, 0x5
 
-    const/4 v2, 0x5
+    sget-object v2, Lcom/google/common/util/concurrent/ClosingFuture$State;->WILL_CREATE_VALUE_AND_CLOSER:Lcom/google/common/util/concurrent/ClosingFuture$State;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method

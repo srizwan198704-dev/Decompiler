@@ -26,12 +26,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -94,11 +88,11 @@
     return-object v0
 .end method
 
-.method public abstract entryIterator()Lcom/google/common/collect/r4;
+.method public abstract entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "Ljava/util/Map$Entry<",
             "TK;TV;>;>;"
         }
@@ -137,6 +131,11 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableMap;->writeReplace()Ljava/lang/Object;
 

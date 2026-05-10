@@ -3,10 +3,19 @@
 
 # interfaces
 .implements Ljava/util/Comparator;
-.implements Landroidx/recyclerview/widget/l;
+.implements Landroidx/recyclerview/widget/ListUpdateCallback;
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/recyclerview/widget/SortedList;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "Callback"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T2:",
@@ -15,18 +24,12 @@
         "Ljava/lang/Object;",
         "Ljava/util/Comparator<",
         "TT2;>;",
-        "Landroidx/recyclerview/widget/l;"
+        "Landroidx/recyclerview/widget/ListUpdateCallback;"
     }
 .end annotation
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -92,13 +95,4 @@
     invoke-virtual {p0, p1, p2}, Landroidx/recyclerview/widget/SortedList$Callback;->onChanged(II)V
 
     return-void
-.end method
-
-.method public abstract synthetic onInserted(II)V
-.end method
-
-.method public abstract synthetic onMoved(II)V
-.end method
-
-.method public abstract synthetic onRemoved(II)V
 .end method

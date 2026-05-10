@@ -3,6 +3,12 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum<",
@@ -32,17 +38,17 @@
 
     new-array v0, v0, [Lcom/google/common/collect/BoundType;
 
-    sget-object v1, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/collect/BoundType;->CLOSED:Lcom/google/common/collect/BoundType;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Lcom/google/common/collect/BoundType;->CLOSED:Lcom/google/common/collect/BoundType;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method

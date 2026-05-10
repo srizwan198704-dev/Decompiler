@@ -6,10 +6,19 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/primitives/ElementTypesAreNonnullByDefault;
+.end annotation
+
+.annotation runtime Lcom/google/errorprone/annotations/Immutable;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/primitives/ImmutableDoubleArray$b;,
-        Lcom/google/common/primitives/ImmutableDoubleArray$AsList;
+        Lcom/google/common/primitives/ImmutableDoubleArray$AsList;,
+        Lcom/google/common/primitives/ImmutableDoubleArray$Builder;
     }
 .end annotation
 
@@ -69,7 +78,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>([DIILcom/google/common/primitives/ImmutableDoubleArray$a;)V
+.method public synthetic constructor <init>([DIILcom/google/common/primitives/ImmutableDoubleArray$1;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/google/common/primitives/ImmutableDoubleArray;-><init>([DII)V
@@ -112,7 +121,7 @@
 .end method
 
 .method private static areEqual(DD)Z
-    .locals 0
+    .locals 1
 
     invoke-static {p0, p1}, Ljava/lang/Double;->doubleToLongBits(D)J
 
@@ -122,9 +131,9 @@
 
     move-result-wide p2
 
-    cmp-long p0, p0, p2
+    cmp-long v0, p0, p2
 
-    if-nez p0, :cond_0
+    if-nez v0, :cond_0
 
     const/4 p0, 0x1
 
@@ -137,19 +146,19 @@
     return p0
 .end method
 
-.method public static builder()Lcom/google/common/primitives/ImmutableDoubleArray$b;
+.method public static builder()Lcom/google/common/primitives/ImmutableDoubleArray$Builder;
     .locals 2
 
-    new-instance v0, Lcom/google/common/primitives/ImmutableDoubleArray$b;
+    new-instance v0, Lcom/google/common/primitives/ImmutableDoubleArray$Builder;
 
     const/16 v1, 0xa
 
-    invoke-direct {v0, v1}, Lcom/google/common/primitives/ImmutableDoubleArray$b;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/google/common/primitives/ImmutableDoubleArray$Builder;-><init>(I)V
 
     return-object v0
 .end method
 
-.method public static builder(I)Lcom/google/common/primitives/ImmutableDoubleArray$b;
+.method public static builder(I)Lcom/google/common/primitives/ImmutableDoubleArray$Builder;
     .locals 2
 
     if-ltz p0, :cond_0
@@ -164,11 +173,11 @@
     :goto_0
     const-string v1, "Invalid initialCapacity: %s"
 
-    invoke-static {v0, v1, p0}, Lcom/google/common/base/m;->f(ZLjava/lang/String;I)V
+    invoke-static {v0, v1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
 
-    new-instance v0, Lcom/google/common/primitives/ImmutableDoubleArray$b;
+    new-instance v0, Lcom/google/common/primitives/ImmutableDoubleArray$Builder;
 
-    invoke-direct {v0, p0}, Lcom/google/common/primitives/ImmutableDoubleArray$b;-><init>(I)V
+    invoke-direct {v0, p0}, Lcom/google/common/primitives/ImmutableDoubleArray$Builder;-><init>(I)V
 
     return-object v0
 .end method
@@ -198,15 +207,15 @@
     return-object p0
 
     :cond_0
-    invoke-static {}, Lcom/google/common/primitives/ImmutableDoubleArray;->builder()Lcom/google/common/primitives/ImmutableDoubleArray$b;
+    invoke-static {}, Lcom/google/common/primitives/ImmutableDoubleArray;->builder()Lcom/google/common/primitives/ImmutableDoubleArray$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/google/common/primitives/ImmutableDoubleArray$b;->b(Ljava/lang/Iterable;)Lcom/google/common/primitives/ImmutableDoubleArray$b;
+    invoke-virtual {v0, p0}, Lcom/google/common/primitives/ImmutableDoubleArray$Builder;->addAll(Ljava/lang/Iterable;)Lcom/google/common/primitives/ImmutableDoubleArray$Builder;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/google/common/primitives/ImmutableDoubleArray$b;->d()Lcom/google/common/primitives/ImmutableDoubleArray;
+    invoke-virtual {p0}, Lcom/google/common/primitives/ImmutableDoubleArray$Builder;->build()Lcom/google/common/primitives/ImmutableDoubleArray;
 
     move-result-object p0
 
@@ -238,7 +247,7 @@
     :cond_0
     new-instance v0, Lcom/google/common/primitives/ImmutableDoubleArray;
 
-    invoke-static {p0}, Lcom/google/common/primitives/Doubles;->h(Ljava/util/Collection;)[D
+    invoke-static {p0}, Lcom/google/common/primitives/Doubles;->toArray(Ljava/util/Collection;)[D
 
     move-result-object p0
 
@@ -497,17 +506,17 @@
 
     if-gt v0, v1, :cond_0
 
-    move v0, v3
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
     :goto_0
     const-string v1, "the total number of elements must fit in an int"
 
-    invoke-static {v0, v1}, Lcom/google/common/base/m;->e(ZLjava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     array-length v0, p2
 
@@ -545,7 +554,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/primitives/ImmutableDoubleArray$AsList;-><init>(Lcom/google/common/primitives/ImmutableDoubleArray;Lcom/google/common/primitives/ImmutableDoubleArray$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/primitives/ImmutableDoubleArray$AsList;-><init>(Lcom/google/common/primitives/ImmutableDoubleArray;Lcom/google/common/primitives/ImmutableDoubleArray$1;)V
 
     return-object v0
 .end method
@@ -604,7 +613,7 @@
     return v2
 
     :cond_2
-    move v1, v2
+    const/4 v1, 0x0
 
     :goto_0
     invoke-virtual {p0}, Lcom/google/common/primitives/ImmutableDoubleArray;->length()I
@@ -645,7 +654,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->m(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     iget-object v0, p0, Lcom/google/common/primitives/ImmutableDoubleArray;->array:[D
 
@@ -676,7 +685,7 @@
 
     aget-wide v3, v2, v0
 
-    invoke-static {v3, v4}, Lcom/google/common/primitives/Doubles;->d(D)I
+    invoke-static {v3, v4}, Lcom/google/common/primitives/Doubles;->hashCode(D)I
 
     move-result v2
 
@@ -825,7 +834,7 @@
 
     move-result v0
 
-    invoke-static {p1, p2, v0}, Lcom/google/common/base/m;->t(III)V
+    invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     if-ne p1, p2, :cond_0
 

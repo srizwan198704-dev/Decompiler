@@ -1,12 +1,17 @@
-.class public final Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;
-.super Lcom/google/common/util/concurrent/MoreExecutors$c;
+.class final Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;
+.super Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;
 
 # interfaces
-.implements Ljava/util/concurrent/ScheduledExecutorService;
-.implements Lcom/google/common/util/concurrent/v;
+.implements Lcom/google/common/util/concurrent/ListeningScheduledExecutorService;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/util/concurrent/MoreExecutors;
 .end annotation
@@ -18,42 +23,36 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;,
-        Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$NeverSuccessfulListenableFutureTask;
+        Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$NeverSuccessfulListenableFutureTask;,
+        Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;
     }
 .end annotation
 
 
 # instance fields
-.field public final b:Ljava/util/concurrent/ScheduledExecutorService;
+.field final delegate:Ljava/util/concurrent/ScheduledExecutorService;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/util/concurrent/ScheduledExecutorService;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/google/common/util/concurrent/MoreExecutors$c;-><init>(Ljava/util/concurrent/ExecutorService;)V
+    invoke-direct {p0, p1}, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;-><init>(Ljava/util/concurrent/ExecutorService;)V
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, Ljava/util/concurrent/ScheduledExecutorService;
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->b:Ljava/util/concurrent/ScheduledExecutorService;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->delegate:Ljava/util/concurrent/ScheduledExecutorService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public c(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/u;
+.method public schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,7 +61,7 @@
             "J",
             "Ljava/util/concurrent/TimeUnit;",
             ")",
-            "Lcom/google/common/util/concurrent/u<",
+            "Lcom/google/common/util/concurrent/ListenableScheduledFuture<",
             "*>;"
         }
     .end annotation
@@ -73,20 +72,20 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->b:Ljava/util/concurrent/ScheduledExecutorService;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->delegate:Ljava/util/concurrent/ScheduledExecutorService;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/concurrent/ScheduledExecutorService;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
 
     move-result-object p2
 
-    new-instance p3, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;
+    new-instance p3, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;
 
-    invoke-direct {p3, p1, p2}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;-><init>(Lcom/google/common/util/concurrent/t;Ljava/util/concurrent/ScheduledFuture;)V
+    invoke-direct {p3, p1, p2}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/util/concurrent/ScheduledFuture;)V
 
     return-object p3
 .end method
 
-.method public d(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/u;
+.method public schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -97,7 +96,7 @@
             "TV;>;J",
             "Ljava/util/concurrent/TimeUnit;",
             ")",
-            "Lcom/google/common/util/concurrent/u<",
+            "Lcom/google/common/util/concurrent/ListenableScheduledFuture<",
             "TV;>;"
         }
     .end annotation
@@ -106,20 +105,40 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->b:Ljava/util/concurrent/ScheduledExecutorService;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->delegate:Ljava/util/concurrent/ScheduledExecutorService;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/concurrent/ScheduledExecutorService;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
 
     move-result-object p2
 
-    new-instance p3, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;
+    new-instance p3, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;
 
-    invoke-direct {p3, p1, p2}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;-><init>(Lcom/google/common/util/concurrent/t;Ljava/util/concurrent/ScheduledFuture;)V
+    invoke-direct {p3, p1, p2}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/util/concurrent/ScheduledFuture;)V
 
     return-object p3
 .end method
 
-.method public e(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/u;
+.method public bridge synthetic schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -128,7 +147,7 @@
             "JJ",
             "Ljava/util/concurrent/TimeUnit;",
             ")",
-            "Lcom/google/common/util/concurrent/u<",
+            "Lcom/google/common/util/concurrent/ListenableScheduledFuture<",
             "*>;"
         }
     .end annotation
@@ -137,7 +156,7 @@
 
     invoke-direct {v7, p1}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$NeverSuccessfulListenableFutureTask;-><init>(Ljava/lang/Runnable;)V
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->b:Ljava/util/concurrent/ScheduledExecutorService;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->delegate:Ljava/util/concurrent/ScheduledExecutorService;
 
     move-object v1, v7
 
@@ -151,14 +170,24 @@
 
     move-result-object p1
 
-    new-instance p2, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;
+    new-instance p2, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;
 
-    invoke-direct {p2, v7, p1}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;-><init>(Lcom/google/common/util/concurrent/t;Ljava/util/concurrent/ScheduledFuture;)V
+    invoke-direct {p2, v7, p1}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/util/concurrent/ScheduledFuture;)V
 
     return-object p2
 .end method
 
-.method public f(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/u;
+.method public bridge synthetic scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
+    .locals 0
+
+    invoke-virtual/range {p0 .. p6}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -167,7 +196,7 @@
             "JJ",
             "Ljava/util/concurrent/TimeUnit;",
             ")",
-            "Lcom/google/common/util/concurrent/u<",
+            "Lcom/google/common/util/concurrent/ListenableScheduledFuture<",
             "*>;"
         }
     .end annotation
@@ -176,7 +205,7 @@
 
     invoke-direct {v7, p1}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$NeverSuccessfulListenableFutureTask;-><init>(Ljava/lang/Runnable;)V
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->b:Ljava/util/concurrent/ScheduledExecutorService;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->delegate:Ljava/util/concurrent/ScheduledExecutorService;
 
     move-object v1, v7
 
@@ -190,47 +219,17 @@
 
     move-result-object p1
 
-    new-instance p2, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;
+    new-instance p2, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;
 
-    invoke-direct {p2, v7, p1}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$a;-><init>(Lcom/google/common/util/concurrent/t;Ljava/util/concurrent/ScheduledFuture;)V
+    invoke-direct {p2, v7, p1}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$ListenableScheduledTask;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/util/concurrent/ScheduledFuture;)V
 
     return-object p2
-.end method
-
-.method public bridge synthetic schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->c(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/u;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method public bridge synthetic schedule(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->d(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/u;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method public bridge synthetic scheduleAtFixedRate(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
-    .locals 0
-
-    invoke-virtual/range {p0 .. p6}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->e(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/u;
-
-    move-result-object p1
-
-    return-object p1
 .end method
 
 .method public bridge synthetic scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
     .locals 0
 
-    invoke-virtual/range {p0 .. p6}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->f(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/u;
+    invoke-virtual/range {p0 .. p6}, Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;->scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/ListenableScheduledFuture;
 
     move-result-object p1
 

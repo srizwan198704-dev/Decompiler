@@ -6,6 +6,13 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<F:",
@@ -25,10 +32,10 @@
 
 
 # instance fields
-.field final function:Lcom/google/common/base/f;
+.field final function:Lcom/google/common/base/Function;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/f<",
+            "Lcom/google/common/base/Function<",
             "TF;+TT;>;"
         }
     .end annotation
@@ -45,18 +52,12 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/google/common/base/f;Lcom/google/common/collect/Ordering;)V
+.method public constructor <init>(Lcom/google/common/base/Function;Lcom/google/common/collect/Ordering;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/base/f<",
+            "Lcom/google/common/base/Function<",
             "TF;+TT;>;",
             "Lcom/google/common/collect/Ordering<",
             "TT;>;)V"
@@ -65,15 +66,15 @@
 
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/base/f;
+    check-cast p1, Lcom/google/common/base/Function;
 
-    iput-object p1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/f;
+    iput-object p1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/Function;
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -88,6 +89,14 @@
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 2
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TF;)I"
@@ -96,15 +105,15 @@
 
     iget-object v0, p0, Lcom/google/common/collect/ByFunctionOrdering;->ordering:Lcom/google/common/collect/Ordering;
 
-    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/f;
+    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/Function;
 
-    invoke-interface {v1, p1}, Lcom/google/common/base/f;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/f;
+    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/Function;
 
-    invoke-interface {v1, p2}, Lcom/google/common/base/f;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p2}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
 
@@ -133,11 +142,11 @@
 
     check-cast p1, Lcom/google/common/collect/ByFunctionOrdering;
 
-    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/f;
+    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/Function;
 
-    iget-object v3, p1, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/f;
+    iget-object v3, p1, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/Function;
 
-    invoke-interface {v1, v3}, Lcom/google/common/base/f;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Lcom/google/common/base/Function;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -156,7 +165,7 @@
     goto :goto_0
 
     :cond_1
-    move v0, v2
+    const/4 v0, 0x0
 
     :goto_0
     return v0
@@ -166,25 +175,25 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/f;
+    const/4 v0, 0x2
 
-    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->ordering:Lcom/google/common/collect/Ordering;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v2, 0x2
+    const/4 v1, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v2, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/Function;
 
-    const/4 v3, 0x0
+    aput-object v2, v0, v1
 
-    aput-object v0, v2, v3
+    const/4 v1, 0x1
 
-    const/4 v0, 0x1
+    iget-object v2, p0, Lcom/google/common/collect/ByFunctionOrdering;->ordering:Lcom/google/common/collect/Ordering;
 
-    aput-object v1, v2, v0
+    aput-object v2, v0, v1
 
-    invoke-static {v2}, Lcom/google/common/base/j;->b([Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/common/base/Objects;->hashCode([Ljava/lang/Object;)I
 
     move-result v0
 
@@ -206,7 +215,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/f;
+    iget-object v1, p0, Lcom/google/common/collect/ByFunctionOrdering;->function:Lcom/google/common/base/Function;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

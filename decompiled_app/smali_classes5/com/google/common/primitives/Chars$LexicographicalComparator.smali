@@ -40,11 +40,11 @@
 
     new-array v0, v0, [Lcom/google/common/primitives/Chars$LexicographicalComparator;
 
-    sget-object v1, Lcom/google/common/primitives/Chars$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/Chars$LexicographicalComparator;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/primitives/Chars$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/Chars$LexicographicalComparator;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -148,7 +148,7 @@
 
     aget-char v3, p2, v1
 
-    invoke-static {v2, v3}, Ljava/lang/Character;->compare(CC)I
+    invoke-static {v2, v3}, Lcom/google/common/primitives/Chars;->compare(CC)I
 
     move-result v2
 

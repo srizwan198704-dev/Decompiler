@@ -14,13 +14,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
     .locals 6
 
     const/4 v5, 0x0
@@ -35,7 +29,7 @@
 
     move-object v4, p4
 
-    invoke-direct/range {v0 .. v5}, Lcom/google/common/base/CaseFormat;-><init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;Lcom/google/common/base/CaseFormat$1;)V
+    invoke-direct/range {v0 .. v5}, Lcom/google/common/base/CaseFormat;-><init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;Lcom/google/common/base/CaseFormat$1;)V
 
     return-void
 .end method
@@ -64,7 +58,7 @@
 
     if-ne p1, v0, :cond_1
 
-    invoke-static {p2}, Lcom/google/common/base/a;->g(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p2}, Lcom/google/common/base/Ascii;->toUpperCase(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -81,7 +75,7 @@
 .method public normalizeWord(Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    invoke-static {p1}, Lcom/google/common/base/a;->e(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/common/base/Ascii;->toLowerCase(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 

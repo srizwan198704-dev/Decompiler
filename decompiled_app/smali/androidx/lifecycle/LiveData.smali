@@ -5,9 +5,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/lifecycle/LiveData$c;,
-        Landroidx/lifecycle/LiveData$b;,
-        Landroidx/lifecycle/LiveData$a;
+        Landroidx/lifecycle/LiveData$ObserverWrapper;,
+        Landroidx/lifecycle/LiveData$LifecycleBoundObserver;,
+        Landroidx/lifecycle/LiveData$AlwaysActiveObserver;
     }
 .end annotation
 
@@ -22,39 +22,41 @@
 
 
 # static fields
-.field public static final k:Ljava/lang/Object;
+.field static final NOT_SET:Ljava/lang/Object;
+
+.field static final START_VERSION:I = -0x1
 
 
 # instance fields
-.field public final a:Ljava/lang/Object;
+.field mActiveCount:I
 
-.field public b:Lm/b;
+.field private mChangingActiveState:Z
+
+.field private volatile mData:Ljava/lang/Object;
+
+.field final mDataLock:Ljava/lang/Object;
+
+.field private mDispatchInvalidated:Z
+
+.field private mDispatchingValue:Z
+
+.field private mObservers:Landroidx/arch/core/internal/SafeIterableMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lm/b<",
-            "Landroidx/lifecycle/d0<",
+            "Landroidx/arch/core/internal/SafeIterableMap<",
+            "Landroidx/lifecycle/Observer<",
             "-TT;>;",
             "Landroidx/lifecycle/LiveData<",
-            "TT;>.c;>;"
+            "TT;>.ObserverWrapper;>;"
         }
     .end annotation
 .end field
 
-.field public c:I
+.field volatile mPendingData:Ljava/lang/Object;
 
-.field public d:Z
+.field private final mPostValueRunnable:Ljava/lang/Runnable;
 
-.field public volatile e:Ljava/lang/Object;
-
-.field public volatile f:Ljava/lang/Object;
-
-.field public g:I
-
-.field public h:Z
-
-.field public i:Z
-
-.field public final j:Ljava/lang/Runnable;
+.field private mVersion:I
 
 
 # direct methods
@@ -65,7 +67,7 @@
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    sput-object v0, Landroidx/lifecycle/LiveData;->k:Ljava/lang/Object;
+    sput-object v0, Landroidx/lifecycle/LiveData;->NOT_SET:Ljava/lang/Object;
 
     return-void
 .end method
@@ -79,33 +81,33 @@
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroidx/lifecycle/LiveData;->a:Ljava/lang/Object;
+    iput-object v0, p0, Landroidx/lifecycle/LiveData;->mDataLock:Ljava/lang/Object;
 
-    new-instance v0, Lm/b;
+    new-instance v0, Landroidx/arch/core/internal/SafeIterableMap;
 
-    invoke-direct {v0}, Lm/b;-><init>()V
+    invoke-direct {v0}, Landroidx/arch/core/internal/SafeIterableMap;-><init>()V
 
-    iput-object v0, p0, Landroidx/lifecycle/LiveData;->b:Lm/b;
+    iput-object v0, p0, Landroidx/lifecycle/LiveData;->mObservers:Landroidx/arch/core/internal/SafeIterableMap;
 
     const/4 v0, 0x0
 
-    iput v0, p0, Landroidx/lifecycle/LiveData;->c:I
+    iput v0, p0, Landroidx/lifecycle/LiveData;->mActiveCount:I
 
-    sget-object v0, Landroidx/lifecycle/LiveData;->k:Ljava/lang/Object;
+    sget-object v0, Landroidx/lifecycle/LiveData;->NOT_SET:Ljava/lang/Object;
 
-    iput-object v0, p0, Landroidx/lifecycle/LiveData;->f:Ljava/lang/Object;
+    iput-object v0, p0, Landroidx/lifecycle/LiveData;->mPendingData:Ljava/lang/Object;
 
     new-instance v1, Landroidx/lifecycle/LiveData$1;
 
     invoke-direct {v1, p0}, Landroidx/lifecycle/LiveData$1;-><init>(Landroidx/lifecycle/LiveData;)V
 
-    iput-object v1, p0, Landroidx/lifecycle/LiveData;->j:Ljava/lang/Runnable;
+    iput-object v1, p0, Landroidx/lifecycle/LiveData;->mPostValueRunnable:Ljava/lang/Runnable;
 
-    iput-object v0, p0, Landroidx/lifecycle/LiveData;->e:Ljava/lang/Object;
+    iput-object v0, p0, Landroidx/lifecycle/LiveData;->mData:Ljava/lang/Object;
 
     const/4 v0, -0x1
 
-    iput v0, p0, Landroidx/lifecycle/LiveData;->g:I
+    iput v0, p0, Landroidx/lifecycle/LiveData;->mVersion:I
 
     return-void
 .end method
@@ -124,43 +126,43 @@
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroidx/lifecycle/LiveData;->a:Ljava/lang/Object;
+    iput-object v0, p0, Landroidx/lifecycle/LiveData;->mDataLock:Ljava/lang/Object;
 
-    new-instance v0, Lm/b;
+    new-instance v0, Landroidx/arch/core/internal/SafeIterableMap;
 
-    invoke-direct {v0}, Lm/b;-><init>()V
+    invoke-direct {v0}, Landroidx/arch/core/internal/SafeIterableMap;-><init>()V
 
-    iput-object v0, p0, Landroidx/lifecycle/LiveData;->b:Lm/b;
+    iput-object v0, p0, Landroidx/lifecycle/LiveData;->mObservers:Landroidx/arch/core/internal/SafeIterableMap;
 
     const/4 v0, 0x0
 
-    iput v0, p0, Landroidx/lifecycle/LiveData;->c:I
+    iput v0, p0, Landroidx/lifecycle/LiveData;->mActiveCount:I
 
-    sget-object v1, Landroidx/lifecycle/LiveData;->k:Ljava/lang/Object;
+    sget-object v1, Landroidx/lifecycle/LiveData;->NOT_SET:Ljava/lang/Object;
 
-    iput-object v1, p0, Landroidx/lifecycle/LiveData;->f:Ljava/lang/Object;
+    iput-object v1, p0, Landroidx/lifecycle/LiveData;->mPendingData:Ljava/lang/Object;
 
     new-instance v1, Landroidx/lifecycle/LiveData$1;
 
     invoke-direct {v1, p0}, Landroidx/lifecycle/LiveData$1;-><init>(Landroidx/lifecycle/LiveData;)V
 
-    iput-object v1, p0, Landroidx/lifecycle/LiveData;->j:Ljava/lang/Runnable;
+    iput-object v1, p0, Landroidx/lifecycle/LiveData;->mPostValueRunnable:Ljava/lang/Runnable;
 
-    iput-object p1, p0, Landroidx/lifecycle/LiveData;->e:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/lifecycle/LiveData;->mData:Ljava/lang/Object;
 
-    iput v0, p0, Landroidx/lifecycle/LiveData;->g:I
+    iput v0, p0, Landroidx/lifecycle/LiveData;->mVersion:I
 
     return-void
 .end method
 
-.method public static b(Ljava/lang/String;)V
+.method public static assertMainThread(Ljava/lang/String;)V
     .locals 3
 
-    invoke-static {}, Ll/c;->h()Ll/c;
+    invoke-static {}, Landroidx/arch/core/executor/ArchTaskExecutor;->getInstance()Landroidx/arch/core/executor/ArchTaskExecutor;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ll/c;->c()Z
+    invoke-virtual {v0}, Landroidx/arch/core/executor/ArchTaskExecutor;->isMainThread()Z
 
     move-result v0
 
@@ -194,18 +196,70 @@
     throw v0
 .end method
 
+.method private considerNotify(Landroidx/lifecycle/LiveData$ObserverWrapper;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/lifecycle/LiveData<",
+            "TT;>.ObserverWrapper;)V"
+        }
+    .end annotation
+
+    iget-boolean v0, p1, Landroidx/lifecycle/LiveData$ObserverWrapper;->mActive:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Landroidx/lifecycle/LiveData$ObserverWrapper;->shouldBeActive()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroidx/lifecycle/LiveData$ObserverWrapper;->activeStateChanged(Z)V
+
+    return-void
+
+    :cond_1
+    iget v0, p1, Landroidx/lifecycle/LiveData$ObserverWrapper;->mLastVersion:I
+
+    iget v1, p0, Landroidx/lifecycle/LiveData;->mVersion:I
+
+    if-lt v0, v1, :cond_2
+
+    return-void
+
+    :cond_2
+    iput v1, p1, Landroidx/lifecycle/LiveData$ObserverWrapper;->mLastVersion:I
+
+    iget-object p1, p1, Landroidx/lifecycle/LiveData$ObserverWrapper;->mObserver:Landroidx/lifecycle/Observer;
+
+    iget-object v0, p0, Landroidx/lifecycle/LiveData;->mData:Ljava/lang/Object;
+
+    invoke-interface {p1, v0}, Landroidx/lifecycle/Observer;->onChanged(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
 
 # virtual methods
-.method public c(I)V
+.method public changeActiveCounter(I)V
     .locals 4
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
 
-    iget v0, p0, Landroidx/lifecycle/LiveData;->c:I
+    iget v0, p0, Landroidx/lifecycle/LiveData;->mActiveCount:I
 
     add-int/2addr p1, v0
 
-    iput p1, p0, Landroidx/lifecycle/LiveData;->c:I
+    iput p1, p0, Landroidx/lifecycle/LiveData;->mActiveCount:I
 
-    iget-boolean p1, p0, Landroidx/lifecycle/LiveData;->d:Z
+    iget-boolean p1, p0, Landroidx/lifecycle/LiveData;->mChangingActiveState:Z
 
     if-eqz p1, :cond_0
 
@@ -214,13 +268,13 @@
     :cond_0
     const/4 p1, 0x1
 
-    iput-boolean p1, p0, Landroidx/lifecycle/LiveData;->d:Z
+    iput-boolean p1, p0, Landroidx/lifecycle/LiveData;->mChangingActiveState:Z
 
     :goto_0
     const/4 v1, 0x0
 
     :try_start_0
-    iget v2, p0, Landroidx/lifecycle/LiveData;->c:I
+    iget v2, p0, Landroidx/lifecycle/LiveData;->mActiveCount:I
 
     if-eq v0, v2, :cond_5
 
@@ -228,29 +282,29 @@
 
     if-lez v2, :cond_1
 
-    move v3, p1
+    const/4 v3, 0x1
 
     goto :goto_1
 
     :cond_1
-    move v3, v1
+    const/4 v3, 0x0
 
     :goto_1
     if-lez v0, :cond_2
 
     if-nez v2, :cond_2
 
-    move v0, p1
+    const/4 v0, 0x1
 
     goto :goto_2
 
     :cond_2
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_2
     if-eqz v3, :cond_3
 
-    invoke-virtual {p0}, Landroidx/lifecycle/LiveData;->l()V
+    invoke-virtual {p0}, Landroidx/lifecycle/LiveData;->onActive()V
 
     goto :goto_3
 
@@ -262,7 +316,7 @@
     :cond_3
     if-eqz v0, :cond_4
 
-    invoke-virtual {p0}, Landroidx/lifecycle/LiveData;->m()V
+    invoke-virtual {p0}, Landroidx/lifecycle/LiveData;->onInactive()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -273,69 +327,25 @@
     goto :goto_0
 
     :cond_5
-    iput-boolean v1, p0, Landroidx/lifecycle/LiveData;->d:Z
+    iput-boolean v1, p0, Landroidx/lifecycle/LiveData;->mChangingActiveState:Z
 
     return-void
 
     :goto_4
-    iput-boolean v1, p0, Landroidx/lifecycle/LiveData;->d:Z
+    iput-boolean v1, p0, Landroidx/lifecycle/LiveData;->mChangingActiveState:Z
 
+    goto :goto_6
+
+    :goto_5
     throw p1
+
+    :goto_6
+    goto :goto_5
 .end method
 
-.method public final d(Landroidx/lifecycle/LiveData$c;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/lifecycle/LiveData<",
-            "TT;>.c;)V"
-        }
-    .end annotation
-
-    iget-boolean v0, p1, Landroidx/lifecycle/LiveData$c;->b:Z
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p1}, Landroidx/lifecycle/LiveData$c;->d()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroidx/lifecycle/LiveData$c;->a(Z)V
-
-    return-void
-
-    :cond_1
-    iget v0, p1, Landroidx/lifecycle/LiveData$c;->c:I
-
-    iget v1, p0, Landroidx/lifecycle/LiveData;->g:I
-
-    if-lt v0, v1, :cond_2
-
-    return-void
-
-    :cond_2
-    iput v1, p1, Landroidx/lifecycle/LiveData$c;->c:I
-
-    iget-object p1, p1, Landroidx/lifecycle/LiveData$c;->a:Landroidx/lifecycle/d0;
-
-    iget-object v0, p0, Landroidx/lifecycle/LiveData;->e:Ljava/lang/Object;
-
-    invoke-interface {p1, v0}, Landroidx/lifecycle/d0;->onChanged(Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public e(Landroidx/lifecycle/LiveData$c;)V
+.method public dispatchingValue(Landroidx/lifecycle/LiveData$ObserverWrapper;)V
     .locals 3
-    .param p1    # Landroidx/lifecycle/LiveData$c;
+    .param p1    # Landroidx/lifecycle/LiveData$ObserverWrapper;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
@@ -343,40 +353,40 @@
         value = {
             "(",
             "Landroidx/lifecycle/LiveData<",
-            "TT;>.c;)V"
+            "TT;>.ObserverWrapper;)V"
         }
     .end annotation
 
-    iget-boolean v0, p0, Landroidx/lifecycle/LiveData;->h:Z
+    iget-boolean v0, p0, Landroidx/lifecycle/LiveData;->mDispatchingValue:Z
 
     const/4 v1, 0x1
 
     if-eqz v0, :cond_0
 
-    iput-boolean v1, p0, Landroidx/lifecycle/LiveData;->i:Z
+    iput-boolean v1, p0, Landroidx/lifecycle/LiveData;->mDispatchInvalidated:Z
 
     return-void
 
     :cond_0
-    iput-boolean v1, p0, Landroidx/lifecycle/LiveData;->h:Z
+    iput-boolean v1, p0, Landroidx/lifecycle/LiveData;->mDispatchingValue:Z
 
     :cond_1
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Landroidx/lifecycle/LiveData;->i:Z
+    iput-boolean v0, p0, Landroidx/lifecycle/LiveData;->mDispatchInvalidated:Z
 
     if-eqz p1, :cond_2
 
-    invoke-virtual {p0, p1}, Landroidx/lifecycle/LiveData;->d(Landroidx/lifecycle/LiveData$c;)V
+    invoke-direct {p0, p1}, Landroidx/lifecycle/LiveData;->considerNotify(Landroidx/lifecycle/LiveData$ObserverWrapper;)V
 
     const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Landroidx/lifecycle/LiveData;->b:Lm/b;
+    iget-object v1, p0, Landroidx/lifecycle/LiveData;->mObservers:Landroidx/arch/core/internal/SafeIterableMap;
 
-    invoke-virtual {v1}, Lm/b;->c()Lm/b$d;
+    invoke-virtual {v1}, Landroidx/arch/core/internal/SafeIterableMap;->iteratorWithAdditions()Landroidx/arch/core/internal/SafeIterableMap$IteratorWithAdditions;
 
     move-result-object v1
 
@@ -397,26 +407,26 @@
 
     move-result-object v2
 
-    check-cast v2, Landroidx/lifecycle/LiveData$c;
+    check-cast v2, Landroidx/lifecycle/LiveData$ObserverWrapper;
 
-    invoke-virtual {p0, v2}, Landroidx/lifecycle/LiveData;->d(Landroidx/lifecycle/LiveData$c;)V
+    invoke-direct {p0, v2}, Landroidx/lifecycle/LiveData;->considerNotify(Landroidx/lifecycle/LiveData$ObserverWrapper;)V
 
-    iget-boolean v2, p0, Landroidx/lifecycle/LiveData;->i:Z
+    iget-boolean v2, p0, Landroidx/lifecycle/LiveData;->mDispatchInvalidated:Z
 
     if-eqz v2, :cond_3
 
     :cond_4
     :goto_0
-    iget-boolean v1, p0, Landroidx/lifecycle/LiveData;->i:Z
+    iget-boolean v1, p0, Landroidx/lifecycle/LiveData;->mDispatchInvalidated:Z
 
     if-nez v1, :cond_1
 
-    iput-boolean v0, p0, Landroidx/lifecycle/LiveData;->h:Z
+    iput-boolean v0, p0, Landroidx/lifecycle/LiveData;->mDispatchingValue:Z
 
     return-void
 .end method
 
-.method public f()Ljava/lang/Object;
+.method public getValue()Ljava/lang/Object;
     .locals 2
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
@@ -427,9 +437,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Landroidx/lifecycle/LiveData;->e:Ljava/lang/Object;
+    iget-object v0, p0, Landroidx/lifecycle/LiveData;->mData:Ljava/lang/Object;
 
-    sget-object v1, Landroidx/lifecycle/LiveData;->k:Ljava/lang/Object;
+    sget-object v1, Landroidx/lifecycle/LiveData;->NOT_SET:Ljava/lang/Object;
 
     if-eq v0, v1, :cond_0
 
@@ -441,18 +451,18 @@
     return-object v0
 .end method
 
-.method public g()I
+.method public getVersion()I
     .locals 1
 
-    iget v0, p0, Landroidx/lifecycle/LiveData;->g:I
+    iget v0, p0, Landroidx/lifecycle/LiveData;->mVersion:I
 
     return v0
 .end method
 
-.method public h()Z
+.method public hasActiveObservers()Z
     .locals 1
 
-    iget v0, p0, Landroidx/lifecycle/LiveData;->c:I
+    iget v0, p0, Landroidx/lifecycle/LiveData;->mActiveCount:I
 
     if-lez v0, :cond_0
 
@@ -467,12 +477,34 @@
     return v0
 .end method
 
-.method public i()Z
+.method public hasObservers()Z
+    .locals 1
+
+    iget-object v0, p0, Landroidx/lifecycle/LiveData;->mObservers:Landroidx/arch/core/internal/SafeIterableMap;
+
+    invoke-virtual {v0}, Landroidx/arch/core/internal/SafeIterableMap;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public isInitialized()Z
     .locals 2
 
-    iget-object v0, p0, Landroidx/lifecycle/LiveData;->e:Ljava/lang/Object;
+    iget-object v0, p0, Landroidx/lifecycle/LiveData;->mData:Ljava/lang/Object;
 
-    sget-object v1, Landroidx/lifecycle/LiveData;->k:Ljava/lang/Object;
+    sget-object v1, Landroidx/lifecycle/LiveData;->NOT_SET:Ljava/lang/Object;
 
     if-eq v0, v1, :cond_0
 
@@ -487,34 +519,37 @@
     return v0
 .end method
 
-.method public j(Landroidx/lifecycle/u;Landroidx/lifecycle/d0;)V
+.method public observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
     .locals 2
-    .param p1    # Landroidx/lifecycle/u;
+    .param p1    # Landroidx/lifecycle/LifecycleOwner;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .param p2    # Landroidx/lifecycle/d0;
+    .param p2    # Landroidx/lifecycle/Observer;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroidx/lifecycle/u;",
-            "Landroidx/lifecycle/d0<",
+            "Landroidx/lifecycle/LifecycleOwner;",
+            "Landroidx/lifecycle/Observer<",
             "-TT;>;)V"
         }
     .end annotation
 
     const-string v0, "observe"
 
-    invoke-static {v0}, Landroidx/lifecycle/LiveData;->b(Ljava/lang/String;)V
+    invoke-static {v0}, Landroidx/lifecycle/LiveData;->assertMainThread(Ljava/lang/String;)V
 
-    invoke-interface {p1}, Landroidx/lifecycle/u;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    invoke-interface {p1}, Landroidx/lifecycle/LifecycleOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidx/lifecycle/Lifecycle;->b()Landroidx/lifecycle/Lifecycle$State;
+    invoke-virtual {v0}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
 
     move-result-object v0
 
@@ -525,21 +560,21 @@
     return-void
 
     :cond_0
-    new-instance v0, Landroidx/lifecycle/LiveData$b;
+    new-instance v0, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;
 
-    invoke-direct {v0, p0, p1, p2}, Landroidx/lifecycle/LiveData$b;-><init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/u;Landroidx/lifecycle/d0;)V
+    invoke-direct {v0, p0, p1, p2}, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;-><init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
 
-    iget-object v1, p0, Landroidx/lifecycle/LiveData;->b:Lm/b;
+    iget-object v1, p0, Landroidx/lifecycle/LiveData;->mObservers:Landroidx/arch/core/internal/SafeIterableMap;
 
-    invoke-virtual {v1, p2, v0}, Lm/b;->g(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p2, v0}, Landroidx/arch/core/internal/SafeIterableMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
 
-    check-cast p2, Landroidx/lifecycle/LiveData$c;
+    check-cast p2, Landroidx/lifecycle/LiveData$ObserverWrapper;
 
     if-eqz p2, :cond_2
 
-    invoke-virtual {p2, p1}, Landroidx/lifecycle/LiveData$c;->c(Landroidx/lifecycle/u;)Z
+    invoke-virtual {p2, p1}, Landroidx/lifecycle/LiveData$ObserverWrapper;->isAttachedTo(Landroidx/lifecycle/LifecycleOwner;)Z
 
     move-result v1
 
@@ -563,46 +598,49 @@
     return-void
 
     :cond_3
-    invoke-interface {p1}, Landroidx/lifecycle/u;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    invoke-interface {p1}, Landroidx/lifecycle/LifecycleOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object p1
 
-    invoke-virtual {p1, v0}, Landroidx/lifecycle/Lifecycle;->a(Landroidx/lifecycle/t;)V
+    invoke-virtual {p1, v0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     return-void
 .end method
 
-.method public k(Landroidx/lifecycle/d0;)V
+.method public observeForever(Landroidx/lifecycle/Observer;)V
     .locals 2
-    .param p1    # Landroidx/lifecycle/d0;
+    .param p1    # Landroidx/lifecycle/Observer;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroidx/lifecycle/d0<",
+            "Landroidx/lifecycle/Observer<",
             "-TT;>;)V"
         }
     .end annotation
 
     const-string v0, "observeForever"
 
-    invoke-static {v0}, Landroidx/lifecycle/LiveData;->b(Ljava/lang/String;)V
+    invoke-static {v0}, Landroidx/lifecycle/LiveData;->assertMainThread(Ljava/lang/String;)V
 
-    new-instance v0, Landroidx/lifecycle/LiveData$a;
+    new-instance v0, Landroidx/lifecycle/LiveData$AlwaysActiveObserver;
 
-    invoke-direct {v0, p0, p1}, Landroidx/lifecycle/LiveData$a;-><init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/d0;)V
+    invoke-direct {v0, p0, p1}, Landroidx/lifecycle/LiveData$AlwaysActiveObserver;-><init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
 
-    iget-object v1, p0, Landroidx/lifecycle/LiveData;->b:Lm/b;
+    iget-object v1, p0, Landroidx/lifecycle/LiveData;->mObservers:Landroidx/arch/core/internal/SafeIterableMap;
 
-    invoke-virtual {v1, p1, v0}, Lm/b;->g(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1, v0}, Landroidx/arch/core/internal/SafeIterableMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Landroidx/lifecycle/LiveData$c;
+    check-cast p1, Landroidx/lifecycle/LiveData$ObserverWrapper;
 
-    instance-of v1, p1, Landroidx/lifecycle/LiveData$b;
+    instance-of v1, p1, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;
 
     if-nez v1, :cond_1
 
@@ -613,7 +651,7 @@
     :cond_0
     const/4 p1, 0x1
 
-    invoke-virtual {v0, p1}, Landroidx/lifecycle/LiveData$c;->a(Z)V
+    invoke-virtual {v0, p1}, Landroidx/lifecycle/LiveData$ObserverWrapper;->activeStateChanged(Z)V
 
     return-void
 
@@ -627,19 +665,19 @@
     throw p1
 .end method
 
-.method public l()V
+.method public onActive()V
     .locals 0
 
     return-void
 .end method
 
-.method public m()V
+.method public onInactive()V
     .locals 0
 
     return-void
 .end method
 
-.method public n(Ljava/lang/Object;)V
+.method public postValue(Ljava/lang/Object;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -647,14 +685,14 @@
         }
     .end annotation
 
-    iget-object v0, p0, Landroidx/lifecycle/LiveData;->a:Ljava/lang/Object;
+    iget-object v0, p0, Landroidx/lifecycle/LiveData;->mDataLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Landroidx/lifecycle/LiveData;->f:Ljava/lang/Object;
+    iget-object v1, p0, Landroidx/lifecycle/LiveData;->mPendingData:Ljava/lang/Object;
 
-    sget-object v2, Landroidx/lifecycle/LiveData;->k:Ljava/lang/Object;
+    sget-object v2, Landroidx/lifecycle/LiveData;->NOT_SET:Ljava/lang/Object;
 
     if-ne v1, v2, :cond_0
 
@@ -666,7 +704,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    iput-object p1, p0, Landroidx/lifecycle/LiveData;->f:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/lifecycle/LiveData;->mPendingData:Ljava/lang/Object;
 
     monitor-exit v0
     :try_end_0
@@ -677,13 +715,13 @@
     return-void
 
     :cond_1
-    invoke-static {}, Ll/c;->h()Ll/c;
+    invoke-static {}, Landroidx/arch/core/executor/ArchTaskExecutor;->getInstance()Landroidx/arch/core/executor/ArchTaskExecutor;
 
     move-result-object p1
 
-    iget-object v0, p0, Landroidx/lifecycle/LiveData;->j:Ljava/lang/Runnable;
+    iget-object v0, p0, Landroidx/lifecycle/LiveData;->mPostValueRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {p1, v0}, Ll/c;->d(Ljava/lang/Runnable;)V
+    invoke-virtual {p1, v0}, Landroidx/arch/core/executor/ArchTaskExecutor;->postToMainThread(Ljava/lang/Runnable;)V
 
     return-void
 
@@ -698,60 +736,65 @@
     throw p1
 .end method
 
-.method public o(Landroidx/lifecycle/d0;)V
+.method public removeObserver(Landroidx/lifecycle/Observer;)V
     .locals 1
-    .param p1    # Landroidx/lifecycle/d0;
+    .param p1    # Landroidx/lifecycle/Observer;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroidx/lifecycle/d0<",
+            "Landroidx/lifecycle/Observer<",
             "-TT;>;)V"
         }
     .end annotation
 
     const-string v0, "removeObserver"
 
-    invoke-static {v0}, Landroidx/lifecycle/LiveData;->b(Ljava/lang/String;)V
+    invoke-static {v0}, Landroidx/lifecycle/LiveData;->assertMainThread(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroidx/lifecycle/LiveData;->b:Lm/b;
+    iget-object v0, p0, Landroidx/lifecycle/LiveData;->mObservers:Landroidx/arch/core/internal/SafeIterableMap;
 
-    invoke-virtual {v0, p1}, Lm/b;->h(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroidx/arch/core/internal/SafeIterableMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Landroidx/lifecycle/LiveData$c;
+    check-cast p1, Landroidx/lifecycle/LiveData$ObserverWrapper;
 
     if-nez p1, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {p1}, Landroidx/lifecycle/LiveData$c;->b()V
+    invoke-virtual {p1}, Landroidx/lifecycle/LiveData$ObserverWrapper;->detachObserver()V
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Landroidx/lifecycle/LiveData$c;->a(Z)V
+    invoke-virtual {p1, v0}, Landroidx/lifecycle/LiveData$ObserverWrapper;->activeStateChanged(Z)V
 
     return-void
 .end method
 
-.method public p(Landroidx/lifecycle/u;)V
+.method public removeObservers(Landroidx/lifecycle/LifecycleOwner;)V
     .locals 3
-    .param p1    # Landroidx/lifecycle/u;
+    .param p1    # Landroidx/lifecycle/LifecycleOwner;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
 
     const-string v0, "removeObservers"
 
-    invoke-static {v0}, Landroidx/lifecycle/LiveData;->b(Ljava/lang/String;)V
+    invoke-static {v0}, Landroidx/lifecycle/LiveData;->assertMainThread(Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroidx/lifecycle/LiveData;->b:Lm/b;
+    iget-object v0, p0, Landroidx/lifecycle/LiveData;->mObservers:Landroidx/arch/core/internal/SafeIterableMap;
 
-    invoke-virtual {v0}, Lm/b;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Landroidx/arch/core/internal/SafeIterableMap;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -773,9 +816,9 @@
 
     move-result-object v2
 
-    check-cast v2, Landroidx/lifecycle/LiveData$c;
+    check-cast v2, Landroidx/lifecycle/LiveData$ObserverWrapper;
 
-    invoke-virtual {v2, p1}, Landroidx/lifecycle/LiveData$c;->c(Landroidx/lifecycle/u;)Z
+    invoke-virtual {v2, p1}, Landroidx/lifecycle/LiveData$ObserverWrapper;->isAttachedTo(Landroidx/lifecycle/LifecycleOwner;)Z
 
     move-result v2
 
@@ -785,9 +828,9 @@
 
     move-result-object v1
 
-    check-cast v1, Landroidx/lifecycle/d0;
+    check-cast v1, Landroidx/lifecycle/Observer;
 
-    invoke-virtual {p0, v1}, Landroidx/lifecycle/LiveData;->o(Landroidx/lifecycle/d0;)V
+    invoke-virtual {p0, v1}, Landroidx/lifecycle/LiveData;->removeObserver(Landroidx/lifecycle/Observer;)V
 
     goto :goto_0
 
@@ -795,8 +838,11 @@
     return-void
 .end method
 
-.method public q(Ljava/lang/Object;)V
+.method public setValue(Ljava/lang/Object;)V
     .locals 1
+    .annotation build Landroidx/annotation/MainThread;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -805,19 +851,19 @@
 
     const-string v0, "setValue"
 
-    invoke-static {v0}, Landroidx/lifecycle/LiveData;->b(Ljava/lang/String;)V
+    invoke-static {v0}, Landroidx/lifecycle/LiveData;->assertMainThread(Ljava/lang/String;)V
 
-    iget v0, p0, Landroidx/lifecycle/LiveData;->g:I
+    iget v0, p0, Landroidx/lifecycle/LiveData;->mVersion:I
 
     add-int/lit8 v0, v0, 0x1
 
-    iput v0, p0, Landroidx/lifecycle/LiveData;->g:I
+    iput v0, p0, Landroidx/lifecycle/LiveData;->mVersion:I
 
-    iput-object p1, p0, Landroidx/lifecycle/LiveData;->e:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/lifecycle/LiveData;->mData:Ljava/lang/Object;
 
     const/4 p1, 0x0
 
-    invoke-virtual {p0, p1}, Landroidx/lifecycle/LiveData;->e(Landroidx/lifecycle/LiveData$c;)V
+    invoke-virtual {p0, p1}, Landroidx/lifecycle/LiveData;->dispatchingValue(Landroidx/lifecycle/LiveData$ObserverWrapper;)V
 
     return-void
 .end method

@@ -6,22 +6,16 @@
 
 
 # instance fields
-.field public final synthetic a:Lcom/google/android/material/textfield/p;
+.field public final synthetic a:Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Lcom/google/android/material/textfield/p;)V
+.method public synthetic constructor <init>(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/textfield/i;->a:Lcom/google/android/material/textfield/p;
+    iput-object p1, p0, Lcom/google/android/material/textfield/i;->a:Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;
 
     return-void
 .end method
@@ -31,9 +25,9 @@
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/textfield/i;->a:Lcom/google/android/material/textfield/p;
+    iget-object v0, p0, Lcom/google/android/material/textfield/i;->a:Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/textfield/p;->x(Lcom/google/android/material/textfield/p;Landroid/animation/ValueAnimator;)V
+    invoke-static {v0, p1}, Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;->a(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

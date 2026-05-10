@@ -3,12 +3,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
     .param p2    # Ljava/lang/Throwable;

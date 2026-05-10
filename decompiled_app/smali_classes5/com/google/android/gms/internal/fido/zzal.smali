@@ -3,12 +3,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public static zza(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 2
 
@@ -32,7 +26,7 @@
     return v1
 
     :cond_1
-    move v0, v1
+    const/4 v0, 0x0
 
     :cond_2
     :goto_0

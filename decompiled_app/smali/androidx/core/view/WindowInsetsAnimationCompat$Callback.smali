@@ -20,32 +20,18 @@
 
 
 # static fields
-.field public static final DISPATCH_MODE_CONTINUE_ON_SUBTREE:I
+.field public static final DISPATCH_MODE_CONTINUE_ON_SUBTREE:I = 0x1
 
 .field public static final DISPATCH_MODE_STOP:I
 
 
 # instance fields
-.field mDispachedInsets:Landroidx/core/view/WindowInsetsCompat;
+.field mDispachedInsets:Landroid/view/WindowInsets;
 
 .field private final mDispatchMode:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const v0, 0x229
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Landroidx/core/view/WindowInsetsAnimationCompat$Callback;->DISPATCH_MODE_CONTINUE_ON_SUBTREE:I
-
-    return-void
-.end method
-
 .method public constructor <init>(I)V
     .locals 0
 
@@ -68,17 +54,36 @@
 
 .method public onEnd(Landroidx/core/view/WindowInsetsAnimationCompat;)V
     .locals 0
+    .param p1    # Landroidx/core/view/WindowInsetsAnimationCompat;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method public onPrepare(Landroidx/core/view/WindowInsetsAnimationCompat;)V
     .locals 0
+    .param p1    # Landroidx/core/view/WindowInsetsAnimationCompat;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method public abstract onProgress(Landroidx/core/view/WindowInsetsCompat;Ljava/util/List;)Landroidx/core/view/WindowInsetsCompat;
+    .param p1    # Landroidx/core/view/WindowInsetsCompat;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/util/List;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,6 +98,16 @@
 
 .method public onStart(Landroidx/core/view/WindowInsetsAnimationCompat;Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;)Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
     .locals 0
+    .param p1    # Landroidx/core/view/WindowInsetsAnimationCompat;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroidx/core/view/WindowInsetsAnimationCompat$BoundsCompat;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
 
     return-object p2
 .end method

@@ -25,26 +25,20 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/TreeRangeSet;)V
     .locals 1
 
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeSet$Complement;->this$0:Lcom/google/common/collect/TreeRangeSet;
 
-    new-instance v0, Lcom/google/common/collect/TreeRangeSet$c;
+    new-instance v0, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;
 
     iget-object p1, p1, Lcom/google/common/collect/TreeRangeSet;->rangesByLowerBound:Ljava/util/NavigableMap;
 
-    invoke-direct {v0, p1}, Lcom/google/common/collect/TreeRangeSet$c;-><init>(Ljava/util/NavigableMap;)V
+    invoke-direct {v0, p1}, Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;-><init>(Ljava/util/NavigableMap;)V
 
     const/4 p1, 0x0
 
-    invoke-direct {p0, v0, p1}, Lcom/google/common/collect/TreeRangeSet;-><init>(Ljava/util/NavigableMap;Lcom/google/common/collect/TreeRangeSet$a;)V
+    invoke-direct {p0, v0, p1}, Lcom/google/common/collect/TreeRangeSet;-><init>(Ljava/util/NavigableMap;Lcom/google/common/collect/TreeRangeSet$1;)V
 
     return-void
 .end method
@@ -68,12 +62,12 @@
     return-void
 .end method
 
-.method public complement()Lcom/google/common/collect/u3;
+.method public complement()Lcom/google/common/collect/RangeSet;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/u3<",
+            "Lcom/google/common/collect/RangeSet<",
             "TC;>;"
         }
     .end annotation

@@ -3,6 +3,13 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -15,12 +22,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -33,6 +34,8 @@
 # virtual methods
 .method public copyIntoArray([Ljava/lang/Object;I)I
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSet;->asList()Lcom/google/common/collect/ImmutableList;
 
@@ -70,12 +73,12 @@
     .end annotation
 .end method
 
-.method public iterator()Lcom/google/common/collect/r4;
+.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "TE;>;"
         }
     .end annotation
@@ -84,7 +87,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -94,7 +97,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/IndexedImmutableSet;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/IndexedImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -103,6 +106,11 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableSet;->writeReplace()Ljava/lang/Object;
 

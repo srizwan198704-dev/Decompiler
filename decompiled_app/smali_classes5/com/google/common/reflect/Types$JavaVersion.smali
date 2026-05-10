@@ -43,29 +43,29 @@
 
     new-array v0, v0, [Lcom/google/common/reflect/Types$JavaVersion;
 
-    sget-object v1, Lcom/google/common/reflect/Types$JavaVersion;->JAVA6:Lcom/google/common/reflect/Types$JavaVersion;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/reflect/Types$JavaVersion;->JAVA6:Lcom/google/common/reflect/Types$JavaVersion;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/reflect/Types$JavaVersion;->JAVA7:Lcom/google/common/reflect/Types$JavaVersion;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Lcom/google/common/reflect/Types$JavaVersion;->JAVA7:Lcom/google/common/reflect/Types$JavaVersion;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/reflect/Types$JavaVersion;->JAVA8:Lcom/google/common/reflect/Types$JavaVersion;
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    sget-object v2, Lcom/google/common/reflect/Types$JavaVersion;->JAVA8:Lcom/google/common/reflect/Types$JavaVersion;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/reflect/Types$JavaVersion;->JAVA9:Lcom/google/common/reflect/Types$JavaVersion;
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    sget-object v2, Lcom/google/common/reflect/Types$JavaVersion;->JAVA9:Lcom/google/common/reflect/Types$JavaVersion;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -129,11 +129,11 @@
 
     if-eqz v4, :cond_1
 
-    new-instance v0, Lcom/google/common/reflect/Types$JavaVersion$a;
+    new-instance v0, Lcom/google/common/reflect/Types$JavaVersion$5;
 
-    invoke-direct {v0}, Lcom/google/common/reflect/Types$JavaVersion$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/reflect/Types$JavaVersion$5;-><init>()V
 
-    invoke-virtual {v0}, Lcom/google/common/reflect/c;->capture()Ljava/lang/reflect/Type;
+    invoke-virtual {v0}, Lcom/google/common/reflect/TypeCapture;->capture()Ljava/lang/reflect/Type;
 
     move-result-object v0
 
@@ -159,11 +159,11 @@
     goto :goto_0
 
     :cond_1
-    new-instance v2, Lcom/google/common/reflect/Types$JavaVersion$b;
+    new-instance v2, Lcom/google/common/reflect/Types$JavaVersion$6;
 
-    invoke-direct {v2}, Lcom/google/common/reflect/Types$JavaVersion$b;-><init>()V
+    invoke-direct {v2}, Lcom/google/common/reflect/Types$JavaVersion$6;-><init>()V
 
-    invoke-virtual {v2}, Lcom/google/common/reflect/c;->capture()Ljava/lang/reflect/Type;
+    invoke-virtual {v2}, Lcom/google/common/reflect/TypeCapture;->capture()Ljava/lang/reflect/Type;
 
     move-result-object v2
 
@@ -195,7 +195,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/reflect/Types$a;)V
+.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/reflect/Types$1;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/common/reflect/Types$JavaVersion;-><init>(Ljava/lang/String;I)V
@@ -247,7 +247,7 @@
 .method public typeName(Ljava/lang/reflect/Type;)Ljava/lang/String;
     .locals 0
 
-    invoke-static {p1}, Lcom/google/common/reflect/Types;->s(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/common/reflect/Types;->toString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -267,7 +267,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$a;
+    invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$Builder;
 
     move-result-object v0
 
@@ -284,14 +284,14 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$a;->j(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$a;
+    invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
 
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$a;->n()Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
     move-result-object p1
 

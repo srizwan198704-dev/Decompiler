@@ -15,7 +15,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/google/common/collect/IndexedImmutableSet<",
-        "Lcom/google/common/collect/c4$a<",
+        "Lcom/google/common/collect/Table$Cell<",
         "TR;TC;TV;>;>;"
     }
 .end annotation
@@ -26,13 +26,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/google/common/collect/RegularImmutableTable;)V
+.method private constructor <init>(Lcom/google/common/collect/RegularImmutableTable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableTable$CellSet;->this$0:Lcom/google/common/collect/RegularImmutableTable;
@@ -42,7 +36,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$a;)V
+.method public synthetic constructor <init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$1;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/RegularImmutableTable$CellSet;-><init>(Lcom/google/common/collect/RegularImmutableTable;)V
@@ -55,21 +49,21 @@
 .method public contains(Ljava/lang/Object;)Z
     .locals 4
 
-    instance-of v0, p1, Lcom/google/common/collect/c4$a;
+    instance-of v0, p1, Lcom/google/common/collect/Table$Cell;
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    check-cast p1, Lcom/google/common/collect/c4$a;
+    check-cast p1, Lcom/google/common/collect/Table$Cell;
 
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableTable$CellSet;->this$0:Lcom/google/common/collect/RegularImmutableTable;
 
-    invoke-interface {p1}, Lcom/google/common/collect/c4$a;->getRowKey()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/google/common/collect/Table$Cell;->getRowKey()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-interface {p1}, Lcom/google/common/collect/c4$a;->getColumnKey()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/google/common/collect/Table$Cell;->getColumnKey()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -79,7 +73,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-interface {p1}, Lcom/google/common/collect/c4$a;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/google/common/collect/Table$Cell;->getValue()Ljava/lang/Object;
 
     move-result-object p1
 
@@ -95,19 +89,19 @@
     return v1
 .end method
 
-.method public get(I)Lcom/google/common/collect/c4$a;
+.method public get(I)Lcom/google/common/collect/Table$Cell;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/c4$a<",
+            "Lcom/google/common/collect/Table$Cell<",
             "TR;TC;TV;>;"
         }
     .end annotation
 
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableTable$CellSet;->this$0:Lcom/google/common/collect/RegularImmutableTable;
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/RegularImmutableTable;->getCell(I)Lcom/google/common/collect/c4$a;
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/RegularImmutableTable;->getCell(I)Lcom/google/common/collect/Table$Cell;
 
     move-result-object p1
 
@@ -117,7 +111,7 @@
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/RegularImmutableTable$CellSet;->get(I)Lcom/google/common/collect/c4$a;
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/RegularImmutableTable$CellSet;->get(I)Lcom/google/common/collect/Table$Cell;
 
     move-result-object p1
 
@@ -137,7 +131,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableTable$CellSet;->this$0:Lcom/google/common/collect/RegularImmutableTable;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/RegularImmutableTable;->size()I
+    invoke-interface {v0}, Lcom/google/common/collect/Table;->size()I
 
     move-result v0
 
@@ -146,6 +140,11 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/IndexedImmutableSet;->writeReplace()Ljava/lang/Object;
 

@@ -6,12 +6,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public synthetic constructor <init>()V
     .locals 0
 
@@ -25,9 +19,9 @@
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/google/common/collect/ImmutableSet$a;
+    check-cast p1, Lcom/google/common/collect/MoreCollectors$ToOptionalState;
 
-    invoke-virtual {p1}, Lcom/google/common/collect/ImmutableSet$a;->o()Lcom/google/common/collect/ImmutableSet;
+    invoke-virtual {p1}, Lcom/google/common/collect/MoreCollectors$ToOptionalState;->getOptional()Ljava/util/Optional;
 
     move-result-object p1
 

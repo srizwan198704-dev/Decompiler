@@ -3,6 +3,9 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/Ordering;
 .end annotation
@@ -22,12 +25,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 2
 

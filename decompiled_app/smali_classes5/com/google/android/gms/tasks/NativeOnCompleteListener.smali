@@ -24,12 +24,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(J)V
     .locals 0
     .annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;

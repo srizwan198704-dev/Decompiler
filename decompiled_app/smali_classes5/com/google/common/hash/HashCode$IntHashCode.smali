@@ -25,12 +25,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(I)V
     .locals 0
 
@@ -44,45 +38,45 @@
 
 # virtual methods
 .method public asBytes()[B
-    .locals 6
+    .locals 4
 
-    iget v0, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
+    const/4 v0, 0x4
 
-    int-to-byte v1, v0
+    new-array v0, v0, [B
 
-    shr-int/lit8 v2, v0, 0x8
+    iget v1, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
+
+    int-to-byte v2, v1
+
+    const/4 v3, 0x0
+
+    aput-byte v2, v0, v3
+
+    shr-int/lit8 v2, v1, 0x8
 
     int-to-byte v2, v2
 
-    shr-int/lit8 v3, v0, 0x10
+    const/4 v3, 0x1
 
-    int-to-byte v3, v3
+    aput-byte v2, v0, v3
 
-    shr-int/lit8 v0, v0, 0x18
+    shr-int/lit8 v2, v1, 0x10
 
-    int-to-byte v0, v0
+    int-to-byte v2, v2
 
-    const/4 v4, 0x4
+    const/4 v3, 0x2
 
-    new-array v4, v4, [B
+    aput-byte v2, v0, v3
 
-    const/4 v5, 0x0
+    shr-int/lit8 v1, v1, 0x18
 
-    aput-byte v1, v4, v5
+    int-to-byte v1, v1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x3
 
-    aput-byte v2, v4, v1
+    aput-byte v1, v0, v2
 
-    const/4 v1, 0x2
-
-    aput-byte v3, v4, v1
-
-    const/4 v1, 0x3
-
-    aput-byte v0, v4, v1
-
-    return-object v4
+    return-object v0
 .end method
 
 .method public asInt()I
@@ -140,7 +134,7 @@
 
     iget v0, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
 
-    invoke-static {v0}, Lcom/google/common/primitives/UnsignedInts;->f(I)J
+    invoke-static {v0}, Lcom/google/common/primitives/UnsignedInts;->toLong(I)J
 
     move-result-wide v0
 

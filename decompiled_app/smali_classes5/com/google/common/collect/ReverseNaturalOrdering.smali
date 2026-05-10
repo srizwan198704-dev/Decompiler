@@ -6,6 +6,13 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/google/common/collect/Ordering<",
@@ -65,7 +72,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     if-ne p1, p2, :cond_0
 

@@ -2,105 +2,114 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/core/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "styleable"
+.end annotation
+
+
 # static fields
-.field public static Capability:[I = null
+.field public static final Capability:[I
 
-.field public static Capability_queryPatterns:I = 0x0
+.field public static final Capability_queryPatterns:I = 0x0
 
-.field public static Capability_shortcutMatchRequired:I = 0x1
+.field public static final Capability_shortcutMatchRequired:I = 0x1
 
-.field public static ColorStateListItem:[I = null
+.field public static final ColorStateListItem:[I
 
-.field public static ColorStateListItem_alpha:I = 0x3
+.field public static final ColorStateListItem_alpha:I = 0x3
 
-.field public static ColorStateListItem_android_alpha:I = 0x1
+.field public static final ColorStateListItem_android_alpha:I = 0x1
 
-.field public static ColorStateListItem_android_color:I = 0x0
+.field public static final ColorStateListItem_android_color:I = 0x0
 
-.field public static ColorStateListItem_android_lStar:I = 0x2
+.field public static final ColorStateListItem_android_lStar:I = 0x2
 
-.field public static ColorStateListItem_lStar:I = 0x4
+.field public static final ColorStateListItem_lStar:I = 0x4
 
-.field public static FontFamily:[I = null
+.field public static final FontFamily:[I
 
-.field public static FontFamilyFont:[I = null
+.field public static final FontFamilyFont:[I
 
-.field public static FontFamilyFont_android_font:I = 0x0
+.field public static final FontFamilyFont_android_font:I = 0x0
 
-.field public static FontFamilyFont_android_fontStyle:I = 0x2
+.field public static final FontFamilyFont_android_fontStyle:I = 0x2
 
-.field public static FontFamilyFont_android_fontVariationSettings:I = 0x4
+.field public static final FontFamilyFont_android_fontVariationSettings:I = 0x4
 
-.field public static FontFamilyFont_android_fontWeight:I = 0x1
+.field public static final FontFamilyFont_android_fontWeight:I = 0x1
 
-.field public static FontFamilyFont_android_ttcIndex:I = 0x3
+.field public static final FontFamilyFont_android_ttcIndex:I = 0x3
 
-.field public static FontFamilyFont_font:I = 0x5
+.field public static final FontFamilyFont_font:I = 0x5
 
-.field public static FontFamilyFont_fontStyle:I = 0x6
+.field public static final FontFamilyFont_fontStyle:I = 0x6
 
-.field public static FontFamilyFont_fontVariationSettings:I = 0x7
+.field public static final FontFamilyFont_fontVariationSettings:I = 0x7
 
-.field public static FontFamilyFont_fontWeight:I = 0x8
+.field public static final FontFamilyFont_fontWeight:I = 0x8
 
-.field public static FontFamilyFont_ttcIndex:I = 0x9
+.field public static final FontFamilyFont_ttcIndex:I = 0x9
 
-.field public static FontFamily_fontProviderAuthority:I = 0x0
+.field public static final FontFamily_fontProviderAuthority:I = 0x0
 
-.field public static FontFamily_fontProviderCerts:I = 0x1
+.field public static final FontFamily_fontProviderCerts:I = 0x1
 
-.field public static FontFamily_fontProviderFallbackQuery:I = 0x2
+.field public static final FontFamily_fontProviderFetchStrategy:I = 0x2
 
-.field public static FontFamily_fontProviderFetchStrategy:I = 0x3
+.field public static final FontFamily_fontProviderFetchTimeout:I = 0x3
 
-.field public static FontFamily_fontProviderFetchTimeout:I = 0x4
+.field public static final FontFamily_fontProviderPackage:I = 0x4
 
-.field public static FontFamily_fontProviderPackage:I = 0x5
+.field public static final FontFamily_fontProviderQuery:I = 0x5
 
-.field public static FontFamily_fontProviderQuery:I = 0x6
+.field public static final FontFamily_fontProviderSystemFontFamily:I = 0x6
 
-.field public static FontFamily_fontProviderSystemFontFamily:I = 0x7
+.field public static final GradientColor:[I
 
-.field public static GradientColor:[I = null
+.field public static final GradientColorItem:[I
 
-.field public static GradientColorItem:[I = null
+.field public static final GradientColorItem_android_color:I = 0x0
 
-.field public static GradientColorItem_android_color:I = 0x0
+.field public static final GradientColorItem_android_offset:I = 0x1
 
-.field public static GradientColorItem_android_offset:I = 0x1
+.field public static final GradientColor_android_centerColor:I = 0x7
 
-.field public static GradientColor_android_centerColor:I = 0x7
+.field public static final GradientColor_android_centerX:I = 0x3
 
-.field public static GradientColor_android_centerX:I = 0x3
+.field public static final GradientColor_android_centerY:I = 0x4
 
-.field public static GradientColor_android_centerY:I = 0x4
+.field public static final GradientColor_android_endColor:I = 0x1
 
-.field public static GradientColor_android_endColor:I = 0x1
+.field public static final GradientColor_android_endX:I = 0xa
 
-.field public static GradientColor_android_endX:I = 0xa
+.field public static final GradientColor_android_endY:I = 0xb
 
-.field public static GradientColor_android_endY:I = 0xb
+.field public static final GradientColor_android_gradientRadius:I = 0x5
 
-.field public static GradientColor_android_gradientRadius:I = 0x5
+.field public static final GradientColor_android_startColor:I = 0x0
 
-.field public static GradientColor_android_startColor:I = 0x0
+.field public static final GradientColor_android_startX:I = 0x8
 
-.field public static GradientColor_android_startX:I = 0x8
+.field public static final GradientColor_android_startY:I = 0x9
 
-.field public static GradientColor_android_startY:I = 0x9
+.field public static final GradientColor_android_tileMode:I = 0x6
 
-.field public static GradientColor_android_tileMode:I = 0x6
-
-.field public static GradientColor_android_type:I = 0x2
+.field public static final GradientColor_android_type:I = 0x2
 
 
 # direct methods
 .method public static constructor <clinit>()V
     .locals 5
 
-    const v0, 0x7f0405f7
+    const v0, 0x7f04058a
 
-    const v1, 0x7f04067e
+    const v1, 0x7f0405d2
 
     filled-new-array {v0, v1}, [I
 
@@ -108,9 +117,9 @@
 
     sput-object v0, Landroidx/core/R$styleable;->Capability:[I
 
-    const v0, 0x7f04003e
+    const v0, 0x7f04006f
 
-    const v1, 0x7f04045c
+    const v1, 0x7f0403ff
 
     const v2, 0x10101a5
 
@@ -124,7 +133,7 @@
 
     sput-object v0, Landroidx/core/R$styleable;->ColorStateListItem:[I
 
-    const/16 v0, 0x8
+    const/4 v0, 0x7
 
     new-array v0, v0, [I
 
@@ -158,16 +167,17 @@
 
     return-void
 
+    nop
+
     :array_0
     .array-data 4
-        0x7f04039f
-        0x7f0403a0
-        0x7f0403a1
-        0x7f0403a2
-        0x7f0403a3
-        0x7f0403a4
-        0x7f0403a5
-        0x7f0403a6
+        0x7f0402c4
+        0x7f0402c5
+        0x7f0402c6
+        0x7f0402c7
+        0x7f0402c8
+        0x7f0402c9
+        0x7f0402ca
     .end array-data
 
     :array_1
@@ -177,11 +187,11 @@
         0x101053f
         0x101056f
         0x1010570
-        0x7f04039d
-        0x7f0403a7
-        0x7f0403a8
-        0x7f0403a9
-        0x7f040814
+        0x7f0402c2
+        0x7f0402cb
+        0x7f0402cd
+        0x7f0402ce
+        0x7f040725
     .end array-data
 
     :array_2

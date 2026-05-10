@@ -17,29 +17,14 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/google/common/util/concurrent/SequentialExecutor;
-
 .field final synthetic val$task:Ljava/lang/Runnable;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/util/concurrent/SequentialExecutor;Ljava/lang/Runnable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
     iput-object p2, p0, Lcom/google/common/util/concurrent/SequentialExecutor$1;->val$task:Ljava/lang/Runnable;
-
-    iput-object p1, p0, Lcom/google/common/util/concurrent/SequentialExecutor$1;->this$0:Lcom/google/common/util/concurrent/SequentialExecutor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

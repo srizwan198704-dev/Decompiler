@@ -1,5 +1,5 @@
 .class final Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
-.super Lcom/google/common/collect/u2;
+.super Lcom/google/common/collect/ForwardingSortedSet;
 
 # interfaces
 .implements Ljava/util/NavigableSet;
@@ -21,7 +21,7 @@
         "<E:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/u2<",
+        "Lcom/google/common/collect/ForwardingSortedSet<",
         "TE;>;",
         "Ljava/util/NavigableSet<",
         "TE;>;",
@@ -35,19 +35,22 @@
 
 
 # instance fields
-.field public transient a:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
+.field private final delegate:Ljava/util/NavigableSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<",
+            "Ljava/util/NavigableSet<",
             "TE;>;"
         }
     .end annotation
 .end field
 
-.field private final delegate:Ljava/util/NavigableSet;
+.field private transient descendingSet:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/NavigableSet<",
+            "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<",
             "TE;>;"
         }
     .end annotation
@@ -64,12 +67,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/util/NavigableSet;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -80,9 +77,9 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/u2;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/ForwardingSortedSet;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -103,6 +100,10 @@
 # virtual methods
 .method public ceiling(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -179,7 +180,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/Iterators;->B(Ljava/util/Iterator;)Lcom/google/common/collect/r4;
+    invoke-static {v0}, Lcom/google/common/collect/Iterators;->unmodifiableIterator(Ljava/util/Iterator;)Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -196,7 +197,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->a:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
+    iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->descendingSet:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
     if-nez v0, :cond_0
 
@@ -210,9 +211,9 @@
 
     invoke-direct {v0, v1}, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;-><init>(Ljava/util/NavigableSet;)V
 
-    iput-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->a:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
+    iput-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->descendingSet:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
-    iput-object p0, v0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->a:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
+    iput-object p0, v0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->descendingSet:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
     :cond_0
     return-object v0
@@ -220,6 +221,10 @@
 
 .method public floor(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -237,6 +242,10 @@
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -251,7 +260,7 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/collect/Sets;->l(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
+    invoke-static {p1}, Lcom/google/common/collect/Sets;->unmodifiableNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
 
     move-result-object p1
 
@@ -260,6 +269,10 @@
 
 .method public higher(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -277,6 +290,10 @@
 
 .method public lower(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -324,6 +341,14 @@
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;ZTE;Z)",
@@ -338,7 +363,7 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/collect/Sets;->l(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
+    invoke-static {p1}, Lcom/google/common/collect/Sets;->unmodifiableNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
 
     move-result-object p1
 
@@ -347,6 +372,10 @@
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -361,7 +390,7 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/collect/Sets;->l(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
+    invoke-static {p1}, Lcom/google/common/collect/Sets;->unmodifiableNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
 
     move-result-object p1
 

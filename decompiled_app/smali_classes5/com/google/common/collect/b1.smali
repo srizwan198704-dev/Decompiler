@@ -1,41 +1,88 @@
 .class public final synthetic Lcom/google/common/collect/b1;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Ljava/util/function/Function;
-
-
-# instance fields
-.field public final synthetic a:Ljava/util/function/Function;
-
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Ljava/util/function/Function;)V
+.method public static bridge synthetic a(Lcom/google/common/collect/SortedSetMultimap;Ljava/lang/Object;)Ljava/util/Collection;
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-interface {p0, p1}, Lcom/google/common/collect/SortedSetMultimap;->get(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    iput-object p1, p0, Lcom/google/common/collect/b1;->a:Ljava/util/function/Function;
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method
 
+.method public static bridge synthetic b(Lcom/google/common/collect/SortedSetMultimap;Ljava/lang/Object;)Ljava/util/Set;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
 
-# virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    invoke-interface {p0, p1}, Lcom/google/common/collect/SortedSetMultimap;->get(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    iget-object v0, p0, Lcom/google/common/collect/b1;->a:Ljava/util/function/Function;
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lcom/google/common/collect/d2;->d(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;
+    return-object p0
+.end method
 
-    move-result-object p1
+.method public static bridge synthetic c(Lcom/google/common/collect/SortedSetMultimap;Ljava/lang/Object;)Ljava/util/Collection;
+    .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
-    return-object p1
+    invoke-interface {p0, p1}, Lcom/google/common/collect/SortedSetMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/SortedSet;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic d(Lcom/google/common/collect/SortedSetMultimap;Ljava/lang/Object;)Ljava/util/Set;
+    .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    invoke-interface {p0, p1}, Lcom/google/common/collect/SortedSetMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/SortedSet;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic e(Lcom/google/common/collect/SortedSetMultimap;Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    invoke-interface {p0, p1, p2}, Lcom/google/common/collect/SortedSetMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/SortedSet;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic f(Lcom/google/common/collect/SortedSetMultimap;Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    invoke-interface {p0, p1, p2}, Lcom/google/common/collect/SortedSetMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/SortedSet;
+
+    move-result-object p0
+
+    return-object p0
 .end method

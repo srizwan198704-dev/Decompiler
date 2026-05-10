@@ -34,12 +34,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/util/concurrent/TrustedListenableFutureTask;Ljava/util/concurrent/Callable;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -54,7 +48,7 @@
 
     invoke-direct {p0}, Lcom/google/common/util/concurrent/InterruptibleTask;-><init>()V
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -79,6 +73,10 @@
 
 .method public afterRanInterruptiblySuccess(Ljava/lang/Object;)V
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
@@ -97,7 +95,7 @@
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
 
-    invoke-virtual {v0}, Lcom/google/common/util/concurrent/k$a;->isDone()Z
+    invoke-virtual {v0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;->isDone()Z
 
     move-result v0
 
@@ -106,6 +104,9 @@
 
 .method public runInterruptibly()Ljava/lang/Object;
     .locals 1
+    .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

@@ -1,34 +1,33 @@
-.class public interface abstract Lcom/google/common/util/concurrent/o;
+.class public final synthetic Lcom/google/common/util/concurrent/o;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Ljava/lang/Runnable;
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
+
+# instance fields
+.field public final synthetic a:Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/common/util/concurrent/o;->a:Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract onFailure(Ljava/lang/Throwable;)V
-.end method
+.method public final run()V
+    .locals 1
 
-.method public abstract onSuccess(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TV;)V"
-        }
-    .end annotation
+    iget-object v0, p0, Lcom/google/common/util/concurrent/o;->a:Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;
+
+    invoke-static {v0}, Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;->b(Lcom/google/common/util/concurrent/JdkFutureAdapters$ListenableFutureAdapter;)V
+
+    return-void
 .end method

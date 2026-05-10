@@ -38,99 +38,103 @@
 
     new-instance v0, Lcom/google/android/material/elevation/SurfaceColors;
 
-    const/4 v1, 0x0
+    sget v1, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level0:I
 
-    sget v2, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level0:I
+    const-string v2, "SURFACE_0"
 
-    const-string v3, "SURFACE_0"
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v2, v3, v1}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_0:Lcom/google/android/material/elevation/SurfaceColors;
 
+    new-instance v1, Lcom/google/android/material/elevation/SurfaceColors;
+
+    sget v2, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level1:I
+
+    const-string v4, "SURFACE_1"
+
+    const/4 v5, 0x1
+
+    invoke-direct {v1, v4, v5, v2}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
+
+    sput-object v1, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_1:Lcom/google/android/material/elevation/SurfaceColors;
+
     new-instance v2, Lcom/google/android/material/elevation/SurfaceColors;
 
-    const/4 v3, 0x1
+    sget v4, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level2:I
 
-    sget v4, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level1:I
+    const-string v6, "SURFACE_2"
 
-    const-string v5, "SURFACE_1"
+    const/4 v7, 0x2
 
-    invoke-direct {v2, v5, v3, v4}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v2, v6, v7, v4}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
 
-    sput-object v2, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_1:Lcom/google/android/material/elevation/SurfaceColors;
+    sput-object v2, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_2:Lcom/google/android/material/elevation/SurfaceColors;
 
     new-instance v4, Lcom/google/android/material/elevation/SurfaceColors;
 
-    const/4 v5, 0x2
+    sget v6, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level3:I
 
-    sget v6, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level2:I
+    const-string v8, "SURFACE_3"
 
-    const-string v7, "SURFACE_2"
+    const/4 v9, 0x3
 
-    invoke-direct {v4, v7, v5, v6}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v4, v8, v9, v6}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
 
-    sput-object v4, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_2:Lcom/google/android/material/elevation/SurfaceColors;
+    sput-object v4, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_3:Lcom/google/android/material/elevation/SurfaceColors;
 
     new-instance v6, Lcom/google/android/material/elevation/SurfaceColors;
 
-    const/4 v7, 0x3
+    sget v8, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level4:I
 
-    sget v8, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level3:I
+    const-string v10, "SURFACE_4"
 
-    const-string v9, "SURFACE_3"
+    const/4 v11, 0x4
 
-    invoke-direct {v6, v9, v7, v8}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v6, v10, v11, v8}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
 
-    sput-object v6, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_3:Lcom/google/android/material/elevation/SurfaceColors;
+    sput-object v6, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_4:Lcom/google/android/material/elevation/SurfaceColors;
 
     new-instance v8, Lcom/google/android/material/elevation/SurfaceColors;
 
-    const/4 v9, 0x4
+    sget v10, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level5:I
 
-    sget v10, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level4:I
+    const-string v12, "SURFACE_5"
 
-    const-string v11, "SURFACE_4"
+    const/4 v13, 0x5
 
-    invoke-direct {v8, v11, v9, v10}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v8, v12, v13, v10}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
 
-    sput-object v8, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_4:Lcom/google/android/material/elevation/SurfaceColors;
+    sput-object v8, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_5:Lcom/google/android/material/elevation/SurfaceColors;
 
-    new-instance v10, Lcom/google/android/material/elevation/SurfaceColors;
+    const/4 v10, 0x6
 
-    const/4 v11, 0x5
+    new-array v10, v10, [Lcom/google/android/material/elevation/SurfaceColors;
 
-    sget v12, Lcom/google/android/material/R$dimen;->m3_sys_elevation_level5:I
+    aput-object v0, v10, v3
 
-    const-string v13, "SURFACE_5"
+    aput-object v1, v10, v5
 
-    invoke-direct {v10, v13, v11, v12}, Lcom/google/android/material/elevation/SurfaceColors;-><init>(Ljava/lang/String;II)V
+    aput-object v2, v10, v7
 
-    sput-object v10, Lcom/google/android/material/elevation/SurfaceColors;->SURFACE_5:Lcom/google/android/material/elevation/SurfaceColors;
+    aput-object v4, v10, v9
 
-    const/4 v12, 0x6
+    aput-object v6, v10, v11
 
-    new-array v12, v12, [Lcom/google/android/material/elevation/SurfaceColors;
+    aput-object v8, v10, v13
 
-    aput-object v0, v12, v1
-
-    aput-object v2, v12, v3
-
-    aput-object v4, v12, v5
-
-    aput-object v6, v12, v7
-
-    aput-object v8, v12, v9
-
-    aput-object v10, v12, v11
-
-    sput-object v12, Lcom/google/android/material/elevation/SurfaceColors;->$VALUES:[Lcom/google/android/material/elevation/SurfaceColors;
+    sput-object v10, Lcom/google/android/material/elevation/SurfaceColors;->$VALUES:[Lcom/google/android/material/elevation/SurfaceColors;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroidx/annotation/DimenRes;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -150,20 +154,26 @@
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
+    .param p1    # F
+        .annotation build Landroidx/annotation/Dimension;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/ColorInt;
+    .end annotation
 
-    new-instance v0, Llc/a;
+    new-instance v0, Lcom/google/android/material/elevation/ElevationOverlayProvider;
 
-    invoke-direct {v0, p0}, Llc/a;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/google/android/material/elevation/ElevationOverlayProvider;-><init>(Landroid/content/Context;)V
 
     sget v1, Lcom/google/android/material/R$attr;->colorSurface:I
 
     const/4 v2, 0x0
 
-    invoke-static {p0, v1, v2}, Lcom/google/android/material/color/b;->b(Landroid/content/Context;II)I
+    invoke-static {p0, v1, v2}, Lcom/google/android/material/color/MaterialColors;->getColor(Landroid/content/Context;II)I
 
     move-result p0
 
-    invoke-virtual {v0, p0, p1}, Llc/a;->b(IF)I
+    invoke-virtual {v0, p0, p1}, Lcom/google/android/material/elevation/ElevationOverlayProvider;->compositeOverlay(IF)I
 
     move-result p0
 
@@ -206,6 +216,8 @@
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
+    .annotation build Landroidx/annotation/ColorInt;
+    .end annotation
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 

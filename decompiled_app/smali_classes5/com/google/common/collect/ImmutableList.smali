@@ -7,13 +7,21 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/ImmutableList$a;,
-        Lcom/google/common/collect/ImmutableList$b;,
-        Lcom/google/common/collect/ImmutableList$SubList;,
+        Lcom/google/common/collect/ImmutableList$Builder;,
+        Lcom/google/common/collect/ImmutableList$SerializedForm;,
         Lcom/google/common/collect/ImmutableList$ReverseImmutableList;,
-        Lcom/google/common/collect/ImmutableList$SerializedForm;
+        Lcom/google/common/collect/ImmutableList$SubList;,
+        Lcom/google/common/collect/ImmutableList$Itr;
     }
 .end annotation
 
@@ -32,10 +40,10 @@
 
 
 # static fields
-.field private static final EMPTY_ITR:Lcom/google/common/collect/s4;
+.field private static final EMPTY_ITR:Lcom/google/common/collect/UnmodifiableListIterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/s4<",
+            "Lcom/google/common/collect/UnmodifiableListIterator<",
             "Ljava/lang/Object;",
             ">;"
         }
@@ -49,15 +57,15 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    new-instance v0, Lcom/google/common/collect/ImmutableList$b;
+    new-instance v0, Lcom/google/common/collect/ImmutableList$Itr;
 
     sget-object v1, Lcom/google/common/collect/RegularImmutableList;->EMPTY:Lcom/google/common/collect/ImmutableList;
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/google/common/collect/ImmutableList$b;-><init>(Lcom/google/common/collect/ImmutableList;I)V
+    invoke-direct {v0, v1, v2}, Lcom/google/common/collect/ImmutableList$Itr;-><init>(Lcom/google/common/collect/ImmutableList;I)V
 
-    sput-object v0, Lcom/google/common/collect/ImmutableList;->EMPTY_ITR:Lcom/google/common/collect/s4;
+    sput-object v0, Lcom/google/common/collect/ImmutableList;->EMPTY_ITR:Lcom/google/common/collect/UnmodifiableListIterator;
 
     return-void
 .end method
@@ -123,44 +131,44 @@
     return-object v0
 .end method
 
-.method public static builder()Lcom/google/common/collect/ImmutableList$a;
+.method public static builder()Lcom/google/common/collect/ImmutableList$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/collect/ImmutableList$a<",
+            "Lcom/google/common/collect/ImmutableList$Builder<",
             "TE;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableList$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableList$Builder;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableList$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/collect/ImmutableList$Builder;-><init>()V
 
     return-object v0
 .end method
 
-.method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableList$a;
+.method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableList$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
             "Ljava/lang/Object;",
             ">(I)",
-            "Lcom/google/common/collect/ImmutableList$a<",
+            "Lcom/google/common/collect/ImmutableList$Builder<",
             "TE;>;"
         }
     .end annotation
 
     const-string v0, "expectedSize"
 
-    invoke-static {p0, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
+    invoke-static {p0, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
-    new-instance v0, Lcom/google/common/collect/ImmutableList$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableList$Builder;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableList$a;-><init>(I)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableList$Builder;-><init>(I)V
 
     return-object v0
 .end method
@@ -179,7 +187,7 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/collect/n3;->b([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/collect/ObjectArrays;->checkElementsNotNull([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object p0
 
@@ -204,7 +212,7 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     instance-of v0, p0, Ljava/util/Collection;
 
@@ -328,19 +336,19 @@
     return-object p0
 
     :cond_1
-    new-instance v1, Lcom/google/common/collect/ImmutableList$a;
+    new-instance v1, Lcom/google/common/collect/ImmutableList$Builder;
 
-    invoke-direct {v1}, Lcom/google/common/collect/ImmutableList$a;-><init>()V
+    invoke-direct {v1}, Lcom/google/common/collect/ImmutableList$Builder;-><init>()V
 
-    invoke-virtual {v1, v0}, Lcom/google/common/collect/ImmutableList$a;->j(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$a;
+    invoke-virtual {v1, v0}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/google/common/collect/ImmutableList$a;->m(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableList$a;
+    invoke-virtual {v0, p0}, Lcom/google/common/collect/ImmutableList$Builder;->addAll(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableList$Builder;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableList$a;->n()Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
 
     move-result-object p0
 
@@ -945,17 +953,17 @@
 
     if-gt v1, v2, :cond_0
 
-    move v1, v3
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v1, v4
+    const/4 v1, 0x0
 
     :goto_0
     const-string v2, "the total number of elements must fit in an int"
 
-    invoke-static {v1, v2}, Lcom/google/common/base/m;->e(ZLjava/lang/Object;)V
+    invoke-static {v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     array-length v1, v0
 
@@ -1022,6 +1030,9 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -1055,13 +1066,13 @@
 
     new-array v0, v0, [Ljava/lang/Comparable;
 
-    invoke-static {p0, v0}, Lcom/google/common/collect/g3;->q(Ljava/lang/Iterable;[Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-static {p0, v0}, Lcom/google/common/collect/Iterables;->toArray(Ljava/lang/Iterable;[Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object p0
 
     check-cast p0, [Ljava/lang/Comparable;
 
-    invoke-static {p0}, Lcom/google/common/collect/n3;->b([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/collect/ObjectArrays;->checkElementsNotNull([Ljava/lang/Object;)[Ljava/lang/Object;
 
     invoke-static {p0}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
 
@@ -1088,13 +1099,13 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p1}, Lcom/google/common/collect/g3;->p(Ljava/lang/Iterable;)[Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/collect/Iterables;->toArray(Ljava/lang/Iterable;)[Ljava/lang/Object;
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/collect/n3;->b([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/collect/ObjectArrays;->checkElementsNotNull([Ljava/lang/Object;)[Ljava/lang/Object;
 
     invoke-static {p1, p0}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
 
@@ -1107,6 +1118,9 @@
 
 .method public static toImmutableList()Ljava/util/stream/Collector;
     .locals 1
+    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1119,7 +1133,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/d2;->O()Ljava/util/stream/Collector;
+    invoke-static {}, Lcom/google/common/collect/CollectCollectors;->toImmutableList()Ljava/util/stream/Collector;
 
     move-result-object v0
 
@@ -1130,6 +1144,10 @@
 # virtual methods
 .method public final add(ILjava/lang/Object;)V
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)V"
@@ -1148,6 +1166,13 @@
 
 .method public final addAll(ILjava/util/Collection;)Z
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1168,6 +1193,10 @@
 
 .method public final asList()Lcom/google/common/collect/ImmutableList;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/InlineMe;
+        replacement = "this"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1235,7 +1264,7 @@
 .method public equals(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->d(Ljava/util/List;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->equalsImpl(Ljava/util/List;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -1268,10 +1297,6 @@
 
     add-int/2addr v1, v3
 
-    not-int v1, v1
-
-    not-int v1, v1
-
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
@@ -1290,7 +1315,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->e(Ljava/util/List;Ljava/lang/Object;)I
+    invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->indexOfImpl(Ljava/util/List;Ljava/lang/Object;)I
 
     move-result p1
 
@@ -1298,17 +1323,17 @@
     return p1
 .end method
 
-.method public iterator()Lcom/google/common/collect/r4;
+.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "TE;>;"
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableList;->listIterator()Lcom/google/common/collect/s4;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableList;->listIterator()Lcom/google/common/collect/UnmodifiableListIterator;
 
     move-result-object v0
 
@@ -1318,7 +1343,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -1335,7 +1360,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->g(Ljava/util/List;Ljava/lang/Object;)I
+    invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->lastIndexOfImpl(Ljava/util/List;Ljava/lang/Object;)I
 
     move-result p1
 
@@ -1343,31 +1368,31 @@
     return p1
 .end method
 
-.method public listIterator()Lcom/google/common/collect/s4;
+.method public listIterator()Lcom/google/common/collect/UnmodifiableListIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/s4<",
+            "Lcom/google/common/collect/UnmodifiableListIterator<",
             "TE;>;"
         }
     .end annotation
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableList;->listIterator(I)Lcom/google/common/collect/s4;
+    invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableList;->listIterator(I)Lcom/google/common/collect/UnmodifiableListIterator;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public listIterator(I)Lcom/google/common/collect/s4;
+.method public listIterator(I)Lcom/google/common/collect/UnmodifiableListIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/s4<",
+            "Lcom/google/common/collect/UnmodifiableListIterator<",
             "TE;>;"
         }
     .end annotation
@@ -1376,7 +1401,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->r(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndex(II)I
 
     invoke-virtual {p0}, Ljava/util/AbstractCollection;->isEmpty()Z
 
@@ -1384,14 +1409,14 @@
 
     if-eqz v0, :cond_0
 
-    sget-object p1, Lcom/google/common/collect/ImmutableList;->EMPTY_ITR:Lcom/google/common/collect/s4;
+    sget-object p1, Lcom/google/common/collect/ImmutableList;->EMPTY_ITR:Lcom/google/common/collect/UnmodifiableListIterator;
 
     return-object p1
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/ImmutableList$b;
+    new-instance v0, Lcom/google/common/collect/ImmutableList$Itr;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/ImmutableList$b;-><init>(Lcom/google/common/collect/ImmutableList;I)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/ImmutableList$Itr;-><init>(Lcom/google/common/collect/ImmutableList;I)V
 
     return-object v0
 .end method
@@ -1399,7 +1424,7 @@
 .method public bridge synthetic listIterator()Ljava/util/ListIterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableList;->listIterator()Lcom/google/common/collect/s4;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableList;->listIterator()Lcom/google/common/collect/UnmodifiableListIterator;
 
     move-result-object v0
 
@@ -1409,7 +1434,7 @@
 .method public bridge synthetic listIterator(I)Ljava/util/ListIterator;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableList;->listIterator(I)Lcom/google/common/collect/s4;
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableList;->listIterator(I)Lcom/google/common/collect/UnmodifiableListIterator;
 
     move-result-object p1
 
@@ -1418,6 +1443,13 @@
 
 .method public final remove(I)Ljava/lang/Object;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -1467,6 +1499,13 @@
 
 .method public final set(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)TE;"
@@ -1497,7 +1536,7 @@
 
     move-result v0
 
-    invoke-static {p1, p2, v0}, Lcom/google/common/base/m;->t(III)V
+    invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
 
     sub-int v0, p2, p1
 
@@ -1557,6 +1596,11 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 2
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     new-instance v0, Lcom/google/common/collect/ImmutableList$SerializedForm;
 

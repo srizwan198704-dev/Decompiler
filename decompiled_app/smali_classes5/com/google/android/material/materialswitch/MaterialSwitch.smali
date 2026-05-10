@@ -3,67 +3,70 @@
 
 
 # static fields
-.field public static final k0:I
+.field private static final DEF_STYLE_RES:I
 
-.field public static final l0:[I
+.field private static final STATE_SET_WITH_ICON:[I
 
 
 # instance fields
-.field public U:Landroid/graphics/drawable/Drawable;
+.field private currentStateChecked:[I
+
+.field private currentStateUnchecked:[I
+
+.field private thumbDrawable:Landroid/graphics/drawable/Drawable;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field public V:Landroid/graphics/drawable/Drawable;
+.field private thumbIconDrawable:Landroid/graphics/drawable/Drawable;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field public W:I
+.field private thumbIconSize:I
+    .annotation build Landroidx/annotation/Px;
+    .end annotation
+.end field
 
-.field public a0:Landroid/graphics/drawable/Drawable;
+.field private thumbIconTintList:Landroid/content/res/ColorStateList;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field public b0:Landroid/graphics/drawable/Drawable;
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
-.end field
-
-.field public c0:Landroid/content/res/ColorStateList;
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
-.end field
-
-.field public d0:Landroid/content/res/ColorStateList;
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
-.end field
-
-.field public e0:Landroid/graphics/PorterDuff$Mode;
+.field private thumbIconTintMode:Landroid/graphics/PorterDuff$Mode;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
-.field public f0:Landroid/content/res/ColorStateList;
+.field private thumbTintList:Landroid/content/res/ColorStateList;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field public g0:Landroid/content/res/ColorStateList;
+.field private trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field public h0:Landroid/graphics/PorterDuff$Mode;
+.field private trackDecorationTintList:Landroid/content/res/ColorStateList;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
+
+.field private trackDecorationTintMode:Landroid/graphics/PorterDuff$Mode;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
-.field public i0:[I
+.field private trackDrawable:Landroid/graphics/drawable/Drawable;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
 
-.field public j0:[I
+.field private trackTintList:Landroid/content/res/ColorStateList;
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -72,7 +75,7 @@
 
     sget v0, Lcom/google/android/material/R$style;->Widget_Material3_CompoundButton_MaterialSwitch:I
 
-    sput v0, Lcom/google/android/material/materialswitch/MaterialSwitch;->k0:I
+    sput v0, Lcom/google/android/material/materialswitch/MaterialSwitch;->DEF_STYLE_RES:I
 
     sget v0, Lcom/google/android/material/R$attr;->state_with_icon:I
 
@@ -80,7 +83,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/google/android/material/materialswitch/MaterialSwitch;->l0:[I
+    sput-object v0, Lcom/google/android/material/materialswitch/MaterialSwitch;->STATE_SET_WITH_ICON:[I
 
     return-void
 .end method
@@ -128,9 +131,9 @@
         .end annotation
     .end param
 
-    sget v4, Lcom/google/android/material/materialswitch/MaterialSwitch;->k0:I
+    sget v4, Lcom/google/android/material/materialswitch/MaterialSwitch;->DEF_STYLE_RES:I
 
-    invoke-static {p1, p2, p3, v4}, Lvc/a;->c(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
+    invoke-static {p1, p2, p3, v4}, Lcom/google/android/material/theme/overlay/MaterialThemeOverlay;->wrap(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
 
     move-result-object p1
 
@@ -138,7 +141,7 @@
 
     const/4 p1, -0x1
 
-    iput p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->W:I
+    iput p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconSize:I
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -148,13 +151,13 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->U:Landroid/graphics/drawable/Drawable;
+    iput-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-super {p0}, Landroidx/appcompat/widget/SwitchCompat;->getThumbTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->c0:Landroid/content/res/ColorStateList;
+    iput-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
 
     const/4 v1, 0x0
 
@@ -164,13 +167,13 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->a0:Landroid/graphics/drawable/Drawable;
+    iput-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-super {p0}, Landroidx/appcompat/widget/SwitchCompat;->getTrackTintList()Landroid/content/res/ColorStateList;
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->f0:Landroid/content/res/ColorStateList;
+    iput-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
 
     invoke-super {p0, v1}, Landroidx/appcompat/widget/SwitchCompat;->setTrackTintList(Landroid/content/res/ColorStateList;)V
 
@@ -184,88 +187,220 @@
 
     move v3, p3
 
-    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/b0;->j(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroidx/appcompat/widget/k0;
+    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/ThemeEnforcement;->obtainTintedStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroidx/appcompat/widget/TintTypedArray;
 
     move-result-object p2
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialSwitch_thumbIcon:I
 
-    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/k0;->g(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p3
 
-    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->V:Landroid/graphics/drawable/Drawable;
+    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialSwitch_thumbIconSize:I
 
-    invoke-virtual {p2, p3, p1}, Landroidx/appcompat/widget/k0;->f(II)I
+    invoke-virtual {p2, p3, p1}, Landroidx/appcompat/widget/TintTypedArray;->getDimensionPixelSize(II)I
 
     move-result p3
 
-    iput p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->W:I
+    iput p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconSize:I
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialSwitch_thumbIconTint:I
 
-    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/k0;->c(I)Landroid/content/res/ColorStateList;
+    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/TintTypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object p3
 
-    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->d0:Landroid/content/res/ColorStateList;
+    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialSwitch_thumbIconTintMode:I
 
-    invoke-virtual {p2, p3, p1}, Landroidx/appcompat/widget/k0;->k(II)I
+    invoke-virtual {p2, p3, p1}, Landroidx/appcompat/widget/TintTypedArray;->getInt(II)I
 
     move-result p3
 
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-static {p3, v0}, Lcom/google/android/material/internal/f0;->r(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
+    invoke-static {p3, v0}, Lcom/google/android/material/internal/ViewUtils;->parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
 
     move-result-object p3
 
-    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->e0:Landroid/graphics/PorterDuff$Mode;
+    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialSwitch_trackDecoration:I
 
-    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/k0;->g(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p3
 
-    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
+    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialSwitch_trackDecorationTint:I
 
-    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/k0;->c(I)Landroid/content/res/ColorStateList;
+    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/TintTypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object p3
 
-    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->g0:Landroid/content/res/ColorStateList;
+    iput-object p3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialSwitch_trackDecorationTintMode:I
 
-    invoke-virtual {p2, p3, p1}, Landroidx/appcompat/widget/k0;->k(II)I
+    invoke-virtual {p2, p3, p1}, Landroidx/appcompat/widget/TintTypedArray;->getInt(II)I
 
     move-result p1
 
-    invoke-static {p1, v0}, Lcom/google/android/material/internal/f0;->r(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
+    invoke-static {p1, v0}, Lcom/google/android/material/internal/ViewUtils;->parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->h0:Landroid/graphics/PorterDuff$Mode;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {p2}, Landroidx/appcompat/widget/k0;->x()V
+    invoke-virtual {p2}, Landroidx/appcompat/widget/TintTypedArray;->recycle()V
 
     invoke-virtual {p0, v6}, Landroidx/appcompat/widget/SwitchCompat;->setEnforceSwitchWidth(Z)V
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->p()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshThumbDrawable()V
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->q()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshTrackDrawable()V
 
     return-void
 .end method
 
-.method public static r(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
+.method private refreshThumbDrawable()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {p0}, Landroidx/appcompat/widget/SwitchCompat;->getThumbTintMode()Landroid/graphics/PorterDuff$Mode;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/google/android/material/drawable/DrawableUtils;->createTintableDrawableIfNeeded(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
+
+    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-static {v0, v1, v2}, Lcom/google/android/material/drawable/DrawableUtils;->createTintableDrawableIfNeeded(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->updateDrawableTints()V
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconSize:I
+
+    invoke-static {v0, v1, v2, v2}, Lcom/google/android/material/drawable/DrawableUtils;->compositeTwoLayeredDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    invoke-super {p0, v0}, Landroidx/appcompat/widget/SwitchCompat;->setThumbDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {p0}, Landroid/view/View;->refreshDrawableState()V
+
+    return-void
+.end method
+
+.method private refreshTrackDrawable()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {p0}, Landroidx/appcompat/widget/SwitchCompat;->getTrackTintMode()Landroid/graphics/PorterDuff$Mode;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/google/android/material/drawable/DrawableUtils;->createTintableDrawableIfNeeded(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
+
+    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-static {v0, v1, v2}, Lcom/google/android/material/drawable/DrawableUtils;->createTintableDrawableIfNeeded(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->updateDrawableTints()V
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v1, :cond_0
+
+    new-instance v0, Landroid/graphics/drawable/LayerDrawable;
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Landroid/graphics/drawable/Drawable;
+
+    const/4 v2, 0x0
+
+    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x1
+
+    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
+
+    aput-object v3, v1, v2
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_0
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
+
+    :goto_0
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Landroidx/appcompat/widget/SwitchCompat;->setSwitchMinWidth(I)V
+
+    :cond_2
+    invoke-super {p0, v0}, Landroidx/appcompat/widget/SwitchCompat;->setTrackDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+.end method
+
+.method private static setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
     .locals 1
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroidx/annotation/Nullable;
@@ -301,14 +436,95 @@
 
     move-result p1
 
-    invoke-static {p2, p1, p4}, Lf1/b;->d(IIF)I
+    invoke-static {p2, p1, p4}, Landroidx/core/graphics/ColorUtils;->blendARGB(IIF)I
 
     move-result p1
 
-    invoke-static {p0, p1}, Lg1/a;->n(Landroid/graphics/drawable/Drawable;I)V
+    invoke-static {p0, p1}, Landroidx/core/graphics/drawable/DrawableCompat;->setTint(Landroid/graphics/drawable/Drawable;I)V
 
     :cond_1
     :goto_0
+    return-void
+.end method
+
+.method private updateDrawableTints()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroidx/appcompat/widget/SwitchCompat;->getThumbPosition()F
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
+
+    if-eqz v1, :cond_1
+
+    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateUnchecked:[I
+
+    iget-object v4, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateChecked:[I
+
+    invoke-static {v2, v1, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
+
+    :cond_1
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
+
+    if-eqz v1, :cond_2
+
+    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateUnchecked:[I
+
+    iget-object v4, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateChecked:[I
+
+    invoke-static {v2, v1, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
+
+    :cond_2
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
+
+    if-eqz v1, :cond_3
+
+    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateUnchecked:[I
+
+    iget-object v4, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateChecked:[I
+
+    invoke-static {v2, v1, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
+
+    :cond_3
+    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
+
+    if-eqz v1, :cond_4
+
+    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateUnchecked:[I
+
+    iget-object v4, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateChecked:[I
+
+    invoke-static {v2, v1, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->setInterpolatedDrawableTintIfPossible(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
+
+    :cond_4
     return-void
 .end method
 
@@ -319,7 +535,7 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->U:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
@@ -329,15 +545,17 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->V:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
 
 .method public getThumbIconSize()I
     .locals 1
+    .annotation build Landroidx/annotation/Px;
+    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->W:I
+    iget v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconSize:I
 
     return v0
 .end method
@@ -347,7 +565,7 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->d0:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
@@ -357,7 +575,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->e0:Landroid/graphics/PorterDuff$Mode;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
 .end method
@@ -367,7 +585,7 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->c0:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
@@ -377,7 +595,7 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
@@ -387,7 +605,7 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->g0:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
@@ -397,7 +615,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->h0:Landroid/graphics/PorterDuff$Mode;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintMode:Landroid/graphics/PorterDuff$Mode;
 
     return-object v0
 .end method
@@ -407,7 +625,7 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->a0:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
@@ -417,7 +635,7 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->f0:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
@@ -425,7 +643,7 @@
 .method public invalidate()V
     .locals 0
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->s()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->updateDrawableTints()V
 
     invoke-super {p0}, Landroid/widget/CompoundButton;->invalidate()V
 
@@ -441,241 +659,28 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->V:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/google/android/material/materialswitch/MaterialSwitch;->l0:[I
+    sget-object v0, Lcom/google/android/material/materialswitch/MaterialSwitch;->STATE_SET_WITH_ICON:[I
 
     invoke-static {p1, v0}, Landroid/view/View;->mergeDrawableStates([I[I)[I
 
     :cond_0
-    invoke-static {p1}, Lkc/d;->j([I)[I
+    invoke-static {p1}, Lcom/google/android/material/drawable/DrawableUtils;->getUncheckedState([I)[I
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->i0:[I
+    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateUnchecked:[I
 
-    invoke-static {p1}, Lkc/d;->f([I)[I
+    invoke-static {p1}, Lcom/google/android/material/drawable/DrawableUtils;->getCheckedState([I)[I
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->j0:[I
+    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->currentStateChecked:[I
 
     return-object p1
-.end method
-
-.method public final p()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->U:Landroid/graphics/drawable/Drawable;
-
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->c0:Landroid/content/res/ColorStateList;
-
-    invoke-virtual {p0}, Landroidx/appcompat/widget/SwitchCompat;->getThumbTintMode()Landroid/graphics/PorterDuff$Mode;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lkc/d;->c(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->U:Landroid/graphics/drawable/Drawable;
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->V:Landroid/graphics/drawable/Drawable;
-
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->d0:Landroid/content/res/ColorStateList;
-
-    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->e0:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-static {v0, v1, v2}, Lkc/d;->c(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->V:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->s()V
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->U:Landroid/graphics/drawable/Drawable;
-
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->V:Landroid/graphics/drawable/Drawable;
-
-    iget v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->W:I
-
-    invoke-static {v0, v1, v2, v2}, Lkc/d;->b(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;II)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-super {p0, v0}, Landroidx/appcompat/widget/SwitchCompat;->setThumbDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-virtual {p0}, Landroid/view/View;->refreshDrawableState()V
-
-    return-void
-.end method
-
-.method public final q()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->a0:Landroid/graphics/drawable/Drawable;
-
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->f0:Landroid/content/res/ColorStateList;
-
-    invoke-virtual {p0}, Landroidx/appcompat/widget/SwitchCompat;->getTrackTintMode()Landroid/graphics/PorterDuff$Mode;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lkc/d;->c(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->a0:Landroid/graphics/drawable/Drawable;
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
-
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->g0:Landroid/content/res/ColorStateList;
-
-    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->h0:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-static {v0, v1, v2}, Lkc/d;->c(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->s()V
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->a0:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v1, :cond_0
-
-    new-instance v0, Landroid/graphics/drawable/LayerDrawable;
-
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->a0:Landroid/graphics/drawable/Drawable;
-
-    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Landroid/graphics/drawable/Drawable;
-
-    const/4 v4, 0x0
-
-    aput-object v1, v3, v4
-
-    const/4 v1, 0x1
-
-    aput-object v2, v3, v1
-
-    invoke-direct {v0, v3}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
-
-    :cond_0
-    if-eqz v0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
-
-    :goto_0
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Landroidx/appcompat/widget/SwitchCompat;->setSwitchMinWidth(I)V
-
-    :cond_2
-    invoke-super {p0, v0}, Landroidx/appcompat/widget/SwitchCompat;->setTrackDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    return-void
-.end method
-
-.method public final s()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->c0:Landroid/content/res/ColorStateList;
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->d0:Landroid/content/res/ColorStateList;
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->f0:Landroid/content/res/ColorStateList;
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->g0:Landroid/content/res/ColorStateList;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Landroidx/appcompat/widget/SwitchCompat;->getThumbPosition()F
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->c0:Landroid/content/res/ColorStateList;
-
-    if-eqz v1, :cond_1
-
-    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->U:Landroid/graphics/drawable/Drawable;
-
-    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->i0:[I
-
-    iget-object v4, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->j0:[I
-
-    invoke-static {v2, v1, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->r(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
-
-    :cond_1
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->d0:Landroid/content/res/ColorStateList;
-
-    if-eqz v1, :cond_2
-
-    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->V:Landroid/graphics/drawable/Drawable;
-
-    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->i0:[I
-
-    iget-object v4, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->j0:[I
-
-    invoke-static {v2, v1, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->r(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
-
-    :cond_2
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->f0:Landroid/content/res/ColorStateList;
-
-    if-eqz v1, :cond_3
-
-    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->a0:Landroid/graphics/drawable/Drawable;
-
-    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->i0:[I
-
-    iget-object v4, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->j0:[I
-
-    invoke-static {v2, v1, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->r(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
-
-    :cond_3
-    iget-object v1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->g0:Landroid/content/res/ColorStateList;
-
-    if-eqz v1, :cond_4
-
-    iget-object v2, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
-
-    iget-object v3, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->i0:[I
-
-    iget-object v4, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->j0:[I
-
-    invoke-static {v2, v1, v3, v4, v0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->r(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;[I[IF)V
-
-    :cond_4
-    return-void
 .end method
 
 .method public setThumbDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -685,9 +690,9 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->U:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->p()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshThumbDrawable()V
 
     return-void
 .end method
@@ -699,21 +704,25 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->V:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->p()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshThumbDrawable()V
 
     return-void
 .end method
 
 .method public setThumbIconResource(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroidx/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Lh/a;->b(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, p1}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
@@ -724,14 +733,18 @@
 
 .method public setThumbIconSize(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
 
-    iget v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->W:I
+    iget v0, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconSize:I
 
     if-eq v0, p1, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->W:I
+    iput p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconSize:I
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->p()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshThumbDrawable()V
 
     :cond_0
     return-void
@@ -744,9 +757,9 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->d0:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintList:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->p()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshThumbDrawable()V
 
     return-void
 .end method
@@ -758,9 +771,9 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->e0:Landroid/graphics/PorterDuff$Mode;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->p()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshThumbDrawable()V
 
     return-void
 .end method
@@ -772,9 +785,9 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->c0:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->thumbTintList:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->p()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshThumbDrawable()V
 
     return-void
 .end method
@@ -788,7 +801,7 @@
 
     invoke-super {p0, p1}, Landroidx/appcompat/widget/SwitchCompat;->setThumbTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->p()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshThumbDrawable()V
 
     return-void
 .end method
@@ -800,21 +813,25 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->b0:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->q()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshTrackDrawable()V
 
     return-void
 .end method
 
 .method public setTrackDecorationResource(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroidx/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Lh/a;->b(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, p1}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
@@ -830,9 +847,9 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->g0:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintList:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->q()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshTrackDrawable()V
 
     return-void
 .end method
@@ -844,9 +861,9 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->h0:Landroid/graphics/PorterDuff$Mode;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDecorationTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->q()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshTrackDrawable()V
 
     return-void
 .end method
@@ -858,9 +875,9 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->a0:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->q()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshTrackDrawable()V
 
     return-void
 .end method
@@ -872,9 +889,9 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->f0:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/materialswitch/MaterialSwitch;->trackTintList:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->q()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshTrackDrawable()V
 
     return-void
 .end method
@@ -888,7 +905,7 @@
 
     invoke-super {p0, p1}, Landroidx/appcompat/widget/SwitchCompat;->setTrackTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-virtual {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->q()V
+    invoke-direct {p0}, Lcom/google/android/material/materialswitch/MaterialSwitch;->refreshTrackDrawable()V
 
     return-void
 .end method

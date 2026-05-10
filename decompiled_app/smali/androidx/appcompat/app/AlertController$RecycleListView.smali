@@ -14,18 +14,12 @@
 
 
 # instance fields
-.field public final a:I
+.field private final mPaddingBottomNoButtons:I
 
-.field public final b:I
+.field private final mPaddingTopNoTitle:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -55,7 +49,7 @@
 
     move-result p2
 
-    iput p2, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->b:I
+    iput p2, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->mPaddingBottomNoButtons:I
 
     sget p2, Landroidx/appcompat/R$styleable;->RecycleListView_paddingTopNoTitle:I
 
@@ -63,7 +57,7 @@
 
     move-result p1
 
-    iput p1, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->a:I
+    iput p1, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->mPaddingTopNoTitle:I
 
     return-void
 .end method
@@ -91,7 +85,7 @@
     goto :goto_0
 
     :cond_1
-    iget p1, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->a:I
+    iget p1, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->mPaddingTopNoTitle:I
 
     :goto_0
     invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
@@ -107,7 +101,7 @@
     goto :goto_1
 
     :cond_2
-    iget p2, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->b:I
+    iget p2, p0, Landroidx/appcompat/app/AlertController$RecycleListView;->mPaddingBottomNoButtons:I
 
     :goto_1
     invoke-virtual {p0, v0, p1, v1, p2}, Landroid/view/View;->setPadding(IIII)V

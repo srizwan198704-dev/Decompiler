@@ -5,14 +5,6 @@
 .implements Landroid/os/IInterface;
 
 
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public abstract zzb(Lcom/google/android/gms/common/api/Status;Landroid/os/Bundle;)V
     .param p2    # Landroid/os/Bundle;

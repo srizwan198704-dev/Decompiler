@@ -2,20 +2,22 @@
 .super Landroid/widget/FrameLayout;
 
 
+# annotations
+.annotation build Landroidx/annotation/RestrictTo;
+    value = {
+        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # instance fields
-.field public a:Landroid/view/View$OnTouchListener;
+.field private onTouchListener:Landroid/view/View$OnTouchListener;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
     .param p1    # Landroid/content/Context;
@@ -65,7 +67,7 @@
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/internal/TouchObserverFrameLayout;->a:Landroid/view/View$OnTouchListener;
+    iget-object v0, p0, Lcom/google/android/material/internal/TouchObserverFrameLayout;->onTouchListener:Landroid/view/View$OnTouchListener;
 
     if-eqz v0, :cond_0
 
@@ -86,7 +88,7 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/google/android/material/internal/TouchObserverFrameLayout;->a:Landroid/view/View$OnTouchListener;
+    iput-object p1, p0, Lcom/google/android/material/internal/TouchObserverFrameLayout;->onTouchListener:Landroid/view/View$OnTouchListener;
 
     return-void
 .end method

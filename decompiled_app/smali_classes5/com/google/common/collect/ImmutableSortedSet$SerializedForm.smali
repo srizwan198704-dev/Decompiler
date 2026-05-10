@@ -6,6 +6,9 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/ImmutableSortedSet;
 .end annotation
@@ -44,12 +47,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/util/Comparator;[Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -76,19 +73,19 @@
 .method public readResolve()Ljava/lang/Object;
     .locals 2
 
-    new-instance v0, Lcom/google/common/collect/ImmutableSortedSet$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableSortedSet$Builder;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;->comparator:Ljava/util/Comparator;
 
-    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableSortedSet$a;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableSortedSet$Builder;-><init>(Ljava/util/Comparator;)V
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableSortedSet$SerializedForm;->elements:[Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Lcom/google/common/collect/ImmutableSortedSet$a;->r([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet$a;
+    invoke-virtual {v0, v1}, Lcom/google/common/collect/ImmutableSortedSet$Builder;->add([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedSet$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSortedSet$a;->u()Lcom/google/common/collect/ImmutableSortedSet;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSortedSet$Builder;->build()Lcom/google/common/collect/ImmutableSortedSet;
 
     move-result-object v0
 

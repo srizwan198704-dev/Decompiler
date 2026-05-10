@@ -32,22 +32,16 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/ImmutableRangeMap;IILcom/google/common/collect/Range;)V
     .locals 0
+
+    iput-object p1, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->this$0:Lcom/google/common/collect/ImmutableRangeMap;
 
     iput p2, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->val$len:I
 
     iput p3, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->val$off:I
 
     iput-object p4, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->val$range:Lcom/google/common/collect/Range;
-
-    iput-object p1, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->this$0:Lcom/google/common/collect/ImmutableRangeMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableList;-><init>()V
 
@@ -68,7 +62,7 @@
 
     iget v0, p0, Lcom/google/common/collect/ImmutableRangeMap$1;->val$len:I
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->m(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     if-eqz p1, :cond_1
 
@@ -154,6 +148,8 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableList;->writeReplace()Ljava/lang/Object;
 

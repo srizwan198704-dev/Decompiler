@@ -34,12 +34,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/util/concurrent/CombinedFuture;Ljava/util/concurrent/Callable;Ljava/util/concurrent/Executor;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -52,9 +46,11 @@
         }
     .end annotation
 
+    iput-object p1, p0, Lcom/google/common/util/concurrent/CombinedFuture$CallableInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/CombinedFuture;
+
     invoke-direct {p0, p1, p3}, Lcom/google/common/util/concurrent/CombinedFuture$CombinedFutureInterruptibleTask;-><init>(Lcom/google/common/util/concurrent/CombinedFuture;Ljava/util/concurrent/Executor;)V
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -69,6 +65,9 @@
 # virtual methods
 .method public runInterruptibly()Ljava/lang/Object;
     .locals 1
+    .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -91,16 +90,22 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .locals 0
+    .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
         }
     .end annotation
 
-    const/4 p1, 0x0
+    iget-object v0, p0, Lcom/google/common/util/concurrent/CombinedFuture$CallableInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/CombinedFuture;
 
-    throw p1
+    invoke-virtual {v0, p1}, Lcom/google/common/util/concurrent/AbstractFuture;->set(Ljava/lang/Object;)Z
+
+    return-void
 .end method
 
 .method public toPendingString()Ljava/lang/String;

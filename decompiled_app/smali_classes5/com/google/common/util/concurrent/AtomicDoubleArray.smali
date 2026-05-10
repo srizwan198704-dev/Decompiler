@@ -5,6 +5,17 @@
 .implements Ljava/io/Serializable;
 
 
+# annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
+.end annotation
+
+
 # static fields
 .field private static final serialVersionUID:J
 
@@ -14,12 +25,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(I)V
     .locals 1
 
@@ -85,7 +90,7 @@
 
     move-result v0
 
-    invoke-static {}, Lcom/google/common/primitives/ImmutableLongArray;->builder()Lcom/google/common/primitives/ImmutableLongArray$b;
+    invoke-static {}, Lcom/google/common/primitives/ImmutableLongArray;->builder()Lcom/google/common/primitives/ImmutableLongArray$Builder;
 
     move-result-object v1
 
@@ -102,7 +107,7 @@
 
     move-result-wide v3
 
-    invoke-virtual {v1, v3, v4}, Lcom/google/common/primitives/ImmutableLongArray$b;->a(J)Lcom/google/common/primitives/ImmutableLongArray$b;
+    invoke-virtual {v1, v3, v4}, Lcom/google/common/primitives/ImmutableLongArray$Builder;->add(J)Lcom/google/common/primitives/ImmutableLongArray$Builder;
 
     add-int/lit8 v2, v2, 0x1
 
@@ -111,7 +116,7 @@
     :cond_0
     new-instance p1, Ljava/util/concurrent/atomic/AtomicLongArray;
 
-    invoke-virtual {v1}, Lcom/google/common/primitives/ImmutableLongArray$b;->d()Lcom/google/common/primitives/ImmutableLongArray;
+    invoke-virtual {v1}, Lcom/google/common/primitives/ImmutableLongArray$Builder;->build()Lcom/google/common/primitives/ImmutableLongArray;
 
     move-result-object v0
 
@@ -165,6 +170,8 @@
 # virtual methods
 .method public addAndGet(ID)D
     .locals 9
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     :cond_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicDoubleArray;->longs:Ljava/util/concurrent/atomic/AtomicLongArray;
@@ -236,6 +243,8 @@
 
 .method public final getAndAdd(ID)D
     .locals 9
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     :cond_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicDoubleArray;->longs:Ljava/util/concurrent/atomic/AtomicLongArray;

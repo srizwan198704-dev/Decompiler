@@ -1,116 +1,76 @@
 .class final Lcom/google/android/gms/internal/auth/zzhf;
-.super Lcom/google/android/gms/internal/auth/zzhh;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/security/PrivilegedExceptionAction;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Lsun/misc/Unsafe;)V
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/auth/zzhh;-><init>(Lsun/misc/Unsafe;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final zza(Ljava/lang/Object;J)D
-    .locals 0
+.method public final bridge synthetic run()Ljava/lang/Object;
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/gms/internal/auth/zzhh;->zzj(Ljava/lang/Object;J)J
+    const-class v0, Lsun/misc/Unsafe;
 
-    move-result-wide p1
+    invoke-virtual {v0}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
 
-    invoke-static {p1, p2}, Ljava/lang/Double;->longBitsToDouble(J)D
+    move-result-object v1
 
-    move-result-wide p1
+    array-length v2, v1
 
-    return-wide p1
-.end method
+    const/4 v3, 0x0
 
-.method public final zzb(Ljava/lang/Object;J)F
-    .locals 0
+    :goto_0
+    const/4 v4, 0x0
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/gms/internal/auth/zzhh;->zzi(Ljava/lang/Object;J)I
+    if-ge v3, v2, :cond_1
 
-    move-result p1
+    aget-object v5, v1, v3
 
-    invoke-static {p1}, Ljava/lang/Float;->intBitsToFloat(I)F
+    const/4 v6, 0x1
 
-    move-result p1
+    invoke-virtual {v5, v6}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
-    return p1
-.end method
+    invoke-virtual {v5, v4}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-.method public final zzc(Ljava/lang/Object;JZ)V
-    .locals 1
+    move-result-object v4
 
-    sget-boolean v0, Lcom/google/android/gms/internal/auth/zzhi;->zza:Z
+    invoke-virtual {v0, v4}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
-    if-eqz v0, :cond_0
+    move-result v5
 
-    invoke-static {p1, p2, p3, p4}, Lcom/google/android/gms/internal/auth/zzhi;->zzi(Ljava/lang/Object;JZ)V
+    if-eqz v5, :cond_0
 
-    return-void
+    invoke-virtual {v0, v4}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
-    invoke-static {p1, p2, p3, p4}, Lcom/google/android/gms/internal/auth/zzhi;->zzj(Ljava/lang/Object;JZ)V
+    move-result-object v0
 
-    return-void
-.end method
+    move-object v4, v0
 
-.method public final zzd(Ljava/lang/Object;JD)V
-    .locals 6
+    check-cast v4, Lsun/misc/Unsafe;
 
-    invoke-static {p4, p5}, Ljava/lang/Double;->doubleToLongBits(D)J
-
-    move-result-wide v4
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-wide v2, p2
-
-    invoke-virtual/range {v0 .. v5}, Lcom/google/android/gms/internal/auth/zzhh;->zzn(Ljava/lang/Object;JJ)V
-
-    return-void
-.end method
-
-.method public final zze(Ljava/lang/Object;JF)V
-    .locals 0
-
-    invoke-static {p4}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result p4
-
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/android/gms/internal/auth/zzhh;->zzm(Ljava/lang/Object;JI)V
-
-    return-void
-.end method
-
-.method public final zzf(Ljava/lang/Object;J)Z
-    .locals 1
-
-    sget-boolean v0, Lcom/google/android/gms/internal/auth/zzhi;->zza:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-static {p1, p2, p3}, Lcom/google/android/gms/internal/auth/zzhi;->zzq(Ljava/lang/Object;J)Z
-
-    move-result p1
-
-    return p1
+    goto :goto_1
 
     :cond_0
-    invoke-static {p1, p2, p3}, Lcom/google/android/gms/internal/auth/zzhi;->zzr(Ljava/lang/Object;J)Z
+    add-int/lit8 v3, v3, 0x1
 
-    move-result p1
+    goto :goto_0
 
-    return p1
+    :cond_1
+    :goto_1
+    return-object v4
 .end method

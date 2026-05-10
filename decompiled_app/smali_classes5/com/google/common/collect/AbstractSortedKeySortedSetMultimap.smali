@@ -3,6 +3,12 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -17,12 +23,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/util/SortedMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -141,14 +141,11 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->keySet()Ljava/util/Set;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/SortedSet;
 
     return-object v0
-.end method
-
-.method public abstract synthetic valueComparator()Ljava/util/Comparator;
 .end method

@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$m;->getChildCount()I
+    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
 
     move-result v0
 
@@ -69,38 +69,36 @@
 
     if-nez v2, :cond_1
 
-    move v2, v1
+    const/4 v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    move v2, v3
+    const/4 v2, 0x0
 
     :goto_0
     const/4 v4, 0x2
 
-    new-array v5, v4, [I
+    filled-new-array {v0, v4}, [I
 
-    aput v4, v5, v1
+    move-result-object v4
 
-    aput v0, v5, v3
+    sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    invoke-static {v4, v5}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v5, v4}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, [[I
 
-    move v5, v3
+    const/4 v5, 0x0
 
     :goto_1
     if-ge v5, v0, :cond_6
 
     iget-object v6, p0, Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    invoke-virtual {v6, v5}, Landroidx/recyclerview/widget/RecyclerView$m;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v6, v5}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
@@ -196,7 +194,7 @@
 
     invoke-static {v4, v2}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
 
-    move v2, v1
+    const/4 v2, 0x1
 
     :goto_7
     if-ge v2, v0, :cond_8
@@ -254,20 +252,20 @@
 
     iget-object v0, p0, Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$m;->getChildCount()I
+    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
 
     move-result v0
 
     const/4 v1, 0x0
 
-    move v2, v1
+    const/4 v2, 0x0
 
     :goto_0
     if-ge v2, v0, :cond_1
 
     iget-object v3, p0, Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    invoke-virtual {v3, v2}, Landroidx/recyclerview/widget/RecyclerView$m;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -322,7 +320,7 @@
 
     move-result v0
 
-    move v3, v1
+    const/4 v3, 0x0
 
     :goto_0
     if-ge v3, v0, :cond_2
@@ -363,7 +361,7 @@
 
     iget-object v0, p0, Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$m;->getChildCount()I
+    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
 
     move-result v0
 

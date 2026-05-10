@@ -40,11 +40,11 @@
 
     new-array v0, v0, [Lcom/google/common/primitives/SignedBytes$LexicographicalComparator;
 
-    sget-object v1, Lcom/google/common/primitives/SignedBytes$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/SignedBytes$LexicographicalComparator;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/primitives/SignedBytes$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/SignedBytes$LexicographicalComparator;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -148,7 +148,7 @@
 
     aget-byte v3, p2, v1
 
-    invoke-static {v2, v3}, Ljava/lang/Byte;->compare(BB)I
+    invoke-static {v2, v3}, Lcom/google/common/primitives/SignedBytes;->compare(BB)I
 
     move-result v2
 

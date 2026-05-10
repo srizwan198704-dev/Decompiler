@@ -29,12 +29,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -96,5 +90,11 @@
 
     invoke-direct {v0}, Ljava/util/concurrent/CancellationException;-><init>()V
 
+    goto :goto_2
+
+    :goto_1
     throw v0
+
+    :goto_2
+    goto :goto_1
 .end method

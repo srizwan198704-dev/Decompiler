@@ -2,38 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic a:Landroid/view/View;
+.field public final synthetic a:Lcom/google/android/material/search/SearchViewAnimationHelper;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Landroid/view/View;)V
+.method public synthetic constructor <init>(Lcom/google/android/material/search/SearchViewAnimationHelper;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/search/h;->a:Landroid/view/View;
+    iput-object p1, p0, Lcom/google/android/material/search/h;->a:Lcom/google/android/material/search/SearchViewAnimationHelper;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/search/h;->a:Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/material/search/h;->a:Lcom/google/android/material/search/SearchViewAnimationHelper;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/search/j;->a(Landroid/view/View;Landroid/animation/ValueAnimator;)V
+    invoke-static {v0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->b(Lcom/google/android/material/search/SearchViewAnimationHelper;)V
 
     return-void
 .end method

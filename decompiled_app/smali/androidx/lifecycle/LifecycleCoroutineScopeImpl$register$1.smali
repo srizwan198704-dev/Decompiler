@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->c()V
+    value = Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->register()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,35 +19,17 @@
     value = {
         "Lkotlin/coroutines/jvm/internal/SuspendLambda;",
         "Lkotlin/jvm/functions/Function2<",
-        "Lkotlinx/coroutines/o0;",
-        "Lkotlin/coroutines/Continuation<",
+        "Les/ek0;",
+        "Les/mj0<",
         "-",
-        "Lkotlin/Unit;",
+        "Les/qg6;",
         ">;",
         "Ljava/lang/Object;",
         ">;"
     }
 .end annotation
 
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\u000c\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0008\u0002\u0010\u0002\u001a\u00020\u0001*\u00020\u0000H\u008a@\u00a2\u0006\u0004\u0008\u0002\u0010\u0003"
-    }
-    d2 = {
-        "Lkotlinx/coroutines/o0;",
-        "",
-        "<anonymous>",
-        "(Lkotlinx/coroutines/o0;)V"
-    }
-    k = 0x3
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-.end annotation
-
-.annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
+.annotation runtime Les/br0;
     c = "androidx.lifecycle.LifecycleCoroutineScopeImpl$register$1"
     f = "Lifecycle.kt"
     l = {}
@@ -64,19 +46,13 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroidx/lifecycle/LifecycleCoroutineScopeImpl;Lkotlin/coroutines/Continuation;)V
+.method public constructor <init>(Landroidx/lifecycle/LifecycleCoroutineScopeImpl;Les/mj0;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroidx/lifecycle/LifecycleCoroutineScopeImpl;",
-            "Lkotlin/coroutines/Continuation<",
+            "Les/mj0<",
             "-",
             "Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;",
             ">;)V"
@@ -87,23 +63,23 @@
 
     const/4 p1, 0x2
 
-    invoke-direct {p0, p1, p2}, Lkotlin/coroutines/jvm/internal/SuspendLambda;-><init>(ILkotlin/coroutines/Continuation;)V
+    invoke-direct {p0, p1, p2}, Lkotlin/coroutines/jvm/internal/SuspendLambda;-><init>(ILes/mj0;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+.method public final create(Ljava/lang/Object;Les/mj0;)Les/mj0;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/Object;",
-            "Lkotlin/coroutines/Continuation<",
+            "Les/mj0<",
             "*>;)",
-            "Lkotlin/coroutines/Continuation<",
-            "Lkotlin/Unit;",
+            "Les/mj0<",
+            "Les/qg6;",
             ">;"
         }
     .end annotation
@@ -112,50 +88,50 @@
 
     iget-object v1, p0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->this$0:Landroidx/lifecycle/LifecycleCoroutineScopeImpl;
 
-    invoke-direct {v0, v1, p2}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;-><init>(Landroidx/lifecycle/LifecycleCoroutineScopeImpl;Lkotlin/coroutines/Continuation;)V
+    invoke-direct {v0, v1, p2}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;-><init>(Landroidx/lifecycle/LifecycleCoroutineScopeImpl;Les/mj0;)V
 
     iput-object p1, v0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->L$0:Ljava/lang/Object;
 
     return-object v0
 .end method
 
-.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final invoke(Les/ek0;Les/mj0;)Ljava/lang/Object;
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Les/ek0;",
+            "Les/mj0<",
+            "-",
+            "Les/qg6;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
-    check-cast p1, Lkotlinx/coroutines/o0;
+    invoke-virtual {p0, p1, p2}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->create(Ljava/lang/Object;Les/mj0;)Les/mj0;
 
-    check-cast p2, Lkotlin/coroutines/Continuation;
+    move-result-object p1
 
-    invoke-virtual {p0, p1, p2}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->invoke(Lkotlinx/coroutines/o0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    check-cast p1, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;
+
+    sget-object p2, Les/qg6;->a:Les/qg6;
+
+    invoke-virtual {p1, p2}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public final invoke(Lkotlinx/coroutines/o0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lkotlinx/coroutines/o0;",
-            "Lkotlin/coroutines/Continuation<",
-            "-",
-            "Lkotlin/Unit;",
-            ">;)",
-            "Ljava/lang/Object;"
-        }
-    .end annotation
 
-    invoke-virtual {p0, p1, p2}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+    check-cast p1, Les/ek0;
 
-    move-result-object p1
+    check-cast p2, Les/mj0;
 
-    check-cast p1, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;
-
-    sget-object p2, Lkotlin/Unit;->a:Lkotlin/Unit;
-
-    invoke-virtual {p1, p2}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->invoke(Les/ek0;Les/mj0;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -165,25 +141,25 @@
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
 
-    invoke-static {}, Lkotlin/coroutines/intrinsics/a;->f()Ljava/lang/Object;
+    invoke-static {}, Les/vw2;->d()Ljava/lang/Object;
 
     iget v0, p0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->label:I
 
     if-nez v0, :cond_1
 
-    invoke-static {p1}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+    invoke-static {p1}, Les/v95;->b(Ljava/lang/Object;)V
 
     iget-object p1, p0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->L$0:Ljava/lang/Object;
 
-    check-cast p1, Lkotlinx/coroutines/o0;
+    check-cast p1, Les/ek0;
 
     iget-object v0, p0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->this$0:Landroidx/lifecycle/LifecycleCoroutineScopeImpl;
 
-    invoke-virtual {v0}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->a()Landroidx/lifecycle/Lifecycle;
+    invoke-virtual {v0}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->getLifecycle$lifecycle_common()Landroidx/lifecycle/Lifecycle;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidx/lifecycle/Lifecycle;->b()Landroidx/lifecycle/Lifecycle$State;
+    invoke-virtual {v0}, Landroidx/lifecycle/Lifecycle;->getCurrentState()Landroidx/lifecycle/Lifecycle$State;
 
     move-result-object v0
 
@@ -197,18 +173,18 @@
 
     iget-object p1, p0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->this$0:Landroidx/lifecycle/LifecycleCoroutineScopeImpl;
 
-    invoke-virtual {p1}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->a()Landroidx/lifecycle/Lifecycle;
+    invoke-virtual {p1}, Landroidx/lifecycle/LifecycleCoroutineScopeImpl;->getLifecycle$lifecycle_common()Landroidx/lifecycle/Lifecycle;
 
     move-result-object p1
 
     iget-object v0, p0, Landroidx/lifecycle/LifecycleCoroutineScopeImpl$register$1;->this$0:Landroidx/lifecycle/LifecycleCoroutineScopeImpl;
 
-    invoke-virtual {p1, v0}, Landroidx/lifecycle/Lifecycle;->a(Landroidx/lifecycle/t;)V
+    invoke-virtual {p1, v0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     goto :goto_0
 
     :cond_0
-    invoke-interface {p1}, Lkotlinx/coroutines/o0;->getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
+    invoke-interface {p1}, Les/ek0;->getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
 
     move-result-object p1
 
@@ -216,10 +192,10 @@
 
     const/4 v1, 0x0
 
-    invoke-static {p1, v1, v0, v1}, Lkotlinx/coroutines/x1;->e(Lkotlin/coroutines/CoroutineContext;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
+    invoke-static {p1, v1, v0, v1}, Les/ty2;->d(Lkotlin/coroutines/CoroutineContext;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     :goto_0
-    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+    sget-object p1, Les/qg6;->a:Les/qg6;
 
     return-object p1
 

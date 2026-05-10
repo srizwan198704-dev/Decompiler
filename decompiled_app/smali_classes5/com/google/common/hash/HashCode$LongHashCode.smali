@@ -25,12 +25,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(J)V
     .locals 0
 
@@ -44,99 +38,99 @@
 
 # virtual methods
 .method public asBytes()[B
-    .locals 11
+    .locals 6
 
-    iget-wide v0, p0, Lcom/google/common/hash/HashCode$LongHashCode;->hash:J
+    const/16 v0, 0x8
 
-    long-to-int v2, v0
+    new-array v1, v0, [B
 
-    int-to-byte v2, v2
+    iget-wide v2, p0, Lcom/google/common/hash/HashCode$LongHashCode;->hash:J
 
-    const/16 v3, 0x8
-
-    shr-long v4, v0, v3
-
-    long-to-int v4, v4
+    long-to-int v4, v2
 
     int-to-byte v4, v4
 
-    const/16 v5, 0x10
+    const/4 v5, 0x0
 
-    shr-long v5, v0, v5
+    aput-byte v4, v1, v5
 
-    long-to-int v5, v5
+    shr-long v4, v2, v0
 
-    int-to-byte v5, v5
-
-    const/16 v6, 0x18
-
-    shr-long v6, v0, v6
-
-    long-to-int v6, v6
-
-    int-to-byte v6, v6
-
-    const/16 v7, 0x20
-
-    shr-long v7, v0, v7
-
-    long-to-int v7, v7
-
-    int-to-byte v7, v7
-
-    const/16 v8, 0x28
-
-    shr-long v8, v0, v8
-
-    long-to-int v8, v8
-
-    int-to-byte v8, v8
-
-    const/16 v9, 0x30
-
-    shr-long v9, v0, v9
-
-    long-to-int v9, v9
-
-    int-to-byte v9, v9
-
-    const/16 v10, 0x38
-
-    shr-long/2addr v0, v10
-
-    long-to-int v0, v0
+    long-to-int v0, v4
 
     int-to-byte v0, v0
 
-    new-array v1, v3, [B
+    const/4 v4, 0x1
 
-    const/4 v3, 0x0
+    aput-byte v0, v1, v4
 
-    aput-byte v2, v1, v3
+    const/16 v0, 0x10
 
-    const/4 v2, 0x1
+    shr-long v4, v2, v0
 
-    aput-byte v4, v1, v2
+    long-to-int v0, v4
 
-    const/4 v2, 0x2
+    int-to-byte v0, v0
 
-    aput-byte v5, v1, v2
+    const/4 v4, 0x2
 
-    const/4 v2, 0x3
+    aput-byte v0, v1, v4
 
-    aput-byte v6, v1, v2
+    const/16 v0, 0x18
 
-    const/4 v2, 0x4
+    shr-long v4, v2, v0
 
-    aput-byte v7, v1, v2
+    long-to-int v0, v4
 
-    const/4 v2, 0x5
+    int-to-byte v0, v0
 
-    aput-byte v8, v1, v2
+    const/4 v4, 0x3
 
-    const/4 v2, 0x6
+    aput-byte v0, v1, v4
 
-    aput-byte v9, v1, v2
+    const/16 v0, 0x20
+
+    shr-long v4, v2, v0
+
+    long-to-int v0, v4
+
+    int-to-byte v0, v0
+
+    const/4 v4, 0x4
+
+    aput-byte v0, v1, v4
+
+    const/16 v0, 0x28
+
+    shr-long v4, v2, v0
+
+    long-to-int v0, v4
+
+    int-to-byte v0, v0
+
+    const/4 v4, 0x5
+
+    aput-byte v0, v1, v4
+
+    const/16 v0, 0x30
+
+    shr-long v4, v2, v0
+
+    long-to-int v0, v4
+
+    int-to-byte v0, v0
+
+    const/4 v4, 0x6
+
+    aput-byte v0, v1, v4
+
+    const/16 v0, 0x38
+
+    shr-long/2addr v2, v0
+
+    long-to-int v0, v2
+
+    int-to-byte v0, v0
 
     const/4 v2, 0x7
 
@@ -150,9 +144,9 @@
 
     iget-wide v0, p0, Lcom/google/common/hash/HashCode$LongHashCode;->hash:J
 
-    long-to-int v0, v0
+    long-to-int v1, v0
 
-    return v0
+    return v1
 .end method
 
 .method public asLong()J
@@ -219,9 +213,9 @@
 
     shr-long/2addr v2, v4
 
-    long-to-int v2, v2
+    long-to-int v3, v2
 
-    int-to-byte v2, v2
+    int-to-byte v2, v3
 
     aput-byte v2, p1, v1
 

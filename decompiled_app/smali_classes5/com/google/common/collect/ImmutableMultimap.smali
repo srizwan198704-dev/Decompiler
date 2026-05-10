@@ -1,19 +1,26 @@
 .class public abstract Lcom/google/common/collect/ImmutableMultimap;
-.super Lcom/google/common/collect/j;
+.super Lcom/google/common/collect/BaseImmutableMultimap;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/ImmutableMultimap$c;,
-        Lcom/google/common/collect/ImmutableMultimap$EntryCollection;,
-        Lcom/google/common/collect/ImmutableMultimap$Keys;,
         Lcom/google/common/collect/ImmutableMultimap$Values;,
         Lcom/google/common/collect/ImmutableMultimap$KeysSerializedForm;,
-        Lcom/google/common/collect/ImmutableMultimap$d;
+        Lcom/google/common/collect/ImmutableMultimap$Keys;,
+        Lcom/google/common/collect/ImmutableMultimap$EntryCollection;,
+        Lcom/google/common/collect/ImmutableMultimap$FieldSettersHolder;,
+        Lcom/google/common/collect/ImmutableMultimap$Builder;
     }
 .end annotation
 
@@ -24,7 +31,7 @@
         "V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/j<",
+        "Lcom/google/common/collect/BaseImmutableMultimap<",
         "TK;TV;>;",
         "Ljava/io/Serializable;"
     }
@@ -33,6 +40,9 @@
 
 # static fields
 .field private static final serialVersionUID:J
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+.end field
 
 
 # instance fields
@@ -51,12 +61,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -69,7 +73,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/j;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/BaseImmutableMultimap;-><init>()V
 
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMultimap;->map:Lcom/google/common/collect/ImmutableMap;
 
@@ -78,7 +82,7 @@
     return-void
 .end method
 
-.method public static builder()Lcom/google/common/collect/ImmutableMultimap$c;
+.method public static builder()Lcom/google/common/collect/ImmutableMultimap$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,44 +91,19 @@
             "V:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/collect/ImmutableMultimap$c<",
+            "Lcom/google/common/collect/ImmutableMultimap$Builder<",
             "TK;TV;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableMultimap$c;
+    new-instance v0, Lcom/google/common/collect/ImmutableMultimap$Builder;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableMultimap$c;-><init>()V
-
-    return-object v0
-.end method
-
-.method public static builderWithExpectedKeys(I)Lcom/google/common/collect/ImmutableMultimap$c;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(I)",
-            "Lcom/google/common/collect/ImmutableMultimap$c<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    const-string v0, "expectedKeys"
-
-    invoke-static {p0, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
-
-    new-instance v0, Lcom/google/common/collect/ImmutableMultimap$c;
-
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableMultimap$c;-><init>(I)V
+    invoke-direct {v0}, Lcom/google/common/collect/ImmutableMultimap$Builder;-><init>()V
 
     return-object v0
 .end method
 
-.method public static copyOf(Lcom/google/common/collect/j3;)Lcom/google/common/collect/ImmutableMultimap;
+.method public static copyOf(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ImmutableMultimap;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -133,7 +112,7 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/collect/j3<",
+            "Lcom/google/common/collect/Multimap<",
             "+TK;+TV;>;)",
             "Lcom/google/common/collect/ImmutableMultimap<",
             "TK;TV;>;"
@@ -157,7 +136,7 @@
     return-object v0
 
     :cond_0
-    invoke-static {p0}, Lcom/google/common/collect/ImmutableListMultimap;->copyOf(Lcom/google/common/collect/j3;)Lcom/google/common/collect/ImmutableListMultimap;
+    invoke-static {p0}, Lcom/google/common/collect/ImmutableListMultimap;->copyOf(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ImmutableListMultimap;
 
     move-result-object p0
 
@@ -346,6 +325,10 @@
 
 .method public final clear()V
     .locals 1
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -359,7 +342,7 @@
 .method public bridge synthetic containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/c;->containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractMultimap;->containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -383,7 +366,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/c;->containsValue(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractMultimap;->containsValue(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -485,7 +468,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic createKeys()Lcom/google/common/collect/l3;
+.method public bridge synthetic createKeys()Lcom/google/common/collect/Multiset;
     .locals 1
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap;->createKeys()Lcom/google/common/collect/ImmutableMultiset;
@@ -533,7 +516,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->entries()Ljava/util/Collection;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->entries()Ljava/util/Collection;
 
     move-result-object v0
 
@@ -552,20 +535,20 @@
     return-object v0
 .end method
 
-.method public entryIterator()Lcom/google/common/collect/r4;
+.method public entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "Ljava/util/Map$Entry<",
             "TK;TV;>;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableMultimap$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableMultimap$1;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableMultimap$a;-><init>(Lcom/google/common/collect/ImmutableMultimap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableMultimap$1;-><init>(Lcom/google/common/collect/ImmutableMultimap;)V
 
     return-object v0
 .end method
@@ -573,7 +556,7 @@
 .method public bridge synthetic entryIterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap;->entryIterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap;->entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -583,7 +566,7 @@
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/c;->equals(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractMultimap;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -613,7 +596,7 @@
 .method public bridge synthetic hashCode()I
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->hashCode()I
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->hashCode()I
 
     move-result v0
 
@@ -633,7 +616,7 @@
 .method public bridge synthetic isEmpty()Z
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->isEmpty()Z
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->isEmpty()Z
 
     move-result v0
 
@@ -691,7 +674,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->keys()Lcom/google/common/collect/l3;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->keys()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
 
@@ -700,7 +683,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic keys()Lcom/google/common/collect/l3;
+.method public bridge synthetic keys()Lcom/google/common/collect/Multiset;
     .locals 1
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap;->keys()Lcom/google/common/collect/ImmutableMultiset;
@@ -712,6 +695,13 @@
 
 .method public final put(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)Z"
@@ -728,12 +718,19 @@
     throw p1
 .end method
 
-.method public final putAll(Lcom/google/common/collect/j3;)Z
+.method public final putAll(Lcom/google/common/collect/Multimap;)Z
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/j3<",
+            "Lcom/google/common/collect/Multimap<",
             "+TK;+TV;>;)Z"
         }
     .end annotation
@@ -750,6 +747,13 @@
 
 .method public final putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -770,6 +774,13 @@
 
 .method public final remove(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -782,6 +793,13 @@
 
 .method public removeAll(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -804,6 +822,13 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -816,6 +841,13 @@
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableCollection;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -838,6 +870,13 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -859,26 +898,26 @@
 .method public bridge synthetic toString()Ljava/lang/String;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->toString()Ljava/lang/String;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public valueIterator()Lcom/google/common/collect/r4;
+.method public valueIterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "TV;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableMultimap$b;
+    new-instance v0, Lcom/google/common/collect/ImmutableMultimap$2;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableMultimap$b;-><init>(Lcom/google/common/collect/ImmutableMultimap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableMultimap$2;-><init>(Lcom/google/common/collect/ImmutableMultimap;)V
 
     return-object v0
 .end method
@@ -886,7 +925,7 @@
 .method public bridge synthetic valueIterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap;->valueIterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap;->valueIterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -903,7 +942,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->values()Ljava/util/Collection;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->values()Ljava/util/Collection;
 
     move-result-object v0
 

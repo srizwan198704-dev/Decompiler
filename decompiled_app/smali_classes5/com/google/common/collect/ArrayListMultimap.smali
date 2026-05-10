@@ -3,6 +3,14 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -17,30 +25,25 @@
 
 
 # static fields
-.field private static final DEFAULT_VALUES_PER_KEY:I
+.field private static final DEFAULT_VALUES_PER_KEY:I = 0x3
 
 .field private static final serialVersionUID:J
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+.end field
 
 
 # instance fields
 .field transient expectedValuesPerKey:I
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const v0, 0x22b
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/google/common/collect/ArrayListMultimap;->DEFAULT_VALUES_PER_KEY:I
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 2
 
@@ -56,7 +59,7 @@
 .method private constructor <init>(II)V
     .locals 0
 
-    invoke-static {p1}, Lcom/google/common/collect/r3;->d(I)Ljava/util/Map;
+    invoke-static {p1}, Lcom/google/common/collect/Platform;->newHashMapWithExpectedSize(I)Ljava/util/Map;
 
     move-result-object p1
 
@@ -64,24 +67,24 @@
 
     const-string p1, "expectedValuesPerKey"
 
-    invoke-static {p2, p1}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
+    invoke-static {p2, p1}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     iput p2, p0, Lcom/google/common/collect/ArrayListMultimap;->expectedValuesPerKey:I
 
     return-void
 .end method
 
-.method private constructor <init>(Lcom/google/common/collect/j3;)V
+.method private constructor <init>(Lcom/google/common/collect/Multimap;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/j3<",
+            "Lcom/google/common/collect/Multimap<",
             "+TK;+TV;>;)V"
         }
     .end annotation
 
-    invoke-interface {p1}, Lcom/google/common/collect/j3;->keySet()Ljava/util/Set;
+    invoke-interface {p1}, Lcom/google/common/collect/Multimap;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -107,7 +110,7 @@
     :goto_0
     invoke-direct {p0, v0, v1}, Lcom/google/common/collect/ArrayListMultimap;-><init>(II)V
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/ArrayListMultimap;->putAll(Lcom/google/common/collect/j3;)Z
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/ArrayListMultimap;->putAll(Lcom/google/common/collect/Multimap;)Z
 
     return-void
 .end method
@@ -154,7 +157,7 @@
     return-object v0
 .end method
 
-.method public static create(Lcom/google/common/collect/j3;)Lcom/google/common/collect/ArrayListMultimap;
+.method public static create(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ArrayListMultimap;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -163,7 +166,7 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/collect/j3<",
+            "Lcom/google/common/collect/Multimap<",
             "+TK;+TV;>;)",
             "Lcom/google/common/collect/ArrayListMultimap<",
             "TK;TV;>;"
@@ -172,13 +175,19 @@
 
     new-instance v0, Lcom/google/common/collect/ArrayListMultimap;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ArrayListMultimap;-><init>(Lcom/google/common/collect/j3;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ArrayListMultimap;-><init>(Lcom/google/common/collect/Multimap;)V
 
     return-object v0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 2
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -192,7 +201,7 @@
 
     iput v0, p0, Lcom/google/common/collect/ArrayListMultimap;->expectedValuesPerKey:I
 
-    invoke-static {p1}, Lcom/google/common/collect/w3;->h(Ljava/io/ObjectInputStream;)I
+    invoke-static {p1}, Lcom/google/common/collect/Serialization;->readCount(Ljava/io/ObjectInputStream;)I
 
     move-result v0
 
@@ -202,13 +211,19 @@
 
     invoke-virtual {p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->setMap(Ljava/util/Map;)V
 
-    invoke-static {p0, p1, v0}, Lcom/google/common/collect/w3;->e(Lcom/google/common/collect/j3;Ljava/io/ObjectInputStream;I)V
+    invoke-static {p0, p1, v0}, Lcom/google/common/collect/Serialization;->populateMultimap(Lcom/google/common/collect/Multimap;Ljava/io/ObjectInputStream;I)V
 
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -217,7 +232,7 @@
 
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/w3;->j(Lcom/google/common/collect/j3;Ljava/io/ObjectOutputStream;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/Serialization;->writeMultimap(Lcom/google/common/collect/Multimap;Ljava/io/ObjectOutputStream;)V
 
     return-void
 .end method
@@ -245,7 +260,7 @@
 .method public bridge synthetic containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/c;->containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractMultimap;->containsEntry(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -265,7 +280,7 @@
 .method public bridge synthetic containsValue(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/c;->containsValue(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractMultimap;->containsValue(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -323,6 +338,10 @@
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/List;
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
 
     invoke-super {p0, p1}, Lcom/google/common/collect/AbstractListMultimap;->get(Ljava/lang/Object;)Ljava/util/List;
 
@@ -334,7 +353,7 @@
 .method public bridge synthetic hashCode()I
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->hashCode()I
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->hashCode()I
 
     move-result v0
 
@@ -344,7 +363,7 @@
 .method public bridge synthetic isEmpty()Z
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->isEmpty()Z
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->isEmpty()Z
 
     move-result v0
 
@@ -354,17 +373,17 @@
 .method public bridge synthetic keySet()Ljava/util/Set;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->keySet()Ljava/util/Set;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic keys()Lcom/google/common/collect/l3;
+.method public bridge synthetic keys()Lcom/google/common/collect/Multiset;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->keys()Lcom/google/common/collect/l3;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->keys()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
 
@@ -373,6 +392,16 @@
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractListMultimap;->put(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -381,10 +410,12 @@
     return p1
 .end method
 
-.method public bridge synthetic putAll(Lcom/google/common/collect/j3;)Z
+.method public bridge synthetic putAll(Lcom/google/common/collect/Multimap;)Z
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/c;->putAll(Lcom/google/common/collect/j3;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractMultimap;->putAll(Lcom/google/common/collect/Multimap;)Z
 
     move-result p1
 
@@ -393,8 +424,14 @@
 
 .method public bridge synthetic putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/c;->putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
+    invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractMultimap;->putAll(Ljava/lang/Object;Ljava/lang/Iterable;)Z
 
     move-result p1
 
@@ -403,8 +440,10 @@
 
 .method public bridge synthetic remove(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/c;->remove(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractMultimap;->remove(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -413,6 +452,8 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/List;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     invoke-super {p0, p1}, Lcom/google/common/collect/AbstractListMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/List;
 
@@ -423,6 +464,12 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractListMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/List;
 
@@ -444,7 +491,7 @@
 .method public bridge synthetic toString()Ljava/lang/String;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/c;->toString()Ljava/lang/String;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->toString()Ljava/lang/String;
 
     move-result-object v0
 

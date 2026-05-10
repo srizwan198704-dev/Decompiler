@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroidx/lifecycle/r;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -19,31 +19,12 @@
 # instance fields
 .field final synthetic this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
-.field final synthetic val$handler:Landroid/os/Handler;
-
-.field final synthetic val$runnable:Ljava/lang/Runnable;
-
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroidx/viewpager2/adapter/FragmentStateAdapter;Landroid/os/Handler;Ljava/lang/Runnable;)V
+.method public constructor <init>(Landroidx/viewpager2/adapter/FragmentStateAdapter;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$4;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
-
-    iput-object p2, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$4;->val$handler:Landroid/os/Handler;
-
-    iput-object p3, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$4;->val$runnable:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -52,33 +33,16 @@
 
 
 # virtual methods
-.method public onStateChanged(Landroidx/lifecycle/u;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
-    .param p1    # Landroidx/lifecycle/u;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroidx/lifecycle/Lifecycle$Event;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
+.method public run()V
+    .locals 2
 
-    sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
+    iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$4;->this$0:Landroidx/viewpager2/adapter/FragmentStateAdapter;
 
-    if-ne p2, v0, :cond_0
+    const/4 v1, 0x0
 
-    iget-object p2, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$4;->val$handler:Landroid/os/Handler;
+    iput-boolean v1, v0, Landroidx/viewpager2/adapter/FragmentStateAdapter;->mIsInGracePeriod:Z
 
-    iget-object v0, p0, Landroidx/viewpager2/adapter/FragmentStateAdapter$4;->val$runnable:Ljava/lang/Runnable;
+    invoke-virtual {v0}, Landroidx/viewpager2/adapter/FragmentStateAdapter;->gcFragments()V
 
-    invoke-virtual {p2, v0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    invoke-interface {p1}, Landroidx/lifecycle/u;->getLifecycle()Landroidx/lifecycle/Lifecycle;
-
-    move-result-object p1
-
-    invoke-virtual {p1, p0}, Landroidx/lifecycle/Lifecycle;->d(Landroidx/lifecycle/t;)V
-
-    :cond_0
     return-void
 .end method

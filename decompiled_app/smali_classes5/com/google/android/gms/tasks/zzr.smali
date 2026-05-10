@@ -11,12 +11,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
@@ -174,5 +168,11 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
+    goto :goto_5
+
+    :goto_4
     throw p1
+
+    :goto_5
+    goto :goto_4
 .end method

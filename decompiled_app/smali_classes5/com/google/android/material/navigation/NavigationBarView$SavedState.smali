@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field public a:Landroid/os/Bundle;
+.field menuPresenterState:Landroid/os/Bundle;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
@@ -36,9 +36,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/navigation/NavigationBarView$SavedState$a;
+    new-instance v0, Lcom/google/android/material/navigation/NavigationBarView$SavedState$1;
 
-    invoke-direct {v0}, Lcom/google/android/material/navigation/NavigationBarView$SavedState$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/navigation/NavigationBarView$SavedState$1;-><init>()V
 
     sput-object v0, Lcom/google/android/material/navigation/NavigationBarView$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -65,7 +65,7 @@
     move-result-object p2
 
     :cond_0
-    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/navigation/NavigationBarView$SavedState;->a(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
+    invoke-direct {p0, p1, p2}, Lcom/google/android/material/navigation/NavigationBarView$SavedState;->readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
     return-void
 .end method
@@ -78,9 +78,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public final a(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
+.method private readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 0
     .param p1    # Landroid/os/Parcel;
         .annotation build Landroidx/annotation/NonNull;
@@ -91,11 +89,13 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/material/navigation/NavigationBarView$SavedState;->a:Landroid/os/Bundle;
+    iput-object p1, p0, Lcom/google/android/material/navigation/NavigationBarView$SavedState;->menuPresenterState:Landroid/os/Bundle;
 
     return-void
 .end method
 
+
+# virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
     .param p1    # Landroid/os/Parcel;
@@ -105,7 +105,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    iget-object p2, p0, Lcom/google/android/material/navigation/NavigationBarView$SavedState;->a:Landroid/os/Bundle;
+    iget-object p2, p0, Lcom/google/android/material/navigation/NavigationBarView$SavedState;->menuPresenterState:Landroid/os/Bundle;
 
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 

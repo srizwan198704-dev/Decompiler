@@ -2,21 +2,26 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/android/material/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "bool"
+.end annotation
+
+
 # static fields
-.field public static abc_action_bar_embed_tabs:I = 0x7f050000
+.field public static final abc_action_bar_embed_tabs:I = 0x7f050000
 
-.field public static abc_config_actionMenuItemAllCaps:I = 0x7f050001
+.field public static final abc_config_actionMenuItemAllCaps:I = 0x7f050001
 
-.field public static mtrl_btn_textappearance_all_caps:I = 0x7f050006
+.field public static final mtrl_btn_textappearance_all_caps:I = 0x7f050004
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

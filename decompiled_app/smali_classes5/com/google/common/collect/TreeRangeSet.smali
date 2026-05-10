@@ -1,19 +1,25 @@
 .class public Lcom/google/common/collect/TreeRangeSet;
-.super Lcom/google/common/collect/f;
+.super Lcom/google/common/collect/AbstractRangeSet;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/TreeRangeSet$b;,
-        Lcom/google/common/collect/TreeRangeSet$Complement;,
         Lcom/google/common/collect/TreeRangeSet$SubRangeSet;,
-        Lcom/google/common/collect/TreeRangeSet$e;,
-        Lcom/google/common/collect/TreeRangeSet$c;,
-        Lcom/google/common/collect/TreeRangeSet$d;
+        Lcom/google/common/collect/TreeRangeSet$SubRangeSetRangesByLowerBound;,
+        Lcom/google/common/collect/TreeRangeSet$Complement;,
+        Lcom/google/common/collect/TreeRangeSet$ComplementRangesByLowerBound;,
+        Lcom/google/common/collect/TreeRangeSet$RangesByUpperBound;,
+        Lcom/google/common/collect/TreeRangeSet$AsRanges;
     }
 .end annotation
 
@@ -22,7 +28,7 @@
         "<C::",
         "Ljava/lang/Comparable<",
         "*>;>",
-        "Lcom/google/common/collect/f<",
+        "Lcom/google/common/collect/AbstractRangeSet<",
         "TC;>;",
         "Ljava/io/Serializable;"
     }
@@ -31,6 +37,9 @@
 
 # instance fields
 .field private transient asDescendingSetOfRanges:Ljava/util/Set;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -41,6 +50,9 @@
 .end field
 
 .field private transient asRanges:Ljava/util/Set;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -50,16 +62,22 @@
     .end annotation
 .end field
 
-.field private transient complement:Lcom/google/common/collect/u3;
+.field private transient complement:Lcom/google/common/collect/RangeSet;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/u3<",
+            "Lcom/google/common/collect/RangeSet<",
             "TC;>;"
         }
     .end annotation
 .end field
 
 .field final rangesByLowerBound:Ljava/util/NavigableMap;
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/NavigableMap<",
@@ -73,12 +91,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>(Ljava/util/NavigableMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -92,14 +104,14 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/f;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/AbstractRangeSet;-><init>()V
 
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeSet;->rangesByLowerBound:Ljava/util/NavigableMap;
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/util/NavigableMap;Lcom/google/common/collect/TreeRangeSet$a;)V
+.method public synthetic constructor <init>(Ljava/util/NavigableMap;Lcom/google/common/collect/TreeRangeSet$1;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/TreeRangeSet;-><init>(Ljava/util/NavigableMap;)V
@@ -140,14 +152,14 @@
     return-object v0
 .end method
 
-.method public static create(Lcom/google/common/collect/u3;)Lcom/google/common/collect/TreeRangeSet;
+.method public static create(Lcom/google/common/collect/RangeSet;)Lcom/google/common/collect/TreeRangeSet;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
             "Ljava/lang/Comparable<",
             "*>;>(",
-            "Lcom/google/common/collect/u3<",
+            "Lcom/google/common/collect/RangeSet<",
             "TC;>;)",
             "Lcom/google/common/collect/TreeRangeSet<",
             "TC;>;"
@@ -158,7 +170,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/google/common/collect/TreeRangeSet;->addAll(Lcom/google/common/collect/u3;)V
+    invoke-virtual {v0, p0}, Lcom/google/common/collect/TreeRangeSet;->addAll(Lcom/google/common/collect/RangeSet;)V
 
     return-object v0
 .end method
@@ -199,7 +211,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->rangesByLowerBound:Ljava/util/NavigableMap;
 
@@ -285,7 +297,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->isEmpty()Z
 
@@ -378,10 +390,10 @@
     return-void
 .end method
 
-.method public bridge synthetic addAll(Lcom/google/common/collect/u3;)V
+.method public bridge synthetic addAll(Lcom/google/common/collect/RangeSet;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/f;->addAll(Lcom/google/common/collect/u3;)V
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractRangeSet;->addAll(Lcom/google/common/collect/RangeSet;)V
 
     return-void
 .end method
@@ -389,7 +401,7 @@
 .method public bridge synthetic addAll(Ljava/lang/Iterable;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/f;->addAll(Ljava/lang/Iterable;)V
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractRangeSet;->addAll(Ljava/lang/Iterable;)V
 
     return-void
 .end method
@@ -409,7 +421,7 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/TreeRangeSet$b;
+    new-instance v0, Lcom/google/common/collect/TreeRangeSet$AsRanges;
 
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet;->rangesByLowerBound:Ljava/util/NavigableMap;
 
@@ -421,7 +433,7 @@
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/TreeRangeSet$b;-><init>(Lcom/google/common/collect/TreeRangeSet;Ljava/util/Collection;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/TreeRangeSet$AsRanges;-><init>(Lcom/google/common/collect/TreeRangeSet;Ljava/util/Collection;)V
 
     iput-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->asDescendingSetOfRanges:Ljava/util/Set;
 
@@ -444,7 +456,7 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/TreeRangeSet$b;
+    new-instance v0, Lcom/google/common/collect/TreeRangeSet$AsRanges;
 
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeSet;->rangesByLowerBound:Ljava/util/NavigableMap;
 
@@ -452,7 +464,7 @@
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/TreeRangeSet$b;-><init>(Lcom/google/common/collect/TreeRangeSet;Ljava/util/Collection;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/TreeRangeSet$AsRanges;-><init>(Lcom/google/common/collect/TreeRangeSet;Ljava/util/Collection;)V
 
     iput-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->asRanges:Ljava/util/Set;
 
@@ -463,22 +475,22 @@
 .method public bridge synthetic clear()V
     .locals 0
 
-    invoke-super {p0}, Lcom/google/common/collect/f;->clear()V
+    invoke-super {p0}, Lcom/google/common/collect/AbstractRangeSet;->clear()V
 
     return-void
 .end method
 
-.method public complement()Lcom/google/common/collect/u3;
+.method public complement()Lcom/google/common/collect/RangeSet;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/u3<",
+            "Lcom/google/common/collect/RangeSet<",
             "TC;>;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->complement:Lcom/google/common/collect/u3;
+    iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->complement:Lcom/google/common/collect/RangeSet;
 
     if-nez v0, :cond_0
 
@@ -486,7 +498,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/TreeRangeSet$Complement;-><init>(Lcom/google/common/collect/TreeRangeSet;)V
 
-    iput-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->complement:Lcom/google/common/collect/u3;
+    iput-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->complement:Lcom/google/common/collect/RangeSet;
 
     :cond_0
     return-object v0
@@ -495,7 +507,7 @@
 .method public bridge synthetic contains(Ljava/lang/Comparable;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/f;->contains(Ljava/lang/Comparable;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractRangeSet;->contains(Ljava/lang/Comparable;)Z
 
     move-result p1
 
@@ -512,7 +524,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->rangesByLowerBound:Ljava/util/NavigableMap;
 
@@ -547,10 +559,10 @@
     return p1
 .end method
 
-.method public bridge synthetic enclosesAll(Lcom/google/common/collect/u3;)Z
+.method public bridge synthetic enclosesAll(Lcom/google/common/collect/RangeSet;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/f;->enclosesAll(Lcom/google/common/collect/u3;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractRangeSet;->enclosesAll(Lcom/google/common/collect/RangeSet;)Z
 
     move-result p1
 
@@ -560,7 +572,7 @@
 .method public bridge synthetic enclosesAll(Ljava/lang/Iterable;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/f;->enclosesAll(Ljava/lang/Iterable;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractRangeSet;->enclosesAll(Ljava/lang/Iterable;)Z
 
     move-result p1
 
@@ -570,7 +582,7 @@
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/f;->equals(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractRangeSet;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -587,7 +599,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->rangesByLowerBound:Ljava/util/NavigableMap;
 
@@ -682,7 +694,7 @@
 .method public bridge synthetic isEmpty()Z
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/f;->isEmpty()Z
+    invoke-super {p0}, Lcom/google/common/collect/AbstractRangeSet;->isEmpty()Z
 
     move-result v0
 
@@ -699,7 +711,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/google/common/collect/TreeRangeSet;->rangesByLowerBound:Ljava/util/NavigableMap;
 
@@ -749,7 +761,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p1}, Lcom/google/common/collect/Range;->isEmpty()Z
 
@@ -882,10 +894,10 @@
     return-void
 .end method
 
-.method public bridge synthetic removeAll(Lcom/google/common/collect/u3;)V
+.method public bridge synthetic removeAll(Lcom/google/common/collect/RangeSet;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/f;->removeAll(Lcom/google/common/collect/u3;)V
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractRangeSet;->removeAll(Lcom/google/common/collect/RangeSet;)V
 
     return-void
 .end method
@@ -893,7 +905,7 @@
 .method public bridge synthetic removeAll(Ljava/lang/Iterable;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/f;->removeAll(Ljava/lang/Iterable;)V
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractRangeSet;->removeAll(Ljava/lang/Iterable;)V
 
     return-void
 .end method
@@ -954,14 +966,14 @@
     throw v0
 .end method
 
-.method public subRangeSet(Lcom/google/common/collect/Range;)Lcom/google/common/collect/u3;
+.method public subRangeSet(Lcom/google/common/collect/Range;)Lcom/google/common/collect/RangeSet;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/google/common/collect/Range<",
             "TC;>;)",
-            "Lcom/google/common/collect/u3<",
+            "Lcom/google/common/collect/RangeSet<",
             "TC;>;"
         }
     .end annotation

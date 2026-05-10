@@ -2,14 +2,6 @@
 .super Ljava/lang/Object;
 
 
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public abstract dispatchNestedFling(FFZ)Z
 .end method
@@ -18,9 +10,21 @@
 .end method
 
 .method public abstract dispatchNestedPreScroll(II[I[I)Z
+    .param p3    # [I
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # [I
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
 .end method
 
 .method public abstract dispatchNestedScroll(IIII[I)Z
+    .param p5    # [I
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
 .end method
 
 .method public abstract hasNestedScrollingParent()Z

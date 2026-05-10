@@ -3,6 +3,12 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
+.annotation build Lcom/google/common/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/Ordering;
 .end annotation
@@ -37,12 +43,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 2
 
@@ -60,11 +60,11 @@
 
     invoke-direct {v0}, Lcom/google/common/collect/MapMaker;-><init>()V
 
-    invoke-static {v0}, Lcom/google/common/collect/r3;->j(Lcom/google/common/collect/MapMaker;)Lcom/google/common/collect/MapMaker;
+    invoke-static {v0}, Lcom/google/common/collect/Platform;->tryWeakKeys(Lcom/google/common/collect/MapMaker;)Lcom/google/common/collect/MapMaker;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/MapMaker;->i()Ljava/util/concurrent/ConcurrentMap;
+    invoke-virtual {v0}, Lcom/google/common/collect/MapMaker;->makeMap()Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
 
@@ -153,7 +153,7 @@
     goto :goto_0
 
     :cond_3
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_0
     return v0

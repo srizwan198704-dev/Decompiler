@@ -21,12 +21,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
     .locals 0
 
@@ -44,7 +38,7 @@
 
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$2;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
-    iget v1, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->a0:I
+    iget v1, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mInvalidatePanelMenuFeatures:I
 
     and-int/lit8 v1, v1, 0x1
 
@@ -52,12 +46,12 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {v0, v2}, Landroidx/appcompat/app/AppCompatDelegateImpl;->l0(I)V
+    invoke-virtual {v0, v2}, Landroidx/appcompat/app/AppCompatDelegateImpl;->doInvalidatePanelMenu(I)V
 
     :cond_0
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$2;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
-    iget v1, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->a0:I
+    iget v1, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mInvalidatePanelMenuFeatures:I
 
     and-int/lit16 v1, v1, 0x1000
 
@@ -65,14 +59,14 @@
 
     const/16 v1, 0x6c
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/app/AppCompatDelegateImpl;->l0(I)V
+    invoke-virtual {v0, v1}, Landroidx/appcompat/app/AppCompatDelegateImpl;->doInvalidatePanelMenu(I)V
 
     :cond_1
     iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$2;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
-    iput-boolean v2, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->Z:Z
+    iput-boolean v2, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mInvalidatePanelMenuPosted:Z
 
-    iput v2, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->a0:I
+    iput v2, v0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mInvalidatePanelMenuFeatures:I
 
     return-void
 .end method

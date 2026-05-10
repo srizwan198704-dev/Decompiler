@@ -1,4 +1,4 @@
-.class public Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;
+.class Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;
 .super Ljava/lang/Object;
 
 # interfaces
@@ -17,25 +17,25 @@
 
 
 # instance fields
-.field public final a:Ljava/lang/String;
+.field public final browserInfo:Landroidx/media/MediaSessionManager$RemoteUserInfo;
 
-.field public final b:I
+.field public final callbacks:Landroidx/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
-.field public final c:I
+.field public final pid:I
 
-.field public final d:Landroidx/media/b;
+.field public final pkg:Ljava/lang/String;
 
-.field public final e:Landroid/os/Bundle;
+.field public root:Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;
 
-.field public final f:Landroidx/media/MediaBrowserServiceCompat$m;
+.field public final rootHints:Landroid/os/Bundle;
 
-.field public final g:Ljava/util/HashMap;
+.field public final subscriptions:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
             "Ljava/lang/String;",
             "Ljava/util/List<",
-            "Landroidx/core/util/e<",
+            "Landroidx/core/util/Pair<",
             "Landroid/os/IBinder;",
             "Landroid/os/Bundle;",
             ">;>;>;"
@@ -43,22 +43,16 @@
     .end annotation
 .end field
 
-.field public h:Landroidx/media/MediaBrowserServiceCompat$e;
+.field final synthetic this$0:Landroidx/media/MediaBrowserServiceCompat;
 
-.field public final synthetic i:Landroidx/media/MediaBrowserServiceCompat;
+.field public final uid:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroidx/media/MediaBrowserServiceCompat;Ljava/lang/String;IILandroid/os/Bundle;Landroidx/media/MediaBrowserServiceCompat$m;)V
+.method public constructor <init>(Landroidx/media/MediaBrowserServiceCompat;Ljava/lang/String;IILandroid/os/Bundle;Landroidx/media/MediaBrowserServiceCompat$ServiceCallbacks;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->i:Landroidx/media/MediaBrowserServiceCompat;
+    iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->this$0:Landroidx/media/MediaBrowserServiceCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -66,23 +60,23 @@
 
     invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->g:Ljava/util/HashMap;
+    iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->subscriptions:Ljava/util/HashMap;
 
-    iput-object p2, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->a:Ljava/lang/String;
+    iput-object p2, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->pkg:Ljava/lang/String;
 
-    iput p3, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->b:I
+    iput p3, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->pid:I
 
-    iput p4, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->c:I
+    iput p4, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->uid:I
 
-    new-instance p1, Landroidx/media/b;
+    new-instance p1, Landroidx/media/MediaSessionManager$RemoteUserInfo;
 
-    invoke-direct {p1, p2, p3, p4}, Landroidx/media/b;-><init>(Ljava/lang/String;II)V
+    invoke-direct {p1, p2, p3, p4}, Landroidx/media/MediaSessionManager$RemoteUserInfo;-><init>(Ljava/lang/String;II)V
 
-    iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->d:Landroidx/media/b;
+    iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->browserInfo:Landroidx/media/MediaSessionManager$RemoteUserInfo;
 
-    iput-object p5, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->e:Landroid/os/Bundle;
+    iput-object p5, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->rootHints:Landroid/os/Bundle;
 
-    iput-object p6, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->f:Landroidx/media/MediaBrowserServiceCompat$m;
+    iput-object p6, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->callbacks:Landroidx/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
     return-void
 .end method
@@ -92,9 +86,9 @@
 .method public binderDied()V
     .locals 2
 
-    iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->i:Landroidx/media/MediaBrowserServiceCompat;
+    iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->this$0:Landroidx/media/MediaBrowserServiceCompat;
 
-    iget-object v0, v0, Landroidx/media/MediaBrowserServiceCompat;->g:Landroidx/media/MediaBrowserServiceCompat$o;
+    iget-object v0, v0, Landroidx/media/MediaBrowserServiceCompat;->mHandler:Landroidx/media/MediaBrowserServiceCompat$ServiceHandler;
 
     new-instance v1, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord$1;
 

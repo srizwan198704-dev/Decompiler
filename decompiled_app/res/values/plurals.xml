@@ -8,40 +8,68 @@
         <item quantity="other">Rewind %d seconds</item>
         <item quantity="one">Rewind %d second</item>
     </plurals>
-    <plurals name="mtrl_badge_content_description">
-        <item quantity="other">%d new notifications</item>
-        <item quantity="one">%d new notification</item>
+    <plurals name="hiad_dismiss_dilaog">
+        <item quantity="other">Window will close in %1$s seconds.</item>
+        <item quantity="one">Window will close in %1$s second.</item>
     </plurals>
-    <plurals name="str_views">
-        <item quantity="other">%1$s views</item>
-        <item quantity="one">%1$s view</item>
+    <plurals name="hiad_no_prompt_in_days">
+        <item quantity="other">Remember choice for %1$s days</item>
+        <item quantity="one">Remember choice for %1$s day</item>
     </plurals>
-    <plurals name="time_days_ago">
+    <plurals name="hiad_reward_countdown">
+        <item quantity="other">%1$d sec</item>
+        <item quantity="one">%1$d sec</item>
+    </plurals>
+    <plurals name="je_x_text_replaced">
+        <item quantity="other">%1$d item(s) replaced</item>
+        <item quantity="one">0 matches</item>
+    </plurals>
+    <plurals name="log_new_count">
+        <item quantity="other">Added %1$d New Files</item>
+        <item quantity="one">Added %1$d New File</item>
+    </plurals>
+    <plurals name="log_time_title_day">
         <item quantity="other">%1$d days ago</item>
         <item quantity="one">%1$d day ago</item>
     </plurals>
-    <plurals name="time_hours_ago">
+    <plurals name="log_time_title_hour">
         <item quantity="other">%1$d hours ago</item>
         <item quantity="one">%1$d hour ago</item>
     </plurals>
-    <plurals name="time_minutes_ago">
-        <item quantity="other">%1$d minutes ago</item>
-        <item quantity="one">%1$d minute ago</item>
+    <plurals name="log_time_title_minute">
+        <item quantity="other">%1$d mins ago</item>
+        <item quantity="one">%1$d min ago</item>
     </plurals>
-    <plurals name="time_months_ago">
-        <item quantity="other">%1$d months ago</item>
-        <item quantity="one">%1$d month ago</item>
+    <plurals name="log_title_apk">
+        <item quantity="other">%1$d APKs from %2$s</item>
+        <item quantity="one">%1$d APK from %2$s</item>
     </plurals>
-    <plurals name="time_weeks_ago">
-        <item quantity="other">%1$d weeks ago</item>
-        <item quantity="one">%1$d week ago</item>
+    <plurals name="log_title_audio">
+        <item quantity="other">%1$d songs from %2$s</item>
+        <item quantity="one">%1$d song from %2$s</item>
     </plurals>
-    <plurals name="time_years_ago">
-        <item quantity="other">%1$d years ago</item>
-        <item quantity="one">%1$d year ago</item>
+    <plurals name="log_title_doc">
+        <item quantity="other">%1$d documents from %2$s</item>
+        <item quantity="one">%1$d document from %2$s</item>
     </plurals>
-    <plurals name="videos_count_text">
-        <item quantity="other">%1$s videos</item>
-        <item quantity="one">%1$s video</item>
+    <plurals name="log_title_folder">
+        <item quantity="other">%1$d folders from %2$s</item>
+        <item quantity="one">%1$d folder from %2$s</item>
+    </plurals>
+    <plurals name="log_title_image">
+        <item quantity="other">%1$d images from %2$s</item>
+        <item quantity="one">%1$d image from %2$s</item>
+    </plurals>
+    <plurals name="log_title_netdisk">
+        <item quantity="other">My Cloud accounts</item>
+        <item quantity="one">My Cloud account</item>
+    </plurals>
+    <plurals name="log_title_video">
+        <item quantity="other">%1$d videos from %2$s</item>
+        <item quantity="one">%1$d video from %2$s</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="other">%d new notifications</item>
+        <item quantity="one">%d new notification</item>
     </plurals>
 </resources>

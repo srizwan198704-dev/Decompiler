@@ -10,12 +10,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -25,7 +19,7 @@
 .end method
 
 .method public static zzf(I)I
-    .locals 5
+    .locals 6
 
     const/4 v0, 0x2
 
@@ -50,13 +44,15 @@
 
     const-wide v3, 0x3fe6666666666666L    # 0.7
 
-    mul-double/2addr v1, v3
+    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
+
+    mul-double v1, v1, v3
 
     int-to-double v3, p0
 
-    cmpg-double v1, v1, v3
+    cmpg-double v5, v1, v3
 
-    if-gez v1, :cond_0
+    if-gez v5, :cond_0
 
     goto :goto_0
 
@@ -77,7 +73,13 @@
 
     invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_2
+
+    :goto_1
     throw p0
+
+    :goto_2
+    goto :goto_1
 .end method
 
 .method public static zzi(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/android/gms/internal/fido/zzau;
@@ -121,11 +123,11 @@
 
     add-int/lit8 v7, v2, -0x1
 
-    move v3, v0
+    const/4 v3, 0x0
 
-    move v5, v3
+    const/4 v5, 0x0
 
-    move v8, v5
+    const/4 v8, 0x0
 
     :goto_0
     if-ge v3, p0, :cond_3
@@ -350,7 +352,7 @@
 
     :catch_0
     :cond_4
-    move v0, v2
+    const/4 v0, 0x0
 
     nop
 
@@ -368,7 +370,7 @@
 
     const/4 v1, 0x0
 
-    move v2, v1
+    const/4 v2, 0x0
 
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -390,7 +392,7 @@
     goto :goto_1
 
     :cond_0
-    move v3, v1
+    const/4 v3, 0x0
 
     :goto_1
     add-int/2addr v2, v3

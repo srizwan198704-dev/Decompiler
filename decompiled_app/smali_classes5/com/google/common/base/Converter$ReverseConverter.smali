@@ -45,12 +45,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/base/Converter;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -168,7 +162,7 @@
 
     move-result v0
 
-    not-int v0, v0
+    xor-int/lit8 v0, v0, -0x1
 
     return v0
 .end method

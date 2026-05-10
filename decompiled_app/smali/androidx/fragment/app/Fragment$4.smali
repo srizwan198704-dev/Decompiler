@@ -23,12 +23,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/fragment/app/Fragment;Landroidx/fragment/app/SpecialEffectsController;)V
     .locals 0
 
@@ -48,7 +42,7 @@
 
     iget-object v0, p0, Landroidx/fragment/app/Fragment$4;->val$controller:Landroidx/fragment/app/SpecialEffectsController;
 
-    invoke-virtual {v0}, Landroidx/fragment/app/SpecialEffectsController;->g()V
+    invoke-virtual {v0}, Landroidx/fragment/app/SpecialEffectsController;->executePendingOperations()V
 
     return-void
 .end method

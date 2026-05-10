@@ -2,71 +2,76 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/asynclayoutinflater/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "id"
+.end annotation
+
+
 # static fields
-.field public static action_container:I = 0x7f0a0068
+.field public static final action_container:I = 0x7f0a005c
 
-.field public static action_divider:I = 0x7f0a006a
+.field public static final action_divider:I = 0x7f0a005e
 
-.field public static action_image:I = 0x7f0a006b
+.field public static final action_image:I = 0x7f0a005f
 
-.field public static action_text:I = 0x7f0a0071
+.field public static final action_text:I = 0x7f0a007c
 
-.field public static actions:I = 0x7f0a0072
+.field public static final actions:I = 0x7f0a0081
 
-.field public static async:I = 0x7f0a00cf
+.field public static final async:I = 0x7f0a019a
 
-.field public static blocking:I = 0x7f0a00fa
+.field public static final blocking:I = 0x7f0a0264
 
-.field public static chronometer:I = 0x7f0a019f
+.field public static final chronometer:I = 0x7f0a0340
 
-.field public static forever:I = 0x7f0a035a
+.field public static final forever:I = 0x7f0a067f
 
-.field public static icon:I = 0x7f0a03e3
+.field public static final icon:I = 0x7f0a0789
 
-.field public static icon_group:I = 0x7f0a03e9
+.field public static final icon_group:I = 0x7f0a078c
 
-.field public static info:I = 0x7f0a0418
+.field public static final info:I = 0x7f0a07db
 
-.field public static italic:I = 0x7f0a0431
+.field public static final italic:I = 0x7f0a07f3
 
-.field public static line1:I = 0x7f0a062c
+.field public static final line1:I = 0x7f0a0bd3
 
-.field public static line3:I = 0x7f0a062d
+.field public static final line3:I = 0x7f0a0bd4
 
-.field public static normal:I = 0x7f0a083c
+.field public static final normal:I = 0x7f0a0e1c
 
-.field public static notification_background:I = 0x7f0a0845
+.field public static final notification_background:I = 0x7f0a0e27
 
-.field public static notification_main_column:I = 0x7f0a084a
+.field public static final notification_main_column:I = 0x7f0a0e29
 
-.field public static notification_main_column_container:I = 0x7f0a084b
+.field public static final notification_main_column_container:I = 0x7f0a0e2a
 
-.field public static right_icon:I = 0x7f0a094b
+.field public static final right_icon:I = 0x7f0a0fb7
 
-.field public static right_side:I = 0x7f0a094e
+.field public static final right_side:I = 0x7f0a0fbb
 
-.field public static tag_transition_group:I = 0x7f0a0ad9
+.field public static final tag_transition_group:I = 0x7f0a119c
 
-.field public static tag_unhandled_key_event_manager:I = 0x7f0a0ada
+.field public static final tag_unhandled_key_event_manager:I = 0x7f0a119d
 
-.field public static tag_unhandled_key_listeners:I = 0x7f0a0adb
+.field public static final tag_unhandled_key_listeners:I = 0x7f0a119e
 
-.field public static text:I = 0x7f0a0ae1
+.field public static final text:I = 0x7f0a11bf
 
-.field public static text2:I = 0x7f0a0ae2
+.field public static final text2:I = 0x7f0a11c1
 
-.field public static time:I = 0x7f0a0af9
+.field public static final time:I = 0x7f0a1210
 
-.field public static title:I = 0x7f0a0b00
+.field public static final title:I = 0x7f0a121d
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

@@ -27,7 +27,11 @@
 
 
 # instance fields
-.field public final transient a:Lcom/google/common/collect/ImmutableMap;
+.field private final transient alternatingKeysAndValues:[Ljava/lang/Object;
+
+.field private final transient keyOffset:I
+
+.field private final transient map:Lcom/google/common/collect/ImmutableMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableMap<",
@@ -36,20 +40,10 @@
     .end annotation
 .end field
 
-.field public final transient b:[Ljava/lang/Object;
-
-.field public final transient c:I
-
-.field public final transient d:I
+.field private final transient size:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;[Ljava/lang/Object;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -64,13 +58,13 @@
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->a:Lcom/google/common/collect/ImmutableMap;
+    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->map:Lcom/google/common/collect/ImmutableMap;
 
-    iput-object p2, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->b:[Ljava/lang/Object;
+    iput-object p2, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->alternatingKeysAndValues:[Ljava/lang/Object;
 
-    iput p3, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->c:I
+    iput p3, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->keyOffset:I
 
-    iput p4, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->d:I
+    iput p4, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->size:I
 
     return-void
 .end method
@@ -78,7 +72,7 @@
 .method public static synthetic access$000(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)I
     .locals 0
 
-    iget p0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->d:I
+    iget p0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->size:I
 
     return p0
 .end method
@@ -86,7 +80,7 @@
 .method public static synthetic access$100(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)[Ljava/lang/Object;
     .locals 0
 
-    iget-object p0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->b:[Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->alternatingKeysAndValues:[Ljava/lang/Object;
 
     return-object p0
 .end method
@@ -94,7 +88,7 @@
 .method public static synthetic access$200(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)I
     .locals 0
 
-    iget p0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->c:I
+    iget p0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->keyOffset:I
 
     return p0
 .end method
@@ -122,7 +116,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v2, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->a:Lcom/google/common/collect/ImmutableMap;
+    iget-object v2, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->map:Lcom/google/common/collect/ImmutableMap;
 
     invoke-virtual {v2, v0}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -180,12 +174,12 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/r4;
+.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "Ljava/util/Map$Entry<",
             "TK;TV;>;>;"
         }
@@ -195,7 +189,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -205,7 +199,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -215,13 +209,18 @@
 .method public size()I
     .locals 1
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->d:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet;->size:I
 
     return v0
 .end method
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableSet;->writeReplace()Ljava/lang/Object;
 

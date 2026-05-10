@@ -1,38 +1,30 @@
-.class abstract Lcom/google/android/gms/internal/auth/zzgy;
-.super Ljava/lang/Object;
+.class public final Lcom/google/android/gms/internal/auth/zzgy;
+.super Ljava/lang/RuntimeException;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>()V
+.method public constructor <init>(Lcom/google/android/gms/internal/auth/zzfx;)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const-string p1, "Message was missing required fields.  (Lite runtime could not determine which fields were missing)."
+
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract zza(Ljava/lang/Object;)Ljava/lang/Object;
-.end method
+.method public final zza()Lcom/google/android/gms/internal/auth/zzfb;
+    .locals 2
 
-.method public abstract zzb(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-.end method
+    new-instance v0, Lcom/google/android/gms/internal/auth/zzfb;
 
-.method public abstract zzc()Ljava/lang/Object;
-.end method
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-.method public abstract zzd(Ljava/lang/Object;IJ)V
-.end method
+    move-result-object v1
 
-.method public abstract zze(Ljava/lang/Object;)V
-.end method
+    invoke-direct {v0, v1}, Lcom/google/android/gms/internal/auth/zzfb;-><init>(Ljava/lang/String;)V
 
-.method public abstract zzf(Ljava/lang/Object;Ljava/lang/Object;)V
+    return-object v0
 .end method

@@ -6,6 +6,9 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/util/concurrent/InterruptibleTask;
 .end annotation
@@ -28,12 +31,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>(Lcom/google/common/util/concurrent/InterruptibleTask;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -51,7 +48,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/InterruptibleTask;Lcom/google/common/util/concurrent/InterruptibleTask$a;)V
+.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/InterruptibleTask;Lcom/google/common/util/concurrent/InterruptibleTask$1;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/util/concurrent/InterruptibleTask$Blocker;-><init>(Lcom/google/common/util/concurrent/InterruptibleTask;)V
@@ -79,6 +76,8 @@
 # virtual methods
 .method public getOwner()Ljava/lang/Thread;
     .locals 1
+    .annotation build Lcom/google/common/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-super {p0}, Ljava/util/concurrent/locks/AbstractOwnableSynchronizer;->getExclusiveOwnerThread()Ljava/lang/Thread;
 

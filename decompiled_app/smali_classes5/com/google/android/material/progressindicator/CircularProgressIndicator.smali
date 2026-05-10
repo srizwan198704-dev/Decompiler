@@ -3,10 +3,16 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/material/progressindicator/CircularProgressIndicator$IndicatorDirection;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/google/android/material/progressindicator/BaseProgressIndicator<",
-        "Lcom/google/android/material/progressindicator/e;",
+        "Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;",
         ">;"
     }
 .end annotation
@@ -73,55 +79,65 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
+    .param p3    # I
+        .annotation build Landroidx/annotation/AttrRes;
+        .end annotation
+    .end param
 
     sget v0, Lcom/google/android/material/progressindicator/CircularProgressIndicator;->DEF_STYLE_RES:I
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    invoke-virtual {p0}, Lcom/google/android/material/progressindicator/CircularProgressIndicator;->r()V
+    invoke-direct {p0}, Lcom/google/android/material/progressindicator/CircularProgressIndicator;->initializeDrawables()V
+
+    return-void
+.end method
+
+.method private initializeDrawables()V
+    .locals 3
+
+    new-instance v0, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;
+
+    iget-object v1, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
+
+    check-cast v1, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
+
+    invoke-direct {v0, v1}, Lcom/google/android/material/progressindicator/CircularDrawingDelegate;-><init>(Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;)V
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
+
+    check-cast v2, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
+
+    invoke-static {v1, v2, v0}, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->createCircularDrawable(Landroid/content/Context;Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;Lcom/google/android/material/progressindicator/CircularDrawingDelegate;)Lcom/google/android/material/progressindicator/IndeterminateDrawable;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->setIndeterminateDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
+
+    check-cast v2, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
+
+    invoke-static {v1, v2, v0}, Lcom/google/android/material/progressindicator/DeterminateDrawable;->createCircularDrawable(Landroid/content/Context;Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;Lcom/google/android/material/progressindicator/CircularDrawingDelegate;)Lcom/google/android/material/progressindicator/DeterminateDrawable;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getIndicatorDirection()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
-
-    check-cast v0, Lcom/google/android/material/progressindicator/e;
-
-    iget v0, v0, Lcom/google/android/material/progressindicator/e;->j:I
-
-    return v0
-.end method
-
-.method public getIndicatorInset()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
-
-    check-cast v0, Lcom/google/android/material/progressindicator/e;
-
-    iget v0, v0, Lcom/google/android/material/progressindicator/e;->i:I
-
-    return v0
-.end method
-
-.method public getIndicatorSize()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
-
-    check-cast v0, Lcom/google/android/material/progressindicator/e;
-
-    iget v0, v0, Lcom/google/android/material/progressindicator/e;->h:I
-
-    return v0
-.end method
-
-.method public bridge synthetic i(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/b;
+.method public bridge synthetic createSpec(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
     .locals 0
     .param p1    # Landroid/content/Context;
         .annotation build Landroidx/annotation/NonNull;
@@ -132,14 +148,14 @@
         .end annotation
     .end param
 
-    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/progressindicator/CircularProgressIndicator;->q(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/e;
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/progressindicator/CircularProgressIndicator;->createSpec(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public q(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/e;
+.method public createSpec(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
     .locals 1
     .param p1    # Landroid/content/Context;
         .annotation build Landroidx/annotation/NonNull;
@@ -150,63 +166,61 @@
         .end annotation
     .end param
 
-    new-instance v0, Lcom/google/android/material/progressindicator/e;
+    new-instance v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    invoke-direct {v0, p1, p2}, Lcom/google/android/material/progressindicator/e;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {v0, p1, p2}, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     return-object v0
 .end method
 
-.method public final r()V
-    .locals 3
+.method public getIndicatorDirection()I
+    .locals 1
 
-    new-instance v0, Lcom/google/android/material/progressindicator/c;
+    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
-    iget-object v1, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
+    check-cast v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    check-cast v1, Lcom/google/android/material/progressindicator/e;
+    iget v0, v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->indicatorDirection:I
 
-    invoke-direct {v0, v1}, Lcom/google/android/material/progressindicator/c;-><init>(Lcom/google/android/material/progressindicator/e;)V
+    return v0
+.end method
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+.method public getIndicatorInset()I
+    .locals 1
+    .annotation build Landroidx/annotation/Px;
+    .end annotation
 
-    move-result-object v1
+    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
-    iget-object v2, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
+    check-cast v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    check-cast v2, Lcom/google/android/material/progressindicator/e;
+    iget v0, v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->indicatorInset:I
 
-    invoke-static {v1, v2, v0}, Lcom/google/android/material/progressindicator/j;->t(Landroid/content/Context;Lcom/google/android/material/progressindicator/e;Lcom/google/android/material/progressindicator/c;)Lcom/google/android/material/progressindicator/j;
+    return v0
+.end method
 
-    move-result-object v1
+.method public getIndicatorSize()I
+    .locals 1
+    .annotation build Landroidx/annotation/Px;
+    .end annotation
 
-    invoke-virtual {p0, v1}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->setIndeterminateDrawable(Landroid/graphics/drawable/Drawable;)V
+    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    check-cast v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    move-result-object v1
+    iget v0, v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->indicatorSize:I
 
-    iget-object v2, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
-
-    check-cast v2, Lcom/google/android/material/progressindicator/e;
-
-    invoke-static {v1, v2, v0}, Lcom/google/android/material/progressindicator/f;->v(Landroid/content/Context;Lcom/google/android/material/progressindicator/e;Lcom/google/android/material/progressindicator/c;)Lcom/google/android/material/progressindicator/f;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    return-void
+    return v0
 .end method
 
 .method public setIndicatorDirection(I)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
+    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
-    check-cast v0, Lcom/google/android/material/progressindicator/e;
+    check-cast v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    iput p1, v0, Lcom/google/android/material/progressindicator/e;->j:I
+    iput p1, v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->indicatorDirection:I
 
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->invalidate()V
 
@@ -215,20 +229,24 @@
 
 .method public setIndicatorInset(I)V
     .locals 2
+    .param p1    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
 
-    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
+    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
     move-object v1, v0
 
-    check-cast v1, Lcom/google/android/material/progressindicator/e;
+    check-cast v1, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    iget v1, v1, Lcom/google/android/material/progressindicator/e;->i:I
+    iget v1, v1, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->indicatorInset:I
 
     if-eq v1, p1, :cond_0
 
-    check-cast v0, Lcom/google/android/material/progressindicator/e;
+    check-cast v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    iput p1, v0, Lcom/google/android/material/progressindicator/e;->i:I
+    iput p1, v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->indicatorInset:I
 
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->invalidate()V
 
@@ -238,6 +256,10 @@
 
 .method public setIndicatorSize(I)V
     .locals 2
+    .param p1    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
 
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->getTrackThickness()I
 
@@ -249,25 +271,25 @@
 
     move-result p1
 
-    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
+    iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
     move-object v1, v0
 
-    check-cast v1, Lcom/google/android/material/progressindicator/e;
+    check-cast v1, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    iget v1, v1, Lcom/google/android/material/progressindicator/e;->h:I
+    iget v1, v1, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->indicatorSize:I
 
     if-eq v1, p1, :cond_0
 
     move-object v1, v0
 
-    check-cast v1, Lcom/google/android/material/progressindicator/e;
+    check-cast v1, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    iput p1, v1, Lcom/google/android/material/progressindicator/e;->h:I
+    iput p1, v1, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;->indicatorSize:I
 
-    check-cast v0, Lcom/google/android/material/progressindicator/e;
+    check-cast v0, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    invoke-virtual {v0}, Lcom/google/android/material/progressindicator/b;->e()V
+    invoke-virtual {v0}, Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;->validateSpec()V
 
     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
 
@@ -282,11 +304,11 @@
 
     invoke-super {p0, p1}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->setTrackThickness(I)V
 
-    iget-object p1, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a:Lcom/google/android/material/progressindicator/b;
+    iget-object p1, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->spec:Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;
 
-    check-cast p1, Lcom/google/android/material/progressindicator/e;
+    check-cast p1, Lcom/google/android/material/progressindicator/CircularProgressIndicatorSpec;
 
-    invoke-virtual {p1}, Lcom/google/android/material/progressindicator/b;->e()V
+    invoke-virtual {p1}, Lcom/google/android/material/progressindicator/BaseProgressIndicatorSpec;->validateSpec()V
 
     return-void
 .end method

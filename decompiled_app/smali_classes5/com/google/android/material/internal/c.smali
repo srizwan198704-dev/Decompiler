@@ -1,15 +1,12 @@
-.class public Lcom/google/android/material/internal/c;
+.class public final synthetic Lcom/google/android/material/internal/c;
 .super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/material/internal/MultiViewUpdateListener$Listener;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,35 +14,12 @@
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;)Landroid/app/Activity;
-    .locals 1
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
 
-    :goto_0
-    instance-of v0, p0, Landroid/content/ContextWrapper;
+# virtual methods
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;Landroid/view/View;)V
+    .locals 0
 
-    if-eqz v0, :cond_1
+    invoke-static {p1, p2}, Lcom/google/android/material/internal/MultiViewUpdateListener;->a(Landroid/animation/ValueAnimator;Landroid/view/View;)V
 
-    instance-of v0, p0, Landroid/app/Activity;
-
-    if-eqz v0, :cond_0
-
-    check-cast p0, Landroid/app/Activity;
-
-    return-object p0
-
-    :cond_0
-    check-cast p0, Landroid/content/ContextWrapper;
-
-    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    return-object p0
+    return-void
 .end method

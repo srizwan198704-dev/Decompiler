@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/activity/OnBackPressedDispatcher;-><init>(Ljava/lang/Runnable;Landroidx/core/util/a;)V
+    value = Landroidx/activity/OnBackPressedDispatcher;-><init>(Ljava/lang/Runnable;Landroidx/core/util/Consumer;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,29 +19,9 @@
     value = {
         "Lkotlin/jvm/internal/Lambda;",
         "Lkotlin/jvm/functions/Function1<",
-        "Landroidx/activity/b;",
-        "Lkotlin/Unit;",
+        "Landroidx/activity/BackEventCompat;",
+        "Les/qg6;",
         ">;"
-    }
-.end annotation
-
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u0003\u0010\u0005\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u0000H\n\u00a2\u0006\u0004\u0008\u0003\u0010\u0004"
-    }
-    d2 = {
-        "Landroidx/activity/b;",
-        "backEvent",
-        "",
-        "invoke",
-        "(Landroidx/activity/b;)V",
-        "<anonymous>"
-    }
-    k = 0x3
-    mv = {
-        0x1,
-        0x8,
-        0x0
     }
 .end annotation
 
@@ -51,12 +31,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/activity/OnBackPressedDispatcher;)V
     .locals 0
 
@@ -74,25 +48,25 @@
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Landroidx/activity/b;
+    check-cast p1, Landroidx/activity/BackEventCompat;
 
-    invoke-virtual {p0, p1}, Landroidx/activity/OnBackPressedDispatcher$1;->invoke(Landroidx/activity/b;)V
+    invoke-virtual {p0, p1}, Landroidx/activity/OnBackPressedDispatcher$1;->invoke(Landroidx/activity/BackEventCompat;)V
 
-    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+    sget-object p1, Les/qg6;->a:Les/qg6;
 
     return-object p1
 .end method
 
-.method public final invoke(Landroidx/activity/b;)V
+.method public final invoke(Landroidx/activity/BackEventCompat;)V
     .locals 1
 
     const-string v0, "backEvent"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcher$1;->this$0:Landroidx/activity/OnBackPressedDispatcher;
 
-    invoke-static {v0, p1}, Landroidx/activity/OnBackPressedDispatcher;->e(Landroidx/activity/OnBackPressedDispatcher;Landroidx/activity/b;)V
+    invoke-static {v0, p1}, Landroidx/activity/OnBackPressedDispatcher;->access$onBackStarted(Landroidx/activity/OnBackPressedDispatcher;Landroidx/activity/BackEventCompat;)V
 
     return-void
 .end method

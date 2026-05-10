@@ -3,16 +3,10 @@
 
 
 # instance fields
-.field public a:I
+.field private baseline:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -24,7 +18,7 @@
 
     const/4 p1, -0x1
 
-    iput p1, p0, Lcom/google/android/material/internal/BaselineLayout;->a:I
+    iput p1, p0, Lcom/google/android/material/internal/BaselineLayout;->baseline:I
 
     return-void
 .end method
@@ -38,7 +32,7 @@
 
     const/4 p1, -0x1
 
-    iput p1, p0, Lcom/google/android/material/internal/BaselineLayout;->a:I
+    iput p1, p0, Lcom/google/android/material/internal/BaselineLayout;->baseline:I
 
     return-void
 .end method
@@ -50,7 +44,7 @@
 
     const/4 p1, -0x1
 
-    iput p1, p0, Lcom/google/android/material/internal/BaselineLayout;->a:I
+    iput p1, p0, Lcom/google/android/material/internal/BaselineLayout;->baseline:I
 
     return-void
 .end method
@@ -60,7 +54,7 @@
 .method public getBaseline()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/internal/BaselineLayout;->a:I
+    iget v0, p0, Lcom/google/android/material/internal/BaselineLayout;->baseline:I
 
     return v0
 .end method
@@ -124,7 +118,7 @@
 
     add-int/2addr v3, p3
 
-    iget v4, p0, Lcom/google/android/material/internal/BaselineLayout;->a:I
+    iget v4, p0, Lcom/google/android/material/internal/BaselineLayout;->baseline:I
 
     const/4 v5, -0x1
 
@@ -136,7 +130,7 @@
 
     if-eq v4, v5, :cond_1
 
-    iget v4, p0, Lcom/google/android/material/internal/BaselineLayout;->a:I
+    iget v4, p0, Lcom/google/android/material/internal/BaselineLayout;->baseline:I
 
     add-int/2addr v4, p2
 
@@ -178,15 +172,15 @@
 
     const/4 v2, -0x1
 
-    move v3, v1
+    const/4 v3, 0x0
 
-    move v4, v3
+    const/4 v4, 0x0
 
-    move v5, v4
+    const/4 v5, 0x0
 
-    move v6, v2
+    const/4 v6, -0x1
 
-    move v7, v6
+    const/4 v7, -0x1
 
     :goto_0
     if-ge v1, v0, :cond_2
@@ -275,7 +269,7 @@
 
     move-result v3
 
-    iput v6, p0, Lcom/google/android/material/internal/BaselineLayout;->a:I
+    iput v6, p0, Lcom/google/android/material/internal/BaselineLayout;->baseline:I
 
     :cond_3
     invoke-virtual {p0}, Landroid/view/View;->getSuggestedMinimumHeight()I

@@ -6,16 +6,18 @@
 
 
 # static fields
-.field public static final m:I
+.field private static final DEF_STYLE_RES:I
 
 
 # instance fields
-.field public final d:Landroid/view/accessibility/AccessibilityManager;
+.field private final accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field public e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+.field private accessibilityServiceEnabled:Z
+
+.field private bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
@@ -27,19 +29,17 @@
     .end annotation
 .end field
 
-.field public f:Z
+.field private final bottomSheetCallback:Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;
 
-.field public g:Z
+.field private final clickFeedback:Ljava/lang/String;
 
-.field public h:Z
+.field private final clickToCollapseActionLabel:Ljava/lang/String;
 
-.field public final i:Ljava/lang/String;
+.field private clickToExpand:Z
 
-.field public final j:Ljava/lang/String;
+.field private final clickToExpandActionLabel:Ljava/lang/String;
 
-.field public final k:Ljava/lang/String;
-
-.field public final l:Lcom/google/android/material/bottomsheet/BottomSheetBehavior$f;
+.field private interactable:Z
 
 
 # direct methods
@@ -48,7 +48,7 @@
 
     sget v0, Lcom/google/android/material/R$style;->Widget_Material3_BottomSheet_DragHandle:I
 
-    sput v0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->m:I
+    sput v0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->DEF_STYLE_RES:I
 
     return-void
 .end method
@@ -96,9 +96,9 @@
         .end annotation
     .end param
 
-    sget v0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->m:I
+    sget v0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->DEF_STYLE_RES:I
 
-    invoke-static {p1, p2, p3, v0}, Lvc/a;->c(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
+    invoke-static {p1, p2, p3, v0}, Lcom/google/android/material/theme/overlay/MaterialThemeOverlay;->wrap(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
 
     move-result-object p1
 
@@ -114,7 +114,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->i:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickToExpandActionLabel:Ljava/lang/String;
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -126,7 +126,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->j:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickToCollapseActionLabel:Ljava/lang/String;
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -138,13 +138,13 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->k:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickFeedback:Ljava/lang/String;
 
-    new-instance p1, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$a;
+    new-instance p1, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$1;
 
-    invoke-direct {p1, p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$a;-><init>(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)V
+    invoke-direct {p1, p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$1;-><init>(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)V
 
-    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->l:Lcom/google/android/material/bottomsheet/BottomSheetBehavior$f;
+    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetCallback:Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -158,13 +158,13 @@
 
     check-cast p1, Landroid/view/accessibility/AccessibilityManager;
 
-    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->d:Landroid/view/accessibility/AccessibilityManager;
+    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->j()V
+    invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->updateInteractableState()V
 
-    new-instance p1, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$b;
+    new-instance p1, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$2;
 
-    invoke-direct {p1, p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$b;-><init>(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)V
+    invoke-direct {p1, p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView$2;-><init>(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)V
 
     invoke-static {p0, p1}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
@@ -174,32 +174,204 @@
 .method public static synthetic a(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->h(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
+    invoke-direct {p0, p1, p2}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->lambda$onBottomSheetStateChanged$0(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static synthetic b(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;I)V
+.method public static synthetic access$000(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;I)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->i(I)V
+    invoke-direct {p0, p1}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->onBottomSheetStateChanged(I)V
 
     return-void
 .end method
 
-.method public static synthetic c(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)Z
+.method public static synthetic access$100(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)Z
     .locals 0
 
-    invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e()Z
+    invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->expandOrCollapseBottomSheetIfPossible()Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static g(Landroid/view/View;)Landroid/view/View;
+.method private announceAccessibilityEvent(Ljava/lang/String;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    const/16 v0, 0x4000
+
+    invoke-static {v0}, Landroid/view/accessibility/AccessibilityEvent;->obtain(I)Landroid/view/accessibility/AccessibilityEvent;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+
+    return-void
+.end method
+
+.method private expandOrCollapseBottomSheetIfPossible()Z
+    .locals 6
+
+    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->interactable:Z
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickFeedback:Ljava/lang/String;
+
+    invoke-direct {p0, v0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->announceAccessibilityEvent(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+
+    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->isFitToContents()Z
+
+    move-result v0
+
+    const/4 v2, 0x1
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+
+    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->shouldSkipHalfExpandedStateWhenDragging()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_1
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+
+    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->getState()I
+
+    move-result v0
+
+    const/4 v3, 0x6
+
+    const/4 v4, 0x3
+
+    const/4 v5, 0x4
+
+    if-ne v0, v5, :cond_3
+
+    if-eqz v1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v3, 0x3
+
+    goto :goto_1
+
+    :cond_3
+    if-ne v0, v4, :cond_5
+
+    if-eqz v1, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v3, 0x4
+
+    goto :goto_1
+
+    :cond_5
+    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickToExpand:Z
+
+    if-eqz v0, :cond_6
+
+    goto :goto_0
+
+    :cond_6
+    const/4 v4, 0x4
+
+    :goto_0
+    move v3, v4
+
+    :goto_1
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+
+    invoke-virtual {v0, v3}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->setState(I)V
+
+    return v2
+.end method
+
+.method private findParentBottomSheetBehavior()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    .locals 3
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/google/android/material/bottomsheet/BottomSheetBehavior<",
+            "*>;"
+        }
+    .end annotation
+
+    move-object v0, p0
+
+    :cond_0
+    invoke-static {v0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->getParentView(Landroid/view/View;)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    instance-of v2, v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
+
+    if-eqz v2, :cond_0
+
+    check-cast v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
+
+    invoke-virtual {v1}, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;
+
+    move-result-object v1
+
+    instance-of v2, v1, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+
+    if-eqz v2, :cond_0
+
+    check-cast v1, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+
+    return-object v1
+
+    :cond_1
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method private static getParentView(Landroid/view/View;)Landroid/view/View;
     .locals 1
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
@@ -223,6 +395,63 @@
     return-object p0
 .end method
 
+.method private synthetic lambda$onBottomSheetStateChanged$0(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->expandOrCollapseBottomSheetIfPossible()Z
+
+    move-result p1
+
+    return p1
+.end method
+
+.method private onBottomSheetStateChanged(I)V
+    .locals 2
+
+    const/4 v0, 0x4
+
+    if-ne p1, v0, :cond_0
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickToExpand:Z
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x3
+
+    if-ne p1, v0, :cond_1
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickToExpand:Z
+
+    :cond_1
+    :goto_0
+    sget-object p1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->ACTION_CLICK:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
+
+    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickToExpand:Z
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickToExpandActionLabel:Ljava/lang/String;
+
+    goto :goto_1
+
+    :cond_2
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->clickToCollapseActionLabel:Ljava/lang/String;
+
+    :goto_1
+    new-instance v1, Les/wz;
+
+    invoke-direct {v1, p0}, Les/wz;-><init>(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)V
+
+    invoke-static {p0, p1, v0, v1}, Landroidx/core/view/ViewCompat;->replaceAccessibilityAction(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V
+
+    return-void
+.end method
+
 .method private setBottomSheetBehavior(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)V
     .locals 2
     .param p1    # Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
@@ -237,288 +466,61 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->l:Lcom/google/android/material/bottomsheet/BottomSheetBehavior$f;
+    iget-object v1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetCallback:Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;
 
-    invoke-virtual {v0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->B0(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$f;)V
+    invoke-virtual {v0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->removeBottomSheetCallback(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->G0(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->setAccessibilityDelegateView(Landroid/view/View;)V
 
     :cond_0
-    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    iput-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     if-eqz p1, :cond_1
 
-    invoke-virtual {p1, p0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->G0(Landroid/view/View;)V
+    invoke-virtual {p1, p0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->setAccessibilityDelegateView(Landroid/view/View;)V
 
-    iget-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    iget-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
-    invoke-virtual {p1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->q0()I
+    invoke-virtual {p1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->getState()I
 
     move-result p1
 
-    invoke-virtual {p0, p1}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->i(I)V
+    invoke-direct {p0, p1}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->onBottomSheetStateChanged(I)V
 
-    iget-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    iget-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->l:Lcom/google/android/material/bottomsheet/BottomSheetBehavior$f;
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetCallback:Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;
 
-    invoke-virtual {p1, v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->Y(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$f;)V
+    invoke-virtual {p1, v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->addBottomSheetCallback(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V
 
     :cond_1
-    invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->j()V
+    invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->updateInteractableState()V
 
     return-void
 .end method
 
-
-# virtual methods
-.method public final d(Ljava/lang/String;)V
+.method private updateInteractableState()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->d:Landroid/view/accessibility/AccessibilityManager;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/16 v0, 0x4000
-
-    invoke-static {v0}, Landroid/view/accessibility/AccessibilityEvent;->obtain(I)Landroid/view/accessibility/AccessibilityEvent;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->d:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-
-    return-void
-.end method
-
-.method public final e()Z
-    .locals 6
-
-    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->g:Z
-
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->k:Ljava/lang/String;
-
-    invoke-virtual {p0, v0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->d(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-
-    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->v0()Z
-
-    move-result v0
-
-    const/4 v2, 0x1
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-
-    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->a1()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    move v1, v2
-
-    :cond_1
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-
-    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->q0()I
-
-    move-result v0
-
-    const/4 v3, 0x6
-
-    const/4 v4, 0x3
-
-    const/4 v5, 0x4
-
-    if-ne v0, v5, :cond_2
-
-    if-eqz v1, :cond_6
-
-    goto :goto_1
-
-    :cond_2
-    if-ne v0, v4, :cond_4
-
-    if-eqz v1, :cond_3
-
-    goto :goto_1
-
-    :cond_3
-    move v3, v5
-
-    goto :goto_1
-
-    :cond_4
-    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->h:Z
-
-    if-eqz v0, :cond_5
-
-    goto :goto_0
-
-    :cond_5
-    move v4, v5
-
-    :cond_6
-    :goto_0
-    move v3, v4
-
-    :goto_1
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-
-    invoke-virtual {v0, v3}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->U0(I)V
-
-    return v2
-.end method
-
-.method public final f()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-    .locals 3
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/android/material/bottomsheet/BottomSheetBehavior<",
-            "*>;"
-        }
-    .end annotation
-
-    move-object v0, p0
-
-    :cond_0
-    invoke-static {v0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->g(Landroid/view/View;)Landroid/view/View;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v1
-
-    instance-of v2, v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$f;
-
-    if-eqz v2, :cond_0
-
-    check-cast v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout$f;
-
-    invoke-virtual {v1}, Landroidx/coordinatorlayout/widget/CoordinatorLayout$f;->f()Landroidx/coordinatorlayout/widget/CoordinatorLayout$c;
-
-    move-result-object v1
-
-    instance-of v2, v1, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-
-    if-eqz v2, :cond_0
-
-    check-cast v1, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
-
-    return-object v1
-
-    :cond_1
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public final synthetic h(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e()Z
-
-    move-result p1
-
-    return p1
-.end method
-
-.method public final i(I)V
-    .locals 2
-
-    const/4 v0, 0x4
-
-    if-ne p1, v0, :cond_0
-
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->h:Z
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x3
-
-    if-ne p1, v0, :cond_1
-
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->h:Z
-
-    :cond_1
-    :goto_0
-    sget-object p1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->ACTION_CLICK:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
-
-    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->h:Z
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->i:Ljava/lang/String;
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->j:Ljava/lang/String;
-
-    :goto_1
-    new-instance v1, Lcom/google/android/material/bottomsheet/d;
-
-    invoke-direct {v1, p0}, Lcom/google/android/material/bottomsheet/d;-><init>(Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;)V
-
-    invoke-static {p0, p1, v0, v1}, Landroidx/core/view/ViewCompat;->replaceAccessibilityAction(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V
-
-    return-void
-.end method
-
-.method public final j()V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->f:Z
+    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->accessibilityServiceEnabled:Z
 
     const/4 v1, 0x1
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     if-eqz v0, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_0
 
@@ -526,9 +528,9 @@
     const/4 v0, 0x0
 
     :goto_0
-    iput-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->g:Z
+    iput-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->interactable:Z
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->e:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->bottomSheetBehavior:Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     if-eqz v0, :cond_1
 
@@ -540,19 +542,21 @@
     :goto_1
     invoke-static {p0, v1}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
-    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->g:Z
+    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->interactable:Z
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setClickable(Z)V
 
     return-void
 .end method
 
+
+# virtual methods
 .method public onAccessibilityStateChanged(Z)V
     .locals 0
 
-    iput-boolean p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->f:Z
+    iput-boolean p1, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->accessibilityServiceEnabled:Z
 
-    invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->j()V
+    invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->updateInteractableState()V
 
     return-void
 .end method
@@ -562,19 +566,19 @@
 
     invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
 
-    invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->f()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->findParentBottomSheetBehavior()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->setBottomSheetBehavior(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)V
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->d:Landroid/view/accessibility/AccessibilityManager;
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     if-eqz v0, :cond_0
 
     invoke-virtual {v0, p0}, Landroid/view/accessibility/AccessibilityManager;->addAccessibilityStateChangeListener(Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;)Z
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->d:Landroid/view/accessibility/AccessibilityManager;
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
 
@@ -589,7 +593,7 @@
 .method public onDetachedFromWindow()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->d:Landroid/view/accessibility/AccessibilityManager;
+    iget-object v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDragHandleView;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     if-eqz v0, :cond_0
 

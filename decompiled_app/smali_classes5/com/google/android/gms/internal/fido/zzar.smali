@@ -7,12 +7,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/android/gms/internal/fido/zzat;I)V
     .locals 1
 

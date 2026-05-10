@@ -1,20 +1,41 @@
 .class public final synthetic Lcom/google/common/collect/l;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Ljava/util/function/BiConsumer;
+
+
+# instance fields
+.field public final synthetic a:Ljava/util/function/Function;
+
+.field public final synthetic b:Ljava/util/function/Function;
+
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public synthetic constructor <init>(Ljava/util/function/Function;Ljava/util/function/Function;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/common/collect/l;->a:Ljava/util/function/Function;
+
+    iput-object p2, p0, Lcom/google/common/collect/l;->b:Ljava/util/function/Function;
 
     return-void
 .end method
 
-.method public static bridge synthetic a(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;
-    .locals 0
 
-    invoke-static {p0, p1, p2, p3, p4}, Ljava/util/stream/Collector;->of(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;
+# virtual methods
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 2
 
-    move-result-object p0
+    iget-object v0, p0, Lcom/google/common/collect/l;->a:Ljava/util/function/Function;
 
-    return-object p0
+    iget-object v1, p0, Lcom/google/common/collect/l;->b:Ljava/util/function/Function;
+
+    check-cast p1, Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;
+
+    invoke-static {v0, v1, p1, p2}, Lcom/google/common/collect/CollectCollectors;->r(Ljava/util/function/Function;Ljava/util/function/Function;Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;Ljava/lang/Object;)V
+
+    return-void
 .end method

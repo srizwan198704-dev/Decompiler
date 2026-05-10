@@ -21,12 +21,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/appcompat/widget/SearchView;)V
     .locals 0
 
@@ -44,15 +38,15 @@
 
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$2;->this$0:Landroidx/appcompat/widget/SearchView;
 
-    iget-object v0, v0, Landroidx/appcompat/widget/SearchView;->z:Lo1/a;
+    iget-object v0, v0, Landroidx/appcompat/widget/SearchView;->mSuggestionsAdapter:Landroidx/cursoradapter/widget/CursorAdapter;
 
-    instance-of v1, v0, Landroidx/appcompat/widget/e0;
+    instance-of v1, v0, Landroidx/appcompat/widget/SuggestionsAdapter;
 
     if-eqz v1, :cond_0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lo1/a;->a(Landroid/database/Cursor;)V
+    invoke-virtual {v0, v1}, Landroidx/cursoradapter/widget/CursorAdapter;->changeCursor(Landroid/database/Cursor;)V
 
     :cond_0
     return-void

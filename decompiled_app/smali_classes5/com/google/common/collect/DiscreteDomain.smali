@@ -3,11 +3,17 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/DiscreteDomain$IntegerDomain;,
+        Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;,
         Lcom/google/common/collect/DiscreteDomain$LongDomain;,
-        Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
+        Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
     }
 .end annotation
 
@@ -26,12 +32,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
@@ -42,7 +42,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Z)V
+.method private constructor <init>(Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(ZLcom/google/common/collect/DiscreteDomain$a;)V
+.method public synthetic constructor <init>(ZLcom/google/common/collect/DiscreteDomain$1;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/DiscreteDomain;-><init>(Z)V
@@ -126,6 +126,9 @@
 
 .method public maxValue()Ljava/lang/Comparable;
     .locals 1
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -141,6 +144,9 @@
 
 .method public minValue()Ljava/lang/Comparable;
     .locals 1
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TC;"
@@ -172,7 +178,7 @@
 
     const-string v0, "distance"
 
-    invoke-static {p2, p3, v0}, Lcom/google/common/collect/e2;->c(JLjava/lang/String;)J
+    invoke-static {p2, p3, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(JLjava/lang/String;)J
 
     const-wide/16 v0, 0x0
 

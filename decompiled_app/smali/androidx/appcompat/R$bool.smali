@@ -2,19 +2,24 @@
 .super Ljava/lang/Object;
 
 
-# static fields
-.field public static abc_action_bar_embed_tabs:I = 0x7f050000
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/appcompat/R;
+.end annotation
 
-.field public static abc_config_actionMenuItemAllCaps:I = 0x7f050001
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "bool"
+.end annotation
+
+
+# static fields
+.field public static final abc_action_bar_embed_tabs:I = 0x7f050000
+
+.field public static final abc_config_actionMenuItemAllCaps:I = 0x7f050001
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

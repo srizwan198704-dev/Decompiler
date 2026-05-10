@@ -5,19 +5,23 @@
 .implements Landroidx/core/view/NestedScrollingChild;
 
 
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public abstract dispatchNestedPreScroll(II[I[II)Z
+    .param p3    # [I
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # [I
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
 .end method
 
 .method public abstract dispatchNestedScroll(IIII[II)Z
+    .param p5    # [I
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
 .end method
 
 .method public abstract hasNestedScrollingParent(I)Z

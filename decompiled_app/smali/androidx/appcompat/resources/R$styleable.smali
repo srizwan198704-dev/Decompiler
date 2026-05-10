@@ -2,54 +2,65 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/appcompat/resources/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "styleable"
+.end annotation
+
+
 # static fields
-.field public static AnimatedStateListDrawableCompat:[I = null
+.field public static final AnimatedStateListDrawableCompat:[I
 
-.field public static AnimatedStateListDrawableCompat_android_constantSize:I = 0x3
+.field public static final AnimatedStateListDrawableCompat_android_constantSize:I = 0x3
 
-.field public static AnimatedStateListDrawableCompat_android_dither:I = 0x0
+.field public static final AnimatedStateListDrawableCompat_android_dither:I = 0x0
 
-.field public static AnimatedStateListDrawableCompat_android_enterFadeDuration:I = 0x4
+.field public static final AnimatedStateListDrawableCompat_android_enterFadeDuration:I = 0x4
 
-.field public static AnimatedStateListDrawableCompat_android_exitFadeDuration:I = 0x5
+.field public static final AnimatedStateListDrawableCompat_android_exitFadeDuration:I = 0x5
 
-.field public static AnimatedStateListDrawableCompat_android_variablePadding:I = 0x2
+.field public static final AnimatedStateListDrawableCompat_android_variablePadding:I = 0x2
 
-.field public static AnimatedStateListDrawableCompat_android_visible:I = 0x1
+.field public static final AnimatedStateListDrawableCompat_android_visible:I = 0x1
 
-.field public static AnimatedStateListDrawableItem:[I = null
+.field public static final AnimatedStateListDrawableItem:[I
 
-.field public static AnimatedStateListDrawableItem_android_drawable:I = 0x1
+.field public static final AnimatedStateListDrawableItem_android_drawable:I = 0x1
 
-.field public static AnimatedStateListDrawableItem_android_id:I = 0x0
+.field public static final AnimatedStateListDrawableItem_android_id:I = 0x0
 
-.field public static AnimatedStateListDrawableTransition:[I = null
+.field public static final AnimatedStateListDrawableTransition:[I
 
-.field public static AnimatedStateListDrawableTransition_android_drawable:I = 0x0
+.field public static final AnimatedStateListDrawableTransition_android_drawable:I = 0x0
 
-.field public static AnimatedStateListDrawableTransition_android_fromId:I = 0x2
+.field public static final AnimatedStateListDrawableTransition_android_fromId:I = 0x2
 
-.field public static AnimatedStateListDrawableTransition_android_reversible:I = 0x3
+.field public static final AnimatedStateListDrawableTransition_android_reversible:I = 0x3
 
-.field public static AnimatedStateListDrawableTransition_android_toId:I = 0x1
+.field public static final AnimatedStateListDrawableTransition_android_toId:I = 0x1
 
-.field public static StateListDrawable:[I = null
+.field public static final StateListDrawable:[I
 
-.field public static StateListDrawableItem:[I = null
+.field public static final StateListDrawableItem:[I
 
-.field public static StateListDrawableItem_android_drawable:I = 0x0
+.field public static final StateListDrawableItem_android_drawable:I = 0x0
 
-.field public static StateListDrawable_android_constantSize:I = 0x3
+.field public static final StateListDrawable_android_constantSize:I = 0x3
 
-.field public static StateListDrawable_android_dither:I = 0x0
+.field public static final StateListDrawable_android_dither:I = 0x0
 
-.field public static StateListDrawable_android_enterFadeDuration:I = 0x4
+.field public static final StateListDrawable_android_enterFadeDuration:I = 0x4
 
-.field public static StateListDrawable_android_exitFadeDuration:I = 0x5
+.field public static final StateListDrawable_android_exitFadeDuration:I = 0x5
 
-.field public static StateListDrawable_android_variablePadding:I = 0x2
+.field public static final StateListDrawable_android_variablePadding:I = 0x2
 
-.field public static StateListDrawable_android_visible:I = 0x1
+.field public static final StateListDrawable_android_visible:I = 0x1
 
 
 # direct methods

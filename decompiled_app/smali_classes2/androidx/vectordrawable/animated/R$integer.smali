@@ -2,17 +2,22 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/vectordrawable/animated/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "integer"
+.end annotation
+
+
 # static fields
-.field public static status_bar_notification_info_maxnum:I = 0x7f0b004b
+.field public static final status_bar_notification_info_maxnum:I = 0x7f0b0053
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

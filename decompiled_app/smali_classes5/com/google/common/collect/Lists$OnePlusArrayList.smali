@@ -31,10 +31,16 @@
 
 # static fields
 .field private static final serialVersionUID:J
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+.end field
 
 
 # instance fields
 .field final first:Ljava/lang/Object;
+    .annotation runtime Lcom/google/common/collect/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TE;"
@@ -52,14 +58,12 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/Object;[Ljava/lang/Object;)V
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;[TE;)V"
@@ -70,7 +74,7 @@
 
     iput-object p1, p0, Lcom/google/common/collect/Lists$OnePlusArrayList;->first:Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -85,6 +89,9 @@
 # virtual methods
 .method public get(I)Ljava/lang/Object;
     .locals 1
+    .annotation runtime Lcom/google/common/collect/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -95,7 +102,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/m;->m(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
     if-nez p1, :cond_0
 
@@ -123,7 +130,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/google/common/math/d;->h(II)I
+    invoke-static {v0, v1}, Lcom/google/common/math/IntMath;->saturatedAdd(II)I
 
     move-result v0
 

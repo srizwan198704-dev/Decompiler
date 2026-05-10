@@ -14,7 +14,9 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/media/RatingCompat$b;
+        Landroid/support/v4/media/RatingCompat$Api19Impl;,
+        Landroid/support/v4/media/RatingCompat$StarStyle;,
+        Landroid/support/v4/media/RatingCompat$Style;
     }
 .end annotation
 
@@ -61,9 +63,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroid/support/v4/media/RatingCompat$a;
+    new-instance v0, Landroid/support/v4/media/RatingCompat$1;
 
-    invoke-direct {v0}, Landroid/support/v4/media/RatingCompat$a;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/media/RatingCompat$1;-><init>()V
 
     sput-object v0, Landroid/support/v4/media/RatingCompat;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -93,11 +95,11 @@
 
     check-cast v1, Landroid/media/Rating;
 
-    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$b;->b(Landroid/media/Rating;)I
+    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$Api19Impl;->getRatingStyle(Landroid/media/Rating;)I
 
     move-result v2
 
-    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$b;->e(Landroid/media/Rating;)Z
+    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$Api19Impl;->isRated(Landroid/media/Rating;)Z
 
     move-result v3
 
@@ -108,7 +110,7 @@
     return-object v0
 
     :pswitch_0
-    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$b;->a(Landroid/media/Rating;)F
+    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$Api19Impl;->getPercentRating(Landroid/media/Rating;)F
 
     move-result v0
 
@@ -119,7 +121,7 @@
     goto :goto_0
 
     :pswitch_1
-    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$b;->c(Landroid/media/Rating;)F
+    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$Api19Impl;->getStarRating(Landroid/media/Rating;)F
 
     move-result v0
 
@@ -130,7 +132,7 @@
     goto :goto_0
 
     :pswitch_2
-    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$b;->f(Landroid/media/Rating;)Z
+    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$Api19Impl;->isThumbUp(Landroid/media/Rating;)Z
 
     move-result v0
 
@@ -141,7 +143,7 @@
     goto :goto_0
 
     :pswitch_3
-    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$b;->d(Landroid/media/Rating;)Z
+    invoke-static {v1}, Landroid/support/v4/media/RatingCompat$Api19Impl;->hasHeart(Landroid/media/Rating;)Z
 
     move-result v0
 
@@ -437,7 +439,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Landroid/support/v4/media/RatingCompat$b;->h(F)Landroid/media/Rating;
+    invoke-static {v0}, Landroid/support/v4/media/RatingCompat$Api19Impl;->newPercentageRating(F)Landroid/media/Rating;
 
     move-result-object v0
 
@@ -450,7 +452,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/support/v4/media/RatingCompat$b;->i(IF)Landroid/media/Rating;
+    invoke-static {v0, v1}, Landroid/support/v4/media/RatingCompat$Api19Impl;->newStarRating(IF)Landroid/media/Rating;
 
     move-result-object v0
 
@@ -463,7 +465,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Landroid/support/v4/media/RatingCompat$b;->j(Z)Landroid/media/Rating;
+    invoke-static {v0}, Landroid/support/v4/media/RatingCompat$Api19Impl;->newThumbRating(Z)Landroid/media/Rating;
 
     move-result-object v0
 
@@ -476,7 +478,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Landroid/support/v4/media/RatingCompat$b;->g(Z)Landroid/media/Rating;
+    invoke-static {v0}, Landroid/support/v4/media/RatingCompat$Api19Impl;->newHeartRating(Z)Landroid/media/Rating;
 
     move-result-object v0
 
@@ -487,7 +489,7 @@
     :cond_0
     iget v0, p0, Landroid/support/v4/media/RatingCompat;->mRatingStyle:I
 
-    invoke-static {v0}, Landroid/support/v4/media/RatingCompat$b;->k(I)Landroid/media/Rating;
+    invoke-static {v0}, Landroid/support/v4/media/RatingCompat$Api19Impl;->newUnratedRating(I)Landroid/media/Rating;
 
     move-result-object v0
 
@@ -577,7 +579,7 @@
 
     if-nez v0, :cond_1
 
-    move v1, v2
+    const/4 v1, 0x1
 
     :cond_1
     return v1
@@ -660,7 +662,7 @@
 
     if-gez v2, :cond_0
 
-    const-string v1, "unrated"
+    const-string/jumbo v1, "unrated"
 
     goto :goto_0
 

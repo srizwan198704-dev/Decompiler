@@ -2,34 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Supplier;
+
+
+# instance fields
+.field public final synthetic a:Ljava/util/function/BinaryOperator;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>()V
+.method public synthetic constructor <init>(Ljava/util/function/BinaryOperator;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/common/collect/y;->a:Ljava/util/function/BinaryOperator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final get()Ljava/lang/Object;
+    .locals 1
 
-    check-cast p1, Lcom/google/common/collect/ImmutableRangeMap$a;
+    iget-object v0, p0, Lcom/google/common/collect/y;->a:Ljava/util/function/BinaryOperator;
 
-    invoke-virtual {p1}, Lcom/google/common/collect/ImmutableRangeMap$a;->a()Lcom/google/common/collect/ImmutableRangeMap;
+    invoke-static {v0}, Lcom/google/common/collect/CollectCollectors;->i(Ljava/util/function/BinaryOperator;)Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

@@ -9,18 +9,18 @@
     }
 .end annotation
 
+.annotation build Landroidx/annotation/RestrictTo;
+    value = {
+        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 
 # instance fields
-.field public a:I
+.field private userSetVisibility:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -50,7 +50,7 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/google/android/material/internal/VisibilityAwareImageButton;->a:I
+    iput p1, p0, Lcom/google/android/material/internal/VisibilityAwareImageButton;->userSetVisibility:I
 
     return-void
 .end method
@@ -60,7 +60,7 @@
 .method public final getUserSetVisibility()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/internal/VisibilityAwareImageButton;->a:I
+    iget v0, p0, Lcom/google/android/material/internal/VisibilityAwareImageButton;->userSetVisibility:I
 
     return v0
 .end method
@@ -72,7 +72,7 @@
 
     if-eqz p2, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/internal/VisibilityAwareImageButton;->a:I
+    iput p1, p0, Lcom/google/android/material/internal/VisibilityAwareImageButton;->userSetVisibility:I
 
     :cond_0
     return-void

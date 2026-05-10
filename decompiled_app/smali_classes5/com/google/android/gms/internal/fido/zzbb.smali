@@ -21,12 +21,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/String;[C)V
     .locals 9
 
@@ -40,7 +34,7 @@
 
     const/4 v3, 0x0
 
-    move v4, v3
+    const/4 v4, 0x0
 
     :goto_0
     array-length v5, p2
@@ -53,12 +47,12 @@
 
     if-ge v5, v0, :cond_0
 
-    move v7, v6
+    const/4 v7, 0x1
 
     goto :goto_1
 
     :cond_0
-    move v7, v3
+    const/4 v7, 0x0
 
     :goto_1
     const-string v8, "Non-ASCII character: %s"
@@ -72,7 +66,7 @@
     goto :goto_2
 
     :cond_1
-    move v6, v3
+    const/4 v6, 0x0
 
     :goto_2
     const-string v7, "Duplicate character: %s"
@@ -143,7 +137,7 @@
 
     const/4 p2, 0x0
 
-    move p3, p2
+    const/4 p3, 0x0
 
     :goto_0
     iget p4, p0, Lcom/google/android/gms/internal/fido/zzbb;->zzd:I
@@ -194,7 +188,13 @@
 
     invoke-direct {p3, p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    goto :goto_2
+
+    :goto_1
     throw p3
+
+    :goto_2
+    goto :goto_1
 .end method
 
 .method public static bridge synthetic zzc(Lcom/google/android/gms/internal/fido/zzbb;)[C

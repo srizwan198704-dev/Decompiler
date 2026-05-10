@@ -5,19 +5,17 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/material/bottomnavigation/BottomNavigationView$b;,
-        Lcom/google/android/material/bottomnavigation/BottomNavigationView$c;
+        Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemReselectedListener;,
+        Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;
     }
 .end annotation
 
 
+# static fields
+.field private static final MAX_ITEM_COUNT:I = 0x5
+
+
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1    # Landroid/content/Context;
@@ -99,7 +97,7 @@
 
     move v4, p4
 
-    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/b0;->j(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroidx/appcompat/widget/k0;
+    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/ThemeEnforcement;->obtainTintedStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroidx/appcompat/widget/TintTypedArray;
 
     move-result-object p2
 
@@ -107,7 +105,7 @@
 
     const/4 p4, 0x1
 
-    invoke-virtual {p2, p3, p4}, Landroidx/appcompat/widget/k0;->a(IZ)Z
+    invoke-virtual {p2, p3, p4}, Landroidx/appcompat/widget/TintTypedArray;->getBoolean(IZ)Z
 
     move-result p3
 
@@ -115,15 +113,13 @@
 
     sget p3, Lcom/google/android/material/R$styleable;->BottomNavigationView_android_minHeight:I
 
-    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/k0;->s(I)Z
+    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
-    move-result p3
+    move-result v0
 
-    if-eqz p3, :cond_0
+    if-eqz v0, :cond_0
 
-    sget p3, Lcom/google/android/material/R$styleable;->BottomNavigationView_android_minHeight:I
-
-    invoke-virtual {p2, p3, v6}, Landroidx/appcompat/widget/k0;->f(II)I
+    invoke-virtual {p2, p3, v6}, Landroidx/appcompat/widget/TintTypedArray;->getDimensionPixelSize(II)I
 
     move-result p3
 
@@ -132,47 +128,29 @@
     :cond_0
     sget p3, Lcom/google/android/material/R$styleable;->BottomNavigationView_compatShadowEnabled:I
 
-    invoke-virtual {p2, p3, p4}, Landroidx/appcompat/widget/k0;->a(IZ)Z
+    invoke-virtual {p2, p3, p4}, Landroidx/appcompat/widget/TintTypedArray;->getBoolean(IZ)Z
 
     move-result p3
 
     if-eqz p3, :cond_1
 
-    invoke-virtual {p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->g()Z
+    invoke-direct {p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->shouldDrawCompatibilityTopDivider()Z
 
     move-result p3
 
     if-eqz p3, :cond_1
 
-    invoke-virtual {p0, p1}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->d(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->addCompatibilityTopDivider(Landroid/content/Context;)V
 
     :cond_1
-    invoke-virtual {p2}, Landroidx/appcompat/widget/k0;->x()V
+    invoke-virtual {p2}, Landroidx/appcompat/widget/TintTypedArray;->recycle()V
 
-    invoke-virtual {p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->e()V
+    invoke-direct {p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->applyWindowInsets()V
 
     return-void
 .end method
 
-
-# virtual methods
-.method public c(Landroid/content/Context;)Lcom/google/android/material/navigation/NavigationBarMenuView;
-    .locals 1
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-
-    new-instance v0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;
-
-    invoke-direct {v0, p1}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;-><init>(Landroid/content/Context;)V
-
-    return-object v0
-.end method
-
-.method public final d(Landroid/content/Context;)V
+.method private addCompatibilityTopDivider(Landroid/content/Context;)V
     .locals 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroidx/annotation/NonNull;
@@ -185,7 +163,7 @@
 
     sget v1, Lcom/google/android/material/R$color;->design_bottom_navigation_shadow_color:I
 
-    invoke-static {p1, v1}, Lc1/b;->getColor(Landroid/content/Context;I)I
+    invoke-static {p1, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
     move-result p1
 
@@ -214,19 +192,19 @@
     return-void
 .end method
 
-.method public final e()V
+.method private applyWindowInsets()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/bottomnavigation/BottomNavigationView$a;
+    new-instance v0, Lcom/google/android/material/bottomnavigation/BottomNavigationView$1;
 
-    invoke-direct {v0, p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView$a;-><init>(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)V
+    invoke-direct {v0, p0}, Lcom/google/android/material/bottomnavigation/BottomNavigationView$1;-><init>(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)V
 
-    invoke-static {p0, v0}, Lcom/google/android/material/internal/f0;->f(Landroid/view/View;Lcom/google/android/material/internal/f0$d;)V
+    invoke-static {p0, v0}, Lcom/google/android/material/internal/ViewUtils;->doOnApplyWindowInsets(Landroid/view/View;Lcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;)V
 
     return-void
 .end method
 
-.method public final f(I)I
+.method private makeMinHeightSpec(I)I
     .locals 4
 
     invoke-virtual {p0}, Landroid/view/View;->getSuggestedMinimumHeight()I
@@ -271,12 +249,56 @@
     return p1
 .end method
 
-.method public final g()Z
-    .locals 1
+.method private shouldDrawCompatibilityTopDivider()Z
+    .locals 2
 
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x15
+
+    if-ge v0, v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
     const/4 v0, 0x0
 
+    :goto_0
     return v0
+.end method
+
+
+# virtual methods
+.method public createNavigationBarMenuView(Landroid/content/Context;)Lcom/google/android/material/navigation/NavigationBarMenuView;
+    .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroidx/annotation/RestrictTo;
+        value = {
+            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    new-instance v0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;
+
+    invoke-direct {v0, p1}, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;-><init>(Landroid/content/Context;)V
+
+    return-object v0
 .end method
 
 .method public getMaxItemCount()I
@@ -290,7 +312,7 @@
 .method public isItemHorizontalTranslationEnabled()Z
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarView;->getMenuView()Landroidx/appcompat/view/menu/m;
+    invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarView;->getMenuView()Landroidx/appcompat/view/menu/MenuView;
 
     move-result-object v0
 
@@ -306,7 +328,7 @@
 .method public onMeasure(II)V
     .locals 0
 
-    invoke-virtual {p0, p2}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->f(I)I
+    invoke-direct {p0, p2}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->makeMinHeightSpec(I)I
 
     move-result p2
 
@@ -318,7 +340,7 @@
 .method public setItemHorizontalTranslationEnabled(Z)V
     .locals 2
 
-    invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarView;->getMenuView()Landroidx/appcompat/view/menu/m;
+    invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarView;->getMenuView()Landroidx/appcompat/view/menu/MenuView;
 
     move-result-object v0
 
@@ -338,36 +360,36 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/google/android/material/navigation/NavigationBarPresenter;->h(Z)V
+    invoke-virtual {p1, v0}, Lcom/google/android/material/navigation/NavigationBarPresenter;->updateMenuView(Z)V
 
     :cond_0
     return-void
 .end method
 
-.method public setOnNavigationItemReselectedListener(Lcom/google/android/material/bottomnavigation/BottomNavigationView$b;)V
+.method public setOnNavigationItemReselectedListener(Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemReselectedListener;)V
     .locals 0
-    .param p1    # Lcom/google/android/material/bottomnavigation/BottomNavigationView$b;
+    .param p1    # Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemReselectedListener;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    invoke-virtual {p0, p1}, Lcom/google/android/material/navigation/NavigationBarView;->setOnItemReselectedListener(Lcom/google/android/material/navigation/NavigationBarView$b;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/navigation/NavigationBarView;->setOnItemReselectedListener(Lcom/google/android/material/navigation/NavigationBarView$OnItemReselectedListener;)V
 
     return-void
 .end method
 
-.method public setOnNavigationItemSelectedListener(Lcom/google/android/material/bottomnavigation/BottomNavigationView$c;)V
+.method public setOnNavigationItemSelectedListener(Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;)V
     .locals 0
-    .param p1    # Lcom/google/android/material/bottomnavigation/BottomNavigationView$c;
+    .param p1    # Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    invoke-virtual {p0, p1}, Lcom/google/android/material/navigation/NavigationBarView;->setOnItemSelectedListener(Lcom/google/android/material/navigation/NavigationBarView$c;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/navigation/NavigationBarView;->setOnItemSelectedListener(Lcom/google/android/material/navigation/NavigationBarView$OnItemSelectedListener;)V
 
     return-void
 .end method

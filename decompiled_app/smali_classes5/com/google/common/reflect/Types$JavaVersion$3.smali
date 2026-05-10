@@ -14,18 +14,12 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/google/common/reflect/Types$JavaVersion;-><init>(Ljava/lang/String;ILcom/google/common/reflect/Types$a;)V
+    invoke-direct {p0, p1, p2, v0}, Lcom/google/common/reflect/Types$JavaVersion;-><init>(Ljava/lang/String;ILcom/google/common/reflect/Types$1;)V
 
     return-void
 .end method
@@ -45,7 +39,7 @@
 .end method
 
 .method public typeName(Ljava/lang/reflect/Type;)Ljava/lang/String;
-    .locals 3
+    .locals 4
 
     :try_start_0
     const-class v0, Ljava/lang/reflect/Type;
@@ -54,11 +48,15 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    new-array v3, v2, [Ljava/lang/Class;
+
+    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    new-array v1, v2, [Ljava/lang/Object;
+
+    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -78,7 +76,16 @@
     :catch_1
     move-exception p1
 
+    goto :goto_1
+
     :goto_0
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    invoke-direct {v0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v0
+
+    :goto_1
     new-instance v0, Ljava/lang/RuntimeException;
 
     invoke-direct {v0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V

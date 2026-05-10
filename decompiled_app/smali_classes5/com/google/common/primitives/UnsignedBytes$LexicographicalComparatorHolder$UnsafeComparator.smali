@@ -6,6 +6,18 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/VisibleForTesting;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "UnsafeComparator"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum<",
@@ -37,11 +49,11 @@
 
     new-array v0, v0, [Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator;
 
-    sget-object v1, Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator;->INSTANCE:Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator;->INSTANCE:Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -154,9 +166,9 @@
 
     :catch_0
     :try_start_1
-    new-instance v0, Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator$a;
+    new-instance v0, Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator$1;
 
-    invoke-direct {v0}, Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/primitives/UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator$1;-><init>()V
 
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedExceptionAction;)Ljava/lang/Object;
 
@@ -276,7 +288,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-static {v5, v6, v3, v4}, Landroidx/collection/b0;->a(JJ)I
+    invoke-static {v5, v6, v3, v4}, Lcom/google/common/primitives/UnsignedLongs;->compare(JJ)I
 
     move-result p1
 
@@ -322,7 +334,7 @@
 
     aget-byte v3, p2, v2
 
-    invoke-static {v1, v3}, Lcom/google/common/primitives/f;->b(BB)I
+    invoke-static {v1, v3}, Lcom/google/common/primitives/UnsignedBytes;->compare(BB)I
 
     move-result v1
 

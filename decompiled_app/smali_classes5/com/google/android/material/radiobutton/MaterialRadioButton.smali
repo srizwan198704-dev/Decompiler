@@ -3,18 +3,18 @@
 
 
 # static fields
-.field public static final c:I
+.field private static final DEF_STYLE_RES:I
 
-.field public static final d:[[I
+.field private static final ENABLED_CHECKED_STATES:[[I
 
 
 # instance fields
-.field public a:Landroid/content/res/ColorStateList;
+.field private materialThemeColorsTintList:Landroid/content/res/ColorStateList;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field public b:Z
+.field private useMaterialThemeColors:Z
 
 
 # direct methods
@@ -23,7 +23,7 @@
 
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_CompoundButton_RadioButton:I
 
-    sput v0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->c:I
+    sput v0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->DEF_STYLE_RES:I
 
     const/4 v0, 0x4
 
@@ -61,15 +61,15 @@
 
     aput-object v2, v0, v4
 
+    const/4 v2, 0x3
+
     filled-new-array {v1, v3}, [I
 
     move-result-object v1
 
-    const/4 v2, 0x3
-
     aput-object v1, v0, v2
 
-    sput-object v0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->d:[[I
+    sput-object v0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->ENABLED_CHECKED_STATES:[[I
 
     return-void
 .end method
@@ -117,9 +117,9 @@
         .end annotation
     .end param
 
-    sget v4, Lcom/google/android/material/radiobutton/MaterialRadioButton;->c:I
+    sget v4, Lcom/google/android/material/radiobutton/MaterialRadioButton;->DEF_STYLE_RES:I
 
-    invoke-static {p1, p2, p3, v4}, Lvc/a;->c(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
+    invoke-static {p1, p2, p3, v4}, Lcom/google/android/material/theme/overlay/MaterialThemeOverlay;->wrap(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
 
     move-result-object p1
 
@@ -141,7 +141,7 @@
 
     move v3, p3
 
-    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/b0;->i(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
+    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/ThemeEnforcement;->obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
 
     move-result-object p2
 
@@ -149,17 +149,15 @@
 
     invoke-virtual {p2, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result p3
+    move-result v0
 
-    if-eqz p3, :cond_0
+    if-eqz v0, :cond_0
 
-    sget p3, Lcom/google/android/material/R$styleable;->MaterialRadioButton_buttonTint:I
-
-    invoke-static {p1, p2, p3}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p2, p3}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/core/widget/b;->d(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
+    invoke-static {p0, p1}, Landroidx/core/widget/CompoundButtonCompat;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
     :cond_0
     sget p1, Lcom/google/android/material/R$styleable;->MaterialRadioButton_useMaterialThemeColors:I
@@ -168,7 +166,7 @@
 
     move-result p1
 
-    iput-boolean p1, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->b:Z
+    iput-boolean p1, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->useMaterialThemeColors:Z
 
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -178,29 +176,29 @@
 .method private getMaterialThemeColorsTintList()Landroid/content/res/ColorStateList;
     .locals 7
 
-    iget-object v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->a:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->materialThemeColorsTintList:Landroid/content/res/ColorStateList;
 
     if-nez v0, :cond_0
 
     sget v0, Lcom/google/android/material/R$attr;->colorControlActivated:I
 
-    invoke-static {p0, v0}, Lcom/google/android/material/color/b;->d(Landroid/view/View;I)I
+    invoke-static {p0, v0}, Lcom/google/android/material/color/MaterialColors;->getColor(Landroid/view/View;I)I
 
     move-result v0
 
     sget v1, Lcom/google/android/material/R$attr;->colorOnSurface:I
 
-    invoke-static {p0, v1}, Lcom/google/android/material/color/b;->d(Landroid/view/View;I)I
+    invoke-static {p0, v1}, Lcom/google/android/material/color/MaterialColors;->getColor(Landroid/view/View;I)I
 
     move-result v1
 
     sget v2, Lcom/google/android/material/R$attr;->colorSurface:I
 
-    invoke-static {p0, v2}, Lcom/google/android/material/color/b;->d(Landroid/view/View;I)I
+    invoke-static {p0, v2}, Lcom/google/android/material/color/MaterialColors;->getColor(Landroid/view/View;I)I
 
     move-result v2
 
-    sget-object v3, Lcom/google/android/material/radiobutton/MaterialRadioButton;->d:[[I
+    sget-object v3, Lcom/google/android/material/radiobutton/MaterialRadioButton;->ENABLED_CHECKED_STATES:[[I
 
     array-length v4, v3
 
@@ -208,7 +206,7 @@
 
     const/high16 v5, 0x3f800000    # 1.0f
 
-    invoke-static {v2, v0, v5}, Lcom/google/android/material/color/b;->j(IIF)I
+    invoke-static {v2, v0, v5}, Lcom/google/android/material/color/MaterialColors;->layer(IIF)I
 
     move-result v0
 
@@ -218,7 +216,7 @@
 
     const v0, 0x3f0a3d71    # 0.54f
 
-    invoke-static {v2, v1, v0}, Lcom/google/android/material/color/b;->j(IIF)I
+    invoke-static {v2, v1, v0}, Lcom/google/android/material/color/MaterialColors;->layer(IIF)I
 
     move-result v0
 
@@ -230,7 +228,7 @@
 
     const v5, 0x3ec28f5c    # 0.38f
 
-    invoke-static {v2, v1, v5}, Lcom/google/android/material/color/b;->j(IIF)I
+    invoke-static {v2, v1, v5}, Lcom/google/android/material/color/MaterialColors;->layer(IIF)I
 
     move-result v6
 
@@ -238,7 +236,7 @@
 
     const/4 v0, 0x3
 
-    invoke-static {v2, v1, v5}, Lcom/google/android/material/color/b;->j(IIF)I
+    invoke-static {v2, v1, v5}, Lcom/google/android/material/color/MaterialColors;->layer(IIF)I
 
     move-result v1
 
@@ -248,10 +246,10 @@
 
     invoke-direct {v0, v3, v4}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
 
-    iput-object v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->a:Landroid/content/res/ColorStateList;
+    iput-object v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->materialThemeColorsTintList:Landroid/content/res/ColorStateList;
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->a:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->materialThemeColorsTintList:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
@@ -261,7 +259,7 @@
 .method public isUseMaterialThemeColors()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->b:Z
+    iget-boolean v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->useMaterialThemeColors:Z
 
     return v0
 .end method
@@ -271,11 +269,11 @@
 
     invoke-super {p0}, Landroid/widget/RadioButton;->onAttachedToWindow()V
 
-    iget-boolean v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->b:Z
+    iget-boolean v0, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->useMaterialThemeColors:Z
 
     if-eqz v0, :cond_0
 
-    invoke-static {p0}, Landroidx/core/widget/b;->b(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
+    invoke-static {p0}, Landroidx/core/widget/CompoundButtonCompat;->getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
@@ -292,7 +290,7 @@
 .method public setUseMaterialThemeColors(Z)V
     .locals 0
 
-    iput-boolean p1, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->b:Z
+    iput-boolean p1, p0, Lcom/google/android/material/radiobutton/MaterialRadioButton;->useMaterialThemeColors:Z
 
     if-eqz p1, :cond_0
 
@@ -300,14 +298,14 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/core/widget/b;->d(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
+    invoke-static {p0, p1}, Landroidx/core/widget/CompoundButtonCompat;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
     goto :goto_0
 
     :cond_0
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Landroidx/core/widget/b;->d(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
+    invoke-static {p0, p1}, Landroidx/core/widget/CompoundButtonCompat;->setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
 
     :goto_0
     return-void

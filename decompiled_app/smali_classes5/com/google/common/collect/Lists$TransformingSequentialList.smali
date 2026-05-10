@@ -43,10 +43,10 @@
     .end annotation
 .end field
 
-.field final function:Lcom/google/common/base/f;
+.field final function:Lcom/google/common/base/Function;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/f<",
+            "Lcom/google/common/base/Function<",
             "-TF;+TT;>;"
         }
     .end annotation
@@ -54,27 +54,21 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/util/List;Lcom/google/common/base/f;)V
+.method public constructor <init>(Ljava/util/List;Lcom/google/common/base/Function;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/List<",
             "TF;>;",
-            "Lcom/google/common/base/f<",
+            "Lcom/google/common/base/Function<",
             "-TF;+TT;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/util/AbstractSequentialList;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -82,31 +76,19 @@
 
     iput-object p1, p0, Lcom/google/common/collect/Lists$TransformingSequentialList;->fromList:Ljava/util/List;
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/base/f;
+    check-cast p1, Lcom/google/common/base/Function;
 
-    iput-object p1, p0, Lcom/google/common/collect/Lists$TransformingSequentialList;->function:Lcom/google/common/base/f;
+    iput-object p1, p0, Lcom/google/common/collect/Lists$TransformingSequentialList;->function:Lcom/google/common/base/Function;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public isEmpty()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/common/collect/Lists$TransformingSequentialList;->fromList:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -117,7 +99,7 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/Lists$TransformingSequentialList$a;
+    new-instance v0, Lcom/google/common/collect/Lists$TransformingSequentialList$1;
 
     iget-object v1, p0, Lcom/google/common/collect/Lists$TransformingSequentialList;->fromList:Ljava/util/List;
 
@@ -125,7 +107,7 @@
 
     move-result-object p1
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Lists$TransformingSequentialList$a;-><init>(Lcom/google/common/collect/Lists$TransformingSequentialList;Ljava/util/ListIterator;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Lists$TransformingSequentialList$1;-><init>(Lcom/google/common/collect/Lists$TransformingSequentialList;Ljava/util/ListIterator;)V
 
     return-object v0
 .end method

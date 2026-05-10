@@ -20,11 +20,3 @@
         "Lcom/google/android/gms/tasks/OnCanceledListener;"
     }
 .end annotation
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method

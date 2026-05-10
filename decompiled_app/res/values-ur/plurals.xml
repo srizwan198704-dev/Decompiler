@@ -8,40 +8,20 @@
         <item quantity="other">%d سیکنڈز ریوائنڈ کریں</item>
         <item quantity="one">%d سیکنڈ ریوائنڈ کریں</item>
     </plurals>
+    <plurals name="hiad_dismiss_dilaog">
+        <item quantity="other">%1$s سیکنڈ میں ونڈو بند ہو جائے گی۔</item>
+        <item quantity="one">%1$s سیکنڈ میں ونڈو بند ہو جائے گی۔</item>
+    </plurals>
+    <plurals name="hiad_no_prompt_in_days">
+        <item quantity="other">‏%1$s دنوں کے لیے اختیار یاد رکھیں</item>
+        <item quantity="one">‏%1$s دن کے لیے اختیار یاد رکھیں</item>
+    </plurals>
+    <plurals name="hiad_reward_countdown">
+        <item quantity="other">%1$d سیکنڈ</item>
+        <item quantity="one">%1$d سیکنڈ</item>
+    </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d نئی اطلاعات</item>
         <item quantity="one">%d نئی اطلاع</item>
-    </plurals>
-    <plurals name="str_views">
-        <item quantity="other">%1$s بار دیکھے گئے</item>
-        <item quantity="one">%1$s بار دیکھا گیا</item>
-    </plurals>
-    <plurals name="time_days_ago">
-        <item quantity="other">%1$d دن پہلے</item>
-        <item quantity="one">%1$d دن پہلے</item>
-    </plurals>
-    <plurals name="time_hours_ago">
-        <item quantity="other">%1$d گھنٹے پہلے</item>
-        <item quantity="one">%1$d گھنٹہ پہلے</item>
-    </plurals>
-    <plurals name="time_minutes_ago">
-        <item quantity="other">%1$d منٹ پہلے</item>
-        <item quantity="one">%1$d منٹ پہلے</item>
-    </plurals>
-    <plurals name="time_months_ago">
-        <item quantity="other">%1$d ماہ پہلے</item>
-        <item quantity="one">%1$d ماہ پہلے</item>
-    </plurals>
-    <plurals name="time_weeks_ago">
-        <item quantity="other">%1$d ہفتے پہلے</item>
-        <item quantity="one">%1$d ہفتہ پہلے</item>
-    </plurals>
-    <plurals name="time_years_ago">
-        <item quantity="other">%1$d سال پہلے</item>
-        <item quantity="one">%1$d سال پہلے</item>
-    </plurals>
-    <plurals name="videos_count_text">
-        <item quantity="other">%1$s ویڈیوز</item>
-        <item quantity="one">%1$s ویڈیو</item>
     </plurals>
 </resources>

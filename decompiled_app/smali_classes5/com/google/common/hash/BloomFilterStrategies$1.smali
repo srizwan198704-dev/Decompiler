@@ -14,12 +14,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
@@ -32,8 +26,12 @@
 
 
 # virtual methods
-.method public mightContain(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$a;)Z
+.method public mightContain(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)Z
     .locals 6
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/hash/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -41,20 +39,20 @@
             ">(TT;",
             "Lcom/google/common/hash/Funnel<",
             "-TT;>;I",
-            "Lcom/google/common/hash/BloomFilterStrategies$a;",
+            "Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;",
             ")Z"
         }
     .end annotation
 
-    invoke-virtual {p4}, Lcom/google/common/hash/BloomFilterStrategies$a;->b()J
+    invoke-virtual {p4}, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->bitSize()J
 
     move-result-wide v0
 
-    invoke-static {}, Lcom/google/common/hash/f;->a()Lcom/google/common/hash/d;
+    invoke-static {}, Lcom/google/common/hash/Hashing;->murmur3_128()Lcom/google/common/hash/HashFunction;
 
     move-result-object v2
 
-    invoke-interface {v2, p1, p2}, Lcom/google/common/hash/d;->hashObject(Ljava/lang/Object;Lcom/google/common/hash/Funnel;)Lcom/google/common/hash/HashCode;
+    invoke-interface {v2, p1, p2}, Lcom/google/common/hash/HashFunction;->hashObject(Ljava/lang/Object;Lcom/google/common/hash/Funnel;)Lcom/google/common/hash/HashCode;
 
     move-result-object p1
 
@@ -68,29 +66,29 @@
 
     ushr-long/2addr p1, v3
 
-    long-to-int p1, p1
+    long-to-int p2, p1
 
-    const/4 p2, 0x1
+    const/4 p1, 0x1
 
-    move v3, p2
+    const/4 v3, 0x1
 
     :goto_0
     if-gt v3, p3, :cond_2
 
-    mul-int v4, v3, p1
+    mul-int v4, v3, p2
 
     add-int/2addr v4, v2
 
     if-gez v4, :cond_0
 
-    not-int v4, v4
+    xor-int/lit8 v4, v4, -0x1
 
     :cond_0
     int-to-long v4, v4
 
     rem-long/2addr v4, v0
 
-    invoke-virtual {p4, v4, v5}, Lcom/google/common/hash/BloomFilterStrategies$a;->d(J)Z
+    invoke-virtual {p4, v4, v5}, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->get(J)Z
 
     move-result v4
 
@@ -106,11 +104,15 @@
     goto :goto_0
 
     :cond_2
-    return p2
+    return p1
 .end method
 
-.method public put(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$a;)Z
+.method public put(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;)Z
     .locals 6
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/hash/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -118,20 +120,20 @@
             ">(TT;",
             "Lcom/google/common/hash/Funnel<",
             "-TT;>;I",
-            "Lcom/google/common/hash/BloomFilterStrategies$a;",
+            "Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;",
             ")Z"
         }
     .end annotation
 
-    invoke-virtual {p4}, Lcom/google/common/hash/BloomFilterStrategies$a;->b()J
+    invoke-virtual {p4}, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->bitSize()J
 
     move-result-wide v0
 
-    invoke-static {}, Lcom/google/common/hash/f;->a()Lcom/google/common/hash/d;
+    invoke-static {}, Lcom/google/common/hash/Hashing;->murmur3_128()Lcom/google/common/hash/HashFunction;
 
     move-result-object v2
 
-    invoke-interface {v2, p1, p2}, Lcom/google/common/hash/d;->hashObject(Ljava/lang/Object;Lcom/google/common/hash/Funnel;)Lcom/google/common/hash/HashCode;
+    invoke-interface {v2, p1, p2}, Lcom/google/common/hash/HashFunction;->hashObject(Ljava/lang/Object;Lcom/google/common/hash/Funnel;)Lcom/google/common/hash/HashCode;
 
     move-result-object p1
 
@@ -145,38 +147,38 @@
 
     ushr-long/2addr p1, v3
 
-    long-to-int p1, p1
+    long-to-int p2, p1
 
-    const/4 p2, 0x0
+    const/4 p1, 0x0
 
     const/4 v3, 0x1
 
     :goto_0
     if-gt v3, p3, :cond_1
 
-    mul-int v4, v3, p1
+    mul-int v4, v3, p2
 
     add-int/2addr v4, v2
 
     if-gez v4, :cond_0
 
-    not-int v4, v4
+    xor-int/lit8 v4, v4, -0x1
 
     :cond_0
     int-to-long v4, v4
 
     rem-long/2addr v4, v0
 
-    invoke-virtual {p4, v4, v5}, Lcom/google/common/hash/BloomFilterStrategies$a;->g(J)Z
+    invoke-virtual {p4, v4, v5}, Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;->set(J)Z
 
     move-result v4
 
-    or-int/2addr p2, v4
+    or-int/2addr p1, v4
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_1
-    return p2
+    return p1
 .end method

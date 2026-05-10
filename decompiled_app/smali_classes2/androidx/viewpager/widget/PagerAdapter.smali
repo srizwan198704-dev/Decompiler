@@ -3,9 +3,9 @@
 
 
 # static fields
-.field public static final POSITION_NONE:I
+.field public static final POSITION_NONE:I = -0x2
 
-.field public static final POSITION_UNCHANGED:I
+.field public static final POSITION_UNCHANGED:I = -0x1
 
 
 # instance fields
@@ -15,28 +15,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const v0, -0x22a
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Landroidx/viewpager/widget/PagerAdapter;->POSITION_NONE:I
-
-    const v0, -0x229
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Landroidx/viewpager/widget/PagerAdapter;->POSITION_UNCHANGED:I
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 

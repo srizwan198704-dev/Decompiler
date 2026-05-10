@@ -2,15 +2,23 @@
 .super Lcom/google/common/collect/ImmutableMultimap;
 
 # interfaces
-.implements Lcom/google/common/collect/x3;
+.implements Lcom/google/common/collect/SetMultimap;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/ImmutableSetMultimap$a;,
+        Lcom/google/common/collect/ImmutableSetMultimap$SetFieldSettersHolder;,
         Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;,
-        Lcom/google/common/collect/ImmutableSetMultimap$b;
+        Lcom/google/common/collect/ImmutableSetMultimap$Builder;
     }
 .end annotation
 
@@ -23,7 +31,7 @@
         ">",
         "Lcom/google/common/collect/ImmutableMultimap<",
         "TK;TV;>;",
-        "Lcom/google/common/collect/x3<",
+        "Lcom/google/common/collect/SetMultimap<",
         "TK;TV;>;"
     }
 .end annotation
@@ -31,6 +39,12 @@
 
 # static fields
 .field private static final serialVersionUID:J
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+.end field
 
 
 # instance fields
@@ -44,6 +58,12 @@
 .end field
 
 .field private transient entries:Lcom/google/common/collect/ImmutableSet;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
+    .annotation build Lcom/google/j2objc/annotations/RetainedWith;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSet<",
@@ -54,6 +74,12 @@
 .end field
 
 .field private transient inverse:Lcom/google/common/collect/ImmutableSetMultimap;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
+    .annotation build Lcom/google/j2objc/annotations/RetainedWith;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSetMultimap<",
@@ -64,12 +90,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;ILjava/util/Comparator;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -95,7 +115,7 @@
     return-void
 .end method
 
-.method public static builder()Lcom/google/common/collect/ImmutableSetMultimap$a;
+.method public static builder()Lcom/google/common/collect/ImmutableSetMultimap$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,44 +124,19 @@
             "V:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/collect/ImmutableSetMultimap$a<",
+            "Lcom/google/common/collect/ImmutableSetMultimap$Builder<",
             "TK;TV;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableSetMultimap$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableSetMultimap$a;-><init>()V
-
-    return-object v0
-.end method
-
-.method public static builderWithExpectedKeys(I)Lcom/google/common/collect/ImmutableSetMultimap$a;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(I)",
-            "Lcom/google/common/collect/ImmutableSetMultimap$a<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    const-string v0, "expectedKeys"
-
-    invoke-static {p0, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
-
-    new-instance v0, Lcom/google/common/collect/ImmutableSetMultimap$a;
-
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSetMultimap$a;-><init>(I)V
+    invoke-direct {v0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;-><init>()V
 
     return-object v0
 .end method
 
-.method public static copyOf(Lcom/google/common/collect/j3;)Lcom/google/common/collect/ImmutableSetMultimap;
+.method public static copyOf(Lcom/google/common/collect/Multimap;)Lcom/google/common/collect/ImmutableSetMultimap;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -150,7 +145,7 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/collect/j3<",
+            "Lcom/google/common/collect/Multimap<",
             "+TK;+TV;>;)",
             "Lcom/google/common/collect/ImmutableSetMultimap<",
             "TK;TV;>;"
@@ -159,14 +154,14 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/google/common/collect/ImmutableSetMultimap;->copyOf(Lcom/google/common/collect/j3;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSetMultimap;
+    invoke-static {p0, v0}, Lcom/google/common/collect/ImmutableSetMultimap;->copyOf(Lcom/google/common/collect/Multimap;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSetMultimap;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method private static copyOf(Lcom/google/common/collect/j3;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSetMultimap;
+.method private static copyOf(Lcom/google/common/collect/Multimap;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSetMultimap;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -175,7 +170,7 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/collect/j3<",
+            "Lcom/google/common/collect/Multimap<",
             "+TK;+TV;>;",
             "Ljava/util/Comparator<",
             "-TV;>;)",
@@ -184,9 +179,9 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {p0}, Lcom/google/common/collect/j3;->isEmpty()Z
+    invoke-interface {p0}, Lcom/google/common/collect/Multimap;->isEmpty()Z
 
     move-result v0
 
@@ -218,7 +213,7 @@
     return-object v0
 
     :cond_1
-    invoke-interface {p0}, Lcom/google/common/collect/j3;->asMap()Ljava/util/Map;
+    invoke-interface {p0}, Lcom/google/common/collect/Multimap;->asMap()Ljava/util/Map;
 
     move-result-object p0
 
@@ -251,15 +246,15 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableSetMultimap$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableSetMultimap$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;-><init>()V
 
-    invoke-virtual {v0, p0}, Lcom/google/common/collect/ImmutableSetMultimap$a;->n(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSetMultimap$a;->j()Lcom/google/common/collect/ImmutableSetMultimap;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->build()Lcom/google/common/collect/ImmutableSetMultimap;
 
     move-result-object p0
 
@@ -299,6 +294,9 @@
 
 .method public static flatteningToImmutableSetMultimap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
     .locals 0
+    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -321,118 +319,9 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/d2;->t(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectCollectors;->flatteningToImmutableSetMultimap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
     move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static fromMapBuilderEntries(Ljava/util/Collection;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSetMultimap;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/util/Collection<",
-            "+",
-            "Ljava/util/Map$Entry<",
-            "TK;",
-            "Lcom/google/common/collect/ImmutableCollection$b<",
-            "TV;>;>;>;",
-            "Ljava/util/Comparator<",
-            "-TV;>;)",
-            "Lcom/google/common/collect/ImmutableSetMultimap<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->of()Lcom/google/common/collect/ImmutableSetMultimap;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    new-instance v0, Lcom/google/common/collect/ImmutableMap$b;
-
-    invoke-interface {p0}, Ljava/util/Collection;->size()I
-
-    move-result v1
-
-    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableMap$b;-><init>(I)V
-
-    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    const/4 v1, 0x0
-
-    :cond_1
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/Map$Entry;
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/google/common/collect/ImmutableSet$a;
-
-    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableSet$a;->o()Lcom/google/common/collect/ImmutableSet;
-
-    move-result-object v2
-
-    invoke-static {p1, v2}, Lcom/google/common/collect/ImmutableSetMultimap;->valueSet(Ljava/util/Comparator;Ljava/util/Collection;)Lcom/google/common/collect/ImmutableSet;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/util/AbstractCollection;->isEmpty()Z
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    invoke-virtual {v0, v3, v2}, Lcom/google/common/collect/ImmutableMap$b;->h(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$b;
-
-    invoke-virtual {v2}, Ljava/util/AbstractCollection;->size()I
-
-    move-result v2
-
-    add-int/2addr v1, v2
-
-    goto :goto_0
-
-    :cond_2
-    new-instance p0, Lcom/google/common/collect/ImmutableSetMultimap;
-
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$b;->d()Lcom/google/common/collect/ImmutableMap;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0, v1, p1}, Lcom/google/common/collect/ImmutableSetMultimap;-><init>(Lcom/google/common/collect/ImmutableMap;ILjava/util/Comparator;)V
 
     return-object p0
 .end method
@@ -472,13 +361,13 @@
     return-object p0
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/ImmutableMap$b;
+    new-instance v0, Lcom/google/common/collect/ImmutableMap$Builder;
 
     invoke-interface {p0}, Ljava/util/Collection;->size()I
 
     move-result v1
 
-    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableMap$b;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableMap$Builder;-><init>(I)V
 
     invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -520,7 +409,7 @@
 
     if-nez v4, :cond_1
 
-    invoke-virtual {v0, v3, v2}, Lcom/google/common/collect/ImmutableMap$b;->h(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$b;
+    invoke-virtual {v0, v3, v2}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
 
     invoke-virtual {v2}, Ljava/util/AbstractCollection;->size()I
 
@@ -533,7 +422,7 @@
     :cond_2
     new-instance p0, Lcom/google/common/collect/ImmutableSetMultimap;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$b;->d()Lcom/google/common/collect/ImmutableMap;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
 
@@ -552,7 +441,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
     move-result-object v0
 
@@ -560,7 +449,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v1
 
@@ -585,12 +474,12 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v3, v2}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, v3, v2}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$a;->j()Lcom/google/common/collect/ImmutableSetMultimap;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->build()Lcom/google/common/collect/ImmutableSetMultimap;
 
     move-result-object v0
 
@@ -632,13 +521,13 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$a;->j()Lcom/google/common/collect/ImmutableSetMultimap;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->build()Lcom/google/common/collect/ImmutableSetMultimap;
 
     move-result-object p0
 
@@ -659,15 +548,15 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p2, p3}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p2, p3}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$a;->j()Lcom/google/common/collect/ImmutableSetMultimap;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->build()Lcom/google/common/collect/ImmutableSetMultimap;
 
     move-result-object p0
 
@@ -688,17 +577,17 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p2, p3}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p2, p3}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p4, p5}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p4, p5}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$a;->j()Lcom/google/common/collect/ImmutableSetMultimap;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->build()Lcom/google/common/collect/ImmutableSetMultimap;
 
     move-result-object p0
 
@@ -719,19 +608,19 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p2, p3}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p2, p3}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p4, p5}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p4, p5}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p6, p7}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p6, p7}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$a;->j()Lcom/google/common/collect/ImmutableSetMultimap;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->build()Lcom/google/common/collect/ImmutableSetMultimap;
 
     move-result-object p0
 
@@ -752,21 +641,21 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-static {}, Lcom/google/common/collect/ImmutableSetMultimap;->builder()Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p0, p1}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p2, p3}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p2, p3}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p4, p5}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p4, p5}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p6, p7}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p6, p7}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0, p8, p9}, Lcom/google/common/collect/ImmutableSetMultimap$a;->l(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$a;
+    invoke-virtual {v0, p8, p9}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSetMultimap$Builder;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$a;->j()Lcom/google/common/collect/ImmutableSetMultimap;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSetMultimap$Builder;->build()Lcom/google/common/collect/ImmutableSetMultimap;
 
     move-result-object p0
 
@@ -775,6 +664,12 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 11
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -796,15 +691,15 @@
 
     if-ltz v1, :cond_4
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableMap;->builder()Lcom/google/common/collect/ImmutableMap$b;
+    invoke-static {}, Lcom/google/common/collect/ImmutableMap;->builder()Lcom/google/common/collect/ImmutableMap$Builder;
 
     move-result-object v2
 
     const/4 v3, 0x0
 
-    move v4, v3
+    const/4 v4, 0x0
 
-    move v5, v4
+    const/4 v5, 0x0
 
     :goto_0
     if-ge v4, v1, :cond_3
@@ -821,11 +716,11 @@
 
     if-lez v7, :cond_2
 
-    invoke-static {v0}, Lcom/google/common/collect/ImmutableSetMultimap;->valuesBuilder(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSet$a;
+    invoke-static {v0}, Lcom/google/common/collect/ImmutableSetMultimap;->valuesBuilder(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSet$Builder;
 
     move-result-object v8
 
-    move v9, v3
+    const/4 v9, 0x0
 
     :goto_1
     if-ge v9, v7, :cond_0
@@ -836,14 +731,14 @@
 
     invoke-static {v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v8, v10}, Lcom/google/common/collect/ImmutableSet$a;->j(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet$a;
+    invoke-virtual {v8, v10}, Lcom/google/common/collect/ImmutableSet$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet$Builder;
 
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
     :cond_0
-    invoke-virtual {v8}, Lcom/google/common/collect/ImmutableSet$a;->o()Lcom/google/common/collect/ImmutableSet;
+    invoke-virtual {v8}, Lcom/google/common/collect/ImmutableSet$Builder;->build()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v8
 
@@ -853,7 +748,7 @@
 
     if-ne v9, v7, :cond_1
 
-    invoke-virtual {v2, v6, v8}, Lcom/google/common/collect/ImmutableMap$b;->h(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$b;
+    invoke-virtual {v2, v6, v8}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
 
     add-int/2addr v5, v7
 
@@ -905,27 +800,27 @@
 
     :cond_3
     :try_start_0
-    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableMap$b;->d()Lcom/google/common/collect/ImmutableMap;
+    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object p1
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    sget-object v1, Lcom/google/common/collect/ImmutableMultimap$d;->a:Lcom/google/common/collect/w3$b;
+    sget-object v1, Lcom/google/common/collect/ImmutableMultimap$FieldSettersHolder;->MAP_FIELD_SETTER:Lcom/google/common/collect/Serialization$FieldSetter;
 
-    invoke-virtual {v1, p0, p1}, Lcom/google/common/collect/w3$b;->b(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-virtual {v1, p0, p1}, Lcom/google/common/collect/Serialization$FieldSetter;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    sget-object p1, Lcom/google/common/collect/ImmutableMultimap$d;->b:Lcom/google/common/collect/w3$b;
+    sget-object p1, Lcom/google/common/collect/ImmutableMultimap$FieldSettersHolder;->SIZE_FIELD_SETTER:Lcom/google/common/collect/Serialization$FieldSetter;
 
-    invoke-virtual {p1, p0, v5}, Lcom/google/common/collect/w3$b;->a(Ljava/lang/Object;I)V
+    invoke-virtual {p1, p0, v5}, Lcom/google/common/collect/Serialization$FieldSetter;->set(Ljava/lang/Object;I)V
 
-    sget-object p1, Lcom/google/common/collect/ImmutableSetMultimap$b;->a:Lcom/google/common/collect/w3$b;
+    sget-object p1, Lcom/google/common/collect/ImmutableSetMultimap$SetFieldSettersHolder;->EMPTY_SET_FIELD_SETTER:Lcom/google/common/collect/Serialization$FieldSetter;
 
     invoke-static {v0}, Lcom/google/common/collect/ImmutableSetMultimap;->emptySet(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 
-    invoke-virtual {p1, p0, v0}, Lcom/google/common/collect/w3$b;->b(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-virtual {p1, p0, v0}, Lcom/google/common/collect/Serialization$FieldSetter;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-void
 
@@ -967,11 +862,20 @@
 
     invoke-direct {p1, v0}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_3
+
+    :goto_2
     throw p1
+
+    :goto_3
+    goto :goto_2
 .end method
 
 .method public static toImmutableSetMultimap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
     .locals 0
+    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -992,7 +896,7 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/d2;->W(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
+    invoke-static {p0, p1}, Lcom/google/common/collect/CollectCollectors;->toImmutableSetMultimap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
     move-result-object p0
 
@@ -1032,7 +936,7 @@
     return-object p0
 .end method
 
-.method private static valuesBuilder(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSet$a;
+.method private static valuesBuilder(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSet$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1041,23 +945,23 @@
             ">(",
             "Ljava/util/Comparator<",
             "-TV;>;)",
-            "Lcom/google/common/collect/ImmutableSet$a<",
+            "Lcom/google/common/collect/ImmutableSet$Builder<",
             "TV;>;"
         }
     .end annotation
 
     if-nez p0, :cond_0
 
-    new-instance p0, Lcom/google/common/collect/ImmutableSet$a;
+    new-instance p0, Lcom/google/common/collect/ImmutableSet$Builder;
 
-    invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet$a;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet$Builder;-><init>()V
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/ImmutableSortedSet$a;
+    new-instance v0, Lcom/google/common/collect/ImmutableSortedSet$Builder;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedSet$a;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedSet$Builder;-><init>(Ljava/util/Comparator;)V
 
     move-object p0, v0
 
@@ -1067,6 +971,12 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1081,7 +991,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/w3;->j(Lcom/google/common/collect/j3;Ljava/io/ObjectOutputStream;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/Serialization;->writeMultimap(Lcom/google/common/collect/Multimap;Ljava/io/ObjectOutputStream;)V
 
     return-void
 .end method
@@ -1173,7 +1083,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSetMultimap;->emptySet:Lcom/google/common/collect/ImmutableSet;
 
-    invoke-static {p1, v0}, Lcom/google/common/base/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/MoreObjects;->firstNonNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -1238,6 +1148,13 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1250,6 +1167,13 @@
 
 .method public final removeAll(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1272,6 +1196,13 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1284,6 +1215,13 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Set;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1296,6 +1234,13 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableCollection;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1308,6 +1253,13 @@
 
 .method public final replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSet;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -1330,6 +1282,13 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1342,6 +1301,13 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

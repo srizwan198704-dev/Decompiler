@@ -2,26 +2,24 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lec/a$a;
-
-
-# instance fields
-.field public final synthetic a:Landroid/animation/Animator;
+.implements Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Landroid/animation/Animator;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/search/e;->a:Landroid/animation/Animator;
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke(Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;)V
+    .locals 0
+
+    invoke-virtual {p1}, Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;->onAnimationEnd()V
 
     return-void
 .end method

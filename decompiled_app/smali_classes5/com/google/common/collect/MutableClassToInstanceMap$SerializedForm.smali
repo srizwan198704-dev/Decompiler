@@ -43,12 +43,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;

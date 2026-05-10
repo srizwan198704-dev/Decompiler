@@ -2,16 +2,10 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public synthetic constructor <init>()V
     .locals 0
 
@@ -22,12 +16,12 @@
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableRangeSet;->builder()Lcom/google/common/collect/ImmutableRangeSet$a;
+    check-cast p1, Lcom/google/common/collect/TopKSelector;
 
-    move-result-object v0
+    invoke-virtual {p1, p2}, Lcom/google/common/collect/TopKSelector;->offer(Ljava/lang/Object;)V
 
-    return-object v0
+    return-void
 .end method

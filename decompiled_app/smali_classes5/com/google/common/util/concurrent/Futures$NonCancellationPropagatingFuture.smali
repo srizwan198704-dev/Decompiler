@@ -1,5 +1,5 @@
 .class final Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;
-.super Lcom/google/common/util/concurrent/AbstractFuture$h;
+.super Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -20,7 +20,7 @@
         "<V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/util/concurrent/AbstractFuture$h<",
+        "Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture<",
         "TV;>;",
         "Ljava/lang/Runnable;"
     }
@@ -28,10 +28,10 @@
 
 
 # instance fields
-.field private delegate:Lcom/google/common/util/concurrent/t;
+.field private delegate:Lcom/google/common/util/concurrent/ListenableFuture;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/util/concurrent/t<",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
             "TV;>;"
         }
     .end annotation
@@ -39,25 +39,19 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/google/common/util/concurrent/t;)V
+.method public constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/t<",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
             "TV;>;)V"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture$h;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->delegate:Lcom/google/common/util/concurrent/t;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->delegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     return-void
 .end method
@@ -69,7 +63,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->delegate:Lcom/google/common/util/concurrent/t;
+    iput-object v0, p0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->delegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     return-void
 .end method
@@ -77,7 +71,7 @@
 .method public pendingToString()Ljava/lang/String;
     .locals 3
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->delegate:Lcom/google/common/util/concurrent/t;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->delegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     if-eqz v0, :cond_0
 
@@ -110,11 +104,11 @@
 .method public run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->delegate:Lcom/google/common/util/concurrent/t;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$NonCancellationPropagatingFuture;->delegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/t;)Z
+    invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
     :cond_0
     return-void

@@ -6,6 +6,13 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    serializable = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",
@@ -36,12 +43,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -71,7 +72,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/collect/Maps;->j(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;
+    invoke-static {p1}, Lcom/google/common/collect/Maps;->indexMap(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object p1
 

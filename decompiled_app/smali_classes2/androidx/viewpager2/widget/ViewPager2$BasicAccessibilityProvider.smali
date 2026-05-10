@@ -18,12 +18,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
     .locals 1
 

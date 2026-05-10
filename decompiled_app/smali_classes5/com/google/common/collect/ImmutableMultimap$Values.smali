@@ -27,10 +27,16 @@
 
 # static fields
 .field private static final serialVersionUID:J
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+.end field
 
 
 # instance fields
-.field public final transient a:Lcom/google/common/collect/ImmutableMultimap;
+.field private final transient multimap:Lcom/google/common/collect/ImmutableMultimap;
+    .annotation build Lcom/google/j2objc/annotations/Weak;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableMultimap<",
@@ -41,12 +47,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -59,7 +59,7 @@
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableCollection;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->a:Lcom/google/common/collect/ImmutableMultimap;
+    iput-object p1, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->multimap:Lcom/google/common/collect/ImmutableMultimap;
 
     return-void
 .end method
@@ -69,7 +69,7 @@
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->a:Lcom/google/common/collect/ImmutableMultimap;
+    iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->multimap:Lcom/google/common/collect/ImmutableMultimap;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableMultimap;->containsValue(Ljava/lang/Object;)Z
 
@@ -80,8 +80,10 @@
 
 .method public copyIntoArray([Ljava/lang/Object;I)I
     .locals 2
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->a:Lcom/google/common/collect/ImmutableMultimap;
+    iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->multimap:Lcom/google/common/collect/ImmutableMultimap;
 
     iget-object v0, v0, Lcom/google/common/collect/ImmutableMultimap;->map:Lcom/google/common/collect/ImmutableMap;
 
@@ -89,7 +91,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableCollection;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableCollection;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -124,19 +126,19 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/r4;
+.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "TV;>;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->a:Lcom/google/common/collect/ImmutableMultimap;
+    iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->multimap:Lcom/google/common/collect/ImmutableMultimap;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMultimap;->valueIterator()Lcom/google/common/collect/r4;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMultimap;->valueIterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -146,7 +148,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap$Values;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMultimap$Values;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -156,7 +158,7 @@
 .method public size()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->a:Lcom/google/common/collect/ImmutableMultimap;
+    iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Values;->multimap:Lcom/google/common/collect/ImmutableMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMultimap;->size()I
 
@@ -167,6 +169,11 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableCollection;->writeReplace()Ljava/lang/Object;
 

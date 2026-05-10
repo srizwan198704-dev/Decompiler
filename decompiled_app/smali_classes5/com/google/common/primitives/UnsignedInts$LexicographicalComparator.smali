@@ -40,11 +40,11 @@
 
     new-array v0, v0, [Lcom/google/common/primitives/UnsignedInts$LexicographicalComparator;
 
-    sget-object v1, Lcom/google/common/primitives/UnsignedInts$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/UnsignedInts$LexicographicalComparator;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/primitives/UnsignedInts$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/UnsignedInts$LexicographicalComparator;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -150,7 +150,7 @@
 
     if-eq v2, v3, :cond_0
 
-    invoke-static {v2, v3}, Lcom/google/common/primitives/UnsignedInts;->a(II)I
+    invoke-static {v2, v3}, Lcom/google/common/primitives/UnsignedInts;->compare(II)I
 
     move-result p1
 

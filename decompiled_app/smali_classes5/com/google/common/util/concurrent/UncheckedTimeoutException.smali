@@ -2,17 +2,22 @@
 .super Ljava/lang/RuntimeException;
 
 
+# annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
+.end annotation
+
+
 # static fields
 .field private static final serialVersionUID:J
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 

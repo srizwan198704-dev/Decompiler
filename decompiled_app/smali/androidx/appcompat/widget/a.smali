@@ -1,135 +1,33 @@
-.class public Landroidx/appcompat/widget/a;
-.super Landroid/graphics/drawable/Drawable;
+.class public final synthetic Landroidx/appcompat/widget/a;
+.super Ljava/lang/Object;
 
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/appcompat/widget/a$a;
-    }
-.end annotation
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final a:Landroidx/appcompat/widget/ActionBarContainer;
+.field public final synthetic a:Landroidx/appcompat/widget/TooltipCompatHandler;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroidx/appcompat/widget/ActionBarContainer;)V
+.method public synthetic constructor <init>(Landroidx/appcompat/widget/TooltipCompatHandler;)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Landroidx/appcompat/widget/a;->a:Landroidx/appcompat/widget/ActionBarContainer;
+    iput-object p1, p0, Landroidx/appcompat/widget/a;->a:Landroidx/appcompat/widget/TooltipCompatHandler;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
-    .locals 2
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Landroidx/appcompat/widget/a;->a:Landroidx/appcompat/widget/ActionBarContainer;
-
-    iget-boolean v1, v0, Landroidx/appcompat/widget/ActionBarContainer;->h:Z
-
-    if-eqz v1, :cond_0
-
-    iget-object v0, v0, Landroidx/appcompat/widget/ActionBarContainer;->g:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, v0, Landroidx/appcompat/widget/ActionBarContainer;->e:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    :cond_1
-    iget-object v0, p0, Landroidx/appcompat/widget/a;->a:Landroidx/appcompat/widget/ActionBarContainer;
-
-    iget-object v1, v0, Landroidx/appcompat/widget/ActionBarContainer;->f:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v1, :cond_2
-
-    iget-boolean v0, v0, Landroidx/appcompat/widget/ActionBarContainer;->i:Z
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v1, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    :cond_2
-    :goto_0
-    return-void
-.end method
-
-.method public getOpacity()I
+.method public final run()V
     .locals 1
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Landroidx/appcompat/widget/a;->a:Landroidx/appcompat/widget/TooltipCompatHandler;
 
-    return v0
-.end method
-
-.method public getOutline(Landroid/graphics/Outline;)V
-    .locals 2
-    .param p1    # Landroid/graphics/Outline;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Landroidx/appcompat/widget/a;->a:Landroidx/appcompat/widget/ActionBarContainer;
-
-    iget-boolean v1, v0, Landroidx/appcompat/widget/ActionBarContainer;->h:Z
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, v0, Landroidx/appcompat/widget/ActionBarContainer;->g:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v1, :cond_1
-
-    iget-object v0, v0, Landroidx/appcompat/widget/ActionBarContainer;->e:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v0, p1}, Landroidx/appcompat/widget/a$a;->a(Landroid/graphics/drawable/Drawable;Landroid/graphics/Outline;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, v0, Landroidx/appcompat/widget/ActionBarContainer;->e:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_1
-
-    invoke-static {v0, p1}, Landroidx/appcompat/widget/a$a;->a(Landroid/graphics/drawable/Drawable;Landroid/graphics/Outline;)V
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method public setAlpha(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 0
+    invoke-static {v0}, Landroidx/appcompat/widget/TooltipCompatHandler;->a(Landroidx/appcompat/widget/TooltipCompatHandler;)V
 
     return-void
 .end method

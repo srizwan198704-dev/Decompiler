@@ -1,22 +1,42 @@
-.class public Lcom/google/android/material/color/a;
+.class public final synthetic Lcom/google/android/material/color/a;
 .super Ljava/lang/Object;
 
 
-# instance fields
-.field public final a:S
-
-
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public static a()Lcom/google/android/material/color/ColorResourcesOverride;
+    .locals 2
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
 
-    return-void
-.end method
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-.method public static synthetic a(Lcom/google/android/material/color/a;)S
-    .locals 0
+    const/16 v1, 0x1e
 
-    iget-short p0, p0, Lcom/google/android/material/color/a;->a:S
+    if-gt v1, v0, :cond_0
 
-    return p0
+    const/16 v1, 0x21
+
+    if-gt v0, v1, :cond_0
+
+    invoke-static {}, Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;->getInstance()Lcom/google/android/material/color/ColorResourcesOverride;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    const/16 v1, 0x22
+
+    if-lt v0, v1, :cond_1
+
+    invoke-static {}, Lcom/google/android/material/color/ResourcesLoaderColorResourcesOverride;->getInstance()Lcom/google/android/material/color/ColorResourcesOverride;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    return-object v0
 .end method

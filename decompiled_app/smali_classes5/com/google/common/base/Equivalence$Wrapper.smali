@@ -41,6 +41,9 @@
 .end field
 
 .field private final reference:Ljava/lang/Object;
+    .annotation runtime Lcom/google/common/base/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -50,14 +53,12 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;)V
     .locals 0
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/base/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +69,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -81,7 +82,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;Lcom/google/common/base/Equivalence$a;)V
+.method public synthetic constructor <init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;Lcom/google/common/base/Equivalence$1;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/common/base/Equivalence$Wrapper;-><init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;)V
@@ -137,6 +138,9 @@
 
 .method public get()Ljava/lang/Object;
     .locals 1
+    .annotation runtime Lcom/google/common/base/ParametricNullness;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"

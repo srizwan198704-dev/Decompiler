@@ -6,23 +6,26 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/android/material/color/utilities/Score;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "ScoredComparator"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
         "Ljava/util/Comparator<",
-        "Lcom/google/android/material/color/utilities/a;",
+        "Lcom/google/android/material/color/utilities/Score$ScoredHCT;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -33,12 +36,12 @@
 
 
 # virtual methods
-.method public compare(Lcom/google/android/material/color/utilities/a;Lcom/google/android/material/color/utilities/a;)I
+.method public compare(Lcom/google/android/material/color/utilities/Score$ScoredHCT;Lcom/google/android/material/color/utilities/Score$ScoredHCT;)I
     .locals 2
 
-    iget-wide v0, p2, Lcom/google/android/material/color/utilities/a;->a:D
+    iget-wide v0, p2, Lcom/google/android/material/color/utilities/Score$ScoredHCT;->score:D
 
-    iget-wide p1, p1, Lcom/google/android/material/color/utilities/a;->a:D
+    iget-wide p1, p1, Lcom/google/android/material/color/utilities/Score$ScoredHCT;->score:D
 
     invoke-static {v0, v1, p1, p2}, Ljava/lang/Double;->compare(DD)I
 
@@ -50,11 +53,11 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
-    check-cast p1, Lcom/google/android/material/color/utilities/a;
+    check-cast p1, Lcom/google/android/material/color/utilities/Score$ScoredHCT;
 
-    check-cast p2, Lcom/google/android/material/color/utilities/a;
+    check-cast p2, Lcom/google/android/material/color/utilities/Score$ScoredHCT;
 
-    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/color/utilities/Score$ScoredComparator;->compare(Lcom/google/android/material/color/utilities/a;Lcom/google/android/material/color/utilities/a;)I
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/color/utilities/Score$ScoredComparator;->compare(Lcom/google/android/material/color/utilities/Score$ScoredHCT;Lcom/google/android/material/color/utilities/Score$ScoredHCT;)I
 
     move-result p1
 

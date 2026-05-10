@@ -1,12 +1,21 @@
-.class public final Lcom/google/common/util/concurrent/TimeoutFuture;
-.super Lcom/google/common/util/concurrent/k$a;
+.class final Lcom/google/common/util/concurrent/TimeoutFuture;
+.super Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/util/concurrent/TimeoutFuture$Fire;,
-        Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;
+        Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;,
+        Lcom/google/common/util/concurrent/TimeoutFuture$Fire;
     }
 .end annotation
 
@@ -15,23 +24,23 @@
         "<V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/util/concurrent/k$a<",
+        "Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture<",
         "TV;>;"
     }
 .end annotation
 
 
 # instance fields
-.field public a:Lcom/google/common/util/concurrent/t;
+.field private delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/util/concurrent/t<",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
             "TV;>;"
         }
     .end annotation
 .end field
 
-.field public b:Ljava/util/concurrent/ScheduledFuture;
+.field private timer:Ljava/util/concurrent/ScheduledFuture;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/ScheduledFuture<",
@@ -42,79 +51,73 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/google/common/util/concurrent/t;)V
+.method private constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/t<",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
             "TV;>;)V"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/k$a;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/util/concurrent/t;
+    check-cast p1, Lcom/google/common/util/concurrent/ListenableFuture;
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->a:Lcom/google/common/util/concurrent/t;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
 
     return-void
 .end method
 
-.method public static synthetic c(Lcom/google/common/util/concurrent/TimeoutFuture;)Lcom/google/common/util/concurrent/t;
+.method public static synthetic access$000(Lcom/google/common/util/concurrent/TimeoutFuture;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 0
 
-    iget-object p0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->a:Lcom/google/common/util/concurrent/t;
+    iget-object p0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
 
     return-object p0
 .end method
 
-.method public static synthetic d(Lcom/google/common/util/concurrent/TimeoutFuture;)Ljava/util/concurrent/ScheduledFuture;
+.method public static synthetic access$100(Lcom/google/common/util/concurrent/TimeoutFuture;)Ljava/util/concurrent/ScheduledFuture;
     .locals 0
 
-    iget-object p0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->b:Ljava/util/concurrent/ScheduledFuture;
+    iget-object p0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->timer:Ljava/util/concurrent/ScheduledFuture;
 
     return-object p0
 .end method
 
-.method public static synthetic e(Lcom/google/common/util/concurrent/TimeoutFuture;Ljava/util/concurrent/ScheduledFuture;)Ljava/util/concurrent/ScheduledFuture;
+.method public static synthetic access$102(Lcom/google/common/util/concurrent/TimeoutFuture;Ljava/util/concurrent/ScheduledFuture;)Ljava/util/concurrent/ScheduledFuture;
     .locals 0
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->b:Ljava/util/concurrent/ScheduledFuture;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->timer:Ljava/util/concurrent/ScheduledFuture;
 
     return-object p1
 .end method
 
-.method public static f(Lcom/google/common/util/concurrent/t;JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/t;
+.method public static create(Lcom/google/common/util/concurrent/ListenableFuture;JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ScheduledExecutorService;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/util/concurrent/t<",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
             "TV;>;J",
             "Ljava/util/concurrent/TimeUnit;",
             "Ljava/util/concurrent/ScheduledExecutorService;",
             ")",
-            "Lcom/google/common/util/concurrent/t<",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
             "TV;>;"
         }
     .end annotation
 
     new-instance v0, Lcom/google/common/util/concurrent/TimeoutFuture;
 
-    invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/TimeoutFuture;-><init>(Lcom/google/common/util/concurrent/t;)V
+    invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/TimeoutFuture;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
 
     new-instance v1, Lcom/google/common/util/concurrent/TimeoutFuture$Fire;
 
@@ -124,13 +127,13 @@
 
     move-result-object p1
 
-    iput-object p1, v0, Lcom/google/common/util/concurrent/TimeoutFuture;->b:Ljava/util/concurrent/ScheduledFuture;
+    iput-object p1, v0, Lcom/google/common/util/concurrent/TimeoutFuture;->timer:Ljava/util/concurrent/ScheduledFuture;
 
-    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->a()Ljava/util/concurrent/Executor;
+    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->directExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object p1
 
-    invoke-interface {p0, v1, p1}, Lcom/google/common/util/concurrent/t;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-interface {p0, v1, p1}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     return-object v0
 .end method
@@ -140,11 +143,11 @@
 .method public afterDone()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->a:Lcom/google/common/util/concurrent/t;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->maybePropagateCancellationTo(Ljava/util/concurrent/Future;)V
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->b:Ljava/util/concurrent/ScheduledFuture;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->timer:Ljava/util/concurrent/ScheduledFuture;
 
     if-eqz v0, :cond_0
 
@@ -155,19 +158,19 @@
     :cond_0
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->a:Lcom/google/common/util/concurrent/t;
+    iput-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    iput-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->b:Ljava/util/concurrent/ScheduledFuture;
+    iput-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->timer:Ljava/util/concurrent/ScheduledFuture;
 
     return-void
 .end method
 
 .method public pendingToString()Ljava/lang/String;
-    .locals 5
+    .locals 6
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->a:Lcom/google/common/util/concurrent/t;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    iget-object v1, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->b:Ljava/util/concurrent/ScheduledFuture;
+    iget-object v1, p0, Lcom/google/common/util/concurrent/TimeoutFuture;->timer:Ljava/util/concurrent/ScheduledFuture;
 
     if-eqz v0, :cond_1
 
@@ -199,9 +202,9 @@
 
     const-wide/16 v3, 0x0
 
-    cmp-long v3, v1, v3
+    cmp-long v5, v1, v3
 
-    if-lez v3, :cond_0
+    if-lez v5, :cond_0
 
     new-instance v3, Ljava/lang/StringBuilder;
 

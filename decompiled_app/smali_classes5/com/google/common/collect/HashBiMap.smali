@@ -2,21 +2,27 @@
 .super Ljava/util/AbstractMap;
 
 # interfaces
-.implements Lcom/google/common/collect/k;
+.implements Lcom/google/common/collect/BiMap;
 .implements Ljava/io/Serializable;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/HashBiMap$e;,
-        Lcom/google/common/collect/HashBiMap$f;,
-        Lcom/google/common/collect/HashBiMap$c;,
+        Lcom/google/common/collect/HashBiMap$EntryForValue;,
+        Lcom/google/common/collect/HashBiMap$InverseEntrySet;,
         Lcom/google/common/collect/HashBiMap$Inverse;,
-        Lcom/google/common/collect/HashBiMap$b;,
-        Lcom/google/common/collect/HashBiMap$d;,
-        Lcom/google/common/collect/HashBiMap$a;,
-        Lcom/google/common/collect/HashBiMap$g;
+        Lcom/google/common/collect/HashBiMap$EntryForKey;,
+        Lcom/google/common/collect/HashBiMap$EntrySet;,
+        Lcom/google/common/collect/HashBiMap$ValueSet;,
+        Lcom/google/common/collect/HashBiMap$KeySet;,
+        Lcom/google/common/collect/HashBiMap$View;
     }
 .end annotation
 
@@ -29,7 +35,7 @@
         ">",
         "Ljava/util/AbstractMap<",
         "TK;TV;>;",
-        "Lcom/google/common/collect/k<",
+        "Lcom/google/common/collect/BiMap<",
         "TK;TV;>;",
         "Ljava/io/Serializable;"
     }
@@ -37,13 +43,16 @@
 
 
 # static fields
-.field private static final ABSENT:I
+.field private static final ABSENT:I = -0x1
 
-.field private static final ENDPOINT:I
+.field private static final ENDPOINT:I = -0x2
 
 
 # instance fields
 .field private transient entrySet:Ljava/util/Set;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -59,16 +68,25 @@
 
 .field private transient hashTableVToK:[I
 
-.field private transient inverse:Lcom/google/common/collect/k;
+.field private transient inverse:Lcom/google/common/collect/BiMap;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
+    .annotation build Lcom/google/j2objc/annotations/RetainedWith;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/k<",
+            "Lcom/google/common/collect/BiMap<",
             "TV;TK;>;"
         }
     .end annotation
 .end field
 
 .field private transient keySet:Ljava/util/Set;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -100,6 +118,9 @@
 .field transient size:I
 
 .field private transient valueSet:Ljava/util/Set;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -118,28 +139,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const v0, -0x229
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/google/common/collect/HashBiMap;->ABSENT:I
-
-    const v0, -0x22a
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/google/common/collect/HashBiMap;->ENDPOINT:I
-
-    return-void
-.end method
-
 .method private constructor <init>(I)V
     .locals 0
 
@@ -174,10 +173,10 @@
     return-void
 .end method
 
-.method public static synthetic access$302(Lcom/google/common/collect/HashBiMap;Lcom/google/common/collect/k;)Lcom/google/common/collect/k;
+.method public static synthetic access$302(Lcom/google/common/collect/HashBiMap;Lcom/google/common/collect/BiMap;)Lcom/google/common/collect/BiMap;
     .locals 0
 
-    iput-object p1, p0, Lcom/google/common/collect/HashBiMap;->inverse:Lcom/google/common/collect/k;
+    iput-object p1, p0, Lcom/google/common/collect/HashBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
     return-object p1
 .end method
@@ -304,7 +303,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    invoke-static {v1}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/HashBiMap;->bucket(I)I
 
@@ -382,7 +381,13 @@
 
     invoke-direct {p2, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
+    goto :goto_3
+
+    :goto_2
     throw p2
+
+    :goto_3
+    goto :goto_2
 .end method
 
 .method private deleteFromTableVToK(II)V
@@ -400,7 +405,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    invoke-static {v1}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/HashBiMap;->bucket(I)I
 
@@ -478,7 +483,13 @@
 
     invoke-direct {p2, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
+    goto :goto_3
+
+    :goto_2
     throw p2
+
+    :goto_3
+    goto :goto_2
 .end method
 
 .method private ensureCapacity(I)V
@@ -492,7 +503,7 @@
 
     array-length v0, v0
 
-    invoke-static {v0, p1}, Lcom/google/common/collect/ImmutableCollection$b;->f(II)I
+    invoke-static {v0, p1}, Lcom/google/common/collect/ImmutableCollection$Builder;->expandedCapacity(II)I
 
     move-result v0
 
@@ -553,7 +564,7 @@
 
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
-    invoke-static {p1, v0, v1}, Lcom/google/common/collect/v2;->a(ID)I
+    invoke-static {p1, v0, v1}, Lcom/google/common/collect/Hashing;->closedTableSize(ID)I
 
     move-result p1
 
@@ -580,7 +591,7 @@
 
     aget-object v0, v0, p1
 
-    invoke-static {v0}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -602,7 +613,7 @@
 
     aget-object v0, v0, p1
 
-    invoke-static {v0}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -659,7 +670,7 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/HashBiMap;->bucket(I)I
 
@@ -693,7 +704,7 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/HashBiMap;->bucket(I)I
 
@@ -744,7 +755,7 @@
 
     aput-object v3, v2, p2
 
-    invoke-static {v1}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {v1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -791,7 +802,7 @@
 
     aput v1, v0, p1
 
-    invoke-static {v3}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {v3}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -855,6 +866,12 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 2
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -864,7 +881,7 @@
 
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    invoke-static {p1}, Lcom/google/common/collect/w3;->h(Ljava/io/ObjectInputStream;)I
+    invoke-static {p1}, Lcom/google/common/collect/Serialization;->readCount(Ljava/io/ObjectInputStream;)I
 
     move-result v0
 
@@ -872,7 +889,7 @@
 
     invoke-virtual {p0, v1}, Lcom/google/common/collect/HashBiMap;->init(I)V
 
-    invoke-static {p0, p1, v0}, Lcom/google/common/collect/w3;->c(Ljava/util/Map;Ljava/io/ObjectInputStream;I)V
+    invoke-static {p0, p1, v0}, Lcom/google/common/collect/Serialization;->populateMap(Ljava/util/Map;Ljava/io/ObjectInputStream;I)V
 
     return-void
 .end method
@@ -886,7 +903,7 @@
 
     if-eq p1, v0, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_0
 
@@ -894,7 +911,7 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/HashBiMap;->deleteFromTableKToV(II)V
 
@@ -947,6 +964,10 @@
 
 .method private replaceKeyInEntry(ILjava/lang/Object;Z)V
     .locals 4
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITK;Z)V"
@@ -965,9 +986,9 @@
     const/4 v1, 0x0
 
     :goto_0
-    invoke-static {v1}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
-    invoke-static {p2}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p2}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v1
 
@@ -1075,7 +1096,7 @@
 
     aget-object p3, p3, p1
 
-    invoke-static {p3}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p3}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result p3
 
@@ -1085,7 +1106,7 @@
 
     aput-object p2, p3, p1
 
-    invoke-static {p2}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p2}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result p2
 
@@ -1100,6 +1121,10 @@
 
 .method private replaceValueInEntry(ILjava/lang/Object;Z)V
     .locals 3
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITV;Z)V"
@@ -1118,9 +1143,9 @@
     const/4 v1, 0x0
 
     :goto_0
-    invoke-static {v1}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
-    invoke-static {p2}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p2}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v1
 
@@ -1169,7 +1194,7 @@
 
     aget-object p3, p3, p1
 
-    invoke-static {p3}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p3}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result p3
 
@@ -1218,6 +1243,12 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1226,7 +1257,7 @@
 
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/w3;->i(Ljava/util/Map;Ljava/io/ObjectOutputStream;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/Serialization;->writeMap(Ljava/util/Map;Ljava/io/ObjectOutputStream;)V
 
     return-void
 .end method
@@ -1362,9 +1393,9 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/HashBiMap$c;
+    new-instance v0, Lcom/google/common/collect/HashBiMap$EntrySet;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/HashBiMap$c;-><init>(Lcom/google/common/collect/HashBiMap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/HashBiMap$EntrySet;-><init>(Lcom/google/common/collect/HashBiMap;)V
 
     iput-object v0, p0, Lcom/google/common/collect/HashBiMap;->entrySet:Ljava/util/Set;
 
@@ -1388,7 +1419,7 @@
 
     aget-object p3, p5, p2
 
-    invoke-static {p3, p1}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p3, p1}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p3
 
@@ -1408,7 +1439,7 @@
 .method public findEntryByKey(Ljava/lang/Object;)I
     .locals 1
 
-    invoke-static {p1}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -1444,7 +1475,7 @@
 .method public findEntryByValue(Ljava/lang/Object;)I
     .locals 1
 
-    invoke-static {p1}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -1479,6 +1510,17 @@
 
 .method public forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1561,11 +1603,11 @@
 
     const-string v0, "expectedSize"
 
-    invoke-static {p1, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
+    invoke-static {p1, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
-    invoke-static {p1, v0, v1}, Lcom/google/common/collect/v2;->a(ID)I
+    invoke-static {p1, v0, v1}, Lcom/google/common/collect/Hashing;->closedTableSize(ID)I
 
     move-result v0
 
@@ -1626,17 +1668,17 @@
     return-void
 .end method
 
-.method public inverse()Lcom/google/common/collect/k;
+.method public inverse()Lcom/google/common/collect/BiMap;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/k<",
+            "Lcom/google/common/collect/BiMap<",
             "TV;TK;>;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/HashBiMap;->inverse:Lcom/google/common/collect/k;
+    iget-object v0, p0, Lcom/google/common/collect/HashBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
     if-nez v0, :cond_0
 
@@ -1644,7 +1686,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/HashBiMap$Inverse;-><init>(Lcom/google/common/collect/HashBiMap;)V
 
-    iput-object v0, p0, Lcom/google/common/collect/HashBiMap;->inverse:Lcom/google/common/collect/k;
+    iput-object v0, p0, Lcom/google/common/collect/HashBiMap;->inverse:Lcom/google/common/collect/BiMap;
 
     :cond_0
     return-object v0
@@ -1664,9 +1706,9 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/HashBiMap$e;
+    new-instance v0, Lcom/google/common/collect/HashBiMap$KeySet;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/HashBiMap$e;-><init>(Lcom/google/common/collect/HashBiMap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/HashBiMap$KeySet;-><init>(Lcom/google/common/collect/HashBiMap;)V
 
     iput-object v0, p0, Lcom/google/common/collect/HashBiMap;->keySet:Ljava/util/Set;
 
@@ -1676,6 +1718,17 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -1693,13 +1746,21 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object;
     .locals 5
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;Z)TV;"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -1715,7 +1776,7 @@
 
     aget-object p1, p1, v1
 
-    invoke-static {p1, p2}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p2}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -1729,7 +1790,7 @@
     return-object p1
 
     :cond_1
-    invoke-static {p2}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p2}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v1
 
@@ -1750,7 +1811,7 @@
     :cond_2
     if-ne v3, v2, :cond_3
 
-    move p3, v4
+    const/4 p3, 0x1
 
     goto :goto_0
 
@@ -1760,7 +1821,7 @@
     :goto_0
     const-string v2, "Value already present: %s"
 
-    invoke-static {p3, v2, p2}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {p3, v2, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
 
     :cond_4
     :goto_1
@@ -1817,13 +1878,24 @@
 
 .method public putInverse(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object;
     .locals 6
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;TK;Z)TK;"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -1839,7 +1911,7 @@
 
     aget-object p1, p1, v1
 
-    invoke-static {p1, p2}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p2}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -1855,7 +1927,7 @@
     :cond_1
     iget v1, p0, Lcom/google/common/collect/HashBiMap;->lastInInsertionOrder:I
 
-    invoke-static {p2}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p2}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v3
 
@@ -1880,7 +1952,7 @@
     :cond_2
     if-ne v4, v2, :cond_3
 
-    move p3, v5
+    const/4 p3, 0x1
 
     goto :goto_0
 
@@ -1890,7 +1962,7 @@
     :goto_0
     const-string v2, "Key already present: %s"
 
-    invoke-static {p3, v2, p2}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {p3, v2, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
 
     :cond_4
     :goto_1
@@ -1957,6 +2029,9 @@
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1965,7 +2040,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -1998,7 +2073,7 @@
 
     aget-object v0, v0, p1
 
-    invoke-static {v0}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -2014,7 +2089,7 @@
 
     aget-object v0, v0, p1
 
-    invoke-static {v0}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -2030,7 +2105,7 @@
 
     aget-object v0, v0, p1
 
-    invoke-static {v0}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {v0}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -2049,7 +2124,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/collect/v2;->d(Ljava/lang/Object;)I
+    invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -2107,9 +2182,9 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/HashBiMap$f;
+    new-instance v0, Lcom/google/common/collect/HashBiMap$ValueSet;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/HashBiMap$f;-><init>(Lcom/google/common/collect/HashBiMap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/HashBiMap$ValueSet;-><init>(Lcom/google/common/collect/HashBiMap;)V
 
     iput-object v0, p0, Lcom/google/common/collect/HashBiMap;->valueSet:Ljava/util/Set;
 

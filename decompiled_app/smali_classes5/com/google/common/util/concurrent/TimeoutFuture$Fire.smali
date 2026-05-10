@@ -38,12 +38,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/util/concurrent/TimeoutFuture;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -73,7 +67,7 @@
     return-void
 
     :cond_0
-    invoke-static {v0}, Lcom/google/common/util/concurrent/TimeoutFuture;->c(Lcom/google/common/util/concurrent/TimeoutFuture;)Lcom/google/common/util/concurrent/t;
+    invoke-static {v0}, Lcom/google/common/util/concurrent/TimeoutFuture;->access$000(Lcom/google/common/util/concurrent/TimeoutFuture;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v1
 
@@ -92,7 +86,7 @@
 
     if-eqz v3, :cond_2
 
-    invoke-virtual {v0, v1}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/t;)Z
+    invoke-virtual {v0, v1}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
     goto :goto_1
 
@@ -100,11 +94,11 @@
     const/4 v3, 0x1
 
     :try_start_0
-    invoke-static {v0}, Lcom/google/common/util/concurrent/TimeoutFuture;->d(Lcom/google/common/util/concurrent/TimeoutFuture;)Ljava/util/concurrent/ScheduledFuture;
+    invoke-static {v0}, Lcom/google/common/util/concurrent/TimeoutFuture;->access$100(Lcom/google/common/util/concurrent/TimeoutFuture;)Ljava/util/concurrent/ScheduledFuture;
 
     move-result-object v4
 
-    invoke-static {v0, v2}, Lcom/google/common/util/concurrent/TimeoutFuture;->e(Lcom/google/common/util/concurrent/TimeoutFuture;Ljava/util/concurrent/ScheduledFuture;)Ljava/util/concurrent/ScheduledFuture;
+    invoke-static {v0, v2}, Lcom/google/common/util/concurrent/TimeoutFuture;->access$102(Lcom/google/common/util/concurrent/TimeoutFuture;Ljava/util/concurrent/ScheduledFuture;)Ljava/util/concurrent/ScheduledFuture;
 
     const-string v5, "Timed out"
     :try_end_0
@@ -179,7 +173,7 @@
     :try_start_2
     new-instance v5, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;
 
-    invoke-direct {v5, v4, v2}, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;-><init>(Ljava/lang/String;Lcom/google/common/util/concurrent/TimeoutFuture$a;)V
+    invoke-direct {v5, v4, v2}, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;-><init>(Ljava/lang/String;Lcom/google/common/util/concurrent/TimeoutFuture$1;)V
 
     invoke-virtual {v0, v5}, Lcom/google/common/util/concurrent/AbstractFuture;->setException(Ljava/lang/Throwable;)Z
     :try_end_2
@@ -199,7 +193,7 @@
     :try_start_3
     new-instance v6, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;
 
-    invoke-direct {v6, v5, v2}, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;-><init>(Ljava/lang/String;Lcom/google/common/util/concurrent/TimeoutFuture$a;)V
+    invoke-direct {v6, v5, v2}, Lcom/google/common/util/concurrent/TimeoutFuture$TimeoutFutureException;-><init>(Ljava/lang/String;Lcom/google/common/util/concurrent/TimeoutFuture$1;)V
 
     invoke-virtual {v0, v6}, Lcom/google/common/util/concurrent/AbstractFuture;->setException(Ljava/lang/Throwable;)Z
 

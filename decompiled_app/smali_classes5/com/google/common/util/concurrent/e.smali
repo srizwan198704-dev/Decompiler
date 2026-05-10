@@ -1,39 +1,33 @@
-.class public interface abstract Lcom/google/common/util/concurrent/e;
+.class public final synthetic Lcom/google/common/util/concurrent/e;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Ljava/lang/Runnable;
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<V:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
+
+# instance fields
+.field public final synthetic a:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/common/util/concurrent/e;->a:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract call()Lcom/google/common/util/concurrent/t;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/common/util/concurrent/t<",
-            "TV;>;"
-        }
-    .end annotation
+.method public final run()V
+    .locals 1
 
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
+    iget-object v0, p0, Lcom/google/common/util/concurrent/e;->a:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
+
+    invoke-static {v0}, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->a(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)V
+
+    return-void
 .end method

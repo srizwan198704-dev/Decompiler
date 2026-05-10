@@ -37,9 +37,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroidx/viewpager/widget/ViewPager$SavedState$a;
+    new-instance v0, Landroidx/viewpager/widget/ViewPager$SavedState$1;
 
-    invoke-direct {v0}, Landroidx/viewpager/widget/ViewPager$SavedState$a;-><init>()V
+    invoke-direct {v0}, Landroidx/viewpager/widget/ViewPager$SavedState$1;-><init>()V
 
     sput-object v0, Landroidx/viewpager/widget/ViewPager$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 

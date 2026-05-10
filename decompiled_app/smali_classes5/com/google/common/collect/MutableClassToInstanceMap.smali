@@ -1,12 +1,21 @@
 .class public final Lcom/google/common/collect/MutableClassToInstanceMap;
-.super Lcom/google/common/collect/n2;
+.super Lcom/google/common/collect/ForwardingMap;
 
 # interfaces
-.implements Ljava/util/Map;
+.implements Lcom/google/common/collect/ClassToInstanceMap;
 .implements Ljava/io/Serializable;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtIncompatible;
+.end annotation
+
+.annotation build Lcom/google/common/annotations/J2ktIncompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/collect/MutableClassToInstanceMap$SerializedForm;
@@ -18,10 +27,11 @@
         "<B:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/n2<",
+        "Lcom/google/common/collect/ForwardingMap<",
         "Ljava/lang/Class<",
         "+TB;>;TB;>;",
-        "Ljava/util/Map;",
+        "Lcom/google/common/collect/ClassToInstanceMap<",
+        "TB;>;",
         "Ljava/io/Serializable;"
     }
 .end annotation
@@ -40,12 +50,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>(Ljava/util/Map;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -57,9 +61,9 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/n2;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/ForwardingMap;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -92,6 +96,9 @@
 
 .method private static cast(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -104,7 +111,7 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/primitives/e;->d(Ljava/lang/Class;)Ljava/lang/Class;
+    invoke-static {p0}, Lcom/google/common/primitives/Primitives;->wrap(Ljava/lang/Class;)Ljava/lang/Class;
 
     move-result-object p0
 
@@ -131,9 +138,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/MutableClassToInstanceMap$a;
+    new-instance v0, Lcom/google/common/collect/MutableClassToInstanceMap$1;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/MutableClassToInstanceMap$a;-><init>(Ljava/util/Map$Entry;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MutableClassToInstanceMap$1;-><init>(Ljava/util/Map$Entry;)V
 
     return-object v0
 .end method
@@ -254,9 +261,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/MutableClassToInstanceMap$b;
+    new-instance v0, Lcom/google/common/collect/MutableClassToInstanceMap$2;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/MutableClassToInstanceMap$b;-><init>(Lcom/google/common/collect/MutableClassToInstanceMap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/MutableClassToInstanceMap$2;-><init>(Lcom/google/common/collect/MutableClassToInstanceMap;)V
 
     return-object v0
 .end method
@@ -271,7 +278,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/n2;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/ForwardingMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -284,6 +291,13 @@
 
 .method public put(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -294,7 +308,7 @@
 
     invoke-static {p1, p2}, Lcom/google/common/collect/MutableClassToInstanceMap;->cast(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/n2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-super {p0, p1, p2}, Lcom/google/common/collect/ForwardingMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -303,6 +317,12 @@
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     check-cast p1, Ljava/lang/Class;
 
@@ -365,13 +385,20 @@
     goto :goto_0
 
     :cond_0
-    invoke-super {p0, v0}, Lcom/google/common/collect/n2;->putAll(Ljava/util/Map;)V
+    invoke-super {p0, v0}, Lcom/google/common/collect/ForwardingMap;->putAll(Ljava/util/Map;)V
 
     return-void
 .end method
 
 .method public putInstance(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:TB;>(",

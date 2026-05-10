@@ -1,6 +1,9 @@
 .class public Lcom/bytedance/sdk/openadsdk/AdSlot;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Lcom/bytedance/sdk/openadsdk/SlotType;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -10,198 +13,75 @@
 .end annotation
 
 
-# static fields
-.field public static final ANCHORED_BANNER:I
-
-.field public static final FIX_BANNER:I
-
-.field public static final INLINE_BANNER:I
-
-.field public static final TYPE_BANNER:I
-
-.field public static final TYPE_CACHED_SPLASH:I
-
-.field public static final TYPE_FEED:I
-
-.field public static final TYPE_FULL_SCREEN_VIDEO:I
-
-.field public static final TYPE_INTERACTION_AD:I
-
-.field public static final TYPE_OPEN_AD:I
-
-.field public static final TYPE_REWARD_VIDEO:I
-
-
 # instance fields
-.field private AXE:Ljava/lang/String;
+.field private ak:F
 
-.field private Ff:Z
+.field private b:Lcom/bytedance/sdk/openadsdk/TTAdLoadType;
 
-.field private GNk:I
+.field private by:Ljava/lang/String;
 
-.field private KeJ:Ljava/lang/String;
+.field private cz:I
 
-.field private Kjv:Ljava/lang/String;
+.field private de:I
 
-.field private Pdn:I
+.field private e:I
 
-.field private QWA:I
+.field private f:Z
 
-.field private RDh:Ljava/lang/String;
+.field private fg:I
 
-.field private SI:I
+.field private hu:[I
 
-.field private Sk:I
+.field private i:F
 
-.field private TVS:Z
+.field private iw:Ljava/lang/String;
 
-.field private VN:Ljava/lang/String;
+.field private j:Ljava/lang/String;
 
-.field private Yhp:I
+.field private jd:I
 
-.field private Yy:Z
+.field private jq:Ljava/lang/String;
 
-.field private bea:Ljava/lang/String;
+.field private k:Ljava/lang/String;
 
-.field private enB:I
+.field private kb:Lcom/bytedance/sdk/openadsdk/mediation/ad/IMediationAdSlot;
 
-.field private fWG:Z
+.field private lh:Ljava/lang/String;
 
-.field private hLn:Ljava/lang/String;
+.field private n:Ljava/lang/String;
 
-.field private hMq:Ljava/lang/String;
+.field private p:I
 
-.field private kU:F
+.field private q:I
 
-.field private kZ:I
+.field private sg:Z
 
-.field private lhA:I
+.field private tu:Ljava/lang/String;
 
-.field private mc:F
+.field private ww:I
 
-.field private rCy:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Object;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private x:Z
 
-.field private tul:I
+.field private y:Ljava/lang/String;
 
-.field private vd:Ljava/lang/String;
+.field private yt:Ljava/lang/String;
+
+.field private yz:Z
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const v0, 0x22a
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->ANCHORED_BANNER:I
-
-    const v0, 0x229
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->FIX_BANNER:I
-
-    const v0, 0x22b
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->INLINE_BANNER:I
-
-    const v0, 0x229
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TYPE_BANNER:I
-
-    const v0, 0x22c
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TYPE_CACHED_SPLASH:I
-
-    const v0, 0x22d
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TYPE_FEED:I
-
-    const v0, 0x220
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TYPE_FULL_SCREEN_VIDEO:I
-
-    const v0, 0x22a
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TYPE_INTERACTION_AD:I
-
-    const v0, 0x22b
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TYPE_OPEN_AD:I
-
-    const v0, 0x22f
-
-    invoke-static {v0}, Lnp/NPFog;->d(I)I
-
-    move-result v0
-
-    sput v0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TYPE_REWARD_VIDEO:I
-
-    return-void
-.end method
-
 .method private constructor <init>()V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->e:I
+
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Ff:Z
-
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Yy:Z
-
-    iput v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->QWA:I
-
-    iput v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kZ:I
-
-    iput v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->tul:I
-
-    iput v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Sk:I
+    iput-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->sg:Z
 
     return-void
 .end method
@@ -214,432 +94,218 @@
     return-void
 .end method
 
-.method public static synthetic GNk(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
+.method public static synthetic ak(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->GNk:I
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->e:I
 
     return p1
 .end method
 
-.method public static synthetic GNk(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+.method public static synthetic ak(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->RDh:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->y:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method public static synthetic GNk(Lcom/bytedance/sdk/openadsdk/AdSlot;Z)Z
+.method public static synthetic ak(Lcom/bytedance/sdk/openadsdk/AdSlot;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Yy:Z
+    iput-boolean p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->sg:Z
 
     return p1
 .end method
 
-.method public static synthetic Kjv(Lcom/bytedance/sdk/openadsdk/AdSlot;F)F
+.method public static synthetic by(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->mc:F
-
-    return p1
-.end method
-
-.method public static synthetic Kjv(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->enB:I
-
-    return p1
-.end method
-
-.method public static synthetic Kjv(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Kjv:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->lh:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method public static synthetic Kjv(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/util/Map;)Ljava/util/Map;
+.method public static synthetic de(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
     .locals 0
 
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->rCy:Ljava/util/Map;
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->cz:I
+
+    return p1
+.end method
+
+.method public static synthetic de(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->tu:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method public static synthetic Kjv(Lcom/bytedance/sdk/openadsdk/AdSlot;Z)Z
+.method public static synthetic f(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
     .locals 0
 
-    iput-boolean p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->fWG:Z
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->fg:I
 
     return p1
 .end method
 
-.method public static synthetic Pdn(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+.method public static synthetic f(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->vd:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->n:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method public static synthetic VN(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+.method public static synthetic i(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
     .locals 0
 
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->KeJ:Ljava/lang/String;
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->jd:I
+
+    return p1
+.end method
+
+.method public static synthetic i(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->j:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method public static synthetic Yhp(Lcom/bytedance/sdk/openadsdk/AdSlot;F)F
+.method public static synthetic k(Lcom/bytedance/sdk/openadsdk/AdSlot;F)F
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kU:F
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->ak:F
 
     return p1
 .end method
 
-.method public static synthetic Yhp(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
+.method public static synthetic k(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Yhp:I
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->de:I
 
     return p1
 .end method
 
-.method public static synthetic Yhp(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+.method public static synthetic k(Lcom/bytedance/sdk/openadsdk/AdSlot;Lcom/bytedance/sdk/openadsdk/TTAdLoadType;)Lcom/bytedance/sdk/openadsdk/TTAdLoadType;
     .locals 0
 
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->VN:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->b:Lcom/bytedance/sdk/openadsdk/TTAdLoadType;
 
     return-object p1
 .end method
 
-.method public static synthetic Yhp(Lcom/bytedance/sdk/openadsdk/AdSlot;Z)Z
+.method public static synthetic k(Lcom/bytedance/sdk/openadsdk/AdSlot;Lcom/bytedance/sdk/openadsdk/mediation/ad/IMediationAdSlot;)Lcom/bytedance/sdk/openadsdk/mediation/ad/IMediationAdSlot;
     .locals 0
 
-    iput-boolean p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Ff:Z
-
-    return p1
-.end method
-
-.method public static synthetic enB(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->lhA:I
-
-    return p1
-.end method
-
-.method public static synthetic enB(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->AXE:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kb:Lcom/bytedance/sdk/openadsdk/mediation/ad/IMediationAdSlot;
 
     return-object p1
 .end method
 
-.method public static synthetic fWG(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
+.method public static synthetic k(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Sk:I
-
-    return p1
-.end method
-
-.method public static synthetic fWG(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->bea:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->k:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method public static getPosition(I)I
-    .locals 2
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x2
-
-    if-eq p0, v0, :cond_2
-
-    const/4 v0, 0x4
-
-    if-eq p0, v1, :cond_1
-
-    const/4 v1, 0x3
-
-    if-eq p0, v1, :cond_0
-
-    if-eq p0, v0, :cond_0
-
-    const/4 v0, 0x7
-
-    if-eq p0, v0, :cond_0
-
-    const/16 v0, 0x8
-
-    if-eq p0, v0, :cond_0
-
-    return v1
-
-    :cond_0
-    const/4 p0, 0x5
-
-    return p0
-
-    :cond_1
-    return v0
-
-    :cond_2
-    return v1
-.end method
-
-.method public static getSlot(Lorg/json/JSONObject;)Lcom/bytedance/sdk/openadsdk/AdSlot;
-    .locals 11
-
-    const-string v0, "mMediaExtra"
-
-    const/4 v1, 0x0
-
-    if-nez p0, :cond_0
-
-    return-object v1
-
-    :cond_0
-    new-instance v2, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    invoke-direct {v2}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;-><init>()V
-
-    :try_start_0
-    const-string v3, "mImgAcceptedWidth"
-
-    const/16 v4, 0x280
-
-    invoke-virtual {p0, v3, v4}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
-
-    move-result v3
-
-    const-string v4, "mImgAcceptedHeight"
-
-    const/16 v5, 0x140
-
-    invoke-virtual {p0, v4, v5}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
-
-    move-result v4
-
-    const-string v5, "mExpressViewAcceptedWidth"
-
-    const-wide/16 v6, 0x0
-
-    invoke-virtual {p0, v5, v6, v7}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;D)D
-
-    move-result-wide v8
-
-    const-string v5, "mExpressViewAcceptedHeight"
-
-    invoke-virtual {p0, v5, v6, v7}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;D)D
-
-    move-result-wide v5
-
-    const-string v7, "mCodeId"
-
-    invoke-virtual {p0, v7, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v2, v7}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setCodeId(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v7, "mAdCount"
-
-    const/4 v10, 0x1
-
-    invoke-virtual {p0, v7, v10}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
-
-    move-result v7
-
-    invoke-virtual {v2, v7}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setAdCount(I)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v7, "mIsAutoPlay"
-
-    invoke-virtual {p0, v7}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
-
-    move-result v7
-
-    invoke-virtual {v2, v7}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setIsAutoPlay(Z)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    invoke-virtual {v2, v3, v4}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setImageAcceptedSize(II)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    invoke-static {v8, v9}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/Double;->floatValue()F
-
-    move-result v3
-
-    invoke-static {v5, v6}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/Double;->floatValue()F
-
-    move-result v4
-
-    invoke-virtual {v2, v3, v4}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setExpressViewAcceptedSize(FF)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v3, "mSupportDeepLink"
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p0, v3, v4}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setSupportDeepLink(Z)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v3, "mRewardName"
-
-    invoke-virtual {p0, v3, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setRewardName(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v3, "mRewardAmount"
-
-    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setRewardAmount(I)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    invoke-virtual {p0, v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setMediaExtra(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v3, "mUserID"
-
-    invoke-virtual {p0, v3, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setUserID(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v1, "mNativeAdType"
-
-    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v1
-
-    invoke-virtual {v2, v1}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setNativeAdType(I)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v1, "mIsExpressAd"
-
-    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    invoke-virtual {v2, v1}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->isExpressAd(Z)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v1, "mBidAdm"
-
-    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->withBid(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v1, "mAdId"
-
-    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setAdId(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v1, "mCreativeId"
-
-    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setCreativeId(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v1, "mExt"
-
-    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setExt(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setMediaExtra(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-
-    const-string v0, "mBannerType"
-
-    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-virtual {v2, v0}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->setBannerType(I)Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :catch_0
-    invoke-virtual {v2}, Lcom/bytedance/sdk/openadsdk/AdSlot$Builder;->build()Lcom/bytedance/sdk/openadsdk/AdSlot;
-
-    move-result-object v0
-
-    const-string v1, "mDurationSlotType"
-
-    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result p0
-
-    invoke-virtual {v0, p0}, Lcom/bytedance/sdk/openadsdk/AdSlot;->setDurationSlotType(I)V
-
-    return-object v0
-.end method
-
-.method public static synthetic kU(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
+.method public static synthetic k(Lcom/bytedance/sdk/openadsdk/AdSlot;Z)Z
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->SI:I
+    iput-boolean p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->f:Z
 
     return p1
 .end method
 
-.method public static synthetic kU(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+.method public static synthetic k(Lcom/bytedance/sdk/openadsdk/AdSlot;[I)[I
     .locals 0
 
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hMq:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hu:[I
 
     return-object p1
 .end method
 
-.method public static synthetic mc(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
+.method public static synthetic p(Lcom/bytedance/sdk/openadsdk/AdSlot;F)F
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Pdn:I
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->i:F
 
     return p1
 .end method
 
-.method public static synthetic mc(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+.method public static synthetic p(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
     .locals 0
 
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hLn:Ljava/lang/String;
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->p:I
+
+    return p1
+.end method
+
+.method public static synthetic p(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->by:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method public static synthetic p(Lcom/bytedance/sdk/openadsdk/AdSlot;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yz:Z
+
+    return p1
+.end method
+
+.method public static synthetic q(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->q:I
+
+    return p1
+.end method
+
+.method public static synthetic q(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->iw:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method public static synthetic q(Lcom/bytedance/sdk/openadsdk/AdSlot;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->x:Z
+
+    return p1
+.end method
+
+.method public static synthetic x(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yt:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method public static synthetic yz(Lcom/bytedance/sdk/openadsdk/AdSlot;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->ww:I
+
+    return p1
+.end method
+
+.method public static synthetic yz(Lcom/bytedance/sdk/openadsdk/AdSlot;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->jq:Ljava/lang/String;
 
     return-object p1
 .end method
@@ -649,7 +315,7 @@
 .method public getAdCount()I
     .locals 1
 
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->enB:I
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->de:I
 
     return v0
 .end method
@@ -657,15 +323,31 @@
 .method public getAdId()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->AXE:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->j:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getBannerType()I
+.method public getAdLoadType()Lcom/bytedance/sdk/openadsdk/TTAdLoadType;
     .locals 1
 
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Sk:I
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->b:Lcom/bytedance/sdk/openadsdk/TTAdLoadType;
+
+    return-object v0
+.end method
+
+.method public getAdType()I
+    .locals 1
+
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->fg:I
+
+    return v0
+.end method
+
+.method public getAdloadSeq()I
+    .locals 1
+
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->cz:I
 
     return v0
 .end method
@@ -673,7 +355,7 @@
 .method public getBidAdm()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hMq:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->jq:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -681,7 +363,7 @@
 .method public getCodeId()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Kjv:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->k:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -689,23 +371,15 @@
 .method public getCreativeId()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->bea:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->tu:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method public getDurationSlotType()I
-    .locals 1
-
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->lhA:I
-
-    return v0
 .end method
 
 .method public getExpressViewAcceptedHeight()F
     .locals 1
 
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kU:F
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->i:F
 
     return v0
 .end method
@@ -713,7 +387,7 @@
 .method public getExpressViewAcceptedWidth()F
     .locals 1
 
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->mc:F
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->ak:F
 
     return v0
 .end method
@@ -721,7 +395,15 @@
 .method public getExt()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->KeJ:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->n:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getExternalABVid()[I
+    .locals 1
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hu:[I
 
     return-object v0
 .end method
@@ -729,7 +411,7 @@
 .method public getImgAcceptedHeight()I
     .locals 1
 
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->GNk:I
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->q:I
 
     return v0
 .end method
@@ -737,15 +419,7 @@
 .method public getImgAcceptedWidth()I
     .locals 1
 
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Yhp:I
-
-    return v0
-.end method
-
-.method public getIsRotateBanner()I
-    .locals 1
-
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->QWA:I
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->p:I
 
     return v0
 .end method
@@ -753,79 +427,70 @@
 .method public getMediaExtra()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->RDh:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->by:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getMediationAdSlot()Lcom/bytedance/sdk/openadsdk/mediation/ad/IMediationAdSlot;
+    .locals 1
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kb:Lcom/bytedance/sdk/openadsdk/mediation/ad/IMediationAdSlot;
 
     return-object v0
 .end method
 
 .method public getNativeAdType()I
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->SI:I
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->jd:I
 
     return v0
 .end method
 
-.method public getRequestExtraMap()Ljava/util/Map;
+.method public getOrientation()I
     .locals 1
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
 
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Object;",
-            ">;"
-        }
-    .end annotation
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->e:I
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->rCy:Ljava/util/Map;
+    return v0
+.end method
 
+.method public getPrimeRit()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->y:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+
+    :cond_0
     return-object v0
 .end method
 
 .method public getRewardAmount()I
     .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Pdn:I
+    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->ww:I
 
     return v0
 .end method
 
 .method public getRewardName()Ljava/lang/String;
     .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->VN:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->lh:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method public getRotateOrder()I
-    .locals 1
-
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->tul:I
-
-    return v0
-.end method
-
-.method public getRotateTime()I
-    .locals 1
-
-    iget v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kZ:I
-
-    return v0
 .end method
 
 .method public getUserData()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->vd:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yt:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -833,7 +498,7 @@
 .method public getUserID()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hLn:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->iw:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -841,23 +506,7 @@
 .method public isAutoPlay()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Ff:Z
-
-    return v0
-.end method
-
-.method public isExpressAd()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Yy:Z
-
-    return v0
-.end method
-
-.method public isPreload()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TVS:Z
+    iget-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->sg:Z
 
     return v0
 .end method
@@ -865,7 +514,23 @@
 .method public isSupportDeepLink()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->fWG:Z
+    iget-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->f:Z
+
+    return v0
+.end method
+
+.method public isSupportIconStyle()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->x:Z
+
+    return v0
+.end method
+
+.method public isSupportRenderConrol()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yz:Z
 
     return v0
 .end method
@@ -873,33 +538,23 @@
 .method public setAdCount(I)V
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->enB:I
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->de:I
 
     return-void
 .end method
 
-.method public setDurationSlotType(I)V
+.method public setAdLoadType(Lcom/bytedance/sdk/openadsdk/TTAdLoadType;)V
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->lhA:I
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->b:Lcom/bytedance/sdk/openadsdk/TTAdLoadType;
 
     return-void
 .end method
 
-.method public setExpressViewAccepted(FF)V
+.method public varargs setExternalABVid([I)V
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->mc:F
-
-    iput p2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kU:F
-
-    return-void
-.end method
-
-.method public setIsRotateBanner(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->QWA:I
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hu:[I
 
     return-void
 .end method
@@ -907,31 +562,7 @@
 .method public setNativeAdType(I)V
     .locals 0
 
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->SI:I
-
-    return-void
-.end method
-
-.method public setPreload(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->TVS:Z
-
-    return-void
-.end method
-
-.method public setRotateOrder(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->tul:I
-
-    return-void
-.end method
-
-.method public setRotateTime(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kZ:I
+    iput p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->jd:I
 
     return-void
 .end method
@@ -939,7 +570,7 @@
 .method public setUserData(Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->vd:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yt:Ljava/lang/String;
 
     return-void
 .end method
@@ -954,37 +585,31 @@
     :try_start_0
     const-string v1, "mCodeId"
 
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Kjv:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->k:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const-string v1, "mAdCount"
-
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->enB:I
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-
     const-string v1, "mIsAutoPlay"
 
-    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Ff:Z
+    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->sg:Z
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
     const-string v1, "mImgAcceptedWidth"
 
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Yhp:I
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->p:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     const-string v1, "mImgAcceptedHeight"
 
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->GNk:I
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->q:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     const-string v1, "mExpressViewAcceptedWidth"
 
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->mc:F
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->ak:F
 
     float-to-double v2, v2
 
@@ -992,95 +617,107 @@
 
     const-string v1, "mExpressViewAcceptedHeight"
 
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->kU:F
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->i:F
 
     float-to-double v2, v2
 
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;D)Lorg/json/JSONObject;
 
-    const-string v1, "mSupportDeepLink"
+    const-string v1, "mAdCount"
 
-    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->fWG:Z
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
-
-    const-string v1, "mRewardName"
-
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->VN:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    const-string v1, "mRewardAmount"
-
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Pdn:I
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->de:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
+    const-string v1, "mSupportDeepLink"
+
+    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->f:Z
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+
+    const-string v1, "mSupportRenderControl"
+
+    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yz:Z
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+
+    const-string v1, "mSupportIconStyle"
+
+    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->x:Z
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+
     const-string v1, "mMediaExtra"
 
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->RDh:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->by:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     const-string v1, "mUserID"
 
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hLn:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->iw:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const-string v1, "mNativeAdType"
+    const-string v1, "mOrientation"
 
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->SI:I
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->e:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    const-string v1, "mIsExpressAd"
+    const-string v1, "mNativeAdType"
 
-    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Yy:Z
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->jd:I
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    const-string v1, "mAdloadSeq"
+
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->cz:I
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    const-string v1, "mPrimeRit"
+
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->y:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     const-string v1, "mAdId"
 
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->AXE:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->j:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     const-string v1, "mCreativeId"
 
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->bea:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->tu:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     const-string v1, "mExt"
 
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->KeJ:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->n:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     const-string v1, "mBidAdm"
 
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->hMq:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->jq:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     const-string v1, "mUserData"
 
-    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->vd:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yt:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const-string v1, "mDurationSlotType"
+    const-string v1, "mAdLoadType"
 
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->lhA:I
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->b:Lcom/bytedance/sdk/openadsdk/TTAdLoadType;
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-
-    const-string v1, "mBannerType"
-
-    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->Sk:I
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1089,9 +726,191 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 3
 
-    invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "AdSlot{mCodeId=\'"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->k:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x27
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mImgAcceptedWidth="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->p:I
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mImgAcceptedHeight="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->q:I
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mExpressViewAcceptedWidth="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->ak:F
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mExpressViewAcceptedHeight="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->i:F
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mAdCount="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->de:I
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mSupportDeepLink="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->f:Z
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mSupportRenderControl="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yz:Z
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mSupportIconStyle="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->x:Z
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mMediaExtra=\'"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->by:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const-string v2, ", mUserID=\'"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->iw:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mOrientation="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->e:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mNativeAdType="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->jd:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mIsAutoPlay="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->sg:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mPrimeRit"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->y:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mAdloadSeq"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->cz:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mAdId"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mCreativeId"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->tu:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mExt"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->n:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mUserData"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->yt:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", mAdLoadType"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/AdSlot;->b:Lcom/bytedance/sdk/openadsdk/TTAdLoadType;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x7d
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

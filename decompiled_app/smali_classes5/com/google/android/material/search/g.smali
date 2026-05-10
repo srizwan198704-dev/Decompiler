@@ -6,26 +6,16 @@
 
 
 # instance fields
-.field public final synthetic a:Luc/i;
-
-.field public final synthetic b:Landroid/view/View;
+.field public final synthetic a:Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Luc/i;Landroid/view/View;)V
+.method public synthetic constructor <init>(Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/search/g;->a:Luc/i;
-
-    iput-object p2, p0, Lcom/google/android/material/search/g;->b:Landroid/view/View;
+    iput-object p1, p0, Lcom/google/android/material/search/g;->a:Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
 
     return-void
 .end method
@@ -33,13 +23,11 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/search/g;->a:Luc/i;
+    iget-object v0, p0, Lcom/google/android/material/search/g;->a:Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;
 
-    iget-object v1, p0, Lcom/google/android/material/search/g;->b:Landroid/view/View;
-
-    invoke-static {v0, v1, p1}, Lcom/google/android/material/search/j;->c(Luc/i;Landroid/view/View;Landroid/animation/ValueAnimator;)V
+    invoke-static {v0, p1}, Lcom/google/android/material/search/SearchViewAnimationHelper;->a(Landroidx/appcompat/graphics/drawable/DrawerArrowDrawable;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

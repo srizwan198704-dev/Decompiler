@@ -3,12 +3,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
@@ -33,6 +27,8 @@
 # virtual methods
 .method public final zzb(Ljava/lang/Object;)Lcom/google/android/gms/internal/common/zzad;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     invoke-super {p0, p1}, Lcom/google/android/gms/internal/common/zzaa;->zza(Ljava/lang/Object;)Lcom/google/android/gms/internal/common/zzaa;
 
@@ -41,6 +37,8 @@
 
 .method public final zzc(Ljava/util/Iterator;)Lcom/google/android/gms/internal/common/zzad;
     .locals 1
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
     :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z

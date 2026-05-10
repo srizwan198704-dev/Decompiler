@@ -1,37 +1,56 @@
 .class public final synthetic Lcom/google/common/collect/z0;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Ljava/util/function/BinaryOperator;
-
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>()V
+.method public static bridge synthetic a(Lcom/google/common/collect/SetMultimap;)Ljava/util/Collection;
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-interface {p0}, Lcom/google/common/collect/SetMultimap;->entries()Ljava/util/Set;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method
 
-
-# virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public static bridge synthetic b(Lcom/google/common/collect/SetMultimap;Ljava/lang/Object;)Ljava/util/Collection;
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
 
-    check-cast p1, Lcom/google/common/collect/l3;
+    invoke-interface {p0, p1}, Lcom/google/common/collect/SetMultimap;->get(Ljava/lang/Object;)Ljava/util/Set;
 
-    check-cast p2, Lcom/google/common/collect/l3;
+    move-result-object p0
 
-    invoke-static {p1, p2}, Lcom/google/common/collect/d2;->j(Lcom/google/common/collect/l3;Lcom/google/common/collect/l3;)Lcom/google/common/collect/l3;
+    return-object p0
+.end method
 
-    move-result-object p1
+.method public static bridge synthetic c(Lcom/google/common/collect/SetMultimap;Ljava/lang/Object;)Ljava/util/Collection;
+    .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
 
-    return-object p1
+    invoke-interface {p0, p1}, Lcom/google/common/collect/SetMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/Set;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic d(Lcom/google/common/collect/SetMultimap;Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
+    invoke-interface {p0, p1, p2}, Lcom/google/common/collect/SetMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
+
+    move-result-object p0
+
+    return-object p0
 .end method

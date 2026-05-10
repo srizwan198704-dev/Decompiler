@@ -3,10 +3,16 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/RegularImmutableTable$CellSet;,
-        Lcom/google/common/collect/RegularImmutableTable$Values;
+        Lcom/google/common/collect/RegularImmutableTable$Values;,
+        Lcom/google/common/collect/RegularImmutableTable$CellSet;
     }
 .end annotation
 
@@ -26,12 +32,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -40,17 +40,89 @@
     return-void
 .end method
 
-.method public static synthetic a(Ljava/util/Comparator;Ljava/util/Comparator;Lcom/google/common/collect/c4$a;Lcom/google/common/collect/c4$a;)I
+.method public static synthetic a(Ljava/util/Comparator;Ljava/util/Comparator;Lcom/google/common/collect/Table$Cell;Lcom/google/common/collect/Table$Cell;)I
     .locals 0
 
-    invoke-static {p0, p1, p2, p3}, Lcom/google/common/collect/RegularImmutableTable;->c(Ljava/util/Comparator;Ljava/util/Comparator;Lcom/google/common/collect/c4$a;Lcom/google/common/collect/c4$a;)I
+    invoke-static {p0, p1, p2, p3}, Lcom/google/common/collect/RegularImmutableTable;->lambda$forCells$0(Ljava/util/Comparator;Ljava/util/Comparator;Lcom/google/common/collect/Table$Cell;Lcom/google/common/collect/Table$Cell;)I
 
     move-result p0
 
     return p0
 .end method
 
-.method public static b(Ljava/lang/Iterable;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
+.method public static forCells(Ljava/lang/Iterable;)Lcom/google/common/collect/RegularImmutableTable;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<R:",
+            "Ljava/lang/Object;",
+            "C:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Iterable<",
+            "Lcom/google/common/collect/Table$Cell<",
+            "TR;TC;TV;>;>;)",
+            "Lcom/google/common/collect/RegularImmutableTable<",
+            "TR;TC;TV;>;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0, v0}, Lcom/google/common/collect/RegularImmutableTable;->forCellsInternal(Ljava/lang/Iterable;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static forCells(Ljava/util/List;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<R:",
+            "Ljava/lang/Object;",
+            "C:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/List<",
+            "Lcom/google/common/collect/Table$Cell<",
+            "TR;TC;TV;>;>;",
+            "Ljava/util/Comparator<",
+            "-TR;>;",
+            "Ljava/util/Comparator<",
+            "-TC;>;)",
+            "Lcom/google/common/collect/RegularImmutableTable<",
+            "TR;TC;TV;>;"
+        }
+    .end annotation
+
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    if-nez p1, :cond_0
+
+    if-eqz p2, :cond_1
+
+    :cond_0
+    new-instance v0, Lcom/google/common/collect/y0;
+
+    invoke-direct {v0, p1, p2}, Lcom/google/common/collect/y0;-><init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
+
+    invoke-static {p0, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    :cond_1
+    invoke-static {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableTable;->forCellsInternal(Ljava/lang/Iterable;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static forCellsInternal(Ljava/lang/Iterable;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,7 +134,7 @@
             "Ljava/lang/Object;",
             ">(",
             "Ljava/lang/Iterable<",
-            "Lcom/google/common/collect/c4$a<",
+            "Lcom/google/common/collect/Table$Cell<",
             "TR;TC;TV;>;>;",
             "Ljava/util/Comparator<",
             "-TR;>;",
@@ -100,15 +172,15 @@
 
     move-result-object v3
 
-    check-cast v3, Lcom/google/common/collect/c4$a;
+    check-cast v3, Lcom/google/common/collect/Table$Cell;
 
-    invoke-interface {v3}, Lcom/google/common/collect/c4$a;->getRowKey()Ljava/lang/Object;
+    invoke-interface {v3}, Lcom/google/common/collect/Table$Cell;->getRowKey()Ljava/lang/Object;
 
     move-result-object v4
 
     invoke-interface {v0, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v3}, Lcom/google/common/collect/c4$a;->getColumnKey()Ljava/lang/Object;
+    invoke-interface {v3}, Lcom/google/common/collect/Table$Cell;->getColumnKey()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -160,129 +232,6 @@
     return-object p0
 .end method
 
-.method public static synthetic c(Ljava/util/Comparator;Ljava/util/Comparator;Lcom/google/common/collect/c4$a;Lcom/google/common/collect/c4$a;)I
-    .locals 3
-
-    const/4 v0, 0x0
-
-    if-nez p0, :cond_0
-
-    move p0, v0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p2}, Lcom/google/common/collect/c4$a;->getRowKey()Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-interface {p3}, Lcom/google/common/collect/c4$a;->getRowKey()Ljava/lang/Object;
-
-    move-result-object v2
-
-    invoke-interface {p0, v1, v2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
-
-    move-result p0
-
-    :goto_0
-    if-eqz p0, :cond_1
-
-    return p0
-
-    :cond_1
-    if-nez p1, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    invoke-interface {p2}, Lcom/google/common/collect/c4$a;->getColumnKey()Ljava/lang/Object;
-
-    move-result-object p0
-
-    invoke-interface {p3}, Lcom/google/common/collect/c4$a;->getColumnKey()Ljava/lang/Object;
-
-    move-result-object p2
-
-    invoke-interface {p1, p0, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
-
-    move-result v0
-
-    :goto_1
-    return v0
-.end method
-
-.method public static forCells(Ljava/lang/Iterable;)Lcom/google/common/collect/RegularImmutableTable;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<R:",
-            "Ljava/lang/Object;",
-            "C:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Iterable<",
-            "Lcom/google/common/collect/c4$a<",
-            "TR;TC;TV;>;>;)",
-            "Lcom/google/common/collect/RegularImmutableTable<",
-            "TR;TC;TV;>;"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, v0, v0}, Lcom/google/common/collect/RegularImmutableTable;->b(Ljava/lang/Iterable;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static forCells(Ljava/util/List;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<R:",
-            "Ljava/lang/Object;",
-            "C:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/util/List<",
-            "Lcom/google/common/collect/c4$a<",
-            "TR;TC;TV;>;>;",
-            "Ljava/util/Comparator<",
-            "-TR;>;",
-            "Ljava/util/Comparator<",
-            "-TC;>;)",
-            "Lcom/google/common/collect/RegularImmutableTable<",
-            "TR;TC;TV;>;"
-        }
-    .end annotation
-
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
-
-    if-nez p1, :cond_0
-
-    if-eqz p2, :cond_1
-
-    :cond_0
-    new-instance v0, Lcom/google/common/collect/v3;
-
-    invoke-direct {v0, p1, p2}, Lcom/google/common/collect/v3;-><init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
-
-    invoke-static {p0, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    :cond_1
-    invoke-static {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableTable;->b(Ljava/lang/Iterable;Ljava/util/Comparator;Ljava/util/Comparator;)Lcom/google/common/collect/RegularImmutableTable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method public static forOrderedComponents(Lcom/google/common/collect/ImmutableList;Lcom/google/common/collect/ImmutableSet;Lcom/google/common/collect/ImmutableSet;)Lcom/google/common/collect/RegularImmutableTable;
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
@@ -295,7 +244,7 @@
             "Ljava/lang/Object;",
             ">(",
             "Lcom/google/common/collect/ImmutableList<",
-            "Lcom/google/common/collect/c4$a<",
+            "Lcom/google/common/collect/Table$Cell<",
             "TR;TC;TV;>;>;",
             "Lcom/google/common/collect/ImmutableSet<",
             "TR;>;",
@@ -324,15 +273,15 @@
 
     int-to-long v4, v4
 
-    mul-long/2addr v2, v4
+    mul-long v2, v2, v4
 
     const-wide/16 v4, 0x2
 
     div-long/2addr v2, v4
 
-    cmp-long v0, v0, v2
+    cmp-long v4, v0, v2
 
-    if-lez v0, :cond_0
+    if-lez v4, :cond_0
 
     new-instance v0, Lcom/google/common/collect/DenseImmutableTable;
 
@@ -349,6 +298,57 @@
     return-object v0
 .end method
 
+.method private static synthetic lambda$forCells$0(Ljava/util/Comparator;Ljava/util/Comparator;Lcom/google/common/collect/Table$Cell;Lcom/google/common/collect/Table$Cell;)I
+    .locals 3
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p2}, Lcom/google/common/collect/Table$Cell;->getRowKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-interface {p3}, Lcom/google/common/collect/Table$Cell;->getRowKey()Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-interface {p0, v1, v2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result p0
+
+    :goto_0
+    if-eqz p0, :cond_1
+
+    return p0
+
+    :cond_1
+    if-nez p1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    invoke-interface {p2}, Lcom/google/common/collect/Table$Cell;->getColumnKey()Ljava/lang/Object;
+
+    move-result-object p0
+
+    invoke-interface {p3}, Lcom/google/common/collect/Table$Cell;->getColumnKey()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-interface {p1, p0, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v0
+
+    :goto_1
+    return v0
+.end method
+
 
 # virtual methods
 .method public final checkNoDuplicate(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
@@ -363,17 +363,16 @@
 
     const/4 v0, 0x1
 
-    :goto_0
-    move v1, v0
+    const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
 
-    goto :goto_0
+    const/4 v1, 0x0
 
-    :goto_1
+    :goto_0
     const-string v2, "Duplicate key: (row=%s, column=%s), values: [%s, %s]."
 
     move-object v3, p1
@@ -384,7 +383,7 @@
 
     move-object v6, p3
 
-    invoke-static/range {v1 .. v6}, Lcom/google/common/base/m;->l(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static/range {v1 .. v6}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -395,7 +394,7 @@
         value = {
             "()",
             "Lcom/google/common/collect/ImmutableSet<",
-            "Lcom/google/common/collect/c4$a<",
+            "Lcom/google/common/collect/Table$Cell<",
             "TR;TC;TV;>;>;"
         }
     .end annotation
@@ -417,7 +416,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/RegularImmutableTable$CellSet;-><init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/RegularImmutableTable$CellSet;-><init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$1;)V
 
     :goto_0
     return-object v0
@@ -460,7 +459,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/RegularImmutableTable$Values;-><init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/RegularImmutableTable$Values;-><init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$1;)V
 
     :goto_0
     return-object v0
@@ -476,11 +475,11 @@
     return-object v0
 .end method
 
-.method public abstract getCell(I)Lcom/google/common/collect/c4$a;
+.method public abstract getCell(I)Lcom/google/common/collect/Table$Cell;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/c4$a<",
+            "Lcom/google/common/collect/Table$Cell<",
             "TR;TC;TV;>;"
         }
     .end annotation
@@ -494,8 +493,10 @@
     .end annotation
 .end method
 
-.method public abstract synthetic size()I
-.end method
-
 .method public abstract writeReplace()Ljava/lang/Object;
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 .end method

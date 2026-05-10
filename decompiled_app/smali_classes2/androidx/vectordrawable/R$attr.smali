@@ -2,39 +2,44 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/vectordrawable/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "attr"
+.end annotation
+
+
 # static fields
-.field public static alpha:I = 0x7f04003e
+.field public static final alpha:I = 0x7f04006f
 
-.field public static font:I = 0x7f04039d
+.field public static final font:I = 0x7f0402c2
 
-.field public static fontProviderAuthority:I = 0x7f04039f
+.field public static final fontProviderAuthority:I = 0x7f0402c4
 
-.field public static fontProviderCerts:I = 0x7f0403a0
+.field public static final fontProviderCerts:I = 0x7f0402c5
 
-.field public static fontProviderFetchStrategy:I = 0x7f0403a2
+.field public static final fontProviderFetchStrategy:I = 0x7f0402c6
 
-.field public static fontProviderFetchTimeout:I = 0x7f0403a3
+.field public static final fontProviderFetchTimeout:I = 0x7f0402c7
 
-.field public static fontProviderPackage:I = 0x7f0403a4
+.field public static final fontProviderPackage:I = 0x7f0402c8
 
-.field public static fontProviderQuery:I = 0x7f0403a5
+.field public static final fontProviderQuery:I = 0x7f0402c9
 
-.field public static fontStyle:I = 0x7f0403a7
+.field public static final fontStyle:I = 0x7f0402cb
 
-.field public static fontVariationSettings:I = 0x7f0403a8
+.field public static final fontVariationSettings:I = 0x7f0402cd
 
-.field public static fontWeight:I = 0x7f0403a9
+.field public static final fontWeight:I = 0x7f0402ce
 
-.field public static ttcIndex:I = 0x7f040814
+.field public static final ttcIndex:I = 0x7f040725
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

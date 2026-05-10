@@ -3,12 +3,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/google/android/gms/common/internal/ClientSettings;Lcom/google/android/gms/common/api/GoogleApiClient$ConnectionCallbacks;Lcom/google/android/gms/common/api/GoogleApiClient$OnConnectionFailedListener;)V
     .locals 7
 
@@ -77,17 +71,17 @@
 
     new-array v0, v0, [Lcom/google/android/gms/common/Feature;
 
-    sget-object v1, Lcom/google/android/gms/fido/zza;->zzh:Lcom/google/android/gms/common/Feature;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/android/gms/fido/zza;->zzh:Lcom/google/android/gms/common/Feature;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/android/gms/fido/zza;->zzg:Lcom/google/android/gms/common/Feature;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Lcom/google/android/gms/fido/zza;->zzg:Lcom/google/android/gms/common/Feature;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -103,7 +97,7 @@
 
     const-string v2, "com.google.android.gms.fido.fido2.regular.START"
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     return-object v0
 .end method

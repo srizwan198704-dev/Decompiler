@@ -15,7 +15,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/google/common/collect/IndexedImmutableSet<",
-        "Lcom/google/common/collect/l3$a<",
+        "Lcom/google/common/collect/Multiset$Entry<",
         "TE;>;>;"
     }
 .end annotation
@@ -23,6 +23,9 @@
 
 # static fields
 .field private static final serialVersionUID:J
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+.end field
 
 
 # instance fields
@@ -30,13 +33,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/google/common/collect/ImmutableMultiset;)V
+.method private constructor <init>(Lcom/google/common/collect/ImmutableMultiset;)V
     .locals 0
 
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMultiset$EntrySet;->this$0:Lcom/google/common/collect/ImmutableMultiset;
@@ -46,7 +43,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/collect/ImmutableMultiset;Lcom/google/common/collect/ImmutableMultiset$a;)V
+.method public synthetic constructor <init>(Lcom/google/common/collect/ImmutableMultiset;Lcom/google/common/collect/ImmutableMultiset$1;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/ImmutableMultiset$EntrySet;-><init>(Lcom/google/common/collect/ImmutableMultiset;)V
@@ -56,6 +53,12 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -76,15 +79,15 @@
 .method public contains(Ljava/lang/Object;)Z
     .locals 3
 
-    instance-of v0, p1, Lcom/google/common/collect/l3$a;
+    instance-of v0, p1, Lcom/google/common/collect/Multiset$Entry;
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_1
 
-    check-cast p1, Lcom/google/common/collect/l3$a;
+    check-cast p1, Lcom/google/common/collect/Multiset$Entry;
 
-    invoke-interface {p1}, Lcom/google/common/collect/l3$a;->getCount()I
+    invoke-interface {p1}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
 
     move-result v0
 
@@ -95,15 +98,15 @@
     :cond_0
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultiset$EntrySet;->this$0:Lcom/google/common/collect/ImmutableMultiset;
 
-    invoke-interface {p1}, Lcom/google/common/collect/l3$a;->getElement()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Lcom/google/common/collect/ImmutableMultiset;->count(Ljava/lang/Object;)I
+    invoke-interface {v0, v2}, Lcom/google/common/collect/Multiset;->count(Ljava/lang/Object;)I
 
     move-result v0
 
-    invoke-interface {p1}, Lcom/google/common/collect/l3$a;->getCount()I
+    invoke-interface {p1}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
 
     move-result p1
 
@@ -115,19 +118,19 @@
     return v1
 .end method
 
-.method public get(I)Lcom/google/common/collect/l3$a;
+.method public get(I)Lcom/google/common/collect/Multiset$Entry;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/l3$a<",
+            "Lcom/google/common/collect/Multiset$Entry<",
             "TE;>;"
         }
     .end annotation
 
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultiset$EntrySet;->this$0:Lcom/google/common/collect/ImmutableMultiset;
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableMultiset;->getEntry(I)Lcom/google/common/collect/l3$a;
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableMultiset;->getEntry(I)Lcom/google/common/collect/Multiset$Entry;
 
     move-result-object p1
 
@@ -137,7 +140,7 @@
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableMultiset$EntrySet;->get(I)Lcom/google/common/collect/l3$a;
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableMultiset$EntrySet;->get(I)Lcom/google/common/collect/Multiset$Entry;
 
     move-result-object p1
 
@@ -186,6 +189,11 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 2
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     new-instance v0, Lcom/google/common/collect/ImmutableMultiset$EntrySetSerializedForm;
 

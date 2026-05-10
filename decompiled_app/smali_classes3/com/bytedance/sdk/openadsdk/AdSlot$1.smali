@@ -11,11 +11,3 @@
     accessFlags = 0x1009
     name = null
 .end annotation
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method

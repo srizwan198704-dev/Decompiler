@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/q;
+.implements Lcom/google/common/base/Supplier;
 .implements Ljava/io/Serializable;
 
 
@@ -22,7 +22,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/q<",
+        "Lcom/google/common/base/Supplier<",
         "Ljava/util/Set<",
         "TV;>;>;",
         "Ljava/io/Serializable;"
@@ -35,12 +35,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(I)V
     .locals 1
 
@@ -48,7 +42,7 @@
 
     const-string v0, "expectedValuesPerKey"
 
-    invoke-static {p1, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
+    invoke-static {p1, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
     move-result p1
 
@@ -81,7 +75,7 @@
 
     iget v0, p0, Lcom/google/common/collect/MultimapBuilder$LinkedHashSetSupplier;->expectedValuesPerKey:I
 
-    invoke-static {v0}, Lcom/google/common/collect/r3;->g(I)Ljava/util/Set;
+    invoke-static {v0}, Lcom/google/common/collect/Platform;->newLinkedHashSetWithExpectedSize(I)Ljava/util/Set;
 
     move-result-object v0
 

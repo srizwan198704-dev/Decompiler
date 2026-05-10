@@ -35,16 +35,16 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState$a;
+    new-instance v0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState$1;
 
-    invoke-direct {v0}, Lcom/google/android/material/slider/RangeSlider$RangeSliderState$a;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/slider/RangeSlider$RangeSliderState$1;-><init>()V
 
     sput-object v0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/os/Parcel;)V
+.method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
     const-class v0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState;
@@ -74,7 +74,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/material/slider/RangeSlider$a;)V
+.method public synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/material/slider/RangeSlider$1;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/material/slider/RangeSlider$RangeSliderState;-><init>(Landroid/os/Parcel;)V
@@ -90,7 +90,7 @@
     return-void
 .end method
 
-.method public static synthetic a(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;)F
+.method public static synthetic access$000(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;)F
     .locals 0
 
     iget p0, p0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState;->minSeparation:F
@@ -98,7 +98,7 @@
     return p0
 .end method
 
-.method public static synthetic b(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;F)F
+.method public static synthetic access$002(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;F)F
     .locals 0
 
     iput p1, p0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState;->minSeparation:F
@@ -106,7 +106,7 @@
     return p1
 .end method
 
-.method public static synthetic c(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;)I
+.method public static synthetic access$100(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;)I
     .locals 0
 
     iget p0, p0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState;->separationUnit:I
@@ -114,7 +114,7 @@
     return p0
 .end method
 
-.method public static synthetic d(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;I)I
+.method public static synthetic access$102(Lcom/google/android/material/slider/RangeSlider$RangeSliderState;I)I
     .locals 0
 
     iput p1, p0, Lcom/google/android/material/slider/RangeSlider$RangeSliderState;->separationUnit:I

@@ -3,6 +3,13 @@
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+    emulated = true
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<C::",
@@ -26,12 +33,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/DiscreteDomain;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -53,14 +54,18 @@
     return-void
 .end method
 
-.method public static builder()Lcom/google/common/collect/ImmutableSortedSet$a;
+.method public static builder()Lcom/google/common/collect/ImmutableSortedSet$Builder;
     .locals 1
+    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
+        value = "Always throws UnsupportedOperationException"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/collect/ImmutableSortedSet$a<",
+            "Lcom/google/common/collect/ImmutableSortedSet$Builder<",
             "TE;>;"
         }
     .end annotation
@@ -227,9 +232,9 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Range;->hasLowerBound()Z
@@ -344,6 +349,9 @@
 # virtual methods
 .method public createDescendingSet()Lcom/google/common/collect/ImmutableSortedSet;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -369,7 +377,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -386,6 +394,9 @@
 
 .method public headSet(Ljava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;Z)",
@@ -394,7 +405,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -421,6 +432,8 @@
 
 .method public bridge synthetic headSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
 
     check-cast p1, Ljava/lang/Comparable;
 
@@ -433,6 +446,8 @@
 
 .method public bridge synthetic headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
 
     check-cast p1, Ljava/lang/Comparable;
 
@@ -522,9 +537,9 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->comparator()Ljava/util/Comparator;
 
@@ -540,15 +555,15 @@
 
     if-gtz v0, :cond_0
 
-    move v0, v2
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     invoke-virtual {p0, p1, v2, p2, v1}, Lcom/google/common/collect/ContiguousSet;->subSetImpl(Ljava/lang/Comparable;ZLjava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
 
@@ -559,6 +574,9 @@
 
 .method public subSet(Ljava/lang/Comparable;ZLjava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;ZTC;Z)",
@@ -567,9 +585,9 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p3}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->comparator()Ljava/util/Comparator;
 
@@ -589,7 +607,7 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
+    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/common/collect/ContiguousSet;->subSetImpl(Ljava/lang/Comparable;ZLjava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
 
@@ -614,6 +632,8 @@
 
 .method public bridge synthetic subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
 
     check-cast p1, Ljava/lang/Comparable;
 
@@ -628,6 +648,8 @@
 
 .method public bridge synthetic subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
 
     check-cast p1, Ljava/lang/Comparable;
 
@@ -688,7 +710,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -705,6 +727,9 @@
 
 .method public tailSet(Ljava/lang/Comparable;Z)Lcom/google/common/collect/ContiguousSet;
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TC;Z)",
@@ -713,7 +738,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -740,6 +765,8 @@
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;Z)Lcom/google/common/collect/ImmutableSortedSet;
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
 
     check-cast p1, Ljava/lang/Comparable;
 
@@ -752,6 +779,8 @@
 
 .method public bridge synthetic tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 0
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
 
     check-cast p1, Ljava/lang/Comparable;
 
@@ -812,6 +841,11 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableSortedSet;->writeReplace()Ljava/lang/Object;
 

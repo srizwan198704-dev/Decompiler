@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/q;
+.implements Lcom/google/common/base/Supplier;
 .implements Ljava/io/Serializable;
 
 
@@ -24,8 +24,8 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/q<",
-        "Ljava/util/Map<",
+        "Lcom/google/common/base/Supplier<",
+        "Ljava/util/TreeMap<",
         "TC;TV;>;>;",
         "Ljava/io/Serializable;"
     }
@@ -48,12 +48,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/util/Comparator;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -76,19 +70,19 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/TreeBasedTable$Factory;->get()Ljava/util/Map;
+    invoke-virtual {p0}, Lcom/google/common/collect/TreeBasedTable$Factory;->get()Ljava/util/TreeMap;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public get()Ljava/util/Map;
+.method public get()Ljava/util/TreeMap;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Map<",
+            "Ljava/util/TreeMap<",
             "TC;TV;>;"
         }
     .end annotation

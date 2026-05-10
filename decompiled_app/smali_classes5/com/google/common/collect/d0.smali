@@ -5,17 +5,17 @@
 .implements Ljava/util/function/Supplier;
 
 
+# instance fields
+.field public final synthetic a:Ljava/util/Comparator;
+
+
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>()V
+.method public synthetic constructor <init>(Ljava/util/Comparator;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/common/collect/d0;->a:Ljava/util/Comparator;
 
     return-void
 .end method
@@ -25,9 +25,11 @@
 .method public final get()Ljava/lang/Object;
     .locals 1
 
-    new-instance v0, Lcom/google/common/collect/ImmutableBiMap$a;
+    iget-object v0, p0, Lcom/google/common/collect/d0;->a:Ljava/util/Comparator;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableBiMap$a;-><init>()V
+    invoke-static {v0}, Lcom/google/common/collect/CollectCollectors;->w(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSortedSet$Builder;
+
+    move-result-object v0
 
     return-object v0
 .end method

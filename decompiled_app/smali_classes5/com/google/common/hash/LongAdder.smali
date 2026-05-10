@@ -3,7 +3,12 @@
 
 # interfaces
 .implements Ljava/io/Serializable;
-.implements Lcom/google/common/hash/h;
+.implements Lcom/google/common/hash/LongAddable;
+
+
+# annotations
+.annotation runtime Lcom/google/common/hash/ElementTypesAreNonnullByDefault;
+.end annotation
 
 
 # static fields
@@ -11,12 +16,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -42,7 +41,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
+    iput-object v0, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
 
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readLong()J
 
@@ -77,7 +76,7 @@
 .method public add(J)V
     .locals 6
 
-    iget-object v0, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
+    iget-object v0, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
 
     if-nez v0, :cond_0
 
@@ -122,11 +121,11 @@
 
     if-eqz v0, :cond_1
 
-    iget-wide v2, v0, Lcom/google/common/hash/Striped64$b;->a:J
+    iget-wide v2, v0, Lcom/google/common/hash/Striped64$Cell;->value:J
 
     add-long v4, v2, p1
 
-    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/google/common/hash/Striped64$b;->a(JJ)Z
+    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/google/common/hash/Striped64$Cell;->cas(JJ)Z
 
     move-result v2
 
@@ -198,9 +197,9 @@
 
     move-result-wide v0
 
-    long-to-int v0, v0
+    long-to-int v1, v0
 
-    return v0
+    return v1
 .end method
 
 .method public longValue()J
@@ -228,7 +227,7 @@
 
     iget-wide v0, p0, Lcom/google/common/hash/Striped64;->base:J
 
-    iget-object v2, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
+    iget-object v2, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
 
     if-eqz v2, :cond_1
 
@@ -243,7 +242,7 @@
 
     if-eqz v5, :cond_0
 
-    iget-wide v5, v5, Lcom/google/common/hash/Striped64$b;->a:J
+    iget-wide v5, v5, Lcom/google/common/hash/Striped64$Cell;->value:J
 
     add-long/2addr v0, v5
 
@@ -261,7 +260,7 @@
 
     iget-wide v0, p0, Lcom/google/common/hash/Striped64;->base:J
 
-    iget-object v2, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
+    iget-object v2, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
 
     const-wide/16 v3, 0x0
 
@@ -280,11 +279,11 @@
 
     if-eqz v7, :cond_0
 
-    iget-wide v8, v7, Lcom/google/common/hash/Striped64$b;->a:J
+    iget-wide v8, v7, Lcom/google/common/hash/Striped64$Cell;->value:J
 
     add-long/2addr v0, v8
 
-    iput-wide v3, v7, Lcom/google/common/hash/Striped64$b;->a:J
+    iput-wide v3, v7, Lcom/google/common/hash/Striped64$Cell;->value:J
 
     :cond_0
     add-int/lit8 v6, v6, 0x1

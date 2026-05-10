@@ -10,20 +10,18 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroidx/annotation/Px;
+        .end annotation
+    .end param
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const-string v0, "Margin must be non-negative"
 
-    invoke-static {p1, v0}, Landroidx/core/util/i;->e(ILjava/lang/String;)I
+    invoke-static {p1, v0}, Landroidx/core/util/Preconditions;->checkArgumentNonnegative(ILjava/lang/String;)I
 
     iput p1, p0, Landroidx/viewpager2/widget/MarginPageTransformer;->mMarginPx:I
 
@@ -84,7 +82,7 @@
 
     int-to-float v1, v1
 
-    mul-float/2addr v1, p2
+    mul-float v1, v1, p2
 
     invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->getOrientation()I
 

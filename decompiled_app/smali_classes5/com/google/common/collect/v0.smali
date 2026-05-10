@@ -2,40 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Lcom/google/common/base/Function;
 
 
 # instance fields
-.field public final synthetic a:Lcom/google/common/collect/MultimapBuilder$d;
+.field public final synthetic a:Lcom/google/common/collect/Multimaps$AsMap$EntrySet;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Lcom/google/common/collect/MultimapBuilder$d;)V
+.method public synthetic constructor <init>(Lcom/google/common/collect/Multimaps$AsMap$EntrySet;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/v0;->a:Lcom/google/common/collect/MultimapBuilder$d;
+    iput-object p1, p0, Lcom/google/common/collect/v0;->a:Lcom/google/common/collect/Multimaps$AsMap$EntrySet;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/v0;->a:Lcom/google/common/collect/MultimapBuilder$d;
+    iget-object v0, p0, Lcom/google/common/collect/v0;->a:Lcom/google/common/collect/Multimaps$AsMap$EntrySet;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/MultimapBuilder$d;->g()Lcom/google/common/collect/i3;
+    invoke-static {v0, p1}, Lcom/google/common/collect/Multimaps$AsMap$EntrySet;->a(Lcom/google/common/collect/Multimaps$AsMap$EntrySet;Ljava/lang/Object;)Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

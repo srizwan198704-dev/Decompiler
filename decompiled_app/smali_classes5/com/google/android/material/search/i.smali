@@ -2,30 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/material/search/j$g;
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic a:Lcom/google/android/material/search/SearchViewAnimationHelper;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/google/android/material/search/SearchViewAnimationHelper;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/material/search/i;->a:Lcom/google/android/material/search/SearchViewAnimationHelper;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final a(Lcom/google/android/material/search/SearchBar$b;)V
-    .locals 0
+.method public final run()V
+    .locals 1
 
-    invoke-virtual {p1}, Lcom/google/android/material/search/SearchBar$b;->a()V
+    iget-object v0, p0, Lcom/google/android/material/search/i;->a:Lcom/google/android/material/search/SearchViewAnimationHelper;
+
+    invoke-static {v0}, Lcom/google/android/material/search/SearchViewAnimationHelper;->e(Lcom/google/android/material/search/SearchViewAnimationHelper;)V
 
     return-void
 .end method

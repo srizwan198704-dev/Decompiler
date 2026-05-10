@@ -1,24 +1,32 @@
-.class public final Lcom/google/common/collect/SortedLists;
+.class final Lcom/google/common/collect/SortedLists;
 .super Ljava/lang/Object;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/SortedLists$KeyPresentBehavior;,
-        Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;
+        Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;,
+        Lcom/google/common/collect/SortedLists$KeyPresentBehavior;
     }
 .end annotation
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method private constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static a(Ljava/util/List;Lcom/google/common/base/f;Ljava/lang/Comparable;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
+.method public static binarySearch(Ljava/util/List;Lcom/google/common/base/Function;Ljava/lang/Comparable;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -29,7 +37,7 @@
             ">(",
             "Ljava/util/List<",
             "TE;>;",
-            "Lcom/google/common/base/f<",
+            "Lcom/google/common/base/Function<",
             "-TE;TK;>;TK;",
             "Lcom/google/common/collect/SortedLists$KeyPresentBehavior;",
             "Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;",
@@ -37,7 +45,7 @@
         }
     .end annotation
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {}, Lcom/google/common/collect/Ordering;->natural()Lcom/google/common/collect/Ordering;
 
@@ -53,15 +61,19 @@
 
     move-object v5, p4
 
-    invoke-static/range {v0 .. v5}, Lcom/google/common/collect/SortedLists;->b(Ljava/util/List;Lcom/google/common/base/f;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
+    invoke-static/range {v0 .. v5}, Lcom/google/common/collect/SortedLists;->binarySearch(Ljava/util/List;Lcom/google/common/base/Function;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
 
     move-result p0
 
     return p0
 .end method
 
-.method public static b(Ljava/util/List;Lcom/google/common/base/f;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
+.method public static binarySearch(Ljava/util/List;Lcom/google/common/base/Function;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
     .locals 0
+    .param p2    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -71,7 +83,7 @@
             ">(",
             "Ljava/util/List<",
             "TE;>;",
-            "Lcom/google/common/base/f<",
+            "Lcom/google/common/base/Function<",
             "-TE;TK;>;TK;",
             "Ljava/util/Comparator<",
             "-TK;>;",
@@ -81,19 +93,51 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->o(Ljava/util/List;Lcom/google/common/base/f;)Ljava/util/List;
+    invoke-static {p0, p1}, Lcom/google/common/collect/Lists;->transform(Ljava/util/List;Lcom/google/common/base/Function;)Ljava/util/List;
 
     move-result-object p0
 
-    invoke-static {p0, p2, p3, p4, p5}, Lcom/google/common/collect/SortedLists;->c(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
+    invoke-static {p0, p2, p3, p4, p5}, Lcom/google/common/collect/SortedLists;->binarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
 
     move-result p0
 
     return p0
 .end method
 
-.method public static c(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
+.method public static binarySearch(Ljava/util/List;Ljava/lang/Comparable;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E::",
+            "Ljava/lang/Comparable;",
+            ">(",
+            "Ljava/util/List<",
+            "+TE;>;TE;",
+            "Lcom/google/common/collect/SortedLists$KeyPresentBehavior;",
+            "Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;",
+            ")I"
+        }
+    .end annotation
+
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-static {}, Lcom/google/common/collect/Ordering;->natural()Lcom/google/common/collect/Ordering;
+
+    move-result-object v0
+
+    invoke-static {p0, p1, v0, p2, p3}, Lcom/google/common/collect/SortedLists;->binarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static binarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;Lcom/google/common/collect/SortedLists$KeyPresentBehavior;Lcom/google/common/collect/SortedLists$KeyAbsentBehavior;)I
     .locals 4
+    .param p1    # Ljava/lang/Object;
+        .annotation runtime Lcom/google/common/collect/ParametricNullness;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -109,23 +153,21 @@
         }
     .end annotation
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p3}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p4}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     instance-of v0, p0, Ljava/util/RandomAccess;
 
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/util/ArrayList;
+    invoke-static {p0}, Lcom/google/common/collect/Lists;->newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;
 
-    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    move-object p0, v0
+    move-result-object p0
 
     :cond_0
     invoke-interface {p0}, Ljava/util/List;->size()I

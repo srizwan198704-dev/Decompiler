@@ -6,11 +6,17 @@
 
 
 # annotations
+.annotation build Landroidx/annotation/RestrictTo;
+    value = {
+        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
         "Lcom/google/android/material/datepicker/DateSelector<",
-        "Landroidx/core/util/e<",
+        "Landroidx/core/util/Pair<",
         "Ljava/lang/Long;",
         "Ljava/lang/Long;",
         ">;>;"
@@ -70,9 +76,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/datepicker/RangeDateSelector$c;
+    new-instance v0, Lcom/google/android/material/datepicker/RangeDateSelector$3;
 
-    invoke-direct {v0}, Lcom/google/android/material/datepicker/RangeDateSelector$c;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/datepicker/RangeDateSelector$3;-><init>()V
 
     sput-object v0, Lcom/google/android/material/datepicker/RangeDateSelector;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -109,10 +115,10 @@
     return-object p1
 .end method
 
-.method public static synthetic access$100(Lcom/google/android/material/datepicker/RangeDateSelector;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/p;)V
+.method public static synthetic access$100(Lcom/google/android/material/datepicker/RangeDateSelector;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/datepicker/RangeDateSelector;->updateIfValidTextProposal(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/p;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/datepicker/RangeDateSelector;->updateIfValidTextProposal(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V
 
     return-void
 .end method
@@ -200,11 +206,11 @@
 .end method
 
 .method private isValidRange(JJ)Z
-    .locals 0
+    .locals 1
 
-    cmp-long p1, p1, p3
+    cmp-long v0, p1, p3
 
-    if-gtz p1, :cond_0
+    if-gtz v0, :cond_0
 
     const/4 p1, 0x1
 
@@ -296,7 +302,7 @@
     return-void
 .end method
 
-.method private updateIfValidTextProposal(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/p;)V
+.method private updateIfValidTextProposal(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V
     .locals 4
     .param p1    # Lcom/google/android/material/textfield/TextInputLayout;
         .annotation build Landroidx/annotation/NonNull;
@@ -306,7 +312,7 @@
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .param p3    # Lcom/google/android/material/datepicker/p;
+    .param p3    # Lcom/google/android/material/datepicker/OnSelectionChangedListener;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
@@ -315,8 +321,8 @@
             "(",
             "Lcom/google/android/material/textfield/TextInputLayout;",
             "Lcom/google/android/material/textfield/TextInputLayout;",
-            "Lcom/google/android/material/datepicker/p<",
-            "Landroidx/core/util/e<",
+            "Lcom/google/android/material/datepicker/OnSelectionChangedListener<",
+            "Landroidx/core/util/Pair<",
             "Ljava/lang/Long;",
             "Ljava/lang/Long;",
             ">;>;)V"
@@ -358,18 +364,18 @@
 
     iput-object v0, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
 
-    invoke-virtual {p0}, Lcom/google/android/material/datepicker/RangeDateSelector;->getSelection()Landroidx/core/util/e;
+    invoke-virtual {p0}, Lcom/google/android/material/datepicker/RangeDateSelector;->getSelection()Landroidx/core/util/Pair;
 
     move-result-object v0
 
-    invoke-virtual {p3, v0}, Lcom/google/android/material/datepicker/p;->b(Ljava/lang/Object;)V
+    invoke-virtual {p3, v0}, Lcom/google/android/material/datepicker/OnSelectionChangedListener;->onSelectionChanged(Ljava/lang/Object;)V
 
     goto :goto_1
 
     :cond_1
     invoke-direct {p0, p1, p2}, Lcom/google/android/material/datepicker/RangeDateSelector;->setInvalidRange(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;)V
 
-    invoke-virtual {p3}, Lcom/google/android/material/datepicker/p;->a()V
+    invoke-virtual {p3}, Lcom/google/android/material/datepicker/OnSelectionChangedListener;->onIncompleteSelectionChanged()V
 
     goto :goto_1
 
@@ -377,7 +383,7 @@
     :goto_0
     invoke-direct {p0, p1, p2}, Lcom/google/android/material/datepicker/RangeDateSelector;->clearInvalidRange(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;)V
 
-    invoke-virtual {p3}, Lcom/google/android/material/datepicker/p;->a()V
+    invoke-virtual {p3}, Lcom/google/android/material/datepicker/OnSelectionChangedListener;->onIncompleteSelectionChanged()V
 
     :goto_1
     invoke-direct {p0, p1, p2}, Lcom/google/android/material/datepicker/RangeDateSelector;->updateError(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;)V
@@ -440,7 +446,7 @@
 
     move-result-object v1
 
-    invoke-static {p1, v0, v1}, Lrc/b;->d(Landroid/content/Context;ILjava/lang/String;)I
+    invoke-static {p1, v0, v1}, Lcom/google/android/material/resources/MaterialAttributes;->resolveOrThrow(Landroid/content/Context;ILjava/lang/String;)I
 
     move-result p1
 
@@ -527,7 +533,7 @@
         value = {
             "()",
             "Ljava/util/Collection<",
-            "Landroidx/core/util/e<",
+            "Landroidx/core/util/Pair<",
             "Ljava/lang/Long;",
             "Ljava/lang/Long;",
             ">;>;"
@@ -538,20 +544,20 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v1, Landroidx/core/util/e;
+    new-instance v1, Landroidx/core/util/Pair;
 
     iget-object v2, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedStartItem:Ljava/lang/Long;
 
     iget-object v3, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
 
-    invoke-direct {v1, v2, v3}, Landroidx/core/util/e;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Landroidx/core/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-object v0
 .end method
 
-.method public getSelection()Landroidx/core/util/e;
+.method public getSelection()Landroidx/core/util/Pair;
     .locals 3
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
@@ -559,20 +565,20 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Landroidx/core/util/e<",
+            "Landroidx/core/util/Pair<",
             "Ljava/lang/Long;",
             "Ljava/lang/Long;",
             ">;"
         }
     .end annotation
 
-    new-instance v0, Landroidx/core/util/e;
+    new-instance v0, Landroidx/core/util/Pair;
 
     iget-object v1, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedStartItem:Ljava/lang/Long;
 
     iget-object v2, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
 
-    invoke-direct {v0, v1, v2}, Landroidx/core/util/e;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v0, v1, v2}, Landroidx/core/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-object v0
 .end method
@@ -582,7 +588,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    invoke-virtual {p0}, Lcom/google/android/material/datepicker/RangeDateSelector;->getSelection()Landroidx/core/util/e;
+    invoke-virtual {p0}, Lcom/google/android/material/datepicker/RangeDateSelector;->getSelection()Landroidx/core/util/Pair;
 
     move-result-object v0
 
@@ -606,11 +612,11 @@
 
     iget-object v1, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
 
-    invoke-static {v0, v1}, Lcom/google/android/material/datepicker/j;->a(Ljava/lang/Long;Ljava/lang/Long;)Landroidx/core/util/e;
+    invoke-static {v0, v1}, Lcom/google/android/material/datepicker/DateStrings;->getDateRangeString(Ljava/lang/Long;Ljava/lang/Long;)Landroidx/core/util/Pair;
 
     move-result-object v0
 
-    iget-object v1, v0, Landroidx/core/util/e;->a:Ljava/lang/Object;
+    iget-object v1, v0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
     if-nez v1, :cond_0
 
@@ -626,7 +632,7 @@
     check-cast v1, Ljava/lang/String;
 
     :goto_0
-    iget-object v0, v0, Landroidx/core/util/e;->b:Ljava/lang/Object;
+    iget-object v0, v0, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
     if-nez v0, :cond_1
 
@@ -672,21 +678,17 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    iget-object v2, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedStartItem:Ljava/lang/Long;
+    iget-object v0, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedStartItem:Ljava/lang/Long;
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v3, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
+    iget-object v1, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_0
 
     sget v0, Lcom/google/android/material/R$string;->mtrl_picker_range_header_unselected:I
 
@@ -697,73 +699,77 @@
     return-object p1
 
     :cond_0
-    iget-object v3, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
+    iget-object v1, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
 
-    if-nez v3, :cond_1
+    const/4 v2, 0x0
 
-    sget v3, Lcom/google/android/material/R$string;->mtrl_picker_range_header_only_start_selected:I
+    const/4 v3, 0x1
 
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
+    if-nez v1, :cond_1
+
+    sget v1, Lcom/google/android/material/R$string;->mtrl_picker_range_header_only_start_selected:I
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v4
 
-    invoke-static {v4, v5}, Lcom/google/android/material/datepicker/j;->c(J)Ljava/lang/String;
+    invoke-static {v4, v5}, Lcom/google/android/material/datepicker/DateStrings;->getDateString(J)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    aput-object v0, v3, v2
 
-    aput-object v2, v1, v0
-
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p1, v1, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
     return-object p1
 
     :cond_1
-    if-nez v2, :cond_2
+    if-nez v0, :cond_2
 
-    sget v2, Lcom/google/android/material/R$string;->mtrl_picker_range_header_only_end_selected:I
+    sget v0, Lcom/google/android/material/R$string;->mtrl_picker_range_header_only_end_selected:I
 
-    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
+    new-array v3, v3, [Ljava/lang/Object;
 
-    move-result-wide v3
+    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
 
-    invoke-static {v3, v4}, Lcom/google/android/material/datepicker/j;->c(J)Ljava/lang/String;
+    move-result-wide v4
 
-    move-result-object v3
+    invoke-static {v4, v5}, Lcom/google/android/material/datepicker/DateStrings;->getDateString(J)Ljava/lang/String;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    move-result-object v1
 
-    aput-object v3, v1, v0
+    aput-object v1, v3, v2
 
-    invoke-virtual {p1, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p1, v0, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
     return-object p1
 
     :cond_2
-    invoke-static {v2, v3}, Lcom/google/android/material/datepicker/j;->a(Ljava/lang/Long;Ljava/lang/Long;)Landroidx/core/util/e;
+    invoke-static {v0, v1}, Lcom/google/android/material/datepicker/DateStrings;->getDateRangeString(Ljava/lang/Long;Ljava/lang/Long;)Landroidx/core/util/Pair;
 
-    move-result-object v2
+    move-result-object v0
 
-    sget v3, Lcom/google/android/material/R$string;->mtrl_picker_range_header_selected:I
+    sget v1, Lcom/google/android/material/R$string;->mtrl_picker_range_header_selected:I
 
-    iget-object v4, v2, Landroidx/core/util/e;->a:Ljava/lang/Object;
+    const/4 v4, 0x2
 
-    iget-object v2, v2, Landroidx/core/util/e;->b:Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    const/4 v5, 0x2
+    iget-object v5, v0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
-    new-array v5, v5, [Ljava/lang/Object;
+    aput-object v5, v4, v2
 
-    aput-object v4, v5, v0
+    iget-object v0, v0, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
-    aput-object v2, v5, v1
+    aput-object v0, v4, v3
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p1, v1, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -808,8 +814,8 @@
     return v0
 .end method
 
-.method public onCreateTextInputView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/p;)Landroid/view/View;
-    .locals 18
+.method public onCreateTextInputView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)Landroid/view/View;
+    .locals 19
     .param p1    # Landroid/view/LayoutInflater;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
@@ -822,7 +828,7 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
-    .param p5    # Lcom/google/android/material/datepicker/p;
+    .param p5    # Lcom/google/android/material/datepicker/OnSelectionChangedListener;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
@@ -833,8 +839,8 @@
             "Landroid/view/ViewGroup;",
             "Landroid/os/Bundle;",
             "Lcom/google/android/material/datepicker/CalendarConstraints;",
-            "Lcom/google/android/material/datepicker/p<",
-            "Landroidx/core/util/e<",
+            "Lcom/google/android/material/datepicker/OnSelectionChangedListener<",
+            "Landroidx/core/util/Pair<",
             "Ljava/lang/Long;",
             "Ljava/lang/Long;",
             ">;>;)",
@@ -846,19 +852,29 @@
 
     sget v0, Lcom/google/android/material/R$layout;->mtrl_picker_text_input_date_range:I
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
     move-object/from16 v1, p1
 
     move-object/from16 v2, p2
 
-    invoke-virtual {v1, v0, v2, v11}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v1, v0, v2, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v11
 
     sget v0, Lcom/google/android/material/R$id;->mtrl_picker_text_input_range_start:I
 
-    invoke-virtual {v12, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v11, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    move-object v12, v0
+
+    check-cast v12, Lcom/google/android/material/textfield/TextInputLayout;
+
+    sget v0, Lcom/google/android/material/R$id;->mtrl_picker_text_input_range_end:I
+
+    invoke-virtual {v11, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -866,25 +882,15 @@
 
     check-cast v13, Lcom/google/android/material/textfield/TextInputLayout;
 
-    sget v0, Lcom/google/android/material/R$id;->mtrl_picker_text_input_range_end:I
+    invoke-virtual {v12}, Lcom/google/android/material/textfield/TextInputLayout;->getEditText()Landroid/widget/EditText;
 
-    invoke-virtual {v12, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    move-object v14, v0
-
-    check-cast v14, Lcom/google/android/material/textfield/TextInputLayout;
+    move-result-object v14
 
     invoke-virtual {v13}, Lcom/google/android/material/textfield/TextInputLayout;->getEditText()Landroid/widget/EditText;
 
     move-result-object v15
 
-    invoke-virtual {v14}, Lcom/google/android/material/textfield/TextInputLayout;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v8
-
-    invoke-static {}, Lcom/google/android/material/internal/k;->b()Z
+    invoke-static {}, Lcom/google/android/material/internal/ManufacturerUtils;->isDateInputKeyboardMissingSeparatorCharacters()Z
 
     move-result v0
 
@@ -892,12 +898,12 @@
 
     const/16 v0, 0x11
 
+    invoke-virtual {v14, v0}, Landroid/widget/TextView;->setInputType(I)V
+
     invoke-virtual {v15, v0}, Landroid/widget/TextView;->setInputType(I)V
 
-    invoke-virtual {v8, v0}, Landroid/widget/TextView;->setInputType(I)V
-
     :cond_0
-    invoke-virtual {v12}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v11}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -911,6 +917,8 @@
 
     iget-object v0, v9, Lcom/google/android/material/datepicker/RangeDateSelector;->textInputFormat:Ljava/text/SimpleDateFormat;
 
+    const/16 v16, 0x1
+
     if-eqz v0, :cond_1
 
     const/4 v1, 0x1
@@ -918,18 +926,18 @@
     goto :goto_0
 
     :cond_1
-    move v1, v11
+    const/4 v1, 0x0
 
     :goto_0
     if-eqz v1, :cond_2
 
     :goto_1
-    move-object v7, v0
+    move-object v8, v0
 
     goto :goto_2
 
     :cond_2
-    invoke-static {}, Lcom/google/android/material/datepicker/y;->g()Ljava/text/SimpleDateFormat;
+    invoke-static {}, Lcom/google/android/material/datepicker/UtcDates;->getDefaultTextInputFormat()Ljava/text/SimpleDateFormat;
 
     move-result-object v0
 
@@ -940,11 +948,11 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {v7, v0}, Ljava/text/Format;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v8, v0}, Ljava/text/Format;->format(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v15, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v14, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v0, v9, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedStartItem:Ljava/lang/Long;
 
@@ -955,11 +963,11 @@
 
     if-eqz v0, :cond_4
 
-    invoke-virtual {v7, v0}, Ljava/text/Format;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v8, v0}, Ljava/text/Format;->format(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v8, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v15, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v0, v9, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedEndItem:Ljava/lang/Long;
 
@@ -968,76 +976,74 @@
     :cond_4
     if-eqz v1, :cond_5
 
-    invoke-virtual {v7}, Ljava/text/SimpleDateFormat;->toPattern()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/text/SimpleDateFormat;->toPattern()Ljava/lang/String;
 
     move-result-object v0
 
     :goto_3
-    move-object v6, v0
+    move-object v7, v0
 
     goto :goto_4
 
     :cond_5
-    invoke-virtual {v12}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v11}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    invoke-static {v0, v7}, Lcom/google/android/material/datepicker/y;->h(Landroid/content/res/Resources;Ljava/text/SimpleDateFormat;)Ljava/lang/String;
+    invoke-static {v0, v8}, Lcom/google/android/material/datepicker/UtcDates;->getDefaultTextInputHint(Landroid/content/res/Resources;Ljava/text/SimpleDateFormat;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_3
 
     :goto_4
-    invoke-virtual {v13, v6}, Lcom/google/android/material/textfield/TextInputLayout;->setPlaceholderText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v12, v7}, Lcom/google/android/material/textfield/TextInputLayout;->setPlaceholderText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v14, v6}, Lcom/google/android/material/textfield/TextInputLayout;->setPlaceholderText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v13, v7}, Lcom/google/android/material/textfield/TextInputLayout;->setPlaceholderText(Ljava/lang/CharSequence;)V
 
-    new-instance v5, Lcom/google/android/material/datepicker/RangeDateSelector$a;
+    new-instance v6, Lcom/google/android/material/datepicker/RangeDateSelector$1;
 
-    move-object v0, v5
+    move-object v0, v6
 
     move-object/from16 v1, p0
 
-    move-object v2, v6
+    move-object v2, v7
 
-    move-object v3, v7
+    move-object v3, v8
 
-    move-object v4, v13
-
-    move-object v10, v5
+    move-object v4, v12
 
     move-object/from16 v5, p4
 
-    move-object/from16 v16, v6
+    move-object v10, v6
 
-    move-object v6, v13
+    move-object v6, v12
 
     move-object/from16 v17, v7
 
-    move-object v7, v14
+    move-object v7, v13
 
-    move-object v11, v8
+    move-object/from16 v18, v8
 
     move-object/from16 v8, p5
 
-    invoke-direct/range {v0 .. v8}, Lcom/google/android/material/datepicker/RangeDateSelector$a;-><init>(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/p;)V
+    invoke-direct/range {v0 .. v8}, Lcom/google/android/material/datepicker/RangeDateSelector$1;-><init>(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V
 
-    invoke-virtual {v15, v10}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v14, v10}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    new-instance v10, Lcom/google/android/material/datepicker/RangeDateSelector$b;
+    new-instance v10, Lcom/google/android/material/datepicker/RangeDateSelector$2;
 
     move-object v0, v10
 
-    move-object/from16 v2, v16
+    move-object/from16 v2, v17
 
-    move-object/from16 v3, v17
+    move-object/from16 v3, v18
 
-    move-object v4, v14
+    move-object v4, v13
 
-    invoke-direct/range {v0 .. v8}, Lcom/google/android/material/datepicker/RangeDateSelector$b;-><init>(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/p;)V
+    invoke-direct/range {v0 .. v8}, Lcom/google/android/material/datepicker/RangeDateSelector$2;-><init>(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V
 
-    invoke-virtual {v11, v10}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v15, v10}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     const/4 v0, 0x2
 
@@ -1045,15 +1051,13 @@
 
     const/4 v1, 0x0
 
-    aput-object v15, v0, v1
+    aput-object v14, v0, v1
 
-    const/4 v1, 0x1
+    aput-object v15, v0, v16
 
-    aput-object v11, v0, v1
+    invoke-static {v0}, Les/kq0;->c([Landroid/widget/EditText;)V
 
-    invoke-static {v0}, Lcom/google/android/material/datepicker/h;->c([Landroid/widget/EditText;)V
-
-    return-object v12
+    return-object v11
 .end method
 
 .method public select(J)V
@@ -1109,27 +1113,27 @@
     return-void
 .end method
 
-.method public setSelection(Landroidx/core/util/e;)V
+.method public setSelection(Landroidx/core/util/Pair;)V
     .locals 4
-    .param p1    # Landroidx/core/util/e;
+    .param p1    # Landroidx/core/util/Pair;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroidx/core/util/e<",
+            "Landroidx/core/util/Pair<",
             "Ljava/lang/Long;",
             "Ljava/lang/Long;",
             ">;)V"
         }
     .end annotation
 
-    iget-object v0, p1, Landroidx/core/util/e;->a:Ljava/lang/Object;
+    iget-object v0, p1, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p1, Landroidx/core/util/e;->b:Ljava/lang/Object;
+    iget-object v1, p1, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
     if-eqz v1, :cond_0
 
@@ -1139,7 +1143,7 @@
 
     move-result-wide v0
 
-    iget-object v2, p1, Landroidx/core/util/e;->b:Ljava/lang/Object;
+    iget-object v2, p1, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v2, Ljava/lang/Long;
 
@@ -1151,10 +1155,10 @@
 
     move-result v0
 
-    invoke-static {v0}, Landroidx/core/util/i;->a(Z)V
+    invoke-static {v0}, Landroidx/core/util/Preconditions;->checkArgument(Z)V
 
     :cond_0
-    iget-object v0, p1, Landroidx/core/util/e;->a:Ljava/lang/Object;
+    iget-object v0, p1, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
     const/4 v1, 0x0
 
@@ -1171,7 +1175,7 @@
 
     move-result-wide v2
 
-    invoke-static {v2, v3}, Lcom/google/android/material/datepicker/y;->a(J)J
+    invoke-static {v2, v3}, Lcom/google/android/material/datepicker/UtcDates;->canonicalYearMonthDay(J)J
 
     move-result-wide v2
 
@@ -1182,7 +1186,7 @@
     :goto_0
     iput-object v0, p0, Lcom/google/android/material/datepicker/RangeDateSelector;->selectedStartItem:Ljava/lang/Long;
 
-    iget-object p1, p1, Landroidx/core/util/e;->b:Ljava/lang/Object;
+    iget-object p1, p1, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
     if-nez p1, :cond_2
 
@@ -1195,7 +1199,7 @@
 
     move-result-wide v0
 
-    invoke-static {v0, v1}, Lcom/google/android/material/datepicker/y;->a(J)J
+    invoke-static {v0, v1}, Lcom/google/android/material/datepicker/UtcDates;->canonicalYearMonthDay(J)J
 
     move-result-wide v0
 
@@ -1216,9 +1220,9 @@
         .end annotation
     .end param
 
-    check-cast p1, Landroidx/core/util/e;
+    check-cast p1, Landroidx/core/util/Pair;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/RangeDateSelector;->setSelection(Landroidx/core/util/e;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/RangeDateSelector;->setSelection(Landroidx/core/util/Pair;)V
 
     return-void
 .end method
@@ -1232,7 +1236,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-static {p1}, Lcom/google/android/material/datepicker/y;->n(Ljava/text/DateFormat;)Ljava/text/DateFormat;
+    invoke-static {p1}, Lcom/google/android/material/datepicker/UtcDates;->getNormalizedFormat(Ljava/text/DateFormat;)Ljava/text/DateFormat;
 
     move-result-object p1
 

@@ -2,23 +2,28 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/swiperefreshlayout/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "color"
+.end annotation
+
+
 # static fields
-.field public static notification_action_color_filter:I = 0x7f0605bb
+.field public static final notification_action_color_filter:I = 0x7f06061d
 
-.field public static notification_icon_bg_color:I = 0x7f0605bd
+.field public static final notification_icon_bg_color:I = 0x7f06061e
 
-.field public static ripple_material_light:I = 0x7f060756
+.field public static final ripple_material_light:I = 0x7f060682
 
-.field public static secondary_text_default_material_light:I = 0x7f06075a
+.field public static final secondary_text_default_material_light:I = 0x7f06068e
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 

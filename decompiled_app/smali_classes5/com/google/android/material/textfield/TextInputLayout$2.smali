@@ -21,12 +21,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/android/material/textfield/TextInputLayout;)V
     .locals 0
 
@@ -44,11 +38,11 @@
 
     iget-object v0, p0, Lcom/google/android/material/textfield/TextInputLayout$2;->this$0:Lcom/google/android/material/textfield/TextInputLayout;
 
-    invoke-static {v0}, Lcom/google/android/material/textfield/TextInputLayout;->f(Lcom/google/android/material/textfield/TextInputLayout;)Lcom/google/android/material/textfield/r;
+    invoke-static {v0}, Lcom/google/android/material/textfield/TextInputLayout;->access$300(Lcom/google/android/material/textfield/TextInputLayout;)Lcom/google/android/material/textfield/EndCompoundLayout;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/material/textfield/r;->i()V
+    invoke-virtual {v0}, Lcom/google/android/material/textfield/EndCompoundLayout;->checkEndIcon()V
 
     return-void
 .end method

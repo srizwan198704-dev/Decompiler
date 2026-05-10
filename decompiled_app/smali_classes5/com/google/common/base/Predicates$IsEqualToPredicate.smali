@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/n;
+.implements Lcom/google/common/base/Predicate;
 .implements Ljava/io/Serializable;
 
 
@@ -19,7 +19,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/n<",
+        "Lcom/google/common/base/Predicate<",
         "Ljava/lang/Object;",
         ">;",
         "Ljava/io/Serializable;"
@@ -36,13 +36,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/Object;)V
+.method private constructor <init>(Ljava/lang/Object;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +46,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/lang/Object;Lcom/google/common/base/Predicates$a;)V
+.method public synthetic constructor <init>(Ljava/lang/Object;Lcom/google/common/base/Predicates$1;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/base/Predicates$IsEqualToPredicate;-><init>(Ljava/lang/Object;)V
@@ -137,14 +131,14 @@
     return-object v0
 .end method
 
-.method public withNarrowedType()Lcom/google/common/base/n;
+.method public withNarrowedType()Lcom/google/common/base/Predicate;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/base/n<",
+            "Lcom/google/common/base/Predicate<",
             "TT;>;"
         }
     .end annotation

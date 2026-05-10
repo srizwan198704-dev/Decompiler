@@ -2,16 +2,10 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/util/function/BinaryOperator;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public synthetic constructor <init>()V
     .locals 0
 
@@ -22,14 +16,16 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/google/common/collect/ImmutableRangeSet$a;
+    check-cast p1, Lcom/google/common/collect/TopKSelector;
 
-    check-cast p2, Lcom/google/common/collect/Range;
+    check-cast p2, Lcom/google/common/collect/TopKSelector;
 
-    invoke-virtual {p1, p2}, Lcom/google/common/collect/ImmutableRangeSet$a;->a(Lcom/google/common/collect/Range;)Lcom/google/common/collect/ImmutableRangeSet$a;
+    invoke-virtual {p1, p2}, Lcom/google/common/collect/TopKSelector;->combine(Lcom/google/common/collect/TopKSelector;)Lcom/google/common/collect/TopKSelector;
 
-    return-void
+    move-result-object p1
+
+    return-object p1
 .end method

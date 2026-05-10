@@ -24,16 +24,7 @@
 
 
 # instance fields
-.field public final transient a:Lcom/google/common/collect/ImmutableMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/common/collect/ImmutableMap<",
-            "TK;*>;"
-        }
-    .end annotation
-.end field
-
-.field public final transient b:Lcom/google/common/collect/ImmutableList;
+.field private final transient list:Lcom/google/common/collect/ImmutableList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableList<",
@@ -42,14 +33,17 @@
     .end annotation
 .end field
 
+.field private final transient map:Lcom/google/common/collect/ImmutableMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/common/collect/ImmutableMap<",
+            "TK;*>;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;Lcom/google/common/collect/ImmutableList;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -64,9 +58,9 @@
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->a:Lcom/google/common/collect/ImmutableMap;
+    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->map:Lcom/google/common/collect/ImmutableMap;
 
-    iput-object p2, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->b:Lcom/google/common/collect/ImmutableList;
+    iput-object p2, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->list:Lcom/google/common/collect/ImmutableList;
 
     return-void
 .end method
@@ -83,7 +77,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->b:Lcom/google/common/collect/ImmutableList;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->list:Lcom/google/common/collect/ImmutableList;
 
     return-object v0
 .end method
@@ -91,7 +85,7 @@
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->a:Lcom/google/common/collect/ImmutableMap;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->map:Lcom/google/common/collect/ImmutableMap;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -132,12 +126,12 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/r4;
+.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
             "TK;>;"
         }
     .end annotation
@@ -146,7 +140,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -156,7 +150,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/RegularImmutableMap$KeySet;->iterator()Lcom/google/common/collect/r4;
+    invoke-virtual {p0}, Lcom/google/common/collect/RegularImmutableMap$KeySet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
 
@@ -166,7 +160,7 @@
 .method public size()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->a:Lcom/google/common/collect/ImmutableMap;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$KeySet;->map:Lcom/google/common/collect/ImmutableMap;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
 
@@ -177,6 +171,11 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
+    .annotation build Lcom/google/common/annotations/GwtIncompatible;
+    .end annotation
+
+    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
+    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableSet;->writeReplace()Ljava/lang/Object;
 

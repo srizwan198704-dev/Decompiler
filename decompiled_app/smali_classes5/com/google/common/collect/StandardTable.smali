@@ -1,21 +1,27 @@
 .class Lcom/google/common/collect/StandardTable;
-.super Lcom/google/common/collect/i;
+.super Lcom/google/common/collect/AbstractTable;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/StandardTable$b;,
-        Lcom/google/common/collect/StandardTable$g;,
-        Lcom/google/common/collect/StandardTable$c;,
-        Lcom/google/common/collect/StandardTable$e;,
-        Lcom/google/common/collect/StandardTable$d;,
-        Lcom/google/common/collect/StandardTable$h;,
-        Lcom/google/common/collect/StandardTable$f;,
-        Lcom/google/common/collect/StandardTable$i;
+        Lcom/google/common/collect/StandardTable$ColumnMap;,
+        Lcom/google/common/collect/StandardTable$RowMap;,
+        Lcom/google/common/collect/StandardTable$ColumnKeyIterator;,
+        Lcom/google/common/collect/StandardTable$ColumnKeySet;,
+        Lcom/google/common/collect/StandardTable$Column;,
+        Lcom/google/common/collect/StandardTable$Row;,
+        Lcom/google/common/collect/StandardTable$CellIterator;,
+        Lcom/google/common/collect/StandardTable$TableSet;
     }
 .end annotation
 
@@ -28,7 +34,7 @@
         "V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/i<",
+        "Lcom/google/common/collect/AbstractTable<",
         "TR;TC;TV;>;",
         "Ljava/io/Serializable;"
     }
@@ -41,6 +47,9 @@
 
 # instance fields
 .field final backingMap:Ljava/util/Map;
+    .annotation runtime Lcom/google/common/collect/GwtTransient;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -52,6 +61,9 @@
 .end field
 
 .field private transient columnKeySet:Ljava/util/Set;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -60,19 +72,25 @@
     .end annotation
 .end field
 
-.field private transient columnMap:Lcom/google/common/collect/StandardTable$f;
+.field private transient columnMap:Lcom/google/common/collect/StandardTable$ColumnMap;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/StandardTable<",
-            "TR;TC;TV;>.f;"
+            "TR;TC;TV;>.ColumnMap;"
         }
     .end annotation
 .end field
 
-.field final factory:Lcom/google/common/base/q;
+.field final factory:Lcom/google/common/base/Supplier;
+    .annotation runtime Lcom/google/common/collect/GwtTransient;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/q<",
+            "Lcom/google/common/base/Supplier<",
             "+",
             "Ljava/util/Map<",
             "TC;TV;>;>;"
@@ -81,6 +99,9 @@
 .end field
 
 .field private transient rowMap:Ljava/util/Map;
+    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -93,13 +114,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/util/Map;Lcom/google/common/base/q;)V
+.method public constructor <init>(Ljava/util/Map;Lcom/google/common/base/Supplier;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,18 +123,18 @@
             "TR;",
             "Ljava/util/Map<",
             "TC;TV;>;>;",
-            "Lcom/google/common/base/q<",
+            "Lcom/google/common/base/Supplier<",
             "+",
             "Ljava/util/Map<",
             "TC;TV;>;>;)V"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/i;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/AbstractTable;-><init>()V
 
     iput-object p1, p0, Lcom/google/common/collect/StandardTable;->backingMap:Ljava/util/Map;
 
-    iput-object p2, p0, Lcom/google/common/collect/StandardTable;->factory:Lcom/google/common/base/q;
+    iput-object p2, p0, Lcom/google/common/collect/StandardTable;->factory:Lcom/google/common/base/Supplier;
 
     return-void
 .end method
@@ -200,9 +215,9 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/common/collect/StandardTable;->factory:Lcom/google/common/base/q;
+    iget-object v0, p0, Lcom/google/common/collect/StandardTable;->factory:Lcom/google/common/base/Supplier;
 
-    invoke-interface {v0}, Lcom/google/common/base/q;->get()Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -218,6 +233,9 @@
 
 .method private removeColumn(Ljava/lang/Object;)Ljava/util/Map;
     .locals 5
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -323,16 +341,16 @@
         value = {
             "()",
             "Ljava/util/Iterator<",
-            "Lcom/google/common/collect/c4$a<",
+            "Lcom/google/common/collect/Table$Cell<",
             "TR;TC;TV;>;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/StandardTable$b;
+    new-instance v0, Lcom/google/common/collect/StandardTable$CellIterator;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardTable$b;-><init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardTable$CellIterator;-><init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$1;)V
 
     return-object v0
 .end method
@@ -343,12 +361,12 @@
         value = {
             "()",
             "Ljava/util/Set<",
-            "Lcom/google/common/collect/c4$a<",
+            "Lcom/google/common/collect/Table$Cell<",
             "TR;TC;TV;>;>;"
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/i;->cellSet()Ljava/util/Set;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractTable;->cellSet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -375,9 +393,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/StandardTable$c;
+    new-instance v0, Lcom/google/common/collect/StandardTable$Column;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/StandardTable$c;-><init>(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/StandardTable$Column;-><init>(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;)V
 
     return-object v0
 .end method
@@ -396,11 +414,11 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/StandardTable$e;
+    new-instance v0, Lcom/google/common/collect/StandardTable$ColumnKeySet;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardTable$e;-><init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardTable$ColumnKeySet;-><init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$1;)V
 
     iput-object v0, p0, Lcom/google/common/collect/StandardTable;->columnKeySet:Ljava/util/Set;
 
@@ -420,17 +438,17 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/StandardTable;->columnMap:Lcom/google/common/collect/StandardTable$f;
+    iget-object v0, p0, Lcom/google/common/collect/StandardTable;->columnMap:Lcom/google/common/collect/StandardTable$ColumnMap;
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/StandardTable$f;
+    new-instance v0, Lcom/google/common/collect/StandardTable$ColumnMap;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardTable$f;-><init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardTable$ColumnMap;-><init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$1;)V
 
-    iput-object v0, p0, Lcom/google/common/collect/StandardTable;->columnMap:Lcom/google/common/collect/StandardTable$f;
+    iput-object v0, p0, Lcom/google/common/collect/StandardTable;->columnMap:Lcom/google/common/collect/StandardTable$ColumnMap;
 
     :cond_0
     return-object v0
@@ -443,7 +461,7 @@
 
     if-eqz p2, :cond_0
 
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/i;->contains(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractTable;->contains(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -493,7 +511,7 @@
 
     check-cast v2, Ljava/util/Map;
 
-    invoke-static {v2, p1}, Lcom/google/common/collect/Maps;->u(Ljava/util/Map;Ljava/lang/Object;)Z
+    invoke-static {v2, p1}, Lcom/google/common/collect/Maps;->safeContainsKey(Ljava/util/Map;Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -514,7 +532,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/StandardTable;->backingMap:Ljava/util/Map;
 
-    invoke-static {v0, p1}, Lcom/google/common/collect/Maps;->u(Ljava/util/Map;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/google/common/collect/Maps;->safeContainsKey(Ljava/util/Map;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -536,7 +554,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/i;->containsValue(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractTable;->containsValue(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -563,11 +581,11 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/StandardTable$d;
+    new-instance v0, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardTable$d;-><init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$a;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardTable$ColumnKeyIterator;-><init>(Lcom/google/common/collect/StandardTable;Lcom/google/common/collect/StandardTable$1;)V
 
     return-object v0
 .end method
@@ -584,9 +602,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/StandardTable$h;
+    new-instance v0, Lcom/google/common/collect/StandardTable$RowMap;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/StandardTable$h;-><init>(Lcom/google/common/collect/StandardTable;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/StandardTable$RowMap;-><init>(Lcom/google/common/collect/StandardTable;)V
 
     return-object v0
 .end method
@@ -609,7 +627,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/i;->get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractTable;->get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -637,17 +655,20 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TC;TV;)TV;"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p3}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/StandardTable;->getOrCreate(Ljava/lang/Object;)Ljava/util/Map;
 
@@ -662,6 +683,9 @@
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
+    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -682,7 +706,7 @@
     :cond_0
     iget-object v1, p0, Lcom/google/common/collect/StandardTable;->backingMap:Ljava/util/Map;
 
-    invoke-static {v1, p1}, Lcom/google/common/collect/Maps;->v(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1, p1}, Lcom/google/common/collect/Maps;->safeGet(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -725,9 +749,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/StandardTable$g;
+    new-instance v0, Lcom/google/common/collect/StandardTable$Row;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/StandardTable$g;-><init>(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/StandardTable$Row;-><init>(Lcom/google/common/collect/StandardTable;Ljava/lang/Object;)V
 
     return-object v0
 .end method
@@ -829,7 +853,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/i;->values()Ljava/util/Collection;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractTable;->values()Ljava/util/Collection;
 
     move-result-object v0
 

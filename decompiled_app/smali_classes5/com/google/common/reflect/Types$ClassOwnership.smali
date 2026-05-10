@@ -39,17 +39,17 @@
 
     new-array v0, v0, [Lcom/google/common/reflect/Types$ClassOwnership;
 
-    sget-object v1, Lcom/google/common/reflect/Types$ClassOwnership;->OWNED_BY_ENCLOSING_CLASS:Lcom/google/common/reflect/Types$ClassOwnership;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/google/common/reflect/Types$ClassOwnership;->OWNED_BY_ENCLOSING_CLASS:Lcom/google/common/reflect/Types$ClassOwnership;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/common/reflect/Types$ClassOwnership;->LOCAL_CLASS_HAS_NO_OWNER:Lcom/google/common/reflect/Types$ClassOwnership;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    sget-object v2, Lcom/google/common/reflect/Types$ClassOwnership;->LOCAL_CLASS_HAS_NO_OWNER:Lcom/google/common/reflect/Types$ClassOwnership;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -105,7 +105,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/reflect/Types$a;)V
+.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/reflect/Types$1;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/common/reflect/Types$ClassOwnership;-><init>(Ljava/lang/String;I)V
@@ -116,11 +116,11 @@
 .method private static detectJvmBehavior()Lcom/google/common/reflect/Types$ClassOwnership;
     .locals 7
 
-    new-instance v0, Lcom/google/common/reflect/Types$ClassOwnership$b;
+    new-instance v0, Lcom/google/common/reflect/Types$ClassOwnership$3;
 
-    invoke-direct {v0}, Lcom/google/common/reflect/Types$ClassOwnership$b;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/reflect/Types$ClassOwnership$3;-><init>()V
 
-    const-class v0, Lcom/google/common/reflect/Types$ClassOwnership$b;
+    const-class v0, Lcom/google/common/reflect/Types$ClassOwnership$3;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
 
@@ -145,7 +145,7 @@
 
     aget-object v4, v1, v3
 
-    const-class v5, Lcom/google/common/reflect/Types$ClassOwnership$a;
+    const-class v5, Lcom/google/common/reflect/Types$ClassOwnership$1LocalClass;
 
     invoke-virtual {v4, v5}, Lcom/google/common/reflect/Types$ClassOwnership;->getOwnerType(Ljava/lang/Class;)Ljava/lang/Class;
 
@@ -169,7 +169,13 @@
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
+    goto :goto_2
+
+    :goto_1
     throw v0
+
+    :goto_2
+    goto :goto_1
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/reflect/Types$ClassOwnership;

@@ -2,21 +2,21 @@
 .super Ljava/lang/Error;
 
 
+# annotations
+.annotation build Lcom/google/common/annotations/GwtCompatible;
+.end annotation
+
+.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
+.end annotation
+
+
 # static fields
 .field private static final serialVersionUID:J
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Error;-><init>()V
 
@@ -33,8 +33,6 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     invoke-direct {p0, p1}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
 
