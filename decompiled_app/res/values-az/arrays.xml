@@ -1,11 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="diskusage_sort_entries">
-        <item>Ad</item>
-        <item>Tip</item>
-        <item>Həcm</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030002">
+        <item>Xml</item>
+        <item>String</item>
     </string-array>
-    <string-array name="exo_controls_playback_speeds">
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030003">
+        <item>Xml</item>
+        <item>Resource Id</item>
+        <item>String</item>
+        <item>Integer</item>
+        <item>Color</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030004">
+        <item>String</item>
+        <item>Reference</item>
+        <item>Attribute</item>
+        <item>Color</item>
+        <item>Int-dec</item>
+        <item>Int-hex</item>
+        <item>Boolean</item>
+        <item>Float</item>
+        <item>Dimension</item>
+        <item>Fraction</item>
+        <item>DynamicReference</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030005">
+        <item>Xml</item>
+        <item>String</item>
+        <item>Resource Id</item>
+        <item>Color</item>
+        <item>Integer</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030008">
+        <item>Avto</item>
+        <item>Aktiv</item>
+        <item>Deaktiv</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030009">
+        <item>Hex mətn kimi kopyala</item>
+        <item>Decimal mətn kimi kopyala</item>
+        <item>Binary mətn kimi kopyala</item>
+        <item>Ascii mətn kimi kopyala</item>
+        <item>Base64 mətn kimi kopyala</item>
+        <item>SHA1 mətn kimi kopyala</item>
+        <item>MD5 mətn kimi kopyala</item>
+        <item>CRC32 mətn kimi kopyala</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03000c">
+        <item>Smali</item>
+        <item>Sətir</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03000d">
+        <item>Smali</item>
+        <item>Class adı</item>
+        <item>Sahə adı</item>
+        <item>Metod adı</item>
+        <item>Sətir</item>
+        <item>Integer</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03000e">
+        <item>Metod Bəyannaməsi</item>
+        <item>Sahə bəyannaməsi</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03000f">
         <item>0.25x</item>
         <item>0.5x</item>
         <item>0.75x</item>
@@ -14,120 +71,49 @@
         <item>1.5x</item>
         <item>2x</item>
     </string-array>
-    <string-array name="image_slide_interval">
-        <item>1 saniyə</item>
-        <item>3 saniyə</item>
-        <item>5 saniyə</item>
-        <item>10 saniyə</item>
-        <item>15 saniyə</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030010">
+        <item>Tətbiq adı</item>
+        <item>Paket adı</item>
+        <item>Apk fayl ölçüsü</item>
+        <item>Yükləmə vaxtı</item>
     </string-array>
-    <string-array name="netdisk_names">
-        <item>Baidu NetDisk</item>
-        <item>Box</item>
-        <item>SugarSync</item>
-        <item>DropBox</item>
-        <item>OneDrive</item>
-        <item>Gdrive</item>
-        <item>S3</item>
-        <item>Yandex</item>
-        <item>MegaCloud</item>
-        <item>MediaFire</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030012">
+        <item>Kiçik</item>
+        <item>Medium</item>
+        <item>Böyük</item>
     </string-array>
-    <string-array name="new_navi_groups">
-        <item>Sevimlilər</item>
-        <item>Lokal</item>
-        <item>Kitabxana</item>
-        <item>Şəbəkə</item>
-        <item>Alətlər</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030014">
+        <item>Bütün istifadələri tapın</item>
+        <item>Put-un istifadəsini tapın</item>
+        <item>Get-in istifadəsini tapın</item>
     </string-array>
-    <string-array name="pick_and_return_file_entries">
-        <item>"Normal Android Yolu
-(MMS,Gmail,… üçün)"</item>
-        <item>"Fayl Yolu
-(Yuxarıdakı olmasa bunu yoxlayın)"</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03001b">
+        <item>Ev</item>
+        <item>Son yol</item>
     </string-array>
-    <string-array name="search_condition_date">
-        <item>Hamısı</item>
-        <item>Bugün</item>
-        <item>Dünən</item>
-        <item>Bu həftə</item>
-        <item>Bu ay</item>
-        <item>Bu il</item>
-        <item>> 1 il</item>
-        <item>Giriş</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03001c">
+        <item>Hex mətn kimi yapşdır</item>
+        <item>Text mətn kimi yapşdır</item>
+        <item>Binary mətn kimi yapşdır</item>
+        <item>Ascii mətn kimi yapşdır</item>
+        <item>Base64 mətn kimi yapşdır</item>
     </string-array>
-    <string-array name="search_condition_size">
-        <item>Hamısı</item>
-        <item>0 – 100 KB</item>
-        <item>100KB - 1 MB</item>
-        <item>1 MB - 16 MB</item>
-        <item>16 MB - 128 MB</item>
-        <item>> 128 MB</item>
-        <item>Giriş</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030020">
+        <item>Normal</item>
+        <item>Monospace</item>
     </string-array>
-    <string-array name="search_engine_entries">
-        <item>Avtomatik</item>
-        <item>Baidu</item>
-        <item>Google</item>
-        <item>Yahoo</item>
-        <item>Yandex</item>
-        <item>Naver</item>
-        <item>Amazon</item>
-        <item>MySearch</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030022">
+        <item>Hamısını dəyişdir</item>
+        <item>Yenilə və dəyişdir</item>
+        <item>Hamsını keç</item>
     </string-array>
-    <string-array name="theme_folders">
-        <item>Standart</item>
-        <item>Sarı</item>
-        <item>Yaşıl</item>
-        <item>Qırmızı</item>
-        <item>Çəhrayı</item>
-        <item>Qara</item>
-    </string-array>
-    <string-array name="view_item_names">
-        <item>Böyük Simgə</item>
-        <item>Orta Simgə</item>
-        <item>Kiçik Simgə</item>
-        <item>Geniş Siyahı</item>
-        <item>Orta Siyahı</item>
-        <item>Kiçik Siyahı</item>
-        <item>Böyük Təfsilat</item>
-        <item>Orta Təfsilat</item>
-        <item>Kiçik Təfsilat</item>
-    </string-array>
-    <string-array name="wifi_signal">
-        <item>Zəyif</item>
-        <item>Orta</item>
-        <item>Yaxşı</item>
-        <item>Mükəmməl</item>
-    </string-array>
-    <string-array name="wifi_status_with_ssid">
-        <item></item>
-        <item>Skan edilir…</item>
-        <item>Qoşulur %1$s…</item>
-        <item>Autentifikasiya edilir %1$s…</item>
-        <item>IP adres alınır %1$s…</item>
-        <item>Qoşuldu %1$s</item>
-        <item>Dayandırıldı</item>
-        <item>Bağlantı kəsilir %1$s…</item>
-        <item>Bağlantı kəsildi</item>
-        <item>Uğursuzdur</item>
-    </string-array>
-    <string-array name="wifi_statuses">
-        <item></item>
-        <item>Skan edilir…</item>
-        <item>Qoşulur…</item>
-        <item>Autentifikasiya edilir…</item>
-        <item>IP adres alınır…</item>
-        <item>Qoşuldu</item>
-        <item>Dayandırıldı</item>
-        <item>Bağlantı kəsilir…</item>
-        <item>Bağlantı kəsildi</item>
-        <item>Uğursuzdur</item>
-    </string-array>
-    <string-array name="zip_levels">
-        <item>Sıxışdırma</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030023">
+        <item>Mağaza</item>
+        <item>Ən sürətli</item>
         <item>Sürətli</item>
-        <item>Standart</item>
-        <item>Ən yaxşı</item>
+        <item>Normal</item>
+        <item>Maksimum</item>
+        <item>Ultra</item>
+        <item>APK modu</item>
     </string-array>
 </resources>

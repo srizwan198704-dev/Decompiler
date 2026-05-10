@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lcom/alipay/mobile/framework/service/annotation/OperationType;
 .super Ljava/lang/Object;
+.source "A66A"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;

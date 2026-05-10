@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <bool name="abc_action_bar_embed_tabs">true</bool>
-    <bool name="abc_config_actionMenuItemAllCaps">true</bool>
-    <bool name="config_materialPreferenceIconSpaceReserved">false</bool>
-    <bool name="is_tablet">false</bool>
-    <bool name="mtrl_btn_textappearance_all_caps">true</bool>
-    <bool name="support_video_editor">false</bool>
+    <bool name="MT_Protector">true</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050001">true</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050002">false</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050003">false</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050004">true</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050005">false</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050006">true</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050007">true</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050008">false</bool>
+    <bool name="APKTOOL_DUPLICATE_bool_0x7f050009">false</bool>
 </resources>

@@ -1,87 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="exo_controls_fastforward_by_amount_description">
+    <plurals name="MT_Protector">
+        <item quantity="one">Видалити оригінальний файл</item>
+        <item quantity="few">Видалити оригінальні файли</item>
+        <item quantity="many">Видалити оригінальні файли</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110001">
+        <item quantity="one">Видалити вихідний файл після стиснення</item>
+        <item quantity="few">Видалити вихідні файли після стиснення</item>
+        <item quantity="many">Видалити вихідні файли після стиснення</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110002">
+        <item quantity="one">Видалити вихідний файл після витягнення</item>
+        <item quantity="few">Видалити вихідні файли після витягнення</item>
+        <item quantity="many">Видалити вихідні файли після витягнення</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110003">
         <item quantity="other">Перемотати вперед на %d секунди</item>
         <item quantity="one">Перемотати вперед на %d секунду</item>
         <item quantity="few">Перемотати вперед на %d секунди</item>
         <item quantity="many">Перемотати вперед на %d секунд</item>
     </plurals>
-    <plurals name="exo_controls_rewind_by_amount_description">
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110004">
         <item quantity="other">Перемотати назад на %d секунди</item>
         <item quantity="one">Перемотати назад на %d секунду</item>
         <item quantity="few">Перемотати назад на %d секунди</item>
         <item quantity="many">Перемотати назад на %d секунд</item>
     </plurals>
-    <plurals name="hiad_dismiss_dilaog">
-        <item quantity="other">Вікно закриється через %1$s секунди.</item>
-        <item quantity="one">Вікно закриється через %1$s секунду.</item>
-        <item quantity="few">Вікно закриється через %1$s секунди.</item>
-        <item quantity="many">Вікно закриється через %1$s секунд.</item>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110005">
+        <item quantity="one">Файл: %d</item>
+        <item quantity="few">Файл: %d</item>
+        <item quantity="many">Файли: %d</item>
     </plurals>
-    <plurals name="hiad_no_prompt_in_days">
-        <item quantity="other">Запам’ятати вибір на %1$s днів</item>
-        <item quantity="one">Запам’ятати вибір на %1$s день</item>
-        <item quantity="few">Запам’ятати вибір на %1$s дні</item>
-        <item quantity="many">Запам’ятати вибір на %1$s дн.</item>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110006">
+        <item quantity="one">Тека: %d</item>
+        <item quantity="few">Теки: %d</item>
+        <item quantity="many">Теки: %d</item>
     </plurals>
-    <plurals name="hiad_reward_countdown">
-        <item quantity="other">%1$d секунди</item>
-        <item quantity="one">%1$d секунда</item>
-        <item quantity="few">%1$d секунди</item>
-        <item quantity="many">%1$d секунд</item>
-    </plurals>
-    <plurals name="je_x_text_replaced">
-        <item quantity="other">Замінено елементів: %1$d</item>
-        <item quantity="one">0 збігів</item>
-    </plurals>
-    <plurals name="log_new_count">
-        <item quantity="other">Додано %1$d новий файл</item>
-        <item quantity="one">Додано нових файлів: %1$d</item>
-    </plurals>
-    <plurals name="log_time_title_day">
-        <item quantity="other">%1$d дн. тому</item>
-        <item quantity="one">%1$d дн. тому</item>
-    </plurals>
-    <plurals name="log_time_title_hour">
-        <item quantity="other">%1$d год тому</item>
-        <item quantity="one">%1$d год тому</item>
-    </plurals>
-    <plurals name="log_time_title_minute">
-        <item quantity="other">%1$d хв тому</item>
-        <item quantity="one">%1$d хв тому</item>
-    </plurals>
-    <plurals name="log_title_apk">
-        <item quantity="other">%2$s: APK (%1$d)</item>
-        <item quantity="one">%2$s: APK (%1$d)</item>
-    </plurals>
-    <plurals name="log_title_audio">
-        <item quantity="other">%2$s: пісня (%1$d)</item>
-        <item quantity="one">%2$s: пісні (%1$d)</item>
-    </plurals>
-    <plurals name="log_title_doc">
-        <item quantity="other">%2$s: документ (%1$d)</item>
-        <item quantity="one">%2$s: документи (%1$d)</item>
-    </plurals>
-    <plurals name="log_title_folder">
-        <item quantity="other">%2$s: папка (%1$d)</item>
-        <item quantity="one">%2$s: папки (%1$d)</item>
-    </plurals>
-    <plurals name="log_title_image">
-        <item quantity="other">%2$s: зображення (%1$d)</item>
-        <item quantity="one">%2$s: зображення (%1$d)</item>
-    </plurals>
-    <plurals name="log_title_netdisk">
-        <item quantity="other">Обл. запис My Cloud</item>
-        <item quantity="one">Обл. записи My Cloud</item>
-    </plurals>
-    <plurals name="log_title_video">
-        <item quantity="other">%2$s: відео (%1$d)</item>
-        <item quantity="one">%2$s: відео (%1$d)</item>
-    </plurals>
-    <plurals name="mtrl_badge_content_description">
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110007">
         <item quantity="other">%d нового сповіщення</item>
         <item quantity="one">%d нове сповіщення</item>
         <item quantity="few">%d нові сповіщення</item>
         <item quantity="many">%d нових сповіщень</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110008">
+        <item quantity="one">%d день тому</item>
+        <item quantity="few">%d дня тому</item>
+        <item quantity="many">%d днів тому</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110009">
+        <item quantity="one">%d годину тому</item>
+        <item quantity="few">%d години тому</item>
+        <item quantity="many">%d годин тому</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000a">
+        <item quantity="one">%d хвилину тому</item>
+        <item quantity="few">%d хвилини тому</item>
+        <item quantity="many">%d хвилин тому</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000b">
+        <item quantity="one">%d секунду тому</item>
+        <item quantity="few">%d секунди тому</item>
+        <item quantity="many">%d секунд тому</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000c">
+        <item quantity="one">%d інтерфейс</item>
+        <item quantity="few">%d інтерфейс</item>
+        <item quantity="many">%d інтерфейс</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000d">
+        <item quantity="one">%d перекладач</item>
+        <item quantity="few">%d перекладач</item>
+        <item quantity="many">%d перекладач</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000e">
+        <item quantity="one">Розділити на %d файл</item>
+        <item quantity="few">Розділити на %d файлів</item>
+        <item quantity="many">Розділити на %d файлів</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000f">
+        <item quantity="one">%d завдання виконується</item>
+        <item quantity="few">%d завдань виконується</item>
+        <item quantity="many">%d завдань виконується</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110010">
+        <item quantity="one">%d сесія</item>
+        <item quantity="few">%d сесії</item>
+        <item quantity="many">%d сесій</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110011">
+        <item quantity="one">VIP закінчується через %d день</item>
+        <item quantity="few">VIP закінчується через %d днів</item>
+        <item quantity="many">VIP закінчується через %d днів</item>
     </plurals>
 </resources>

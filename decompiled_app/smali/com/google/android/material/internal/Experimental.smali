@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lcom/google/android/material/internal/Experimental;
 .super Ljava/lang/Object;
+.source "73S6"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -32,6 +33,4 @@
 
 # virtual methods
 .method public abstract value()Ljava/lang/String;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
 .end method

@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lnet/engio/mbassy/listener/Filter;
 .super Ljava/lang/Object;
+.source "642D"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -19,13 +20,4 @@
 
 # virtual methods
 .method public abstract value()Ljava/lang/Class;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lnet/engio/mbassy/listener/IMessageFilter;",
-            ">;"
-        }
-    .end annotation
 .end method

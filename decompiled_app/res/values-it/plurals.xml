@@ -1,75 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="exo_controls_fastforward_by_amount_description">
+    <plurals name="MT_Protector">
+        <item quantity="other">Elimina i file di origine</item>
+        <item quantity="one">Elimina il file di origine</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110003">
         <item quantity="other">Avanti di %d secondi</item>
         <item quantity="one">Avanti di %d secondo</item>
     </plurals>
-    <plurals name="exo_controls_rewind_by_amount_description">
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110004">
         <item quantity="other">Indietro di %d secondi</item>
         <item quantity="one">Indietro di %d secondo</item>
     </plurals>
-    <plurals name="hiad_dismiss_dilaog">
-        <item quantity="other">La finestra verrà chiusa tra %1$s secondi.</item>
-        <item quantity="one">La finestra verrà chiusa tra %1$s secondo.</item>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110005">
+        <item quantity="other">File: %d</item>
+        <item quantity="one">File: %d</item>
     </plurals>
-    <plurals name="hiad_no_prompt_in_days">
-        <item quantity="other">Ricorda questa scelta per %1$s giorni</item>
-        <item quantity="one">Ricorda questa scelta per %1$s giorno</item>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110006">
+        <item quantity="other">Cartelle: %d</item>
+        <item quantity="one">Cartella: %d</item>
     </plurals>
-    <plurals name="hiad_reward_countdown">
-        <item quantity="other">%1$d sec</item>
-        <item quantity="one">%1$d sec</item>
-    </plurals>
-    <plurals name="je_x_text_replaced">
-        <item quantity="other">%1$d elementi sostituiti</item>
-        <item quantity="one">0 corrispondenze</item>
-    </plurals>
-    <plurals name="log_new_count">
-        <item quantity="other">Aggiunto %1$d nuovo file</item>
-        <item quantity="one">Aggiunti %1$d nuovi file</item>
-    </plurals>
-    <plurals name="log_time_title_day">
-        <item quantity="other">%1$d giorno fa</item>
-        <item quantity="one">%1$d giorni fa</item>
-    </plurals>
-    <plurals name="log_time_title_hour">
-        <item quantity="other">%1$d ora fa</item>
-        <item quantity="one">%1$d ore fa</item>
-    </plurals>
-    <plurals name="log_time_title_minute">
-        <item quantity="other">%1$d minuto fa</item>
-        <item quantity="one">%1$d minuti fa</item>
-    </plurals>
-    <plurals name="log_title_apk">
-        <item quantity="other">%1$d APK da %2$s</item>
-        <item quantity="one">%1$d APK da %2$s</item>
-    </plurals>
-    <plurals name="log_title_audio">
-        <item quantity="other">%1$d brano da %2$s</item>
-        <item quantity="one">%1$d brani da %2$s</item>
-    </plurals>
-    <plurals name="log_title_doc">
-        <item quantity="other">%1$d documento da %2$s</item>
-        <item quantity="one">%1$d documenti da %2$s</item>
-    </plurals>
-    <plurals name="log_title_folder">
-        <item quantity="other">%1$d cartella da %2$s</item>
-        <item quantity="one">%1$d cartelle da %2$s</item>
-    </plurals>
-    <plurals name="log_title_image">
-        <item quantity="other">%1$d immagine da %2$s</item>
-        <item quantity="one">%1$d immagini da %2$s</item>
-    </plurals>
-    <plurals name="log_title_netdisk">
-        <item quantity="other">Account Cloud personale</item>
-        <item quantity="one">Account Cloud personale</item>
-    </plurals>
-    <plurals name="log_title_video">
-        <item quantity="other">%1$d video da %2$s</item>
-        <item quantity="one">%1$d video da %2$s</item>
-    </plurals>
-    <plurals name="mtrl_badge_content_description">
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110007">
         <item quantity="other">%d nuove notifiche</item>
         <item quantity="one">%d nuova notifica</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110008">
+        <item quantity="other">%d giorni fa</item>
+        <item quantity="one">%d giorno fa</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110009">
+        <item quantity="other">%d ore fa</item>
+        <item quantity="one">%d ora fa</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000a">
+        <item quantity="other">%d minuti fa</item>
+        <item quantity="one">%d minuto fa</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000b">
+        <item quantity="other">%d secondi fa</item>
+        <item quantity="one">%d secondo fa</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000c">
+        <item quantity="other">%d altre interfacce</item>
+        <item quantity="one">%d altra interfaccia</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000d">
+        <item quantity="other">%d interfacce di traduzione</item>
+        <item quantity="one">%d interfaccia di traduzione</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000e">
+        <item quantity="other">Dividi in %d file</item>
+        <item quantity="one">Dividi in %d file</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000f">
+        <item quantity="other">%d operazioni sono in esecuzione</item>
+        <item quantity="one">%d operazione è in esecuzione</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110010">
+        <item quantity="other">%d sessioni</item>
+        <item quantity="one">%d sessione</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110011">
+        <item quantity="other">VIP termina in %d giorni</item>
+        <item quantity="one">VIP termina in %d giorno</item>
     </plurals>
 </resources>

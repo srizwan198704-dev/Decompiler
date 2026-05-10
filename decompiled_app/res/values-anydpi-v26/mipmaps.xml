@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="mipmap" name="ic_fex_round">@mipmap/fex</item>
+    <item type="mipmap" name="MT_Protector">ܽۡ᩻.xml</item>
+    <item type="mipmap" name="APKTOOL_DUPLICATE_mipmap_0x7f100001">᩸ܶۛ.xml</item>
+    <item type="mipmap" name="APKTOOL_DUPLICATE_mipmap_0x7f100003">۫ۡ֫.xml</item>
+    <item type="mipmap" name="APKTOOL_DUPLICATE_mipmap_0x7f100004">ܶۖۚ.xml</item>
 </resources>

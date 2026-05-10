@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lnet/engio/mbassy/listener/Synchronized;
 .super Ljava/lang/Object;
+.source "83V5"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;

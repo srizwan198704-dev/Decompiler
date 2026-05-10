@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lnet/engio/mbassy/listener/Handler;
 .super Ljava/lang/Object;
+.source "S59D"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;
@@ -47,15 +48,6 @@
 .end method
 
 .method public abstract invocation()Ljava/lang/Class;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lnet/engio/mbassy/dispatch/HandlerInvocation;",
-            ">;"
-        }
-    .end annotation
 .end method
 
 .method public abstract priority()I

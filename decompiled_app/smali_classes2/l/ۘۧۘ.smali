@@ -1,0 +1,37 @@
+.class public final Ll/ۘۧۘ;
+.super Ljava/lang/Object;
+.source "N1UM"
+
+# interfaces
+.implements Ll/ۧۧۘ;
+
+
+# instance fields
+.field public final ᩷:Ll/ۡۧۘ;
+
+
+# direct methods
+.method public constructor <init>(Ll/ۡۧۘ;)V
+    .locals 0
+
+    .line 10
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 11
+    iput-object p1, p0, Ll/ۘۧۘ;->᩷:Ll/ۡۧۘ;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final ᩷(Ll/ܿ᩺ۘ;)V
+    .locals 1
+
+    .line 15
+    iget-object v0, p0, Ll/ۘۧۘ;->᩷:Ll/ۡۧۘ;
+
+    invoke-virtual {p1, v0}, Ll/ܰ᩺ۘ;->ۖ(Ll/ᩳۧۘ;)V
+
+    return-void
+.end method

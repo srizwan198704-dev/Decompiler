@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lnet/engio/mbassy/listener/Listener;
 .super Ljava/lang/Object;
+.source "B9D2"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;

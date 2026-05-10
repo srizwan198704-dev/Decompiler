@@ -1,19 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="backup_intervals">
-        <item>30 menit</item>
-        <item>1 jam</item>
-        <item>2 jam</item>
-        <item>6 jam</item>
-        <item>1 hari</item>
-        <item>7 hari</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030002">
+        <item>Xml</item>
+        <item>String</item>
     </string-array>
-    <string-array name="diskusage_sort_entries">
-        <item>Nama</item>
-        <item>Jenis</item>
-        <item>Ukuran</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030003">
+        <item>Xml</item>
+        <item>Resource Id</item>
+        <item>String</item>
+        <item>Integer</item>
+        <item>Color</item>
     </string-array>
-    <string-array name="exo_controls_playback_speeds">
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030004">
+        <item>String</item>
+        <item>Reference</item>
+        <item>Attribute</item>
+        <item>Color</item>
+        <item>Int-dec</item>
+        <item>Int-hex</item>
+        <item>Boolean</item>
+        <item>Float</item>
+        <item>Dimension</item>
+        <item>Fraction</item>
+        <item>DynamicReference</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030005">
+        <item>Xml</item>
+        <item>String</item>
+        <item>Resource Id</item>
+        <item>Color</item>
+        <item>Integer</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030008">
+        <item>Otimatis</item>
+        <item>Memungkinkan</item>
+        <item>Nonaktifkan</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030009">
+        <item>Salin Hex Text</item>
+        <item>Salin Decimal Text</item>
+        <item>Salin Binary Text</item>
+        <item>Salin Ascii</item>
+        <item>Salin Base64</item>
+        <item>Salin SHA1</item>
+        <item>Salin MD5</item>
+        <item>Salin CRC32</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03000c">
+        <item>Smali</item>
+        <item>String</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03000d">
+        <item>Smali</item>
+        <item>Nama Class</item>
+        <item>Nama Field</item>
+        <item>Nama Method</item>
+        <item>Nama String</item>
+        <item>Nama Integer</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03000e">
+        <item>Deklarasi Metode</item>
+        <item>Deklarasi Lapangan</item>
+    </string-array>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03000f">
         <item>0,25x</item>
         <item>0,5x</item>
         <item>0,75x</item>
@@ -22,107 +71,49 @@
         <item>1,5x</item>
         <item>2x</item>
     </string-array>
-    <string-array name="image_slide_interval">
-        <item>1 d</item>
-        <item>3 d</item>
-        <item>5 d</item>
-        <item>10 d</item>
-        <item>15 d</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030010">
+        <item>Application name</item>
+        <item>Package name</item>
+        <item>Apk file size</item>
+        <item>Install time</item>
     </string-array>
-    <string-array name="je_screen_orientation">
-        <item>Otomatis</item>
-        <item>Lanskap</item>
-        <item>Potret</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030012">
+        <item>Kecil</item>
+        <item>Sedang</item>
+        <item>Besar</item>
     </string-array>
-    <string-array name="je_wrap_char_list">
-        <item>Konversikan ke \\n(Linux/OSX)</item>
-        <item>Konversikan ke \\r\\n(Windows)</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030014">
+        <item>Temukan semua penggunaan</item>
+        <item>Temukan kegunaan dari put</item>
+        <item>Temukan kegunaan get</item>
     </string-array>
-    <string-array name="new_navi_groups">
-        <item>Kesukaan</item>
-        <item>Lokal</item>
-        <item>Pustaka</item>
-        <item>Jaringan</item>
-        <item>Peralatan</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03001b">
+        <item>Beranda</item>
+        <item>Jalan terakhir</item>
     </string-array>
-    <string-array name="pick_and_return_file_entries">
-        <item>"Cara Normal Android
-(Untuk MMS,Gmail,…)"</item>
-        <item>"Cara File
-(Coba ini jika atas gagal)"</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f03001c">
+        <item>Tempel dari Hex Text</item>
+        <item>Tempel dari Decimal Text</item>
+        <item>Tempel dari Binary Text</item>
+        <item>Tempel dari Ascii</item>
+        <item>Tempel dari Base64</item>
     </string-array>
-    <string-array name="search_condition_date">
-        <item>Semua</item>
-        <item>Hari ini</item>
-        <item>Kemarin</item>
-        <item>Minggu ini</item>
-        <item>Bulan ini</item>
-        <item>Tahun ini</item>
-        <item>> 1 tahun</item>
-        <item>Masukan</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030020">
+        <item>Normal</item>
+        <item>Monospace</item>
     </string-array>
-    <string-array name="search_condition_size">
-        <item>Semua</item>
-        <item>0 – 100 KB</item>
-        <item>100KB - 1 MB</item>
-        <item>1 MB - 16 MB</item>
-        <item>16 MB - 128 MB</item>
-        <item>> 128 MB</item>
-        <item>Masukan</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030022">
+        <item>Ganti Semuanya</item>
+        <item>Perbarui dan ganti</item>
+        <item>Lewati Semuanya</item>
     </string-array>
-    <string-array name="theme_folders">
-        <item>Default</item>
-        <item>Kuning</item>
-        <item>Hijau</item>
-        <item>Merah</item>
-        <item>Merah muda</item>
-        <item>hitam</item>
-    </string-array>
-    <string-array name="view_item_names">
-        <item>Ikon Besar</item>
-        <item>Ikon Sedang</item>
-        <item>Ikon Kecil</item>
-        <item>Daftar Besar</item>
-        <item>Daftar Sedang</item>
-        <item>Daftar Kecil</item>
-        <item>Detail Besar</item>
-        <item>Detail Sedang</item>
-        <item>Detail Kecil</item>
-    </string-array>
-    <string-array name="wifi_signal">
-        <item>Buruk</item>
-        <item>Lumayan</item>
-        <item>Baik</item>
-        <item>Baik Sekali</item>
-    </string-array>
-    <string-array name="wifi_status_with_ssid">
-        <item></item>
-        <item>Memindai…</item>
-        <item>Menghubungkan ke %1$s…</item>
-        <item>Otentikasi dengan %1$s…</item>
-        <item>Mendapatkan alamat IP dari %1$s…</item>
-        <item>Terhubung ke %1$s</item>
-        <item>Ditangguhkan</item>
-        <item>Terputus dari %1$s…</item>
-        <item>Terputus</item>
-        <item>Tidak berhasil</item>
-    </string-array>
-    <string-array name="wifi_statuses">
-        <item></item>
-        <item>Memindai…</item>
-        <item>Menghubungkan…</item>
-        <item>Mengotentikasi…</item>
-        <item>Mendapatkan alamat IP…</item>
-        <item>Selesai</item>
-        <item>Ditangguhkan</item>
-        <item>Memutuskan…</item>
-        <item>Terputus</item>
-        <item>Tidak berhasil</item>
-    </string-array>
-    <string-array name="zip_levels">
-        <item>Belanja</item>
+    <string-array name="APKTOOL_DUPLICATE_array_0x7f030023">
+        <item>Toko</item>
+        <item>Tercepat</item>
         <item>Cepat</item>
-        <item>Standar</item>
-        <item>Terbaik</item>
+        <item>Normal</item>
+        <item>Maksimum</item>
+        <item>Ultra</item>
+        <item>Mode APK</item>
     </string-array>
 </resources>

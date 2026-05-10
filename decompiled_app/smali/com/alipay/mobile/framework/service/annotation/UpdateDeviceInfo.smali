@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lcom/alipay/mobile/framework/service/annotation/UpdateDeviceInfo;
 .super Ljava/lang/Object;
+.source "W67C"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;

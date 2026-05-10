@@ -1,31 +1,27 @@
 .class public final Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;
 .super Ljava/lang/Object;
-
-
-# annotations
-.annotation build Landroidx/media3/common/util/UnstableApi;
-.end annotation
+.source "L8FL"
 
 
 # static fields
-.field private static final LOADER:Landroidx/media3/common/util/LibraryLoader;
+.field public static ۖ:I
 
-.field private static final TAG:Ljava/lang/String; = "FfmpegLibrary"
+.field public static ۙ:Ljava/lang/String;
 
-.field private static inputBufferPaddingSize:I
-
-.field private static version:Ljava/lang/String;
+.field public static final ᩷:Ll/ۧ֨᩷;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "media3.decoder.ffmpeg"
 
-    invoke-static {v0}, Landroidx/media3/common/MediaLibraryInfo;->registerModule(Ljava/lang/String;)V
+    .line 33
+    invoke-static {v0}, Ll/ۤ᩸᩷;->᩷(Ljava/lang/String;)V
 
-    new-instance v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary$1;
+    .line 38
+    new-instance v0, Ll/ܿܳ᩷;
 
     const-string v1, "ffmpegJNI"
 
@@ -33,40 +29,190 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary$1;-><init>([Ljava/lang/String;)V
+    .line 39
+    invoke-direct {v0, v1}, Ll/ۧ֨᩷;-><init>([Ljava/lang/String;)V
 
-    sput-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->LOADER:Landroidx/media3/common/util/LibraryLoader;
+    .line 38
+    sput-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->᩷:Ll/ۧ֨᩷;
 
     const/4 v0, -0x1
 
-    sput v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->inputBufferPaddingSize:I
+    .line 47
+    sput v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ۖ:I
 
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method private static native ffmpegGetInputBufferPaddingSize()I
+.method public static native ffmpegGetInputBufferPaddingSize()I
 .end method
 
-.method private static native ffmpegGetVersion()Ljava/lang/String;
+.method public static native ffmpegGetVersion()Ljava/lang/String;
 .end method
 
-.method private static native ffmpegHasDecoder(Ljava/lang/String;)Z
+.method public static native ffmpegHasDecoder(Ljava/lang/String;)Z
 .end method
 
-.method public static getCodecName(Ljava/lang/String;)Ljava/lang/String;
+.method public static ۖ()Ljava/lang/String;
+    .locals 1
+
+    .line 68
+    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->᩷:Ll/ۧ֨᩷;
+
+    invoke-virtual {v0}, Ll/ۧ֨᩷;->᩷()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    .line 79
+    :cond_0
+    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ۙ:Ljava/lang/String;
+
+    if-nez v0, :cond_1
+
+    .line 80
+    invoke-static {}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ffmpegGetVersion()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ۙ:Ljava/lang/String;
+
+    .line 82
+    :cond_1
+    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ۙ:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public static ۖ(Ljava/lang/String;)Z
+    .locals 3
+
+    .line 68
+    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->᩷:Ll/ۧ֨᩷;
+
+    invoke-virtual {v0}, Ll/ۧ֨᩷;->᩷()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    .line 108
+    :cond_0
+    invoke-static {p0}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->᩷(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    if-nez p0, :cond_1
+
+    :goto_0
+    return v1
+
+    .line 112
+    :cond_1
+    invoke-static {p0}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ffmpegHasDecoder(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 113
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v2, "No "
+
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p0, " decoder available. Check the FFmpeg build configuration."
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Ll/᩸֨᩷;->۟(Ljava/lang/String;)V
+
+    return v1
+
+    :cond_2
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public static ۙ()Z
+    .locals 1
+
+    .line 68
+    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->᩷:Ll/ۧ֨᩷;
+
+    invoke-virtual {v0}, Ll/ۧ֨᩷;->᩷()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static ᩷()I
     .locals 2
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
 
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+    .line 68
+    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->᩷:Ll/ۧ֨᩷;
+
+    invoke-virtual {v0}, Ll/ۧ֨᩷;->᩷()Z
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    .line 93
+    :cond_0
+    sget v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ۖ:I
+
+    if-ne v0, v1, :cond_1
+
+    .line 94
+    invoke-static {}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ffmpegGetInputBufferPaddingSize()I
+
+    move-result v0
+
+    sput v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ۖ:I
+
+    .line 96
+    :cond_1
+    sget v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ۖ:I
+
+    return v0
+.end method
+
+.method public static ᩷(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    .line 125
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 
@@ -239,7 +385,7 @@
     goto/16 :goto_0
 
     :sswitch_a
-    const-string/jumbo v0, "video/avc"
+    const-string v0, "video/avc"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -367,7 +513,7 @@
     goto :goto_0
 
     :sswitch_12
-    const-string/jumbo v0, "video/hevc"
+    const-string v0, "video/hevc"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -414,7 +560,7 @@
     return-object p0
 
     :pswitch_2
-    const-string/jumbo p0, "truehd"
+    const-string p0, "truehd"
 
     return-object p0
 
@@ -459,7 +605,7 @@
     return-object p0
 
     :pswitch_b
-    const-string/jumbo p0, "vorbis"
+    const-string p0, "vorbis"
 
     return-object p0
 
@@ -532,147 +678,4 @@
         :pswitch_1
         :pswitch_0
     .end packed-switch
-.end method
-
-.method public static getInputBufferPaddingSize()I
-    .locals 2
-
-    invoke-static {}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->isAvailable()Z
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    :cond_0
-    sget v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->inputBufferPaddingSize:I
-
-    if-ne v0, v1, :cond_1
-
-    invoke-static {}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ffmpegGetInputBufferPaddingSize()I
-
-    move-result v0
-
-    sput v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->inputBufferPaddingSize:I
-
-    :cond_1
-    sget v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->inputBufferPaddingSize:I
-
-    return v0
-.end method
-
-.method public static getVersion()Ljava/lang/String;
-    .locals 1
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
-
-    invoke-static {}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->isAvailable()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return-object v0
-
-    :cond_0
-    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->version:Ljava/lang/String;
-
-    if-nez v0, :cond_1
-
-    invoke-static {}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ffmpegGetVersion()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->version:Ljava/lang/String;
-
-    :cond_1
-    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->version:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public static isAvailable()Z
-    .locals 1
-
-    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->LOADER:Landroidx/media3/common/util/LibraryLoader;
-
-    invoke-virtual {v0}, Landroidx/media3/common/util/LibraryLoader;->isAvailable()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static varargs setLibraries([Ljava/lang/String;)V
-    .locals 1
-
-    sget-object v0, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->LOADER:Landroidx/media3/common/util/LibraryLoader;
-
-    invoke-virtual {v0, p0}, Landroidx/media3/common/util/LibraryLoader;->setLibraries([Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static supportsFormat(Ljava/lang/String;)Z
-    .locals 3
-
-    invoke-static {}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->isAvailable()Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    :cond_0
-    invoke-static {p0}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->getCodecName(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    if-nez p0, :cond_1
-
-    return v1
-
-    :cond_1
-    invoke-static {p0}, Landroidx/media3/decoder/ffmpeg/FfmpegLibrary;->ffmpegHasDecoder(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "No "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p0, " decoder available. Check the FFmpeg build configuration."
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string v0, "FfmpegLibrary"
-
-    invoke-static {v0, p0}, Landroidx/media3/common/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v1
-
-    :cond_2
-    const/4 p0, 0x1
-
-    return p0
 .end method

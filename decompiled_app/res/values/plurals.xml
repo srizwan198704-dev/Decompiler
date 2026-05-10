@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="exo_controls_fastforward_by_amount_description">
+    <plurals name="MT_Protector">
+        <item quantity="other">Delete source files</item>
+        <item quantity="one">Delete source file</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110001">
+        <item quantity="other">Delete source files after compression</item>
+        <item quantity="one">Delete source file after compression</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110002">
+        <item quantity="other">Delete source files after extraction</item>
+        <item quantity="one">Delete source file after extraction</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110003">
         <item quantity="other">Fast forward %d seconds</item>
         <item quantity="one">Fast forward %d second</item>
     </plurals>
-    <plurals name="exo_controls_rewind_by_amount_description">
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110004">
         <item quantity="other">Rewind %d seconds</item>
         <item quantity="one">Rewind %d second</item>
     </plurals>
-    <plurals name="hiad_dismiss_dilaog">
-        <item quantity="other">Window will close in %1$s seconds.</item>
-        <item quantity="one">Window will close in %1$s second.</item>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110005">
+        <item quantity="other">Files: %d</item>
+        <item quantity="one">File: %d</item>
     </plurals>
-    <plurals name="hiad_no_prompt_in_days">
-        <item quantity="other">Remember choice for %1$s days</item>
-        <item quantity="one">Remember choice for %1$s day</item>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110006">
+        <item quantity="other">Folders: %d</item>
+        <item quantity="one">Folder: %d</item>
     </plurals>
-    <plurals name="hiad_reward_countdown">
-        <item quantity="other">%1$d sec</item>
-        <item quantity="one">%1$d sec</item>
-    </plurals>
-    <plurals name="je_x_text_replaced">
-        <item quantity="other">%1$d item(s) replaced</item>
-        <item quantity="one">0 matches</item>
-    </plurals>
-    <plurals name="log_new_count">
-        <item quantity="other">Added %1$d New Files</item>
-        <item quantity="one">Added %1$d New File</item>
-    </plurals>
-    <plurals name="log_time_title_day">
-        <item quantity="other">%1$d days ago</item>
-        <item quantity="one">%1$d day ago</item>
-    </plurals>
-    <plurals name="log_time_title_hour">
-        <item quantity="other">%1$d hours ago</item>
-        <item quantity="one">%1$d hour ago</item>
-    </plurals>
-    <plurals name="log_time_title_minute">
-        <item quantity="other">%1$d mins ago</item>
-        <item quantity="one">%1$d min ago</item>
-    </plurals>
-    <plurals name="log_title_apk">
-        <item quantity="other">%1$d APKs from %2$s</item>
-        <item quantity="one">%1$d APK from %2$s</item>
-    </plurals>
-    <plurals name="log_title_audio">
-        <item quantity="other">%1$d songs from %2$s</item>
-        <item quantity="one">%1$d song from %2$s</item>
-    </plurals>
-    <plurals name="log_title_doc">
-        <item quantity="other">%1$d documents from %2$s</item>
-        <item quantity="one">%1$d document from %2$s</item>
-    </plurals>
-    <plurals name="log_title_folder">
-        <item quantity="other">%1$d folders from %2$s</item>
-        <item quantity="one">%1$d folder from %2$s</item>
-    </plurals>
-    <plurals name="log_title_image">
-        <item quantity="other">%1$d images from %2$s</item>
-        <item quantity="one">%1$d image from %2$s</item>
-    </plurals>
-    <plurals name="log_title_netdisk">
-        <item quantity="other">My Cloud accounts</item>
-        <item quantity="one">My Cloud account</item>
-    </plurals>
-    <plurals name="log_title_video">
-        <item quantity="other">%1$d videos from %2$s</item>
-        <item quantity="one">%1$d video from %2$s</item>
-    </plurals>
-    <plurals name="mtrl_badge_content_description">
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110007">
         <item quantity="other">%d new notifications</item>
         <item quantity="one">%d new notification</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110008">
+        <item quantity="other">%d days ago</item>
+        <item quantity="one">%d day ago</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110009">
+        <item quantity="other">%d hours ago</item>
+        <item quantity="one">%d hour ago</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000a">
+        <item quantity="other">%d minutes ago</item>
+        <item quantity="one">%d minute ago</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000b">
+        <item quantity="other">%d seconds ago</item>
+        <item quantity="one">%d second ago</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000c">
+        <item quantity="other">%d other interfaces</item>
+        <item quantity="one">%d other interface</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000d">
+        <item quantity="other">%d translation interfaces</item>
+        <item quantity="one">%d translation interface</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000e">
+        <item quantity="other">Split into %d files</item>
+        <item quantity="one">Split into %d file</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000f">
+        <item quantity="other">%d tasks are running</item>
+        <item quantity="one">%d task is running</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110010">
+        <item quantity="other">%d sessions</item>
+        <item quantity="one">%d session</item>
+    </plurals>
+    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110011">
+        <item quantity="other">VIP expires in %d days</item>
+        <item quantity="one">VIP expires in %d day</item>
     </plurals>
 </resources>

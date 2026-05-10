@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lcom/alipay/mobile/framework/service/annotation/ResetCookie;
 .super Ljava/lang/Object;
+.source "E66E"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;

@@ -1,19 +1,10 @@
 .class public final enum Lnet/engio/mbassy/listener/References;
 .super Ljava/lang/Enum;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Enum<",
-        "Lnet/engio/mbassy/listener/References;",
-        ">;"
-    }
-.end annotation
+.source "Q9KJ"
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lnet/engio/mbassy/listener/References;
+.field public static final synthetic $VALUES:[Lnet/engio/mbassy/listener/References;
 
 .field public static final enum Strong:Lnet/engio/mbassy/listener/References;
 
@@ -21,9 +12,10 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 5
 
+    .line 9
     new-instance v0, Lnet/engio/mbassy/listener/References;
 
     const-string v1, "Strong"
@@ -52,19 +44,16 @@
 
     aput-object v1, v3, v4
 
+    .line 8
     sput-object v3, Lnet/engio/mbassy/listener/References;->$VALUES:[Lnet/engio/mbassy/listener/References;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
+    .line 8
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -73,6 +62,7 @@
 .method public static valueOf(Ljava/lang/String;)Lnet/engio/mbassy/listener/References;
     .locals 1
 
+    .line 8
     const-class v0, Lnet/engio/mbassy/listener/References;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -87,6 +77,7 @@
 .method public static values()[Lnet/engio/mbassy/listener/References;
     .locals 1
 
+    .line 8
     sget-object v0, Lnet/engio/mbassy/listener/References;->$VALUES:[Lnet/engio/mbassy/listener/References;
 
     invoke-virtual {v0}, [Lnet/engio/mbassy/listener/References;->clone()Ljava/lang/Object;
