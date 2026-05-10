@@ -83,11 +83,11 @@ jobs:
           echo "=== Tool versions ==="
           aapt2 version
           apksigner version
-          # zipalign prints usage and exits with code 2 when called with no args — suppress exit
-          zipalign 2>&1 | head -3 || true
+          # zipalign exits non-zero with no args (prints usage) — suppress
+          zipalign 2>&1 | head -2 || true
 
       # ─────────────────────────────────────────────
-      # 4. APKTOOL (with -m / merge support)
+      # 4. APKTOOL
       # ─────────────────────────────────────────────
       - name: Setup APKTool ${{ env.APKTOOL_VER }}
         run: |
@@ -282,51 +282,61 @@ jobs:
           fi
 
       # ─────────────────────────────────────────────
-      # 13. RECOMPILE WITH apktool m (MERGE MODE)
-      #     Falls back through b → b --use-aapt2
+      # 13. RECOMPILE APK — apktool b with fallbacks
+      #
+      # NOTE: apktool has no "m" (merge) command.
+      # Valid commands: d[ecode], b[uild], if|install-framework
+      # The -o flag writes to an explicit path — without it
+      # apktool writes to dist/<foldername>.apk inside the project.
       # ─────────────────────────────────────────────
-      - name: Recompile APK (apktool m with fallbacks)
+      - name: Recompile APK (apktool b with fallbacks)
         run: |
           DIR="${{ github.event.inputs.decompiled_folder }}"
-          OUT="recompiled_unsigned.apk"
+          OUT="${GITHUB_WORKSPACE}/recompiled_unsigned.apk"
 
           # Always clear cached framework first
           apktool empty-framework-dir --force 2>/dev/null || true
 
           BUILD_SUCCESS=false
 
-          # ── Strategy 1: apktool m (merge — keeps original res/assets) ──
-          echo "=== Strategy 1: apktool m (merge mode) ==="
-          if apktool m "$DIR" -o "$OUT" -f 2>&1; then
-            echo "✓ Build success — merge mode"
+          # ── Strategy 1: apktool b  ──────────────────────────────
+          echo "=== Strategy 1: apktool b (standard) ==="
+          if apktool b "$DIR" -o "$OUT" -f 2>&1; then
+            echo "✓ Build success — standard"
             BUILD_SUCCESS=true
 
-          # ── Strategy 2: apktool m + --use-aapt2 ──
-          elif apktool m "$DIR" -o "$OUT" -f --use-aapt2 2>&1; then
-            echo "✓ Build success — merge + aapt2"
-            BUILD_SUCCESS=true
-
-          # ── Strategy 3: apktool b (standard build) ──
-          elif apktool b "$DIR" -o "$OUT" -f 2>&1; then
-            echo "✓ Build success — standard build"
-            BUILD_SUCCESS=true
-
-          # ── Strategy 4: apktool b + --use-aapt2 ──
+          # ── Strategy 2: apktool b --use-aapt2 ─────────────────
           elif apktool b "$DIR" -o "$OUT" -f --use-aapt2 2>&1; then
-            echo "✓ Build success — standard + aapt2"
+            echo "✓ Build success — aapt2"
             BUILD_SUCCESS=true
 
-          # ── Strategy 5: apktool b + --use-aapt2 + --no-crunch ──
+          # ── Strategy 3: apktool b --use-aapt2 --no-crunch ─────
           elif apktool b "$DIR" -o "$OUT" -f --use-aapt2 --no-crunch 2>&1; then
             echo "✓ Build success — aapt2 + no-crunch"
             BUILD_SUCCESS=true
 
+          # ── Strategy 4: skip resources (-r flag on decode side)
+          #    Re-decode without resources, then rebuild ───────────
           else
-            echo "✗ All build strategies failed"
+            echo "=== Strategy 4: rebuild without resources ==="
+            TMP_DIR="${GITHUB_WORKSPACE}/tmp_nores"
+            rm -rf "$TMP_DIR"
+            # Find the original APK in dist/ if it exists
+            ORIG_APK=$(find "$DIR/dist" -name "*.apk" 2>/dev/null | head -1)
+            if [ -n "$ORIG_APK" ]; then
+              apktool d "$ORIG_APK" -o "$TMP_DIR" -f -r 2>&1 || true
+              if apktool b "$TMP_DIR" -o "$OUT" -f 2>&1; then
+                echo "✓ Build success — no-res fallback"
+                BUILD_SUCCESS=true
+              fi
+            fi
           fi
 
           if [ "$BUILD_SUCCESS" != "true" ] || [ ! -f "$OUT" ]; then
-            echo "ERROR: APK not created — aborting"
+            echo ""
+            echo "ERROR: All build strategies failed. APK not created."
+            echo "=== Listing dist/ folder (apktool default output) ==="
+            find "$DIR" -name "*.apk" 2>/dev/null || echo "No APK found anywhere"
             exit 1
           fi
 
@@ -337,12 +347,13 @@ jobs:
       # ─────────────────────────────────────────────
       - name: Verify APK structure
         run: |
+          OUT="${GITHUB_WORKSPACE}/recompiled_unsigned.apk"
           echo "=== aapt2 badging ==="
-          aapt2 dump badging recompiled_unsigned.apk 2>&1 | head -10 || \
+          aapt2 dump badging "$OUT" 2>&1 | head -10 || \
             echo "Warning: aapt2 dump failed (APK may still be installable)"
 
           echo "=== APK entry count ==="
-          unzip -l recompiled_unsigned.apk | tail -3
+          unzip -l "$OUT" | tail -3
 
       # ─────────────────────────────────────────────
       # 15. GENERATE KEYSTORE
@@ -366,8 +377,8 @@ jobs:
       # ─────────────────────────────────────────────
       - name: Zipalign APK
         run: |
-          zipalign -v -p 4 recompiled_unsigned.apk aligned.apk
-          # -c exits non-zero if misaligned — that IS a real error worth surfacing
+          OUT="${GITHUB_WORKSPACE}/recompiled_unsigned.apk"
+          zipalign -v -p 4 "$OUT" aligned.apk
           zipalign -c -v 4 aligned.apk && echo "Alignment: PASSED ✓" || echo "Alignment: FAILED ✗"
 
       # ─────────────────────────────────────────────
@@ -414,7 +425,7 @@ jobs:
             |---|---|
             | 📦 Old package | `${{ env.OLD_PACKAGE }}` |
             | ✅ New package | `${{ env.NEW_PACKAGE }}` |
-            | 🔧 APKTool    | v${{ env.APKTOOL_VER }} (merge mode) |
+            | 🔧 APKTool    | v${{ env.APKTOOL_VER }} |
             | 🛠 Build-tools | ${{ env.BUILD_TOOLS_VER }} |
             | 🔑 Signed     | v2 + v3 (apksigner) |
 
@@ -425,8 +436,8 @@ jobs:
             - Dot-notation & path-based package references replaced
             - `AndroidManifest.xml` validated after replacement
 
-            ### Build strategy
-            `apktool m` → `apktool m --use-aapt2` → `apktool b` → `apktool b --use-aapt2` → `apktool b --use-aapt2 --no-crunch`
+            ### Build strategy used
+            `apktool b` → `apktool b --use-aapt2` → `apktool b --use-aapt2 --no-crunch` → no-res fallback
           files: signed_app.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
