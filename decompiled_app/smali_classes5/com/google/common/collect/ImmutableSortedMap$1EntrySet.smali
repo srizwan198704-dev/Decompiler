@@ -25,6 +25,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableSortedMap;)V
     .locals 0
 
@@ -55,12 +61,12 @@
     return-object v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public iterator()Lcom/google/common/collect/r4;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "Ljava/util/Map$Entry<",
             "TK;TV;>;>;"
         }
@@ -70,7 +76,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -80,7 +86,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedMap$1EntrySet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -104,11 +110,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableMapEntrySet;->writeReplace()Ljava/lang/Object;
 

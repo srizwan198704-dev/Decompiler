@@ -10,6 +10,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/util/Collection;)V
     .locals 0
 

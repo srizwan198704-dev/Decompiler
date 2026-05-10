@@ -1,27 +1,44 @@
 .class final Lcom/google/android/gms/internal/auth/zzgn;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Ljava/lang/Iterable;
+
+# static fields
+.field private static final zza:Ljava/util/Iterator;
+
+.field private static final zzb:Ljava/lang/Iterable;
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    new-instance v0, Lcom/google/android/gms/internal/auth/zzgl;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/auth/zzgl;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/internal/auth/zzgn;->zza:Ljava/util/Iterator;
+
+    new-instance v0, Lcom/google/android/gms/internal/auth/zzgm;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/auth/zzgm;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/internal/auth/zzgn;->zzb:Ljava/lang/Iterable;
 
     return-void
 .end method
 
-
-# virtual methods
-.method public final iterator()Ljava/util/Iterator;
+.method public static zza()Ljava/lang/Iterable;
     .locals 1
 
-    invoke-static {}, Lcom/google/android/gms/internal/auth/zzgo;->zzb()Ljava/util/Iterator;
+    sget-object v0, Lcom/google/android/gms/internal/auth/zzgn;->zzb:Ljava/lang/Iterable;
 
-    move-result-object v0
+    return-object v0
+.end method
+
+.method public static bridge synthetic zzb()Ljava/util/Iterator;
+    .locals 1
+
+    sget-object v0, Lcom/google/android/gms/internal/auth/zzgn;->zza:Ljava/util/Iterator;
 
     return-object v0
 .end method

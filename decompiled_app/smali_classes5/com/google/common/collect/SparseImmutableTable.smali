@@ -3,20 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation runtime Lcom/google/errorprone/annotations/Immutable;
-    containerOf = {
-        "R",
-        "C",
-        "V"
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<R:",
@@ -105,7 +91,7 @@
         value = {
             "(",
             "Lcom/google/common/collect/ImmutableList<",
-            "Lcom/google/common/collect/Table$Cell<",
+            "Lcom/google/common/collect/c4$a<",
             "TR;TC;TV;>;>;",
             "Lcom/google/common/collect/ImmutableSet<",
             "TR;>;",
@@ -116,15 +102,15 @@
 
     invoke-direct {p0}, Lcom/google/common/collect/RegularImmutableTable;-><init>()V
 
-    invoke-static {p2}, Lcom/google/common/collect/Maps;->indexMap(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;
+    invoke-static {p2}, Lcom/google/common/collect/Maps;->j(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
 
-    invoke-static {}, Lcom/google/common/collect/Maps;->newLinkedHashMap()Ljava/util/LinkedHashMap;
+    invoke-static {}, Lcom/google/common/collect/Maps;->r()Ljava/util/LinkedHashMap;
 
     move-result-object v1
 
-    invoke-virtual {p2}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p2}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object p2
 
@@ -148,11 +134,11 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {}, Lcom/google/common/collect/Maps;->newLinkedHashMap()Ljava/util/LinkedHashMap;
+    invoke-static {}, Lcom/google/common/collect/Maps;->r()Ljava/util/LinkedHashMap;
 
     move-result-object p2
 
-    invoke-virtual {p3}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p3}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object p3
 
@@ -201,17 +187,17 @@
 
     move-result-object v4
 
-    check-cast v4, Lcom/google/common/collect/Table$Cell;
+    check-cast v4, Lcom/google/common/collect/c4$a;
 
-    invoke-interface {v4}, Lcom/google/common/collect/Table$Cell;->getRowKey()Ljava/lang/Object;
+    invoke-interface {v4}, Lcom/google/common/collect/c4$a;->getRowKey()Ljava/lang/Object;
 
     move-result-object v5
 
-    invoke-interface {v4}, Lcom/google/common/collect/Table$Cell;->getColumnKey()Ljava/lang/Object;
+    invoke-interface {v4}, Lcom/google/common/collect/c4$a;->getColumnKey()Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-interface {v4}, Lcom/google/common/collect/Table$Cell;->getValue()Ljava/lang/Object;
+    invoke-interface {v4}, Lcom/google/common/collect/c4$a;->getValue()Ljava/lang/Object;
 
     move-result-object v4
 
@@ -272,13 +258,13 @@
 
     iput-object v2, p0, Lcom/google/common/collect/SparseImmutableTable;->cellColumnInRowIndices:[I
 
-    new-instance p1, Lcom/google/common/collect/ImmutableMap$Builder;
+    new-instance p1, Lcom/google/common/collect/ImmutableMap$b;
 
     invoke-interface {v1}, Ljava/util/Map;->size()I
 
     move-result p3
 
-    invoke-direct {p1, p3}, Lcom/google/common/collect/ImmutableMap$Builder;-><init>(I)V
+    invoke-direct {p1, p3}, Lcom/google/common/collect/ImmutableMap$b;-><init>(I)V
 
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -315,24 +301,24 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v1, v0}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+    invoke-virtual {p1, v1, v0}, Lcom/google/common/collect/ImmutableMap$b;->h(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$b;
 
     goto :goto_3
 
     :cond_3
-    invoke-virtual {p1}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
+    invoke-virtual {p1}, Lcom/google/common/collect/ImmutableMap$b;->d()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/google/common/collect/SparseImmutableTable;->rowMap:Lcom/google/common/collect/ImmutableMap;
 
-    new-instance p1, Lcom/google/common/collect/ImmutableMap$Builder;
+    new-instance p1, Lcom/google/common/collect/ImmutableMap$b;
 
     invoke-interface {p2}, Ljava/util/Map;->size()I
 
     move-result p3
 
-    invoke-direct {p1, p3}, Lcom/google/common/collect/ImmutableMap$Builder;-><init>(I)V
+    invoke-direct {p1, p3}, Lcom/google/common/collect/ImmutableMap$b;-><init>(I)V
 
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -369,12 +355,12 @@
 
     move-result-object p3
 
-    invoke-virtual {p1, v0, p3}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+    invoke-virtual {p1, v0, p3}, Lcom/google/common/collect/ImmutableMap$b;->h(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$b;
 
     goto :goto_4
 
     :cond_4
-    invoke-virtual {p1}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
+    invoke-virtual {p1}, Lcom/google/common/collect/ImmutableMap$b;->d()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object p1
 
@@ -416,12 +402,12 @@
     return-object v0
 .end method
 
-.method public getCell(I)Lcom/google/common/collect/Table$Cell;
+.method public getCell(I)Lcom/google/common/collect/c4$a;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/Table$Cell<",
+            "Lcom/google/common/collect/c4$a<",
             "TR;TC;TV;>;"
         }
     .end annotation
@@ -482,7 +468,7 @@
 
     move-result-object p1
 
-    invoke-static {v0, v1, p1}, Lcom/google/common/collect/ImmutableTable;->cellOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/Table$Cell;
+    invoke-static {v0, v1, p1}, Lcom/google/common/collect/ImmutableTable;->cellOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/c4$a;
 
     move-result-object p1
 
@@ -579,17 +565,12 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 6
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableTable;->columnKeySet()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/Maps;->indexMap(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;
+    invoke-static {v0}, Lcom/google/common/collect/Maps;->j(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
 
@@ -607,7 +588,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v2
 
@@ -624,11 +605,11 @@
 
     move-result-object v4
 
-    check-cast v4, Lcom/google/common/collect/Table$Cell;
+    check-cast v4, Lcom/google/common/collect/c4$a;
 
     add-int/lit8 v5, v3, 0x1
 
-    invoke-interface {v4}, Lcom/google/common/collect/Table$Cell;->getColumnKey()Ljava/lang/Object;
+    invoke-interface {v4}, Lcom/google/common/collect/c4$a;->getColumnKey()Ljava/lang/Object;
 
     move-result-object v4
 

@@ -2,24 +2,19 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/activity/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "id"
-.end annotation
-
-
 # static fields
-.field public static final report_drawn:I = 0x7f0a0f9f
+.field public static report_drawn:I = 0x7f0a0932
 
-.field public static final view_tree_on_back_pressed_dispatcher_owner:I = 0x7f0a13ea
+.field public static view_tree_on_back_pressed_dispatcher_owner:I = 0x7f0a0ef9
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 

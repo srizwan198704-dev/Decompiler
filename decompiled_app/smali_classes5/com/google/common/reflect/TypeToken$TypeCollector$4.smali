@@ -4,7 +4,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/google/common/reflect/TypeToken$TypeCollector;->sortKeysByValue(Ljava/util/Map;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableList;
+    value = Lcom/google/common/reflect/TypeToken$TypeCollector;->h(Ljava/util/Map;Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableList;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,6 +27,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/util/Comparator;Ljava/util/Map;)V
     .locals 0
 

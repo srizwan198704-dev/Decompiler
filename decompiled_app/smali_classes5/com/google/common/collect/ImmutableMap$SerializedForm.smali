@@ -6,9 +6,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/ImmutableMap;
 .end annotation
@@ -32,8 +29,6 @@
 
 
 # static fields
-.field private static final USE_LEGACY_SERIALIZATION:Z = true
-
 .field private static final serialVersionUID:J
 
 
@@ -44,6 +39,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -72,7 +73,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p1}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object p1
 
@@ -130,7 +131,7 @@
 
     array-length v2, v0
 
-    invoke-virtual {p0, v2}, Lcom/google/common/collect/ImmutableMap$SerializedForm;->makeBuilder(I)Lcom/google/common/collect/ImmutableMap$Builder;
+    invoke-virtual {p0, v2}, Lcom/google/common/collect/ImmutableMap$SerializedForm;->makeBuilder(I)Lcom/google/common/collect/ImmutableMap$b;
 
     move-result-object v2
 
@@ -145,33 +146,33 @@
 
     aget-object v5, v1, v3
 
-    invoke-virtual {v2, v4, v5}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+    invoke-virtual {v2, v4, v5}, Lcom/google/common/collect/ImmutableMap$b;->h(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$b;
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
+    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableMap$b;->d()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public makeBuilder(I)Lcom/google/common/collect/ImmutableMap$Builder;
+.method public makeBuilder(I)Lcom/google/common/collect/ImmutableMap$b;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/ImmutableMap$Builder<",
+            "Lcom/google/common/collect/ImmutableMap$b<",
             "TK;TV;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableMap$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableMap$b;
 
-    invoke-direct {v0, p1}, Lcom/google/common/collect/ImmutableMap$Builder;-><init>(I)V
+    invoke-direct {v0, p1}, Lcom/google/common/collect/ImmutableMap$b;-><init>(I)V
 
     return-object v0
 .end method
@@ -202,15 +203,15 @@
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Lcom/google/common/collect/ImmutableMap$SerializedForm;->makeBuilder(I)Lcom/google/common/collect/ImmutableMap$Builder;
+    invoke-virtual {p0, v2}, Lcom/google/common/collect/ImmutableMap$SerializedForm;->makeBuilder(I)Lcom/google/common/collect/ImmutableMap$b;
 
     move-result-object v2
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
-    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableCollection;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableCollection;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v1
 
@@ -229,12 +230,12 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v4}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+    invoke-virtual {v2, v3, v4}, Lcom/google/common/collect/ImmutableMap$b;->h(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$b;
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
+    invoke-virtual {v2}, Lcom/google/common/collect/ImmutableMap$b;->d()Lcom/google/common/collect/ImmutableMap;
 
     move-result-object v0
 

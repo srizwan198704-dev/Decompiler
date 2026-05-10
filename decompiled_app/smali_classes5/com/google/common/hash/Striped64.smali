@@ -3,15 +3,9 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtIncompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/hash/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/hash/Striped64$Cell;
+        Lcom/google/common/hash/Striped64$b;
     }
 .end annotation
 
@@ -19,11 +13,11 @@
 # static fields
 .field static final NCPU:I
 
-.field private static final UNSAFE:Lsun/misc/Unsafe;
+.field public static final a:Lsun/misc/Unsafe;
 
-.field private static final baseOffset:J
+.field public static final b:J
 
-.field private static final busyOffset:J
+.field public static final c:J
 
 .field static final rng:Ljava/util/Random;
 
@@ -42,7 +36,7 @@
 
 .field volatile transient busy:I
 
-.field volatile transient cells:[Lcom/google/common/hash/Striped64$Cell;
+.field volatile transient cells:[Lcom/google/common/hash/Striped64$b;
 
 
 # direct methods
@@ -72,11 +66,11 @@
     sput v0, Lcom/google/common/hash/Striped64;->NCPU:I
 
     :try_start_0
-    invoke-static {}, Lcom/google/common/hash/Striped64;->getUnsafe()Lsun/misc/Unsafe;
+    invoke-static {}, Lcom/google/common/hash/Striped64;->a()Lsun/misc/Unsafe;
 
     move-result-object v0
 
-    sput-object v0, Lcom/google/common/hash/Striped64;->UNSAFE:Lsun/misc/Unsafe;
+    sput-object v0, Lcom/google/common/hash/Striped64;->a:Lsun/misc/Unsafe;
 
     const-class v1, Lcom/google/common/hash/Striped64;
 
@@ -90,7 +84,7 @@
 
     move-result-wide v2
 
-    sput-wide v2, Lcom/google/common/hash/Striped64;->baseOffset:J
+    sput-wide v2, Lcom/google/common/hash/Striped64;->b:J
 
     const-string v2, "busy"
 
@@ -102,7 +96,7 @@
 
     move-result-wide v0
 
-    sput-wide v0, Lcom/google/common/hash/Striped64;->busyOffset:J
+    sput-wide v0, Lcom/google/common/hash/Striped64;->c:J
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -126,17 +120,7 @@
     return-void
 .end method
 
-.method public static synthetic access$000()Lsun/misc/Unsafe;
-    .locals 1
-
-    invoke-static {}, Lcom/google/common/hash/Striped64;->getUnsafe()Lsun/misc/Unsafe;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private static getUnsafe()Lsun/misc/Unsafe;
+.method public static a()Lsun/misc/Unsafe;
     .locals 3
 
     :try_start_0
@@ -150,9 +134,9 @@
 
     :catch_0
     :try_start_1
-    new-instance v0, Lcom/google/common/hash/Striped64$1;
+    new-instance v0, Lcom/google/common/hash/Striped64$a;
 
-    invoke-direct {v0}, Lcom/google/common/hash/Striped64$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/hash/Striped64$a;-><init>()V
 
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedExceptionAction;)Ljava/lang/Object;
 
@@ -180,14 +164,24 @@
     throw v1
 .end method
 
+.method public static synthetic access$000()Lsun/misc/Unsafe;
+    .locals 1
+
+    invoke-static {}, Lcom/google/common/hash/Striped64;->a()Lsun/misc/Unsafe;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 
 # virtual methods
 .method public final casBase(JJ)Z
     .locals 8
 
-    sget-object v0, Lcom/google/common/hash/Striped64;->UNSAFE:Lsun/misc/Unsafe;
+    sget-object v0, Lcom/google/common/hash/Striped64;->a:Lsun/misc/Unsafe;
 
-    sget-wide v2, Lcom/google/common/hash/Striped64;->baseOffset:J
+    sget-wide v2, Lcom/google/common/hash/Striped64;->b:J
 
     move-object v1, p0
 
@@ -205,9 +199,9 @@
 .method public final casBusy()Z
     .locals 6
 
-    sget-object v0, Lcom/google/common/hash/Striped64;->UNSAFE:Lsun/misc/Unsafe;
+    sget-object v0, Lcom/google/common/hash/Striped64;->a:Lsun/misc/Unsafe;
 
-    sget-wide v2, Lcom/google/common/hash/Striped64;->busyOffset:J
+    sget-wide v2, Lcom/google/common/hash/Striped64;->c:J
 
     const/4 v4, 0x0
 
@@ -228,7 +222,7 @@
 .method public final internalReset(J)V
     .locals 4
 
-    iget-object v0, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iget-object v0, p0, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
 
     iput-wide p1, p0, Lcom/google/common/hash/Striped64;->base:J
 
@@ -245,7 +239,7 @@
 
     if-eqz v3, :cond_0
 
-    iput-wide p1, v3, Lcom/google/common/hash/Striped64$Cell;->value:J
+    iput-wide p1, v3, Lcom/google/common/hash/Striped64$b;->a:J
 
     :cond_0
     add-int/lit8 v2, v2, 0x1
@@ -283,7 +277,7 @@
 
     if-nez v5, :cond_0
 
-    const/4 v5, 0x1
+    move v5, v0
 
     :cond_0
     aput v5, v6, v4
@@ -296,15 +290,15 @@
     move-object/from16 v6, p3
 
     :goto_0
-    move v7, v5
+    move v8, v4
 
-    const/4 v8, 0x0
+    move v7, v5
 
     move/from16 v5, p4
 
     :cond_2
     :goto_1
-    iget-object v9, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iget-object v9, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
 
     if-eqz v9, :cond_d
 
@@ -324,9 +318,9 @@
 
     if-nez v9, :cond_4
 
-    new-instance v9, Lcom/google/common/hash/Striped64$Cell;
+    new-instance v9, Lcom/google/common/hash/Striped64$b;
 
-    invoke-direct {v9, v2, v3}, Lcom/google/common/hash/Striped64$Cell;-><init>(J)V
+    invoke-direct {v9, v2, v3}, Lcom/google/common/hash/Striped64$b;-><init>(J)V
 
     iget v10, v1, Lcom/google/common/hash/Striped64;->busy:I
 
@@ -339,7 +333,7 @@
     if-eqz v10, :cond_4
 
     :try_start_0
-    iget-object v10, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iget-object v10, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
 
     if-eqz v10, :cond_3
 
@@ -359,7 +353,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v9, 0x1
+    move v9, v0
 
     goto :goto_2
 
@@ -369,7 +363,7 @@
     goto :goto_3
 
     :cond_3
-    const/4 v9, 0x0
+    move v9, v4
 
     :goto_2
     iput v4, v1, Lcom/google/common/hash/Striped64;->busy:I
@@ -385,25 +379,25 @@
 
     :cond_4
     :goto_4
-    const/4 v8, 0x0
+    move v8, v4
 
     goto :goto_7
 
     :cond_5
     if-nez v5, :cond_6
 
-    const/4 v5, 0x1
+    move v5, v0
 
     goto :goto_7
 
     :cond_6
-    iget-wide v12, v11, Lcom/google/common/hash/Striped64$Cell;->value:J
+    iget-wide v12, v11, Lcom/google/common/hash/Striped64$b;->a:J
 
     invoke-virtual {v1, v12, v13, v2, v3}, Lcom/google/common/hash/Striped64;->fn(JJ)J
 
     move-result-wide v14
 
-    invoke-virtual {v11, v12, v13, v14, v15}, Lcom/google/common/hash/Striped64$Cell;->cas(JJ)Z
+    invoke-virtual {v11, v12, v13, v14, v15}, Lcom/google/common/hash/Striped64$b;->a(JJ)Z
 
     move-result v11
 
@@ -416,7 +410,7 @@
 
     if-ge v10, v11, :cond_4
 
-    iget-object v11, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iget-object v11, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
 
     if-eq v11, v9, :cond_8
 
@@ -425,7 +419,7 @@
     :cond_8
     if-nez v8, :cond_9
 
-    const/4 v8, 0x1
+    move v8, v0
 
     goto :goto_7
 
@@ -441,15 +435,15 @@
     if-eqz v11, :cond_c
 
     :try_start_1
-    iget-object v8, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iget-object v8, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
 
     if-ne v8, v9, :cond_b
 
     shl-int/lit8 v8, v10, 0x1
 
-    new-array v8, v8, [Lcom/google/common/hash/Striped64$Cell;
+    new-array v8, v8, [Lcom/google/common/hash/Striped64$b;
 
-    const/4 v11, 0x0
+    move v11, v4
 
     :goto_5
     if-ge v11, v10, :cond_a
@@ -468,14 +462,14 @@
     goto :goto_6
 
     :cond_a
-    iput-object v8, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iput-object v8, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :cond_b
     iput v4, v1, Lcom/google/common/hash/Striped64;->busy:I
 
-    const/4 v8, 0x0
+    move v8, v4
 
     goto/16 :goto_1
 
@@ -507,7 +501,7 @@
 
     if-nez v10, :cond_f
 
-    iget-object v10, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iget-object v10, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
 
     if-ne v10, v9, :cond_f
 
@@ -518,27 +512,27 @@
     if-eqz v10, :cond_f
 
     :try_start_2
-    iget-object v10, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iget-object v10, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
 
     if-ne v10, v9, :cond_e
 
     const/4 v9, 0x2
 
-    new-array v9, v9, [Lcom/google/common/hash/Striped64$Cell;
+    new-array v9, v9, [Lcom/google/common/hash/Striped64$b;
 
     and-int/lit8 v10, v7, 0x1
 
-    new-instance v11, Lcom/google/common/hash/Striped64$Cell;
+    new-instance v11, Lcom/google/common/hash/Striped64$b;
 
-    invoke-direct {v11, v2, v3}, Lcom/google/common/hash/Striped64$Cell;-><init>(J)V
+    invoke-direct {v11, v2, v3}, Lcom/google/common/hash/Striped64$b;-><init>(J)V
 
     aput-object v11, v9, v10
 
-    iput-object v9, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$Cell;
+    iput-object v9, v1, Lcom/google/common/hash/Striped64;->cells:[Lcom/google/common/hash/Striped64$b;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    const/4 v9, 0x1
+    move v9, v0
 
     goto :goto_8
 
@@ -548,7 +542,7 @@
     goto :goto_9
 
     :cond_e
-    const/4 v9, 0x0
+    move v9, v4
 
     :goto_8
     iput v4, v1, Lcom/google/common/hash/Striped64;->busy:I

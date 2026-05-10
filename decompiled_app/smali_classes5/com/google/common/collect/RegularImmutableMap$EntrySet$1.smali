@@ -26,6 +26,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/RegularImmutableMap$EntrySet;)V
     .locals 0
 
@@ -64,7 +70,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
+    invoke-static {p1, v0}, Lcom/google/common/base/m;->m(II)I
 
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap$EntrySet$1;->this$0:Lcom/google/common/collect/RegularImmutableMap$EntrySet;
 
@@ -135,8 +141,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableList;->writeReplace()Ljava/lang/Object;
 

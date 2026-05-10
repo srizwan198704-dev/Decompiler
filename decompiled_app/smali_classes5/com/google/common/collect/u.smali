@@ -1,29 +1,18 @@
 .class public final synthetic Lcom/google/common/collect/u;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Ljava/util/function/BiConsumer;
-
 
 # direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
-
-# virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public static bridge synthetic a(Ljava/util/stream/Stream;Ljava/util/function/Consumer;)V
     .locals 0
 
-    check-cast p1, Lcom/google/common/collect/CollectCollectors$EnumSetAccumulator;
-
-    check-cast p2, Ljava/lang/Enum;
-
-    invoke-virtual {p1, p2}, Lcom/google/common/collect/CollectCollectors$EnumSetAccumulator;->add(Ljava/lang/Enum;)V
+    invoke-interface {p0, p1}, Ljava/util/stream/Stream;->forEachOrdered(Ljava/util/function/Consumer;)V
 
     return-void
 .end method

@@ -26,6 +26,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
     .locals 0
     .param p1    # Landroidx/recyclerview/widget/RecyclerView$Adapter;

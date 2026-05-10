@@ -37,6 +37,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(ILcom/google/android/gms/tasks/zzw;)V
     .locals 1
 

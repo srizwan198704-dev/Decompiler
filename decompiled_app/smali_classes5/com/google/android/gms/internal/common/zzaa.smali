@@ -11,6 +11,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(I)V
     .locals 0
 
@@ -33,8 +39,6 @@
 # virtual methods
 .method public final zza(Ljava/lang/Object;)Lcom/google/android/gms/internal/common/zzaa;
     .locals 6
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 

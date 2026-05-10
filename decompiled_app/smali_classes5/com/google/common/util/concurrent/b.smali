@@ -1,33 +1,36 @@
-.class public final synthetic Lcom/google/common/util/concurrent/b;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Ljava/lang/Runnable;
+.class public Lcom/google/common/util/concurrent/b;
+.super Lcom/google/common/util/concurrent/a0;
 
 
 # instance fields
-.field public final synthetic a:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
+.field public final synthetic a:Ljava/util/concurrent/ScheduledExecutorService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/common/util/concurrent/b;->a:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public a(Lcom/google/common/util/concurrent/Service$State;Ljava/lang/Throwable;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/b;->a:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
+    iget-object p1, p0, Lcom/google/common/util/concurrent/b;->a:Ljava/util/concurrent/ScheduledExecutorService;
 
-    invoke-static {v0}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->a(Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;)V
+    invoke-interface {p1}, Ljava/util/concurrent/ExecutorService;->shutdown()V
+
+    return-void
+.end method
+
+.method public e(Lcom/google/common/util/concurrent/Service$State;)V
+    .locals 0
+
+    iget-object p1, p0, Lcom/google/common/util/concurrent/b;->a:Ljava/util/concurrent/ScheduledExecutorService;
+
+    invoke-interface {p1}, Ljava/util/concurrent/ExecutorService;->shutdown()V
 
     return-void
 .end method

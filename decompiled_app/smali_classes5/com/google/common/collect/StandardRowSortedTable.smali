@@ -2,19 +2,13 @@
 .super Lcom/google/common/collect/StandardTable;
 
 # interfaces
-.implements Lcom/google/common/collect/RowSortedTable;
+.implements Lcom/google/common/collect/c4;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;
+        Lcom/google/common/collect/StandardRowSortedTable$b;
     }
 .end annotation
 
@@ -29,8 +23,7 @@
         ">",
         "Lcom/google/common/collect/StandardTable<",
         "TR;TC;TV;>;",
-        "Lcom/google/common/collect/RowSortedTable<",
-        "TR;TC;TV;>;"
+        "Lcom/google/common/collect/c4;"
     }
 .end annotation
 
@@ -40,7 +33,13 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/SortedMap;Lcom/google/common/base/Supplier;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/util/SortedMap;Lcom/google/common/base/q;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -49,14 +48,14 @@
             "TR;",
             "Ljava/util/Map<",
             "TC;TV;>;>;",
-            "Lcom/google/common/base/Supplier<",
+            "Lcom/google/common/base/q<",
             "+",
             "Ljava/util/Map<",
             "TC;TV;>;>;)V"
         }
     .end annotation
 
-    invoke-direct {p0, p1, p2}, Lcom/google/common/collect/StandardTable;-><init>(Ljava/util/Map;Lcom/google/common/base/Supplier;)V
+    invoke-direct {p0, p1, p2}, Lcom/google/common/collect/StandardTable;-><init>(Ljava/util/Map;Lcom/google/common/base/q;)V
 
     return-void
 .end method
@@ -114,11 +113,11 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;
+    new-instance v0, Lcom/google/common/collect/StandardRowSortedTable$b;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardRowSortedTable$RowSortedMap;-><init>(Lcom/google/common/collect/StandardRowSortedTable;Lcom/google/common/collect/StandardRowSortedTable$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/StandardRowSortedTable$b;-><init>(Lcom/google/common/collect/StandardRowSortedTable;Lcom/google/common/collect/StandardRowSortedTable$a;)V
 
     return-object v0
 .end method

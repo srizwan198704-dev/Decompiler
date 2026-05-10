@@ -3,22 +3,16 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Landroidx/fragment/app/DialogFragment;-><init>()V
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
-.method public constructor <init>(I)V
+.method public constructor <init>()V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/LayoutRes;
-        .end annotation
-    .end param
 
-    invoke-direct {p0, p1}, Landroidx/fragment/app/DialogFragment;-><init>(I)V
+    invoke-direct {p0}, Landroidx/fragment/app/DialogFragment;-><init>()V
 
     return-void
 .end method
@@ -34,7 +28,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    new-instance p1, Landroidx/appcompat/app/AppCompatDialog;
+    new-instance p1, Landroidx/appcompat/app/w;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
@@ -44,7 +38,7 @@
 
     move-result v1
 
-    invoke-direct {p1, v0, v1}, Landroidx/appcompat/app/AppCompatDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p1, v0, v1}, Landroidx/appcompat/app/w;-><init>(Landroid/content/Context;I)V
 
     return-object p1
 .end method
@@ -55,19 +49,14 @@
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/RestrictTo;
-        value = {
-            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
-    instance-of v0, p1, Landroidx/appcompat/app/AppCompatDialog;
+    instance-of v0, p1, Landroidx/appcompat/app/w;
 
     if-eqz v0, :cond_2
 
     move-object v0, p1
 
-    check-cast v0, Landroidx/appcompat/app/AppCompatDialog;
+    check-cast v0, Landroidx/appcompat/app/w;
 
     const/4 v1, 0x1
 
@@ -93,7 +82,7 @@
     invoke-virtual {p1, p2}, Landroid/view/Window;->addFlags(I)V
 
     :cond_1
-    invoke-virtual {v0, v1}, Landroidx/appcompat/app/AppCompatDialog;->supportRequestWindowFeature(I)Z
+    invoke-virtual {v0, v1}, Landroidx/appcompat/app/w;->supportRequestWindowFeature(I)Z
 
     goto :goto_0
 

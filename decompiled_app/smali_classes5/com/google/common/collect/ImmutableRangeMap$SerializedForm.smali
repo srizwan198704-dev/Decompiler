@@ -45,6 +45,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -68,9 +74,9 @@
 .method public createRangeMap()Ljava/lang/Object;
     .locals 4
 
-    new-instance v0, Lcom/google/common/collect/ImmutableRangeMap$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableRangeMap$a;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableRangeMap$Builder;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/collect/ImmutableRangeMap$a;-><init>()V
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableRangeMap$SerializedForm;->mapOfRanges:Lcom/google/common/collect/ImmutableMap;
 
@@ -78,7 +84,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v1
 
@@ -105,12 +111,12 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v3, v2}, Lcom/google/common/collect/ImmutableRangeMap$Builder;->put(Lcom/google/common/collect/Range;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableRangeMap$Builder;
+    invoke-virtual {v0, v3, v2}, Lcom/google/common/collect/ImmutableRangeMap$a;->c(Lcom/google/common/collect/Range;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableRangeMap$a;
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableRangeMap$Builder;->build()Lcom/google/common/collect/ImmutableRangeMap;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableRangeMap$a;->a()Lcom/google/common/collect/ImmutableRangeMap;
 
     move-result-object v0
 

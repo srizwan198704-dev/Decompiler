@@ -38,6 +38,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
     .locals 2
     .param p1    # Landroid/graphics/drawable/Drawable;
@@ -152,7 +158,7 @@
     if-eq v0, v1, :cond_1
 
     :cond_0
-    const/4 v4, 0x1
+    move v4, v3
 
     goto :goto_1
 
@@ -161,9 +167,9 @@
 
     const-wide/16 v4, 0x0
 
-    cmp-long v6, v0, v4
+    cmp-long v0, v0, v4
 
-    if-ltz v6, :cond_0
+    if-ltz v0, :cond_0
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -187,12 +193,12 @@
 
     if-ltz v4, :cond_2
 
-    const/4 v4, 0x1
+    move v4, v3
 
     goto :goto_0
 
     :cond_2
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_0
     if-eqz v4, :cond_3
@@ -208,7 +214,7 @@
 
     int-to-float v1, v1
 
-    mul-float v1, v1, v0
+    mul-float/2addr v1, v0
 
     const/4 v0, 0x0
 
@@ -229,7 +235,7 @@
 
     iput v1, p0, Lcom/google/android/gms/internal/base/zak;->zaa:I
 
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_1
     iget v0, p0, Lcom/google/android/gms/internal/base/zak;->zaf:I
@@ -277,7 +283,7 @@
 
     invoke-virtual {v5, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    const/4 v2, 0x1
+    move v2, v3
 
     :cond_9
     invoke-virtual {v5, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
@@ -450,8 +456,6 @@
 
 .method public final mutate()Landroid/graphics/drawable/Drawable;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     iget-boolean v0, p0, Lcom/google/android/gms/internal/base/zak;->zah:Z
 
@@ -637,7 +641,7 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_0
     iput-boolean v1, p0, Lcom/google/android/gms/internal/base/zak;->zam:Z

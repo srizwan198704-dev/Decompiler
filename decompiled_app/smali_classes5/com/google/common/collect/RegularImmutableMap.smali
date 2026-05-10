@@ -3,19 +3,11 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-    serializable = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/RegularImmutableMap$KeySet;,
+        Lcom/google/common/collect/RegularImmutableMap$EntrySet;,
         Lcom/google/common/collect/RegularImmutableMap$KeysOrValuesAsList;,
-        Lcom/google/common/collect/RegularImmutableMap$EntrySet;
+        Lcom/google/common/collect/RegularImmutableMap$KeySet;
     }
 .end annotation
 
@@ -33,12 +25,6 @@
 
 
 # static fields
-.field private static final ABSENT:B = -0x1t
-
-.field private static final BYTE_MASK:I = 0xff
-
-.field private static final BYTE_MAX_SIZE:I = 0x80
-
 .field static final EMPTY:Lcom/google/common/collect/ImmutableMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,25 +36,15 @@
     .end annotation
 .end field
 
-.field private static final SHORT_MASK:I = 0xffff
-
-.field private static final SHORT_MAX_SIZE:I = 0x8000
-
 .field private static final serialVersionUID:J
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-.end field
 
 
 # instance fields
+.field public final transient a:Ljava/lang/Object;
+
 .field final transient alternatingKeysAndValues:[Ljava/lang/Object;
-    .annotation build Lcom/google/common/annotations/VisibleForTesting;
-    .end annotation
-.end field
 
-.field private final transient hashTable:Ljava/lang/Object;
-
-.field private final transient size:I
+.field public final transient b:I
 
 
 # direct methods
@@ -90,165 +66,21 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/Object;[Ljava/lang/Object;I)V
+.method public constructor <init>(Ljava/lang/Object;[Ljava/lang/Object;I)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableMap;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMap;->hashTable:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableMap;->a:Ljava/lang/Object;
 
     iput-object p2, p0, Lcom/google/common/collect/RegularImmutableMap;->alternatingKeysAndValues:[Ljava/lang/Object;
 
-    iput p3, p0, Lcom/google/common/collect/RegularImmutableMap;->size:I
+    iput p3, p0, Lcom/google/common/collect/RegularImmutableMap;->b:I
 
     return-void
 .end method
 
-.method public static create(I[Ljava/lang/Object;)Lcom/google/common/collect/RegularImmutableMap;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(I[",
-            "Ljava/lang/Object;",
-            ")",
-            "Lcom/google/common/collect/RegularImmutableMap<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, p1, v0}, Lcom/google/common/collect/RegularImmutableMap;->create(I[Ljava/lang/Object;Lcom/google/common/collect/ImmutableMap$Builder;)Lcom/google/common/collect/RegularImmutableMap;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static create(I[Ljava/lang/Object;Lcom/google/common/collect/ImmutableMap$Builder;)Lcom/google/common/collect/RegularImmutableMap;
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(I[",
-            "Ljava/lang/Object;",
-            "Lcom/google/common/collect/ImmutableMap$Builder<",
-            "TK;TV;>;)",
-            "Lcom/google/common/collect/RegularImmutableMap<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    if-nez p0, :cond_0
-
-    sget-object p0, Lcom/google/common/collect/RegularImmutableMap;->EMPTY:Lcom/google/common/collect/ImmutableMap;
-
-    check-cast p0, Lcom/google/common/collect/RegularImmutableMap;
-
-    return-object p0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
-    if-ne p0, v1, :cond_1
-
-    aget-object p0, p1, v0
-
-    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    aget-object p2, p1, v1
-
-    invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-static {p0, p2}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    new-instance p0, Lcom/google/common/collect/RegularImmutableMap;
-
-    const/4 p2, 0x0
-
-    invoke-direct {p0, p2, p1, v1}, Lcom/google/common/collect/RegularImmutableMap;-><init>(Ljava/lang/Object;[Ljava/lang/Object;I)V
-
-    return-object p0
-
-    :cond_1
-    array-length v2, p1
-
-    shr-int/2addr v2, v1
-
-    invoke-static {p0, v2}, Lcom/google/common/base/Preconditions;->checkPositionIndex(II)I
-
-    invoke-static {p0}, Lcom/google/common/collect/ImmutableSet;->chooseTableSize(I)I
-
-    move-result v2
-
-    invoke-static {p1, p0, v2, v0}, Lcom/google/common/collect/RegularImmutableMap;->createHashTable([Ljava/lang/Object;III)Ljava/lang/Object;
-
-    move-result-object v2
-
-    instance-of v3, v2, [Ljava/lang/Object;
-
-    if-eqz v3, :cond_3
-
-    check-cast v2, [Ljava/lang/Object;
-
-    const/4 p0, 0x2
-
-    aget-object p0, v2, p0
-
-    check-cast p0, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;
-
-    if-eqz p2, :cond_2
-
-    iput-object p0, p2, Lcom/google/common/collect/ImmutableMap$Builder;->duplicateKey:Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;
-
-    aget-object p0, v2, v0
-
-    aget-object p2, v2, v1
-
-    check-cast p2, Ljava/lang/Integer;
-
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
-
-    move-result p2
-
-    mul-int/lit8 v0, p2, 0x2
-
-    invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
-
-    move-result-object p1
-
-    move-object v2, p0
-
-    move p0, p2
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;->exception()Ljava/lang/IllegalArgumentException;
-
-    move-result-object p0
-
-    throw p0
-
-    :cond_3
-    :goto_0
-    new-instance p2, Lcom/google/common/collect/RegularImmutableMap;
-
-    invoke-direct {p2, v2, p1, p0}, Lcom/google/common/collect/RegularImmutableMap;-><init>(Ljava/lang/Object;[Ljava/lang/Object;I)V
-
-    return-object p2
-.end method
-
-.method private static createHashTable([Ljava/lang/Object;III)Ljava/lang/Object;
+.method public static a([Ljava/lang/Object;III)Ljava/lang/Object;
     .locals 16
 
     move/from16 v0, p1
@@ -271,7 +103,7 @@
 
     invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-object v2
 
@@ -294,9 +126,9 @@
 
     invoke-static {v1, v7}, Ljava/util/Arrays;->fill([BB)V
 
-    const/4 v5, 0x0
+    move v5, v9
 
-    const/4 v7, 0x0
+    move v7, v5
 
     :goto_0
     if-ge v5, v0, :cond_4
@@ -319,13 +151,13 @@
 
     invoke-static {v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v12, v10}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v12, v10}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v12}, Ljava/lang/Object;->hashCode()I
 
     move-result v13
 
-    invoke-static {v13}, Lcom/google/common/collect/Hashing;->smear(I)I
+    invoke-static {v13}, Lcom/google/common/collect/v2;->c(I)I
 
     move-result v13
 
@@ -366,7 +198,7 @@
 
     if-eqz v15, :cond_3
 
-    new-instance v2, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;
+    new-instance v2, Lcom/google/common/collect/ImmutableMap$b$a;
 
     xor-int/lit8 v11, v14, 0x1
 
@@ -374,7 +206,7 @@
 
     invoke-static {v13}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v2, v12, v10, v13}, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v2, v12, v10, v13}, Lcom/google/common/collect/ImmutableMap$b$a;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
 
     aput-object v10, p0, v11
 
@@ -420,9 +252,9 @@
 
     invoke-static {v1, v7}, Ljava/util/Arrays;->fill([SS)V
 
-    const/4 v5, 0x0
+    move v5, v9
 
-    const/4 v7, 0x0
+    move v7, v5
 
     :goto_4
     if-ge v5, v0, :cond_a
@@ -445,13 +277,13 @@
 
     invoke-static {v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v12, v10}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v12, v10}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v12}, Ljava/lang/Object;->hashCode()I
 
     move-result v13
 
-    invoke-static {v13}, Lcom/google/common/collect/Hashing;->smear(I)I
+    invoke-static {v13}, Lcom/google/common/collect/v2;->c(I)I
 
     move-result v13
 
@@ -492,7 +324,7 @@
 
     if-eqz v15, :cond_9
 
-    new-instance v2, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;
+    new-instance v2, Lcom/google/common/collect/ImmutableMap$b$a;
 
     xor-int/lit8 v11, v14, 0x1
 
@@ -500,7 +332,7 @@
 
     invoke-static {v13}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v2, v12, v10, v13}, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v2, v12, v10, v13}, Lcom/google/common/collect/ImmutableMap$b$a;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
 
     aput-object v10, p0, v11
 
@@ -542,9 +374,9 @@
 
     invoke-static {v1, v7}, Ljava/util/Arrays;->fill([II)V
 
-    const/4 v5, 0x0
+    move v5, v9
 
-    const/4 v10, 0x0
+    move v10, v5
 
     :goto_8
     if-ge v5, v0, :cond_10
@@ -567,13 +399,13 @@
 
     invoke-static {v11}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v13, v11}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v13, v11}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v13}, Ljava/lang/Object;->hashCode()I
 
     move-result v14
 
-    invoke-static {v14}, Lcom/google/common/collect/Hashing;->smear(I)I
+    invoke-static {v14}, Lcom/google/common/collect/v2;->c(I)I
 
     move-result v14
 
@@ -608,7 +440,7 @@
 
     if-eqz v7, :cond_f
 
-    new-instance v2, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;
+    new-instance v2, Lcom/google/common/collect/ImmutableMap$b$a;
 
     xor-int/lit8 v7, v15, 0x1
 
@@ -616,7 +448,7 @@
 
     invoke-static {v12}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v2, v13, v11, v12}, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v2, v13, v11, v12}, Lcom/google/common/collect/ImmutableMap$b$a;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
 
     aput-object v11, p0, v7
 
@@ -658,10 +490,154 @@
     return-object v1
 .end method
 
+.method public static create(I[Ljava/lang/Object;)Lcom/google/common/collect/RegularImmutableMap;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(I[",
+            "Ljava/lang/Object;",
+            ")",
+            "Lcom/google/common/collect/RegularImmutableMap<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, v0}, Lcom/google/common/collect/RegularImmutableMap;->create(I[Ljava/lang/Object;Lcom/google/common/collect/ImmutableMap$b;)Lcom/google/common/collect/RegularImmutableMap;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static create(I[Ljava/lang/Object;Lcom/google/common/collect/ImmutableMap$b;)Lcom/google/common/collect/RegularImmutableMap;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(I[",
+            "Ljava/lang/Object;",
+            "Lcom/google/common/collect/ImmutableMap$b<",
+            "TK;TV;>;)",
+            "Lcom/google/common/collect/RegularImmutableMap<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    if-nez p0, :cond_0
+
+    sget-object p0, Lcom/google/common/collect/RegularImmutableMap;->EMPTY:Lcom/google/common/collect/ImmutableMap;
+
+    check-cast p0, Lcom/google/common/collect/RegularImmutableMap;
+
+    return-object p0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    if-ne p0, v1, :cond_1
+
+    aget-object p0, p1, v0
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    aget-object p2, p1, v1
+
+    invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-static {p0, p2}, Lcom/google/common/collect/e2;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    new-instance p0, Lcom/google/common/collect/RegularImmutableMap;
+
+    const/4 p2, 0x0
+
+    invoke-direct {p0, p2, p1, v1}, Lcom/google/common/collect/RegularImmutableMap;-><init>(Ljava/lang/Object;[Ljava/lang/Object;I)V
+
+    return-object p0
+
+    :cond_1
+    array-length v2, p1
+
+    shr-int/2addr v2, v1
+
+    invoke-static {p0, v2}, Lcom/google/common/base/m;->r(II)I
+
+    invoke-static {p0}, Lcom/google/common/collect/ImmutableSet;->chooseTableSize(I)I
+
+    move-result v2
+
+    invoke-static {p1, p0, v2, v0}, Lcom/google/common/collect/RegularImmutableMap;->a([Ljava/lang/Object;III)Ljava/lang/Object;
+
+    move-result-object v2
+
+    instance-of v3, v2, [Ljava/lang/Object;
+
+    if-eqz v3, :cond_3
+
+    check-cast v2, [Ljava/lang/Object;
+
+    const/4 p0, 0x2
+
+    aget-object p0, v2, p0
+
+    check-cast p0, Lcom/google/common/collect/ImmutableMap$b$a;
+
+    if-eqz p2, :cond_2
+
+    iput-object p0, p2, Lcom/google/common/collect/ImmutableMap$b;->e:Lcom/google/common/collect/ImmutableMap$b$a;
+
+    aget-object p0, v2, v0
+
+    aget-object p2, v2, v1
+
+    check-cast p2, Ljava/lang/Integer;
+
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+
+    move-result p2
+
+    mul-int/lit8 v0, p2, 0x2
+
+    invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    move-result-object p1
+
+    move-object v2, p0
+
+    move p0, p2
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMap$b$a;->a()Ljava/lang/IllegalArgumentException;
+
+    move-result-object p0
+
+    throw p0
+
+    :cond_3
+    :goto_0
+    new-instance p2, Lcom/google/common/collect/RegularImmutableMap;
+
+    invoke-direct {p2, v2, p1, p0}, Lcom/google/common/collect/RegularImmutableMap;-><init>(Ljava/lang/Object;[Ljava/lang/Object;I)V
+
+    return-object p2
+.end method
+
 .method public static createHashTableOrThrow([Ljava/lang/Object;III)Ljava/lang/Object;
     .locals 0
 
-    invoke-static {p0, p1, p2, p3}, Lcom/google/common/collect/RegularImmutableMap;->createHashTable([Ljava/lang/Object;III)Ljava/lang/Object;
+    invoke-static {p0, p1, p2, p3}, Lcom/google/common/collect/RegularImmutableMap;->a([Ljava/lang/Object;III)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -678,9 +654,9 @@
 
     aget-object p0, p0, p1
 
-    check-cast p0, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;
+    check-cast p0, Lcom/google/common/collect/ImmutableMap$b$a;
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMap$Builder$DuplicateKey;->exception()Ljava/lang/IllegalArgumentException;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMap$b$a;->a()Ljava/lang/IllegalArgumentException;
 
     move-result-object p0
 
@@ -742,7 +718,7 @@
 
     move-result p0
 
-    invoke-static {p0}, Lcom/google/common/collect/Hashing;->smear(I)I
+    invoke-static {p0}, Lcom/google/common/collect/v2;->c(I)I
 
     move-result p0
 
@@ -796,7 +772,7 @@
 
     move-result p0
 
-    invoke-static {p0}, Lcom/google/common/collect/Hashing;->smear(I)I
+    invoke-static {p0}, Lcom/google/common/collect/v2;->c(I)I
 
     move-result p0
 
@@ -844,7 +820,7 @@
 
     move-result p3
 
-    invoke-static {p3}, Lcom/google/common/collect/Hashing;->smear(I)I
+    invoke-static {p3}, Lcom/google/common/collect/v2;->c(I)I
 
     move-result p3
 
@@ -899,7 +875,7 @@
 
     const/4 v2, 0x0
 
-    iget v3, p0, Lcom/google/common/collect/RegularImmutableMap;->size:I
+    iget v3, p0, Lcom/google/common/collect/RegularImmutableMap;->b:I
 
     invoke-direct {v0, p0, v1, v2, v3}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;-><init>(Lcom/google/common/collect/ImmutableMap;[Ljava/lang/Object;II)V
 
@@ -922,7 +898,7 @@
 
     const/4 v2, 0x0
 
-    iget v3, p0, Lcom/google/common/collect/RegularImmutableMap;->size:I
+    iget v3, p0, Lcom/google/common/collect/RegularImmutableMap;->b:I
 
     invoke-direct {v0, v1, v2, v3}, Lcom/google/common/collect/RegularImmutableMap$KeysOrValuesAsList;-><init>([Ljava/lang/Object;II)V
 
@@ -949,7 +925,7 @@
 
     const/4 v2, 0x1
 
-    iget v3, p0, Lcom/google/common/collect/RegularImmutableMap;->size:I
+    iget v3, p0, Lcom/google/common/collect/RegularImmutableMap;->b:I
 
     invoke-direct {v0, v1, v2, v3}, Lcom/google/common/collect/RegularImmutableMap$KeysOrValuesAsList;-><init>([Ljava/lang/Object;II)V
 
@@ -966,11 +942,11 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap;->hashTable:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableMap;->a:Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/common/collect/RegularImmutableMap;->alternatingKeysAndValues:[Ljava/lang/Object;
 
-    iget v2, p0, Lcom/google/common/collect/RegularImmutableMap;->size:I
+    iget v2, p0, Lcom/google/common/collect/RegularImmutableMap;->b:I
 
     const/4 v3, 0x0
 
@@ -997,18 +973,13 @@
 .method public size()I
     .locals 1
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableMap;->size:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableMap;->b:I
 
     return v0
 .end method
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableMap;->writeReplace()Ljava/lang/Object;
 

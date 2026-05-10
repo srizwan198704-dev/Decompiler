@@ -1,0 +1,121 @@
+.class public final Lcom/transsion/subtitle/h$a;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/transsion/subtitle/h;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "a"
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0006\u0008\u0086\u0003\u0018\u00002\u00020\u0001B\t\u0008\u0002\u00a2\u0006\u0004\u0008\u0002\u0010\u0003R!\u0010\t\u001a\u00020\u00048FX\u0087\u0084\u0002\u00a2\u0006\u0012\n\u0004\u0008\u0005\u0010\u0006\u0012\u0004\u0008\u0008\u0010\u0003\u001a\u0004\u0008\u0005\u0010\u0007\u00a8\u0006\n"
+    }
+    d2 = {
+        "Lcom/transsion/subtitle/h$a;",
+        "",
+        "<init>",
+        "()V",
+        "Lcom/transsion/subtitle/h;",
+        "b",
+        "Lkotlin/Lazy;",
+        "()Lcom/transsion/subtitle/h;",
+        "getInstance$annotations",
+        "instance",
+        "VideoSubtitle_psRelease"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x1,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# static fields
+.field public static final synthetic a:Lcom/transsion/subtitle/h$a;
+
+.field public static final b:Lkotlin/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/Lazy<",
+            "Lcom/transsion/subtitle/VideoSubtitleManagerImp;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/transsion/subtitle/h$a;
+
+    invoke-direct {v0}, Lcom/transsion/subtitle/h$a;-><init>()V
+
+    sput-object v0, Lcom/transsion/subtitle/h$a;->a:Lcom/transsion/subtitle/h$a;
+
+    new-instance v0, Lcom/transsion/subtitle/g;
+
+    invoke-direct {v0}, Lcom/transsion/subtitle/g;-><init>()V
+
+    invoke-static {v0}, Lkotlin/LazyKt__LazyJVMKt;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/transsion/subtitle/h$a;->b:Lkotlin/Lazy;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static synthetic a()Lcom/transsion/subtitle/VideoSubtitleManagerImp;
+    .locals 1
+
+    invoke-static {}, Lcom/transsion/subtitle/h$a;->c()Lcom/transsion/subtitle/VideoSubtitleManagerImp;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static final c()Lcom/transsion/subtitle/VideoSubtitleManagerImp;
+    .locals 1
+
+    new-instance v0, Lcom/transsion/subtitle/VideoSubtitleManagerImp;
+
+    invoke-direct {v0}, Lcom/transsion/subtitle/VideoSubtitleManagerImp;-><init>()V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public final b()Lcom/transsion/subtitle/h;
+    .locals 1
+
+    sget-object v0, Lcom/transsion/subtitle/h$a;->b:Lkotlin/Lazy;
+
+    invoke-interface {v0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/transsion/subtitle/h;
+
+    return-object v0
+.end method

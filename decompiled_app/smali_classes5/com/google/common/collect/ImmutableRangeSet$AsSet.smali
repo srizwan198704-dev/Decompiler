@@ -21,6 +21,8 @@
 
 
 # instance fields
+.field public transient a:Ljava/lang/Integer;
+
 .field private final domain:Lcom/google/common/collect/DiscreteDomain;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -30,15 +32,16 @@
     .end annotation
 .end field
 
-.field private transient size:Ljava/lang/Integer;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-.end field
-
 .field final synthetic this$0:Lcom/google/common/collect/ImmutableRangeSet;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableRangeSet;Lcom/google/common/collect/DiscreteDomain;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -72,9 +75,6 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -136,34 +136,27 @@
     return-object v0
 .end method
 
-.method public descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public descendingIterator()Lcom/google/common/collect/r4;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-        value = "NavigableSet"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "TC;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;
+    new-instance v0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$b;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;-><init>(Lcom/google/common/collect/ImmutableRangeSet$AsSet;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet$b;-><init>(Lcom/google/common/collect/ImmutableRangeSet$AsSet;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic descendingIterator()Ljava/util/Iterator;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-        value = "NavigableSet"
-    .end annotation
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->descendingIterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -226,7 +219,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -265,7 +258,7 @@
 
     add-long/2addr v1, v3
 
-    invoke-static {v1, v2}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
+    invoke-static {v1, v2}, Lcom/google/common/primitives/Ints;->n(J)I
 
     move-result p1
 
@@ -319,19 +312,19 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public iterator()Lcom/google/common/collect/r4;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "TC;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$1;
+    new-instance v0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet$1;-><init>(Lcom/google/common/collect/ImmutableRangeSet$AsSet;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet$a;-><init>(Lcom/google/common/collect/ImmutableRangeSet$AsSet;)V
 
     return-object v0
 .end method
@@ -339,7 +332,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -347,9 +340,9 @@
 .end method
 
 .method public size()I
-    .locals 6
+    .locals 5
 
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->size:Ljava/lang/Integer;
+    iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->a:Ljava/lang/Integer;
 
     if-nez v0, :cond_2
 
@@ -359,7 +352,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -394,12 +387,12 @@
 
     const-wide/32 v3, 0x7fffffff
 
-    cmp-long v5, v1, v3
+    cmp-long v3, v1, v3
 
-    if-ltz v5, :cond_0
+    if-ltz v3, :cond_0
 
     :cond_1
-    invoke-static {v1, v2}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
+    invoke-static {v1, v2}, Lcom/google/common/primitives/Ints;->n(J)I
 
     move-result v0
 
@@ -407,7 +400,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->size:Ljava/lang/Integer;
+    iput-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->a:Ljava/lang/Integer;
 
     :cond_2
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -559,8 +552,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 3
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     new-instance v0, Lcom/google/common/collect/ImmutableRangeSet$AsSetSerializedForm;
 

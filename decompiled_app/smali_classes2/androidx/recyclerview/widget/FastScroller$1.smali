@@ -21,6 +21,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
     .locals 0
 
@@ -40,7 +46,7 @@
 
     const/16 v1, 0x1f4
 
-    invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/FastScroller;->hide(I)V
+    invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/FastScroller;->k(I)V
 
     return-void
 .end method

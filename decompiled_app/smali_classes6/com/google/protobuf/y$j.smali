@@ -1,0 +1,55 @@
+.class public interface abstract Lcom/google/protobuf/y$j;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/util/List;
+.implements Ljava/util/RandomAccess;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/protobuf/y;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "j"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<E:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Ljava/util/List<",
+        "TE;>;",
+        "Ljava/util/RandomAccess;"
+    }
+.end annotation
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract isModifiable()Z
+.end method
+
+.method public abstract makeImmutable()V
+.end method
+
+.method public abstract mutableCopyWithCapacity(I)Lcom/google/protobuf/y$j;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Lcom/google/protobuf/y$j<",
+            "TE;>;"
+        }
+    .end annotation
+.end method

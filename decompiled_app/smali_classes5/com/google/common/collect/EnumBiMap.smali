@@ -3,16 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-.end annotation
-
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -28,9 +18,6 @@
 
 # static fields
 .field private static final serialVersionUID:J
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-.end field
 
 
 # instance fields
@@ -54,6 +41,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>(Ljava/lang/Class;Ljava/lang/Class;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -183,7 +176,7 @@
 
     xor-int/lit8 v0, v0, 0x1
 
-    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
 
     invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
@@ -199,7 +192,7 @@
 
     check-cast p0, Ljava/lang/Enum;
 
-    invoke-static {p0}, Lcom/google/common/collect/Platform;->getDeclaringClassOrObjectForJ2cl(Ljava/lang/Enum;)Ljava/lang/Class;
+    invoke-static {p0}, Lcom/google/common/collect/r3;->b(Ljava/lang/Enum;)Ljava/lang/Class;
 
     move-result-object p0
 
@@ -237,7 +230,7 @@
 
     xor-int/lit8 v0, v0, 0x1
 
-    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
 
     invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
@@ -253,7 +246,7 @@
 
     check-cast p0, Ljava/lang/Enum;
 
-    invoke-static {p0}, Lcom/google/common/collect/Platform;->getDeclaringClassOrObjectForJ2cl(Ljava/lang/Enum;)Ljava/lang/Class;
+    invoke-static {p0}, Lcom/google/common/collect/r3;->b(Ljava/lang/Enum;)Ljava/lang/Class;
 
     move-result-object p0
 
@@ -262,9 +255,6 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 3
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -308,16 +298,13 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/google/common/collect/AbstractBiMap;->setDelegates(Ljava/util/Map;Ljava/util/Map;)V
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/Serialization;->populateMap(Ljava/util/Map;Ljava/io/ObjectInputStream;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/w3;->b(Ljava/util/Map;Ljava/io/ObjectInputStream;)V
 
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -334,7 +321,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/Serialization;->writeMap(Ljava/util/Map;Ljava/io/ObjectOutputStream;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/w3;->i(Ljava/util/Map;Ljava/io/ObjectOutputStream;)V
 
     return-void
 .end method
@@ -349,7 +336,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -378,7 +365,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -429,16 +416,6 @@
 
 .method public bridge synthetic forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractBiMap;->forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -447,10 +424,10 @@
     return-object p1
 .end method
 
-.method public bridge synthetic inverse()Lcom/google/common/collect/BiMap;
+.method public bridge synthetic inverse()Lcom/google/common/collect/k;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractBiMap;->inverse()Lcom/google/common/collect/BiMap;
+    invoke-super {p0}, Lcom/google/common/collect/AbstractBiMap;->inverse()Lcom/google/common/collect/k;
 
     move-result-object v0
 
@@ -469,9 +446,6 @@
 
 .method public keyType()Ljava/lang/Class;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -487,16 +461,6 @@
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractBiMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -515,8 +479,6 @@
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-super {p0, p1}, Lcom/google/common/collect/AbstractBiMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -527,9 +489,6 @@
 
 .method public valueType()Ljava/lang/Class;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

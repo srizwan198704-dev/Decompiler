@@ -21,7 +21,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Landroidx/emoji2/text/EmojiCompat$InitCallback;",
+            "Landroidx/emoji2/text/EmojiCompat$f;",
             ">;"
         }
     .end annotation
@@ -33,24 +33,30 @@
 
 
 # direct methods
-.method public constructor <init>(Landroidx/emoji2/text/EmojiCompat$InitCallback;I)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroidx/emoji2/text/EmojiCompat$f;I)V
     .locals 2
-    .param p1    # Landroidx/emoji2/text/EmojiCompat$InitCallback;
+    .param p1    # Landroidx/emoji2/text/EmojiCompat$f;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    const/4 v0, 0x1
+    const-string v0, "initCallback cannot be null"
 
-    new-array v0, v0, [Landroidx/emoji2/text/EmojiCompat$InitCallback;
-
-    const-string v1, "initCallback cannot be null"
-
-    invoke-static {p1, v1}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Landroidx/core/util/i;->h(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Landroidx/emoji2/text/EmojiCompat$InitCallback;
+    check-cast p1, Landroidx/emoji2/text/EmojiCompat$f;
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Landroidx/emoji2/text/EmojiCompat$f;
 
     const/4 v1, 0x0
 
@@ -77,7 +83,7 @@
         value = {
             "(",
             "Ljava/util/Collection<",
-            "Landroidx/emoji2/text/EmojiCompat$InitCallback;",
+            "Landroidx/emoji2/text/EmojiCompat$f;",
             ">;I)V"
         }
     .end annotation
@@ -103,7 +109,7 @@
         value = {
             "(",
             "Ljava/util/Collection<",
-            "Landroidx/emoji2/text/EmojiCompat$InitCallback;",
+            "Landroidx/emoji2/text/EmojiCompat$f;",
             ">;I",
             "Ljava/lang/Throwable;",
             ")V"
@@ -114,7 +120,7 @@
 
     const-string v0, "initCallbacks cannot be null"
 
-    invoke-static {p1, v0}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Landroidx/core/util/i;->h(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -157,11 +163,11 @@
 
     move-result-object v1
 
-    check-cast v1, Landroidx/emoji2/text/EmojiCompat$InitCallback;
+    check-cast v1, Landroidx/emoji2/text/EmojiCompat$f;
 
     iget-object v2, p0, Landroidx/emoji2/text/EmojiCompat$ListenerDispatcher;->mThrowable:Ljava/lang/Throwable;
 
-    invoke-virtual {v1, v2}, Landroidx/emoji2/text/EmojiCompat$InitCallback;->onFailed(Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v2}, Landroidx/emoji2/text/EmojiCompat$f;->a(Ljava/lang/Throwable;)V
 
     add-int/lit8 v3, v3, 0x1
 
@@ -177,9 +183,9 @@
 
     move-result-object v1
 
-    check-cast v1, Landroidx/emoji2/text/EmojiCompat$InitCallback;
+    check-cast v1, Landroidx/emoji2/text/EmojiCompat$f;
 
-    invoke-virtual {v1}, Landroidx/emoji2/text/EmojiCompat$InitCallback;->onInitialized()V
+    invoke-virtual {v1}, Landroidx/emoji2/text/EmojiCompat$f;->b()V
 
     add-int/lit8 v3, v3, 0x1
 

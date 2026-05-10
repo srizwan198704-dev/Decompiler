@@ -1,29 +1,20 @@
 .class public final synthetic Lcom/google/common/collect/n;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Ljava/util/function/Function;
-
 
 # direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
-
-# virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public static bridge synthetic a(Ljava/util/stream/Collector;Ljava/util/function/Function;)Ljava/util/stream/Collector;
     .locals 0
 
-    check-cast p1, Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;
+    invoke-static {p0, p1}, Ljava/util/stream/Collectors;->collectingAndThen(Ljava/util/stream/Collector;Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
-    invoke-virtual {p1}, Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;->toImmutableMap()Lcom/google/common/collect/ImmutableMap;
+    move-result-object p0
 
-    move-result-object p1
-
-    return-object p1
+    return-object p0
 .end method

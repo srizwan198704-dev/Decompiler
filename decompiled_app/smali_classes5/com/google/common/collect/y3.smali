@@ -1,0 +1,38 @@
+.class public interface abstract Lcom/google/common/collect/y3;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/lang/Iterable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Ljava/lang/Iterable<",
+        "TT;>;"
+    }
+.end annotation
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract comparator()Ljava/util/Comparator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Comparator<",
+            "-TT;>;"
+        }
+    .end annotation
+.end method

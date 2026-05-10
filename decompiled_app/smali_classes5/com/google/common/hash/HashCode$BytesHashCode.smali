@@ -25,12 +25,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>([B)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/common/hash/HashCode;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -72,19 +78,19 @@
 
     if-lt v1, v2, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v4
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v3
 
     :goto_0
     const-string v2, "HashCode#asInt() requires >= 4 bytes (it only has %s bytes)."
 
     array-length v0, v0
 
-    invoke-static {v1, v2, v0}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;I)V
+    invoke-static {v1, v2, v0}, Lcom/google/common/base/m;->w(ZLjava/lang/String;I)V
 
     iget-object v0, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
 
@@ -146,7 +152,7 @@
 
     array-length v0, v0
 
-    invoke-static {v1, v2, v0}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;I)V
+    invoke-static {v1, v2, v0}, Lcom/google/common/base/m;->w(ZLjava/lang/String;I)V
 
     invoke-virtual {p0}, Lcom/google/common/hash/HashCode$BytesHashCode;->padToLong()J
 
@@ -189,9 +195,9 @@
     :cond_0
     const/4 v0, 0x1
 
-    const/4 v1, 0x0
+    move v3, v0
 
-    const/4 v3, 0x1
+    move v1, v2
 
     :goto_0
     iget-object v4, p0, Lcom/google/common/hash/HashCode$BytesHashCode;->bytes:[B
@@ -210,12 +216,12 @@
 
     if-ne v4, v5, :cond_1
 
-    const/4 v4, 0x1
+    move v4, v0
 
     goto :goto_1
 
     :cond_1
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_1
     and-int/2addr v3, v4

@@ -1,0 +1,42 @@
+.class public final Landroidx/datastore/preferences/protobuf/z;
+.super Ljava/lang/Object;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public static a(Ljava/nio/Buffer;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
+
+    return-void
+.end method
+
+.method public static b(Ljava/nio/Buffer;)V
+    .locals 0
+
+    invoke-virtual {p0}, Ljava/nio/Buffer;->mark()Ljava/nio/Buffer;
+
+    return-void
+.end method
+
+.method public static c(Ljava/nio/Buffer;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+
+    return-void
+.end method
+
+.method public static d(Ljava/nio/Buffer;)V
+    .locals 0
+
+    invoke-virtual {p0}, Ljava/nio/Buffer;->reset()Ljava/nio/Buffer;
+
+    return-void
+.end method

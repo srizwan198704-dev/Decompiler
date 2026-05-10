@@ -2,7 +2,7 @@
 .super Ljava/lang/Enum;
 
 # interfaces
-.implements Lcom/google/common/base/Predicate;
+.implements Lcom/google/common/base/n;
 
 
 # annotations
@@ -20,7 +20,7 @@
         "Ljava/lang/Enum<",
         "Lcom/google/common/reflect/TypeToken$TypeFilter;",
         ">;",
-        "Lcom/google/common/base/Predicate<",
+        "Lcom/google/common/base/n<",
         "Lcom/google/common/reflect/TypeToken<",
         "*>;>;"
     }
@@ -43,17 +43,17 @@
 
     new-array v0, v0, [Lcom/google/common/reflect/TypeToken$TypeFilter;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/google/common/reflect/TypeToken$TypeFilter;->IGNORE_TYPE_VARIABLE_OR_WILDCARD:Lcom/google/common/reflect/TypeToken$TypeFilter;
 
-    sget-object v2, Lcom/google/common/reflect/TypeToken$TypeFilter;->IGNORE_TYPE_VARIABLE_OR_WILDCARD:Lcom/google/common/reflect/TypeToken$TypeFilter;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    sget-object v1, Lcom/google/common/reflect/TypeToken$TypeFilter;->INTERFACE_ONLY:Lcom/google/common/reflect/TypeToken$TypeFilter;
 
-    sget-object v2, Lcom/google/common/reflect/TypeToken$TypeFilter;->INTERFACE_ONLY:Lcom/google/common/reflect/TypeToken$TypeFilter;
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     return-object v0
 .end method
@@ -103,7 +103,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/reflect/TypeToken$1;)V
+.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/reflect/TypeToken$a;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/common/reflect/TypeToken$TypeFilter;-><init>(Ljava/lang/String;I)V
@@ -137,4 +137,9 @@
     check-cast v0, [Lcom/google/common/reflect/TypeToken$TypeFilter;
 
     return-object v0
+.end method
+
+
+# virtual methods
+.method public abstract synthetic apply(Ljava/lang/Object;)Z
 .end method

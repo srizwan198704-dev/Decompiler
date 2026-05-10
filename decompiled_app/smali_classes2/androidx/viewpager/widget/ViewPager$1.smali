@@ -19,13 +19,19 @@
     value = {
         "Ljava/lang/Object;",
         "Ljava/util/Comparator<",
-        "Landroidx/viewpager/widget/ViewPager$ItemInfo;",
+        "Landroidx/viewpager/widget/ViewPager$d;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -36,12 +42,12 @@
 
 
 # virtual methods
-.method public compare(Landroidx/viewpager/widget/ViewPager$ItemInfo;Landroidx/viewpager/widget/ViewPager$ItemInfo;)I
+.method public compare(Landroidx/viewpager/widget/ViewPager$d;Landroidx/viewpager/widget/ViewPager$d;)I
     .locals 0
 
-    iget p1, p1, Landroidx/viewpager/widget/ViewPager$ItemInfo;->position:I
+    iget p1, p1, Landroidx/viewpager/widget/ViewPager$d;->b:I
 
-    iget p2, p2, Landroidx/viewpager/widget/ViewPager$ItemInfo;->position:I
+    iget p2, p2, Landroidx/viewpager/widget/ViewPager$d;->b:I
 
     sub-int/2addr p1, p2
 
@@ -51,11 +57,11 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
-    check-cast p1, Landroidx/viewpager/widget/ViewPager$ItemInfo;
+    check-cast p1, Landroidx/viewpager/widget/ViewPager$d;
 
-    check-cast p2, Landroidx/viewpager/widget/ViewPager$ItemInfo;
+    check-cast p2, Landroidx/viewpager/widget/ViewPager$d;
 
-    invoke-virtual {p0, p1, p2}, Landroidx/viewpager/widget/ViewPager$1;->compare(Landroidx/viewpager/widget/ViewPager$ItemInfo;Landroidx/viewpager/widget/ViewPager$ItemInfo;)I
+    invoke-virtual {p0, p1, p2}, Landroidx/viewpager/widget/ViewPager$1;->compare(Landroidx/viewpager/widget/ViewPager$d;Landroidx/viewpager/widget/ViewPager$d;)I
 
     move-result p1
 

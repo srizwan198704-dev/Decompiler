@@ -3,12 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/base/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/base/CaseFormat$StringConverter;
@@ -39,7 +33,7 @@
 
 
 # instance fields
-.field private final wordBoundary:Lcom/google/common/base/CharMatcher;
+.field private final wordBoundary:Lcom/google/common/base/b;
 
 .field private final wordSeparator:Ljava/lang/String;
 
@@ -52,35 +46,35 @@
 
     new-array v0, v0, [Lcom/google/common/base/CaseFormat;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/google/common/base/CaseFormat;->LOWER_HYPHEN:Lcom/google/common/base/CaseFormat;
 
-    sget-object v2, Lcom/google/common/base/CaseFormat;->LOWER_HYPHEN:Lcom/google/common/base/CaseFormat;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    sget-object v1, Lcom/google/common/base/CaseFormat;->LOWER_UNDERSCORE:Lcom/google/common/base/CaseFormat;
 
-    sget-object v2, Lcom/google/common/base/CaseFormat;->LOWER_UNDERSCORE:Lcom/google/common/base/CaseFormat;
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    sget-object v1, Lcom/google/common/base/CaseFormat;->LOWER_CAMEL:Lcom/google/common/base/CaseFormat;
 
-    sget-object v2, Lcom/google/common/base/CaseFormat;->LOWER_CAMEL:Lcom/google/common/base/CaseFormat;
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    sget-object v1, Lcom/google/common/base/CaseFormat;->UPPER_CAMEL:Lcom/google/common/base/CaseFormat;
 
-    sget-object v2, Lcom/google/common/base/CaseFormat;->UPPER_CAMEL:Lcom/google/common/base/CaseFormat;
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    sget-object v1, Lcom/google/common/base/CaseFormat;->UPPER_UNDERSCORE:Lcom/google/common/base/CaseFormat;
 
-    sget-object v2, Lcom/google/common/base/CaseFormat;->UPPER_UNDERSCORE:Lcom/google/common/base/CaseFormat;
+    const/4 v2, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     return-object v0
 .end method
@@ -92,7 +86,7 @@
 
     const/16 v1, 0x2d
 
-    invoke-static {v1}, Lcom/google/common/base/CharMatcher;->is(C)Lcom/google/common/base/CharMatcher;
+    invoke-static {v1}, Lcom/google/common/base/b;->f(C)Lcom/google/common/base/b;
 
     move-result-object v1
 
@@ -102,7 +96,7 @@
 
     const/4 v4, 0x0
 
-    invoke-direct {v0, v3, v4, v1, v2}, Lcom/google/common/base/CaseFormat$1;-><init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
+    invoke-direct {v0, v3, v4, v1, v2}, Lcom/google/common/base/CaseFormat$1;-><init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;)V
 
     sput-object v0, Lcom/google/common/base/CaseFormat;->LOWER_HYPHEN:Lcom/google/common/base/CaseFormat;
 
@@ -110,7 +104,7 @@
 
     const/16 v1, 0x5f
 
-    invoke-static {v1}, Lcom/google/common/base/CharMatcher;->is(C)Lcom/google/common/base/CharMatcher;
+    invoke-static {v1}, Lcom/google/common/base/b;->f(C)Lcom/google/common/base/b;
 
     move-result-object v2
 
@@ -120,7 +114,7 @@
 
     const-string v5, "_"
 
-    invoke-direct {v0, v3, v4, v2, v5}, Lcom/google/common/base/CaseFormat$2;-><init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
+    invoke-direct {v0, v3, v4, v2, v5}, Lcom/google/common/base/CaseFormat$2;-><init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;)V
 
     sput-object v0, Lcom/google/common/base/CaseFormat;->LOWER_UNDERSCORE:Lcom/google/common/base/CaseFormat;
 
@@ -130,7 +124,7 @@
 
     const/16 v3, 0x5a
 
-    invoke-static {v2, v3}, Lcom/google/common/base/CharMatcher;->inRange(CC)Lcom/google/common/base/CharMatcher;
+    invoke-static {v2, v3}, Lcom/google/common/base/b;->d(CC)Lcom/google/common/base/b;
 
     move-result-object v4
 
@@ -140,7 +134,7 @@
 
     const-string v8, ""
 
-    invoke-direct {v0, v6, v7, v4, v8}, Lcom/google/common/base/CaseFormat$3;-><init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
+    invoke-direct {v0, v6, v7, v4, v8}, Lcom/google/common/base/CaseFormat$3;-><init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;)V
 
     sput-object v0, Lcom/google/common/base/CaseFormat;->LOWER_CAMEL:Lcom/google/common/base/CaseFormat;
 
@@ -148,13 +142,13 @@
 
     const/4 v4, 0x3
 
-    invoke-static {v2, v3}, Lcom/google/common/base/CharMatcher;->inRange(CC)Lcom/google/common/base/CharMatcher;
+    invoke-static {v2, v3}, Lcom/google/common/base/b;->d(CC)Lcom/google/common/base/b;
 
     move-result-object v2
 
     const-string v3, "UPPER_CAMEL"
 
-    invoke-direct {v0, v3, v4, v2, v8}, Lcom/google/common/base/CaseFormat$4;-><init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
+    invoke-direct {v0, v3, v4, v2, v8}, Lcom/google/common/base/CaseFormat$4;-><init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;)V
 
     sput-object v0, Lcom/google/common/base/CaseFormat;->UPPER_CAMEL:Lcom/google/common/base/CaseFormat;
 
@@ -162,13 +156,13 @@
 
     const/4 v2, 0x4
 
-    invoke-static {v1}, Lcom/google/common/base/CharMatcher;->is(C)Lcom/google/common/base/CharMatcher;
+    invoke-static {v1}, Lcom/google/common/base/b;->f(C)Lcom/google/common/base/b;
 
     move-result-object v1
 
     const-string v3, "UPPER_UNDERSCORE"
 
-    invoke-direct {v0, v3, v2, v1, v5}, Lcom/google/common/base/CaseFormat$5;-><init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
+    invoke-direct {v0, v3, v2, v1, v5}, Lcom/google/common/base/CaseFormat$5;-><init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;)V
 
     sput-object v0, Lcom/google/common/base/CaseFormat;->UPPER_UNDERSCORE:Lcom/google/common/base/CaseFormat;
 
@@ -181,12 +175,12 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
+.method private constructor <init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/base/CharMatcher;",
+            "Lcom/google/common/base/b;",
             "Ljava/lang/String;",
             ")V"
         }
@@ -194,17 +188,17 @@
 
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    iput-object p3, p0, Lcom/google/common/base/CaseFormat;->wordBoundary:Lcom/google/common/base/CharMatcher;
+    iput-object p3, p0, Lcom/google/common/base/CaseFormat;->wordBoundary:Lcom/google/common/base/b;
 
     iput-object p4, p0, Lcom/google/common/base/CaseFormat;->wordSeparator:Ljava/lang/String;
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;Lcom/google/common/base/CaseFormat$1;)V
+.method public synthetic constructor <init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;Lcom/google/common/base/CaseFormat$1;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/google/common/base/CaseFormat;-><init>(Ljava/lang/String;ILcom/google/common/base/CharMatcher;Ljava/lang/String;)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/google/common/base/CaseFormat;-><init>(Ljava/lang/String;ILcom/google/common/base/b;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -241,7 +235,7 @@
 
     move-result v1
 
-    invoke-static {v1}, Lcom/google/common/base/Ascii;->toUpperCase(C)C
+    invoke-static {v1}, Lcom/google/common/base/a;->f(C)C
 
     move-result v1
 
@@ -253,7 +247,7 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Lcom/google/common/base/Ascii;->toLowerCase(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/google/common/base/a;->e(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -306,14 +300,14 @@
 
     const/4 v2, -0x1
 
-    const/4 v3, -0x1
+    move v3, v2
 
     :goto_0
-    iget-object v4, p0, Lcom/google/common/base/CaseFormat;->wordBoundary:Lcom/google/common/base/CharMatcher;
+    iget-object v4, p0, Lcom/google/common/base/CaseFormat;->wordBoundary:Lcom/google/common/base/b;
 
     add-int/lit8 v3, v3, 0x1
 
-    invoke-virtual {v4, p2, v3}, Lcom/google/common/base/CharMatcher;->indexIn(Ljava/lang/CharSequence;I)I
+    invoke-virtual {v4, p2, v3}, Lcom/google/common/base/b;->e(Ljava/lang/CharSequence;I)I
 
     move-result v3
 
@@ -446,9 +440,9 @@
 .method public final to(Lcom/google/common/base/CaseFormat;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     if-ne p1, p0, :cond_0
 

@@ -14,10 +14,16 @@
 
 
 # static fields
-.field public static final item_touch_helper_previous_elevation:I = 0x7f0a0826
+.field public static item_touch_helper_previous_elevation:I = 0x7f0a0458
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 

@@ -2,10 +2,16 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/material/search/SearchBarAnimationHelper$OnLoadAnimationInvocation;
+.implements Lcom/google/android/material/search/j$g;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public synthetic constructor <init>()V
     .locals 0
 
@@ -16,10 +22,10 @@
 
 
 # virtual methods
-.method public final invoke(Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;)V
+.method public final a(Lcom/google/android/material/search/SearchBar$b;)V
     .locals 0
 
-    invoke-virtual {p1}, Lcom/google/android/material/search/SearchBar$OnLoadAnimationCallback;->onAnimationStart()V
+    invoke-virtual {p1}, Lcom/google/android/material/search/SearchBar$b;->b()V
 
     return-void
 .end method

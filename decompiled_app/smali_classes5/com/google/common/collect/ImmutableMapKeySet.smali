@@ -3,13 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/collect/ImmutableMapKeySet$KeySetSerializedForm;
@@ -41,6 +34,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -111,19 +110,19 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public iterator()Lcom/google/common/collect/r4;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "TK;>;"
         }
     .end annotation
 
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapKeySet;->map:Lcom/google/common/collect/ImmutableMap;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap;->keyIterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap;->keyIterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -133,7 +132,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapKeySet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapKeySet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -154,11 +153,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     new-instance v0, Lcom/google/common/collect/ImmutableMapKeySet$KeySetSerializedForm;
 

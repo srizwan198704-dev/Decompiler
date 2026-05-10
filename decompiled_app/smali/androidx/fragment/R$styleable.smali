@@ -2,31 +2,20 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/fragment/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "styleable"
-.end annotation
-
-
 # static fields
-.field public static final Fragment:[I
+.field public static Fragment:[I = null
 
-.field public static final FragmentContainerView:[I
+.field public static FragmentContainerView:[I = null
 
-.field public static final FragmentContainerView_android_name:I = 0x0
+.field public static FragmentContainerView_android_name:I = 0x0
 
-.field public static final FragmentContainerView_android_tag:I = 0x1
+.field public static FragmentContainerView_android_tag:I = 0x1
 
-.field public static final Fragment_android_id:I = 0x1
+.field public static Fragment_android_id:I = 0x1
 
-.field public static final Fragment_android_name:I = 0x0
+.field public static Fragment_android_name:I = 0x0
 
-.field public static final Fragment_android_tag:I = 0x2
+.field public static Fragment_android_tag:I = 0x2
 
 
 # direct methods

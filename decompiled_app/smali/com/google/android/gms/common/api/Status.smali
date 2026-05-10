@@ -446,9 +446,6 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     return-object p0
 .end method
 
@@ -490,41 +487,41 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 6
 
-    const/4 v0, 0x4
+    iget v0, p0, Lcom/google/android/gms/common/api/Status;->zzb:I
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget v1, p0, Lcom/google/android/gms/common/api/Status;->zzb:I
+    move-result-object v0
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x1
-
-    iget-object v2, p0, Lcom/google/android/gms/common/api/Status;->zzc:Ljava/lang/String;
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x2
+    iget-object v1, p0, Lcom/google/android/gms/common/api/Status;->zzc:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/google/android/gms/common/api/Status;->zzd:Landroid/app/PendingIntent;
 
-    aput-object v2, v0, v1
+    iget-object v3, p0, Lcom/google/android/gms/common/api/Status;->zze:Lcom/google/android/gms/common/ConnectionResult;
 
-    const/4 v1, 0x3
+    const/4 v4, 0x4
 
-    iget-object v2, p0, Lcom/google/android/gms/common/api/Status;->zze:Lcom/google/android/gms/common/ConnectionResult;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    aput-object v2, v0, v1
+    const/4 v5, 0x0
 
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/Objects;->hashCode([Ljava/lang/Object;)I
+    aput-object v0, v4, v5
+
+    const/4 v0, 0x1
+
+    aput-object v1, v4, v0
+
+    const/4 v0, 0x2
+
+    aput-object v2, v4, v0
+
+    const/4 v0, 0x3
+
+    aput-object v3, v4, v0
+
+    invoke-static {v4}, Lcom/google/android/gms/common/internal/Objects;->hashCode([Ljava/lang/Object;)I
 
     move-result v0
 
@@ -571,8 +568,6 @@
 
 .method public isSuccess()Z
     .locals 1
-    .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
-    .end annotation
 
     iget v0, p0, Lcom/google/android/gms/common/api/Status;->zzb:I
 
@@ -617,13 +612,13 @@
 
     move-result-object v2
 
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
     const/4 v6, 0x0
 
     const/4 v7, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
 
     move-object v1, p1
 
@@ -634,16 +629,16 @@
     return-void
 .end method
 
-.method public startResolutionForResult(Landroidx/activity/result/ActivityResultLauncher;)V
+.method public startResolutionForResult(Lf/b;)V
     .locals 2
-    .param p1    # Landroidx/activity/result/ActivityResultLauncher;
+    .param p1    # Lf/b;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroidx/activity/result/ActivityResultLauncher<",
+            "Lf/b<",
             "Landroidx/activity/result/IntentSenderRequest;",
             ">;)V"
         }
@@ -660,7 +655,7 @@
     :cond_0
     iget-object v0, p0, Lcom/google/android/gms/common/api/Status;->zzd:Landroid/app/PendingIntent;
 
-    new-instance v1, Landroidx/activity/result/IntentSenderRequest$Builder;
+    new-instance v1, Landroidx/activity/result/IntentSenderRequest$a;
 
     invoke-static {v0}, Lcom/google/android/gms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -668,13 +663,13 @@
 
     move-result-object v0
 
-    invoke-direct {v1, v0}, Landroidx/activity/result/IntentSenderRequest$Builder;-><init>(Landroid/content/IntentSender;)V
+    invoke-direct {v1, v0}, Landroidx/activity/result/IntentSenderRequest$a;-><init>(Landroid/content/IntentSender;)V
 
-    invoke-virtual {v1}, Landroidx/activity/result/IntentSenderRequest$Builder;->build()Landroidx/activity/result/IntentSenderRequest;
+    invoke-virtual {v1}, Landroidx/activity/result/IntentSenderRequest$a;->a()Landroidx/activity/result/IntentSenderRequest;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroidx/activity/result/ActivityResultLauncher;->launch(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Lf/b;->a(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -688,7 +683,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "statusCode"
+    const-string v1, "statusCode"
 
     invoke-virtual {p0}, Lcom/google/android/gms/common/api/Status;->zza()Ljava/lang/String;
 

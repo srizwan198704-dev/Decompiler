@@ -25,7 +25,13 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/google/common/collect/RegularImmutableTable;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/collect/RegularImmutableTable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableTable$Values;->this$0:Lcom/google/common/collect/RegularImmutableTable;
@@ -35,7 +41,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$1;)V
+.method public synthetic constructor <init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$a;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/RegularImmutableTable$Values;-><init>(Lcom/google/common/collect/RegularImmutableTable;)V
@@ -75,7 +81,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableTable$Values;->this$0:Lcom/google/common/collect/RegularImmutableTable;
 
-    invoke-interface {v0}, Lcom/google/common/collect/Table;->size()I
+    invoke-virtual {v0}, Lcom/google/common/collect/RegularImmutableTable;->size()I
 
     move-result v0
 
@@ -84,11 +90,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableList;->writeReplace()Ljava/lang/Object;
 

@@ -5,14 +5,6 @@
 .implements Landroid/os/Parcelable;
 
 
-# annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
@@ -29,9 +21,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/internal/ParcelableSparseBooleanArray$1;
+    new-instance v0, Lcom/google/android/material/internal/ParcelableSparseBooleanArray$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/internal/ParcelableSparseBooleanArray$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/internal/ParcelableSparseBooleanArray$a;-><init>()V
 
     sput-object v0, Lcom/google/android/material/internal/ParcelableSparseBooleanArray;->CREATOR:Landroid/os/Parcelable$Creator;
 

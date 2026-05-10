@@ -41,9 +41,9 @@
 
     sput-object v0, Landroidx/customview/view/AbsSavedState;->EMPTY_STATE:Landroidx/customview/view/AbsSavedState;
 
-    new-instance v0, Landroidx/customview/view/AbsSavedState$2;
+    new-instance v0, Landroidx/customview/view/AbsSavedState$a;
 
-    invoke-direct {v0}, Landroidx/customview/view/AbsSavedState$2;-><init>()V
+    invoke-direct {v0}, Landroidx/customview/view/AbsSavedState$a;-><init>()V
 
     sput-object v0, Landroidx/customview/view/AbsSavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -134,7 +134,7 @@
     :cond_1
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v0, "superState must not be null"
+    const-string v0, "superState must not be null"
 
     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

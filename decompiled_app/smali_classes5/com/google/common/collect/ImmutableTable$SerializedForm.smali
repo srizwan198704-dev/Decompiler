@@ -33,7 +33,13 @@
 
 
 # direct methods
-.method private constructor <init>([Ljava/lang/Object;[Ljava/lang/Object;[Ljava/lang/Object;[I[I)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>([Ljava/lang/Object;[Ljava/lang/Object;[Ljava/lang/Object;[I[I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -142,11 +148,11 @@
     return-object v0
 
     :cond_1
-    new-instance v1, Lcom/google/common/collect/ImmutableList$Builder;
+    new-instance v1, Lcom/google/common/collect/ImmutableList$a;
 
     array-length v0, v0
 
-    invoke-direct {v1, v0}, Lcom/google/common/collect/ImmutableList$Builder;-><init>(I)V
+    invoke-direct {v1, v0}, Lcom/google/common/collect/ImmutableList$a;-><init>(I)V
 
     :goto_0
     iget-object v0, p0, Lcom/google/common/collect/ImmutableTable$SerializedForm;->cellValues:[Ljava/lang/Object;
@@ -173,18 +179,18 @@
 
     aget-object v0, v0, v3
 
-    invoke-static {v2, v4, v0}, Lcom/google/common/collect/ImmutableTable;->cellOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/Table$Cell;
+    invoke-static {v2, v4, v0}, Lcom/google/common/collect/ImmutableTable;->cellOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/c4$a;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
+    invoke-virtual {v1, v0}, Lcom/google/common/collect/ImmutableList$a;->j(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$a;
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableList$a;->n()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 

@@ -3,13 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/collect/EmptyContiguousSet$SerializedForm;
@@ -28,6 +21,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/DiscreteDomain;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -45,12 +44,6 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -95,9 +88,6 @@
 
 .method public createDescendingSet()Lcom/google/common/collect/ImmutableSortedSet;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -121,20 +111,17 @@
     return-object v0
 .end method
 
-.method public descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public descendingIterator()Lcom/google/common/collect/r4;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "TC;>;"
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/Iterators;->emptyIterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-static {}, Lcom/google/common/collect/Iterators;->h()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -143,10 +130,8 @@
 
 .method public bridge synthetic descendingIterator()Ljava/util/Iterator;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
 
-    invoke-virtual {p0}, Lcom/google/common/collect/EmptyContiguousSet;->descendingIterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/EmptyContiguousSet;->descendingIterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -234,8 +219,6 @@
 
 .method public indexOf(Ljava/lang/Object;)I
     .locals 0
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
 
     const/4 p1, -0x1
 
@@ -267,8 +250,6 @@
 
 .method public isHashCodeFast()Z
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -283,17 +264,17 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public iterator()Lcom/google/common/collect/r4;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "TC;>;"
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/Iterators;->emptyIterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-static {}, Lcom/google/common/collect/Iterators;->h()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -303,7 +284,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/EmptyContiguousSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/EmptyContiguousSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -442,11 +423,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 3
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     new-instance v0, Lcom/google/common/collect/EmptyContiguousSet$SerializedForm;
 
@@ -454,7 +430,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/google/common/collect/EmptyContiguousSet$SerializedForm;-><init>(Lcom/google/common/collect/DiscreteDomain;Lcom/google/common/collect/EmptyContiguousSet$1;)V
+    invoke-direct {v0, v1, v2}, Lcom/google/common/collect/EmptyContiguousSet$SerializedForm;-><init>(Lcom/google/common/collect/DiscreteDomain;Lcom/google/common/collect/EmptyContiguousSet$a;)V
 
     return-object v0
 .end method

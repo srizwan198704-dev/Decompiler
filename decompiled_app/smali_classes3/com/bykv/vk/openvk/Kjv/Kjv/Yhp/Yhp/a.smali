@@ -1,0 +1,10 @@
+.class public Lcom/bykv/vk/openvk/Kjv/Kjv/Yhp/Yhp/a;
+.super Ljava/lang/Object;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method

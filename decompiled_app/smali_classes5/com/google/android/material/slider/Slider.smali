@@ -3,25 +3,24 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/material/slider/Slider$OnSliderTouchListener;,
-        Lcom/google/android/material/slider/Slider$OnChangeListener;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/google/android/material/slider/BaseSlider<",
         "Lcom/google/android/material/slider/Slider;",
-        "Lcom/google/android/material/slider/Slider$OnChangeListener;",
-        "Lcom/google/android/material/slider/Slider$OnSliderTouchListener;",
+        "Ljava/lang/Object;",
+        "Ljava/lang/Object;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1    # Landroid/content/Context;
@@ -101,28 +100,51 @@
 
 
 # virtual methods
-.method public bridge synthetic addOnChangeListener(Lcom/google/android/material/slider/BaseOnChangeListener;)V
+.method public bridge synthetic addOnChangeListener(Lcom/google/android/material/slider/a;)V
     .locals 0
-    .param p1    # Lcom/google/android/material/slider/BaseOnChangeListener;
+    .param p1    # Lcom/google/android/material/slider/a;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->addOnChangeListener(Lcom/google/android/material/slider/BaseOnChangeListener;)V
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->addOnChangeListener(Lcom/google/android/material/slider/a;)V
 
     return-void
 .end method
 
-.method public bridge synthetic addOnSliderTouchListener(Lcom/google/android/material/slider/BaseOnSliderTouchListener;)V
+.method public bridge synthetic addOnSliderTouchListener(Lcom/google/android/material/slider/b;)V
     .locals 0
-    .param p1    # Lcom/google/android/material/slider/BaseOnSliderTouchListener;
+    .param p1    # Lcom/google/android/material/slider/b;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->addOnSliderTouchListener(Lcom/google/android/material/slider/BaseOnSliderTouchListener;)V
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->addOnSliderTouchListener(Lcom/google/android/material/slider/b;)V
 
     return-void
+.end method
+
+.method public b0()Z
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/Slider;->getActiveThumbIndex()I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    const/4 v2, 0x1
+
+    if-eq v0, v1, :cond_0
+
+    return v2
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->setActiveThumbIndex(I)V
+
+    return v2
 .end method
 
 .method public bridge synthetic clearOnChangeListeners()V
@@ -203,8 +225,6 @@
 
 .method public bridge synthetic getHaloRadius()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getHaloRadius()I
 
@@ -257,8 +277,6 @@
 
 .method public bridge synthetic getThumbHeight()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getThumbHeight()I
 
@@ -269,8 +287,6 @@
 
 .method public bridge synthetic getThumbRadius()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getThumbRadius()I
 
@@ -323,8 +339,6 @@
 
 .method public bridge synthetic getThumbWidth()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getThumbWidth()I
 
@@ -335,8 +349,6 @@
 
 .method public bridge synthetic getTickActiveRadius()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getTickActiveRadius()I
 
@@ -359,8 +371,6 @@
 
 .method public bridge synthetic getTickInactiveRadius()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getTickInactiveRadius()I
 
@@ -407,8 +417,6 @@
 
 .method public bridge synthetic getTrackHeight()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getTrackHeight()I
 
@@ -441,8 +449,6 @@
 
 .method public bridge synthetic getTrackSidePadding()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getTrackSidePadding()I
 
@@ -475,8 +481,6 @@
 
 .method public bridge synthetic getTrackWidth()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/android/material/slider/BaseSlider;->getTrackWidth()I
 
@@ -589,59 +593,32 @@
     return p1
 .end method
 
-.method public pickActiveThumb()Z
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/Slider;->getActiveThumbIndex()I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    const/4 v2, 0x1
-
-    if-eq v0, v1, :cond_0
-
-    return v2
-
-    :cond_0
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->setActiveThumbIndex(I)V
-
-    return v2
-.end method
-
-.method public bridge synthetic removeOnChangeListener(Lcom/google/android/material/slider/BaseOnChangeListener;)V
+.method public bridge synthetic removeOnChangeListener(Lcom/google/android/material/slider/a;)V
     .locals 0
-    .param p1    # Lcom/google/android/material/slider/BaseOnChangeListener;
+    .param p1    # Lcom/google/android/material/slider/a;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->removeOnChangeListener(Lcom/google/android/material/slider/BaseOnChangeListener;)V
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->removeOnChangeListener(Lcom/google/android/material/slider/a;)V
 
     return-void
 .end method
 
-.method public bridge synthetic removeOnSliderTouchListener(Lcom/google/android/material/slider/BaseOnSliderTouchListener;)V
+.method public bridge synthetic removeOnSliderTouchListener(Lcom/google/android/material/slider/b;)V
     .locals 0
-    .param p1    # Lcom/google/android/material/slider/BaseOnSliderTouchListener;
+    .param p1    # Lcom/google/android/material/slider/b;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->removeOnSliderTouchListener(Lcom/google/android/material/slider/BaseOnSliderTouchListener;)V
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->removeOnSliderTouchListener(Lcom/google/android/material/slider/b;)V
 
     return-void
 .end method
 
 .method public setCustomThumbDrawable(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/DrawableRes;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setCustomThumbDrawable(I)V
 
@@ -678,14 +655,6 @@
 
 .method public bridge synthetic setHaloRadius(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setHaloRadius(I)V
 
@@ -694,10 +663,6 @@
 
 .method public bridge synthetic setHaloRadiusResource(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setHaloRadiusResource(I)V
 
@@ -724,14 +689,14 @@
     return-void
 .end method
 
-.method public bridge synthetic setLabelFormatter(Lcom/google/android/material/slider/LabelFormatter;)V
+.method public bridge synthetic setLabelFormatter(Lcom/google/android/material/slider/d;)V
     .locals 0
-    .param p1    # Lcom/google/android/material/slider/LabelFormatter;
+    .param p1    # Lcom/google/android/material/slider/d;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
 
-    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setLabelFormatter(Lcom/google/android/material/slider/LabelFormatter;)V
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setLabelFormatter(Lcom/google/android/material/slider/d;)V
 
     return-void
 .end method
@@ -754,10 +719,6 @@
 
 .method public bridge synthetic setThumbElevationResource(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbElevationResource(I)V
 
@@ -766,14 +727,6 @@
 
 .method public bridge synthetic setThumbHeight(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbHeight(I)V
 
@@ -782,10 +735,6 @@
 
 .method public bridge synthetic setThumbHeightResource(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbHeightResource(I)V
 
@@ -794,14 +743,6 @@
 
 .method public bridge synthetic setThumbRadius(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbRadius(I)V
 
@@ -810,10 +751,6 @@
 
 .method public bridge synthetic setThumbRadiusResource(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbRadiusResource(I)V
 
@@ -834,10 +771,6 @@
 
 .method public bridge synthetic setThumbStrokeColorResource(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/ColorRes;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbStrokeColorResource(I)V
 
@@ -854,10 +787,6 @@
 
 .method public bridge synthetic setThumbStrokeWidthResource(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbStrokeWidthResource(I)V
 
@@ -878,10 +807,6 @@
 
 .method public bridge synthetic setThumbTrackGapSize(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbTrackGapSize(I)V
 
@@ -890,14 +815,6 @@
 
 .method public bridge synthetic setThumbWidth(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbWidth(I)V
 
@@ -906,10 +823,6 @@
 
 .method public bridge synthetic setThumbWidthResource(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbWidthResource(I)V
 
@@ -918,14 +831,6 @@
 
 .method public bridge synthetic setTickActiveRadius(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setTickActiveRadius(I)V
 
@@ -946,14 +851,6 @@
 
 .method public bridge synthetic setTickInactiveRadius(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setTickInactiveRadius(I)V
 
@@ -1006,14 +903,6 @@
 
 .method public bridge synthetic setTrackHeight(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setTrackHeight(I)V
 
@@ -1034,10 +923,6 @@
 
 .method public bridge synthetic setTrackInsideCornerSize(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setTrackInsideCornerSize(I)V
 
@@ -1046,10 +931,6 @@
 
 .method public bridge synthetic setTrackStopIndicatorSize(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setTrackStopIndicatorSize(I)V
 
@@ -1071,15 +952,15 @@
 .method public setValue(F)V
     .locals 2
 
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Float;
 
     const/4 v1, 0x0
-
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p1
 
     aput-object p1, v0, v1
 

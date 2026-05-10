@@ -21,6 +21,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/fragment/app/FragmentManager;)V
     .locals 0
 
@@ -40,7 +46,7 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->execPendingActions(Z)Z
+    invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->Z(Z)Z
 
     return-void
 .end method

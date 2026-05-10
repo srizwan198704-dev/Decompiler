@@ -30,16 +30,8 @@
 .field final executor:Ljava/util/concurrent/Executor;
 
 .field isThreadScheduled:Z
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
-.end field
 
 .field final labelQueue:Ljava/util/Queue;
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Queue<",
@@ -59,14 +51,10 @@
 .end field
 
 .field final waitQueue:Ljava/util/Queue;
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Queue<",
-            "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<",
+            "Lcom/google/common/util/concurrent/ListenerCallQueue$a<",
             "T",
             "L;",
             ">;>;"
@@ -76,6 +64,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Object;Ljava/util/concurrent/Executor;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -89,25 +83,25 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {}, Lcom/google/common/collect/Queues;->newArrayDeque()Ljava/util/ArrayDeque;
+    invoke-static {}, Lcom/google/common/collect/s3;->a()Ljava/util/ArrayDeque;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->waitQueue:Ljava/util/Queue;
 
-    invoke-static {}, Lcom/google/common/collect/Queues;->newArrayDeque()Ljava/util/ArrayDeque;
+    invoke-static {}, Lcom/google/common/collect/s3;->a()Ljava/util/ArrayDeque;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->labelQueue:Ljava/util/Queue;
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->listener:Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -120,12 +114,12 @@
 
 
 # virtual methods
-.method public declared-synchronized add(Lcom/google/common/util/concurrent/ListenerCallQueue$Event;Ljava/lang/Object;)V
+.method public declared-synchronized add(Lcom/google/common/util/concurrent/ListenerCallQueue$a;Ljava/lang/Object;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/ListenerCallQueue$Event<",
+            "Lcom/google/common/util/concurrent/ListenerCallQueue$a<",
             "T",
             "L;",
             ">;",
@@ -154,7 +148,10 @@
     :catchall_0
     move-exception p1
 
+    :try_start_1
     monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p1
 .end method
@@ -183,7 +180,7 @@
     goto :goto_2
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     monitor-exit p0
@@ -213,11 +210,11 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    invoke-static {}, Lcom/google/common/util/concurrent/ListenerCallQueue;->access$000()Lcom/google/common/util/concurrent/LazyLogger;
+    invoke-static {}, Lcom/google/common/util/concurrent/ListenerCallQueue;->a()Lcom/google/common/util/concurrent/s;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/google/common/util/concurrent/LazyLogger;->get()Ljava/util/logging/Logger;
+    invoke-virtual {v1}, Lcom/google/common/util/concurrent/s;->a()Ljava/util/logging/Logger;
 
     move-result-object v1
 
@@ -290,7 +287,7 @@
     :try_start_1
     iget-boolean v2, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->isThreadScheduled:Z
 
-    invoke-static {v2}, Lcom/google/common/base/Preconditions;->checkState(Z)V
+    invoke-static {v2}, Lcom/google/common/base/m;->u(Z)V
 
     iget-object v2, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->waitQueue:Ljava/util/Queue;
 
@@ -298,7 +295,7 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/google/common/util/concurrent/ListenerCallQueue$Event;
+    check-cast v2, Lcom/google/common/util/concurrent/ListenerCallQueue$a;
 
     iget-object v3, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->labelQueue:Ljava/util/Queue;
 
@@ -322,16 +319,18 @@
     :catchall_0
     move-exception v1
 
-    const/4 v2, 0x0
+    move v2, v0
 
     goto :goto_1
 
     :catchall_1
     move-exception v2
 
-    move-object v1, v2
+    move-object v8, v2
 
-    const/4 v2, 0x1
+    move v2, v1
+
+    move-object v1, v8
 
     goto :goto_1
 
@@ -344,7 +343,7 @@
     :try_start_4
     iget-object v4, p0, Lcom/google/common/util/concurrent/ListenerCallQueue$PerListenerQueue;->listener:Ljava/lang/Object;
 
-    invoke-interface {v2, v4}, Lcom/google/common/util/concurrent/ListenerCallQueue$Event;->call(Ljava/lang/Object;)V
+    invoke-interface {v2, v4}, Lcom/google/common/util/concurrent/ListenerCallQueue$a;->call(Ljava/lang/Object;)V
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
@@ -360,11 +359,11 @@
     move-exception v2
 
     :try_start_5
-    invoke-static {}, Lcom/google/common/util/concurrent/ListenerCallQueue;->access$000()Lcom/google/common/util/concurrent/LazyLogger;
+    invoke-static {}, Lcom/google/common/util/concurrent/ListenerCallQueue;->a()Lcom/google/common/util/concurrent/s;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/google/common/util/concurrent/LazyLogger;->get()Ljava/util/logging/Logger;
+    invoke-virtual {v4}, Lcom/google/common/util/concurrent/s;->a()Ljava/util/logging/Logger;
 
     move-result-object v4
 
@@ -448,11 +447,5 @@
 
     :cond_1
     :goto_3
-    goto :goto_5
-
-    :goto_4
     throw v2
-
-    :goto_5
-    goto :goto_4
 .end method

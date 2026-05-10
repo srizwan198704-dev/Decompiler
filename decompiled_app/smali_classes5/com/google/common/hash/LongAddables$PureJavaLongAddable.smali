@@ -2,7 +2,7 @@
 .super Ljava/util/concurrent/atomic/AtomicLong;
 
 # interfaces
-.implements Lcom/google/common/hash/LongAddable;
+.implements Lcom/google/common/hash/h;
 
 
 # annotations
@@ -17,6 +17,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 
@@ -25,7 +31,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/hash/LongAddables$1;)V
+.method public synthetic constructor <init>(Lcom/google/common/hash/LongAddables$a;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/common/hash/LongAddables$PureJavaLongAddable;-><init>()V

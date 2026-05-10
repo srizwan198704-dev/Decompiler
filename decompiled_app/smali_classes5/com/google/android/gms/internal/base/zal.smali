@@ -2,6 +2,14 @@
 .super Landroid/widget/ImageView;
 
 
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public final onDraw(Landroid/graphics/Canvas;)V
     .locals 0

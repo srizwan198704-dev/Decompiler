@@ -2,34 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Landroid/widget/AutoCompleteTextView$OnDismissListener;
 
 
 # instance fields
-.field public final synthetic a:Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;
+.field public final synthetic a:Lcom/google/android/material/textfield/p;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcom/google/android/material/textfield/p;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/textfield/k;->a:Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;
+    iput-object p1, p0, Lcom/google/android/material/textfield/k;->a:Lcom/google/android/material/textfield/p;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public final onDismiss()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/textfield/k;->a:Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;
+    iget-object v0, p0, Lcom/google/android/material/textfield/k;->a:Lcom/google/android/material/textfield/p;
 
-    invoke-static {v0, p1, p2}, Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;->b(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/view/View;Landroid/view/MotionEvent;)Z
+    invoke-static {v0}, Lcom/google/android/material/textfield/p;->A(Lcom/google/android/material/textfield/p;)V
 
-    move-result p1
-
-    return p1
+    return-void
 .end method

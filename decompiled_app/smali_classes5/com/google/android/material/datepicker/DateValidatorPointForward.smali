@@ -25,9 +25,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/datepicker/DateValidatorPointForward$1;
+    new-instance v0, Lcom/google/android/material/datepicker/DateValidatorPointForward$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/datepicker/DateValidatorPointForward$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/datepicker/DateValidatorPointForward$a;-><init>()V
 
     sput-object v0, Lcom/google/android/material/datepicker/DateValidatorPointForward;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(JLcom/google/android/material/datepicker/DateValidatorPointForward$1;)V
+.method public synthetic constructor <init>(JLcom/google/android/material/datepicker/DateValidatorPointForward$a;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/android/material/datepicker/DateValidatorPointForward;-><init>(J)V
@@ -69,7 +69,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    invoke-static {}, Lcom/google/android/material/datepicker/UtcDates;->getTodayCalendar()Ljava/util/Calendar;
+    invoke-static {}, Lcom/google/android/material/datepicker/y;->q()Ljava/util/Calendar;
 
     move-result-object v0
 
@@ -126,7 +126,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     return v0
@@ -135,21 +135,21 @@
 .method public hashCode()I
     .locals 3
 
-    const/4 v0, 0x1
+    iget-wide v0, p0, Lcom/google/android/material/datepicker/DateValidatorPointForward;->point:J
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    iget-wide v1, p0, Lcom/google/android/material/datepicker/DateValidatorPointForward;->point:J
+    move-result-object v0
 
-    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    const/4 v1, 0x1
 
-    move-result-object v1
+    new-array v1, v1, [Ljava/lang/Object;
 
     const/4 v2, 0x0
 
-    aput-object v1, v0, v2
+    aput-object v0, v1, v2
 
-    invoke-static {v0}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v1}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
     move-result v0
 
@@ -157,13 +157,13 @@
 .end method
 
 .method public isValid(J)Z
-    .locals 3
+    .locals 2
 
     iget-wide v0, p0, Lcom/google/android/material/datepicker/DateValidatorPointForward;->point:J
 
-    cmp-long v2, p1, v0
+    cmp-long p1, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz p1, :cond_0
 
     const/4 p1, 0x1
 

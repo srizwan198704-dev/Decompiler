@@ -2,22 +2,16 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/Function;
+.implements Lcom/google/common/base/f;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/base/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/base/Converter$IdentityConverter;,
-        Lcom/google/common/base/Converter$FunctionBasedConverter;,
+        Lcom/google/common/base/Converter$ReverseConverter;,
         Lcom/google/common/base/Converter$ConverterComposition;,
-        Lcom/google/common/base/Converter$ReverseConverter;
+        Lcom/google/common/base/Converter$FunctionBasedConverter;,
+        Lcom/google/common/base/Converter$IdentityConverter;
     }
 .end annotation
 
@@ -29,22 +23,14 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/Function<",
+        "Lcom/google/common/base/f<",
         "TA;TB;>;"
     }
 .end annotation
 
 
 # instance fields
-.field private final handleNullAutomatically:Z
-
-.field private transient reverse:Lcom/google/common/base/Converter;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
-    .annotation build Lcom/google/j2objc/annotations/RetainedWith;
-    .end annotation
-
+.field public transient a:Lcom/google/common/base/Converter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/base/Converter<",
@@ -53,8 +39,16 @@
     .end annotation
 .end field
 
+.field private final handleNullAutomatically:Z
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -75,7 +69,7 @@
     return-void
 .end method
 
-.method public static from(Lcom/google/common/base/Function;Lcom/google/common/base/Function;)Lcom/google/common/base/Converter;
+.method public static from(Lcom/google/common/base/f;Lcom/google/common/base/f;)Lcom/google/common/base/Converter;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,9 +78,9 @@
             "B:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "-TA;+TB;>;",
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "-TB;+TA;>;)",
             "Lcom/google/common/base/Converter<",
             "TA;TB;>;"
@@ -97,7 +91,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, p1, v1}, Lcom/google/common/base/Converter$FunctionBasedConverter;-><init>(Lcom/google/common/base/Function;Lcom/google/common/base/Function;Lcom/google/common/base/Converter$1;)V
+    invoke-direct {v0, p0, p1, v1}, Lcom/google/common/base/Converter$FunctionBasedConverter;-><init>(Lcom/google/common/base/f;Lcom/google/common/base/f;Lcom/google/common/base/Converter$a;)V
 
     return-object v0
 .end method
@@ -121,7 +115,9 @@
     return-object v0
 .end method
 
-.method private unsafeDoBackward(Ljava/lang/Object;)Ljava/lang/Object;
+
+# virtual methods
+.method public final a(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,7 +125,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/i;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -140,27 +136,6 @@
     return-object p1
 .end method
 
-.method private unsafeDoForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TA;)TB;"
-        }
-    .end annotation
-
-    invoke-static {p1}, Lcom/google/common/base/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Lcom/google/common/base/Converter;->doForward(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-
-# virtual methods
 .method public final andThen(Lcom/google/common/base/Converter;)Lcom/google/common/base/Converter;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -184,10 +159,6 @@
 
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/InlineMe;
-        replacement = "this.convert(a)"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)TB;"
@@ -198,6 +169,25 @@
     .end annotation
 
     invoke-virtual {p0, p1}, Lcom/google/common/base/Converter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final b(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TA;)TB;"
+        }
+    .end annotation
+
+    invoke-static {p1}, Lcom/google/common/base/i;->a(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/google/common/base/Converter;->doForward(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -233,11 +223,11 @@
 
     const-string v0, "fromIterable"
 
-    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/google/common/base/Converter$1;
+    new-instance v0, Lcom/google/common/base/Converter$a;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/base/Converter$1;-><init>(Lcom/google/common/base/Converter;Ljava/lang/Iterable;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/base/Converter$a;-><init>(Lcom/google/common/base/Converter;Ljava/lang/Iterable;)V
 
     return-object v0
 .end method
@@ -265,7 +255,7 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -273,7 +263,7 @@
     return-object p1
 
     :cond_1
-    invoke-direct {p0, p1}, Lcom/google/common/base/Converter;->unsafeDoBackward(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/google/common/base/Converter;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -303,7 +293,7 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -311,7 +301,7 @@
     return-object p1
 
     :cond_1
-    invoke-direct {p0, p1}, Lcom/google/common/base/Converter;->unsafeDoForward(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/google/common/base/Converter;->b(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -334,7 +324,7 @@
 
     new-instance v0, Lcom/google/common/base/Converter$ConverterComposition;
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -346,9 +336,6 @@
 .end method
 
 .method public abstract doBackward(Ljava/lang/Object;)Ljava/lang/Object;
-    .annotation build Lcom/google/errorprone/annotations/ForOverride;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;)TA;"
@@ -357,9 +344,6 @@
 .end method
 
 .method public abstract doForward(Ljava/lang/Object;)Ljava/lang/Object;
-    .annotation build Lcom/google/errorprone/annotations/ForOverride;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)TB;"
@@ -379,9 +363,6 @@
 
 .method public reverse()Lcom/google/common/base/Converter;
     .locals 1
-    .annotation runtime Lcom/google/errorprone/annotations/CheckReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -390,7 +371,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/base/Converter;->reverse:Lcom/google/common/base/Converter;
+    iget-object v0, p0, Lcom/google/common/base/Converter;->a:Lcom/google/common/base/Converter;
 
     if-nez v0, :cond_0
 
@@ -398,7 +379,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/common/base/Converter$ReverseConverter;-><init>(Lcom/google/common/base/Converter;)V
 
-    iput-object v0, p0, Lcom/google/common/base/Converter;->reverse:Lcom/google/common/base/Converter;
+    iput-object v0, p0, Lcom/google/common/base/Converter;->a:Lcom/google/common/base/Converter;
 
     :cond_0
     return-object v0

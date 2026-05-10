@@ -2,7 +2,7 @@
 .super Ljava/util/AbstractMap;
 
 # interfaces
-.implements Lcom/google/common/collect/BiMap;
+.implements Lcom/google/common/collect/k;
 .implements Ljava/io/Serializable;
 
 
@@ -25,7 +25,7 @@
         ">",
         "Ljava/util/AbstractMap<",
         "TV;TK;>;",
-        "Lcom/google/common/collect/BiMap<",
+        "Lcom/google/common/collect/k<",
         "TV;TK;>;",
         "Ljava/io/Serializable;"
     }
@@ -33,16 +33,7 @@
 
 
 # instance fields
-.field private final forward:Lcom/google/common/collect/HashBiMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/common/collect/HashBiMap<",
-            "TK;TV;>;"
-        }
-    .end annotation
-.end field
-
-.field private transient inverseEntrySet:Ljava/util/Set;
+.field public transient a:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -52,8 +43,23 @@
     .end annotation
 .end field
 
+.field private final forward:Lcom/google/common/collect/HashBiMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/common/collect/HashBiMap<",
+            "TK;TV;>;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/HashBiMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -73,10 +79,6 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 0
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-        value = "serialization"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;,
@@ -88,7 +90,7 @@
 
     iget-object p1, p0, Lcom/google/common/collect/HashBiMap$Inverse;->forward:Lcom/google/common/collect/HashBiMap;
 
-    invoke-static {p1, p0}, Lcom/google/common/collect/HashBiMap;->access$302(Lcom/google/common/collect/HashBiMap;Lcom/google/common/collect/BiMap;)Lcom/google/common/collect/BiMap;
+    invoke-static {p1, p0}, Lcom/google/common/collect/HashBiMap;->access$302(Lcom/google/common/collect/HashBiMap;Lcom/google/common/collect/k;)Lcom/google/common/collect/k;
 
     return-void
 .end method
@@ -140,17 +142,17 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/HashBiMap$Inverse;->inverseEntrySet:Ljava/util/Set;
+    iget-object v0, p0, Lcom/google/common/collect/HashBiMap$Inverse;->a:Ljava/util/Set;
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/HashBiMap$InverseEntrySet;
+    new-instance v0, Lcom/google/common/collect/HashBiMap$d;
 
     iget-object v1, p0, Lcom/google/common/collect/HashBiMap$Inverse;->forward:Lcom/google/common/collect/HashBiMap;
 
-    invoke-direct {v0, v1}, Lcom/google/common/collect/HashBiMap$InverseEntrySet;-><init>(Lcom/google/common/collect/HashBiMap;)V
+    invoke-direct {v0, v1}, Lcom/google/common/collect/HashBiMap$d;-><init>(Lcom/google/common/collect/HashBiMap;)V
 
-    iput-object v0, p0, Lcom/google/common/collect/HashBiMap$Inverse;->inverseEntrySet:Ljava/util/Set;
+    iput-object v0, p0, Lcom/google/common/collect/HashBiMap$Inverse;->a:Ljava/util/Set;
 
     :cond_0
     return-object v0
@@ -158,17 +160,6 @@
 
 .method public forcePut(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;TK;)TK;"
@@ -205,12 +196,12 @@
     return-object p1
 .end method
 
-.method public inverse()Lcom/google/common/collect/BiMap;
+.method public inverse()Lcom/google/common/collect/k;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/BiMap<",
+            "Lcom/google/common/collect/k<",
             "TK;TV;>;"
         }
     .end annotation
@@ -241,17 +232,6 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;TK;)TK;"
@@ -271,9 +251,6 @@
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

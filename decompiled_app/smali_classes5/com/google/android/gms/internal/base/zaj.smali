@@ -9,6 +9,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/android/gms/internal/base/zaj;)V
     .locals 1
     .param p1    # Lcom/google/android/gms/internal/base/zaj;

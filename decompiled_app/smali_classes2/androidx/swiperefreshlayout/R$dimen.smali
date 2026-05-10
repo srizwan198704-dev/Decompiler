@@ -2,64 +2,59 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/swiperefreshlayout/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "dimen"
-.end annotation
-
-
 # static fields
-.field public static final compat_button_inset_horizontal_material:I = 0x7f070093
+.field public static compat_button_inset_horizontal_material:I = 0x7f070070
 
-.field public static final compat_button_inset_vertical_material:I = 0x7f070094
+.field public static compat_button_inset_vertical_material:I = 0x7f070071
 
-.field public static final compat_button_padding_horizontal_material:I = 0x7f070095
+.field public static compat_button_padding_horizontal_material:I = 0x7f070072
 
-.field public static final compat_button_padding_vertical_material:I = 0x7f070096
+.field public static compat_button_padding_vertical_material:I = 0x7f070073
 
-.field public static final compat_control_corner_material:I = 0x7f070097
+.field public static compat_control_corner_material:I = 0x7f070074
 
-.field public static final compat_notification_large_icon_max_height:I = 0x7f070098
+.field public static compat_notification_large_icon_max_height:I = 0x7f070075
 
-.field public static final compat_notification_large_icon_max_width:I = 0x7f070099
+.field public static compat_notification_large_icon_max_width:I = 0x7f070076
 
-.field public static final notification_action_icon_size:I = 0x7f07068b
+.field public static notification_action_icon_size:I = 0x7f070588
 
-.field public static final notification_action_text_size:I = 0x7f07068c
+.field public static notification_action_text_size:I = 0x7f070589
 
-.field public static final notification_big_circle_margin:I = 0x7f07068d
+.field public static notification_big_circle_margin:I = 0x7f07058a
 
-.field public static final notification_content_margin_start:I = 0x7f07068e
+.field public static notification_content_margin_start:I = 0x7f07058b
 
-.field public static final notification_large_icon_height:I = 0x7f07068f
+.field public static notification_large_icon_height:I = 0x7f07058c
 
-.field public static final notification_large_icon_width:I = 0x7f070690
+.field public static notification_large_icon_width:I = 0x7f07058d
 
-.field public static final notification_main_column_padding_top:I = 0x7f070691
+.field public static notification_main_column_padding_top:I = 0x7f07058e
 
-.field public static final notification_media_narrow_margin:I = 0x7f070692
+.field public static notification_media_narrow_margin:I = 0x7f07058f
 
-.field public static final notification_right_icon_size:I = 0x7f070693
+.field public static notification_right_icon_size:I = 0x7f070590
 
-.field public static final notification_right_side_padding_top:I = 0x7f070694
+.field public static notification_right_side_padding_top:I = 0x7f070591
 
-.field public static final notification_small_icon_background_padding:I = 0x7f070695
+.field public static notification_small_icon_background_padding:I = 0x7f070592
 
-.field public static final notification_small_icon_size_as_large:I = 0x7f070696
+.field public static notification_small_icon_size_as_large:I = 0x7f070593
 
-.field public static final notification_subtext_size:I = 0x7f070697
+.field public static notification_subtext_size:I = 0x7f070594
 
-.field public static final notification_top_pad:I = 0x7f070698
+.field public static notification_top_pad:I = 0x7f070595
 
-.field public static final notification_top_pad_large_text:I = 0x7f070699
+.field public static notification_top_pad_large_text:I = 0x7f070596
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 

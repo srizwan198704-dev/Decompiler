@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
-    <external-path name="tt_external_root" path="." />
-    <external-path name="tt_external_download" path="Download" />
-    <external-files-path name="tt_external_files_download" path="Download" />
-    <files-path name="tt_internal_file_download" path="Download" />
-    <cache-path name="tt_internal_cache_download" path="Download" />
+    <external-files-path name="download" path="Download" />
+    <external-files-path name="file_cache" path="file_caches" />
+    <external-cache-path name="external_cache" path="." />
+    <external-path name="my_images" path="." />
 </paths>

@@ -1,21 +1,15 @@
 .class public abstract Lcom/google/common/collect/ImmutableTable;
-.super Lcom/google/common/collect/AbstractTable;
+.super Lcom/google/common/collect/i;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/ImmutableTable$SerializedForm;,
-        Lcom/google/common/collect/ImmutableTable$Builder;
+        Lcom/google/common/collect/ImmutableTable$a;,
+        Lcom/google/common/collect/ImmutableTable$SerializedForm;
     }
 .end annotation
 
@@ -28,7 +22,7 @@
         "V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/AbstractTable<",
+        "Lcom/google/common/collect/i<",
         "TR;TC;TV;>;",
         "Ljava/io/Serializable;"
     }
@@ -40,15 +34,21 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/common/collect/AbstractTable;-><init>()V
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
-.method public static builder()Lcom/google/common/collect/ImmutableTable$Builder;
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/common/collect/i;-><init>()V
+
+    return-void
+.end method
+
+.method public static builder()Lcom/google/common/collect/ImmutableTable$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,19 +59,19 @@
             "V:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/collect/ImmutableTable$Builder<",
+            "Lcom/google/common/collect/ImmutableTable$a<",
             "TR;TC;TV;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableTable$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableTable$a;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableTable$Builder;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/collect/ImmutableTable$a;-><init>()V
 
     return-object v0
 .end method
 
-.method public static cellOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/Table$Cell;
+.method public static cellOf(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/c4$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,37 +82,37 @@
             "V:",
             "Ljava/lang/Object;",
             ">(TR;TC;TV;)",
-            "Lcom/google/common/collect/Table$Cell<",
+            "Lcom/google/common/collect/c4$a<",
             "TR;TC;TV;>;"
         }
     .end annotation
 
     const-string v0, "rowKey"
 
-    invoke-static {p0, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
     const-string v0, "columnKey"
 
-    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     const-string v0, "value"
 
-    invoke-static {p2, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
 
-    invoke-static {p0, p1, p2}, Lcom/google/common/collect/Tables;->immutableCell(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/Table$Cell;
+    invoke-static {p0, p1, p2}, Lcom/google/common/collect/Tables;->b(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/c4$a;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static copyOf(Lcom/google/common/collect/Table;)Lcom/google/common/collect/ImmutableTable;
+.method public static copyOf(Lcom/google/common/collect/c4;)Lcom/google/common/collect/ImmutableTable;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -123,7 +123,7 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/collect/Table<",
+            "Lcom/google/common/collect/c4<",
             "+TR;+TC;+TV;>;)",
             "Lcom/google/common/collect/ImmutableTable<",
             "TR;TC;TV;>;"
@@ -139,7 +139,7 @@
     return-object p0
 
     :cond_0
-    invoke-interface {p0}, Lcom/google/common/collect/Table;->cellSet()Ljava/util/Set;
+    invoke-interface {p0}, Lcom/google/common/collect/c4;->cellSet()Ljava/util/Set;
 
     move-result-object p0
 
@@ -163,14 +163,14 @@
             ">(",
             "Ljava/lang/Iterable<",
             "+",
-            "Lcom/google/common/collect/Table$Cell<",
+            "Lcom/google/common/collect/c4$a<",
             "+TR;+TC;+TV;>;>;)",
             "Lcom/google/common/collect/ImmutableTable<",
             "TR;TC;TV;>;"
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableTable;->builder()Lcom/google/common/collect/ImmutableTable$Builder;
+    invoke-static {}, Lcom/google/common/collect/ImmutableTable;->builder()Lcom/google/common/collect/ImmutableTable$a;
 
     move-result-object v0
 
@@ -189,14 +189,14 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/common/collect/Table$Cell;
+    check-cast v1, Lcom/google/common/collect/c4$a;
 
-    invoke-virtual {v0, v1}, Lcom/google/common/collect/ImmutableTable$Builder;->put(Lcom/google/common/collect/Table$Cell;)Lcom/google/common/collect/ImmutableTable$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/common/collect/ImmutableTable$a;->d(Lcom/google/common/collect/c4$a;)Lcom/google/common/collect/ImmutableTable$a;
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableTable$Builder;->build()Lcom/google/common/collect/ImmutableTable;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableTable$a;->a()Lcom/google/common/collect/ImmutableTable;
 
     move-result-object p0
 
@@ -249,12 +249,6 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -272,9 +266,6 @@
 
 .method public static toImmutableTable(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
     .locals 0
-    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -299,7 +290,7 @@
         }
     .end annotation
 
-    invoke-static {p0, p1, p2}, Lcom/google/common/collect/TableCollectors;->toImmutableTable(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
+    invoke-static {p0, p1, p2}, Lcom/google/common/collect/l4;->k(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
     move-result-object p0
 
@@ -308,9 +299,6 @@
 
 .method public static toImmutableTable(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;
     .locals 0
-    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -337,7 +325,7 @@
         }
     .end annotation
 
-    invoke-static {p0, p1, p2, p3}, Lcom/google/common/collect/TableCollectors;->toImmutableTable(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;
+    invoke-static {p0, p1, p2, p3}, Lcom/google/common/collect/l4;->l(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;
 
     move-result-object p0
 
@@ -346,13 +334,13 @@
 
 
 # virtual methods
-.method public final cellIterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public final cellIterator()Lcom/google/common/collect/r4;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
-            "Lcom/google/common/collect/Table$Cell<",
+            "Lcom/google/common/collect/r4<",
+            "Lcom/google/common/collect/c4$a<",
             "TR;TC;TV;>;>;"
         }
     .end annotation
@@ -369,7 +357,7 @@
 .method public bridge synthetic cellIterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableTable;->cellIterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableTable;->cellIterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -382,12 +370,12 @@
         value = {
             "()",
             "Lcom/google/common/collect/ImmutableSet<",
-            "Lcom/google/common/collect/Table$Cell<",
+            "Lcom/google/common/collect/c4$a<",
             "TR;TC;TV;>;>;"
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractTable;->cellSet()Ljava/util/Set;
+    invoke-super {p0}, Lcom/google/common/collect/i;->cellSet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -408,10 +396,6 @@
 
 .method public final clear()V
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Always throws UnsupportedOperationException"
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -434,7 +418,7 @@
 
     const-string v0, "columnKey"
 
-    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableTable;->columnMap()Lcom/google/common/collect/ImmutableMap;
 
@@ -450,7 +434,7 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/MoreObjects;->firstNonNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -545,7 +529,7 @@
 .method public bridge synthetic containsColumn(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractTable;->containsColumn(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/i;->containsColumn(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -555,7 +539,7 @@
 .method public bridge synthetic containsRow(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractTable;->containsRow(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/i;->containsRow(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -581,7 +565,7 @@
         value = {
             "()",
             "Lcom/google/common/collect/ImmutableSet<",
-            "Lcom/google/common/collect/Table$Cell<",
+            "Lcom/google/common/collect/c4$a<",
             "TR;TC;TV;>;>;"
         }
     .end annotation
@@ -620,7 +604,7 @@
 .method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractTable;->equals(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/i;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -630,7 +614,7 @@
 .method public bridge synthetic get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractTable;->get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-super {p0, p1, p2}, Lcom/google/common/collect/i;->get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -640,7 +624,7 @@
 .method public bridge synthetic hashCode()I
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractTable;->hashCode()I
+    invoke-super {p0}, Lcom/google/common/collect/i;->hashCode()I
 
     move-result v0
 
@@ -650,7 +634,7 @@
 .method public bridge synthetic isEmpty()Z
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractTable;->isEmpty()Z
+    invoke-super {p0}, Lcom/google/common/collect/i;->isEmpty()Z
 
     move-result v0
 
@@ -659,13 +643,6 @@
 
 .method public final put(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Always throws UnsupportedOperationException"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TC;TV;)TV;"
@@ -682,16 +659,12 @@
     throw p1
 .end method
 
-.method public final putAll(Lcom/google/common/collect/Table;)V
+.method public final putAll(Lcom/google/common/collect/c4;)V
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Always throws UnsupportedOperationException"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/Table<",
+            "Lcom/google/common/collect/c4<",
             "+TR;+TC;+TV;>;)V"
         }
     .end annotation
@@ -708,13 +681,6 @@
 
 .method public final remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Always throws UnsupportedOperationException"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -746,7 +712,7 @@
 
     const-string v0, "rowKey"
 
-    invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/m;->p(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableTable;->rowMap()Lcom/google/common/collect/ImmutableMap;
 
@@ -762,7 +728,7 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/google/common/base/MoreObjects;->firstNonNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lcom/google/common/base/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -834,10 +800,13 @@
     return-object v0
 .end method
 
+.method public abstract synthetic size()I
+.end method
+
 .method public bridge synthetic toString()Ljava/lang/String;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractTable;->toString()Ljava/lang/String;
+    invoke-super {p0}, Lcom/google/common/collect/i;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -854,7 +823,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractTable;->values()Ljava/util/Collection;
+    invoke-super {p0}, Lcom/google/common/collect/i;->values()Ljava/util/Collection;
 
     move-result-object v0
 
@@ -893,9 +862,4 @@
 .end method
 
 .method public abstract writeReplace()Ljava/lang/Object;
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 .end method

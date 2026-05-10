@@ -3,10 +3,16 @@
 
 
 # instance fields
-.field private final mAppCompatProgressBarHelper:Landroidx/appcompat/widget/AppCompatProgressBarHelper;
+.field public final a:Landroidx/appcompat/widget/l;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1    # Landroid/content/Context;
@@ -56,15 +62,15 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/appcompat/widget/ThemeUtils;->checkAppCompatTheme(Landroid/view/View;Landroid/content/Context;)V
+    invoke-static {p0, p1}, Landroidx/appcompat/widget/f0;->a(Landroid/view/View;Landroid/content/Context;)V
 
-    new-instance p1, Landroidx/appcompat/widget/AppCompatProgressBarHelper;
+    new-instance p1, Landroidx/appcompat/widget/l;
 
-    invoke-direct {p1, p0}, Landroidx/appcompat/widget/AppCompatProgressBarHelper;-><init>(Landroid/widget/ProgressBar;)V
+    invoke-direct {p1, p0}, Landroidx/appcompat/widget/l;-><init>(Landroid/widget/ProgressBar;)V
 
-    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatRatingBar;->mAppCompatProgressBarHelper:Landroidx/appcompat/widget/AppCompatProgressBarHelper;
+    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatRatingBar;->a:Landroidx/appcompat/widget/l;
 
-    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatProgressBarHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
+    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/l;->c(Landroid/util/AttributeSet;I)V
 
     return-void
 .end method
@@ -79,9 +85,9 @@
     :try_start_0
     invoke-super {p0, p1, p2}, Landroid/widget/RatingBar;->onMeasure(II)V
 
-    iget-object p2, p0, Landroidx/appcompat/widget/AppCompatRatingBar;->mAppCompatProgressBarHelper:Landroidx/appcompat/widget/AppCompatProgressBarHelper;
+    iget-object p2, p0, Landroidx/appcompat/widget/AppCompatRatingBar;->a:Landroidx/appcompat/widget/l;
 
-    invoke-virtual {p2}, Landroidx/appcompat/widget/AppCompatProgressBarHelper;->getSampleTile()Landroid/graphics/Bitmap;
+    invoke-virtual {p2}, Landroidx/appcompat/widget/l;->b()Landroid/graphics/Bitmap;
 
     move-result-object p2
 
@@ -95,7 +101,7 @@
 
     move-result v0
 
-    mul-int p2, p2, v0
+    mul-int/2addr p2, v0
 
     const/4 v0, 0x0
 
@@ -125,7 +131,10 @@
     return-void
 
     :goto_1
+    :try_start_1
     monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p1
 .end method

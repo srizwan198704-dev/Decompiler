@@ -2,24 +2,19 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/customview/poolingcontainer/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "id"
-.end annotation
-
-
 # static fields
-.field public static final is_pooling_container_tag:I = 0x7f0a07f2
+.field public static is_pooling_container_tag:I = 0x7f0a042f
 
-.field public static final pooling_container_listener_holder_tag:I = 0x7f0a0ee7
+.field public static pooling_container_listener_holder_tag:I = 0x7f0a08ba
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 

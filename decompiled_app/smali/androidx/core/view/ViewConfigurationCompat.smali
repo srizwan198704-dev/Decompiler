@@ -5,9 +5,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/core/view/ViewConfigurationCompat$Api26Impl;,
-        Landroidx/core/view/ViewConfigurationCompat$Api28Impl;,
-        Landroidx/core/view/ViewConfigurationCompat$Api34Impl;
+        Landroidx/core/view/ViewConfigurationCompat$a;,
+        Landroidx/core/view/ViewConfigurationCompat$b;,
+        Landroidx/core/view/ViewConfigurationCompat$c;
     }
 .end annotation
 
@@ -43,8 +43,6 @@
 
     const/4 v2, 0x0
 
-    new-array v2, v2, [Ljava/lang/Class;
-
     invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -53,17 +51,8 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    const-string v0, "ViewConfigCompat"
-
-    const-string v1, "Could not find method getScaledScrollFactor() on ViewConfiguration"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_0
-    :goto_0
     return-void
 .end method
 
@@ -75,14 +64,14 @@
     return-void
 .end method
 
-.method private static getCompatFlingVelocityThreshold(Landroid/content/res/Resources;ILandroidx/core/util/Supplier;I)I
+.method private static getCompatFlingVelocityThreshold(Landroid/content/res/Resources;ILandroidx/core/util/l;I)I
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/res/Resources;",
             "I",
-            "Landroidx/core/util/Supplier<",
+            "Landroidx/core/util/l<",
             "Ljava/lang/Integer;",
             ">;I)I"
         }
@@ -110,7 +99,7 @@
     return p3
 
     :cond_2
-    invoke-interface {p2}, Landroidx/core/util/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {p2}, Landroidx/core/util/l;->get()Ljava/lang/Object;
 
     move-result-object p0
 
@@ -139,8 +128,6 @@
     const/4 v1, 0x0
 
     :try_start_0
-    new-array v1, v1, [Ljava/lang/Object;
-
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -158,12 +145,6 @@
     return p0
 
     :catch_0
-    const-string p0, "ViewConfigCompat"
-
-    const-string v0, "Could not find method getScaledScrollFactor() on ViewConfiguration"
-
-    invoke-static {p0, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_0
     new-instance p0, Landroid/util/TypedValue;
 
@@ -271,14 +252,6 @@
 
 .method public static getScaledHorizontalScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
     .locals 2
-    .param p0    # Landroid/view/ViewConfiguration;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -286,7 +259,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$Api26Impl;->getScaledHorizontalScrollFactor(Landroid/view/ViewConfiguration;)F
+    invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$a;->a(Landroid/view/ViewConfiguration;)F
 
     move-result p0
 
@@ -302,10 +275,6 @@
 
 .method public static getScaledHoverSlop(Landroid/view/ViewConfiguration;)I
     .locals 2
-    .param p0    # Landroid/view/ViewConfiguration;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -313,7 +282,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$Api28Impl;->getScaledHoverSlop(Landroid/view/ViewConfiguration;)I
+    invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$b;->a(Landroid/view/ViewConfiguration;)I
 
     move-result p0
 
@@ -331,14 +300,6 @@
 
 .method public static getScaledMaximumFlingVelocity(Landroid/content/Context;Landroid/view/ViewConfiguration;III)I
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/view/ViewConfiguration;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -346,7 +307,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {p1, p2, p3, p4}, Landroidx/core/view/ViewConfigurationCompat$Api34Impl;->getScaledMaximumFlingVelocity(Landroid/view/ViewConfiguration;III)I
+    invoke-static {p1, p2, p3, p4}, Landroidx/core/view/ViewConfigurationCompat$c;->a(Landroid/view/ViewConfiguration;III)I
 
     move-result p0
 
@@ -374,11 +335,11 @@
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance p3, Les/yo6;
+    new-instance p3, Landroidx/core/view/k0;
 
-    invoke-direct {p3, p1}, Les/yo6;-><init>(Landroid/view/ViewConfiguration;)V
+    invoke-direct {p3, p1}, Landroidx/core/view/k0;-><init>(Landroid/view/ViewConfiguration;)V
 
-    invoke-static {p0, p2, p3, v0}, Landroidx/core/view/ViewConfigurationCompat;->getCompatFlingVelocityThreshold(Landroid/content/res/Resources;ILandroidx/core/util/Supplier;I)I
+    invoke-static {p0, p2, p3, v0}, Landroidx/core/view/ViewConfigurationCompat;->getCompatFlingVelocityThreshold(Landroid/content/res/Resources;ILandroidx/core/util/l;I)I
 
     move-result p0
 
@@ -387,14 +348,6 @@
 
 .method public static getScaledMinimumFlingVelocity(Landroid/content/Context;Landroid/view/ViewConfiguration;III)I
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/view/ViewConfiguration;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -402,7 +355,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {p1, p2, p3, p4}, Landroidx/core/view/ViewConfigurationCompat$Api34Impl;->getScaledMinimumFlingVelocity(Landroid/view/ViewConfiguration;III)I
+    invoke-static {p1, p2, p3, p4}, Landroidx/core/view/ViewConfigurationCompat$c;->b(Landroid/view/ViewConfiguration;III)I
 
     move-result p0
 
@@ -430,11 +383,11 @@
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance p3, Les/xo6;
+    new-instance p3, Landroidx/core/view/l0;
 
-    invoke-direct {p3, p1}, Les/xo6;-><init>(Landroid/view/ViewConfiguration;)V
+    invoke-direct {p3, p1}, Landroidx/core/view/l0;-><init>(Landroid/view/ViewConfiguration;)V
 
-    invoke-static {p0, p2, p3, v0}, Landroidx/core/view/ViewConfigurationCompat;->getCompatFlingVelocityThreshold(Landroid/content/res/Resources;ILandroidx/core/util/Supplier;I)I
+    invoke-static {p0, p2, p3, v0}, Landroidx/core/view/ViewConfigurationCompat;->getCompatFlingVelocityThreshold(Landroid/content/res/Resources;ILandroidx/core/util/l;I)I
 
     move-result p0
 
@@ -455,14 +408,6 @@
 
 .method public static getScaledVerticalScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
     .locals 2
-    .param p0    # Landroid/view/ViewConfiguration;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -470,7 +415,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$Api26Impl;->getScaledVerticalScrollFactor(Landroid/view/ViewConfiguration;)F
+    invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$a;->b(Landroid/view/ViewConfiguration;)F
 
     move-result p0
 
@@ -524,14 +469,6 @@
 
 .method public static shouldShowMenuShortcutsWhenKeyboardPresent(Landroid/view/ViewConfiguration;Landroid/content/Context;)Z
     .locals 2
-    .param p0    # Landroid/view/ViewConfiguration;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -539,7 +476,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$Api28Impl;->shouldShowMenuShortcutsWhenKeyboardPresent(Landroid/view/ViewConfiguration;)Z
+    invoke-static {p0}, Landroidx/core/view/ViewConfigurationCompat$b;->b(Landroid/view/ViewConfiguration;)Z
 
     move-result p0
 

@@ -2,15 +2,13 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -26,29 +24,27 @@
 
     invoke-direct {v0}, Landroidx/media/AudioAttributesImplApi26;-><init>()V
 
-    iget-object v1, v0, Landroidx/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
+    iget-object v1, v0, Landroidx/media/AudioAttributesImplApi21;->a:Landroid/media/AudioAttributes;
 
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readParcelable(Landroid/os/Parcelable;I)Landroid/os/Parcelable;
+    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->r(Landroid/os/Parcelable;I)Landroid/os/Parcelable;
 
     move-result-object v1
 
-    invoke-static {v1}, Les/hn;->a(Ljava/lang/Object;)Landroid/media/AudioAttributes;
+    check-cast v1, Landroid/media/AudioAttributes;
 
-    move-result-object v1
+    iput-object v1, v0, Landroidx/media/AudioAttributesImplApi21;->a:Landroid/media/AudioAttributes;
 
-    iput-object v1, v0, Landroidx/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
-
-    iget v1, v0, Landroidx/media/AudioAttributesImplApi21;->mLegacyStreamType:I
+    iget v1, v0, Landroidx/media/AudioAttributesImplApi21;->b:I
 
     const/4 v2, 0x2
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readInt(II)I
+    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->p(II)I
 
     move-result p0
 
-    iput p0, v0, Landroidx/media/AudioAttributesImplApi21;->mLegacyStreamType:I
+    iput p0, v0, Landroidx/media/AudioAttributesImplApi21;->b:I
 
     return-object v0
 .end method
@@ -58,19 +54,19 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->setSerializationFlags(ZZ)V
+    invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->x(ZZ)V
 
-    iget-object v0, p0, Landroidx/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
+    iget-object v0, p0, Landroidx/media/AudioAttributesImplApi21;->a:Landroid/media/AudioAttributes;
 
     const/4 v1, 0x1
 
-    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeParcelable(Landroid/os/Parcelable;I)V
+    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->H(Landroid/os/Parcelable;I)V
 
-    iget p0, p0, Landroidx/media/AudioAttributesImplApi21;->mLegacyStreamType:I
+    iget p0, p0, Landroidx/media/AudioAttributesImplApi21;->b:I
 
     const/4 v0, 0x2
 
-    invoke-virtual {p1, p0, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
+    invoke-virtual {p1, p0, v0}, Landroidx/versionedparcelable/VersionedParcel;->F(II)V
 
     return-void
 .end method

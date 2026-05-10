@@ -2,32 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Landroidx/core/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;
 
 
 # instance fields
-.field public final synthetic a:Landroid/view/View;
+.field public final synthetic a:Lcom/google/android/material/search/SearchBar;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/view/View;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcom/google/android/material/search/SearchBar;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/search/c;->a:Landroid/view/View;
+    iput-object p1, p0, Lcom/google/android/material/search/c;->a:Lcom/google/android/material/search/SearchBar;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onTouchExplorationStateChanged(Z)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/search/c;->a:Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/material/search/c;->a:Lcom/google/android/material/search/SearchBar;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/search/SearchBarAnimationHelper;->a(Landroid/view/View;Landroid/animation/ValueAnimator;)V
+    invoke-static {v0, p1}, Lcom/google/android/material/search/SearchBar;->C(Lcom/google/android/material/search/SearchBar;Z)V
 
     return-void
 .end method

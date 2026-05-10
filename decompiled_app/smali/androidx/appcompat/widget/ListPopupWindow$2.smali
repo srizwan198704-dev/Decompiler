@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/widget/ListPopupWindow;->buildDropDown()I
+    value = Landroidx/appcompat/widget/ListPopupWindow;->p()I
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,6 +21,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
     .locals 0
 
@@ -38,7 +44,7 @@
 
     iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$2;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->getAnchorView()Landroid/view/View;
+    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->s()Landroid/view/View;
 
     move-result-object v0
 

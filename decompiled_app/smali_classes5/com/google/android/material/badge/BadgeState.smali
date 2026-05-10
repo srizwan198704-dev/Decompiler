@@ -3,12 +3,6 @@
 
 
 # annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/android/material/badge/BadgeState$State;
@@ -16,49 +10,39 @@
 .end annotation
 
 
-# static fields
-.field private static final BADGE_RESOURCE_TAG:Ljava/lang/String; = "badge"
-
-
 # instance fields
-.field final badgeHeight:F
+.field public final a:Lcom/google/android/material/badge/BadgeState$State;
 
-.field final badgeRadius:F
+.field public final b:Lcom/google/android/material/badge/BadgeState$State;
 
-.field final badgeWidth:F
+.field public final c:F
 
-.field final badgeWithTextHeight:F
+.field public final d:F
 
-.field final badgeWithTextRadius:F
+.field public final e:F
 
-.field final badgeWithTextWidth:F
+.field public final f:F
 
-.field private final currentState:Lcom/google/android/material/badge/BadgeState$State;
+.field public final g:F
 
-.field final horizontalInset:I
+.field public final h:F
 
-.field final horizontalInsetWithText:I
+.field public final i:I
 
-.field offsetAlignmentMode:I
+.field public final j:I
 
-.field private final overridingState:Lcom/google/android/material/badge/BadgeState$State;
+.field public k:I
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;IIILcom/google/android/material/badge/BadgeState$State;)V
-    .locals 6
-    .param p2    # I
-        .annotation build Landroidx/annotation/XmlRes;
-        .end annotation
-    .end param
-    .param p3    # I
-        .annotation build Landroidx/annotation/AttrRes;
-        .end annotation
-    .end param
-    .param p4    # I
-        .annotation build Landroidx/annotation/StyleRes;
-        .end annotation
-    .end param
+    .locals 5
     .param p5    # Lcom/google/android/material/badge/BadgeState$State;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
@@ -70,7 +54,7 @@
 
     invoke-direct {v0}, Lcom/google/android/material/badge/BadgeState$State;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iput-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     if-nez p5, :cond_0
 
@@ -88,7 +72,7 @@
 
     move-result p2
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/google/android/material/badge/BadgeState;->generateTypedArray(Landroid/content/Context;III)Landroid/content/res/TypedArray;
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/android/material/badge/BadgeState;->a(Landroid/content/Context;III)Landroid/content/res/TypedArray;
 
     move-result-object p2
 
@@ -106,7 +90,7 @@
 
     int-to-float p4, p4
 
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->badgeRadius:F
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->c:F
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -118,7 +102,7 @@
 
     move-result p4
 
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->horizontalInset:I
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->i:I
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -130,7 +114,7 @@
 
     move-result p4
 
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->horizontalInsetWithText:I
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->j:I
 
     sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeWithTextRadius:I
 
@@ -140,7 +124,7 @@
 
     int-to-float p4, p4
 
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->badgeWithTextRadius:F
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->d:F
 
     sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeWidth:I
 
@@ -148,29 +132,17 @@
 
     invoke-virtual {p3, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {p2, p4, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {p2, p4, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result p4
 
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->badgeWidth:F
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->e:F
 
     sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeWithTextWidth:I
 
-    sget v3, Lcom/google/android/material/R$dimen;->m3_badge_with_text_size:I
-
-    invoke-virtual {p3, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v4
-
-    invoke-virtual {p2, p4, v4}, Landroid/content/res/TypedArray;->getDimension(IF)F
-
-    move-result p4
-
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->badgeWithTextWidth:F
-
-    sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeHeight:I
+    sget v2, Lcom/google/android/material/R$dimen;->m3_badge_with_text_size:I
 
     invoke-virtual {p3, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -180,11 +152,13 @@
 
     move-result p4
 
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->badgeHeight:F
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->g:F
 
-    sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeWithTextHeight:I
+    sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeHeight:I
 
-    invoke-virtual {p3, v3}, Landroid/content/res/Resources;->getDimension(I)F
+    sget v2, Lcom/google/android/material/R$dimen;->m3_badge_size:I
+
+    invoke-virtual {p3, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v2
 
@@ -192,7 +166,21 @@
 
     move-result p4
 
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->badgeWithTextHeight:F
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->f:F
+
+    sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeWithTextHeight:I
+
+    sget v2, Lcom/google/android/material/R$dimen;->m3_badge_with_text_size:I
+
+    invoke-virtual {p3, v2}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v2
+
+    invoke-virtual {p2, p4, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result p4
+
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->h:F
 
     sget p4, Lcom/google/android/material/R$styleable;->Badge_offsetAlignmentMode:I
 
@@ -202,7 +190,7 @@
 
     move-result p4
 
-    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->offsetAlignmentMode:I
+    iput p4, p0, Lcom/google/android/material/badge/BadgeState;->k:I
 
     invoke-static {p5}, Lcom/google/android/material/badge/BadgeState$State;->access$100(Lcom/google/android/material/badge/BadgeState$State;)I
 
@@ -245,9 +233,11 @@
 
     invoke-virtual {p2, p4}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v5
+    move-result p4
 
-    if-eqz v5, :cond_4
+    if-eqz p4, :cond_4
+
+    sget p4, Lcom/google/android/material/R$styleable;->Badge_number:I
 
     invoke-virtual {p2, p4, v4}, Landroid/content/res/TypedArray;->getInt(II)I
 
@@ -280,9 +270,11 @@
 
     invoke-virtual {p2, p4}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v1
+    move-result p4
 
-    if-eqz v1, :cond_6
+    if-eqz p4, :cond_6
+
+    sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeText:I
 
     invoke-virtual {p2, p4}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
@@ -375,7 +367,7 @@
     goto :goto_6
 
     :cond_a
-    const/4 v2, 0x0
+    move v2, v4
 
     :cond_b
     :goto_6
@@ -561,7 +553,7 @@
 
     sget p4, Lcom/google/android/material/R$styleable;->Badge_backgroundColor:I
 
-    invoke-static {p1, p2, p4}, Lcom/google/android/material/badge/BadgeState;->readColorFromAttributes(Landroid/content/Context;Landroid/content/res/TypedArray;I)I
+    invoke-static {p1, p2, p4}, Lcom/google/android/material/badge/BadgeState;->H(Landroid/content/Context;Landroid/content/res/TypedArray;I)I
 
     move-result p4
 
@@ -634,11 +626,13 @@
 
     invoke-virtual {p2, p4}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v1
+    move-result p4
 
-    if-eqz v1, :cond_15
+    if-eqz p4, :cond_15
 
-    invoke-static {p1, p2, p4}, Lcom/google/android/material/badge/BadgeState;->readColorFromAttributes(Landroid/content/Context;Landroid/content/res/TypedArray;I)I
+    sget p4, Lcom/google/android/material/R$styleable;->Badge_badgeTextColor:I
+
+    invoke-static {p1, p2, p4}, Lcom/google/android/material/badge/BadgeState;->H(Landroid/content/Context;Landroid/content/res/TypedArray;I)I
 
     move-result p1
 
@@ -651,7 +645,7 @@
     goto :goto_f
 
     :cond_15
-    new-instance p4, Lcom/google/android/material/resources/TextAppearance;
+    new-instance p4, Lrc/d;
 
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1600(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
@@ -661,9 +655,9 @@
 
     move-result v1
 
-    invoke-direct {p4, p1, v1}, Lcom/google/android/material/resources/TextAppearance;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p4, p1, v1}, Lrc/d;-><init>(Landroid/content/Context;I)V
 
-    invoke-virtual {p4}, Lcom/google/android/material/resources/TextAppearance;->getTextColor()Landroid/content/res/ColorStateList;
+    invoke-virtual {p4}, Lrc/d;->i()Landroid/content/res/ColorStateList;
 
     move-result-object p1
 
@@ -954,7 +948,7 @@
 
     if-nez p1, :cond_1e
 
-    const/4 p1, 0x0
+    move p1, v4
 
     goto :goto_18
 
@@ -980,7 +974,7 @@
 
     if-nez p1, :cond_1f
 
-    const/4 p1, 0x0
+    move p1, v4
 
     goto :goto_19
 
@@ -1044,11 +1038,11 @@
 
     if-lt p1, p2, :cond_21
 
-    invoke-static {}, Les/gu;->a()Ljava/util/Locale$Category;
+    invoke-static {}, Lcom/google/android/material/badge/a;->a()Ljava/util/Locale$Category;
 
     move-result-object p1
 
-    invoke-static {p1}, Les/xj6;->a(Ljava/util/Locale$Category;)Ljava/util/Locale;
+    invoke-static {p1}, Lg2/s0;->a(Ljava/util/Locale$Category;)Ljava/util/Locale;
 
     move-result-object p1
 
@@ -1072,89 +1066,19 @@
     invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2902(Lcom/google/android/material/badge/BadgeState$State;Ljava/util/Locale;)Ljava/util/Locale;
 
     :goto_1c
-    iput-object p5, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iput-object p5, p0, Lcom/google/android/material/badge/BadgeState;->a:Lcom/google/android/material/badge/BadgeState$State;
 
     return-void
 .end method
 
-.method private generateTypedArray(Landroid/content/Context;III)Landroid/content/res/TypedArray;
-    .locals 7
-    .param p2    # I
-        .annotation build Landroidx/annotation/XmlRes;
-        .end annotation
-    .end param
-    .param p3    # I
-        .annotation build Landroidx/annotation/AttrRes;
-        .end annotation
-    .end param
-    .param p4    # I
-        .annotation build Landroidx/annotation/StyleRes;
-        .end annotation
-    .end param
-
-    const/4 v0, 0x0
-
-    if-eqz p2, :cond_0
-
-    const-string v1, "badge"
-
-    invoke-static {p1, p2, v1}, Lcom/google/android/material/drawable/DrawableUtils;->parseDrawableXml(Landroid/content/Context;ILjava/lang/CharSequence;)Landroid/util/AttributeSet;
-
-    move-result-object p2
-
-    invoke-interface {p2}, Landroid/util/AttributeSet;->getStyleAttribute()I
-
-    move-result v1
-
-    move-object v2, p2
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p2, 0x0
-
-    move-object v2, p2
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-nez v1, :cond_1
-
-    move v5, p4
-
-    goto :goto_1
-
-    :cond_1
-    move v5, v1
-
-    :goto_1
-    sget-object v3, Lcom/google/android/material/R$styleable;->Badge:[I
-
-    new-array v6, v0, [I
-
-    move-object v1, p1
-
-    move v4, p3
-
-    invoke-static/range {v1 .. v6}, Lcom/google/android/material/internal/ThemeEnforcement;->obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method private static readColorFromAttributes(Landroid/content/Context;Landroid/content/res/TypedArray;I)I
+.method public static H(Landroid/content/Context;Landroid/content/res/TypedArray;I)I
     .locals 0
     .param p1    # Landroid/content/res/TypedArray;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .param p2    # I
-        .annotation build Landroidx/annotation/StyleableRes;
-        .end annotation
-    .end param
 
-    invoke-static {p0, p1, p2}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p0, p1, p2}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
     move-result-object p0
 
@@ -1167,411 +1091,10 @@
 
 
 # virtual methods
-.method public clearNumber()V
+.method public A()I
     .locals 1
 
-    const/4 v0, -0x1
-
-    invoke-virtual {p0, v0}, Lcom/google/android/material/badge/BadgeState;->setNumber(I)V
-
-    return-void
-.end method
-
-.method public clearText()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/material/badge/BadgeState;->setText(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public getAdditionalHorizontalOffset()I
-    .locals 1
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2600(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getAdditionalVerticalOffset()I
-    .locals 1
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2700(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getAlpha()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$100(Lcom/google/android/material/badge/BadgeState$State;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBackgroundColor()I
-    .locals 1
-    .annotation build Landroidx/annotation/ColorInt;
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1500(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBadgeGravity()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1800(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBadgeHorizontalPadding()I
-    .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1900(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBadgeShapeAppearanceOverlayResId()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1200(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBadgeShapeAppearanceResId()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1100(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBadgeTextColor()I
-    .locals 1
-    .annotation build Landroidx/annotation/ColorInt;
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1700(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBadgeVerticalPadding()I
-    .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2000(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBadgeWithTextShapeAppearanceOverlayResId()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1400(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBadgeWithTextShapeAppearanceResId()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1300(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getContentDescriptionExceedsMaxBadgeNumberStringResource()I
-    .locals 1
-    .annotation build Landroidx/annotation/StringRes;
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$700(Lcom/google/android/material/badge/BadgeState$State;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getContentDescriptionForText()Ljava/lang/CharSequence;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$400(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getContentDescriptionNumberless()Ljava/lang/CharSequence;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$500(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getContentDescriptionQuantityStrings()I
-    .locals 1
-    .annotation build Landroidx/annotation/PluralsRes;
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$600(Lcom/google/android/material/badge/BadgeState$State;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getHorizontalOffsetWithText()I
-    .locals 1
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2300(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getHorizontalOffsetWithoutText()I
-    .locals 1
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2100(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getLargeFontVerticalOffsetAdjustment()I
-    .locals 1
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2500(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getMaxCharacterCount()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$900(Lcom/google/android/material/badge/BadgeState$State;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getMaxNumber()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1000(Lcom/google/android/material/badge/BadgeState$State;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getNumber()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$200(Lcom/google/android/material/badge/BadgeState$State;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getNumberLocale()Ljava/util/Locale;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2900(Lcom/google/android/material/badge/BadgeState$State;)Ljava/util/Locale;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getOverridingState()Lcom/google/android/material/badge/BadgeState$State;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    return-object v0
-.end method
-
-.method public getText()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$300(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getTextAppearanceResId()I
-    .locals 1
-    .annotation build Landroidx/annotation/StyleRes;
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1600(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
@@ -1584,13 +1107,10 @@
     return v0
 .end method
 
-.method public getVerticalOffsetWithText()I
+.method public B()I
     .locals 1
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2400(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
@@ -1603,13 +1123,10 @@
     return v0
 .end method
 
-.method public getVerticalOffsetWithoutText()I
+.method public C()I
     .locals 1
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2200(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
@@ -1622,10 +1139,10 @@
     return v0
 .end method
 
-.method public hasNumber()Z
+.method public D()Z
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$200(Lcom/google/android/material/badge/BadgeState$State;)I
 
@@ -1646,10 +1163,10 @@
     return v0
 .end method
 
-.method public hasText()Z
+.method public E()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$300(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/String;
 
@@ -1668,10 +1185,10 @@
     return v0
 .end method
 
-.method public isAutoAdjustedToGrandparentBounds()Z
+.method public F()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2800(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Boolean;
 
@@ -1684,10 +1201,10 @@
     return v0
 .end method
 
-.method public isVisible()Z
+.method public G()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$800(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Boolean;
 
@@ -1700,15 +1217,10 @@
     return v0
 .end method
 
-.method public setAdditionalHorizontalOffset(I)V
+.method public I(I)V
     .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Dimension;
-            unit = 0x1
-        .end annotation
-    .end param
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->a:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1716,7 +1228,7 @@
 
     invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2602(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1727,15 +1239,10 @@
     return-void
 .end method
 
-.method public setAdditionalVerticalOffset(I)V
+.method public J(I)V
     .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Dimension;
-            unit = 0x1
-        .end annotation
-    .end param
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->a:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1743,7 +1250,7 @@
 
     invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2702(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1754,569 +1261,422 @@
     return-void
 .end method
 
-.method public setAlpha(I)V
+.method public K(I)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->a:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$102(Lcom/google/android/material/badge/BadgeState$State;I)I
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
     invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$102(Lcom/google/android/material/badge/BadgeState$State;I)I
 
     return-void
 .end method
 
-.method public setAutoAdjustToGrandparentBounds(Z)V
-    .locals 2
+.method public final a(Landroid/content/Context;III)Landroid/content/res/TypedArray;
+    .locals 7
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    const/4 v0, 0x0
 
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    if-eqz p2, :cond_0
 
-    move-result-object v1
+    const-string v1, "badge"
 
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2802(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Boolean;)Ljava/lang/Boolean;
+    invoke-static {p1, p2, v1}, Lkc/d;->k(Landroid/content/Context;ILjava/lang/CharSequence;)Landroid/util/AttributeSet;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result-object p2
 
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-interface {p2}, Landroid/util/AttributeSet;->getStyleAttribute()I
 
-    move-result-object p1
+    move-result v1
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2802(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Boolean;)Ljava/lang/Boolean;
+    move-object v2, p2
 
-    return-void
-.end method
+    goto :goto_0
 
-.method public setBackgroundColor(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/ColorInt;
-        .end annotation
-    .end param
+    :cond_0
+    const/4 p2, 0x0
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    move-object v2, p2
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move v1, v0
 
-    move-result-object v1
+    :goto_0
+    if-nez v1, :cond_1
 
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1502(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
+    move v5, p4
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    goto :goto_1
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    :cond_1
+    move v5, v1
 
-    move-result-object p1
+    :goto_1
+    sget-object v3, Lcom/google/android/material/R$styleable;->Badge:[I
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1502(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
+    new-array v6, v0, [I
 
-    return-void
-.end method
+    move-object v1, p1
 
-.method public setBadgeGravity(I)V
-    .locals 2
+    move v4, p3
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1802(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v1 .. v6}, Lcom/google/android/material/internal/b0;->i(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1802(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
+    return-object p1
 .end method
 
-.method public setBadgeHorizontalPadding(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1902(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1902(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setBadgeShapeAppearanceOverlayResId(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1202(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1202(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setBadgeShapeAppearanceResId(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1102(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1102(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setBadgeTextColor(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/ColorInt;
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1702(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1702(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setBadgeVerticalPadding(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2002(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2002(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setBadgeWithTextShapeAppearanceOverlayResId(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1402(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1402(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setBadgeWithTextShapeAppearanceResId(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1302(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1302(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setContentDescriptionExceedsMaxBadgeNumberStringResource(I)V
-    .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/StringRes;
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$702(Lcom/google/android/material/badge/BadgeState$State;I)I
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$702(Lcom/google/android/material/badge/BadgeState$State;I)I
-
-    return-void
-.end method
-
-.method public setContentDescriptionForText(Ljava/lang/CharSequence;)V
+.method public b()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$402(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2600(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$402(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    return-void
+    move-result v0
+
+    return v0
 .end method
 
-.method public setContentDescriptionNumberless(Ljava/lang/CharSequence;)V
+.method public c()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$502(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2700(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$502(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    return-void
+    move-result v0
+
+    return v0
 .end method
 
-.method public setContentDescriptionQuantityStringsResource(I)V
-    .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/PluralsRes;
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$602(Lcom/google/android/material/badge/BadgeState$State;I)I
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$602(Lcom/google/android/material/badge/BadgeState$State;I)I
-
-    return-void
-.end method
-
-.method public setHorizontalOffsetWithText(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Dimension;
-            unit = 0x1
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2302(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2302(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setHorizontalOffsetWithoutText(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Dimension;
-            unit = 0x1
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2102(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2102(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setLargeFontVerticalOffsetAdjustment(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Dimension;
-            unit = 0x1
-        .end annotation
-    .end param
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2502(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2502(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public setMaxCharacterCount(I)V
+.method public d()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$902(Lcom/google/android/material/badge/BadgeState$State;I)I
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$100(Lcom/google/android/material/badge/BadgeState$State;)I
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result v0
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$902(Lcom/google/android/material/badge/BadgeState$State;I)I
-
-    return-void
+    return v0
 .end method
 
-.method public setMaxNumber(I)V
+.method public e()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1002(Lcom/google/android/material/badge/BadgeState$State;I)I
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1500(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1002(Lcom/google/android/material/badge/BadgeState$State;I)I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    return-void
+    move-result v0
+
+    return v0
 .end method
 
-.method public setNumber(I)V
+.method public f()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$202(Lcom/google/android/material/badge/BadgeState$State;I)I
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1800(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$202(Lcom/google/android/material/badge/BadgeState$State;I)I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    return-void
+    move-result v0
+
+    return v0
 .end method
 
-.method public setNumberLocale(Ljava/util/Locale;)V
+.method public g()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2902(Lcom/google/android/material/badge/BadgeState$State;Ljava/util/Locale;)Ljava/util/Locale;
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1900(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2902(Lcom/google/android/material/badge/BadgeState$State;Ljava/util/Locale;)Ljava/util/Locale;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    return-void
+    move-result v0
+
+    return v0
 .end method
 
-.method public setText(Ljava/lang/String;)V
+.method public h()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$302(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1200(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$302(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    return-void
+    move-result v0
+
+    return v0
 .end method
 
-.method public setTextAppearanceResId(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/StyleRes;
-        .end annotation
-    .end param
+.method public i()I
+    .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1100(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$1602(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result v0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$1602(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
+    return v0
 .end method
 
-.method public setVerticalOffsetWithText(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Dimension;
-            unit = 0x1
-        .end annotation
-    .end param
+.method public j()I
+    .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1700(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2402(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result v0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2402(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
+    return v0
 .end method
 
-.method public setVerticalOffsetWithoutText(I)V
-    .locals 2
-    .param p1    # I
-        .annotation build Landroidx/annotation/Dimension;
-            unit = 0x1
-        .end annotation
-    .end param
+.method public k()I
+    .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2000(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$2202(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result v0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$2202(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Integer;)Ljava/lang/Integer;
-
-    return-void
+    return v0
 .end method
 
-.method public setVisible(Z)V
-    .locals 2
+.method public l()I
+    .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->overridingState:Lcom/google/android/material/badge/BadgeState$State;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1400(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/google/android/material/badge/BadgeState$State;->access$802(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Boolean;)Ljava/lang/Boolean;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->currentState:Lcom/google/android/material/badge/BadgeState$State;
+    move-result v0
 
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    return v0
+.end method
 
-    move-result-object p1
+.method public m()I
+    .locals 1
 
-    invoke-static {v0, p1}, Lcom/google/android/material/badge/BadgeState$State;->access$802(Lcom/google/android/material/badge/BadgeState$State;Ljava/lang/Boolean;)Ljava/lang/Boolean;
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
 
-    return-void
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1300(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public n()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$700(Lcom/google/android/material/badge/BadgeState$State;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public o()Ljava/lang/CharSequence;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$400(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public p()Ljava/lang/CharSequence;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$500(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public q()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$600(Lcom/google/android/material/badge/BadgeState$State;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public r()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2300(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public s()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2100(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public t()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2500(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public u()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$900(Lcom/google/android/material/badge/BadgeState$State;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public v()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$1000(Lcom/google/android/material/badge/BadgeState$State;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public w()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$200(Lcom/google/android/material/badge/BadgeState$State;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public x()Ljava/util/Locale;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$2900(Lcom/google/android/material/badge/BadgeState$State;)Ljava/util/Locale;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public y()Lcom/google/android/material/badge/BadgeState$State;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->a:Lcom/google/android/material/badge/BadgeState$State;
+
+    return-object v0
+.end method
+
+.method public z()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/badge/BadgeState;->b:Lcom/google/android/material/badge/BadgeState$State;
+
+    invoke-static {v0}, Lcom/google/android/material/badge/BadgeState$State;->access$300(Lcom/google/android/material/badge/BadgeState$State;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

@@ -1,0 +1,59 @@
+.class final Lcom/bytedance/adsdk/Yhp/enB/enB$3;
+.super Ljava/lang/ThreadLocal;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bytedance/adsdk/Yhp/enB/enB;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/ThreadLocal<",
+        "Landroid/graphics/Path;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public Kjv()Landroid/graphics/Path;
+    .locals 1
+
+    new-instance v0, Landroid/graphics/Path;
+
+    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
+
+    return-object v0
+.end method
+
+.method public synthetic initialValue()Ljava/lang/Object;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/bytedance/adsdk/Yhp/enB/enB$3;->Kjv()Landroid/graphics/Path;
+
+    move-result-object v0
+
+    return-object v0
+.end method

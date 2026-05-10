@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->setSessionToken(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
+    value = Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->a(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -23,6 +23,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -49,7 +55,7 @@
 
     iget-object v1, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->val$token:Landroid/support/v4/media/session/MediaSessionCompat$Token;
 
-    invoke-virtual {v0, v1}, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->setSessionTokenOnHandler(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
+    invoke-virtual {v0, v1}, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->f(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
 
     return-void
 .end method

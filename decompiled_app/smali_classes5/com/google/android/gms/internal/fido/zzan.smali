@@ -3,12 +3,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public static varargs zza(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     .locals 11
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     array-length v2, p1
@@ -76,15 +82,15 @@
 
     sget-object v4, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
-    const-string v5, "com.google.common.base.Strings"
-
     const-string v6, "lenientToString"
 
-    const-string v7, "Exception during lenientFormat for "
+    const-string v5, "Exception during lenientFormat for "
 
-    invoke-virtual {v7, v2}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v5, v2}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
+
+    const-string v5, "com.google.common.base.Strings"
 
     move-object v8, v9
 
@@ -142,7 +148,7 @@
 
     invoke-direct {v3, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_2
     array-length v2, p1

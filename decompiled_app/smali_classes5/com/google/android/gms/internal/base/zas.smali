@@ -6,6 +6,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 
@@ -59,13 +65,13 @@
 
     new-instance p3, Ljava/util/concurrent/ThreadPoolExecutor;
 
-    const-wide/16 v3, 0x3c
-
     sget-object v5, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
     new-instance v6, Ljava/util/concurrent/LinkedBlockingQueue;
 
     invoke-direct {v6}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V
+
+    const-wide/16 v3, 0x3c
 
     move-object v0, p3
 

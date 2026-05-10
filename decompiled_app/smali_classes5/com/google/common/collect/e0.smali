@@ -12,6 +12,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public synthetic constructor <init>(Ljava/util/function/Function;Ljava/util/function/Function;)V
     .locals 0
 
@@ -33,9 +39,9 @@
 
     iget-object v1, p0, Lcom/google/common/collect/e0;->b:Ljava/util/function/Function;
 
-    check-cast p1, Lcom/google/common/collect/Multimap;
+    check-cast p1, Lcom/google/common/collect/ImmutableBiMap$a;
 
-    invoke-static {v0, v1, p1, p2}, Lcom/google/common/collect/CollectCollectors;->A(Ljava/util/function/Function;Ljava/util/function/Function;Lcom/google/common/collect/Multimap;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p1, p2}, Lcom/google/common/collect/d2;->p(Ljava/util/function/Function;Ljava/util/function/Function;Lcom/google/common/collect/ImmutableBiMap$a;Ljava/lang/Object;)V
 
     return-void
 .end method

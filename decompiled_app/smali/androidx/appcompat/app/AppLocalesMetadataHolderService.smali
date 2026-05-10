@@ -5,12 +5,18 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/appcompat/app/AppLocalesMetadataHolderService$Api24Impl;
+        Landroidx/appcompat/app/AppLocalesMetadataHolderService$a;
     }
 .end annotation
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -19,7 +25,7 @@
     return-void
 .end method
 
-.method public static getServiceInfo(Landroid/content/Context;)Landroid/content/pm/ServiceInfo;
+.method public static a(Landroid/content/Context;)Landroid/content/pm/ServiceInfo;
     .locals 4
     .param p0    # Landroid/content/Context;
         .annotation build Landroidx/annotation/NonNull;
@@ -40,7 +46,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-static {}, Landroidx/appcompat/app/AppLocalesMetadataHolderService$Api24Impl;->getDisabledComponentFlag()I
+    invoke-static {}, Landroidx/appcompat/app/AppLocalesMetadataHolderService$a;->a()I
 
     move-result v0
 

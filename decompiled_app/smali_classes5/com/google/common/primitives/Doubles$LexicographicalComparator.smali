@@ -40,11 +40,11 @@
 
     new-array v0, v0, [Lcom/google/common/primitives/Doubles$LexicographicalComparator;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/google/common/primitives/Doubles$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/Doubles$LexicographicalComparator;
 
-    sget-object v2, Lcom/google/common/primitives/Doubles$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/Doubles$LexicographicalComparator;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     return-object v0
 .end method

@@ -23,6 +23,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/recyclerview/widget/DefaultItemAnimator;Ljava/util/ArrayList;)V
     .locals 0
 
@@ -57,21 +63,21 @@
 
     move-result-object v1
 
-    check-cast v1, Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;
+    check-cast v1, Landroidx/recyclerview/widget/DefaultItemAnimator$g;
 
     iget-object v2, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$1;->this$0:Landroidx/recyclerview/widget/DefaultItemAnimator;
 
-    iget-object v3, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;->holder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    iget-object v3, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$g;->a:Landroidx/recyclerview/widget/RecyclerView$a0;
 
-    iget v4, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;->fromX:I
+    iget v4, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$g;->b:I
 
-    iget v5, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;->fromY:I
+    iget v5, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$g;->c:I
 
-    iget v6, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;->toX:I
+    iget v6, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$g;->d:I
 
-    iget v7, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;->toY:I
+    iget v7, v1, Landroidx/recyclerview/widget/DefaultItemAnimator$g;->e:I
 
-    invoke-virtual/range {v2 .. v7}, Landroidx/recyclerview/widget/DefaultItemAnimator;->animateMoveImpl(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIII)V
+    invoke-virtual/range {v2 .. v7}, Landroidx/recyclerview/widget/DefaultItemAnimator;->animateMoveImpl(Landroidx/recyclerview/widget/RecyclerView$a0;IIII)V
 
     goto :goto_0
 

@@ -3,15 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtIncompatible;
-.end annotation
-
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/io/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum<",
@@ -35,11 +26,11 @@
 
     new-array v0, v0, [Lcom/google/common/io/FileWriteMode;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/google/common/io/FileWriteMode;->APPEND:Lcom/google/common/io/FileWriteMode;
 
-    sget-object v2, Lcom/google/common/io/FileWriteMode;->APPEND:Lcom/google/common/io/FileWriteMode;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     return-object v0
 .end method

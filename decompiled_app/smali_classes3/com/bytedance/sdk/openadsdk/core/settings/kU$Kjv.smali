@@ -1,0 +1,44 @@
+.class public interface abstract Lcom/bytedance/sdk/openadsdk/core/settings/kU$Kjv;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bytedance/sdk/openadsdk/core/settings/kU;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "Kjv"
+.end annotation
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract Kjv(Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/core/settings/kU$Kjv;
+.end method
+
+.method public abstract Kjv(Ljava/lang/String;F)Lcom/bytedance/sdk/openadsdk/core/settings/kU$Kjv;
+.end method
+
+.method public abstract Kjv(Ljava/lang/String;I)Lcom/bytedance/sdk/openadsdk/core/settings/kU$Kjv;
+.end method
+
+.method public abstract Kjv(Ljava/lang/String;J)Lcom/bytedance/sdk/openadsdk/core/settings/kU$Kjv;
+.end method
+
+.method public abstract Kjv(Ljava/lang/String;Ljava/lang/String;)Lcom/bytedance/sdk/openadsdk/core/settings/kU$Kjv;
+.end method
+
+.method public abstract Kjv(Ljava/lang/String;Z)Lcom/bytedance/sdk/openadsdk/core/settings/kU$Kjv;
+.end method
+
+.method public abstract Kjv()V
+.end method

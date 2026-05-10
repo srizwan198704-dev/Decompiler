@@ -21,6 +21,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/appcompat/widget/SearchView;)V
     .locals 0
 
@@ -38,7 +44,7 @@
 
     iget-object v0, p0, Landroidx/appcompat/widget/SearchView$1;->this$0:Landroidx/appcompat/widget/SearchView;
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/SearchView;->updateFocusedState()V
+    invoke-virtual {v0}, Landroidx/appcompat/widget/SearchView;->C()V
 
     return-void
 .end method

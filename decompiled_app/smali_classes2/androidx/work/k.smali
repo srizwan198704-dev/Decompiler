@@ -1,0 +1,105 @@
+.class public final Landroidx/work/k;
+.super Landroidx/work/r;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/work/k$a;,
+        Landroidx/work/k$b;
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0007\u0018\u0000 \u00062\u00020\u0001:\u0002\u0007\u0008B\u0011\u0008\u0000\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u00a2\u0006\u0004\u0008\u0004\u0010\u0005\u00a8\u0006\t"
+    }
+    d2 = {
+        "Landroidx/work/k;",
+        "Landroidx/work/r;",
+        "Landroidx/work/k$a;",
+        "builder",
+        "<init>",
+        "(Landroidx/work/k$a;)V",
+        "e",
+        "a",
+        "b",
+        "work-runtime_release"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x7,
+        0x1
+    }
+    xi = 0x30
+.end annotation
+
+
+# static fields
+.field public static final e:Landroidx/work/k$b;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Landroidx/work/k$b;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Landroidx/work/k$b;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    sput-object v0, Landroidx/work/k;->e:Landroidx/work/k$b;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroidx/work/k$a;)V
+    .locals 2
+
+    const-string v0, "builder"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Landroidx/work/r$a;->e()Ljava/util/UUID;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Landroidx/work/r$a;->h()Lf5/u;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Landroidx/work/r$a;->f()Ljava/util/Set;
+
+    move-result-object p1
+
+    invoke-direct {p0, v0, v1, p1}, Landroidx/work/r;-><init>(Ljava/util/UUID;Lf5/u;Ljava/util/Set;)V
+
+    return-void
+.end method
+
+.method public static final e(Ljava/lang/Class;)Landroidx/work/k;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Class<",
+            "+",
+            "Landroidx/work/i;",
+            ">;)",
+            "Landroidx/work/k;"
+        }
+    .end annotation
+
+    .annotation runtime Lkotlin/jvm/JvmStatic;
+    .end annotation
+
+    sget-object v0, Landroidx/work/k;->e:Landroidx/work/k$b;
+
+    invoke-virtual {v0, p0}, Landroidx/work/k$b;->a(Ljava/lang/Class;)Landroidx/work/k;
+
+    move-result-object p0
+
+    return-object p0
+.end method

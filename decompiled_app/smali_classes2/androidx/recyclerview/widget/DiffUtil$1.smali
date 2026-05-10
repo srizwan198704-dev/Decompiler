@@ -19,13 +19,19 @@
     value = {
         "Ljava/lang/Object;",
         "Ljava/util/Comparator<",
-        "Landroidx/recyclerview/widget/DiffUtil$Diagonal;",
+        "Landroidx/recyclerview/widget/DiffUtil$c;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -36,12 +42,12 @@
 
 
 # virtual methods
-.method public compare(Landroidx/recyclerview/widget/DiffUtil$Diagonal;Landroidx/recyclerview/widget/DiffUtil$Diagonal;)I
+.method public compare(Landroidx/recyclerview/widget/DiffUtil$c;Landroidx/recyclerview/widget/DiffUtil$c;)I
     .locals 0
 
-    iget p1, p1, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->x:I
+    iget p1, p1, Landroidx/recyclerview/widget/DiffUtil$c;->a:I
 
-    iget p2, p2, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->x:I
+    iget p2, p2, Landroidx/recyclerview/widget/DiffUtil$c;->a:I
 
     sub-int/2addr p1, p2
 
@@ -51,11 +57,11 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
-    check-cast p1, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
+    check-cast p1, Landroidx/recyclerview/widget/DiffUtil$c;
 
-    check-cast p2, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
+    check-cast p2, Landroidx/recyclerview/widget/DiffUtil$c;
 
-    invoke-virtual {p0, p1, p2}, Landroidx/recyclerview/widget/DiffUtil$1;->compare(Landroidx/recyclerview/widget/DiffUtil$Diagonal;Landroidx/recyclerview/widget/DiffUtil$Diagonal;)I
+    invoke-virtual {p0, p1, p2}, Landroidx/recyclerview/widget/DiffUtil$1;->compare(Landroidx/recyclerview/widget/DiffUtil$c;Landroidx/recyclerview/widget/DiffUtil$c;)I
 
     move-result p1
 

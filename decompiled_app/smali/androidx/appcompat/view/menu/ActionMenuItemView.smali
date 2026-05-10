@@ -2,57 +2,51 @@
 .super Landroidx/appcompat/widget/AppCompatTextView;
 
 # interfaces
-.implements Landroidx/appcompat/view/menu/MenuView$ItemView;
+.implements Landroidx/appcompat/view/menu/m$a;
 .implements Landroid/view/View$OnClickListener;
-.implements Landroidx/appcompat/widget/ActionMenuView$ActionMenuChildView;
+.implements Landroidx/appcompat/widget/ActionMenuView$a;
 
 
 # annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/appcompat/view/menu/ActionMenuItemView$PopupCallback;,
-        Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;
+        Landroidx/appcompat/view/menu/ActionMenuItemView$a;,
+        Landroidx/appcompat/view/menu/ActionMenuItemView$b;
     }
 .end annotation
-
-
-# static fields
-.field private static final MAX_ICON_SIZE:I = 0x20
-
-.field private static final TAG:Ljava/lang/String; = "ActionMenuItemView"
 
 
 # instance fields
-.field private mAllowTextWithIcon:Z
+.field public a:Landroidx/appcompat/view/menu/h;
 
-.field private mExpandedFormat:Z
+.field public b:Ljava/lang/CharSequence;
 
-.field private mForwardingListener:Landroidx/appcompat/widget/ForwardingListener;
+.field public c:Landroid/graphics/drawable/Drawable;
 
-.field private mIcon:Landroid/graphics/drawable/Drawable;
+.field public d:Landroidx/appcompat/view/menu/f$b;
 
-.field mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+.field public e:Landroidx/appcompat/widget/ForwardingListener;
 
-.field mItemInvoker:Landroidx/appcompat/view/menu/MenuBuilder$ItemInvoker;
+.field public f:Landroidx/appcompat/view/menu/ActionMenuItemView$b;
 
-.field private mMaxIconSize:I
+.field public g:Z
 
-.field private mMinWidth:I
+.field public h:Z
 
-.field mPopupCallback:Landroidx/appcompat/view/menu/ActionMenuItemView$PopupCallback;
+.field public i:I
 
-.field private mSavedPaddingLeft:I
+.field public j:I
 
-.field private mTitle:Ljava/lang/CharSequence;
+.field public k:I
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -82,11 +76,11 @@
 
     move-result-object v0
 
-    invoke-direct {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->shouldAllowTextWithIcon()Z
+    invoke-virtual {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->a()Z
 
     move-result v1
 
-    iput-boolean v1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mAllowTextWithIcon:Z
+    iput-boolean v1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->g:Z
 
     sget-object v1, Landroidx/appcompat/R$styleable;->ActionMenuItemView:[I
 
@@ -102,7 +96,7 @@
 
     move-result p2
 
-    iput p2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mMinWidth:I
+    iput p2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->i:I
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -114,7 +108,7 @@
 
     const/high16 p2, 0x42000000    # 32.0f
 
-    mul-float p1, p1, p2
+    mul-float/2addr p1, p2
 
     const/high16 p2, 0x3f000000    # 0.5f
 
@@ -122,20 +116,22 @@
 
     float-to-int p1, p1
 
-    iput p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mMaxIconSize:I
+    iput p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->k:I
 
     invoke-virtual {p0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     const/4 p1, -0x1
 
-    iput p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mSavedPaddingLeft:I
+    iput p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->j:I
 
     invoke-virtual {p0, v2}, Landroid/view/View;->setSaveEnabled(Z)V
 
     return-void
 .end method
 
-.method private shouldAllowTextWithIcon()Z
+
+# virtual methods
+.method public final a()Z
     .locals 5
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -186,10 +182,10 @@
     return v0
 .end method
 
-.method private updateTextButtonVisibility()V
+.method public final b()V
     .locals 4
 
-    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mTitle:Ljava/lang/CharSequence;
+    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->b:Ljava/lang/CharSequence;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -199,23 +195,23 @@
 
     xor-int/2addr v0, v1
 
-    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
+    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->c:Landroid/graphics/drawable/Drawable;
 
     if-eqz v2, :cond_1
 
-    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-virtual {v2}, Landroidx/appcompat/view/menu/MenuItemImpl;->showsTextAsAction()Z
+    invoke-virtual {v2}, Landroidx/appcompat/view/menu/h;->B()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    iget-boolean v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mAllowTextWithIcon:Z
+    iget-boolean v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->g:Z
 
     if-nez v2, :cond_1
 
-    iget-boolean v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mExpandedFormat:Z
+    iget-boolean v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->h:Z
 
     if-eqz v2, :cond_0
 
@@ -232,7 +228,7 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mTitle:Ljava/lang/CharSequence;
+    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->b:Ljava/lang/CharSequence;
 
     goto :goto_1
 
@@ -242,9 +238,9 @@
     :goto_1
     invoke-virtual {p0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-virtual {v2}, Landroidx/appcompat/view/menu/MenuItemImpl;->getContentDescription()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroidx/appcompat/view/menu/h;->getContentDescription()Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -261,9 +257,9 @@
     goto :goto_2
 
     :cond_3
-    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-virtual {v2}, Landroidx/appcompat/view/menu/MenuItemImpl;->getTitle()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroidx/appcompat/view/menu/h;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -276,9 +272,9 @@
     invoke-virtual {p0, v2}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
     :goto_3
-    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-virtual {v2}, Landroidx/appcompat/view/menu/MenuItemImpl;->getTooltipText()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroidx/appcompat/view/menu/h;->getTooltipText()Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -293,26 +289,24 @@
     goto :goto_4
 
     :cond_5
-    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuItemImpl;->getTitle()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroidx/appcompat/view/menu/h;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v1
 
     :goto_4
-    invoke-static {p0, v1}, Landroidx/appcompat/widget/TooltipCompat;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
+    invoke-static {p0, v1}, Landroidx/appcompat/widget/p0;->a(Landroid/view/View;Ljava/lang/CharSequence;)V
 
     goto :goto_5
 
     :cond_6
-    invoke-static {p0, v2}, Landroidx/appcompat/widget/TooltipCompat;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
+    invoke-static {p0, v2}, Landroidx/appcompat/widget/p0;->a(Landroid/view/View;Ljava/lang/CharSequence;)V
 
     :goto_5
     return-void
 .end method
 
-
-# virtual methods
 .method public getAccessibilityClassName()Ljava/lang/CharSequence;
     .locals 1
 
@@ -325,10 +319,10 @@
     return-object v0
 .end method
 
-.method public getItemData()Landroidx/appcompat/view/menu/MenuItemImpl;
+.method public getItemData()Landroidx/appcompat/view/menu/h;
     .locals 1
 
-    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
     return-object v0
 .end method
@@ -349,30 +343,30 @@
     return v0
 .end method
 
-.method public initialize(Landroidx/appcompat/view/menu/MenuItemImpl;I)V
+.method public initialize(Landroidx/appcompat/view/menu/h;I)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->getIcon()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1}, Landroidx/appcompat/view/menu/h;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object p2
 
     invoke-virtual {p0, p2}, Landroidx/appcompat/view/menu/ActionMenuItemView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {p1, p0}, Landroidx/appcompat/view/menu/MenuItemImpl;->getTitleForItemView(Landroidx/appcompat/view/menu/MenuView$ItemView;)Ljava/lang/CharSequence;
+    invoke-virtual {p1, p0}, Landroidx/appcompat/view/menu/h;->i(Landroidx/appcompat/view/menu/m$a;)Ljava/lang/CharSequence;
 
     move-result-object p2
 
     invoke-virtual {p0, p2}, Landroidx/appcompat/view/menu/ActionMenuItemView;->setTitle(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->getItemId()I
+    invoke-virtual {p1}, Landroidx/appcompat/view/menu/h;->getItemId()I
 
     move-result p2
 
     invoke-virtual {p0, p2}, Landroid/view/View;->setId(I)V
 
-    invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->isVisible()Z
+    invoke-virtual {p1}, Landroidx/appcompat/view/menu/h;->isVisible()Z
 
     move-result p2
 
@@ -388,27 +382,27 @@
     :goto_0
     invoke-virtual {p0, p2}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->isEnabled()Z
+    invoke-virtual {p1}, Landroidx/appcompat/view/menu/h;->isEnabled()Z
 
     move-result p2
 
     invoke-virtual {p0, p2}, Landroid/view/View;->setEnabled(Z)V
 
-    invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->hasSubMenu()Z
+    invoke-virtual {p1}, Landroidx/appcompat/view/menu/h;->hasSubMenu()Z
 
     move-result p1
 
     if-eqz p1, :cond_1
 
-    iget-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mForwardingListener:Landroidx/appcompat/widget/ForwardingListener;
+    iget-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->e:Landroidx/appcompat/widget/ForwardingListener;
 
     if-nez p1, :cond_1
 
-    new-instance p1, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;
+    new-instance p1, Landroidx/appcompat/view/menu/ActionMenuItemView$a;
 
-    invoke-direct {p1, p0}, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;-><init>(Landroidx/appcompat/view/menu/ActionMenuItemView;)V
+    invoke-direct {p1, p0}, Landroidx/appcompat/view/menu/ActionMenuItemView$a;-><init>(Landroidx/appcompat/view/menu/ActionMenuItemView;)V
 
-    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mForwardingListener:Landroidx/appcompat/widget/ForwardingListener;
+    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->e:Landroidx/appcompat/widget/ForwardingListener;
 
     :cond_1
     return-void
@@ -433,9 +427,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuItemImpl;->getIcon()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroidx/appcompat/view/menu/h;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -455,13 +449,13 @@
 .method public onClick(Landroid/view/View;)V
     .locals 1
 
-    iget-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemInvoker:Landroidx/appcompat/view/menu/MenuBuilder$ItemInvoker;
+    iget-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->d:Landroidx/appcompat/view/menu/f$b;
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-interface {p1, v0}, Landroidx/appcompat/view/menu/MenuBuilder$ItemInvoker;->invokeItem(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
+    invoke-interface {p1, v0}, Landroidx/appcompat/view/menu/f$b;->invokeItem(Landroidx/appcompat/view/menu/h;)Z
 
     :cond_0
     return-void
@@ -472,13 +466,13 @@
 
     invoke-super {p0, p1}, Landroid/widget/TextView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    invoke-direct {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->shouldAllowTextWithIcon()Z
+    invoke-virtual {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->a()Z
 
     move-result p1
 
-    iput-boolean p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mAllowTextWithIcon:Z
+    iput-boolean p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->g:Z
 
-    invoke-direct {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->updateTextButtonVisibility()V
+    invoke-virtual {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->b()V
 
     return-void
 .end method
@@ -492,7 +486,7 @@
 
     if-eqz v0, :cond_0
 
-    iget v1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mSavedPaddingLeft:I
+    iget v1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->j:I
 
     if-ltz v1, :cond_0
 
@@ -529,7 +523,7 @@
 
     if-ne v1, v3, :cond_1
 
-    iget v3, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mMinWidth:I
+    iget v3, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->i:I
 
     invoke-static {p1, v3}, Ljava/lang/Math;->min(II)I
 
@@ -538,14 +532,14 @@
     goto :goto_0
 
     :cond_1
-    iget p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mMinWidth:I
+    iget p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->i:I
 
     :goto_0
     const/high16 v3, 0x40000000    # 2.0f
 
     if-eq v1, v3, :cond_2
 
-    iget v1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mMinWidth:I
+    iget v1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->i:I
 
     if-lez v1, :cond_2
 
@@ -560,7 +554,7 @@
     :cond_2
     if-nez v0, :cond_3
 
-    iget-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->c:Landroid/graphics/drawable/Drawable;
 
     if-eqz p1, :cond_3
 
@@ -568,7 +562,7 @@
 
     move-result p1
 
-    iget-object p2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
+    iget-object p2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->c:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
@@ -613,15 +607,15 @@
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
 
-    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
-    invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuItemImpl;->hasSubMenu()Z
+    invoke-virtual {v0}, Landroidx/appcompat/view/menu/h;->hasSubMenu()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mForwardingListener:Landroidx/appcompat/widget/ForwardingListener;
+    iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->e:Landroidx/appcompat/widget/ForwardingListener;
 
     if-eqz v0, :cond_0
 
@@ -666,17 +660,17 @@
 .method public setExpandedFormat(Z)V
     .locals 1
 
-    iget-boolean v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mExpandedFormat:Z
+    iget-boolean v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->h:Z
 
     if-eq v0, p1, :cond_0
 
-    iput-boolean p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mExpandedFormat:Z
+    iput-boolean p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->h:Z
 
-    iget-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemData:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->a:Landroidx/appcompat/view/menu/h;
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroidx/appcompat/view/menu/MenuItemImpl;->actionFormatChanged()V
+    invoke-virtual {p1}, Landroidx/appcompat/view/menu/h;->c()V
 
     :cond_0
     return-void
@@ -685,7 +679,7 @@
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
     .locals 4
 
-    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->c:Landroid/graphics/drawable/Drawable;
 
     if-eqz p1, :cond_2
 
@@ -697,7 +691,7 @@
 
     move-result v1
 
-    iget v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mMaxIconSize:I
+    iget v2, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->k:I
 
     if-le v0, v2, :cond_0
 
@@ -709,7 +703,7 @@
 
     int-to-float v0, v1
 
-    mul-float v0, v0, v3
+    mul-float/2addr v0, v3
 
     float-to-int v1, v0
 
@@ -726,7 +720,7 @@
 
     int-to-float v0, v0
 
-    mul-float v0, v0, v3
+    mul-float/2addr v0, v3
 
     float-to-int v0, v0
 
@@ -745,15 +739,15 @@
 
     invoke-virtual {p0, p1, v0, v0, v0}, Landroidx/appcompat/widget/AppCompatTextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    invoke-direct {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->updateTextButtonVisibility()V
+    invoke-virtual {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->b()V
 
     return-void
 .end method
 
-.method public setItemInvoker(Landroidx/appcompat/view/menu/MenuBuilder$ItemInvoker;)V
+.method public setItemInvoker(Landroidx/appcompat/view/menu/f$b;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mItemInvoker:Landroidx/appcompat/view/menu/MenuBuilder$ItemInvoker;
+    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->d:Landroidx/appcompat/view/menu/f$b;
 
     return-void
 .end method
@@ -761,17 +755,17 @@
 .method public setPadding(IIII)V
     .locals 0
 
-    iput p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mSavedPaddingLeft:I
+    iput p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->j:I
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     return-void
 .end method
 
-.method public setPopupCallback(Landroidx/appcompat/view/menu/ActionMenuItemView$PopupCallback;)V
+.method public setPopupCallback(Landroidx/appcompat/view/menu/ActionMenuItemView$b;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mPopupCallback:Landroidx/appcompat/view/menu/ActionMenuItemView$PopupCallback;
+    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->f:Landroidx/appcompat/view/menu/ActionMenuItemView$b;
 
     return-void
 .end method
@@ -785,9 +779,9 @@
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mTitle:Ljava/lang/CharSequence;
+    iput-object p1, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->b:Ljava/lang/CharSequence;
 
-    invoke-direct {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->updateTextButtonVisibility()V
+    invoke-virtual {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView;->b()V
 
     return-void
 .end method

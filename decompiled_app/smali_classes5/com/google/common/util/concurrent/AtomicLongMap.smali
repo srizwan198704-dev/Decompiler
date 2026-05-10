@@ -6,15 +6,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -28,9 +19,6 @@
 
 # instance fields
 .field private transient asMap:Ljava/util/Map;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -54,6 +42,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>(Ljava/util/concurrent/ConcurrentHashMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -68,7 +62,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -141,11 +135,11 @@
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicLongMap;->map:Ljava/util/concurrent/ConcurrentHashMap;
 
-    new-instance v1, Lcom/google/common/util/concurrent/AtomicLongMap$1;
+    new-instance v1, Lcom/google/common/util/concurrent/AtomicLongMap$a;
 
-    invoke-direct {v1, p0}, Lcom/google/common/util/concurrent/AtomicLongMap$1;-><init>(Lcom/google/common/util/concurrent/AtomicLongMap;)V
+    invoke-direct {v1, p0}, Lcom/google/common/util/concurrent/AtomicLongMap$a;-><init>(Lcom/google/common/util/concurrent/AtomicLongMap;)V
 
-    invoke-static {v0, v1}, Lcom/google/common/collect/Maps;->transformValues(Ljava/util/Map;Lcom/google/common/base/Function;)Ljava/util/Map;
+    invoke-static {v0, v1}, Lcom/google/common/collect/Maps;->A(Ljava/util/Map;Lcom/google/common/base/f;)Ljava/util/Map;
 
     move-result-object v0
 
@@ -159,10 +153,7 @@
 
 # virtual methods
 .method public addAndGet(Ljava/lang/Object;J)J
-    .locals 6
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;J)J"
@@ -203,9 +194,9 @@
 
     const-wide/16 v3, 0x0
 
-    cmp-long v5, v1, v3
+    cmp-long v3, v1, v3
 
-    if-nez v5, :cond_2
+    if-nez v3, :cond_2
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/AtomicLongMap;->map:Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -283,9 +274,6 @@
 
 .method public decrementAndGet(Ljava/lang/Object;)J
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)J"
@@ -334,9 +322,6 @@
 
 .method public getAndAdd(Ljava/lang/Object;J)J
     .locals 7
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;J)J"
@@ -409,9 +394,6 @@
 
 .method public getAndDecrement(Ljava/lang/Object;)J
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)J"
@@ -429,9 +411,6 @@
 
 .method public getAndIncrement(Ljava/lang/Object;)J
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)J"
@@ -449,9 +428,6 @@
 
 .method public incrementAndGet(Ljava/lang/Object;)J
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)J"
@@ -481,9 +457,6 @@
 
 .method public put(Ljava/lang/Object;J)J
     .locals 6
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;J)J"
@@ -673,9 +646,6 @@
 
 .method public remove(Ljava/lang/Object;)J
     .locals 6
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)J"
@@ -746,9 +716,9 @@
 
     move-result-wide v2
 
-    cmp-long v4, v2, p2
+    cmp-long p2, v2, p2
 
-    if-eqz v4, :cond_1
+    if-eqz p2, :cond_1
 
     return v1
 
@@ -782,7 +752,7 @@
 .end method
 
 .method public removeAllZeros()V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicLongMap;->map:Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -822,9 +792,9 @@
 
     const-wide/16 v3, 0x0
 
-    cmp-long v5, v1, v3
+    cmp-long v1, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v1, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
@@ -836,9 +806,6 @@
 
 .method public removeIfZero(Ljava/lang/Object;)Z
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -862,31 +829,31 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-wide/16 v0, 0x0
 
-    const-wide/16 v1, 0x0
+    cmp-long v2, p2, v0
 
-    cmp-long v3, p2, v1
+    const/4 v3, 0x0
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
     invoke-virtual {p0, p1, p4, p5}, Lcom/google/common/util/concurrent/AtomicLongMap;->putIfAbsent(Ljava/lang/Object;J)J
 
     move-result-wide p1
 
-    cmp-long p3, p1, v1
+    cmp-long p1, p1, v0
 
-    if-nez p3, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     :cond_0
-    return v0
+    return v3
 
     :cond_1
-    iget-object v1, p0, Lcom/google/common/util/concurrent/AtomicLongMap;->map:Ljava/util/concurrent/ConcurrentHashMap;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicLongMap;->map:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v1, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -899,10 +866,10 @@
     :cond_2
     invoke-virtual {p1, p2, p3, p4, p5}, Ljava/util/concurrent/atomic/AtomicLong;->compareAndSet(JJ)Z
 
-    move-result v0
+    move-result v3
 
     :goto_0
-    return v0
+    return v3
 .end method
 
 .method public size()I

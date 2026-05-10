@@ -7,18 +7,12 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/collect/Cut$AboveValue;,
-        Lcom/google/common/collect/Cut$BelowValue;,
+        Lcom/google/common/collect/Cut$BelowAll;,
         Lcom/google/common/collect/Cut$AboveAll;,
-        Lcom/google/common/collect/Cut$BelowAll;
+        Lcom/google/common/collect/Cut$BelowValue;
     }
 .end annotation
 
@@ -51,6 +45,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Comparable;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -208,7 +208,7 @@
 
     instance-of p1, p1, Lcom/google/common/collect/Cut$AboveValue;
 
-    invoke-static {v0, p1}, Lcom/google/common/primitives/Booleans;->compare(ZZ)I
+    invoke-static {v0, p1}, Ljava/lang/Boolean;->compare(ZZ)I
 
     move-result p1
 

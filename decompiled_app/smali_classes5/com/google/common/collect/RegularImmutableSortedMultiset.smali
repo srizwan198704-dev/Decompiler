@@ -3,12 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtIncompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -25,22 +19,22 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSortedMultiset<",
-            "Ljava/lang/Comparable;",
-            ">;"
+            "*>;"
         }
     .end annotation
 .end field
 
-.field private static final ZERO_CUMULATIVE_COUNTS:[J
+.field public static final d:[J
 
 
 # instance fields
-.field private final transient cumulativeCounts:[J
+.field public final transient a:[J
+
+.field public final transient b:I
+
+.field public final transient c:I
 
 .field final transient elementSet:Lcom/google/common/collect/RegularImmutableSortedSet;
-    .annotation build Lcom/google/common/annotations/VisibleForTesting;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/RegularImmutableSortedSet<",
@@ -48,10 +42,6 @@
         }
     .end annotation
 .end field
-
-.field private final transient length:I
-
-.field private final transient offset:I
 
 
 # direct methods
@@ -62,13 +52,13 @@
 
     new-array v0, v0, [J
 
-    const/4 v1, 0x0
+    const-wide/16 v1, 0x0
 
-    const-wide/16 v2, 0x0
+    const/4 v3, 0x0
 
-    aput-wide v2, v0, v1
+    aput-wide v1, v0, v3
 
-    sput-object v0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->ZERO_CUMULATIVE_COUNTS:[J
+    sput-object v0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->d:[J
 
     new-instance v0, Lcom/google/common/collect/RegularImmutableSortedMultiset;
 
@@ -97,11 +87,11 @@
 
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->elementSet:Lcom/google/common/collect/RegularImmutableSortedSet;
 
-    iput-object p2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->cumulativeCounts:[J
+    iput-object p2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->a:[J
 
-    iput p3, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->offset:I
+    iput p3, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->b:I
 
-    iput p4, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
+    iput p4, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->c:I
 
     return-void
 .end method
@@ -124,41 +114,17 @@
 
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->elementSet:Lcom/google/common/collect/RegularImmutableSortedSet;
 
-    sget-object p1, Lcom/google/common/collect/RegularImmutableSortedMultiset;->ZERO_CUMULATIVE_COUNTS:[J
+    sget-object p1, Lcom/google/common/collect/RegularImmutableSortedMultiset;->d:[J
 
-    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->cumulativeCounts:[J
+    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->a:[J
 
     const/4 p1, 0x0
 
-    iput p1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->offset:I
+    iput p1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->b:I
 
-    iput p1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
+    iput p1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->c:I
 
     return-void
-.end method
-
-.method private getCount(I)I
-    .locals 6
-
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->cumulativeCounts:[J
-
-    iget v1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->offset:I
-
-    add-int v2, v1, p1
-
-    add-int/lit8 v2, v2, 0x1
-
-    aget-wide v2, v0, v2
-
-    add-int/2addr v1, p1
-
-    aget-wide v4, v0, v1
-
-    sub-long/2addr v2, v4
-
-    long-to-int p1, v2
-
-    return p1
 .end method
 
 
@@ -174,7 +140,7 @@
 
     if-ltz p1, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getCount(I)I
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->h(I)I
 
     move-result p1
 
@@ -242,12 +208,12 @@
     return-object v0
 .end method
 
-.method public firstEntry()Lcom/google/common/collect/Multiset$Entry;
+.method public firstEntry()Lcom/google/common/collect/l3$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TE;>;"
         }
     .end annotation
@@ -265,7 +231,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getEntry(I)Lcom/google/common/collect/Multiset$Entry;
+    invoke-virtual {p0, v0}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getEntry(I)Lcom/google/common/collect/l3$a;
 
     move-result-object v0
 
@@ -273,12 +239,12 @@
     return-object v0
 .end method
 
-.method public getEntry(I)Lcom/google/common/collect/Multiset$Entry;
+.method public getEntry(I)Lcom/google/common/collect/l3$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TE;>;"
         }
     .end annotation
@@ -293,11 +259,11 @@
 
     move-result-object v0
 
-    invoke-direct {p0, p1}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getCount(I)I
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->h(I)I
 
     move-result p1
 
-    invoke-static {v0, p1}, Lcom/google/common/collect/Multisets;->immutableEntry(Ljava/lang/Object;I)Lcom/google/common/collect/Multiset$Entry;
+    invoke-static {v0, p1}, Lcom/google/common/collect/Multisets;->g(Ljava/lang/Object;I)Lcom/google/common/collect/l3$a;
 
     move-result-object p1
 
@@ -314,9 +280,9 @@
         }
     .end annotation
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->c:I
 
-    invoke-static {p1, p2, v0}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
+    invoke-static {p1, p2, v0}, Lcom/google/common/base/m;->t(III)V
 
     if-ne p1, p2, :cond_0
 
@@ -333,7 +299,7 @@
     :cond_0
     if-nez p1, :cond_1
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->c:I
 
     if-ne p2, v0, :cond_1
 
@@ -348,9 +314,9 @@
 
     new-instance v1, Lcom/google/common/collect/RegularImmutableSortedMultiset;
 
-    iget-object v2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->cumulativeCounts:[J
+    iget-object v2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->a:[J
 
-    iget v3, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->offset:I
+    iget v3, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->b:I
 
     add-int/2addr v3, p1
 
@@ -359,6 +325,30 @@
     invoke-direct {v1, v0, v2, v3, p2}, Lcom/google/common/collect/RegularImmutableSortedMultiset;-><init>(Lcom/google/common/collect/RegularImmutableSortedSet;[JII)V
 
     return-object v1
+.end method
+
+.method public final h(I)I
+    .locals 6
+
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->a:[J
+
+    iget v1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->b:I
+
+    add-int v2, v1, p1
+
+    add-int/lit8 v2, v2, 0x1
+
+    aget-wide v2, v0, v2
+
+    add-int/2addr v1, p1
+
+    aget-wide v4, v0, v1
+
+    sub-long/2addr v2, v4
+
+    long-to-int p1, v2
+
+    return p1
 .end method
 
 .method public headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -375,7 +365,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->elementSet:Lcom/google/common/collect/RegularImmutableSortedSet;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
 
@@ -390,7 +380,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    move p2, v2
 
     :goto_0
     invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/RegularImmutableSortedSet;->headIndex(Ljava/lang/Object;Z)I
@@ -404,7 +394,7 @@
     return-object p1
 .end method
 
-.method public bridge synthetic headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
+.method public bridge synthetic headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/a4;
     .locals 0
 
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -417,15 +407,15 @@
 .method public isPartialView()Z
     .locals 3
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->offset:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->b:I
 
     const/4 v1, 0x1
 
     if-gtz v0, :cond_1
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->c:I
 
-    iget-object v2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->cumulativeCounts:[J
+    iget-object v2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->a:[J
 
     array-length v2, v2
 
@@ -443,12 +433,12 @@
     return v1
 .end method
 
-.method public lastEntry()Lcom/google/common/collect/Multiset$Entry;
+.method public lastEntry()Lcom/google/common/collect/l3$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TE;>;"
         }
     .end annotation
@@ -464,11 +454,11 @@
     goto :goto_0
 
     :cond_0
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->c:I
 
     add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {p0, v0}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getEntry(I)Lcom/google/common/collect/Multiset$Entry;
+    invoke-virtual {p0, v0}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getEntry(I)Lcom/google/common/collect/l3$a;
 
     move-result-object v0
 
@@ -479,11 +469,11 @@
 .method public size()I
     .locals 6
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->cumulativeCounts:[J
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->a:[J
 
-    iget v1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->offset:I
+    iget v1, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->b:I
 
-    iget v2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
+    iget v2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->c:I
 
     add-int/2addr v2, v1
 
@@ -493,7 +483,7 @@
 
     sub-long/2addr v2, v4
 
-    invoke-static {v2, v3}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
+    invoke-static {v2, v3}, Lcom/google/common/primitives/Ints;->n(J)I
 
     move-result v0
 
@@ -514,7 +504,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->elementSet:Lcom/google/common/collect/RegularImmutableSortedSet;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
 
@@ -534,7 +524,7 @@
 
     move-result p1
 
-    iget p2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->length:I
+    iget p2, p0, Lcom/google/common/collect/RegularImmutableSortedMultiset;->c:I
 
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->getSubMultiset(II)Lcom/google/common/collect/ImmutableSortedMultiset;
 
@@ -543,7 +533,7 @@
     return-object p1
 .end method
 
-.method public bridge synthetic tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
+.method public bridge synthetic tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/a4;
     .locals 0
 
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/RegularImmutableSortedMultiset;->tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -555,8 +545,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableSortedMultiset;->writeReplace()Ljava/lang/Object;
 

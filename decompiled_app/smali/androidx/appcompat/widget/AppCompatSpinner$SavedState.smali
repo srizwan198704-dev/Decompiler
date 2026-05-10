@@ -26,16 +26,16 @@
 
 
 # instance fields
-.field mShowDropdown:Z
+.field public a:Z
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroidx/appcompat/widget/AppCompatSpinner$SavedState$1;
+    new-instance v0, Landroidx/appcompat/widget/AppCompatSpinner$SavedState$a;
 
-    invoke-direct {v0}, Landroidx/appcompat/widget/AppCompatSpinner$SavedState$1;-><init>()V
+    invoke-direct {v0}, Landroidx/appcompat/widget/AppCompatSpinner$SavedState$a;-><init>()V
 
     sput-object v0, Landroidx/appcompat/widget/AppCompatSpinner$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -61,7 +61,7 @@
     const/4 p1, 0x0
 
     :goto_0
-    iput-boolean p1, p0, Landroidx/appcompat/widget/AppCompatSpinner$SavedState;->mShowDropdown:Z
+    iput-boolean p1, p0, Landroidx/appcompat/widget/AppCompatSpinner$SavedState;->a:Z
 
     return-void
 .end method
@@ -81,7 +81,7 @@
 
     invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    iget-boolean p2, p0, Landroidx/appcompat/widget/AppCompatSpinner$SavedState;->mShowDropdown:Z
+    iget-boolean p2, p0, Landroidx/appcompat/widget/AppCompatSpinner$SavedState;->a:Z
 
     int-to-byte p2, p2
 

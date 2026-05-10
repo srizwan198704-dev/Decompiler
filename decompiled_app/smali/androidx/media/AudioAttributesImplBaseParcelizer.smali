@@ -2,15 +2,13 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -26,45 +24,45 @@
 
     invoke-direct {v0}, Landroidx/media/AudioAttributesImplBase;-><init>()V
 
-    iget v1, v0, Landroidx/media/AudioAttributesImplBase;->mUsage:I
+    iget v1, v0, Landroidx/media/AudioAttributesImplBase;->a:I
 
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readInt(II)I
+    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->p(II)I
 
     move-result v1
 
-    iput v1, v0, Landroidx/media/AudioAttributesImplBase;->mUsage:I
+    iput v1, v0, Landroidx/media/AudioAttributesImplBase;->a:I
 
-    iget v1, v0, Landroidx/media/AudioAttributesImplBase;->mContentType:I
+    iget v1, v0, Landroidx/media/AudioAttributesImplBase;->b:I
 
     const/4 v2, 0x2
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readInt(II)I
+    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->p(II)I
 
     move-result v1
 
-    iput v1, v0, Landroidx/media/AudioAttributesImplBase;->mContentType:I
+    iput v1, v0, Landroidx/media/AudioAttributesImplBase;->b:I
 
-    iget v1, v0, Landroidx/media/AudioAttributesImplBase;->mFlags:I
+    iget v1, v0, Landroidx/media/AudioAttributesImplBase;->c:I
 
     const/4 v2, 0x3
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readInt(II)I
+    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->p(II)I
 
     move-result v1
 
-    iput v1, v0, Landroidx/media/AudioAttributesImplBase;->mFlags:I
+    iput v1, v0, Landroidx/media/AudioAttributesImplBase;->c:I
 
-    iget v1, v0, Landroidx/media/AudioAttributesImplBase;->mLegacyStream:I
+    iget v1, v0, Landroidx/media/AudioAttributesImplBase;->d:I
 
     const/4 v2, 0x4
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readInt(II)I
+    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->p(II)I
 
     move-result p0
 
-    iput p0, v0, Landroidx/media/AudioAttributesImplBase;->mLegacyStream:I
+    iput p0, v0, Landroidx/media/AudioAttributesImplBase;->d:I
 
     return-object v0
 .end method
@@ -74,31 +72,31 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->setSerializationFlags(ZZ)V
+    invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->x(ZZ)V
 
-    iget v0, p0, Landroidx/media/AudioAttributesImplBase;->mUsage:I
+    iget v0, p0, Landroidx/media/AudioAttributesImplBase;->a:I
 
     const/4 v1, 0x1
 
-    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
+    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->F(II)V
 
-    iget v0, p0, Landroidx/media/AudioAttributesImplBase;->mContentType:I
+    iget v0, p0, Landroidx/media/AudioAttributesImplBase;->b:I
 
     const/4 v1, 0x2
 
-    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
+    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->F(II)V
 
-    iget v0, p0, Landroidx/media/AudioAttributesImplBase;->mFlags:I
+    iget v0, p0, Landroidx/media/AudioAttributesImplBase;->c:I
 
     const/4 v1, 0x3
 
-    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
+    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->F(II)V
 
-    iget p0, p0, Landroidx/media/AudioAttributesImplBase;->mLegacyStream:I
+    iget p0, p0, Landroidx/media/AudioAttributesImplBase;->d:I
 
     const/4 v0, 0x4
 
-    invoke-virtual {p1, p0, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
+    invoke-virtual {p1, p0, v0}, Landroidx/versionedparcelable/VersionedParcel;->F(II)V
 
     return-void
 .end method

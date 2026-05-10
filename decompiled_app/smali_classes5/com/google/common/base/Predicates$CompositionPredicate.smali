@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/Predicate;
+.implements Lcom/google/common/base/n;
 .implements Ljava/io/Serializable;
 
 
@@ -24,7 +24,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/Predicate<",
+        "Lcom/google/common/base/n<",
         "TA;>;",
         "Ljava/io/Serializable;"
     }
@@ -36,19 +36,19 @@
 
 
 # instance fields
-.field final f:Lcom/google/common/base/Function;
+.field final f:Lcom/google/common/base/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "TA;+TB;>;"
         }
     .end annotation
 .end field
 
-.field final p:Lcom/google/common/base/Predicate;
+.field final p:Lcom/google/common/base/n;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/Predicate<",
+            "Lcom/google/common/base/n<",
             "TB;>;"
         }
     .end annotation
@@ -56,43 +56,49 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/google/common/base/Predicate;Lcom/google/common/base/Function;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/base/n;Lcom/google/common/base/f;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/base/Predicate<",
+            "Lcom/google/common/base/n<",
             "TB;>;",
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "TA;+TB;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/base/Predicate;
+    check-cast p1, Lcom/google/common/base/n;
 
-    iput-object p1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/Predicate;
+    iput-object p1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/n;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/base/Function;
+    check-cast p1, Lcom/google/common/base/f;
 
-    iput-object p1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/Function;
+    iput-object p1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/f;
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/base/Predicate;Lcom/google/common/base/Function;Lcom/google/common/base/Predicates$1;)V
+.method public synthetic constructor <init>(Lcom/google/common/base/n;Lcom/google/common/base/f;Lcom/google/common/base/Predicates$a;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/google/common/base/Predicates$CompositionPredicate;-><init>(Lcom/google/common/base/Predicate;Lcom/google/common/base/Function;)V
+    invoke-direct {p0, p1, p2}, Lcom/google/common/base/Predicates$CompositionPredicate;-><init>(Lcom/google/common/base/n;Lcom/google/common/base/f;)V
 
     return-void
 .end method
@@ -101,25 +107,21 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
     .locals 2
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/base/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)Z"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/Predicate;
+    iget-object v0, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/n;
 
-    iget-object v1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/Function;
+    iget-object v1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/f;
 
-    invoke-interface {v1, p1}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Lcom/google/common/base/f;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    invoke-interface {v0, p1}, Lcom/google/common/base/Predicate;->apply(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lcom/google/common/base/n;->apply(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -137,21 +139,21 @@
 
     check-cast p1, Lcom/google/common/base/Predicates$CompositionPredicate;
 
-    iget-object v0, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/Function;
+    iget-object v0, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/f;
 
-    iget-object v2, p1, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/Function;
+    iget-object v2, p1, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/f;
 
-    invoke-interface {v0, v2}, Lcom/google/common/base/Function;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Lcom/google/common/base/f;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/Predicate;
+    iget-object v0, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/n;
 
-    iget-object p1, p1, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/Predicate;
+    iget-object p1, p1, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/n;
 
-    invoke-interface {v0, p1}, Lcom/google/common/base/Predicate;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lcom/google/common/base/n;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -166,13 +168,13 @@
 .method public hashCode()I
     .locals 2
 
-    iget-object v0, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/Function;
+    iget-object v0, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/f;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/Predicate;
+    iget-object v1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/n;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
@@ -190,7 +192,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/Predicate;
+    iget-object v1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->p:Lcom/google/common/base/n;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -198,7 +200,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/Function;
+    iget-object v1, p0, Lcom/google/common/base/Predicates$CompositionPredicate;->f:Lcom/google/common/base/f;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

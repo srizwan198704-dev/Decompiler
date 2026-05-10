@@ -27,10 +27,7 @@
 
 
 # instance fields
-.field private final transient multimap:Lcom/google/common/collect/ImmutableSetMultimap;
-    .annotation build Lcom/google/j2objc/annotations/Weak;
-    .end annotation
-
+.field public final transient a:Lcom/google/common/collect/ImmutableSetMultimap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSetMultimap<",
@@ -41,6 +38,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableSetMultimap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -53,7 +56,7 @@
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->multimap:Lcom/google/common/collect/ImmutableSetMultimap;
+    iput-object p1, p0, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->a:Lcom/google/common/collect/ImmutableSetMultimap;
 
     return-void
 .end method
@@ -69,7 +72,7 @@
 
     check-cast p1, Ljava/util/Map$Entry;
 
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->multimap:Lcom/google/common/collect/ImmutableSetMultimap;
+    iget-object v0, p0, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->a:Lcom/google/common/collect/ImmutableSetMultimap;
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -99,20 +102,20 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public iterator()Lcom/google/common/collect/r4;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "Ljava/util/Map$Entry<",
             "TK;TV;>;>;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->multimap:Lcom/google/common/collect/ImmutableSetMultimap;
+    iget-object v0, p0, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->a:Lcom/google/common/collect/ImmutableSetMultimap;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMultimap;->entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMultimap;->entryIterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -122,7 +125,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -132,7 +135,7 @@
 .method public size()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->multimap:Lcom/google/common/collect/ImmutableSetMultimap;
+    iget-object v0, p0, Lcom/google/common/collect/ImmutableSetMultimap$EntrySet;->a:Lcom/google/common/collect/ImmutableSetMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMultimap;->size()I
 
@@ -143,11 +146,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableSet;->writeReplace()Ljava/lang/Object;
 

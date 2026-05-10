@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/Supplier;
+.implements Lcom/google/common/base/q;
 .implements Ljava/io/Serializable;
 
 
@@ -22,7 +22,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/Supplier<",
+        "Lcom/google/common/base/q<",
         "TT;>;",
         "Ljava/io/Serializable;"
     }
@@ -35,9 +35,6 @@
 
 # instance fields
 .field final instance:Ljava/lang/Object;
-    .annotation runtime Lcom/google/common/base/ParametricNullness;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -47,12 +44,14 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/base/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -81,7 +80,7 @@
 
     iget-object p1, p1, Lcom/google/common/base/Suppliers$SupplierOfInstance;->instance:Ljava/lang/Object;
 
-    invoke-static {v0, p1}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -95,9 +94,6 @@
 
 .method public get()Ljava/lang/Object;
     .locals 1
-    .annotation runtime Lcom/google/common/base/ParametricNullness;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -112,17 +108,17 @@
 .method public hashCode()I
     .locals 3
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/google/common/base/Suppliers$SupplierOfInstance;->instance:Ljava/lang/Object;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/google/common/base/Suppliers$SupplierOfInstance;->instance:Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v0, v1, v2
 
-    invoke-static {v0}, Lcom/google/common/base/Objects;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v1}, Lcom/google/common/base/j;->b([Ljava/lang/Object;)I
 
     move-result v0
 

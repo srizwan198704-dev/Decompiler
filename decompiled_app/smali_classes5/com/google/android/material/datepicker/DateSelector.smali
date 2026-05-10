@@ -6,12 +6,6 @@
 
 
 # annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<S:",
@@ -23,15 +17,19 @@
 .end annotation
 
 
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public abstract getDefaultThemeResId(Landroid/content/Context;)I
-    .annotation build Landroidx/annotation/StyleRes;
-    .end annotation
 .end method
 
 .method public abstract getDefaultTitleResId()I
-    .annotation build Landroidx/annotation/StringRes;
-    .end annotation
 .end method
 
 .method public abstract getError()Ljava/lang/String;
@@ -61,7 +59,7 @@
         value = {
             "()",
             "Ljava/util/Collection<",
-            "Landroidx/core/util/Pair<",
+            "Landroidx/core/util/e<",
             "Ljava/lang/Long;",
             "Ljava/lang/Long;",
             ">;>;"
@@ -97,7 +95,7 @@
 .method public abstract isSelectionComplete()Z
 .end method
 
-.method public abstract onCreateTextInputView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)Landroid/view/View;
+.method public abstract onCreateTextInputView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/p;)Landroid/view/View;
     .param p1    # Landroid/view/LayoutInflater;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
@@ -114,7 +112,7 @@
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .param p5    # Lcom/google/android/material/datepicker/OnSelectionChangedListener;
+    .param p5    # Lcom/google/android/material/datepicker/p;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
@@ -128,7 +126,7 @@
             "Landroid/view/ViewGroup;",
             "Landroid/os/Bundle;",
             "Lcom/google/android/material/datepicker/CalendarConstraints;",
-            "Lcom/google/android/material/datepicker/OnSelectionChangedListener<",
+            "Lcom/google/android/material/datepicker/p<",
             "TS;>;)",
             "Landroid/view/View;"
         }

@@ -2,12 +2,13 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-.end annotation
-
-
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 

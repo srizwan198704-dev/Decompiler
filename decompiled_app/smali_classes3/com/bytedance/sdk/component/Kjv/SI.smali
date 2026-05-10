@@ -1,0 +1,36 @@
+.class public interface abstract Lcom/bytedance/sdk/component/Kjv/SI;
+.super Ljava/lang/Object;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract Kjv(Ljava/lang/String;Ljava/lang/reflect/Type;)Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/String;",
+            "Ljava/lang/reflect/Type;",
+            ")TT;"
+        }
+    .end annotation
+.end method
+
+.method public abstract Kjv(Ljava/lang/Object;)Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(TT;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+.end method

@@ -2,10 +2,51 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Les/ek0;
+.implements Lkotlinx/coroutines/o0;
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0004\u0008&\u0018\u00002\u00020\u0001B\t\u0008\u0000\u00a2\u0006\u0004\u0008\u0002\u0010\u0003J8\u0010\u000b\u001a\u00020\n2\'\u0010\t\u001a#\u0008\u0001\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\u0008\u0012\u0004\u0012\u00020\u00060\u0005\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0004\u00a2\u0006\u0002\u0008\u0008H\u0007\u00a2\u0006\u0004\u0008\u000b\u0010\u000cR\u0014\u0010\u0010\u001a\u00020\r8 X\u00a0\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u000e\u0010\u000f\u00a8\u0006\u0011"
+    }
+    d2 = {
+        "Landroidx/lifecycle/LifecycleCoroutineScope;",
+        "Lkotlinx/coroutines/o0;",
+        "<init>",
+        "()V",
+        "Lkotlin/Function2;",
+        "Lkotlin/coroutines/Continuation;",
+        "",
+        "",
+        "Lkotlin/ExtensionFunctionType;",
+        "block",
+        "Lkotlinx/coroutines/v1;",
+        "b",
+        "(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/v1;",
+        "Landroidx/lifecycle/Lifecycle;",
+        "a",
+        "()Landroidx/lifecycle/Lifecycle;",
+        "lifecycle",
+        "lifecycle-common"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -16,144 +57,52 @@
 
 
 # virtual methods
-.method public abstract synthetic getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
+.method public abstract a()Landroidx/lifecycle/Lifecycle;
 .end method
 
-.method public abstract getLifecycle$lifecycle_common()Landroidx/lifecycle/Lifecycle;
-.end method
-
-.method public final launchWhenCreated(Lkotlin/jvm/functions/Function2;)Les/fy2;
+.method public final b(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/v1;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lkotlin/jvm/functions/Function2<",
             "-",
-            "Les/ek0;",
+            "Lkotlinx/coroutines/o0;",
             "-",
-            "Les/mj0<",
+            "Lkotlin/coroutines/Continuation<",
             "-",
-            "Les/qg6;",
+            "Lkotlin/Unit;",
             ">;+",
             "Ljava/lang/Object;",
             ">;)",
-            "Les/fy2;"
+            "Lkotlinx/coroutines/v1;"
         }
+    .end annotation
+
+    .annotation runtime Lkotlin/Deprecated;
     .end annotation
 
     const-string v0, "block"
 
-    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    new-instance v4, Landroidx/lifecycle/LifecycleCoroutineScope$launchWhenCreated$1;
-
-    const/4 v0, 0x0
-
-    invoke-direct {v4, p0, p1, v0}, Landroidx/lifecycle/LifecycleCoroutineScope$launchWhenCreated$1;-><init>(Landroidx/lifecycle/LifecycleCoroutineScope;Lkotlin/jvm/functions/Function2;Les/mj0;)V
-
-    const/4 v5, 0x3
-
-    const/4 v6, 0x0
-
-    move-object v1, p0
-
-    invoke-static/range {v1 .. v6}, Les/j00;->b(Les/ek0;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Les/fy2;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method public final launchWhenResumed(Lkotlin/jvm/functions/Function2;)Les/fy2;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lkotlin/jvm/functions/Function2<",
-            "-",
-            "Les/ek0;",
-            "-",
-            "Les/mj0<",
-            "-",
-            "Les/qg6;",
-            ">;+",
-            "Ljava/lang/Object;",
-            ">;)",
-            "Les/fy2;"
-        }
-    .end annotation
-
-    const-string v0, "block"
-
-    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
     new-instance v4, Landroidx/lifecycle/LifecycleCoroutineScope$launchWhenResumed$1;
 
     const/4 v0, 0x0
 
-    invoke-direct {v4, p0, p1, v0}, Landroidx/lifecycle/LifecycleCoroutineScope$launchWhenResumed$1;-><init>(Landroidx/lifecycle/LifecycleCoroutineScope;Lkotlin/jvm/functions/Function2;Les/mj0;)V
+    invoke-direct {v4, p0, p1, v0}, Landroidx/lifecycle/LifecycleCoroutineScope$launchWhenResumed$1;-><init>(Landroidx/lifecycle/LifecycleCoroutineScope;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)V
 
     const/4 v5, 0x3
 
     const/4 v6, 0x0
-
-    move-object v1, p0
-
-    invoke-static/range {v1 .. v6}, Les/j00;->b(Les/ek0;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Les/fy2;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method public final launchWhenStarted(Lkotlin/jvm/functions/Function2;)Les/fy2;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lkotlin/jvm/functions/Function2<",
-            "-",
-            "Les/ek0;",
-            "-",
-            "Les/mj0<",
-            "-",
-            "Les/qg6;",
-            ">;+",
-            "Ljava/lang/Object;",
-            ">;)",
-            "Les/fy2;"
-        }
-    .end annotation
-
-    const-string v0, "block"
-
-    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
 
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    new-instance v4, Landroidx/lifecycle/LifecycleCoroutineScope$launchWhenStarted$1;
-
-    const/4 v0, 0x0
-
-    invoke-direct {v4, p0, p1, v0}, Landroidx/lifecycle/LifecycleCoroutineScope$launchWhenStarted$1;-><init>(Landroidx/lifecycle/LifecycleCoroutineScope;Lkotlin/jvm/functions/Function2;Les/mj0;)V
-
-    const/4 v5, 0x3
-
-    const/4 v6, 0x0
-
     move-object v1, p0
 
-    invoke-static/range {v1 .. v6}, Les/j00;->b(Les/ek0;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Les/fy2;
+    invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/i;->d(Lkotlinx/coroutines/o0;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/v1;
 
     move-result-object p1
 

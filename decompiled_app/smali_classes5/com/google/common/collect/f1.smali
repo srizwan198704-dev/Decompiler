@@ -2,38 +2,40 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BinaryOperator;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic a:Ljava/util/function/BinaryOperator;
+.field public final synthetic a:Ljava/util/Comparator;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/function/BinaryOperator;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Ljava/util/Comparator;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/f1;->a:Ljava/util/function/BinaryOperator;
+    iput-object p1, p0, Lcom/google/common/collect/f1;->a:Ljava/util/Comparator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final get()Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/f1;->a:Ljava/util/function/BinaryOperator;
+    iget-object v0, p0, Lcom/google/common/collect/f1;->a:Ljava/util/Comparator;
 
-    check-cast p1, Lcom/google/common/collect/Table;
+    invoke-static {v0}, Lcom/google/common/collect/d2;->k(Ljava/util/Comparator;)Ljava/util/TreeMap;
 
-    check-cast p2, Lcom/google/common/collect/Table;
+    move-result-object v0
 
-    invoke-static {v0, p1, p2}, Lcom/google/common/collect/TableCollectors;->a(Ljava/util/function/BinaryOperator;Lcom/google/common/collect/Table;Lcom/google/common/collect/Table;)Lcom/google/common/collect/Table;
-
-    move-result-object p1
-
-    return-object p1
+    return-object v0
 .end method

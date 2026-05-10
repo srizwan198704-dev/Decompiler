@@ -29,23 +29,23 @@
 
 
 # instance fields
-.field checkedState:I
+.field public a:I
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState$1;
+    new-instance v0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState$a;-><init>()V
 
     sput-object v0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
 
-.method private constructor <init>(Landroid/os/Parcel;)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcel;)V
@@ -68,12 +68,12 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->checkedState:I
+    iput p1, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->a:I
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/material/checkbox/MaterialCheckBox$1;)V
+.method public synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/material/checkbox/MaterialCheckBox$a;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;-><init>(Landroid/os/Parcel;)V
@@ -89,12 +89,14 @@
     return-void
 .end method
 
-.method private getCheckedStateString()Ljava/lang/String;
+
+# virtual methods
+.method public final a()Ljava/lang/String;
     .locals 2
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->checkedState:I
+    iget v0, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->a:I
 
     const/4 v1, 0x1
 
@@ -119,8 +121,6 @@
     return-object v0
 .end method
 
-
-# virtual methods
 .method public toString()Ljava/lang/String;
     .locals 2
     .annotation build Landroidx/annotation/NonNull;
@@ -148,7 +148,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->getCheckedStateString()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->a()Ljava/lang/String;
 
     move-result-object v1
 
@@ -170,7 +170,7 @@
 
     invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    iget p2, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->checkedState:I
+    iget p2, p0, Lcom/google/android/material/checkbox/MaterialCheckBox$SavedState;->a:I
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

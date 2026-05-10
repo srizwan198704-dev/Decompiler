@@ -38,21 +38,25 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ExecutionSequencer;)V
+.method static constructor <clinit>()V
     .locals 1
-
-    sget-object v0, Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;->NOT_RUN:Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;
-
-    invoke-direct {p0, v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
-
-    iput-object p1, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->delegate:Ljava/util/concurrent/Executor;
-
-    iput-object p2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->sequencer:Lcom/google/common/util/concurrent/ExecutionSequencer;
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ExecutionSequencer;Lcom/google/common/util/concurrent/ExecutionSequencer$1;)V
+.method private constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ExecutionSequencer;)V
+    .locals 0
+
+    sget-object p2, Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;->NOT_RUN:Lcom/google/common/util/concurrent/ExecutionSequencer$RunningState;
+
+    invoke-direct {p0, p2}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object p1, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->delegate:Ljava/util/concurrent/Executor;
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ExecutionSequencer;Lcom/google/common/util/concurrent/j;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;-><init>(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/ExecutionSequencer;)V
@@ -125,8 +129,6 @@
 
     iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->delegate:Ljava/util/concurrent/Executor;
 
-    iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->sequencer:Lcom/google/common/util/concurrent/ExecutionSequencer;
-
     return-void
 
     :cond_0
@@ -141,19 +143,17 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v0}, Lcom/google/common/util/concurrent/ExecutionSequencer;->access$300(Lcom/google/common/util/concurrent/ExecutionSequencer;)Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
+    invoke-static {v0}, Lcom/google/common/util/concurrent/ExecutionSequencer;->a(Lcom/google/common/util/concurrent/ExecutionSequencer;)Lcom/google/common/util/concurrent/ExecutionSequencer$a;
 
     move-result-object v0
 
-    iget-object v1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->thread:Ljava/lang/Thread;
+    iget-object v1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->a:Ljava/lang/Thread;
 
     iget-object v3, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->submitting:Ljava/lang/Thread;
 
     if-ne v1, v3, :cond_2
 
-    iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->sequencer:Lcom/google/common/util/concurrent/ExecutionSequencer;
-
-    iget-object v1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextTask:Ljava/lang/Runnable;
+    iget-object v1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->b:Ljava/lang/Runnable;
 
     if-nez v1, :cond_1
 
@@ -165,9 +165,9 @@
     const/4 v1, 0x0
 
     :goto_0
-    invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
+    invoke-static {v1}, Lcom/google/common/base/m;->u(Z)V
 
-    iput-object p1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextTask:Ljava/lang/Runnable;
+    iput-object p1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->b:Ljava/lang/Runnable;
 
     iget-object p1, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->delegate:Ljava/util/concurrent/Executor;
 
@@ -175,7 +175,7 @@
 
     check-cast p1, Ljava/util/concurrent/Executor;
 
-    iput-object p1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextExecutor:Ljava/util/concurrent/Executor;
+    iput-object p1, v0, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->c:Ljava/util/concurrent/Executor;
 
     iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->delegate:Ljava/util/concurrent/Executor;
 
@@ -238,19 +238,17 @@
     return-void
 
     :cond_0
-    new-instance v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
+    new-instance v1, Lcom/google/common/util/concurrent/ExecutionSequencer$a;
 
-    invoke-direct {v1, v2}, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;-><init>(Lcom/google/common/util/concurrent/ExecutionSequencer$1;)V
+    invoke-direct {v1, v2}, Lcom/google/common/util/concurrent/ExecutionSequencer$a;-><init>(Lcom/google/common/util/concurrent/j;)V
 
-    iput-object v0, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->thread:Ljava/lang/Thread;
+    iput-object v0, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->a:Ljava/lang/Thread;
 
     iget-object v0, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->sequencer:Lcom/google/common/util/concurrent/ExecutionSequencer;
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Lcom/google/common/util/concurrent/ExecutionSequencer;->access$302(Lcom/google/common/util/concurrent/ExecutionSequencer;Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;)Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;
-
-    iput-object v2, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->sequencer:Lcom/google/common/util/concurrent/ExecutionSequencer;
+    invoke-static {v0, v1}, Lcom/google/common/util/concurrent/ExecutionSequencer;->b(Lcom/google/common/util/concurrent/ExecutionSequencer;Lcom/google/common/util/concurrent/ExecutionSequencer$a;)Lcom/google/common/util/concurrent/ExecutionSequencer$a;
 
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/ExecutionSequencer$TaskNonReentrantExecutor;->task:Ljava/lang/Runnable;
@@ -264,17 +262,17 @@
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     :goto_0
-    iget-object v0, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextTask:Ljava/lang/Runnable;
+    iget-object v0, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->b:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_1
 
-    iget-object v3, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextExecutor:Ljava/util/concurrent/Executor;
+    iget-object v3, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->c:Ljava/util/concurrent/Executor;
 
     if-eqz v3, :cond_1
 
-    iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextTask:Ljava/lang/Runnable;
+    iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->b:Ljava/lang/Runnable;
 
-    iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->nextExecutor:Ljava/util/concurrent/Executor;
+    iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->c:Ljava/util/concurrent/Executor;
 
     invoke-interface {v3, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
     :try_end_0
@@ -288,18 +286,12 @@
     goto :goto_1
 
     :cond_1
-    iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->thread:Ljava/lang/Thread;
+    iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->a:Ljava/lang/Thread;
 
     return-void
 
     :goto_1
-    iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$ThreadConfinedTaskQueue;->thread:Ljava/lang/Thread;
+    iput-object v2, v1, Lcom/google/common/util/concurrent/ExecutionSequencer$a;->a:Ljava/lang/Thread;
 
-    goto :goto_3
-
-    :goto_2
     throw v0
-
-    :goto_3
-    goto :goto_2
 .end method

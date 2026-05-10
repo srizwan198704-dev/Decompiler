@@ -3,9 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/ImmutableSortedMap;
 .end annotation
@@ -44,6 +41,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableSortedMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -67,31 +70,31 @@
 
 
 # virtual methods
-.method public bridge synthetic makeBuilder(I)Lcom/google/common/collect/ImmutableMap$Builder;
+.method public bridge synthetic makeBuilder(I)Lcom/google/common/collect/ImmutableMap$b;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedMap$SerializedForm;->makeBuilder(I)Lcom/google/common/collect/ImmutableSortedMap$Builder;
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedMap$SerializedForm;->makeBuilder(I)Lcom/google/common/collect/ImmutableSortedMap$a;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public makeBuilder(I)Lcom/google/common/collect/ImmutableSortedMap$Builder;
+.method public makeBuilder(I)Lcom/google/common/collect/ImmutableSortedMap$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/ImmutableSortedMap$Builder<",
+            "Lcom/google/common/collect/ImmutableSortedMap$a<",
             "TK;TV;>;"
         }
     .end annotation
 
-    new-instance p1, Lcom/google/common/collect/ImmutableSortedMap$Builder;
+    new-instance p1, Lcom/google/common/collect/ImmutableSortedMap$a;
 
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSortedMap$SerializedForm;->comparator:Ljava/util/Comparator;
 
-    invoke-direct {p1, v0}, Lcom/google/common/collect/ImmutableSortedMap$Builder;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {p1, v0}, Lcom/google/common/collect/ImmutableSortedMap$a;-><init>(Ljava/util/Comparator;)V
 
     return-object p1
 .end method

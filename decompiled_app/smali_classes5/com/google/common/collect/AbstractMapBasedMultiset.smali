@@ -1,21 +1,14 @@
 .class abstract Lcom/google/common/collect/AbstractMapBasedMultiset;
-.super Lcom/google/common/collect/AbstractMultiset;
+.super Lcom/google/common/collect/d;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/AbstractMapBasedMultiset$Itr;
+        Lcom/google/common/collect/AbstractMapBasedMultiset$c;
     }
 .end annotation
 
@@ -24,7 +17,7 @@
         "<E:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/AbstractMultiset<",
+        "Lcom/google/common/collect/d<",
         "TE;>;",
         "Ljava/io/Serializable;"
     }
@@ -33,19 +26,13 @@
 
 # static fields
 .field private static final serialVersionUID:J
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-.end field
 
 
 # instance fields
-.field transient backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+.field transient backingMap:Lcom/google/common/collect/o3;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/ObjectCountHashMap<",
+            "Lcom/google/common/collect/o3<",
             "TE;>;"
         }
     .end annotation
@@ -55,28 +42,28 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/common/collect/AbstractMultiset;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/d;-><init>()V
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractMapBasedMultiset;->newBackingMap(I)Lcom/google/common/collect/ObjectCountHashMap;
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/AbstractMapBasedMultiset;->newBackingMap(I)Lcom/google/common/collect/o3;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iput-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 2
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -86,31 +73,25 @@
 
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    invoke-static {p1}, Lcom/google/common/collect/Serialization;->readCount(Ljava/io/ObjectInputStream;)I
+    invoke-static {p1}, Lcom/google/common/collect/w3;->h(Ljava/io/ObjectInputStream;)I
 
     move-result v0
 
     const/4 v1, 0x3
 
-    invoke-virtual {p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultiset;->newBackingMap(I)Lcom/google/common/collect/ObjectCountHashMap;
+    invoke-virtual {p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultiset;->newBackingMap(I)Lcom/google/common/collect/o3;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iput-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-static {p0, p1, v0}, Lcom/google/common/collect/Serialization;->populateMultiset(Lcom/google/common/collect/Multiset;Ljava/io/ObjectInputStream;I)V
+    invoke-static {p0, p1, v0}, Lcom/google/common/collect/w3;->g(Lcom/google/common/collect/l3;Ljava/io/ObjectInputStream;I)V
 
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 0
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -119,7 +100,7 @@
 
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/Serialization;->writeMultiset(Lcom/google/common/collect/Multiset;Ljava/io/ObjectOutputStream;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/w3;->k(Lcom/google/common/collect/l3;Ljava/io/ObjectOutputStream;)V
 
     return-void
 .end method
@@ -128,13 +109,6 @@
 # virtual methods
 .method public final add(Ljava/lang/Object;I)I
     .locals 9
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I)I"
@@ -156,21 +130,21 @@
 
     if-lez p2, :cond_1
 
-    const/4 v2, 0x1
+    move v2, v0
 
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     const-string v3, "occurrences cannot be negative: %s"
 
-    invoke-static {v2, v3, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
+    invoke-static {v2, v3, p2}, Lcom/google/common/base/m;->f(ZLjava/lang/String;I)V
 
-    iget-object v2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v2, p1}, Lcom/google/common/collect/ObjectCountHashMap;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v2, p1}, Lcom/google/common/collect/o3;->m(Ljava/lang/Object;)I
 
     move-result v2
 
@@ -178,9 +152,9 @@
 
     if-ne v2, v3, :cond_2
 
-    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/ObjectCountHashMap;->put(Ljava/lang/Object;I)I
+    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/o3;->u(Ljava/lang/Object;I)I
 
     iget-wide v2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->size:J
 
@@ -193,9 +167,9 @@
     return v1
 
     :cond_2
-    iget-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {p1, v2}, Lcom/google/common/collect/ObjectCountHashMap;->getValue(I)I
+    invoke-virtual {p1, v2}, Lcom/google/common/collect/o3;->k(I)I
 
     move-result p1
 
@@ -214,18 +188,18 @@
     goto :goto_1
 
     :cond_3
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_1
     const-string p2, "too many occurrences: %s"
 
-    invoke-static {v0, p2, v3, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
+    invoke-static {v0, p2, v3, v4}, Lcom/google/common/base/m;->h(ZLjava/lang/String;J)V
 
-    iget-object p2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object p2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
     long-to-int v0, v3
 
-    invoke-virtual {p2, v2, v0}, Lcom/google/common/collect/ObjectCountHashMap;->setValue(II)V
+    invoke-virtual {p2, v2, v0}, Lcom/google/common/collect/o3;->B(II)V
 
     iget-wide v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->size:J
 
@@ -236,44 +210,44 @@
     return p1
 .end method
 
-.method public addTo(Lcom/google/common/collect/Multiset;)V
+.method public addTo(Lcom/google/common/collect/l3;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/Multiset<",
+            "Lcom/google/common/collect/l3<",
             "-TE;>;)V"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ObjectCountHashMap;->firstIndex()I
+    invoke-virtual {v0}, Lcom/google/common/collect/o3;->e()I
 
     move-result v0
 
     :goto_0
     if-ltz v0, :cond_0
 
-    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v1, v0}, Lcom/google/common/collect/ObjectCountHashMap;->getKey(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Lcom/google/common/collect/o3;->i(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v2, v0}, Lcom/google/common/collect/ObjectCountHashMap;->getValue(I)I
+    invoke-virtual {v2, v0}, Lcom/google/common/collect/o3;->k(I)I
 
     move-result v2
 
-    invoke-interface {p1, v1, v2}, Lcom/google/common/collect/Multiset;->add(Ljava/lang/Object;I)I
+    invoke-interface {p1, v1, v2}, Lcom/google/common/collect/l3;->add(Ljava/lang/Object;I)I
 
-    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v1, v0}, Lcom/google/common/collect/ObjectCountHashMap;->nextIndex(I)I
+    invoke-virtual {v1, v0}, Lcom/google/common/collect/o3;->s(I)I
 
     move-result v0
 
@@ -286,9 +260,9 @@
 .method public final clear()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ObjectCountHashMap;->clear()V
+    invoke-virtual {v0}, Lcom/google/common/collect/o3;->a()V
 
     const-wide/16 v0, 0x0
 
@@ -300,9 +274,9 @@
 .method public final count(Ljava/lang/Object;)I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/ObjectCountHashMap;->get(Ljava/lang/Object;)I
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/o3;->f(Ljava/lang/Object;)I
 
     move-result p1
 
@@ -312,9 +286,9 @@
 .method public final distinctElements()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ObjectCountHashMap;->size()I
+    invoke-virtual {v0}, Lcom/google/common/collect/o3;->C()I
 
     move-result v0
 
@@ -331,9 +305,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultiset$1;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultiset$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultiset$1;-><init>(Lcom/google/common/collect/AbstractMapBasedMultiset;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultiset$a;-><init>(Lcom/google/common/collect/AbstractMapBasedMultiset;)V
 
     return-object v0
 .end method
@@ -344,14 +318,14 @@
         value = {
             "()",
             "Ljava/util/Iterator<",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TE;>;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultiset$2;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultiset$b;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultiset$2;-><init>(Lcom/google/common/collect/AbstractMapBasedMultiset;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultiset$b;-><init>(Lcom/google/common/collect/AbstractMapBasedMultiset;)V
 
     return-object v0
 .end method
@@ -366,18 +340,18 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/collect/Multisets;->iteratorImpl(Lcom/google/common/collect/Multiset;)Ljava/util/Iterator;
+    invoke-static {p0}, Lcom/google/common/collect/Multisets;->i(Lcom/google/common/collect/l3;)Ljava/util/Iterator;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public abstract newBackingMap(I)Lcom/google/common/collect/ObjectCountHashMap;
+.method public abstract newBackingMap(I)Lcom/google/common/collect/o3;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/ObjectCountHashMap<",
+            "Lcom/google/common/collect/o3<",
             "TE;>;"
         }
     .end annotation
@@ -385,8 +359,6 @@
 
 .method public final remove(Ljava/lang/Object;I)I
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     if-nez p2, :cond_0
 
@@ -406,16 +378,16 @@
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     const-string v2, "occurrences cannot be negative: %s"
 
-    invoke-static {v1, v2, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
+    invoke-static {v1, v2, p2}, Lcom/google/common/base/m;->f(ZLjava/lang/String;I)V
 
-    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v1, p1}, Lcom/google/common/collect/ObjectCountHashMap;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v1, p1}, Lcom/google/common/collect/o3;->m(Ljava/lang/Object;)I
 
     move-result p1
 
@@ -426,26 +398,26 @@
     return v0
 
     :cond_2
-    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/ObjectCountHashMap;->getValue(I)I
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/o3;->k(I)I
 
     move-result v0
 
     if-le v0, p2, :cond_3
 
-    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
     sub-int v2, v0, p2
 
-    invoke-virtual {v1, p1, v2}, Lcom/google/common/collect/ObjectCountHashMap;->setValue(II)V
+    invoke-virtual {v1, p1, v2}, Lcom/google/common/collect/o3;->B(II)V
 
     goto :goto_1
 
     :cond_3
-    iget-object p2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object p2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {p2, p1}, Lcom/google/common/collect/ObjectCountHashMap;->removeEntry(I)I
+    invoke-virtual {p2, p1}, Lcom/google/common/collect/o3;->x(I)I
 
     move p2, v0
 
@@ -463,13 +435,6 @@
 
 .method public final setCount(Ljava/lang/Object;I)I
     .locals 4
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I)I"
@@ -478,20 +443,20 @@
 
     const-string v0, "count"
 
-    invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
+    invoke-static {p2, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
 
-    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
     if-nez p2, :cond_0
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/ObjectCountHashMap;->remove(Ljava/lang/Object;)I
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/o3;->v(Ljava/lang/Object;)I
 
     move-result p1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/ObjectCountHashMap;->put(Ljava/lang/Object;I)I
+    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/o3;->u(Ljava/lang/Object;I)I
 
     move-result p1
 
@@ -511,10 +476,6 @@
 
 .method public final setCount(Ljava/lang/Object;II)Z
     .locals 4
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;II)Z"
@@ -523,15 +484,15 @@
 
     const-string v0, "oldCount"
 
-    invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
+    invoke-static {p2, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
 
     const-string v0, "newCount"
 
-    invoke-static {p3, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
+    invoke-static {p3, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
 
-    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/ObjectCountHashMap;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/o3;->m(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -550,9 +511,9 @@
     :cond_0
     if-lez p3, :cond_1
 
-    iget-object p2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object p2, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {p2, p1, p3}, Lcom/google/common/collect/ObjectCountHashMap;->put(Ljava/lang/Object;I)I
+    invoke-virtual {p2, p1, p3}, Lcom/google/common/collect/o3;->u(Ljava/lang/Object;I)I
 
     iget-wide p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->size:J
 
@@ -566,9 +527,9 @@
     return v2
 
     :cond_2
-    iget-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {p1, v0}, Lcom/google/common/collect/ObjectCountHashMap;->getValue(I)I
+    invoke-virtual {p1, v0}, Lcom/google/common/collect/o3;->k(I)I
 
     move-result p1
 
@@ -579,9 +540,9 @@
     :cond_3
     if-nez p3, :cond_4
 
-    iget-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {p1, v0}, Lcom/google/common/collect/ObjectCountHashMap;->removeEntry(I)I
+    invoke-virtual {p1, v0}, Lcom/google/common/collect/o3;->x(I)I
 
     iget-wide v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->size:J
 
@@ -594,9 +555,9 @@
     goto :goto_0
 
     :cond_4
-    iget-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/ObjectCountHashMap;
+    iget-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->backingMap:Lcom/google/common/collect/o3;
 
-    invoke-virtual {p1, v0, p3}, Lcom/google/common/collect/ObjectCountHashMap;->setValue(II)V
+    invoke-virtual {p1, v0, p3}, Lcom/google/common/collect/o3;->B(II)V
 
     iget-wide v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->size:J
 
@@ -617,7 +578,7 @@
 
     iget-wide v0, p0, Lcom/google/common/collect/AbstractMapBasedMultiset;->size:J
 
-    invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
+    invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->n(J)I
 
     move-result v0
 

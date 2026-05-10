@@ -6,13 +6,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    serializable = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/google/common/collect/Ordering<",
@@ -118,7 +111,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/collect/Lists;->newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;
+    invoke-static {p1}, Lcom/google/common/collect/Lists;->j(Ljava/lang/Iterable;)Ljava/util/ArrayList;
 
     move-result-object p1
 

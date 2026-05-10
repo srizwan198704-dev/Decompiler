@@ -1,17 +1,11 @@
 .class abstract Lcom/google/common/util/concurrent/AbstractCatchingFuture;
-.super Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;
+.super Lcom/google/common/util/concurrent/k$a;
 
 # interfaces
 .implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/util/concurrent/AbstractCatchingFuture$CatchingFuture;,
@@ -30,7 +24,7 @@
         "T:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture<",
+        "Lcom/google/common/util/concurrent/k$a<",
         "TV;>;",
         "Ljava/lang/Runnable;"
     }
@@ -55,10 +49,10 @@
     .end annotation
 .end field
 
-.field inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+.field inputFuture:Lcom/google/common/util/concurrent/t;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TV;>;"
         }
     .end annotation
@@ -66,29 +60,35 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Ljava/lang/Object;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/util/concurrent/t;Ljava/lang/Class;Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TV;>;",
             "Ljava/lang/Class<",
             "TX;>;TF;)V"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/k$a;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/util/concurrent/ListenableFuture;
+    check-cast p1, Lcom/google/common/util/concurrent/t;
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -96,7 +96,7 @@
 
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->exceptionType:Ljava/lang/Class;
 
-    invoke-static {p3}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -105,7 +105,7 @@
     return-void
 .end method
 
-.method public static create(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
+.method public static create(Lcom/google/common/util/concurrent/t;Ljava/lang/Class;Lcom/google/common/base/f;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/t;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -114,33 +114,33 @@
             "X:",
             "Ljava/lang/Throwable;",
             ">(",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TV;>;",
             "Ljava/lang/Class<",
             "TX;>;",
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "-TX;+TV;>;",
             "Ljava/util/concurrent/Executor;",
             ")",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "TV;>;"
         }
     .end annotation
 
     new-instance v0, Lcom/google/common/util/concurrent/AbstractCatchingFuture$CatchingFuture;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/google/common/util/concurrent/AbstractCatchingFuture$CatchingFuture;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/base/Function;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/google/common/util/concurrent/AbstractCatchingFuture$CatchingFuture;-><init>(Lcom/google/common/util/concurrent/t;Ljava/lang/Class;Lcom/google/common/base/f;)V
 
-    invoke-static {p3, v0}, Lcom/google/common/util/concurrent/MoreExecutors;->rejectionPropagatingExecutor(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
+    invoke-static {p3, v0}, Lcom/google/common/util/concurrent/MoreExecutors;->c(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
 
     move-result-object p1
 
-    invoke-interface {p0, v0, p1}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-interface {p0, v0, p1}, Lcom/google/common/util/concurrent/t;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     return-object v0
 .end method
 
-.method public static create(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/util/concurrent/AsyncFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
+.method public static createAsync(Lcom/google/common/util/concurrent/t;Ljava/lang/Class;Lcom/google/common/util/concurrent/f;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/t;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -149,28 +149,28 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TV;>;",
             "Ljava/lang/Class<",
             "TX;>;",
-            "Lcom/google/common/util/concurrent/AsyncFunction<",
+            "Lcom/google/common/util/concurrent/f<",
             "-TX;+TV;>;",
             "Ljava/util/concurrent/Executor;",
             ")",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "TV;>;"
         }
     .end annotation
 
     new-instance v0, Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/util/concurrent/AsyncFunction;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture;-><init>(Lcom/google/common/util/concurrent/t;Ljava/lang/Class;Lcom/google/common/util/concurrent/f;)V
 
-    invoke-static {p3, v0}, Lcom/google/common/util/concurrent/MoreExecutors;->rejectionPropagatingExecutor(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
+    invoke-static {p3, v0}, Lcom/google/common/util/concurrent/MoreExecutors;->c(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
 
     move-result-object p1
 
-    invoke-interface {p0, v0, p1}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-interface {p0, v0, p1}, Lcom/google/common/util/concurrent/t;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     return-object v0
 .end method
@@ -180,13 +180,13 @@
 .method public final afterDone()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->maybePropagateCancellationTo(Ljava/util/concurrent/Future;)V
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iput-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->exceptionType:Ljava/lang/Class;
 
@@ -196,12 +196,6 @@
 .end method
 
 .method public abstract doFallback(Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/lang/Object;
-    .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/ForOverride;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TX;)TT;"
@@ -218,7 +212,7 @@
 .method public pendingToString()Ljava/lang/String;
     .locals 6
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->exceptionType:Ljava/lang/Class;
 
@@ -312,7 +306,7 @@
 .method public final run()V
     .locals 8
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->exceptionType:Ljava/lang/Class;
 
@@ -324,36 +318,36 @@
 
     if-nez v0, :cond_0
 
-    const/4 v5, 0x1
+    move v5, v4
 
     goto :goto_0
 
     :cond_0
-    const/4 v5, 0x0
+    move v5, v3
 
     :goto_0
     if-nez v1, :cond_1
 
-    const/4 v6, 0x1
+    move v6, v4
 
     goto :goto_1
 
     :cond_1
-    const/4 v6, 0x0
+    move v6, v3
 
     :goto_1
     or-int/2addr v5, v6
 
     if-nez v2, :cond_2
 
-    const/4 v3, 0x1
+    move v3, v4
 
     :cond_2
     or-int/2addr v3, v5
 
     if-nez v3, :cond_9
 
-    invoke-virtual {p0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;->isCancelled()Z
+    invoke-virtual {p0}, Lcom/google/common/util/concurrent/k$a;->isCancelled()Z
 
     move-result v3
 
@@ -364,18 +358,18 @@
     :cond_3
     const/4 v3, 0x0
 
-    iput-object v3, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iput-object v3, p0, Lcom/google/common/util/concurrent/AbstractCatchingFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     :try_start_0
-    instance-of v4, v0, Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;
+    instance-of v4, v0, Lbd/a;
 
     if-eqz v4, :cond_4
 
     move-object v4, v0
 
-    check-cast v4, Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;
+    check-cast v4, Lbd/a;
 
-    invoke-static {v4}, Lcom/google/common/util/concurrent/internal/InternalFutures;->tryInternalFastPathGetFailure(Lcom/google/common/util/concurrent/internal/InternalFutureFailureAccess;)Ljava/lang/Throwable;
+    invoke-static {v4}, Lbd/b;->a(Lbd/a;)Ljava/lang/Throwable;
 
     move-result-object v4
 
@@ -397,7 +391,7 @@
     :goto_2
     if-nez v4, :cond_5
 
-    invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->d(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v5
     :try_end_0
@@ -463,7 +457,7 @@
     :goto_5
     if-nez v4, :cond_7
 
-    invoke-static {v5}, Lcom/google/common/util/concurrent/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/google/common/util/concurrent/x;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -472,13 +466,13 @@
     return-void
 
     :cond_7
-    invoke-static {v4, v1}, Lcom/google/common/util/concurrent/Platform;->isInstanceOfThrowableClass(Ljava/lang/Throwable;Ljava/lang/Class;)Z
+    invoke-static {v4, v1}, Lcom/google/common/util/concurrent/z;->a(Ljava/lang/Throwable;Ljava/lang/Class;)Z
 
     move-result v1
 
     if-nez v1, :cond_8
 
-    invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
+    invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/t;)Z
 
     return-void
 
@@ -502,7 +496,7 @@
     move-exception v0
 
     :try_start_2
-    invoke-static {v0}, Lcom/google/common/util/concurrent/Platform;->restoreInterruptIfIsInterruptedException(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lcom/google/common/util/concurrent/z;->b(Ljava/lang/Throwable;)V
 
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->setException(Ljava/lang/Throwable;)Z
     :try_end_2
@@ -529,13 +523,6 @@
 .end method
 
 .method public abstract setResult(Ljava/lang/Object;)V
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/ForOverride;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"

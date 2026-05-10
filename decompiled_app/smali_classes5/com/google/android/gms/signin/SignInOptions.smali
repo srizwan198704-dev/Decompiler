@@ -53,6 +53,10 @@
 
     new-instance v11, Lcom/google/android/gms/signin/SignInOptions;
 
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -68,10 +72,6 @@
     const/4 v7, 0x0
 
     const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
 
     move-object v0, v11
 
@@ -196,35 +196,35 @@
 
     aput-object v1, v0, v2
 
-    const/4 v2, 0x2
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x2
 
-    aput-object v3, v0, v2
+    aput-object v2, v0, v3
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
-    const/4 v2, 0x4
+    const/4 v3, 0x4
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     const/4 v1, 0x5
 
-    aput-object v3, v0, v1
+    aput-object v2, v0, v1
 
     const/4 v1, 0x6
 
-    aput-object v3, v0, v1
+    aput-object v2, v0, v1
 
     const/4 v1, 0x7
 
-    aput-object v3, v0, v1
+    aput-object v2, v0, v1
 
     const/16 v1, 0x8
 
-    aput-object v3, v0, v1
+    aput-object v2, v0, v1
 
     invoke-static {v0}, Lcom/google/android/gms/common/internal/Objects;->hashCode([Ljava/lang/Object;)I
 

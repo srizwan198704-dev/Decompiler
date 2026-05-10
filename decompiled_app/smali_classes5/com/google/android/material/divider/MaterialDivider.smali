@@ -3,25 +3,22 @@
 
 
 # static fields
-.field private static final DEF_STYLE_RES:I
+.field public static final f:I
 
 
 # instance fields
-.field private color:I
-    .annotation build Landroidx/annotation/ColorInt;
-    .end annotation
-.end field
-
-.field private final dividerDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+.field public final a:Luc/i;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
-.field private insetEnd:I
+.field public b:I
 
-.field private insetStart:I
+.field public c:I
 
-.field private thickness:I
+.field public d:I
+
+.field public e:I
 
 
 # direct methods
@@ -30,7 +27,7 @@
 
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_MaterialDivider:I
 
-    sput v0, Lcom/google/android/material/divider/MaterialDivider;->DEF_STYLE_RES:I
+    sput v0, Lcom/google/android/material/divider/MaterialDivider;->f:I
 
     return-void
 .end method
@@ -78,9 +75,9 @@
         .end annotation
     .end param
 
-    sget v4, Lcom/google/android/material/divider/MaterialDivider;->DEF_STYLE_RES:I
+    sget v4, Lcom/google/android/material/divider/MaterialDivider;->f:I
 
-    invoke-static {p1, p2, p3, v4}, Lcom/google/android/material/theme/overlay/MaterialThemeOverlay;->wrap(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
+    invoke-static {p1, p2, p3, v4}, Lvc/a;->c(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
 
     move-result-object p1
 
@@ -90,11 +87,11 @@
 
     move-result-object p1
 
-    new-instance v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
+    new-instance v0, Luc/i;
 
-    invoke-direct {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;-><init>()V
+    invoke-direct {v0}, Luc/i;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/material/divider/MaterialDivider;->dividerDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iput-object v0, p0, Lcom/google/android/material/divider/MaterialDivider;->a:Luc/i;
 
     sget-object v2, Lcom/google/android/material/R$styleable;->MaterialDivider:[I
 
@@ -108,7 +105,7 @@
 
     move v3, p3
 
-    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/ThemeEnforcement;->obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
+    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/b0;->i(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
 
     move-result-object p2
 
@@ -128,7 +125,7 @@
 
     move-result p3
 
-    iput p3, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
+    iput p3, p0, Lcom/google/android/material/divider/MaterialDivider;->b:I
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialDivider_dividerInsetStart:I
 
@@ -136,7 +133,7 @@
 
     move-result p3
 
-    iput p3, p0, Lcom/google/android/material/divider/MaterialDivider;->insetStart:I
+    iput p3, p0, Lcom/google/android/material/divider/MaterialDivider;->d:I
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialDivider_dividerInsetEnd:I
 
@@ -144,11 +141,11 @@
 
     move-result p3
 
-    iput p3, p0, Lcom/google/android/material/divider/MaterialDivider;->insetEnd:I
+    iput p3, p0, Lcom/google/android/material/divider/MaterialDivider;->e:I
 
     sget p3, Lcom/google/android/material/R$styleable;->MaterialDivider_dividerColor:I
 
-    invoke-static {p1, p2, p3}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p2, p3}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
     move-result-object p1
 
@@ -168,27 +165,23 @@
 .method public getDividerColor()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->color:I
+    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->c:I
 
     return v0
 .end method
 
 .method public getDividerInsetEnd()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->insetEnd:I
+    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->e:I
 
     return v0
 .end method
 
 .method public getDividerInsetStart()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->insetStart:I
+    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->d:I
 
     return v0
 .end method
@@ -196,7 +189,7 @@
 .method public getDividerThickness()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
+    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->b:I
 
     return v0
 .end method
@@ -223,17 +216,17 @@
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-eqz v2, :cond_1
 
-    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->insetEnd:I
+    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->e:I
 
     goto :goto_1
 
     :cond_1
-    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->insetStart:I
+    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->d:I
 
     :goto_1
     if-eqz v2, :cond_2
@@ -242,7 +235,7 @@
 
     move-result v2
 
-    iget v3, p0, Lcom/google/android/material/divider/MaterialDivider;->insetStart:I
+    iget v3, p0, Lcom/google/android/material/divider/MaterialDivider;->d:I
 
     :goto_2
     sub-int/2addr v2, v3
@@ -254,12 +247,12 @@
 
     move-result v2
 
-    iget v3, p0, Lcom/google/android/material/divider/MaterialDivider;->insetEnd:I
+    iget v3, p0, Lcom/google/android/material/divider/MaterialDivider;->e:I
 
     goto :goto_2
 
     :goto_3
-    iget-object v3, p0, Lcom/google/android/material/divider/MaterialDivider;->dividerDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v3, p0, Lcom/google/android/material/divider/MaterialDivider;->a:Luc/i;
 
     invoke-virtual {p0}, Landroid/view/View;->getBottom()I
 
@@ -273,9 +266,9 @@
 
     invoke-virtual {v3, v0, v1, v2, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    iget-object v0, p0, Lcom/google/android/material/divider/MaterialDivider;->dividerDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/divider/MaterialDivider;->a:Luc/i;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v0, p1}, Luc/i;->draw(Landroid/graphics/Canvas;)V
 
     return-void
 .end method
@@ -300,7 +293,7 @@
     if-nez p1, :cond_2
 
     :cond_0
-    iget p1, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
+    iget p1, p0, Lcom/google/android/material/divider/MaterialDivider;->b:I
 
     if-lez p1, :cond_1
 
@@ -321,24 +314,20 @@
 
 .method public setDividerColor(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/ColorInt;
-        .end annotation
-    .end param
 
-    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->color:I
+    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->c:I
 
     if-eq v0, p1, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->color:I
+    iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->c:I
 
-    iget-object v0, p0, Lcom/google/android/material/divider/MaterialDivider;->dividerDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/divider/MaterialDivider;->a:Luc/i;
 
     invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object p1
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setFillColor(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v0, p1}, Luc/i;->d0(Landroid/content/res/ColorStateList;)V
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
@@ -348,16 +337,12 @@
 
 .method public setDividerColorResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/ColorRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
+    invoke-static {v0, p1}, Lc1/b;->getColor(Landroid/content/Context;I)I
 
     move-result p1
 
@@ -368,22 +353,14 @@
 
 .method public setDividerInsetEnd(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
-    iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->insetEnd:I
+    iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->e:I
 
     return-void
 .end method
 
 .method public setDividerInsetEndResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -404,22 +381,14 @@
 
 .method public setDividerInsetStart(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
-    iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->insetStart:I
+    iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->d:I
 
     return-void
 .end method
 
 .method public setDividerInsetStartResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -440,16 +409,12 @@
 
 .method public setDividerThickness(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
-    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
+    iget v0, p0, Lcom/google/android/material/divider/MaterialDivider;->b:I
 
     if-eq v0, p1, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->thickness:I
+    iput p1, p0, Lcom/google/android/material/divider/MaterialDivider;->b:I
 
     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
 
@@ -459,10 +424,6 @@
 
 .method public setDividerThicknessResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 

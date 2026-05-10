@@ -3,13 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/collect/ImmutableMapValues$SerializedForm;
@@ -41,6 +34,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -100,11 +99,11 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapValues;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapValues;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/google/common/collect/Iterators;->contains(Ljava/util/Iterator;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/google/common/collect/Iterators;->f(Ljava/util/Iterator;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -129,19 +128,19 @@
     return v0
 .end method
 
-.method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public iterator()Lcom/google/common/collect/r4;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "TV;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableMapValues$1;
+    new-instance v0, Lcom/google/common/collect/ImmutableMapValues$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableMapValues$1;-><init>(Lcom/google/common/collect/ImmutableMapValues;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableMapValues$a;-><init>(Lcom/google/common/collect/ImmutableMapValues;)V
 
     return-object v0
 .end method
@@ -149,7 +148,7 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapValues;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMapValues;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -170,8 +169,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
 
     new-instance v0, Lcom/google/common/collect/ImmutableMapValues$SerializedForm;
 

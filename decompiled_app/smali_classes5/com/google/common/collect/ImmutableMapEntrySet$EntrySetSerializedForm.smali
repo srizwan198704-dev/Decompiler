@@ -6,12 +6,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtIncompatible;
-.end annotation
-
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/ImmutableMapEntrySet;
 .end annotation
@@ -50,6 +44,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;

@@ -7,6 +7,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>(Lcom/google/android/gms/common/api/internal/LifecycleFragment;)V
     .locals 1
 
@@ -78,8 +84,6 @@
 # virtual methods
 .method public final onStop()V
     .locals 3
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     iget-object v0, p0, Lcom/google/android/gms/tasks/zzv;->zza:Ljava/util/List;
 
@@ -137,13 +141,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_3
-
-    :goto_2
     throw v1
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method public final zzb(Lcom/google/android/gms/tasks/zzq;)V

@@ -1,17 +1,11 @@
 .class final Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator$NeverSuccessfulListenableFutureTask;
-.super Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;
+.super Lcom/google/common/util/concurrent/AbstractFuture$h;
 
 # interfaces
 .implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtIncompatible;
-.end annotation
-
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/util/concurrent/MoreExecutors$ScheduledListeningDecorator;
 .end annotation
@@ -23,7 +17,7 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture<",
+        "Lcom/google/common/util/concurrent/AbstractFuture$h<",
         "Ljava/lang/Void;",
         ">;",
         "Ljava/lang/Runnable;"
@@ -36,12 +30,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Runnable;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture$h;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 

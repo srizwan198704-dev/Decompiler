@@ -1,23 +1,20 @@
 .class public abstract Lcom/google/common/reflect/TypeToken;
-.super Lcom/google/common/reflect/TypeCapture;
+.super Lcom/google/common/reflect/c;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation runtime Lcom/google/common/reflect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/reflect/TypeToken$TypeCollector;,
         Lcom/google/common/reflect/TypeToken$SimpleTypeToken;,
-        Lcom/google/common/reflect/TypeToken$Bounds;,
+        Lcom/google/common/reflect/TypeToken$TypeSet;,
+        Lcom/google/common/reflect/TypeToken$e;,
+        Lcom/google/common/reflect/TypeToken$TypeCollector;,
         Lcom/google/common/reflect/TypeToken$TypeFilter;,
         Lcom/google/common/reflect/TypeToken$ClassSet;,
-        Lcom/google/common/reflect/TypeToken$InterfaceSet;,
-        Lcom/google/common/reflect/TypeToken$TypeSet;
+        Lcom/google/common/reflect/TypeToken$InterfaceSet;
     }
 .end annotation
 
@@ -26,7 +23,7 @@
         "<T:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/reflect/TypeCapture<",
+        "Lcom/google/common/reflect/c<",
         "TT;>;",
         "Ljava/io/Serializable;"
     }
@@ -38,26 +35,26 @@
 
 
 # instance fields
-.field private transient covariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-.end field
+.field private transient covariantTypeResolver:Lcom/google/common/reflect/e;
 
-.field private transient invariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-.end field
+.field private transient invariantTypeResolver:Lcom/google/common/reflect/e;
 
 .field private final runtimeType:Ljava/lang/reflect/Type;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 3
 
-    invoke-direct {p0}, Lcom/google/common/reflect/TypeCapture;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/reflect/c;-><init>()V
 
-    invoke-virtual {p0}, Lcom/google/common/reflect/TypeCapture;->capture()Ljava/lang/reflect/Type;
+    invoke-virtual {p0}, Lcom/google/common/reflect/c;->capture()Ljava/lang/reflect/Type;
 
     move-result-object v0
 
@@ -69,7 +66,7 @@
 
     const-string v2, "Cannot construct a TypeToken for a type variable.\nYou probably meant to call new TypeToken<%s>(getClass()) that can resolve the type variable for you.\nIf you do need to create a TypeToken of a type variable, please use TypeToken.of() instead."
 
-    invoke-static {v1, v2, v0}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Lcom/google/common/base/m;->x(ZLjava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -84,9 +81,9 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/reflect/TypeCapture;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/reflect/c;-><init>()V
 
-    invoke-super {p0}, Lcom/google/common/reflect/TypeCapture;->capture()Ljava/lang/reflect/Type;
+    invoke-super {p0}, Lcom/google/common/reflect/c;->capture()Ljava/lang/reflect/Type;
 
     move-result-object v0
 
@@ -99,11 +96,11 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {p1}, Lcom/google/common/reflect/TypeResolver;->covariantly(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeResolver;
+    invoke-static {p1}, Lcom/google/common/reflect/e;->d(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/e;
 
     move-result-object p1
 
-    invoke-virtual {p1, v0}, Lcom/google/common/reflect/TypeResolver;->resolveType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-virtual {p1, v0}, Lcom/google/common/reflect/e;->j(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object p1
 
@@ -116,9 +113,9 @@
 .method private constructor <init>(Ljava/lang/reflect/Type;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/common/reflect/TypeCapture;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/reflect/c;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -129,7 +126,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/lang/reflect/Type;Lcom/google/common/reflect/TypeToken$1;)V
+.method public synthetic constructor <init>(Ljava/lang/reflect/Type;Lcom/google/common/reflect/TypeToken$a;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/reflect/TypeToken;-><init>(Ljava/lang/reflect/Type;)V
@@ -137,20 +134,20 @@
     return-void
 .end method
 
-.method public static synthetic access$000(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeResolver;
+.method public static synthetic access$000(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/e;
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getCovariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
+    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getCovariantTypeResolver()Lcom/google/common/reflect/e;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static synthetic access$100(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeResolver;
+.method public static synthetic access$100(Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/e;
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getInvariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
+    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getInvariantTypeResolver()Lcom/google/common/reflect/e;
 
     move-result-object p0
 
@@ -175,14 +172,14 @@
     return-object p0
 .end method
 
-.method private static any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$Bounds;
+.method private static any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$e;
     .locals 2
 
-    new-instance v0, Lcom/google/common/reflect/TypeToken$Bounds;
+    new-instance v0, Lcom/google/common/reflect/TypeToken$e;
 
     const/4 v1, 0x1
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/reflect/TypeToken$Bounds;-><init>([Ljava/lang/reflect/Type;Z)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/reflect/TypeToken$e;-><init>([Ljava/lang/reflect/Type;Z)V
 
     return-object v0
 .end method
@@ -232,7 +229,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$Builder;
+    invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$a;
 
     move-result-object v0
 
@@ -259,7 +256,7 @@
 
     if-eqz v4, :cond_0
 
-    invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
+    invoke-virtual {v0, v3}, Lcom/google/common/collect/ImmutableList$a;->j(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$a;
 
     :cond_0
     add-int/lit8 v2, v2, 0x1
@@ -267,7 +264,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$a;->n()Lcom/google/common/collect/ImmutableList;
 
     move-result-object p1
 
@@ -337,18 +334,18 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     if-ge v4, v2, :cond_1
 
     aget-object v5, v1, v4
 
-    invoke-static {p0}, Lcom/google/common/reflect/TypeToken;->any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$Bounds;
+    invoke-static {p0}, Lcom/google/common/reflect/TypeToken;->any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$e;
 
     move-result-object v6
 
-    invoke-virtual {v6, v5}, Lcom/google/common/reflect/TypeToken$Bounds;->isSubtypeOf(Ljava/lang/reflect/Type;)Z
+    invoke-virtual {v6, v5}, Lcom/google/common/reflect/TypeToken$e;->a(Ljava/lang/reflect/Type;)Z
 
     move-result v6
 
@@ -428,7 +425,7 @@
 
     move-result-object p0
 
-    invoke-static {p0, v0, v2}, Lcom/google/common/reflect/Types;->newParameterizedTypeWithOwner(Ljava/lang/reflect/Type;Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
+    invoke-static {p0, v0, v2}, Lcom/google/common/reflect/Types;->m(Ljava/lang/reflect/Type;Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
 
     move-result-object p0
 
@@ -465,7 +462,7 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Lcom/google/common/reflect/Types;->newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-static {p0}, Lcom/google/common/reflect/Types;->j(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object p0
 
@@ -473,14 +470,14 @@
     return-object p0
 .end method
 
-.method private static every([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$Bounds;
+.method private static every([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$e;
     .locals 2
 
-    new-instance v0, Lcom/google/common/reflect/TypeToken$Bounds;
+    new-instance v0, Lcom/google/common/reflect/TypeToken$e;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/reflect/TypeToken$Bounds;-><init>([Ljava/lang/reflect/Type;Z)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/reflect/TypeToken$e;-><init>([Ljava/lang/reflect/Type;Z)V
 
     return-object v0
 .end method
@@ -613,39 +610,39 @@
     throw v0
 .end method
 
-.method private getCovariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
+.method private getCovariantTypeResolver()Lcom/google/common/reflect/e;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->covariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
+    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->covariantTypeResolver:Lcom/google/common/reflect/e;
 
     if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lcom/google/common/reflect/TypeResolver;->covariantly(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeResolver;
+    invoke-static {v0}, Lcom/google/common/reflect/e;->d(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/e;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/common/reflect/TypeToken;->covariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
+    iput-object v0, p0, Lcom/google/common/reflect/TypeToken;->covariantTypeResolver:Lcom/google/common/reflect/e;
 
     :cond_0
     return-object v0
 .end method
 
-.method private getInvariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
+.method private getInvariantTypeResolver()Lcom/google/common/reflect/e;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->invariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
+    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->invariantTypeResolver:Lcom/google/common/reflect/e;
 
     if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lcom/google/common/reflect/TypeResolver;->invariantly(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeResolver;
+    invoke-static {v0}, Lcom/google/common/reflect/e;->f(Ljava/lang/reflect/Type;)Lcom/google/common/reflect/e;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/common/reflect/TypeToken;->invariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
+    iput-object v0, p0, Lcom/google/common/reflect/TypeToken;->invariantTypeResolver:Lcom/google/common/reflect/e;
 
     :cond_0
     return-object v0
@@ -698,27 +695,27 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ImmutableSet;->builder()Lcom/google/common/collect/ImmutableSet$Builder;
+    invoke-static {}, Lcom/google/common/collect/ImmutableSet;->builder()Lcom/google/common/collect/ImmutableSet$a;
 
     move-result-object v0
 
-    new-instance v1, Lcom/google/common/reflect/TypeToken$4;
+    new-instance v1, Lcom/google/common/reflect/TypeToken$d;
 
-    invoke-direct {v1, p0, v0}, Lcom/google/common/reflect/TypeToken$4;-><init>(Lcom/google/common/reflect/TypeToken;Lcom/google/common/collect/ImmutableSet$Builder;)V
+    invoke-direct {v1, p0, v0}, Lcom/google/common/reflect/TypeToken$d;-><init>(Lcom/google/common/reflect/TypeToken;Lcom/google/common/collect/ImmutableSet$a;)V
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    new-array v2, v2, [Ljava/lang/reflect/Type;
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    new-array v3, v3, [Ljava/lang/reflect/Type;
 
-    iget-object v4, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
+    const/4 v4, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v2, v3, v4
 
-    invoke-virtual {v1, v2}, Lcom/google/common/reflect/TypeVisitor;->visit([Ljava/lang/reflect/Type;)V
+    invoke-virtual {v1, v3}, Lcom/google/common/reflect/g;->a([Ljava/lang/reflect/Type;)V
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSet$Builder;->build()Lcom/google/common/collect/ImmutableSet;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSet$a;->o()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 
@@ -846,13 +843,7 @@
 
     invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p2
-
-    :goto_2
-    goto :goto_1
 .end method
 
 .method private is(Ljava/lang/reflect/Type;Ljava/lang/reflect/TypeVariable;)Z
@@ -893,13 +884,13 @@
 
     move-result-object p2
 
-    invoke-static {p2}, Lcom/google/common/reflect/TypeToken;->every([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$Bounds;
+    invoke-static {p2}, Lcom/google/common/reflect/TypeToken;->every([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$e;
 
     move-result-object p2
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-virtual {p2, v0}, Lcom/google/common/reflect/TypeToken$Bounds;->isSupertypeOf(Ljava/lang/reflect/Type;)Z
+    invoke-virtual {p2, v0}, Lcom/google/common/reflect/TypeToken$e;->b(Ljava/lang/reflect/Type;)Z
 
     move-result p2
 
@@ -909,13 +900,13 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/reflect/TypeToken;->every([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$Bounds;
+    invoke-static {p1}, Lcom/google/common/reflect/TypeToken;->every([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$e;
 
     move-result-object p1
 
     iget-object p2, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-virtual {p1, p2}, Lcom/google/common/reflect/TypeToken$Bounds;->isSubtypeOf(Ljava/lang/reflect/Type;)Z
+    invoke-virtual {p1, p2}, Lcom/google/common/reflect/TypeToken$e;->a(Ljava/lang/reflect/Type;)Z
 
     move-result p1
 
@@ -954,7 +945,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ForwardingCollection;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/k2;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -1096,20 +1087,20 @@
 
     move-result-object v1
 
-    const/4 v3, 0x0
+    move v3, v2
 
     :goto_0
     array-length v4, v0
 
     if-ge v3, v4, :cond_2
 
-    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getCovariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
+    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getCovariantTypeResolver()Lcom/google/common/reflect/e;
 
     move-result-object v4
 
     aget-object v5, v0, v3
 
-    invoke-virtual {v4, v5}, Lcom/google/common/reflect/TypeResolver;->resolveType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-virtual {v4, v5}, Lcom/google/common/reflect/e;->j(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object v4
 
@@ -1254,7 +1245,7 @@
 .method private isWrapper()Z
     .locals 2
 
-    invoke-static {}, Lcom/google/common/primitives/Primitives;->allWrapperTypes()Ljava/util/Set;
+    invoke-static {}, Lcom/google/common/primitives/e;->b()Ljava/util/Set;
 
     move-result-object v0
 
@@ -1331,11 +1322,11 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getCovariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
+    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getCovariantTypeResolver()Lcom/google/common/reflect/e;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/google/common/reflect/TypeResolver;->resolveType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-virtual {v0, p1}, Lcom/google/common/reflect/e;->j(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object p1
 
@@ -1343,13 +1334,13 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->covariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
+    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->covariantTypeResolver:Lcom/google/common/reflect/e;
 
-    iput-object v0, p1, Lcom/google/common/reflect/TypeToken;->covariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
+    iput-object v0, p1, Lcom/google/common/reflect/TypeToken;->covariantTypeResolver:Lcom/google/common/reflect/e;
 
-    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->invariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
+    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->invariantTypeResolver:Lcom/google/common/reflect/e;
 
-    iput-object v0, p1, Lcom/google/common/reflect/TypeToken;->invariantTypeResolver:Lcom/google/common/reflect/TypeResolver;
+    iput-object v0, p1, Lcom/google/common/reflect/TypeToken;->invariantTypeResolver:Lcom/google/common/reflect/e;
 
     return-object p1
 .end method
@@ -1409,19 +1400,19 @@
 
     iget-object v0, v0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    new-instance v1, Lcom/google/common/reflect/TypeResolver;
+    new-instance v1, Lcom/google/common/reflect/e;
 
-    invoke-direct {v1}, Lcom/google/common/reflect/TypeResolver;-><init>()V
+    invoke-direct {v1}, Lcom/google/common/reflect/e;-><init>()V
 
     iget-object v2, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-virtual {v1, v0, v2}, Lcom/google/common/reflect/TypeResolver;->where(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeResolver;
+    invoke-virtual {v1, v0, v2}, Lcom/google/common/reflect/e;->n(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Lcom/google/common/reflect/e;
 
     move-result-object v0
 
     iget-object p1, p1, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-virtual {v0, p1}, Lcom/google/common/reflect/TypeResolver;->resolveType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-virtual {v0, p1}, Lcom/google/common/reflect/e;->j(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object p1
 
@@ -1442,7 +1433,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -1477,9 +1468,6 @@
 
 .method public static toGenericType(Ljava/lang/Class;)Lcom/google/common/reflect/TypeToken;
     .locals 3
-    .annotation build Lcom/google/common/annotations/VisibleForTesting;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1508,7 +1496,7 @@
 
     iget-object p0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-static {p0}, Lcom/google/common/reflect/Types;->newArrayType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-static {p0}, Lcom/google/common/reflect/Types;->j(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object p0
 
@@ -1578,7 +1566,7 @@
 
     :cond_3
     :goto_1
-    invoke-static {v1, p0, v0}, Lcom/google/common/reflect/Types;->newParameterizedTypeWithOwner(Ljava/lang/reflect/Type;Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
+    invoke-static {v1, p0, v0}, Lcom/google/common/reflect/Types;->m(Ljava/lang/reflect/Type;Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/ParameterizedType;
 
     move-result-object p0
 
@@ -1591,14 +1579,14 @@
 
 
 # virtual methods
-.method public final constructor(Ljava/lang/reflect/Constructor;)Lcom/google/common/reflect/Invokable;
+.method public final constructor(Ljava/lang/reflect/Constructor;)Lcom/google/common/reflect/a;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/reflect/Constructor<",
             "*>;)",
-            "Lcom/google/common/reflect/Invokable<",
+            "Lcom/google/common/reflect/a<",
             "TT;TT;>;"
         }
     .end annotation
@@ -1627,11 +1615,11 @@
 
     move-result-object v2
 
-    invoke-static {v0, v1, p1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p1, v2}, Lcom/google/common/base/m;->k(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
 
-    new-instance v0, Lcom/google/common/reflect/TypeToken$2;
+    new-instance v0, Lcom/google/common/reflect/TypeToken$b;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/reflect/TypeToken$2;-><init>(Lcom/google/common/reflect/TypeToken;Ljava/lang/reflect/Constructor;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/reflect/TypeToken$b;-><init>(Lcom/google/common/reflect/TypeToken;Ljava/lang/reflect/Constructor;)V
 
     return-object v0
 .end method
@@ -1673,7 +1661,7 @@
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lcom/google/common/reflect/Types;->getComponentType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-static {v0}, Lcom/google/common/reflect/Types;->i(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object v0
 
@@ -1738,7 +1726,7 @@
     return-object v0
 
     :cond_1
-    invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$Builder;
+    invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$a;
 
     move-result-object v0
 
@@ -1763,14 +1751,14 @@
 
     move-result-object v4
 
-    invoke-virtual {v0, v4}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
+    invoke-virtual {v0, v4}, Lcom/google/common/collect/ImmutableList$a;->j(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$a;
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$a;->n()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
@@ -1865,7 +1853,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v0
 
@@ -1898,7 +1886,7 @@
 
     const-string v1, "Cannot get subtype of type variable <%s>"
 
-    invoke-static {v0, v1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
@@ -1942,7 +1930,7 @@
 
     const-string v1, "%s isn\'t a subclass of %s"
 
-    invoke-static {v0, v1, p1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p1, p0}, Lcom/google/common/base/m;->k(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-direct {p0, p1}, Lcom/google/common/reflect/TypeToken;->resolveTypeArgsForSubclass(Ljava/lang/Class;)Ljava/lang/reflect/Type;
 
@@ -1958,7 +1946,7 @@
 
     const-string v1, "%s does not appear to be a subtype of %s"
 
-    invoke-static {v0, v1, p1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p1, p0}, Lcom/google/common/base/m;->k(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-object p1
 .end method
@@ -1981,7 +1969,7 @@
 
     const-string v1, "%s is not a super class of %s"
 
-    invoke-static {v0, v1, p1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p1, p0}, Lcom/google/common/base/m;->k(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
@@ -2154,7 +2142,7 @@
 .method public final isSubtypeOf(Ljava/lang/reflect/Type;)Z
     .locals 3
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     instance-of v0, p1, Ljava/lang/reflect/WildcardType;
 
@@ -2166,13 +2154,13 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/reflect/TypeToken;->any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$Bounds;
+    invoke-static {p1}, Lcom/google/common/reflect/TypeToken;->any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$e;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-virtual {p1, v0}, Lcom/google/common/reflect/TypeToken$Bounds;->isSupertypeOf(Ljava/lang/reflect/Type;)Z
+    invoke-virtual {p1, v0}, Lcom/google/common/reflect/TypeToken$e;->b(Ljava/lang/reflect/Type;)Z
 
     move-result p1
 
@@ -2191,11 +2179,11 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/reflect/TypeToken;->any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$Bounds;
+    invoke-static {v0}, Lcom/google/common/reflect/TypeToken;->any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$e;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/google/common/reflect/TypeToken$Bounds;->isSubtypeOf(Ljava/lang/reflect/Type;)Z
+    invoke-virtual {v0, p1}, Lcom/google/common/reflect/TypeToken$e;->a(Ljava/lang/reflect/Type;)Z
 
     move-result p1
 
@@ -2222,11 +2210,11 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/reflect/TypeToken;->any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$Bounds;
+    invoke-static {v0}, Lcom/google/common/reflect/TypeToken;->any([Ljava/lang/reflect/Type;)Lcom/google/common/reflect/TypeToken$e;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/google/common/reflect/TypeToken$Bounds;->isSubtypeOf(Ljava/lang/reflect/Type;)Z
+    invoke-virtual {v0, p1}, Lcom/google/common/reflect/TypeToken$e;->a(Ljava/lang/reflect/Type;)Z
 
     move-result p1
 
@@ -2339,14 +2327,14 @@
     return p1
 .end method
 
-.method public final method(Ljava/lang/reflect/Method;)Lcom/google/common/reflect/Invokable;
+.method public final method(Ljava/lang/reflect/Method;)Lcom/google/common/reflect/a;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/reflect/Method;",
             ")",
-            "Lcom/google/common/reflect/Invokable<",
+            "Lcom/google/common/reflect/a<",
             "TT;",
             "Ljava/lang/Object;",
             ">;"
@@ -2363,20 +2351,17 @@
 
     const-string v1, "%s not declared by %s"
 
-    invoke-static {v0, v1, p1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p1, p0}, Lcom/google/common/base/m;->k(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
 
-    new-instance v0, Lcom/google/common/reflect/TypeToken$1;
+    new-instance v0, Lcom/google/common/reflect/TypeToken$a;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/reflect/TypeToken$1;-><init>(Lcom/google/common/reflect/TypeToken;Ljava/lang/reflect/Method;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/reflect/TypeToken$a;-><init>(Lcom/google/common/reflect/TypeToken;Ljava/lang/reflect/Method;)V
 
     return-object v0
 .end method
 
 .method public final rejectTypeVariables()Lcom/google/common/reflect/TypeToken;
     .locals 4
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2385,21 +2370,21 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/reflect/TypeToken$3;
+    new-instance v0, Lcom/google/common/reflect/TypeToken$c;
 
-    invoke-direct {v0, p0}, Lcom/google/common/reflect/TypeToken$3;-><init>(Lcom/google/common/reflect/TypeToken;)V
+    invoke-direct {v0, p0}, Lcom/google/common/reflect/TypeToken$c;-><init>(Lcom/google/common/reflect/TypeToken;)V
 
-    const/4 v1, 0x1
+    iget-object v1, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    new-array v1, v1, [Ljava/lang/reflect/Type;
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/reflect/Type;
 
-    iget-object v3, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
+    const/4 v3, 0x0
 
-    aput-object v3, v1, v2
+    aput-object v1, v2, v3
 
-    invoke-virtual {v0, v1}, Lcom/google/common/reflect/TypeVisitor;->visit([Ljava/lang/reflect/Type;)V
+    invoke-virtual {v0, v2}, Lcom/google/common/reflect/g;->a([Ljava/lang/reflect/Type;)V
 
     return-object p0
 .end method
@@ -2416,13 +2401,13 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getInvariantTypeResolver()Lcom/google/common/reflect/TypeResolver;
+    invoke-direct {p0}, Lcom/google/common/reflect/TypeToken;->getInvariantTypeResolver()Lcom/google/common/reflect/e;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/google/common/reflect/TypeResolver;->resolveType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-virtual {v0, p1}, Lcom/google/common/reflect/e;->j(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object p1
 
@@ -2438,7 +2423,7 @@
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-static {v0}, Lcom/google/common/reflect/Types;->toString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/google/common/reflect/Types;->s(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2465,7 +2450,7 @@
 
     check-cast v0, Ljava/lang/Class;
 
-    invoke-static {v0}, Lcom/google/common/primitives/Primitives;->unwrap(Ljava/lang/Class;)Ljava/lang/Class;
+    invoke-static {v0}, Lcom/google/common/primitives/e;->c(Ljava/lang/Class;)Ljava/lang/Class;
 
     move-result-object v0
 
@@ -2479,14 +2464,14 @@
     return-object p0
 .end method
 
-.method public final where(Lcom/google/common/reflect/TypeParameter;Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeToken;
-    .locals 2
+.method public final where(Lcom/google/common/reflect/d;Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeToken;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/reflect/TypeParameter<",
+            "Lcom/google/common/reflect/d<",
             "TX;>;",
             "Lcom/google/common/reflect/TypeToken<",
             "TX;>;)",
@@ -2495,47 +2480,23 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/reflect/TypeResolver;
+    new-instance p1, Lcom/google/common/reflect/e;
 
-    invoke-direct {v0}, Lcom/google/common/reflect/TypeResolver;-><init>()V
+    invoke-direct {p1}, Lcom/google/common/reflect/e;-><init>()V
 
-    new-instance v1, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;
+    const/4 p1, 0x0
 
-    iget-object p1, p1, Lcom/google/common/reflect/TypeParameter;->typeVariable:Ljava/lang/reflect/TypeVariable;
-
-    invoke-direct {v1, p1}, Lcom/google/common/reflect/TypeResolver$TypeVariableKey;-><init>(Ljava/lang/reflect/TypeVariable;)V
-
-    iget-object p1, p2, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
-
-    invoke-static {v1, p1}, Lcom/google/common/collect/ImmutableMap;->of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Lcom/google/common/reflect/TypeResolver;->where(Ljava/util/Map;)Lcom/google/common/reflect/TypeResolver;
-
-    move-result-object p1
-
-    new-instance p2, Lcom/google/common/reflect/TypeToken$SimpleTypeToken;
-
-    iget-object v0, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
-
-    invoke-virtual {p1, v0}, Lcom/google/common/reflect/TypeResolver;->resolveType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-
-    move-result-object p1
-
-    invoke-direct {p2, p1}, Lcom/google/common/reflect/TypeToken$SimpleTypeToken;-><init>(Ljava/lang/reflect/Type;)V
-
-    return-object p2
+    throw p1
 .end method
 
-.method public final where(Lcom/google/common/reflect/TypeParameter;Ljava/lang/Class;)Lcom/google/common/reflect/TypeToken;
+.method public final where(Lcom/google/common/reflect/d;Ljava/lang/Class;)Lcom/google/common/reflect/TypeToken;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/reflect/TypeParameter<",
+            "Lcom/google/common/reflect/d<",
             "TX;>;",
             "Ljava/lang/Class<",
             "TX;>;)",
@@ -2548,7 +2509,7 @@
 
     move-result-object p2
 
-    invoke-virtual {p0, p1, p2}, Lcom/google/common/reflect/TypeToken;->where(Lcom/google/common/reflect/TypeParameter;Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeToken;
+    invoke-virtual {p0, p1, p2}, Lcom/google/common/reflect/TypeToken;->where(Lcom/google/common/reflect/d;Lcom/google/common/reflect/TypeToken;)Lcom/google/common/reflect/TypeToken;
 
     move-result-object p1
 
@@ -2575,7 +2536,7 @@
 
     check-cast v0, Ljava/lang/Class;
 
-    invoke-static {v0}, Lcom/google/common/primitives/Primitives;->wrap(Ljava/lang/Class;)Ljava/lang/Class;
+    invoke-static {v0}, Lcom/google/common/primitives/e;->d(Ljava/lang/Class;)Ljava/lang/Class;
 
     move-result-object v0
 
@@ -2592,13 +2553,13 @@
 .method public writeReplace()Ljava/lang/Object;
     .locals 2
 
-    new-instance v0, Lcom/google/common/reflect/TypeResolver;
+    new-instance v0, Lcom/google/common/reflect/e;
 
-    invoke-direct {v0}, Lcom/google/common/reflect/TypeResolver;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/reflect/e;-><init>()V
 
     iget-object v1, p0, Lcom/google/common/reflect/TypeToken;->runtimeType:Ljava/lang/reflect/Type;
 
-    invoke-virtual {v0, v1}, Lcom/google/common/reflect/TypeResolver;->resolveType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-virtual {v0, v1}, Lcom/google/common/reflect/e;->j(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
     move-result-object v0
 

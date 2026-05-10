@@ -5,16 +5,22 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$BottomSheetDismissCallback;
+        Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$b;
     }
 .end annotation
 
 
 # instance fields
-.field private waitingForDismissAllowingStateLoss:Z
+.field public a:Z
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -23,35 +29,20 @@
     return-void
 .end method
 
-.method public constructor <init>(I)V
+.method public static synthetic V(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/LayoutRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "ValidFragment"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1}, Landroidx/appcompat/app/AppCompatDialogFragment;-><init>(I)V
+    invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->W()V
 
     return-void
 .end method
 
-.method public static synthetic access$100(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;)V
-    .locals 0
 
-    invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->dismissAfterAnimation()V
-
-    return-void
-.end method
-
-.method private dismissAfterAnimation()V
+# virtual methods
+.method public final W()V
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->waitingForDismissAllowingStateLoss:Z
+    iget-boolean v0, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->a:Z
 
     if-eqz v0, :cond_0
 
@@ -66,7 +57,7 @@
     return-void
 .end method
 
-.method private dismissWithAnimation(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Z)V
+.method public final X(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Z)V
     .locals 2
     .param p1    # Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
         .annotation build Landroidx/annotation/NonNull;
@@ -80,9 +71,9 @@
         }
     .end annotation
 
-    iput-boolean p2, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->waitingForDismissAllowingStateLoss:Z
+    iput-boolean p2, p0, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->a:Z
 
-    invoke-virtual {p1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->getState()I
+    invoke-virtual {p1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->q0()I
 
     move-result p2
 
@@ -90,7 +81,7 @@
 
     if-ne p2, v0, :cond_0
 
-    invoke-direct {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->dismissAfterAnimation()V
+    invoke-virtual {p0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->W()V
 
     goto :goto_0
 
@@ -99,7 +90,7 @@
 
     move-result-object p2
 
-    instance-of p2, p2, Lcom/google/android/material/bottomsheet/BottomSheetDialog;
+    instance-of p2, p2, Lcom/google/android/material/bottomsheet/c;
 
     if-eqz p2, :cond_1
 
@@ -107,55 +98,55 @@
 
     move-result-object p2
 
-    check-cast p2, Lcom/google/android/material/bottomsheet/BottomSheetDialog;
+    check-cast p2, Lcom/google/android/material/bottomsheet/c;
 
-    invoke-virtual {p2}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->removeDefaultCallback()V
+    invoke-virtual {p2}, Lcom/google/android/material/bottomsheet/c;->i()V
 
     :cond_1
-    new-instance p2, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$BottomSheetDismissCallback;
+    new-instance p2, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$b;
 
     const/4 v1, 0x0
 
-    invoke-direct {p2, p0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$BottomSheetDismissCallback;-><init>(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$1;)V
+    invoke-direct {p2, p0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$b;-><init>(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$a;)V
 
-    invoke-virtual {p1, p2}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->addBottomSheetCallback(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V
+    invoke-virtual {p1, p2}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->Y(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$f;)V
 
-    invoke-virtual {p1, v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->setState(I)V
+    invoke-virtual {p1, v0}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->U0(I)V
 
     :goto_0
     return-void
 .end method
 
-.method private tryDismissWithAnimation(Z)Z
+.method public final Y(Z)Z
     .locals 3
 
     invoke-virtual {p0}, Landroidx/fragment/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
-    instance-of v1, v0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;
+    instance-of v1, v0, Lcom/google/android/material/bottomsheet/c;
 
     if-eqz v1, :cond_0
 
-    check-cast v0, Lcom/google/android/material/bottomsheet/BottomSheetDialog;
+    check-cast v0, Lcom/google/android/material/bottomsheet/c;
 
-    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->getBehavior()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
+    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/c;->g()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->isHideable()Z
+    invoke-virtual {v1}, Lcom/google/android/material/bottomsheet/BottomSheetBehavior;->x0()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;->getDismissWithAnimation()Z
+    invoke-virtual {v0}, Lcom/google/android/material/bottomsheet/c;->h()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, v1, p1}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->dismissWithAnimation(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Z)V
+    invoke-virtual {p0, v1, p1}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->X(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Z)V
 
     const/4 p1, 0x1
 
@@ -167,14 +158,12 @@
     return p1
 .end method
 
-
-# virtual methods
 .method public dismiss()V
     .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->tryDismissWithAnimation(Z)Z
+    invoke-virtual {p0, v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->Y(Z)Z
 
     move-result v0
 
@@ -191,7 +180,7 @@
 
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->tryDismissWithAnimation(Z)Z
+    invoke-virtual {p0, v0}, Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;->Y(Z)Z
 
     move-result v0
 
@@ -212,7 +201,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    new-instance p1, Lcom/google/android/material/bottomsheet/BottomSheetDialog;
+    new-instance p1, Lcom/google/android/material/bottomsheet/c;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
@@ -222,7 +211,7 @@
 
     move-result v1
 
-    invoke-direct {p1, v0, v1}, Lcom/google/android/material/bottomsheet/BottomSheetDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p1, v0, v1}, Lcom/google/android/material/bottomsheet/c;-><init>(Landroid/content/Context;I)V
 
     return-object p1
 .end method

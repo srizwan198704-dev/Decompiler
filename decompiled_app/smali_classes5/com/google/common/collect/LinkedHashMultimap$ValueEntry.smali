@@ -2,13 +2,10 @@
 .super Lcom/google/common/collect/ImmutableEntry;
 
 # interfaces
-.implements Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+.implements Lcom/google/common/collect/LinkedHashMultimap$c;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/VisibleForTesting;
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/LinkedHashMultimap;
 .end annotation
@@ -27,7 +24,7 @@
         ">",
         "Lcom/google/common/collect/ImmutableEntry<",
         "TK;TV;>;",
-        "Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink<",
+        "Lcom/google/common/collect/LinkedHashMultimap$c<",
         "TK;TV;>;"
     }
 .end annotation
@@ -52,10 +49,10 @@
     .end annotation
 .end field
 
-.field private predecessorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+.field private predecessorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$c;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink<",
+            "Lcom/google/common/collect/LinkedHashMultimap$c<",
             "TK;TV;>;"
         }
     .end annotation
@@ -72,10 +69,10 @@
     .end annotation
 .end field
 
-.field private successorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+.field private successorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$c;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink<",
+            "Lcom/google/common/collect/LinkedHashMultimap$c<",
             "TK;TV;>;"
         }
     .end annotation
@@ -83,16 +80,14 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;ILcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;I",
@@ -154,21 +149,21 @@
     return-object v0
 .end method
 
-.method public getPredecessorInValueSet()Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+.method public getPredecessorInValueSet()Lcom/google/common/collect/LinkedHashMultimap$c;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink<",
+            "Lcom/google/common/collect/LinkedHashMultimap$c<",
             "TK;TV;>;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->predecessorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+    iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->predecessorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$c;
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+    check-cast v0, Lcom/google/common/collect/LinkedHashMultimap$c;
 
     return-object v0
 .end method
@@ -190,21 +185,21 @@
     return-object v0
 .end method
 
-.method public getSuccessorInValueSet()Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+.method public getSuccessorInValueSet()Lcom/google/common/collect/LinkedHashMultimap$c;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink<",
+            "Lcom/google/common/collect/LinkedHashMultimap$c<",
             "TK;TV;>;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->successorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+    iget-object v0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->successorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$c;
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+    check-cast v0, Lcom/google/common/collect/LinkedHashMultimap$c;
 
     return-object v0
 .end method
@@ -220,7 +215,7 @@
 
     move-result-object p2
 
-    invoke-static {p2, p1}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p2, p1}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -252,17 +247,17 @@
     return-void
 .end method
 
-.method public setPredecessorInValueSet(Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;)V
+.method public setPredecessorInValueSet(Lcom/google/common/collect/LinkedHashMultimap$c;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink<",
+            "Lcom/google/common/collect/LinkedHashMultimap$c<",
             "TK;TV;>;)V"
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->predecessorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+    iput-object p1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->predecessorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$c;
 
     return-void
 .end method
@@ -282,17 +277,17 @@
     return-void
 .end method
 
-.method public setSuccessorInValueSet(Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;)V
+.method public setSuccessorInValueSet(Lcom/google/common/collect/LinkedHashMultimap$c;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink<",
+            "Lcom/google/common/collect/LinkedHashMultimap$c<",
             "TK;TV;>;)V"
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->successorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+    iput-object p1, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->successorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$c;
 
     return-void
 .end method

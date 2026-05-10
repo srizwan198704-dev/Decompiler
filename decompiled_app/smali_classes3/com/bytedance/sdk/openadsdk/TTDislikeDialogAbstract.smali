@@ -1,119 +1,106 @@
 .class public abstract Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;
 .super Landroid/app/Dialog;
 
+# interfaces
+.implements Lcom/bytedance/sdk/openadsdk/GNk/RDh$Yhp;
+
 
 # instance fields
-.field private k:Landroid/view/View;
+.field protected final GNk:Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+.field protected Kjv:Ljava/lang/String;
+
+.field protected Yhp:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/bytedance/sdk/openadsdk/FilterWord;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private kU:Ljava/lang/String;
+
+.field private mc:Landroid/view/View;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;I)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 0
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    invoke-direct {p0, p1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
+
+    new-instance p1, Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    invoke-direct {p1}, Lcom/bytedance/sdk/openadsdk/GNk/RDh;-><init>()V
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->GNk:Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    invoke-virtual {p1, p0}, Lcom/bytedance/sdk/openadsdk/GNk/RDh;->Kjv(Lcom/bytedance/sdk/openadsdk/GNk/RDh$Yhp;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;ILjava/lang/String;)V
+    .locals 0
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
 
     invoke-direct {p0, p1, p2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
+
+    iput-object p3, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->kU:Ljava/lang/String;
+
+    new-instance p1, Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    invoke-direct {p1}, Lcom/bytedance/sdk/openadsdk/GNk/RDh;-><init>()V
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->GNk:Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    invoke-virtual {p1, p0}, Lcom/bytedance/sdk/openadsdk/GNk/RDh;->Kjv(Lcom/bytedance/sdk/openadsdk/GNk/RDh$Yhp;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract getLayoutId()I
+.method public destroy()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->GNk:Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/bytedance/sdk/openadsdk/GNk/RDh;->Kjv()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public getDislikeManager()Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+    .locals 1
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->GNk:Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    return-object v0
 .end method
 
 .method public abstract getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 .end method
 
-.method public abstract getTTDislikeListViewIds()[I
-.end method
-
-.method public k()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->k:Landroid/view/View;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->getTTDislikeListViewIds()[I
-
-    move-result-object v0
-
-    if-eqz v0, :cond_4
-
-    array-length v1, v0
-
-    if-lez v1, :cond_4
-
-    array-length v1, v0
-
-    const/4 v2, 0x0
-
-    :goto_0
-    if-ge v2, v1, :cond_3
-
-    aget v3, v0, v2
-
-    iget-object v4, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->k:Landroid/view/View;
-
-    invoke-virtual {v4, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_2
-
-    instance-of v3, v3, Lcom/bytedance/sdk/openadsdk/dislike/TTDislikeListView;
-
-    if-eqz v3, :cond_1
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "getTTDislikeListViewIds\u627e\u5230\u7684view\u7c7b\u578b\u5f02\u5e38\uff0c\u8bf7\u68c0\u67e5"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "getTTDislikeListViewIds\u63d0\u4f9b\u7684id\u627e\u4e0d\u5230view\uff0c\u8bf7\u68c0\u67e5"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_3
-    return-void
-
-    :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "dislike\u9009\u9879\u5217\u8868\u4e3a\u7a7a\uff0c\u8bf7\u8bbe\u7f6eTTDislikeListView"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    goto :goto_2
-
-    :goto_1
-    throw v0
-
-    :goto_2
-    goto :goto_1
+.method public abstract getLayoutView()Landroid/view/View;
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
@@ -121,45 +108,23 @@
 
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->getLayoutView()Landroid/view/View;
 
     move-result-object p1
 
-    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->mc:Landroid/view/View;
 
-    move-result-object p1
-
-    :try_start_0
-    invoke-virtual {p0}, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->getLayoutId()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->k:Landroid/view/View;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
     invoke-virtual {p0}, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->k:Landroid/view/View;
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->mc:Landroid/view/View;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     new-instance p1, Landroid/view/ViewGroup$LayoutParams;
 
     const/4 v1, -0x1
@@ -169,24 +134,47 @@
     :goto_0
     invoke-virtual {p0, v0, p1}, Landroid/app/Dialog;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-virtual {p0}, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->k()V
-
-    return-void
-
-    :catch_0
-    const-string p1, "TTDislikeDialogAbstract"
-
-    const-string v0, "getLayoutId\u5e03\u5c40\u6587\u4ef6id\u53ef\u80fd\u5f02\u5e38\uff0c\u8bf7\u68c0\u67e5"
-
-    invoke-static {p1, v0}, Lcom/bytedance/sdk/openadsdk/api/de;->i(Ljava/lang/String;Ljava/lang/String;)V
-
     return-void
 .end method
 
-.method public startPersonalizePromptActivity()V
+.method public onSuggestionSubmit(Ljava/lang/String;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->GNk:Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1}, Lcom/bytedance/sdk/openadsdk/GNk/RDh;->GNk(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public setMaterialMeta(Ljava/lang/String;Ljava/util/List;)V
     .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/List<",
+            "Lcom/bytedance/sdk/openadsdk/FilterWord;",
+            ">;)V"
+        }
     .end annotation
+
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->Kjv:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->Yhp:Ljava/util/List;
+
+    iget-object p2, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->GNk:Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    invoke-virtual {p2, p1}, Lcom/bytedance/sdk/openadsdk/GNk/RDh;->Kjv(Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->GNk:Lcom/bytedance/sdk/openadsdk/GNk/RDh;
+
+    iget-object p2, p0, Lcom/bytedance/sdk/openadsdk/TTDislikeDialogAbstract;->Yhp:Ljava/util/List;
+
+    invoke-virtual {p1, p2}, Lcom/bytedance/sdk/openadsdk/GNk/RDh;->Kjv(Ljava/util/List;)V
 
     return-void
 .end method

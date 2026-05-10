@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/Predicate;
+.implements Lcom/google/common/base/n;
 .implements Ljava/io/Serializable;
 
 
@@ -22,7 +22,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/Predicate<",
+        "Lcom/google/common/base/n<",
         "TT;>;",
         "Ljava/io/Serializable;"
     }
@@ -45,7 +45,13 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/util/Collection;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/util/Collection;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +63,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -68,7 +74,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/util/Collection;Lcom/google/common/base/Predicates$1;)V
+.method public synthetic constructor <init>(Ljava/util/Collection;Lcom/google/common/base/Predicates$a;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/base/Predicates$InPredicate;-><init>(Ljava/util/Collection;)V
@@ -80,10 +86,6 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/base/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"

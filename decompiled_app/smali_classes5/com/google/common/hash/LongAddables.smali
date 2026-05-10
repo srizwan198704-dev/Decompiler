@@ -1,11 +1,8 @@
-.class final Lcom/google/common/hash/LongAddables;
+.class public final Lcom/google/common/hash/LongAddables;
 .super Ljava/lang/Object;
 
 
 # annotations
-.annotation runtime Lcom/google/common/hash/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/hash/LongAddables$PureJavaLongAddable;
@@ -14,11 +11,11 @@
 
 
 # static fields
-.field private static final SUPPLIER:Lcom/google/common/base/Supplier;
+.field public static final a:Lcom/google/common/base/q;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/Supplier<",
-            "Lcom/google/common/hash/LongAddable;",
+            "Lcom/google/common/base/q<",
+            "Lcom/google/common/hash/h;",
             ">;"
         }
     .end annotation
@@ -34,43 +31,35 @@
 
     invoke-direct {v0}, Lcom/google/common/hash/LongAdder;-><init>()V
 
-    new-instance v0, Lcom/google/common/hash/LongAddables$1;
+    new-instance v0, Lcom/google/common/hash/LongAddables$a;
 
-    invoke-direct {v0}, Lcom/google/common/hash/LongAddables$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/hash/LongAddables$a;-><init>()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    new-instance v0, Lcom/google/common/hash/LongAddables$2;
+    new-instance v0, Lcom/google/common/hash/LongAddables$b;
 
-    invoke-direct {v0}, Lcom/google/common/hash/LongAddables$2;-><init>()V
+    invoke-direct {v0}, Lcom/google/common/hash/LongAddables$b;-><init>()V
 
     :goto_0
-    sput-object v0, Lcom/google/common/hash/LongAddables;->SUPPLIER:Lcom/google/common/base/Supplier;
+    sput-object v0, Lcom/google/common/hash/LongAddables;->a:Lcom/google/common/base/q;
 
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public static create()Lcom/google/common/hash/LongAddable;
+.method public static a()Lcom/google/common/hash/h;
     .locals 1
 
-    sget-object v0, Lcom/google/common/hash/LongAddables;->SUPPLIER:Lcom/google/common/base/Supplier;
+    sget-object v0, Lcom/google/common/hash/LongAddables;->a:Lcom/google/common/base/q;
 
-    invoke-interface {v0}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/google/common/base/q;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/common/hash/LongAddable;
+    check-cast v0, Lcom/google/common/hash/h;
 
     return-object v0
 .end method

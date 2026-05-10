@@ -7,6 +7,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/android/gms/internal/auth/zzab;Lcom/google/android/gms/tasks/TaskCompletionSource;)V
     .locals 0
 
@@ -21,10 +27,6 @@
 # virtual methods
 .method public final zzb(Lcom/google/android/gms/common/api/Status;Lcom/google/android/gms/auth/AccountChangeEventsResponse;)V
     .locals 1
-    .param p2    # Lcom/google/android/gms/auth/AccountChangeEventsResponse;
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
 
     iget-object v0, p0, Lcom/google/android/gms/internal/auth/zzz;->zza:Lcom/google/android/gms/tasks/TaskCompletionSource;
 

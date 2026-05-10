@@ -5,19 +5,8 @@
 .implements Ljava/io/Serializable;
 
 
-# annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/net/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation runtime Lcom/google/errorprone/annotations/Immutable;
-.end annotation
-
-
 # static fields
-.field private static final NO_PORT:I = -0x1
+.field private static final NO_PORT:I
 
 .field private static final serialVersionUID:J
 
@@ -31,6 +20,20 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const v0, -0x229
+
+    invoke-static {v0}, Lnp/NPFog;->d(I)I
+
+    move-result v0
+
+    sput v0, Lcom/google/common/net/HostAndPort;->NO_PORT:I
+
+    return-void
+.end method
+
 .method private constructor <init>(Ljava/lang/String;IZ)V
     .locals 0
 
@@ -60,7 +63,7 @@
 
     const-string v2, "Host has a port: %s"
 
-    invoke-static {v1, v2, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v1, v2, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     return-object v0
 .end method
@@ -74,7 +77,7 @@
 
     const-string v1, "Port out of range: %s"
 
-    invoke-static {v0, v1, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
+    invoke-static {v0, v1, p1}, Lcom/google/common/base/m;->f(ZLjava/lang/String;I)V
 
     invoke-static {p0}, Lcom/google/common/net/HostAndPort;->fromString(Ljava/lang/String;)Lcom/google/common/net/HostAndPort;
 
@@ -88,7 +91,7 @@
 
     const-string v2, "Host has a port: %s"
 
-    invoke-static {v1, v2, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v1, v2, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     new-instance p0, Lcom/google/common/net/HostAndPort;
 
@@ -103,10 +106,8 @@
 
 .method public static fromString(Ljava/lang/String;)Lcom/google/common/net/HostAndPort;
     .locals 8
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "["
 
@@ -133,7 +134,7 @@
     :goto_0
     move-object v5, v4
 
-    const/4 v4, 0x0
+    move v4, v3
 
     goto :goto_2
 
@@ -167,12 +168,12 @@
     :cond_1
     if-ltz v4, :cond_2
 
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_1
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v3
 
     :goto_1
     const/4 v4, 0x0
@@ -186,7 +187,7 @@
     move-object v0, v7
 
     :goto_2
-    invoke-static {v0}, Lcom/google/common/base/Strings;->isNullOrEmpty(Ljava/lang/String;)Z
+    invoke-static {v0}, Lcom/google/common/base/p;->b(Ljava/lang/String;)Z
 
     move-result v6
 
@@ -200,11 +201,11 @@
 
     if-nez v1, :cond_3
 
-    invoke-static {}, Lcom/google/common/base/CharMatcher;->ascii()Lcom/google/common/base/CharMatcher;
+    invoke-static {}, Lcom/google/common/base/b;->c()Lcom/google/common/base/b;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Lcom/google/common/base/CharMatcher;->matchesAllOf(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v1, v0}, Lcom/google/common/base/b;->h(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
@@ -213,12 +214,12 @@
     goto :goto_3
 
     :cond_3
-    const/4 v2, 0x0
+    move v2, v3
 
     :goto_3
     const-string v1, "Unparseable port number: %s"
 
-    invoke-static {v2, v1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v2, v1, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     :try_start_0
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -233,7 +234,7 @@
 
     const-string v2, "Port number out of range: %s"
 
-    invoke-static {v0, v2, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v2, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_4
 
@@ -282,17 +283,17 @@
 
     if-ne v1, v2, :cond_0
 
-    const/4 v1, 0x1
+    move v1, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     const-string v2, "Bracketed host-port string must start with a bracket: %s"
 
-    invoke-static {v1, v2, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v1, v2, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     const/16 v1, 0x3a
 
@@ -312,17 +313,17 @@
 
     if-le v4, v2, :cond_1
 
-    const/4 v2, 0x1
+    move v2, v3
 
     goto :goto_1
 
     :cond_1
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_1
     const-string v5, "Invalid bracketed host/port: %s"
 
-    invoke-static {v2, v5, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v2, v5, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     invoke-virtual {p0, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -351,12 +352,12 @@
 
     if-ne v5, v1, :cond_3
 
-    const/4 v0, 0x1
+    move v0, v3
 
     :cond_3
     const-string v1, "Only a colon may follow a close bracket: %s"
 
-    invoke-static {v0, v1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     add-int/lit8 v4, v4, 0x2
 
@@ -379,7 +380,7 @@
 
     const-string v3, "Port must be numeric: %s"
 
-    invoke-static {v1, v3, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v1, v3, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -441,7 +442,7 @@
 
     iget-object v3, p1, Lcom/google/common/net/HostAndPort;->host:Ljava/lang/String;
 
-    invoke-static {v1, v3}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v3}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -456,7 +457,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     return v0
@@ -480,7 +481,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkState(Z)V
+    invoke-static {v0}, Lcom/google/common/base/m;->u(Z)V
 
     iget v0, p0, Lcom/google/common/net/HostAndPort;->port:I
 
@@ -521,17 +522,9 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x2
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/google/common/net/HostAndPort;->host:Ljava/lang/String;
-
-    aput-object v2, v0, v1
+    iget-object v0, p0, Lcom/google/common/net/HostAndPort;->host:Ljava/lang/String;
 
     iget v1, p0, Lcom/google/common/net/HostAndPort;->port:I
 
@@ -539,11 +532,19 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
-    aput-object v1, v0, v2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    invoke-static {v0}, Lcom/google/common/base/Objects;->hashCode([Ljava/lang/Object;)I
+    const/4 v3, 0x0
+
+    aput-object v0, v2, v3
+
+    const/4 v0, 0x1
+
+    aput-object v1, v2, v0
+
+    invoke-static {v2}, Lcom/google/common/base/j;->b([Ljava/lang/Object;)I
 
     move-result v0
 
@@ -552,8 +553,6 @@
 
 .method public requireBracketsForIPv6()Lcom/google/common/net/HostAndPort;
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     iget-boolean v0, p0, Lcom/google/common/net/HostAndPort;->hasBracketlessColons:Z
 
@@ -563,7 +562,7 @@
 
     iget-object v2, p0, Lcom/google/common/net/HostAndPort;->host:Ljava/lang/String;
 
-    invoke-static {v0, v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v1, v2}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     return-object p0
 .end method
@@ -640,7 +639,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
 
     invoke-virtual {p0}, Lcom/google/common/net/HostAndPort;->hasPort()Z
 

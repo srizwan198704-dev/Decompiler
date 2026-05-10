@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="AppTheme.AppStart.Compat" parent="@style/Theme.SplashScreen">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowSplashScreenBrandingImage">@mipmap/launch_tips</item>
+        <item name="postSplashScreenTheme">@style/AppTheme.AppStart</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/launch_logo</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="windowSplashScreenBackground">@color/gray_dark_00</item>
+    </style>
     <style name="Theme.Material3.DynamicColors.Dark" parent="@style/Theme.Material3.Dark">
         <item name="android:colorBackground">@color/m3_sys_color_dynamic_dark_background</item>
         <item name="android:textColorPrimary">@color/m3_dynamic_dark_default_color_primary_text</item>
@@ -121,6 +129,14 @@
         <item name="colorTertiaryFixed">@color/m3_sys_color_dynamic_tertiary_fixed</item>
         <item name="colorTertiaryFixedDim">@color/m3_sys_color_dynamic_tertiary_fixed_dim</item>
         <item name="isMaterial3DynamicColorApplied">true</item>
+    </style>
+    <style name="Theme.SplashScreen" parent="@style/Base.Theme.SplashScreen.DayNight">
+        <item name="android:windowSplashScreenBackground">?windowSplashScreenBackground</item>
+        <item name="android:windowSplashScreenAnimatedIcon">?windowSplashScreenAnimatedIcon</item>
+        <item name="android:windowSplashScreenAnimationDuration">?windowSplashScreenAnimationDuration</item>
+    </style>
+    <style name="Theme.SplashScreen.IconBackground" parent="@style/Theme.SplashScreen">
+        <item name="android:windowSplashScreenIconBackgroundColor">?windowSplashScreenIconBackgroundColor</item>
     </style>
     <style name="ThemeOverlay.Material3.DynamicColors.Dark" parent="">
         <item name="android:colorBackground">@color/m3_sys_color_dynamic_dark_background</item>
@@ -245,5 +261,29 @@
         <item name="colorTertiaryFixed">@color/m3_sys_color_dynamic_tertiary_fixed</item>
         <item name="colorTertiaryFixedDim">@color/m3_sys_color_dynamic_tertiary_fixed_dim</item>
         <item name="isMaterial3DynamicColorApplied">true</item>
+    </style>
+    <style name="ThemeTrans" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="ThemeTransHot" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@drawable/background_launcher</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="tpush_notification_large_title">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/tpush_notification_text_title</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textDirection">locale</item>
     </style>
 </resources>

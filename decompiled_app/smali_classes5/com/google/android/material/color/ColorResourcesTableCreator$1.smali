@@ -6,26 +6,23 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/google/android/material/color/ColorResourcesTableCreator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
         "Ljava/util/Comparator<",
-        "Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;",
+        "Lcom/google/android/material/color/a;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -36,14 +33,14 @@
 
 
 # virtual methods
-.method public compare(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)I
+.method public compare(Lcom/google/android/material/color/a;Lcom/google/android/material/color/a;)I
     .locals 0
 
-    invoke-static {p1}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$000(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)S
+    invoke-static {p1}, Lcom/google/android/material/color/a;->a(Lcom/google/android/material/color/a;)S
 
     move-result p1
 
-    invoke-static {p2}, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;->access$000(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)S
+    invoke-static {p2}, Lcom/google/android/material/color/a;->a(Lcom/google/android/material/color/a;)S
 
     move-result p2
 
@@ -55,11 +52,11 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
-    check-cast p1, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
+    check-cast p1, Lcom/google/android/material/color/a;
 
-    check-cast p2, Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;
+    check-cast p2, Lcom/google/android/material/color/a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/color/ColorResourcesTableCreator$1;->compare(Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;Lcom/google/android/material/color/ColorResourcesTableCreator$ColorResource;)I
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/color/ColorResourcesTableCreator$1;->compare(Lcom/google/android/material/color/a;Lcom/google/android/material/color/a;)I
 
     move-result p1
 

@@ -1,4 +1,4 @@
-.class final Landroidx/viewpager2/widget/ViewPager2$SavedState$1;
+.class Landroidx/viewpager2/widget/ViewPager2$SavedState$1;
 .super Ljava/lang/Object;
 
 # interfaces
@@ -11,7 +11,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -26,6 +26,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 

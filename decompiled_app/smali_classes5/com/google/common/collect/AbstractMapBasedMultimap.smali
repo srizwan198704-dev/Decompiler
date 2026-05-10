@@ -1,32 +1,26 @@
 .class abstract Lcom/google/common/collect/AbstractMapBasedMultimap;
-.super Lcom/google/common/collect/AbstractMultimap;
+.super Lcom/google/common/collect/c;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableKeySet;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$SortedKeySet;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$RandomAccessWrappedList;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSet;,
-        Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
+        Lcom/google/common/collect/AbstractMapBasedMultimap$k;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$h;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$l;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$e;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$g;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$j;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$c;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$f;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$i;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$d;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$m;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$o;,
+        Lcom/google/common/collect/AbstractMapBasedMultimap$n;
     }
 .end annotation
 
@@ -37,7 +31,7 @@
         "V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/AbstractMultimap<",
+        "Lcom/google/common/collect/c<",
         "TK;TV;>;",
         "Ljava/io/Serializable;"
     }
@@ -64,6 +58,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -76,13 +76,13 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/AbstractMultimap;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/c;-><init>()V
 
     invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
-    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
 
     iput-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
@@ -165,10 +165,6 @@
 
 .method private getOrCreateCollection(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 2
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -239,7 +235,7 @@
 
     iget-object v0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
-    invoke-static {v0, p1}, Lcom/google/common/collect/Maps;->safeRemove(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, p1}, Lcom/google/common/collect/Maps;->w(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -348,11 +344,11 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$c;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$c;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
 
     return-object v0
 .end method
@@ -369,10 +365,6 @@
 
 .method public createCollection(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -399,20 +391,20 @@
         }
     .end annotation
 
-    instance-of v0, p0, Lcom/google/common/collect/SetMultimap;
+    instance-of v0, p0, Lcom/google/common/collect/x3;
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/AbstractMultimap$EntrySet;
+    new-instance v0, Lcom/google/common/collect/c$b;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMultimap$EntrySet;-><init>(Lcom/google/common/collect/AbstractMultimap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/c$b;-><init>(Lcom/google/common/collect/c;)V
 
     return-object v0
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/AbstractMultimap$Entries;
+    new-instance v0, Lcom/google/common/collect/c$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMultimap$Entries;-><init>(Lcom/google/common/collect/AbstractMultimap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/c$a;-><init>(Lcom/google/common/collect/c;)V
 
     return-object v0
 .end method
@@ -427,28 +419,28 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$e;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$e;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
 
     return-object v0
 .end method
 
-.method public createKeys()Lcom/google/common/collect/Multiset;
+.method public createKeys()Lcom/google/common/collect/l3;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/Multiset<",
+            "Lcom/google/common/collect/l3<",
             "TK;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/Multimaps$Keys;
+    new-instance v0, Lcom/google/common/collect/Multimaps$c;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/Multimaps$Keys;-><init>(Lcom/google/common/collect/Multimap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/Multimaps$c;-><init>(Lcom/google/common/collect/j3;)V
 
     return-object v0
 .end method
@@ -471,13 +463,13 @@
 
     if-eqz v1, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$f;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
     check-cast v1, Ljava/util/NavigableMap;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableAsMap;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/NavigableMap;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$f;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/NavigableMap;)V
 
     return-object v0
 
@@ -486,22 +478,22 @@
 
     if-eqz v0, :cond_1
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$i;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
     check-cast v1, Ljava/util/SortedMap;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedAsMap;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/SortedMap;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$i;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/SortedMap;)V
 
     return-object v0
 
     :cond_1
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$c;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$AsMap;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$c;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
 
     return-object v0
 .end method
@@ -522,13 +514,13 @@
 
     if-eqz v1, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableKeySet;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$g;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
     check-cast v1, Ljava/util/NavigableMap;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$NavigableKeySet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/NavigableMap;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$g;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/NavigableMap;)V
 
     return-object v0
 
@@ -537,22 +529,22 @@
 
     if-eqz v0, :cond_1
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedKeySet;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$j;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
     check-cast v1, Ljava/util/SortedMap;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$SortedKeySet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/SortedMap;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$j;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/SortedMap;)V
 
     return-object v0
 
     :cond_1
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$e;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->map:Ljava/util/Map;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$KeySet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$e;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/util/Map;)V
 
     return-object v0
 .end method
@@ -588,9 +580,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/AbstractMultimap$Values;
+    new-instance v0, Lcom/google/common/collect/c$c;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMultimap$Values;-><init>(Lcom/google/common/collect/AbstractMultimap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/c$c;-><init>(Lcom/google/common/collect/c;)V
 
     return-object v0
 .end method
@@ -606,7 +598,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->entries()Ljava/util/Collection;
+    invoke-super {p0}, Lcom/google/common/collect/c;->entries()Ljava/util/Collection;
 
     move-result-object v0
 
@@ -624,19 +616,15 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$2;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$b;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$2;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$b;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;)V
 
     return-object v0
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -669,14 +657,6 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 2
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)Z"
@@ -803,10 +783,6 @@
 
 .method public replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
     .locals 3
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -935,7 +911,7 @@
 
     xor-int/lit8 v1, v1, 0x1
 
-    invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {v1}, Lcom/google/common/base/m;->d(Z)V
 
     iget v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap;->totalSize:I
 
@@ -992,9 +968,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$1;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$1;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$a;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;)V
 
     return-object v0
 .end method
@@ -1009,7 +985,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractMultimap;->values()Ljava/util/Collection;
+    invoke-super {p0}, Lcom/google/common/collect/c;->values()Ljava/util/Collection;
 
     move-result-object v0
 
@@ -1018,10 +994,6 @@
 
 .method public wrapCollection(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;
     .locals 2
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
@@ -1032,28 +1004,24 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$k;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, p1, p2, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/Collection;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
+    invoke-direct {v0, p0, p1, p2, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap$k;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/Collection;Lcom/google/common/collect/AbstractMapBasedMultimap$k;)V
 
     return-object v0
 .end method
 
-.method public final wrapList(Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)Ljava/util/List;
+.method public final wrapList(Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$k;)Ljava/util/List;
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
             "Ljava/util/List<",
             "TV;>;",
             "Lcom/google/common/collect/AbstractMapBasedMultimap<",
-            "TK;TV;>.WrappedCollection;)",
+            "TK;TV;>.k;)",
             "Ljava/util/List<",
             "TV;>;"
         }
@@ -1063,16 +1031,16 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$RandomAccessWrappedList;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$h;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/common/collect/AbstractMapBasedMultimap$RandomAccessWrappedList;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/common/collect/AbstractMapBasedMultimap$h;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$k;)V
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;
+    new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$l;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedList;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/common/collect/AbstractMapBasedMultimap$l;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/List;Lcom/google/common/collect/AbstractMapBasedMultimap$k;)V
 
     :goto_0
     return-object v0

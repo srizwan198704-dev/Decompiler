@@ -1,0 +1,245 @@
+.class public Ly4/c$a;
+.super Landroid/animation/AnimatorListenerAdapter;
+
+# interfaces
+.implements Ly4/j$h;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Ly4/c;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "a"
+.end annotation
+
+
+# instance fields
+.field public final a:Landroid/view/View;
+
+.field public b:Z
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/view/View;)V
+    .locals 1
+
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Ly4/c$a;->b:Z
+
+    iput-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Ly4/j;)V
+    .locals 0
+    .param p1    # Ly4/j;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    return-void
+.end method
+
+.method public b(Ly4/j;)V
+    .locals 2
+    .param p1    # Ly4/j;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    sget v0, Landroidx/transition/R$id;->transition_pause_alpha:I
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public synthetic c(Ly4/j;Z)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Ly4/m;->a(Ly4/j$h;Ly4/j;Z)V
+
+    return-void
+.end method
+
+.method public e(Ly4/j;)V
+    .locals 2
+    .param p1    # Ly4/j;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    invoke-static {p1}, Ly4/b0;->b(Landroid/view/View;)F
+
+    move-result p1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    iget-object v0, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    sget v1, Landroidx/transition/R$id;->transition_pause_alpha:I
+
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    invoke-virtual {v0, v1, p1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public f(Ly4/j;)V
+    .locals 0
+    .param p1    # Ly4/j;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    return-void
+.end method
+
+.method public g(Ly4/j;)V
+    .locals 0
+    .param p1    # Ly4/j;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    return-void
+.end method
+
+.method public h(Ly4/j;Z)V
+    .locals 0
+    .param p1    # Ly4/j;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    return-void
+.end method
+
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 1
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-static {p1, v0}, Ly4/b0;->e(Landroid/view/View;F)V
+
+    return-void
+.end method
+
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Ly4/c$a;->onAnimationEnd(Landroid/animation/Animator;Z)V
+
+    return-void
+.end method
+
+.method public onAnimationEnd(Landroid/animation/Animator;Z)V
+    .locals 2
+    .param p1    # Landroid/animation/Animator;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    iget-boolean p1, p0, Ly4/c$a;->b:Z
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
+
+    :cond_0
+    if-nez p2, :cond_1
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    const/high16 p2, 0x3f800000    # 1.0f
+
+    invoke-static {p1, p2}, Ly4/b0;->e(Landroid/view/View;F)V
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    invoke-static {p1}, Ly4/b0;->a(Landroid/view/View;)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 2
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->hasOverlappingRendering()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getLayerType()I
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Ly4/c$a;->b:Z
+
+    iget-object p1, p0, Ly4/c$a;->a:Landroid/view/View;
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
+
+    :cond_0
+    return-void
+.end method

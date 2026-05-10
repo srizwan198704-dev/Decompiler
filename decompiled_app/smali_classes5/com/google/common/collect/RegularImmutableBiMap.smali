@@ -3,14 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-    serializable = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -38,12 +30,15 @@
 
 
 # instance fields
-.field final transient alternatingKeysAndValues:[Ljava/lang/Object;
-    .annotation build Lcom/google/common/annotations/VisibleForTesting;
-    .end annotation
-.end field
+.field public final transient a:Ljava/lang/Object;
 
-.field private final transient inverse:Lcom/google/common/collect/RegularImmutableBiMap;
+.field final transient alternatingKeysAndValues:[Ljava/lang/Object;
+
+.field public final transient b:I
+
+.field public final transient c:I
+
+.field public final transient d:Lcom/google/common/collect/RegularImmutableBiMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/RegularImmutableBiMap<",
@@ -51,12 +46,6 @@
         }
     .end annotation
 .end field
-
-.field private final transient keyHashTable:Ljava/lang/Object;
-
-.field private final transient keyOffset:I
-
-.field private final transient size:I
 
 
 # direct methods
@@ -79,7 +68,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyHashTable:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->a:Ljava/lang/Object;
 
     const/4 v0, 0x0
 
@@ -87,16 +76,16 @@
 
     iput-object v1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->alternatingKeysAndValues:[Ljava/lang/Object;
 
-    iput v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyOffset:I
+    iput v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->b:I
 
-    iput v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->size:I
+    iput v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->c:I
 
-    iput-object p0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->inverse:Lcom/google/common/collect/RegularImmutableBiMap;
+    iput-object p0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->d:Lcom/google/common/collect/RegularImmutableBiMap;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/Object;[Ljava/lang/Object;ILcom/google/common/collect/RegularImmutableBiMap;)V
+.method public constructor <init>(Ljava/lang/Object;[Ljava/lang/Object;ILcom/google/common/collect/RegularImmutableBiMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -112,17 +101,17 @@
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableBiMap;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyHashTable:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->a:Ljava/lang/Object;
 
     iput-object p2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->alternatingKeysAndValues:[Ljava/lang/Object;
 
     const/4 p1, 0x1
 
-    iput p1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyOffset:I
+    iput p1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->b:I
 
-    iput p3, p0, Lcom/google/common/collect/RegularImmutableBiMap;->size:I
+    iput p3, p0, Lcom/google/common/collect/RegularImmutableBiMap;->c:I
 
-    iput-object p4, p0, Lcom/google/common/collect/RegularImmutableBiMap;->inverse:Lcom/google/common/collect/RegularImmutableBiMap;
+    iput-object p4, p0, Lcom/google/common/collect/RegularImmutableBiMap;->d:Lcom/google/common/collect/RegularImmutableBiMap;
 
     return-void
 .end method
@@ -134,11 +123,11 @@
 
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->alternatingKeysAndValues:[Ljava/lang/Object;
 
-    iput p2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->size:I
+    iput p2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->c:I
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyOffset:I
+    iput v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->b:I
 
     const/4 v1, 0x2
 
@@ -151,14 +140,14 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     invoke-static {p1, p2, v1, v0}, Lcom/google/common/collect/RegularImmutableMap;->createHashTableOrThrow([Ljava/lang/Object;III)Ljava/lang/Object;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyHashTable:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->a:Ljava/lang/Object;
 
     const/4 v0, 0x1
 
@@ -170,7 +159,7 @@
 
     invoke-direct {v1, v0, p1, p2, p0}, Lcom/google/common/collect/RegularImmutableBiMap;-><init>(Ljava/lang/Object;[Ljava/lang/Object;ILcom/google/common/collect/RegularImmutableBiMap;)V
 
-    iput-object v1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->inverse:Lcom/google/common/collect/RegularImmutableBiMap;
+    iput-object v1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->d:Lcom/google/common/collect/RegularImmutableBiMap;
 
     return-void
 .end method
@@ -192,9 +181,9 @@
 
     iget-object v1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->alternatingKeysAndValues:[Ljava/lang/Object;
 
-    iget v2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyOffset:I
+    iget v2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->b:I
 
-    iget v3, p0, Lcom/google/common/collect/RegularImmutableBiMap;->size:I
+    iget v3, p0, Lcom/google/common/collect/RegularImmutableBiMap;->c:I
 
     invoke-direct {v0, p0, v1, v2, v3}, Lcom/google/common/collect/RegularImmutableMap$EntrySet;-><init>(Lcom/google/common/collect/ImmutableMap;[Ljava/lang/Object;II)V
 
@@ -215,9 +204,9 @@
 
     iget-object v1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->alternatingKeysAndValues:[Ljava/lang/Object;
 
-    iget v2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyOffset:I
+    iget v2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->b:I
 
-    iget v3, p0, Lcom/google/common/collect/RegularImmutableBiMap;->size:I
+    iget v3, p0, Lcom/google/common/collect/RegularImmutableBiMap;->c:I
 
     invoke-direct {v0, v1, v2, v3}, Lcom/google/common/collect/RegularImmutableMap$KeysOrValuesAsList;-><init>([Ljava/lang/Object;II)V
 
@@ -238,13 +227,13 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyHashTable:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->a:Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/google/common/collect/RegularImmutableBiMap;->alternatingKeysAndValues:[Ljava/lang/Object;
 
-    iget v2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->size:I
+    iget v2, p0, Lcom/google/common/collect/RegularImmutableBiMap;->c:I
 
-    iget v3, p0, Lcom/google/common/collect/RegularImmutableBiMap;->keyOffset:I
+    iget v3, p0, Lcom/google/common/collect/RegularImmutableBiMap;->b:I
 
     invoke-static {v0, v1, v2, v3, p1}, Lcom/google/common/collect/RegularImmutableMap;->get(Ljava/lang/Object;[Ljava/lang/Object;IILjava/lang/Object;)Ljava/lang/Object;
 
@@ -258,16 +247,6 @@
     return-object p1
 .end method
 
-.method public bridge synthetic inverse()Lcom/google/common/collect/BiMap;
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/google/common/collect/RegularImmutableBiMap;->inverse()Lcom/google/common/collect/ImmutableBiMap;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public inverse()Lcom/google/common/collect/ImmutableBiMap;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -278,7 +257,17 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->inverse:Lcom/google/common/collect/RegularImmutableBiMap;
+    iget-object v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->d:Lcom/google/common/collect/RegularImmutableBiMap;
+
+    return-object v0
+.end method
+
+.method public bridge synthetic inverse()Lcom/google/common/collect/k;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/google/common/collect/RegularImmutableBiMap;->inverse()Lcom/google/common/collect/ImmutableBiMap;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -294,18 +283,13 @@
 .method public size()I
     .locals 1
 
-    iget v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->size:I
+    iget v0, p0, Lcom/google/common/collect/RegularImmutableBiMap;->c:I
 
     return v0
 .end method
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableBiMap;->writeReplace()Ljava/lang/Object;
 

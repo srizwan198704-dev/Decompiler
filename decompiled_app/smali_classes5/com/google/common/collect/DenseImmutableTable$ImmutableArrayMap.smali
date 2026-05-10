@@ -30,6 +30,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(I)V
     .locals 0
 
@@ -40,7 +46,9 @@
     return-void
 .end method
 
-.method private isFull()Z
+
+# virtual methods
+.method public final a()Z
     .locals 2
 
     iget v0, p0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->size:I
@@ -66,8 +74,6 @@
     return v0
 .end method
 
-
-# virtual methods
 .method public createKeySet()Lcom/google/common/collect/ImmutableSet;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -78,7 +84,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->isFull()Z
+    invoke-virtual {p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;->a()Z
 
     move-result v0
 
@@ -103,20 +109,20 @@
     return-object v0
 .end method
 
-.method public entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
+.method public entryIterator()Lcom/google/common/collect/r4;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "Lcom/google/common/collect/r4<",
             "Ljava/util/Map$Entry<",
             "TK;TV;>;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;
+    new-instance v0, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$1;-><init>(Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap$a;-><init>(Lcom/google/common/collect/DenseImmutableTable$ImmutableArrayMap;)V
 
     return-object v0
 .end method
@@ -217,11 +223,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     invoke-super {p0}, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;->writeReplace()Ljava/lang/Object;
 

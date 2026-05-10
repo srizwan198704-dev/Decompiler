@@ -1,0 +1,418 @@
+.class public final Lcom/transsion/baselib/db/place/d;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/transsion/baselib/db/place/PlaceDao;
+
+
+# instance fields
+.field public final a:Landroidx/room/RoomDatabase;
+
+.field public final b:Landroidx/room/g;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroidx/room/g<",
+            "Lcom/transsion/baselib/db/place/PlaceDBBean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final c:Landroidx/room/e;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroidx/room/e<",
+            "Lcom/transsion/baselib/db/place/PlaceDBBean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroidx/room/RoomDatabase;)V
+    .locals 0
+    .param p1    # Landroidx/room/RoomDatabase;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/transsion/baselib/db/place/d;->a:Landroidx/room/RoomDatabase;
+
+    new-instance p1, Lcom/transsion/baselib/db/place/d$a;
+
+    invoke-direct {p1, p0}, Lcom/transsion/baselib/db/place/d$a;-><init>(Lcom/transsion/baselib/db/place/d;)V
+
+    iput-object p1, p0, Lcom/transsion/baselib/db/place/d;->b:Landroidx/room/g;
+
+    new-instance p1, Lcom/transsion/baselib/db/place/d$b;
+
+    invoke-direct {p1, p0}, Lcom/transsion/baselib/db/place/d$b;-><init>(Lcom/transsion/baselib/db/place/d;)V
+
+    iput-object p1, p0, Lcom/transsion/baselib/db/place/d;->c:Landroidx/room/e;
+
+    return-void
+.end method
+
+.method public static synthetic e(Lcom/transsion/baselib/db/place/d;Ljava/util/List;Lr4/b;)Lkotlin/Unit;
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/transsion/baselib/db/place/d;->k(Ljava/util/List;Lr4/b;)Lkotlin/Unit;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic f(Lr4/b;)Lkotlin/Unit;
+    .locals 0
+
+    invoke-static {p0}, Lcom/transsion/baselib/db/place/d;->i(Lr4/b;)Lkotlin/Unit;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic g(Lr4/b;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0}, Lcom/transsion/baselib/db/place/d;->j(Lr4/b;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static h()Ljava/util/List;
+    .locals 1
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Ljava/lang/Class<",
+            "*>;>;"
+        }
+    .end annotation
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static synthetic i(Lr4/b;)Lkotlin/Unit;
+    .locals 1
+
+    const-string v0, "DELETE FROM place_list"
+
+    invoke-interface {p0, v0}, Lr4/b;->F0(Ljava/lang/String;)Lr4/e;
+
+    move-result-object p0
+
+    :try_start_0
+    invoke-interface {p0}, Lr4/e;->C0()Z
+
+    sget-object v0, Lkotlin/Unit;->a:Lkotlin/Unit;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-interface {p0}, Lr4/e;->close()V
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-interface {p0}, Lr4/e;->close()V
+
+    throw v0
+.end method
+
+.method public static synthetic j(Lr4/b;)Ljava/util/List;
+    .locals 15
+
+    const-string v0, "SELECT * FROM place_list"
+
+    invoke-interface {p0, v0}, Lr4/b;->F0(Ljava/lang/String;)Lr4/e;
+
+    move-result-object p0
+
+    :try_start_0
+    const-string v0, "latitude"
+
+    invoke-static {p0, v0}, Landroidx/room/util/j;->c(Lr4/e;Ljava/lang/String;)I
+
+    move-result v0
+
+    const-string v1, "longitude"
+
+    invoke-static {p0, v1}, Landroidx/room/util/j;->c(Lr4/e;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string v2, "name"
+
+    invoke-static {p0, v2}, Landroidx/room/util/j;->c(Lr4/e;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string v3, "address"
+
+    invoke-static {p0, v3}, Landroidx/room/util/j;->c(Lr4/e;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string v4, "distance"
+
+    invoke-static {p0, v4}, Landroidx/room/util/j;->c(Lr4/e;Ljava/lang/String;)I
+
+    move-result v4
+
+    new-instance v5, Ljava/util/ArrayList;
+
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+
+    :goto_0
+    invoke-interface {p0}, Lr4/e;->C0()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    invoke-interface {p0, v0}, Lr4/e;->getDouble(I)D
+
+    move-result-wide v8
+
+    invoke-interface {p0, v1}, Lr4/e;->getDouble(I)D
+
+    move-result-wide v10
+
+    invoke-interface {p0, v2}, Lr4/e;->isNull(I)Z
+
+    move-result v6
+
+    const/4 v7, 0x0
+
+    if-eqz v6, :cond_0
+
+    move-object v12, v7
+
+    goto :goto_1
+
+    :cond_0
+    invoke-interface {p0, v2}, Lr4/e;->o0(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    move-object v12, v6
+
+    :goto_1
+    invoke-interface {p0, v3}, Lr4/e;->isNull(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    move-object v13, v7
+
+    goto :goto_2
+
+    :cond_1
+    invoke-interface {p0, v3}, Lr4/e;->o0(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    move-object v13, v6
+
+    :goto_2
+    invoke-interface {p0, v4}, Lr4/e;->isNull(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    move-object v14, v7
+
+    goto :goto_3
+
+    :cond_2
+    invoke-interface {p0, v4}, Lr4/e;->o0(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    move-object v14, v6
+
+    :goto_3
+    new-instance v6, Lcom/transsion/baselib/db/place/PlaceDBBean;
+
+    move-object v7, v6
+
+    invoke-direct/range {v7 .. v14}, Lcom/transsion/baselib/db/place/PlaceDBBean;-><init>(DDLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    goto :goto_4
+
+    :cond_3
+    invoke-interface {p0}, Lr4/e;->close()V
+
+    return-object v5
+
+    :goto_4
+    invoke-interface {p0}, Lr4/e;->close()V
+
+    throw v0
+.end method
+
+
+# virtual methods
+.method public a(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/transsion/baselib/db/place/d;->a:Landroidx/room/RoomDatabase;
+
+    new-instance v1, Lcom/transsion/baselib/db/place/a;
+
+    invoke-direct {v1}, Lcom/transsion/baselib/db/place/a;-><init>()V
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    invoke-static {v0, v2, v3, v1, p1}, Landroidx/room/util/b;->f(Landroidx/room/RoomDatabase;ZZLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public b(Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/transsion/baselib/db/place/PlaceDBBean;",
+            ">;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object v0, p0, Lcom/transsion/baselib/db/place/d;->a:Landroidx/room/RoomDatabase;
+
+    new-instance v1, Lcom/transsion/baselib/db/place/c;
+
+    invoke-direct {v1, p0, p1}, Lcom/transsion/baselib/db/place/c;-><init>(Lcom/transsion/baselib/db/place/d;Ljava/util/List;)V
+
+    const/4 p1, 0x0
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, p1, v2, v1, p2}, Landroidx/room/util/b;->f(Landroidx/room/RoomDatabase;ZZLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public c(Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/transsion/baselib/db/place/PlaceDBBean;",
+            ">;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    invoke-static {p0, p1, p2}, Lcom/transsion/baselib/db/place/PlaceDao$DefaultImpls;->a(Lcom/transsion/baselib/db/place/PlaceDao;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public d(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Ljava/util/List<",
+            "Lcom/transsion/baselib/db/place/PlaceDBBean;",
+            ">;>;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/transsion/baselib/db/place/d;->a:Landroidx/room/RoomDatabase;
+
+    new-instance v1, Lcom/transsion/baselib/db/place/b;
+
+    invoke-direct {v1}, Lcom/transsion/baselib/db/place/b;-><init>()V
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    invoke-static {v0, v2, v3, v1, p1}, Landroidx/room/util/b;->f(Landroidx/room/RoomDatabase;ZZLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final synthetic k(Ljava/util/List;Lr4/b;)Lkotlin/Unit;
+    .locals 1
+
+    iget-object v0, p0, Lcom/transsion/baselib/db/place/d;->b:Landroidx/room/g;
+
+    invoke-virtual {v0, p2, p1}, Landroidx/room/g;->c(Lr4/b;Ljava/lang/Iterable;)V
+
+    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    return-object p1
+.end method

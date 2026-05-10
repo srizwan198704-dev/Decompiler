@@ -12,21 +12,23 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
-        "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
+        "Landroidx/recyclerview/widget/RecyclerView$a0;",
         ">;"
     }
 .end annotation
 
 
-# static fields
-.field static final TAG:Ljava/lang/String; = "ConcatAdapter"
-
-
 # instance fields
-.field private final mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+.field public final a:Landroidx/recyclerview/widget/f;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/recyclerview/widget/ConcatAdapter$Config;Ljava/util/List;)V
     .locals 1
     .param p1    # Landroidx/recyclerview/widget/ConcatAdapter$Config;
@@ -45,18 +47,18 @@
             "+",
             "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
             "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
+            "Landroidx/recyclerview/widget/RecyclerView$a0;",
             ">;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;-><init>()V
 
-    new-instance v0, Landroidx/recyclerview/widget/ConcatAdapterController;
+    new-instance v0, Landroidx/recyclerview/widget/f;
 
-    invoke-direct {v0, p0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;-><init>(Landroidx/recyclerview/widget/ConcatAdapter;Landroidx/recyclerview/widget/ConcatAdapter$Config;)V
+    invoke-direct {v0, p0, p1}, Landroidx/recyclerview/widget/f;-><init>(Landroidx/recyclerview/widget/ConcatAdapter;Landroidx/recyclerview/widget/ConcatAdapter$Config;)V
 
-    iput-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iput-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -75,14 +77,14 @@
 
     check-cast p2, Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
-    invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/ConcatAdapter;->addAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
+    invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/ConcatAdapter;->g(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
 
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object p1, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->hasStableIds()Z
+    invoke-virtual {p1}, Landroidx/recyclerview/widget/f;->s()Z
 
     move-result p1
 
@@ -108,7 +110,7 @@
             "[",
             "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
             "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
+            "Landroidx/recyclerview/widget/RecyclerView$a0;",
             ">;)V"
         }
     .end annotation
@@ -125,31 +127,6 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/util/List;)V
-    .locals 1
-    .param p1    # Ljava/util/List;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "+",
-            "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
-            "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    sget-object v0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->DEFAULT:Landroidx/recyclerview/widget/ConcatAdapter$Config;
-
-    invoke-direct {p0, v0, p1}, Landroidx/recyclerview/widget/ConcatAdapter;-><init>(Landroidx/recyclerview/widget/ConcatAdapter$Config;Ljava/util/List;)V
-
-    return-void
-.end method
-
 .method public varargs constructor <init>([Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
     .locals 1
     .param p1    # [Landroidx/recyclerview/widget/RecyclerView$Adapter;
@@ -161,7 +138,7 @@
             "([",
             "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
             "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
+            "Landroidx/recyclerview/widget/RecyclerView$a0;",
             ">;)V"
         }
     .end annotation
@@ -169,7 +146,7 @@
     .annotation runtime Ljava/lang/SafeVarargs;
     .end annotation
 
-    sget-object v0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->DEFAULT:Landroidx/recyclerview/widget/ConcatAdapter$Config;
+    sget-object v0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->c:Landroidx/recyclerview/widget/ConcatAdapter$Config;
 
     invoke-direct {p0, v0, p1}, Landroidx/recyclerview/widget/ConcatAdapter;-><init>(Landroidx/recyclerview/widget/ConcatAdapter$Config;[Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
@@ -178,34 +155,13 @@
 
 
 # virtual methods
-.method public addAdapter(ILandroidx/recyclerview/widget/RecyclerView$Adapter;)Z
+.method public findRelativeAdapterPositionIn(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/RecyclerView$a0;I)I
     .locals 1
-    .param p2    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
+    .param p1    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
-            "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
-            ">;)Z"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
-
-    invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/ConcatAdapterController;->addAdapter(ILandroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-
-    move-result p1
-
-    return p1
-.end method
-
-.method public addAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-    .locals 1
-    .param p1    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
+    .param p2    # Landroidx/recyclerview/widget/RecyclerView$a0;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
@@ -214,87 +170,53 @@
             "(",
             "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
             "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
-            ">;)Z"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
-
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->addAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-
-    move-result p1
-
-    return p1
-.end method
-
-.method public findRelativeAdapterPositionIn(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)I
-    .locals 1
-    .param p1    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
-            "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
+            "Landroidx/recyclerview/widget/RecyclerView$a0;",
             ">;",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
+            "Landroidx/recyclerview/widget/RecyclerView$a0;",
             "I)I"
         }
     .end annotation
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1, p2, p3}, Landroidx/recyclerview/widget/ConcatAdapterController;->getLocalAdapterPosition(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)I
+    invoke-virtual {v0, p1, p2, p3}, Landroidx/recyclerview/widget/f;->p(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/RecyclerView$a0;I)I
 
     move-result p1
 
     return p1
 .end method
 
-.method public getAdapters()Ljava/util/List;
+.method public g(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
     .locals 1
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-
+    .param p1    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "()",
-            "Ljava/util/List<",
-            "+",
+            "(",
             "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
             "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
-            ">;>;"
+            "Landroidx/recyclerview/widget/RecyclerView$a0;",
+            ">;)Z"
         }
     .end annotation
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0}, Landroidx/recyclerview/widget/ConcatAdapterController;->getCopyOfAdapters()Ljava/util/List;
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->h(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
 
-    move-result-object v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
+    return p1
 .end method
 
 .method public getItemCount()I
     .locals 1
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0}, Landroidx/recyclerview/widget/ConcatAdapterController;->getTotalCount()I
+    invoke-virtual {v0}, Landroidx/recyclerview/widget/f;->q()I
 
     move-result v0
 
@@ -304,9 +226,9 @@
 .method public getItemId(I)J
     .locals 2
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->getItemId(I)J
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->n(I)J
 
     move-result-wide v0
 
@@ -316,43 +238,16 @@
 .method public getItemViewType(I)I
     .locals 1
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->getItemViewType(I)I
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->o(I)I
 
     move-result p1
 
     return p1
 .end method
 
-.method public getWrappedAdapterAndPosition(I)Landroid/util/Pair;
-    .locals 1
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)",
-            "Landroid/util/Pair<",
-            "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
-            "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
-            ">;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
-
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->getWrappedAdapterAndPosition(I)Landroid/util/Pair;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method public internalSetStateRestorationPolicy(Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;)V
+.method public h(Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;)V
     .locals 0
     .param p1    # Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
         .annotation build Landroidx/annotation/NonNull;
@@ -371,28 +266,28 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->onAttachedToRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->v(Landroidx/recyclerview/widget/RecyclerView;)V
 
     return-void
 .end method
 
-.method public onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
+.method public onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$a0;I)V
     .locals 1
-    .param p1    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .param p1    # Landroidx/recyclerview/widget/RecyclerView$a0;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/ConcatAdapterController;->onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
+    invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/f;->w(Landroidx/recyclerview/widget/RecyclerView$a0;I)V
 
     return-void
 .end method
 
-.method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+.method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$a0;
     .locals 1
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroidx/annotation/NonNull;
@@ -401,9 +296,9 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/ConcatAdapterController;->onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/f;->x(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$a0;
 
     move-result-object p1
 
@@ -417,94 +312,69 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->onDetachedFromRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->y(Landroidx/recyclerview/widget/RecyclerView;)V
 
     return-void
 .end method
 
-.method public onFailedToRecycleView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
+.method public onFailedToRecycleView(Landroidx/recyclerview/widget/RecyclerView$a0;)Z
     .locals 1
-    .param p1    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .param p1    # Landroidx/recyclerview/widget/RecyclerView$a0;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->onFailedToRecycleView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->z(Landroidx/recyclerview/widget/RecyclerView$a0;)Z
 
     move-result p1
 
     return p1
 .end method
 
-.method public onViewAttachedToWindow(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+.method public onViewAttachedToWindow(Landroidx/recyclerview/widget/RecyclerView$a0;)V
     .locals 1
-    .param p1    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .param p1    # Landroidx/recyclerview/widget/RecyclerView$a0;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->onViewAttachedToWindow(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->A(Landroidx/recyclerview/widget/RecyclerView$a0;)V
 
     return-void
 .end method
 
-.method public onViewDetachedFromWindow(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+.method public onViewDetachedFromWindow(Landroidx/recyclerview/widget/RecyclerView$a0;)V
     .locals 1
-    .param p1    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .param p1    # Landroidx/recyclerview/widget/RecyclerView$a0;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->onViewDetachedFromWindow(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->B(Landroidx/recyclerview/widget/RecyclerView$a0;)V
 
     return-void
 .end method
 
-.method public onViewRecycled(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+.method public onViewRecycled(Landroidx/recyclerview/widget/RecyclerView$a0;)V
     .locals 1
-    .param p1    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .param p1    # Landroidx/recyclerview/widget/RecyclerView$a0;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
+    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->a:Landroidx/recyclerview/widget/f;
 
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->onViewRecycled(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/f;->C(Landroidx/recyclerview/widget/RecyclerView$a0;)V
 
     return-void
-.end method
-
-.method public removeAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-    .locals 1
-    .param p1    # Landroidx/recyclerview/widget/RecyclerView$Adapter;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
-            "+",
-            "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;",
-            ">;)Z"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/ConcatAdapter;->mController:Landroidx/recyclerview/widget/ConcatAdapterController;
-
-    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/ConcatAdapterController;->removeAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)Z
-
-    move-result p1
-
-    return p1
 .end method
 
 .method public setHasStableIds(Z)V

@@ -45,6 +45,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/reflect/Type;Ljava/lang/Class;[Ljava/lang/reflect/Type;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -60,7 +66,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     array-length v0, p3
 
@@ -80,11 +86,11 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
 
     const-string v0, "type parameter"
 
-    invoke-static {p3, v0}, Lcom/google/common/reflect/Types;->access$200([Ljava/lang/reflect/Type;Ljava/lang/String;)V
+    invoke-static {p3, v0}, Lcom/google/common/reflect/Types;->b([Ljava/lang/reflect/Type;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/google/common/reflect/Types$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
@@ -139,7 +145,7 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v2}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -170,7 +176,7 @@
 
     iget-object v0, p0, Lcom/google/common/reflect/Types$ParameterizedTypeImpl;->argumentsList:Lcom/google/common/collect/ImmutableList;
 
-    invoke-static {v0}, Lcom/google/common/reflect/Types;->access$300(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
+    invoke-static {v0}, Lcom/google/common/reflect/Types;->c(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
 
     move-result-object v0
 
@@ -273,7 +279,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-static {}, Lcom/google/common/reflect/Types;->access$400()Lcom/google/common/base/Joiner;
+    invoke-static {}, Lcom/google/common/reflect/Types;->d()Lcom/google/common/base/g;
 
     move-result-object v1
 
@@ -283,15 +289,15 @@
 
     invoke-static {v3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v4, Lcom/google/common/reflect/b;
+    new-instance v4, Lcom/google/common/reflect/h;
 
-    invoke-direct {v4, v3}, Lcom/google/common/reflect/b;-><init>(Lcom/google/common/reflect/Types$JavaVersion;)V
+    invoke-direct {v4, v3}, Lcom/google/common/reflect/h;-><init>(Lcom/google/common/reflect/Types$JavaVersion;)V
 
-    invoke-static {v2, v4}, Lcom/google/common/collect/Iterables;->transform(Ljava/lang/Iterable;Lcom/google/common/base/Function;)Ljava/lang/Iterable;
+    invoke-static {v2, v4}, Lcom/google/common/collect/g3;->s(Ljava/lang/Iterable;Lcom/google/common/base/f;)Ljava/lang/Iterable;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/google/common/base/Joiner;->join(Ljava/lang/Iterable;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lcom/google/common/base/g;->d(Ljava/lang/Iterable;)Ljava/lang/String;
 
     move-result-object v1
 

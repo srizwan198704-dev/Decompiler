@@ -14,20 +14,26 @@
 
 
 # static fields
-.field public static final fastscroll_default_thickness:I = 0x7f070248
+.field public static fastscroll_default_thickness:I = 0x7f0700e5
 
-.field public static final fastscroll_margin:I = 0x7f070249
+.field public static fastscroll_margin:I = 0x7f0700e6
 
-.field public static final fastscroll_minimum_range:I = 0x7f07024a
+.field public static fastscroll_minimum_range:I = 0x7f0700e7
 
-.field public static final item_touch_helper_max_drag_scroll_per_frame:I = 0x7f0702e8
+.field public static item_touch_helper_max_drag_scroll_per_frame:I = 0x7f070102
 
-.field public static final item_touch_helper_swipe_escape_max_velocity:I = 0x7f0702e9
+.field public static item_touch_helper_swipe_escape_max_velocity:I = 0x7f070103
 
-.field public static final item_touch_helper_swipe_escape_velocity:I = 0x7f0702ea
+.field public static item_touch_helper_swipe_escape_velocity:I = 0x7f070104
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 

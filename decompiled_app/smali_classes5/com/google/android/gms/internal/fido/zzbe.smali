@@ -9,6 +9,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/android/gms/internal/fido/zzbb;Ljava/lang/Character;)V
     .locals 2
 
@@ -17,8 +23,6 @@
     iput-object p1, p0, Lcom/google/android/gms/internal/fido/zzbe;->zzb:Lcom/google/android/gms/internal/fido/zzbb;
 
     if-eqz p2, :cond_1
-
-    invoke-virtual {p2}, Ljava/lang/Character;->charValue()C
 
     const/16 v0, 0x3d
 
@@ -259,7 +263,7 @@
 
     move-result p1
 
-    mul-int v1, v1, p1
+    mul-int/2addr v1, p1
 
     return v1
 .end method
@@ -291,14 +295,14 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     invoke-static {v0}, Lcom/google/android/gms/internal/fido/zzam;->zzc(Z)V
 
     const-wide/16 v2, 0x0
 
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_1
     const/16 v4, 0x8
@@ -324,7 +328,7 @@
     :cond_1
     add-int/lit8 p2, p4, 0x1
 
-    mul-int/lit8 p2, p2, 0x8
+    mul-int/2addr p2, v4
 
     iget-object p3, p0, Lcom/google/android/gms/internal/fido/zzbe;->zzb:Lcom/google/android/gms/internal/fido/zzbb;
 
@@ -345,9 +349,9 @@
 
     iget v0, p3, Lcom/google/android/gms/internal/fido/zzbb;->zza:I
 
-    long-to-int v6, v5
+    long-to-int v5, v5
 
-    and-int/2addr v0, v6
+    and-int/2addr v0, v5
 
     invoke-virtual {p3, v0}, Lcom/google/android/gms/internal/fido/zzbb;->zza(I)C
 
@@ -373,7 +377,7 @@
 
     iget p2, p2, Lcom/google/android/gms/internal/fido/zzbb;->zzd:I
 
-    mul-int/lit8 p2, p2, 0x8
+    mul-int/2addr p2, v4
 
     if-ge v1, p2, :cond_3
 

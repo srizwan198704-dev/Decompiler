@@ -3,6 +3,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public static zza(Ljava/lang/Object;)Lcom/google/android/gms/internal/fido/zzaj;
     .locals 2
 

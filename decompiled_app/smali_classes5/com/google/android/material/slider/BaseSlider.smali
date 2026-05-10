@@ -1,11 +1,11 @@
-.class abstract Lcom/google/android/material/slider/BaseSlider;
+.class public abstract Lcom/google/android/material/slider/BaseSlider;
 .super Landroid/view/View;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;,
+        Lcom/google/android/material/slider/BaseSlider$d;,
         Lcom/google/android/material/slider/BaseSlider$SliderState;,
         Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;,
         Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
@@ -19,9 +19,9 @@
         "TS;T",
         "L;",
         "TT;>;",
-        "L::Lcom/google/android/material/slider/BaseOnChangeListener<",
+        "L::Lcom/google/android/material/slider/a<",
         "TS;>;T::",
-        "Lcom/google/android/material/slider/BaseOnSliderTouchListener<",
+        "Lcom/google/android/material/slider/b<",
         "TS;>;>",
         "Landroid/view/View;"
     }
@@ -29,61 +29,141 @@
 
 
 # static fields
-.field private static final DEFAULT_LABEL_ANIMATION_ENTER_DURATION:I = 0x53
+.field public static final A0:I
 
-.field private static final DEFAULT_LABEL_ANIMATION_EXIT_DURATION:I = 0x75
+.field public static final v0:Ljava/lang/String; = "BaseSlider"
 
-.field static final DEF_STYLE_RES:I
+.field public static final w0:I
 
-.field private static final EXCEPTION_ILLEGAL_DISCRETE_VALUE:Ljava/lang/String; = "Value(%s) must be equal to valueFrom(%s) plus a multiple of stepSize(%s) when using stepSize(%s)"
+.field public static final x0:I
 
-.field private static final EXCEPTION_ILLEGAL_MIN_SEPARATION:Ljava/lang/String; = "minSeparation(%s) must be greater or equal to 0"
+.field public static final y0:I
 
-.field private static final EXCEPTION_ILLEGAL_MIN_SEPARATION_STEP_SIZE:Ljava/lang/String; = "minSeparation(%s) must be greater or equal and a multiple of stepSize(%s) when using stepSize(%s)"
-
-.field private static final EXCEPTION_ILLEGAL_MIN_SEPARATION_STEP_SIZE_UNIT:Ljava/lang/String; = "minSeparation(%s) cannot be set as a dimension when using stepSize(%s)"
-
-.field private static final EXCEPTION_ILLEGAL_STEP_SIZE:Ljava/lang/String; = "The stepSize(%s) must be 0, or a factor of the valueFrom(%s)-valueTo(%s) range"
-
-.field private static final EXCEPTION_ILLEGAL_VALUE:Ljava/lang/String; = "Slider value(%s) must be greater or equal to valueFrom(%s), and lower or equal to valueTo(%s)"
-
-.field private static final EXCEPTION_ILLEGAL_VALUE_FROM:Ljava/lang/String; = "valueFrom(%s) must be smaller than valueTo(%s)"
-
-.field private static final EXCEPTION_ILLEGAL_VALUE_TO:Ljava/lang/String; = "valueTo(%s) must be greater than valueFrom(%s)"
-
-.field private static final HALO_ALPHA:I = 0x3f
-
-.field private static final LABEL_ANIMATION_ENTER_DURATION_ATTR:I
-
-.field private static final LABEL_ANIMATION_ENTER_EASING_ATTR:I
-
-.field private static final LABEL_ANIMATION_EXIT_DURATION_ATTR:I
-
-.field private static final LABEL_ANIMATION_EXIT_EASING_ATTR:I
-
-.field private static final MIN_TOUCH_TARGET_DP:I = 0x30
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x0
-    .end annotation
-.end field
-
-.field private static final TAG:Ljava/lang/String; = "BaseSlider"
-
-.field private static final THRESHOLD:D = 1.0E-4
-
-.field private static final THUMB_WIDTH_PRESSED_RATIO:F = 0.5f
-
-.field private static final TIMEOUT_SEND_ACCESSIBILITY_EVENT:I = 0xc8
-
-.field static final UNIT_PX:I = 0x0
-
-.field static final UNIT_VALUE:I = 0x1
-
-.field private static final WARNING_FLOATING_POINT_ERROR:Ljava/lang/String; = "Floating point value used for %s(%s). Using floats can have rounding errors which may result in incorrect values. Instead, consider using integers with a custom LabelFormatter to display the value correctly."
+.field public static final z0:I
 
 
 # instance fields
-.field private accessibilityEventSender:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
+.field public A:I
+
+.field public B:I
+
+.field public C:I
+
+.field public D:I
+
+.field public E:I
+
+.field public F:I
+
+.field public G:I
+
+.field public H:I
+
+.field public I:I
+
+.field public J:I
+
+.field public K:I
+
+.field public L:I
+
+.field public M:I
+
+.field public N:F
+
+.field public O:Landroid/view/MotionEvent;
+
+.field public P:Z
+
+.field public Q:F
+
+.field public R:F
+
+.field public S:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList<",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public T:I
+
+.field public U:I
+
+.field public V:F
+
+.field public W:[F
+
+.field public final a:Landroid/graphics/Paint;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public a0:Z
+
+.field public final b:Landroid/graphics/Paint;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public b0:I
+
+.field public final c:Landroid/graphics/Paint;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public c0:I
+
+.field public final d:Landroid/graphics/Paint;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public d0:I
+
+.field public final e:Landroid/graphics/Paint;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public e0:Z
+
+.field public final f:Landroid/graphics/Paint;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public f0:Z
+
+.field public final g:Landroid/graphics/Paint;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public g0:Z
+
+.field public final h:Lcom/google/android/material/slider/BaseSlider$d;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public h0:Landroid/content/res/ColorStateList;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public final i:Landroid/view/accessibility/AccessibilityManager;
+
+.field public i0:Landroid/content/res/ColorStateList;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public j:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/android/material/slider/BaseSlider<",
@@ -94,26 +174,37 @@
     .end annotation
 .end field
 
-.field private final accessibilityHelper:Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
+.field public j0:Landroid/content/res/ColorStateList;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
-.field private final accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+.field public k:I
 
-.field private activeThumbIdx:I
-
-.field private final activeTicksPaint:Landroid/graphics/Paint;
+.field public k0:Landroid/content/res/ColorStateList;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
-.field private final activeTrackPaint:Landroid/graphics/Paint;
+.field public final l:Ljava/util/List;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lwc/a;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public l0:Landroid/content/res/ColorStateList;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
-.field private final changeListeners:Ljava/util/List;
+.field public final m:Ljava/util/List;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
@@ -127,17 +218,52 @@
     .end annotation
 .end field
 
-.field private final cornerRect:Landroid/graphics/RectF;
+.field public final m0:Landroid/graphics/Path;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
-.field private customThumbDrawable:Landroid/graphics/drawable/Drawable;
+.field public final n:Ljava/util/List;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "TT;>;"
+        }
+    .end annotation
+.end field
+
+.field public final n0:Landroid/graphics/RectF;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public o:Z
+
+.field public final o0:Landroid/graphics/RectF;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public p:Landroid/animation/ValueAnimator;
+
+.field public final p0:Luc/i;
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+.end field
+
+.field public q:Landroid/animation/ValueAnimator;
+
+.field public q0:Landroid/graphics/drawable/Drawable;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field private customThumbDrawablesForValues:Ljava/util/List;
+.field public final r:I
+
+.field public r0:Ljava/util/List;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
@@ -150,201 +276,30 @@
     .end annotation
 .end field
 
-.field private final defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+.field public s:I
+
+.field public s0:F
+
+.field public t:I
+
+.field public t0:I
+
+.field public u:I
+
+.field public final u0:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
-.field private defaultThumbRadius:I
+.field public v:I
 
-.field private defaultThumbTrackGapSize:I
+.field public w:I
 
-.field private defaultThumbWidth:I
+.field public x:I
 
-.field private defaultTickActiveRadius:I
+.field public y:I
 
-.field private defaultTickInactiveRadius:I
-
-.field private defaultTrackHeight:I
-
-.field private dirtyConfig:Z
-
-.field private focusedThumbIdx:I
-
-.field private forceDrawCompatHalo:Z
-
-.field private formatter:Lcom/google/android/material/slider/LabelFormatter;
-
-.field private haloColor:Landroid/content/res/ColorStateList;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private final haloPaint:Landroid/graphics/Paint;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private haloRadius:I
-
-.field private final inactiveTicksPaint:Landroid/graphics/Paint;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private final inactiveTrackPaint:Landroid/graphics/Paint;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private isLongPress:Z
-
-.field private labelBehavior:I
-
-.field private labelPadding:I
-
-.field private labelStyle:I
-
-.field private final labels:Ljava/util/List;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/google/android/material/tooltip/TooltipDrawable;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private labelsAreAnimatedIn:Z
-
-.field private labelsInAnimator:Landroid/animation/ValueAnimator;
-
-.field private labelsOutAnimator:Landroid/animation/ValueAnimator;
-
-.field private lastEvent:Landroid/view/MotionEvent;
-
-.field private minTickSpacing:I
-
-.field private minTouchTargetSize:I
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
-.end field
-
-.field private minTrackSidePadding:I
-
-.field private minWidgetHeight:I
-
-.field private final onScrollChangedListener:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private final scaledTouchSlop:I
-
-.field private separationUnit:I
-
-.field private stepSize:F
-
-.field private final stopIndicatorPaint:Landroid/graphics/Paint;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private thumbHeight:I
-
-.field private thumbIsPressed:Z
-
-.field private final thumbPaint:Landroid/graphics/Paint;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private thumbTrackGapSize:I
-
-.field private thumbWidth:I
-
-.field private tickActiveRadius:I
-
-.field private tickColorActive:Landroid/content/res/ColorStateList;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private tickColorInactive:Landroid/content/res/ColorStateList;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private tickInactiveRadius:I
-
-.field private tickVisible:Z
-
-.field private ticksCoordinates:[F
-
-.field private touchDownX:F
-
-.field private final touchListeners:Ljava/util/List;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "TT;>;"
-        }
-    .end annotation
-.end field
-
-.field private touchPosition:F
-
-.field private trackColorActive:Landroid/content/res/ColorStateList;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private trackColorInactive:Landroid/content/res/ColorStateList;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private trackHeight:I
-
-.field private trackInsideCornerSize:I
-
-.field private final trackPath:Landroid/graphics/Path;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private final trackRect:Landroid/graphics/RectF;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
-.end field
-
-.field private trackSidePadding:I
-
-.field private trackStopIndicatorSize:I
-
-.field private trackWidth:I
-
-.field private valueFrom:F
-
-.field private valueTo:F
-
-.field private values:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList<",
-            "Ljava/lang/Float;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private widgetHeight:I
+.field public z:I
 
 
 # direct methods
@@ -353,23 +308,23 @@
 
     sget v0, Lcom/google/android/material/R$style;->Widget_MaterialComponents_Slider:I
 
-    sput v0, Lcom/google/android/material/slider/BaseSlider;->DEF_STYLE_RES:I
+    sput v0, Lcom/google/android/material/slider/BaseSlider;->w0:I
 
     sget v0, Lcom/google/android/material/R$attr;->motionDurationMedium4:I
 
-    sput v0, Lcom/google/android/material/slider/BaseSlider;->LABEL_ANIMATION_ENTER_DURATION_ATTR:I
+    sput v0, Lcom/google/android/material/slider/BaseSlider;->x0:I
 
     sget v0, Lcom/google/android/material/R$attr;->motionDurationShort3:I
 
-    sput v0, Lcom/google/android/material/slider/BaseSlider;->LABEL_ANIMATION_EXIT_DURATION_ATTR:I
+    sput v0, Lcom/google/android/material/slider/BaseSlider;->y0:I
 
     sget v0, Lcom/google/android/material/R$attr;->motionEasingEmphasizedInterpolator:I
 
-    sput v0, Lcom/google/android/material/slider/BaseSlider;->LABEL_ANIMATION_ENTER_EASING_ATTR:I
+    sput v0, Lcom/google/android/material/slider/BaseSlider;->z0:I
 
     sget v0, Lcom/google/android/material/R$attr;->motionEasingEmphasizedAccelerateInterpolator:I
 
-    sput v0, Lcom/google/android/material/slider/BaseSlider;->LABEL_ANIMATION_EXIT_EASING_ATTR:I
+    sput v0, Lcom/google/android/material/slider/BaseSlider;->A0:I
 
     return-void
 .end method
@@ -417,9 +372,9 @@
         .end annotation
     .end param
 
-    sget v0, Lcom/google/android/material/slider/BaseSlider;->DEF_STYLE_RES:I
+    sget v0, Lcom/google/android/material/slider/BaseSlider;->w0:I
 
-    invoke-static {p1, p2, p3, v0}, Lcom/google/android/material/theme/overlay/MaterialThemeOverlay;->wrap(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
+    invoke-static {p1, p2, p3, v0}, Lvc/a;->c(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;
 
     move-result-object p1
 
@@ -429,89 +384,89 @@
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
 
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->changeListeners:Ljava/util/List;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->m:Ljava/util/List;
 
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->touchListeners:Ljava/util/List;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->n:Ljava/util/List;
 
     const/4 p1, 0x0
 
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->labelsAreAnimatedIn:Z
+    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->o:Z
 
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbWidth:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->I:I
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbTrackGapSize:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->J:I
 
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbIsPressed:Z
+    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->P:Z
 
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickVisible:Z
+    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->a0:Z
 
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->isLongPress:Z
+    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->f0:Z
 
     new-instance v1, Landroid/graphics/Path;
 
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
-    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackPath:Landroid/graphics/Path;
+    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->m0:Landroid/graphics/Path;
 
     new-instance v1, Landroid/graphics/RectF;
 
     invoke-direct {v1}, Landroid/graphics/RectF;-><init>()V
 
-    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackRect:Landroid/graphics/RectF;
+    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->n0:Landroid/graphics/RectF;
 
     new-instance v1, Landroid/graphics/RectF;
 
     invoke-direct {v1}, Landroid/graphics/RectF;-><init>()V
 
-    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->cornerRect:Landroid/graphics/RectF;
+    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->o0:Landroid/graphics/RectF;
 
-    new-instance v1, Lcom/google/android/material/shape/MaterialShapeDrawable;
+    new-instance v1, Luc/i;
 
-    invoke-direct {v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;-><init>()V
+    invoke-direct {v1}, Luc/i;-><init>()V
 
-    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawablesForValues:Ljava/util/List;
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->r0:Ljava/util/List;
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->separationUnit:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->t0:I
 
-    new-instance p1, Lcom/google/android/material/slider/a;
+    new-instance p1, Lcom/google/android/material/slider/c;
 
-    invoke-direct {p1, p0}, Lcom/google/android/material/slider/a;-><init>(Lcom/google/android/material/slider/BaseSlider;)V
+    invoke-direct {p1, p0}, Lcom/google/android/material/slider/c;-><init>(Lcom/google/android/material/slider/BaseSlider;)V
 
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->onScrollChangedListener:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->u0:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -521,19 +476,19 @@
 
     invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
 
     new-instance v2, Landroid/graphics/Paint;
 
     invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->activeTrackPaint:Landroid/graphics/Paint;
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->b:Landroid/graphics/Paint;
 
     new-instance v2, Landroid/graphics/Paint;
 
     invoke-direct {v2, v0}, Landroid/graphics/Paint;-><init>(I)V
 
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->thumbPaint:Landroid/graphics/Paint;
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->c:Landroid/graphics/Paint;
 
     sget-object v3, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
@@ -551,7 +506,7 @@
 
     invoke-direct {v2, v0}, Landroid/graphics/Paint;-><init>(I)V
 
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->haloPaint:Landroid/graphics/Paint;
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->d:Landroid/graphics/Paint;
 
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
@@ -559,7 +514,7 @@
 
     invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTicksPaint:Landroid/graphics/Paint;
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->e:Landroid/graphics/Paint;
 
     sget-object v4, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
@@ -573,7 +528,7 @@
 
     invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->activeTicksPaint:Landroid/graphics/Paint;
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->f:Landroid/graphics/Paint;
 
     invoke-virtual {v2, v4}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
@@ -583,7 +538,7 @@
 
     invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->stopIndicatorPaint:Landroid/graphics/Paint;
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->g:Landroid/graphics/Paint;
 
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
@@ -593,9 +548,9 @@
 
     move-result-object v2
 
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->loadResources(Landroid/content/res/Resources;)V
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->O(Landroid/content/res/Resources;)V
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/material/slider/BaseSlider;->processAttributes(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/slider/BaseSlider;->d0(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setFocusable(Z)V
 
@@ -603,7 +558,7 @@
 
     const/4 p2, 0x2
 
-    invoke-virtual {v1, p2}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setShadowCompatibilityMode(I)V
+    invoke-virtual {v1, p2}, Luc/i;->k0(I)V
 
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
@@ -613,13 +568,13 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->scaledTouchSlop:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->r:I
 
-    new-instance p1, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
+    new-instance p1, Lcom/google/android/material/slider/BaseSlider$d;
 
-    invoke-direct {p1, p0}, Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;-><init>(Lcom/google/android/material/slider/BaseSlider;)V
+    invoke-direct {p1, p0}, Lcom/google/android/material/slider/BaseSlider$d;-><init>(Lcom/google/android/material/slider/BaseSlider;)V
 
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityHelper:Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->h:Lcom/google/android/material/slider/BaseSlider$d;
 
     invoke-static {p0, p1}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
@@ -635,1863 +590,12 @@
 
     check-cast p1, Landroid/view/accessibility/AccessibilityManager;
 
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->i:Landroid/view/accessibility/AccessibilityManager;
 
     return-void
 .end method
 
-.method public static synthetic a(Lcom/google/android/material/slider/BaseSlider;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateLabels()V
-
-    return-void
-.end method
-
-.method public static synthetic access$000(Lcom/google/android/material/slider/BaseSlider;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method public static synthetic access$200(Lcom/google/android/material/slider/BaseSlider;)Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityHelper:Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
-
-    return-object p0
-.end method
-
-.method public static synthetic access$400(Lcom/google/android/material/slider/BaseSlider;F)Ljava/lang/String;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->formatValue(F)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static synthetic access$500(Lcom/google/android/material/slider/BaseSlider;IF)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/google/android/material/slider/BaseSlider;->snapThumbToValue(IF)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static synthetic access$600(Lcom/google/android/material/slider/BaseSlider;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
-
-    return-void
-.end method
-
-.method public static synthetic access$700(Lcom/google/android/material/slider/BaseSlider;I)F
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->calculateStepIncrement(I)F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private adjustCustomThumbDrawableBounds(Landroid/graphics/drawable/Drawable;)V
-    .locals 5
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v0
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    const/4 v3, -0x1
-
-    if-ne v0, v3, :cond_0
-
-    if-ne v1, v3, :cond_0
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
-
-    invoke-virtual {p1, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    goto :goto_0
-
-    :cond_0
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
-
-    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    div-float/2addr v3, v4
-
-    int-to-float v0, v0
-
-    mul-float v0, v0, v3
-
-    float-to-int v0, v0
-
-    int-to-float v1, v1
-
-    mul-float v1, v1, v3
-
-    float-to-int v1, v1
-
-    invoke-virtual {p1, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    :goto_0
-    return-void
-.end method
-
-.method private attachLabelToContentView(Lcom/google/android/material/tooltip/TooltipDrawable;)V
-    .locals 1
-
-    invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getContentView(Landroid/view/View;)Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/google/android/material/tooltip/TooltipDrawable;->setRelativeToView(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method private calculateIncrementForKey(I)Ljava/lang/Float;
-    .locals 2
-    .annotation build Landroidx/annotation/Nullable;
-    .end annotation
-
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->isLongPress:Z
-
-    if-eqz v0, :cond_0
-
-    const/16 v0, 0x14
-
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->calculateStepIncrement(I)F
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->calculateStepIncrement()F
-
-    move-result v0
-
-    :goto_0
-    const/16 v1, 0x15
-
-    if-eq p1, v1, :cond_5
-
-    const/16 v1, 0x16
-
-    if-eq p1, v1, :cond_3
-
-    const/16 v1, 0x45
-
-    if-eq p1, v1, :cond_2
-
-    const/16 v1, 0x46
-
-    if-eq p1, v1, :cond_1
-
-    const/16 v1, 0x51
-
-    if-eq p1, v1, :cond_1
-
-    const/4 p1, 0x0
-
-    return-object p1
-
-    :cond_1
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p1
-
-    return-object p1
-
-    :cond_2
-    neg-float p1, v0
-
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p1
-
-    return-object p1
-
-    :cond_3
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_4
-
-    neg-float v0, v0
-
-    :cond_4
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p1
-
-    return-object p1
-
-    :cond_5
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_6
-
-    goto :goto_1
-
-    :cond_6
-    neg-float v0, v0
-
-    :goto_1
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method private calculateStepIncrement()F
-    .locals 2
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    const/4 v1, 0x0
-
-    cmpl-float v1, v0, v1
-
-    if-nez v1, :cond_0
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    :cond_0
-    return v0
-.end method
-
-.method private calculateStepIncrement(I)F
-    .locals 3
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->calculateStepIncrement()F
-
-    move-result v0
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    sub-float/2addr v1, v2
-
-    div-float/2addr v1, v0
-
-    int-to-float p1, p1
-
-    cmpg-float v2, v1, p1
-
-    if-gtz v2, :cond_0
-
-    return v0
-
-    :cond_0
-    div-float/2addr v1, p1
-
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
-
-    move-result p1
-
-    int-to-float p1, p1
-
-    mul-float p1, p1, v0
-
-    return p1
-.end method
-
-.method private calculateTrackCenter()I
-    .locals 4
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->widgetHeight:I
-
-    div-int/lit8 v0, v0, 0x2
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->labelBehavior:I
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    if-eq v1, v2, :cond_0
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->shouldAlwaysShowLabel()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/android/material/tooltip/TooltipDrawable;
-
-    invoke-virtual {v1}, Lcom/google/android/material/tooltip/TooltipDrawable;->getIntrinsicHeight()I
-
-    move-result v3
-
-    :cond_1
-    add-int/2addr v0, v3
-
-    return v0
-.end method
-
-.method private createLabelAnimator(Z)Landroid/animation/ValueAnimator;
-    .locals 4
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_0
-
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    :goto_0
-    if-eqz p1, :cond_1
-
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->labelsOutAnimator:Landroid/animation/ValueAnimator;
-
-    goto :goto_1
-
-    :cond_1
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->labelsInAnimator:Landroid/animation/ValueAnimator;
-
-    :goto_1
-    invoke-static {v3, v2}, Lcom/google/android/material/slider/BaseSlider;->getAnimatorCurrentValueOrDefault(Landroid/animation/ValueAnimator;F)F
-
-    move-result v2
-
-    if-eqz p1, :cond_2
-
-    goto :goto_2
-
-    :cond_2
-    const/4 v0, 0x0
-
-    :goto_2
-    const/4 v1, 0x2
-
-    new-array v1, v1, [F
-
-    const/4 v3, 0x0
-
-    aput v2, v1, v3
-
-    const/4 v2, 0x1
-
-    aput v0, v1, v2
-
-    invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    if-eqz p1, :cond_3
-
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object p1
-
-    sget v1, Lcom/google/android/material/slider/BaseSlider;->LABEL_ANIMATION_ENTER_DURATION_ATTR:I
-
-    const/16 v2, 0x53
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/material/motion/MotionUtils;->resolveThemeDuration(Landroid/content/Context;II)I
-
-    move-result p1
-
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    sget v2, Lcom/google/android/material/slider/BaseSlider;->LABEL_ANIMATION_ENTER_EASING_ATTR:I
-
-    sget-object v3, Lcom/google/android/material/animation/AnimationUtils;->DECELERATE_INTERPOLATOR:Landroid/animation/TimeInterpolator;
-
-    invoke-static {v1, v2, v3}, Lcom/google/android/material/motion/MotionUtils;->resolveThemeInterpolator(Landroid/content/Context;ILandroid/animation/TimeInterpolator;)Landroid/animation/TimeInterpolator;
-
-    move-result-object v1
-
-    goto :goto_3
-
-    :cond_3
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object p1
-
-    sget v1, Lcom/google/android/material/slider/BaseSlider;->LABEL_ANIMATION_EXIT_DURATION_ATTR:I
-
-    const/16 v2, 0x75
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/material/motion/MotionUtils;->resolveThemeDuration(Landroid/content/Context;II)I
-
-    move-result p1
-
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    sget v2, Lcom/google/android/material/slider/BaseSlider;->LABEL_ANIMATION_EXIT_EASING_ATTR:I
-
-    sget-object v3, Lcom/google/android/material/animation/AnimationUtils;->FAST_OUT_LINEAR_IN_INTERPOLATOR:Landroid/animation/TimeInterpolator;
-
-    invoke-static {v1, v2, v3}, Lcom/google/android/material/motion/MotionUtils;->resolveThemeInterpolator(Landroid/content/Context;ILandroid/animation/TimeInterpolator;)Landroid/animation/TimeInterpolator;
-
-    move-result-object v1
-
-    :goto_3
-    int-to-long v2, p1
-
-    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    new-instance p1, Lcom/google/android/material/slider/BaseSlider$1;
-
-    invoke-direct {p1, p0}, Lcom/google/android/material/slider/BaseSlider$1;-><init>(Lcom/google/android/material/slider/BaseSlider;)V
-
-    invoke-virtual {v0, p1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    return-object v0
-.end method
-
-.method private createLabelPool()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    if-le v0, v1, :cond_2
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/List;->subList(II)Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :cond_0
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/google/android/material/tooltip/TooltipDrawable;
-
-    invoke-static {p0}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->detachLabelFromContentView(Lcom/google/android/material/tooltip/TooltipDrawable;)V
-
-    goto :goto_0
-
-    :cond_1
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    :cond_2
-    :goto_1
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    if-ge v0, v1, :cond_3
-
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->labelStyle:I
-
-    invoke-static {v0, v1, v2, v3}, Lcom/google/android/material/tooltip/TooltipDrawable;->createFromAttributes(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/tooltip/TooltipDrawable;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    invoke-static {p0}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->attachLabelToContentView(Lcom/google/android/material/tooltip/TooltipDrawable;)V
-
-    goto :goto_1
-
-    :cond_3
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_4
-
-    goto :goto_2
-
-    :cond_4
-    const/4 v2, 0x1
-
-    :goto_2
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_3
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/android/material/tooltip/TooltipDrawable;
-
-    int-to-float v3, v2
-
-    invoke-virtual {v1, v3}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setStrokeWidth(F)V
-
-    goto :goto_3
-
-    :cond_5
-    return-void
-.end method
-
-.method private detachLabelFromContentView(Lcom/google/android/material/tooltip/TooltipDrawable;)V
-    .locals 1
-
-    invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getContentViewOverlay(Landroid/view/View;)Lcom/google/android/material/internal/ViewOverlayImpl;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p1}, Lcom/google/android/material/internal/ViewOverlayImpl;->remove(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getContentView(Landroid/view/View;)Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/google/android/material/tooltip/TooltipDrawable;->detachView(Landroid/view/View;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private dimenToValue(F)F
-    .locals 2
-
-    const/4 v0, 0x0
-
-    cmpl-float v1, p1, v0
-
-    if-nez v1, :cond_0
-
-    return v0
-
-    :cond_0
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v0, v0
-
-    sub-float/2addr p1, v0
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
-
-    int-to-float v0, v0
-
-    div-float/2addr p1, v0
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    sub-float v1, v0, v1
-
-    mul-float p1, p1, v1
-
-    add-float/2addr p1, v0
-
-    return p1
-.end method
-
-.method private dispatchOnChangedFromUser(I)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->changeListeners:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/android/material/slider/BaseOnChangeListener;
-
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Float;
-
-    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
-
-    move-result v2
-
-    const/4 v3, 0x1
-
-    invoke-interface {v1, p0, v2, v3}, Lcom/google/android/material/slider/BaseOnChangeListener;->onValueChange(Ljava/lang/Object;FZ)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->scheduleAccessibilityEventSender(I)V
-
-    :cond_1
-    return-void
-.end method
-
-.method private dispatchOnChangedProgrammatically()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->changeListeners:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :cond_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/android/material/slider/BaseOnChangeListener;
-
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/Float;
-
-    invoke-virtual {v3}, Ljava/lang/Float;->floatValue()F
-
-    move-result v3
-
-    const/4 v4, 0x0
-
-    invoke-interface {v1, p0, v3, v4}, Lcom/google/android/material/slider/BaseOnChangeListener;->onValueChange(Ljava/lang/Object;FZ)V
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method private drawActiveTrack(Landroid/graphics/Canvas;II)V
-    .locals 11
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->getActiveRange()[F
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v2, v1
-
-    const/4 v3, 0x1
-
-    aget v4, v0, v3
-
-    int-to-float p2, p2
-
-    mul-float v4, v4, p2
-
-    add-float v8, v2, v4
-
-    int-to-float v1, v1
-
-    const/4 v2, 0x0
-
-    aget v0, v0, v2
-
-    mul-float v0, v0, p2
-
-    add-float v6, v1, v0
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->hasGapBetweenThumbAndTrack()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_9
-
-    sget-object p2, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->NONE:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    if-ne v0, v3, :cond_1
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_0
-
-    sget-object p2, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->RIGHT:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
-
-    goto :goto_0
-
-    :cond_0
-    sget-object p2, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->LEFT:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
-
-    :cond_1
-    :goto_0
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    if-ge v2, v0, :cond_a
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    if-le v0, v3, :cond_4
-
-    if-lez v2, :cond_2
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    add-int/lit8 v1, v2, -0x1
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Float;
-
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
-
-    move-result v0
-
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->valueToX(F)F
-
-    move-result v6
-
-    :cond_2
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Float;
-
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
-
-    move-result v0
-
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->valueToX(F)F
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    move v8, v6
-
-    move v6, v0
-
-    goto :goto_1
-
-    :cond_3
-    move v8, v0
-
-    :cond_4
-    :goto_1
-    sget-object v0, Lcom/google/android/material/slider/BaseSlider$3;->$SwitchMap$com$google$android$material$slider$BaseSlider$FullCornerDirection:[I
-
-    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    aget v0, v0, v1
-
-    const/high16 v1, 0x40000000    # 2.0f
-
-    if-eq v0, v3, :cond_7
-
-    const/4 v4, 0x2
-
-    if-eq v0, v4, :cond_6
-
-    const/4 v4, 0x3
-
-    if-eq v0, v4, :cond_5
-
-    goto :goto_3
-
-    :cond_5
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
-
-    int-to-float v0, v0
-
-    add-float/2addr v6, v0
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
-
-    int-to-float v0, v0
-
-    div-float/2addr v0, v1
-
-    add-float/2addr v8, v0
-
-    goto :goto_3
-
-    :cond_6
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
-
-    int-to-float v0, v0
-
-    div-float/2addr v0, v1
-
-    sub-float/2addr v6, v0
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
-
-    :goto_2
-    int-to-float v0, v0
-
-    sub-float/2addr v8, v0
-
-    goto :goto_3
-
-    :cond_7
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
-
-    int-to-float v4, v0
-
-    add-float/2addr v6, v4
-
-    goto :goto_2
-
-    :goto_3
-    cmpl-float v0, v6, v8
-
-    if-ltz v0, :cond_8
-
-    goto :goto_4
-
-    :cond_8
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackRect:Landroid/graphics/RectF;
-
-    int-to-float v4, p3
-
-    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
-
-    int-to-float v7, v5
-
-    div-float/2addr v7, v1
-
-    sub-float v7, v4, v7
-
-    int-to-float v5, v5
-
-    div-float/2addr v5, v1
-
-    add-float/2addr v4, v5
-
-    invoke-virtual {v0, v6, v7, v8, v4}, Landroid/graphics/RectF;->set(FFFF)V
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeTrackPaint:Landroid/graphics/Paint;
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackRect:Landroid/graphics/RectF;
-
-    invoke-direct {p0, p1, v0, v1, p2}, Lcom/google/android/material/slider/BaseSlider;->updateTrack(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;)V
-
-    :goto_4
-    add-int/lit8 v2, v2, 0x1
-
-    goto/16 :goto_0
-
-    :cond_9
-    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->activeTrackPaint:Landroid/graphics/Paint;
-
-    sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->activeTrackPaint:Landroid/graphics/Paint;
-
-    sget-object v0, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
-
-    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
-
-    int-to-float v9, p3
-
-    iget-object v10, p0, Lcom/google/android/material/slider/BaseSlider;->activeTrackPaint:Landroid/graphics/Paint;
-
-    move-object v5, p1
-
-    move v7, v9
-
-    invoke-virtual/range {v5 .. v10}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
-
-    :cond_a
-    return-void
-.end method
-
-.method private drawInactiveTrack(Landroid/graphics/Canvas;II)V
-    .locals 11
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->getActiveRange()[F
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v2, v1
-
-    const/4 v3, 0x1
-
-    aget v3, v0, v3
-
-    int-to-float v4, p2
-
-    mul-float v3, v3, v4
-
-    add-float v6, v2, v3
-
-    add-int/2addr v1, p2
-
-    int-to-float v1, v1
-
-    const/high16 v2, 0x40000000    # 2.0f
-
-    cmpg-float v1, v6, v1
-
-    if-gez v1, :cond_1
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->hasGapBetweenThumbAndTrack()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackRect:Landroid/graphics/RectF;
-
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
-
-    int-to-float v3, v3
-
-    add-float/2addr v6, v3
-
-    int-to-float v3, p3
-
-    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
-
-    int-to-float v7, v5
-
-    div-float/2addr v7, v2
-
-    sub-float v7, v3, v7
-
-    iget v8, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    add-int/2addr v8, p2
-
-    int-to-float p2, v8
-
-    int-to-float v8, v5
-
-    div-float/2addr v8, v2
-
-    add-float/2addr p2, v8
-
-    int-to-float v5, v5
-
-    div-float/2addr v5, v2
-
-    add-float/2addr v3, v5
-
-    invoke-virtual {v1, v6, v7, p2, v3}, Landroid/graphics/RectF;->set(FFFF)V
-
-    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackRect:Landroid/graphics/RectF;
-
-    sget-object v3, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->RIGHT:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
-
-    invoke-direct {p0, p1, p2, v1, v3}, Lcom/google/android/material/slider/BaseSlider;->updateTrack(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
-
-    sget-object v3, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
-
-    sget-object v3, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
-
-    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
-
-    int-to-float v9, p3
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    add-int/2addr v1, p2
-
-    int-to-float v8, v1
-
-    iget-object v10, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
-
-    move-object v5, p1
-
-    move v7, v9
-
-    invoke-virtual/range {v5 .. v10}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
-
-    :cond_1
-    :goto_0
-    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v1, p2
-
-    const/4 v3, 0x0
-
-    aget v0, v0, v3
-
-    mul-float v0, v0, v4
-
-    add-float v6, v1, v0
-
-    int-to-float p2, p2
-
-    cmpl-float p2, v6, p2
-
-    if-lez p2, :cond_3
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->hasGapBetweenThumbAndTrack()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_2
-
-    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->trackRect:Landroid/graphics/RectF;
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v0, v0
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
-
-    int-to-float v3, v1
-
-    div-float/2addr v3, v2
-
-    sub-float/2addr v0, v3
-
-    int-to-float p3, p3
-
-    int-to-float v3, v1
-
-    div-float/2addr v3, v2
-
-    sub-float v3, p3, v3
-
-    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
-
-    int-to-float v4, v4
-
-    sub-float/2addr v6, v4
-
-    int-to-float v1, v1
-
-    div-float/2addr v1, v2
-
-    add-float/2addr p3, v1
-
-    invoke-virtual {p2, v0, v3, v6, p3}, Landroid/graphics/RectF;->set(FFFF)V
-
-    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
-
-    iget-object p3, p0, Lcom/google/android/material/slider/BaseSlider;->trackRect:Landroid/graphics/RectF;
-
-    sget-object v0, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->LEFT:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
-
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/google/android/material/slider/BaseSlider;->updateTrack(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;)V
-
-    goto :goto_1
-
-    :cond_2
-    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
-
-    sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
-
-    sget-object v0, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
-
-    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
-
-    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v4, p2
-
-    int-to-float v7, p3
-
-    iget-object v8, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
-
-    move-object v3, p1
-
-    move v5, v7
-
-    invoke-virtual/range {v3 .. v8}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
-
-    :cond_3
-    :goto_1
-    return-void
-.end method
-
-.method private drawThumbDrawable(Landroid/graphics/Canvas;IIFLandroid/graphics/drawable/Drawable;)V
-    .locals 1
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p5    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    invoke-direct {p0, p4}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
-
-    move-result p4
-
-    int-to-float p2, p2
-
-    mul-float p4, p4, p2
-
-    float-to-int p2, p4
-
-    add-int/2addr v0, p2
-
-    int-to-float p2, v0
-
-    invoke-virtual {p5}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object p4
-
-    invoke-virtual {p4}, Landroid/graphics/Rect;->width()I
-
-    move-result p4
-
-    int-to-float p4, p4
-
-    const/high16 v0, 0x40000000    # 2.0f
-
-    div-float/2addr p4, v0
-
-    sub-float/2addr p2, p4
-
-    int-to-float p3, p3
-
-    invoke-virtual {p5}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object p4
-
-    invoke-virtual {p4}, Landroid/graphics/Rect;->height()I
-
-    move-result p4
-
-    int-to-float p4, p4
-
-    div-float/2addr p4, v0
-
-    sub-float/2addr p3, p4
-
-    invoke-virtual {p1, p2, p3}, Landroid/graphics/Canvas;->translate(FF)V
-
-    invoke-virtual {p5, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
-
-    return-void
-.end method
-
-.method private drawThumbs(Landroid/graphics/Canvas;II)V
-    .locals 8
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_3
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Float;
-
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
-
-    move-result v6
-
-    iget-object v7, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v7, :cond_0
-
-    move-object v2, p0
-
-    move-object v3, p1
-
-    move v4, p2
-
-    move v5, p3
-
-    invoke-direct/range {v2 .. v7}, Lcom/google/android/material/slider/BaseSlider;->drawThumbDrawable(Landroid/graphics/Canvas;IIFLandroid/graphics/drawable/Drawable;)V
-
-    goto :goto_1
-
-    :cond_0
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawablesForValues:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawablesForValues:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object v7, v1
-
-    check-cast v7, Landroid/graphics/drawable/Drawable;
-
-    move-object v2, p0
-
-    move-object v3, p1
-
-    move v4, p2
-
-    move v5, p3
-
-    invoke-direct/range {v2 .. v7}, Lcom/google/android/material/slider/BaseSlider;->drawThumbDrawable(Landroid/graphics/Canvas;IIFLandroid/graphics/drawable/Drawable;)V
-
-    goto :goto_1
-
-    :cond_1
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v1, v1
-
-    invoke-direct {p0, v6}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
-
-    move-result v2
-
-    int-to-float v3, p2
-
-    mul-float v2, v2, v3
-
-    add-float/2addr v1, v2
-
-    int-to-float v2, p3
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->getThumbRadius()I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->thumbPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
-
-    :cond_2
-    iget-object v7, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
-
-    move-object v2, p0
-
-    move-object v3, p1
-
-    move v4, p2
-
-    move v5, p3
-
-    invoke-direct/range {v2 .. v7}, Lcom/google/android/material/slider/BaseSlider;->drawThumbDrawable(Landroid/graphics/Canvas;IIFLandroid/graphics/drawable/Drawable;)V
-
-    :goto_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    return-void
-.end method
-
-.method private ensureLabelsAdded()V
-    .locals 6
-
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelsAreAnimatedIn:Z
-
-    const/4 v1, 0x1
-
-    if-nez v0, :cond_0
-
-    iput-boolean v1, p0, Lcom/google/android/material/slider/BaseSlider;->labelsAreAnimatedIn:Z
-
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->createLabelAnimator(Z)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelsInAnimator:Landroid/animation/ValueAnimator;
-
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->labelsOutAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    :goto_0
-    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v4
-
-    if-ge v3, v4, :cond_2
-
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
-
-    if-ne v3, v4, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/google/android/material/tooltip/TooltipDrawable;
-
-    iget-object v5, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Float;
-
-    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
-
-    move-result v5
-
-    invoke-direct {p0, v4, v5}, Lcom/google/android/material/slider/BaseSlider;->setValueForLabel(Lcom/google/android/material/tooltip/TooltipDrawable;F)V
-
-    :goto_1
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/material/tooltip/TooltipDrawable;
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Float;
-
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
-
-    move-result v1
-
-    invoke-direct {p0, v0, v1}, Lcom/google/android/material/slider/BaseSlider;->setValueForLabel(Lcom/google/android/material/tooltip/TooltipDrawable;F)V
-
-    return-void
-
-    :cond_3
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
-
-    invoke-interface {v4}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v3, v2
-
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    aput-object v2, v3, v1
-
-    const-string v1, "Not enough labels(%d) to display all the values(%d)"
-
-    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    goto :goto_3
-
-    :goto_2
-    throw v0
-
-    :goto_3
-    goto :goto_2
-.end method
-
-.method private ensureLabelsRemoved()V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelsAreAnimatedIn:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelsAreAnimatedIn:Z
-
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->createLabelAnimator(Z)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelsOutAnimator:Landroid/animation/ValueAnimator;
-
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->labelsInAnimator:Landroid/animation/ValueAnimator;
-
-    new-instance v1, Lcom/google/android/material/slider/BaseSlider$2;
-
-    invoke-direct {v1, p0}, Lcom/google/android/material/slider/BaseSlider$2;-><init>(Lcom/google/android/material/slider/BaseSlider;)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelsOutAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
-
-    :cond_0
-    return-void
-.end method
-
-.method private focusThumbOnFocusGained(I)V
-    .locals 3
-
-    const/4 v0, 0x1
-
-    const v1, 0x7fffffff
-
-    if-eq p1, v0, :cond_3
-
-    const/4 v0, 0x2
-
-    const/high16 v2, -0x80000000
-
-    if-eq p1, v0, :cond_2
-
-    const/16 v0, 0x11
-
-    if-eq p1, v0, :cond_1
-
-    const/16 v0, 0x42
-
-    if-eq p1, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->moveFocusInAbsoluteDirection(I)Z
-
-    goto :goto_0
-
-    :cond_1
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->moveFocusInAbsoluteDirection(I)Z
-
-    goto :goto_0
-
-    :cond_2
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
-
-    goto :goto_0
-
-    :cond_3
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
-
-    :goto_0
-    return-void
-.end method
-
-.method private formatValue(F)Ljava/lang/String;
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->hasLabelFormatter()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->formatter:Lcom/google/android/material/slider/LabelFormatter;
-
-    invoke-interface {v0, p1}, Lcom/google/android/material/slider/LabelFormatter;->getFormattedValue(F)Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
-
-    :cond_0
-    float-to-int v0, p1
-
-    int-to-float v0, v0
-
-    cmpl-float v0, v0, p1
-
-    if-nez v0, :cond_1
-
-    const-string v0, "%.0f"
-
-    goto :goto_0
-
-    :cond_1
-    const-string v0, "%.2f"
-
-    :goto_0
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p1
-
-    aput-object p1, v1, v2
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method private getActiveRange()[F
-    .locals 6
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Float;
-
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
-
-    move-result v0
-
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    sub-int/2addr v3, v4
-
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Float;
-
-    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
-
-    move-result v3
-
-    if-ne v3, v4, :cond_0
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    :cond_0
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
-
-    move-result v0
-
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
-
-    move-result v2
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
-
-    move-result v3
-
-    const/4 v5, 0x2
-
-    if-eqz v3, :cond_1
-
-    new-array v3, v5, [F
-
-    aput v2, v3, v1
-
-    aput v0, v3, v4
-
-    goto :goto_0
-
-    :cond_1
-    new-array v3, v5, [F
-
-    aput v0, v3, v1
-
-    aput v2, v3, v4
-
-    :goto_0
-    return-object v3
-.end method
-
-.method private static getAnimatorCurrentValueOrDefault(Landroid/animation/ValueAnimator;F)F
+.method public static B(Landroid/animation/ValueAnimator;F)F
     .locals 1
 
     if-eqz p0, :cond_0
@@ -2518,23 +622,498 @@
     return p1
 .end method
 
-.method private getClampedValue(IF)F
+.method public static J(Landroid/view/MotionEvent;)Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/view/MotionEvent;->getToolType(I)I
+
+    move-result p0
+
+    const/4 v1, 0x3
+
+    if-ne p0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public static synthetic a(Lcom/google/android/material/slider/BaseSlider;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->o0()V
+
+    return-void
+.end method
+
+.method public static synthetic b(Lcom/google/android/material/slider/BaseSlider;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method public static synthetic c(Lcom/google/android/material/slider/BaseSlider;)Lcom/google/android/material/slider/BaseSlider$d;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/material/slider/BaseSlider;->h:Lcom/google/android/material/slider/BaseSlider$d;
+
+    return-object p0
+.end method
+
+.method public static synthetic d(Lcom/google/android/material/slider/BaseSlider;F)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->A(F)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic e(Lcom/google/android/material/slider/BaseSlider;IF)Z
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/slider/BaseSlider;->k0(IF)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic f(Lcom/google/android/material/slider/BaseSlider;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->n0()V
+
+    return-void
+.end method
+
+.method public static synthetic g(Lcom/google/android/material/slider/BaseSlider;I)F
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->l(I)F
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private getActiveRange()[F
+    .locals 6
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v3
+
+    const/4 v4, 0x1
+
+    sub-int/2addr v3, v4
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Float;
+
+    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v3
+
+    if-ne v3, v4, :cond_0
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    :cond_0
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
+
+    move-result v0
+
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
+
+    move-result v2
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
+
+    move-result v3
+
+    const/4 v5, 0x2
+
+    if-eqz v3, :cond_1
+
+    new-array v3, v5, [F
+
+    aput v2, v3, v1
+
+    aput v0, v3, v4
+
+    goto :goto_0
+
+    :cond_1
+    new-array v3, v5, [F
+
+    aput v0, v3, v1
+
+    aput v2, v3, v4
+
+    :goto_0
+    return-object v3
+.end method
+
+.method private getValueOfTouchPosition()F
+    .locals 6
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->s0:F
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->j0(F)D
+
+    move-result-wide v0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
+
+    sub-double v0, v2, v0
+
+    :cond_0
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    sub-float/2addr v2, v3
+
+    float-to-double v4, v2
+
+    mul-double/2addr v0, v4
+
+    float-to-double v2, v3
+
+    add-double/2addr v0, v2
+
+    double-to-float v0, v0
+
+    return v0
+.end method
+
+.method private getValueOfTouchPositionAbsolute()F
+    .locals 3
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->s0:F
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    sub-float v0, v1, v0
+
+    :cond_0
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    sub-float/2addr v1, v2
+
+    mul-float/2addr v0, v1
+
+    add-float/2addr v0, v2
+
+    return v0
+.end method
+
+.method private setValuesInternal(Ljava/util/ArrayList;)V
+    .locals 2
+    .param p1    # Ljava/util/ArrayList;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList<",
+            "Ljava/lang/Float;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-static {p1}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->g0:Z
+
+    const/4 p1, 0x0
+
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->n0()V
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->o()V
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->s()V
+
+    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
+
+    return-void
+
+    :cond_1
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string v0, "At least one value must be set"
+
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+
+# virtual methods
+.method public final A(F)Ljava/lang/String;
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->hasLabelFormatter()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    float-to-int v0, p1
+
+    int-to-float v0, v0
+
+    cmpl-float v0, v0, p1
+
+    if-nez v0, :cond_0
+
+    const-string v0, "%.0f"
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "%.2f"
+
+    :goto_0
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p1, v1, v2
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_1
+    const/4 p1, 0x0
+
+    throw p1
+.end method
+
+.method public final A0()V
+    .locals 8
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x2
+
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    const/4 v4, 0x0
+
+    cmpl-float v4, v3, v4
+
+    if-nez v4, :cond_0
+
+    return-void
+
+    :cond_0
+    float-to-int v4, v3
+
+    int-to-float v4, v4
+
+    cmpl-float v4, v4, v3
+
+    const-string v5, "Floating point value used for %s(%s). Using floats can have rounding errors which may result in incorrect values. Instead, consider using integers with a custom LabelFormatter to display the value correctly."
+
+    if-eqz v4, :cond_1
+
+    sget-object v4, Lcom/google/android/material/slider/BaseSlider;->v0:Ljava/lang/String;
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    new-array v6, v2, [Ljava/lang/Object;
+
+    const-string v7, "stepSize"
+
+    aput-object v7, v6, v1
+
+    aput-object v3, v6, v0
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v4, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    float-to-int v4, v3
+
+    int-to-float v4, v4
+
+    cmpl-float v4, v4, v3
+
+    if-eqz v4, :cond_2
+
+    sget-object v4, Lcom/google/android/material/slider/BaseSlider;->v0:Ljava/lang/String;
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    new-array v6, v2, [Ljava/lang/Object;
+
+    const-string v7, "valueFrom"
+
+    aput-object v7, v6, v1
+
+    aput-object v3, v6, v0
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v4, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    float-to-int v4, v3
+
+    int-to-float v4, v4
+
+    cmpl-float v4, v4, v3
+
+    if-eqz v4, :cond_3
+
+    sget-object v4, Lcom/google/android/material/slider/BaseSlider;->v0:Ljava/lang/String;
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const-string v6, "valueTo"
+
+    aput-object v6, v2, v1
+
+    aput-object v3, v2, v0
+
+    invoke-static {v5, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    return-void
+.end method
+
+.method public final C(IF)F
     .locals 3
 
     invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->getMinSeparation()F
 
     move-result v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->separationUnit:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->t0:I
 
     if-nez v1, :cond_0
 
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->dimenToValue(F)F
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->q(F)F
 
     move-result v0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
 
     move-result v1
 
@@ -2545,7 +1124,7 @@
     :cond_1
     add-int/lit8 v1, p1, 0x1
 
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
@@ -2553,12 +1132,12 @@
 
     if-lt v1, v2, :cond_2
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
     goto :goto_0
 
     :cond_2
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -2577,12 +1156,12 @@
 
     if-gez p1, :cond_3
 
-    iget p1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iget p1, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     goto :goto_1
 
     :cond_3
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v2, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -2597,21 +1176,19 @@
     add-float/2addr p1, v0
 
     :goto_1
-    invoke-static {p2, p1, v1}, Landroidx/core/math/MathUtils;->clamp(FFF)F
+    invoke-static {p2, p1, v1}, Lj1/a;->a(FFF)F
 
     move-result p1
 
     return p1
 .end method
 
-.method private getColorForState(Landroid/content/res/ColorStateList;)I
+.method public final D(Landroid/content/res/ColorStateList;)I
     .locals 2
     .param p1    # Landroid/content/res/ColorStateList;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/ColorInt;
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/View;->getDrawableState()[I
 
@@ -2628,7 +1205,7 @@
     return p1
 .end method
 
-.method private getCornerRadii(FF)[F
+.method public final E(FF)[F
     .locals 2
 
     const/16 v0, 0x8
@@ -2670,82 +1247,10 @@
     return-object v0
 .end method
 
-.method private getValueOfTouchPosition()F
-    .locals 6
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->touchPosition:F
-
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->snapPosition(F)D
-
-    move-result-wide v0
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
-
-    sub-double v0, v2, v0
-
-    :cond_0
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    sub-float/2addr v2, v3
-
-    float-to-double v4, v2
-
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v0, v0, v4
-
-    float-to-double v2, v3
-
-    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
-
-    add-double/2addr v0, v2
-
-    double-to-float v0, v0
-
-    return v0
-.end method
-
-.method private getValueOfTouchPositionAbsolute()F
-    .locals 3
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->touchPosition:F
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    sub-float v0, v1, v0
-
-    :cond_0
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    sub-float/2addr v1, v2
-
-    mul-float v0, v0, v1
-
-    add-float/2addr v0, v2
-
-    return v0
-.end method
-
-.method private hasGapBetweenThumbAndTrack()Z
+.method public final F()Z
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
 
     if-lez v0, :cond_0
 
@@ -2760,7 +1265,7 @@
     return v0
 .end method
 
-.method private initializeCustomThumbDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+.method public final G(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
@@ -2775,25 +1280,25 @@
 
     move-result-object p1
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->adjustCustomThumbDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->h(Landroid/graphics/drawable/Drawable;)V
 
     return-object p1
 .end method
 
-.method private invalidateTrack()V
+.method public final H()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
 
     int-to-float v1, v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeTrackPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->b:Landroid/graphics/Paint;
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
 
     int-to-float v1, v1
 
@@ -2802,7 +1307,7 @@
     return-void
 .end method
 
-.method private isInVerticalScrollingContainer()Z
+.method public final I()Z
     .locals 4
 
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -2856,27 +1361,8 @@
     return v0
 .end method
 
-.method private static isMouseEvent(Landroid/view/MotionEvent;)Z
+.method public final K(D)Z
     .locals 2
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/view/MotionEvent;->getToolType(I)I
-
-    move-result p0
-
-    const/4 v1, 0x3
-
-    if-ne p0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
-.end method
-
-.method private isMultipleOfStepSize(D)Z
-    .locals 3
 
     new-instance v0, Ljava/math/BigDecimal;
 
@@ -2888,7 +1374,7 @@
 
     new-instance p1, Ljava/math/BigDecimal;
 
-    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
     invoke-static {p2}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
 
@@ -2912,8 +1398,6 @@
 
     long-to-double v0, v0
 
-    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
-
     sub-double/2addr v0, p1
 
     invoke-static {v0, v1}, Ljava/lang/Math;->abs(D)D
@@ -2922,9 +1406,9 @@
 
     const-wide v0, 0x3f1a36e2eb1c432dL    # 1.0E-4
 
-    cmpg-double v2, p1, v0
+    cmpg-double p1, p1, v0
 
-    if-gez v2, :cond_0
+    if-gez p1, :cond_0
 
     const/4 p1, 0x1
 
@@ -2937,16 +1421,16 @@
     return p1
 .end method
 
-.method private isPotentialVerticalScroll(Landroid/view/MotionEvent;)Z
+.method public final L(Landroid/view/MotionEvent;)Z
     .locals 0
 
-    invoke-static {p1}, Lcom/google/android/material/slider/BaseSlider;->isMouseEvent(Landroid/view/MotionEvent;)Z
+    invoke-static {p1}, Lcom/google/android/material/slider/BaseSlider;->J(Landroid/view/MotionEvent;)Z
 
     move-result p1
 
     if-nez p1, :cond_0
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->isInVerticalScrollingContainer()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->I()Z
 
     move-result p1
 
@@ -2963,14 +1447,34 @@
     return p1
 .end method
 
-.method private isSliderVisibleOnScreen()Z
+.method public final M()Z
+    .locals 2
+
+    invoke-static {p0}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+.end method
+
+.method public final N()Z
     .locals 2
 
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
-    invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getContentView(Landroid/view/View;)Landroid/view/ViewGroup;
+    invoke-static {p0}, Lcom/google/android/material/internal/f0;->j(Landroid/view/View;)Landroid/view/ViewGroup;
 
     move-result-object v1
 
@@ -2983,8 +1487,8 @@
     return v0
 .end method
 
-.method private loadResources(Landroid/content/res/Resources;)V
-    .locals 2
+.method public final O(Landroid/content/res/Resources;)V
+    .locals 1
     .param p1    # Landroid/content/res/Resources;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
@@ -2996,7 +1500,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->minWidgetHeight:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->z:I
 
     sget v0, Lcom/google/android/material/R$dimen;->mtrl_slider_track_side_padding:I
 
@@ -3004,9 +1508,9 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->minTrackSidePadding:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->s:I
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
     sget v0, Lcom/google/android/material/R$dimen;->mtrl_slider_thumb_radius:I
 
@@ -3014,7 +1518,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbRadius:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->t:I
 
     sget v0, Lcom/google/android/material/R$dimen;->mtrl_slider_track_height:I
 
@@ -3022,21 +1526,23 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultTrackHeight:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->u:I
 
     sget v0, Lcom/google/android/material/R$dimen;->mtrl_slider_tick_radius:I
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->defaultTickActiveRadius:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->v:I
+
+    sget v0, Lcom/google/android/material/R$dimen;->mtrl_slider_tick_radius:I
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultTickInactiveRadius:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->w:I
 
     sget v0, Lcom/google/android/material/R$dimen;->mtrl_slider_tick_min_spacing:I
 
@@ -3044,7 +1550,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->minTickSpacing:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->x:I
 
     sget v0, Lcom/google/android/material/R$dimen;->mtrl_slider_label_padding:I
 
@@ -3052,15 +1558,15 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->labelPadding:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->M:I
 
     return-void
 .end method
 
-.method private maybeCalculateTicksCoordinates()V
+.method public final P()V
     .locals 7
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
     const/4 v1, 0x0
 
@@ -3071,15 +1577,15 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->validateConfigurationIfDirty()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->s0()V
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     sub-float/2addr v0, v1
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
     div-float/2addr v0, v1
 
@@ -3089,9 +1595,9 @@
 
     float-to-int v0, v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->minTickSpacing:I
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->x:I
 
     div-int/2addr v1, v2
 
@@ -3101,7 +1607,7 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->ticksCoordinates:[F
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->W:[F
 
     if-eqz v1, :cond_1
 
@@ -3116,10 +1622,10 @@
 
     new-array v1, v1, [F
 
-    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->ticksCoordinates:[F
+    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->W:[F
 
     :cond_2
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
     int-to-float v1, v1
 
@@ -3136,9 +1642,9 @@
 
     if-ge v2, v3, :cond_3
 
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->ticksCoordinates:[F
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->W:[F
 
-    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
     int-to-float v4, v4
 
@@ -3148,7 +1654,7 @@
 
     div-float/2addr v5, v6
 
-    mul-float v5, v5, v1
+    mul-float/2addr v5, v1
 
     add-float/2addr v4, v5
 
@@ -3156,7 +1662,7 @@
 
     add-int/lit8 v4, v2, 0x1
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->calculateTrackCenter()I
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->m()I
 
     move-result v5
 
@@ -3172,26 +1678,26 @@
     return-void
 .end method
 
-.method private maybeDrawCompatHalo(Landroid/graphics/Canvas;II)V
+.method public final Q(Landroid/graphics/Canvas;II)V
     .locals 8
     .param p1    # Landroid/graphics/Canvas;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->shouldDrawCompatHalo()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->h0()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
     int-to-float v0, v0
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -3203,13 +1709,13 @@
 
     move-result v1
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
 
     move-result v1
 
     int-to-float p2, p2
 
-    mul-float v1, v1, p2
+    mul-float/2addr v1, p2
 
     add-float/2addr v0, v1
 
@@ -3221,7 +1727,7 @@
 
     if-ge v0, v1, :cond_0
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloRadius:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->G:I
 
     sub-int v1, p2, v0
 
@@ -3250,11 +1756,11 @@
 
     int-to-float p3, p3
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloRadius:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->G:I
 
     int-to-float v0, v0
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->haloPaint:Landroid/graphics/Paint;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->d:Landroid/graphics/Paint;
 
     invoke-virtual {p1, p2, p3, v0, v1}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
@@ -3262,21 +1768,21 @@
     return-void
 .end method
 
-.method private maybeDrawStopIndicator(Landroid/graphics/Canvas;I)V
+.method public final R(Landroid/graphics/Canvas;I)V
     .locals 4
     .param p1    # Landroid/graphics/Canvas;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackStopIndicatorSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->K:I
 
     if-gtz v0, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -3286,7 +1792,7 @@
 
     if-lt v0, v1, :cond_1
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -3304,24 +1810,24 @@
 
     move-result v0
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
     cmpg-float v0, v0, v2
 
     if-gez v0, :cond_1
 
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->valueToX(F)F
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->z0(F)F
 
     move-result v0
 
     int-to-float v2, p2
 
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->stopIndicatorPaint:Landroid/graphics/Paint;
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->g:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v0, v2, v3}, Landroid/graphics/Canvas;->drawPoint(FFLandroid/graphics/Paint;)V
 
     :cond_1
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -3329,7 +1835,7 @@
 
     if-le v0, v1, :cond_2
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     const/4 v1, 0x0
 
@@ -3343,19 +1849,19 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     cmpl-float v0, v0, v1
 
     if-lez v0, :cond_2
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->valueToX(F)F
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->z0(F)F
 
     move-result v0
 
     int-to-float p2, p2
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->stopIndicatorPaint:Landroid/graphics/Paint;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->g:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/graphics/Canvas;->drawPoint(FFLandroid/graphics/Paint;)V
 
@@ -3363,18 +1869,18 @@
     return-void
 .end method
 
-.method private maybeDrawTicks(Landroid/graphics/Canvas;)V
+.method public final S(Landroid/graphics/Canvas;)V
     .locals 7
     .param p1    # Landroid/graphics/Canvas;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
 
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickVisible:Z
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->a0:Z
 
     if-eqz v0, :cond_3
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
     const/4 v1, 0x0
 
@@ -3393,7 +1899,7 @@
 
     aget v2, v0, v1
 
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->ticksCoordinates:[F
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->W:[F
 
     array-length v3, v3
 
@@ -3407,7 +1913,7 @@
 
     sub-float/2addr v3, v5
 
-    mul-float v2, v2, v3
+    mul-float/2addr v2, v3
 
     float-to-double v2, v2
 
@@ -3421,7 +1927,7 @@
 
     aget v0, v0, v3
 
-    iget-object v6, p0, Lcom/google/android/material/slider/BaseSlider;->ticksCoordinates:[F
+    iget-object v6, p0, Lcom/google/android/material/slider/BaseSlider;->W:[F
 
     array-length v6, v6
 
@@ -3431,7 +1937,7 @@
 
     sub-float/2addr v6, v5
 
-    mul-float v0, v0, v6
+    mul-float/2addr v0, v6
 
     float-to-double v4, v0
 
@@ -3443,18 +1949,18 @@
 
     if-lez v2, :cond_1
 
-    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->ticksCoordinates:[F
+    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->W:[F
 
     mul-int/lit8 v5, v2, 0x2
 
-    iget-object v6, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTicksPaint:Landroid/graphics/Paint;
+    iget-object v6, p0, Lcom/google/android/material/slider/BaseSlider;->e:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v4, v1, v5, v6}, Landroid/graphics/Canvas;->drawPoints([FIILandroid/graphics/Paint;)V
 
     :cond_1
     if-gt v2, v0, :cond_2
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->ticksCoordinates:[F
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->W:[F
 
     mul-int/lit8 v4, v2, 0x2
 
@@ -3464,7 +1970,7 @@
 
     mul-int/lit8 v2, v2, 0x2
 
-    iget-object v5, p0, Lcom/google/android/material/slider/BaseSlider;->activeTicksPaint:Landroid/graphics/Paint;
+    iget-object v5, p0, Lcom/google/android/material/slider/BaseSlider;->f:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v1, v4, v2, v5}, Landroid/graphics/Canvas;->drawPoints([FIILandroid/graphics/Paint;)V
 
@@ -3473,7 +1979,7 @@
 
     mul-int/lit8 v0, v0, 0x2
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->ticksCoordinates:[F
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->W:[F
 
     array-length v2, v1
 
@@ -3483,7 +1989,7 @@
 
     sub-int/2addr v2, v0
 
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTicksPaint:Landroid/graphics/Paint;
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->e:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v1, v0, v2, v3}, Landroid/graphics/Canvas;->drawPoints([FIILandroid/graphics/Paint;)V
 
@@ -3492,14 +1998,14 @@
     return-void
 .end method
 
-.method private maybeIncreaseTrackSidePadding()Z
+.method public final T()Z
     .locals 6
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
     div-int/lit8 v0, v0, 0x2
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbRadius:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->t:I
 
     sub-int/2addr v0, v1
 
@@ -3509,9 +2015,9 @@
 
     move-result v0
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
 
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->defaultTrackHeight:I
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->u:I
 
     sub-int/2addr v2, v3
 
@@ -3521,9 +2027,9 @@
 
     move-result v2
 
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->tickActiveRadius:I
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->b0:I
 
-    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->defaultTickActiveRadius:I
+    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->v:I
 
     sub-int/2addr v3, v4
 
@@ -3531,9 +2037,9 @@
 
     move-result v3
 
-    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->tickInactiveRadius:I
+    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->c0:I
 
-    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->defaultTickInactiveRadius:I
+    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->w:I
 
     sub-int/2addr v4, v5
 
@@ -3541,7 +2047,7 @@
 
     move-result v4
 
-    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->minTrackSidePadding:I
+    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->s:I
 
     invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
 
@@ -3557,14 +2063,14 @@
 
     add-int/2addr v5, v0
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
     if-ne v0, v5, :cond_0
 
     return v1
 
     :cond_0
-    iput v5, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    iput v5, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->isLaidOut(Landroid/view/View;)Z
 
@@ -3576,7 +2082,7 @@
 
     move-result v0
 
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->updateTrackWidth(I)V
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->q0(I)V
 
     :cond_1
     const/4 v0, 0x1
@@ -3584,7 +2090,7 @@
     return v0
 .end method
 
-.method private maybeIncreaseWidgetHeight()Z
+.method public final U()Z
     .locals 3
 
     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
@@ -3597,11 +2103,11 @@
 
     add-int/2addr v0, v1
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
 
     add-int/2addr v1, v0
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
 
     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
@@ -3615,7 +2121,7 @@
 
     add-int/2addr v0, v2
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->minWidgetHeight:I
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->z:I
 
     invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
@@ -3625,7 +2131,7 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->widgetHeight:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->A:I
 
     if-ne v0, v1, :cond_0
 
@@ -3634,17 +2140,17 @@
     return v0
 
     :cond_0
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->widgetHeight:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->A:I
 
     const/4 v0, 0x1
 
     return v0
 .end method
 
-.method private moveFocus(I)Z
+.method public final V(I)Z
     .locals 11
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
     int-to-long v1, v0
 
@@ -3652,9 +2158,7 @@
 
     add-long v5, v1, v3
 
-    const-wide/16 v7, 0x0
-
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
@@ -3666,13 +2170,15 @@
 
     int-to-long v9, p1
 
-    invoke-static/range {v5 .. v10}, Landroidx/core/math/MathUtils;->clamp(JJJ)J
+    const-wide/16 v7, 0x0
+
+    invoke-static/range {v5 .. v10}, Lj1/a;->c(JJJ)J
 
     move-result-wide v2
 
     long-to-int p1, v2
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
     if-ne p1, v0, :cond_0
 
@@ -3681,26 +2187,26 @@
     return p1
 
     :cond_0
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     const/4 v2, -0x1
 
     if-eq v0, v2, :cond_1
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     :cond_1
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->n0()V
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
     return v1
 .end method
 
-.method private moveFocusInAbsoluteDirection(I)Z
+.method public final W(I)Z
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
 
     move-result v0
 
@@ -3719,27 +2225,27 @@
 
     :cond_1
     :goto_0
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
 
     move-result p1
 
     return p1
 .end method
 
-.method private normalizeValue(F)F
+.method public final X(F)F
     .locals 2
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     sub-float/2addr p1, v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
     sub-float/2addr v1, v0
 
     div-float/2addr p1, v1
 
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
 
     move-result v0
 
@@ -3755,7 +2261,7 @@
     return p1
 .end method
 
-.method private onKeyDownNoActiveThumb(ILandroid/view/KeyEvent;)Ljava/lang/Boolean;
+.method public final Y(ILandroid/view/KeyEvent;)Ljava/lang/Boolean;
     .locals 3
     .param p2    # Landroid/view/KeyEvent;
         .annotation build Landroidx/annotation/NonNull;
@@ -3795,28 +2301,28 @@
     return-object p1
 
     :pswitch_0
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->moveFocusInAbsoluteDirection(I)Z
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->W(I)Z
 
     sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     return-object p1
 
     :pswitch_1
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->moveFocusInAbsoluteDirection(I)Z
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->W(I)Z
 
     sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     return-object p1
 
     :cond_0
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
 
     sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     return-object p1
 
     :cond_1
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
 
     sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
@@ -3824,9 +2330,9 @@
 
     :cond_2
     :pswitch_2
-    iget p1, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iget p1, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -3841,7 +2347,7 @@
 
     if-eqz p1, :cond_4
 
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
 
     move-result p1
 
@@ -3858,7 +2364,7 @@
 
     if-eqz p1, :cond_5
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
 
     move-result p1
 
@@ -3881,10 +2387,10 @@
     .end packed-switch
 .end method
 
-.method private onStartTrackingTouch()V
+.method public final Z()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->touchListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->n:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3901,9 +2407,9 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/android/material/slider/BaseOnSliderTouchListener;
+    check-cast v1, Lcom/google/android/material/slider/b;
 
-    invoke-interface {v1, p0}, Lcom/google/android/material/slider/BaseOnSliderTouchListener;->onStartTrackingTouch(Ljava/lang/Object;)V
+    invoke-interface {v1, p0}, Lcom/google/android/material/slider/b;->a(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -3911,10 +2417,10 @@
     return-void
 .end method
 
-.method private onStopTrackingTouch()V
+.method public final a0()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->touchListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->n:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3931,9 +2437,9 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/android/material/slider/BaseOnSliderTouchListener;
+    check-cast v1, Lcom/google/android/material/slider/b;
 
-    invoke-interface {v1, p0}, Lcom/google/android/material/slider/BaseOnSliderTouchListener;->onStopTrackingTouch(Ljava/lang/Object;)V
+    invoke-interface {v1, p0}, Lcom/google/android/material/slider/b;->b(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -3941,26 +2447,261 @@
     return-void
 .end method
 
-.method private positionLabel(Lcom/google/android/material/tooltip/TooltipDrawable;F)V
+.method public addOnChangeListener(Lcom/google/android/material/slider/a;)V
+    .locals 1
+    .param p1    # Lcom/google/android/material/slider/a;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(T",
+            "L;",
+            ")V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->m:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public addOnSliderTouchListener(Lcom/google/android/material/slider/b;)V
+    .locals 1
+    .param p1    # Lcom/google/android/material/slider/b;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->n:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public b0()Z
+    .locals 11
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
+
+    const/4 v1, 0x1
+
+    const/4 v2, -0x1
+
+    if-eq v0, v2, :cond_0
+
+    return v1
+
+    :cond_0
+    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->getValueOfTouchPositionAbsolute()F
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->z0(F)F
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    iput v4, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
+
+    iget-object v5, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Float;
+
+    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
+
+    move-result v5
+
+    sub-float/2addr v5, v0
+
+    invoke-static {v5}, Ljava/lang/Math;->abs(F)F
+
+    move-result v5
+
+    move v6, v1
+
+    :goto_0
+    iget-object v7, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+
+    move-result v7
+
+    if-ge v6, v7, :cond_7
+
+    iget-object v7, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/Float;
+
+    invoke-virtual {v7}, Ljava/lang/Float;->floatValue()F
+
+    move-result v7
+
+    sub-float/2addr v7, v0
+
+    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
+
+    move-result v7
+
+    iget-object v8, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v8, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/lang/Float;
+
+    invoke-virtual {v8}, Ljava/lang/Float;->floatValue()F
+
+    move-result v8
+
+    invoke-virtual {p0, v8}, Lcom/google/android/material/slider/BaseSlider;->z0(F)F
+
+    move-result v8
+
+    invoke-static {v7, v5}, Ljava/lang/Float;->compare(FF)I
+
+    move-result v9
+
+    if-lez v9, :cond_1
+
+    goto :goto_4
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
+
+    move-result v9
+
+    const/4 v10, 0x0
+
+    if-eqz v9, :cond_3
+
+    sub-float v9, v8, v3
+
+    cmpl-float v9, v9, v10
+
+    if-lez v9, :cond_2
+
+    :goto_1
+    move v9, v1
+
+    goto :goto_2
+
+    :cond_2
+    move v9, v4
+
+    goto :goto_2
+
+    :cond_3
+    sub-float v9, v8, v3
+
+    cmpg-float v9, v9, v10
+
+    if-gez v9, :cond_2
+
+    goto :goto_1
+
+    :goto_2
+    invoke-static {v7, v5}, Ljava/lang/Float;->compare(FF)I
+
+    move-result v10
+
+    if-gez v10, :cond_4
+
+    iput v6, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
+
+    goto :goto_3
+
+    :cond_4
+    invoke-static {v7, v5}, Ljava/lang/Float;->compare(FF)I
+
+    move-result v10
+
+    if-nez v10, :cond_6
+
+    sub-float/2addr v8, v3
+
+    invoke-static {v8}, Ljava/lang/Math;->abs(F)F
+
+    move-result v8
+
+    iget v10, p0, Lcom/google/android/material/slider/BaseSlider;->r:I
+
+    int-to-float v10, v10
+
+    cmpg-float v8, v8, v10
+
+    if-gez v8, :cond_5
+
+    iput v2, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
+
+    return v4
+
+    :cond_5
+    if-eqz v9, :cond_6
+
+    iput v6, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
+
+    :goto_3
+    move v5, v7
+
+    :cond_6
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_0
+
+    :cond_7
+    :goto_4
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
+
+    if-eq v0, v2, :cond_8
+
+    goto :goto_5
+
+    :cond_8
+    move v1, v4
+
+    :goto_5
+    return v1
+.end method
+
+.method public final c0(Lwc/a;F)V
     .locals 3
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
-    invoke-direct {p0, p2}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
+    invoke-virtual {p0, p2}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
 
     move-result p2
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
     int-to-float v1, v1
 
-    mul-float p2, p2, v1
+    mul-float/2addr p2, v1
 
     float-to-int p2, p2
 
     add-int/2addr v0, p2
 
-    invoke-virtual {p1}, Lcom/google/android/material/tooltip/TooltipDrawable;->getIntrinsicWidth()I
+    invoke-virtual {p1}, Lwc/a;->getIntrinsicWidth()I
 
     move-result p2
 
@@ -3968,13 +2709,13 @@
 
     sub-int/2addr v0, p2
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->calculateTrackCenter()I
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->m()I
 
     move-result p2
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->labelPadding:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->M:I
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
 
     div-int/lit8 v2, v2, 0x2
 
@@ -3982,13 +2723,13 @@
 
     sub-int/2addr p2, v1
 
-    invoke-virtual {p1}, Lcom/google/android/material/tooltip/TooltipDrawable;->getIntrinsicHeight()I
+    invoke-virtual {p1}, Lwc/a;->getIntrinsicHeight()I
 
     move-result v1
 
     sub-int v1, p2, v1
 
-    invoke-virtual {p1}, Lcom/google/android/material/tooltip/TooltipDrawable;->getIntrinsicWidth()I
+    invoke-virtual {p1}, Lwc/a;->getIntrinsicWidth()I
 
     move-result v2
 
@@ -4004,23 +2745,43 @@
 
     invoke-direct {p2, v0}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getContentView(Landroid/view/View;)Landroid/view/ViewGroup;
+    invoke-static {p0}, Lcom/google/android/material/internal/f0;->j(Landroid/view/View;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
-    invoke-static {v0, p0, p2}, Lcom/google/android/material/internal/DescendantOffsetUtils;->offsetDescendantRect(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V
+    invoke-static {v0, p0, p2}, Lcom/google/android/material/internal/d;->c(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V
 
     invoke-virtual {p1, p2}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
     return-void
 .end method
 
-.method private processAttributes(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+.method public clearOnChangeListeners()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->m:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    return-void
+.end method
+
+.method public clearOnSliderTouchListeners()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->n:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    return-void
+.end method
+
+.method public final d0(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 7
 
     sget-object v2, Lcom/google/android/material/R$styleable;->Slider:[I
 
-    sget v4, Lcom/google/android/material/slider/BaseSlider;->DEF_STYLE_RES:I
+    sget v4, Lcom/google/android/material/slider/BaseSlider;->w0:I
 
     const/4 v6, 0x0
 
@@ -4032,7 +2793,7 @@
 
     move v3, p3
 
-    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/ThemeEnforcement;->obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
+    invoke-static/range {v0 .. v5}, Lcom/google/android/material/internal/b0;->i(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;
 
     move-result-object p2
 
@@ -4044,7 +2805,7 @@
 
     move-result p3
 
-    iput p3, p0, Lcom/google/android/material/slider/BaseSlider;->labelStyle:I
+    iput p3, p0, Lcom/google/android/material/slider/BaseSlider;->k:I
 
     sget p3, Lcom/google/android/material/R$styleable;->Slider_android_valueFrom:I
 
@@ -4054,7 +2815,7 @@
 
     move-result p3
 
-    iput p3, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iput p3, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     sget p3, Lcom/google/android/material/R$styleable;->Slider_android_valueTo:I
 
@@ -4064,89 +2825,91 @@
 
     move-result p3
 
-    iput p3, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iput p3, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
-    const/4 p3, 0x1
+    iget p3, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
-    new-array v1, p3, [Ljava/lang/Float;
+    invoke-static {p3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    move-result-object p3
 
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    const/4 v1, 0x1
 
-    move-result-object v2
+    new-array v2, v1, [Ljava/lang/Float;
 
-    aput-object v2, v1, v6
+    aput-object p3, v2, v6
 
-    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->setValues([Ljava/lang/Float;)V
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->setValues([Ljava/lang/Float;)V
 
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_android_stepSize:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_android_stepSize:I
 
-    invoke-virtual {p2, v1, v0}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {p2, p3, v0}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v1
+    move-result p3
 
-    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iput p3, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p3
 
     const/16 v2, 0x30
 
-    invoke-static {v1, v2}, Lcom/google/android/material/internal/ViewUtils;->dpToPx(Landroid/content/Context;I)F
+    invoke-static {p3, v2}, Lcom/google/android/material/internal/f0;->g(Landroid/content/Context;I)F
 
-    move-result v1
+    move-result p3
 
-    float-to-double v1, v1
+    float-to-double v2, p3
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v1
+    move-result-wide v2
 
-    double-to-float v1, v1
+    double-to-float p3, v2
 
     sget v2, Lcom/google/android/material/R$styleable;->Slider_minTouchTargetSize:I
 
-    invoke-virtual {p2, v2, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {p2, v2, p3}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v1
+    move-result p3
 
-    float-to-double v1, v1
+    float-to-double v2, p3
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v1
+    move-result-wide v2
 
-    double-to-int v1, v1
+    double-to-int p3, v2
 
-    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->minTouchTargetSize:I
+    iput p3, p0, Lcom/google/android/material/slider/BaseSlider;->y:I
 
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_trackColor:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_trackColor:I
 
-    invoke-virtual {p2, v1}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {p2, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v2
+    move-result p3
 
-    if-eqz v2, :cond_0
+    if-eqz p3, :cond_0
 
-    move v3, v1
+    sget v2, Lcom/google/android/material/R$styleable;->Slider_trackColor:I
 
     goto :goto_0
 
     :cond_0
-    sget v3, Lcom/google/android/material/R$styleable;->Slider_trackColorInactive:I
+    sget v2, Lcom/google/android/material/R$styleable;->Slider_trackColorInactive:I
 
     :goto_0
-    if-eqz v2, :cond_1
+    if-eqz p3, :cond_1
+
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_trackColor:I
 
     goto :goto_1
 
     :cond_1
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_trackColorActive:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_trackColorActive:I
 
     :goto_1
-    invoke-static {p1, p2, v3}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p2, v2}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
 
@@ -4157,117 +2920,121 @@
     :cond_2
     sget v2, Lcom/google/android/material/R$color;->material_slider_inactive_track_color:I
 
-    invoke-static {p1, v2}, Landroidx/appcompat/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, v2}, Lh/a;->a(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
 
     :goto_2
     invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->setTrackInactiveTintList(Landroid/content/res/ColorStateList;)V
 
-    invoke-static {p1, p2, v1}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p2, p3}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v1
+    move-result-object p3
 
-    if-eqz v1, :cond_3
+    if-eqz p3, :cond_3
 
     goto :goto_3
 
     :cond_3
-    sget v1, Lcom/google/android/material/R$color;->material_slider_active_track_color:I
+    sget p3, Lcom/google/android/material/R$color;->material_slider_active_track_color:I
 
-    invoke-static {p1, v1}, Landroidx/appcompat/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p3}, Lh/a;->a(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v1
+    move-result-object p3
 
     :goto_3
-    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->setTrackActiveTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {p0, p3}, Lcom/google/android/material/slider/BaseSlider;->setTrackActiveTintList(Landroid/content/res/ColorStateList;)V
 
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_thumbColor:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_thumbColor:I
 
-    invoke-static {p1, p2, v1}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p2, p3}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v1
+    move-result-object p3
 
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v2, v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setFillColor(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v2, p3}, Luc/i;->d0(Landroid/content/res/ColorStateList;)V
 
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_thumbStrokeColor:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_thumbStrokeColor:I
 
-    invoke-virtual {p2, v1}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {p2, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v2
+    move-result p3
 
-    if-eqz v2, :cond_4
+    if-eqz p3, :cond_4
 
-    invoke-static {p1, p2, v1}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_thumbStrokeColor:I
 
-    move-result-object v1
+    invoke-static {p1, p2, p3}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->setThumbStrokeColor(Landroid/content/res/ColorStateList;)V
+    move-result-object p3
+
+    invoke-virtual {p0, p3}, Lcom/google/android/material/slider/BaseSlider;->setThumbStrokeColor(Landroid/content/res/ColorStateList;)V
 
     :cond_4
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_thumbStrokeWidth:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_thumbStrokeWidth:I
 
-    invoke-virtual {p2, v1, v0}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {p2, p3, v0}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v1
+    move-result p3
 
-    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->setThumbStrokeWidth(F)V
+    invoke-virtual {p0, p3}, Lcom/google/android/material/slider/BaseSlider;->setThumbStrokeWidth(F)V
 
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_haloColor:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_haloColor:I
 
-    invoke-static {p1, p2, v1}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p2, p3}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v1
+    move-result-object p3
 
-    if-eqz v1, :cond_5
+    if-eqz p3, :cond_5
 
     goto :goto_4
 
     :cond_5
-    sget v1, Lcom/google/android/material/R$color;->material_slider_halo_color:I
+    sget p3, Lcom/google/android/material/R$color;->material_slider_halo_color:I
 
-    invoke-static {p1, v1}, Landroidx/appcompat/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p3}, Lh/a;->a(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v1
+    move-result-object p3
 
     :goto_4
-    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->setHaloTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {p0, p3}, Lcom/google/android/material/slider/BaseSlider;->setHaloTintList(Landroid/content/res/ColorStateList;)V
 
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_tickVisible:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_tickVisible:I
 
-    invoke-virtual {p2, v1, p3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result v1
+    move-result p3
 
-    iput-boolean v1, p0, Lcom/google/android/material/slider/BaseSlider;->tickVisible:Z
+    iput-boolean p3, p0, Lcom/google/android/material/slider/BaseSlider;->a0:Z
 
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_tickColor:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_tickColor:I
 
-    invoke-virtual {p2, v1}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {p2, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v2
+    move-result p3
 
-    if-eqz v2, :cond_6
+    if-eqz p3, :cond_6
 
-    move v3, v1
+    sget v2, Lcom/google/android/material/R$styleable;->Slider_tickColor:I
 
     goto :goto_5
 
     :cond_6
-    sget v3, Lcom/google/android/material/R$styleable;->Slider_tickColorInactive:I
+    sget v2, Lcom/google/android/material/R$styleable;->Slider_tickColorInactive:I
 
     :goto_5
-    if-eqz v2, :cond_7
+    if-eqz p3, :cond_7
+
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_tickColor:I
 
     goto :goto_6
 
     :cond_7
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_tickColorActive:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_tickColorActive:I
 
     :goto_6
-    invoke-static {p1, p2, v3}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p2, v2}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
 
@@ -4278,30 +3045,30 @@
     :cond_8
     sget v2, Lcom/google/android/material/R$color;->material_slider_inactive_tick_marks_color:I
 
-    invoke-static {p1, v2}, Landroidx/appcompat/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, v2}, Lh/a;->a(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
 
     :goto_7
     invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->setTickInactiveTintList(Landroid/content/res/ColorStateList;)V
 
-    invoke-static {p1, p2, v1}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p2, p3}, Lrc/c;->a(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v1
+    move-result-object p3
 
-    if-eqz v1, :cond_9
+    if-eqz p3, :cond_9
 
     goto :goto_8
 
     :cond_9
-    sget v1, Lcom/google/android/material/R$color;->material_slider_active_tick_marks_color:I
+    sget p3, Lcom/google/android/material/R$color;->material_slider_active_tick_marks_color:I
 
-    invoke-static {p1, v1}, Landroidx/appcompat/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, p3}, Lh/a;->a(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v1
+    move-result-object p3
 
     :goto_8
-    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->setTickActiveTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {p0, p3}, Lcom/google/android/material/slider/BaseSlider;->setTickActiveTintList(Landroid/content/res/ColorStateList;)V
 
     sget p1, Lcom/google/android/material/R$styleable;->Slider_thumbTrackGapSize:I
 
@@ -4333,13 +3100,13 @@
 
     move-result p1
 
-    sget v1, Lcom/google/android/material/R$styleable;->Slider_thumbWidth:I
+    sget p3, Lcom/google/android/material/R$styleable;->Slider_thumbWidth:I
 
     mul-int/lit8 p1, p1, 0x2
 
-    invoke-virtual {p2, v1, p1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {p2, p3, p1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v1
+    move-result p3
 
     sget v2, Lcom/google/android/material/R$styleable;->Slider_thumbHeight:I
 
@@ -4347,7 +3114,7 @@
 
     move-result p1
 
-    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->setThumbWidth(I)V
+    invoke-virtual {p0, p3}, Lcom/google/android/material/slider/BaseSlider;->setThumbWidth(I)V
 
     invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setThumbHeight(I)V
 
@@ -4377,11 +3144,11 @@
 
     sget p1, Lcom/google/android/material/R$styleable;->Slider_tickRadiusActive:I
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackStopIndicatorSize:I
+    iget p3, p0, Lcom/google/android/material/slider/BaseSlider;->K:I
 
-    div-int/lit8 v0, v0, 0x2
+    div-int/lit8 p3, p3, 0x2
 
-    invoke-virtual {p2, p1, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {p2, p1, p3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result p1
 
@@ -4389,11 +3156,11 @@
 
     sget p1, Lcom/google/android/material/R$styleable;->Slider_tickRadiusInactive:I
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackStopIndicatorSize:I
+    iget p3, p0, Lcom/google/android/material/slider/BaseSlider;->K:I
 
-    div-int/lit8 v0, v0, 0x2
+    div-int/lit8 p3, p3, 0x2
 
-    invoke-virtual {p2, p1, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {p2, p1, p3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result p1
 
@@ -4409,7 +3176,7 @@
 
     sget p1, Lcom/google/android/material/R$styleable;->Slider_android_enabled:I
 
-    invoke-virtual {p2, p1, p3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {p2, p1, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result p1
 
@@ -4423,1468 +3190,6 @@
     return-void
 .end method
 
-.method private scheduleAccessibilityEventSender(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityEventSender:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1}, Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;-><init>(Lcom/google/android/material/slider/BaseSlider;Lcom/google/android/material/slider/BaseSlider$1;)V
-
-    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityEventSender:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    :goto_0
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityEventSender:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
-
-    invoke-virtual {v0, p1}, Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;->setVirtualViewId(I)V
-
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityEventSender:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
-
-    const-wide/16 v0, 0xc8
-
-    invoke-virtual {p0, p1, v0, v1}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    return-void
-.end method
-
-.method private setValueForLabel(Lcom/google/android/material/tooltip/TooltipDrawable;F)V
-    .locals 1
-
-    invoke-direct {p0, p2}, Lcom/google/android/material/slider/BaseSlider;->formatValue(F)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/google/android/material/tooltip/TooltipDrawable;->setText(Ljava/lang/CharSequence;)V
-
-    invoke-direct {p0, p1, p2}, Lcom/google/android/material/slider/BaseSlider;->positionLabel(Lcom/google/android/material/tooltip/TooltipDrawable;F)V
-
-    invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getContentViewOverlay(Landroid/view/View;)Lcom/google/android/material/internal/ViewOverlayImpl;
-
-    move-result-object p2
-
-    invoke-interface {p2, p1}, Lcom/google/android/material/internal/ViewOverlayImpl;->add(Landroid/graphics/drawable/Drawable;)V
-
-    return-void
-.end method
-
-.method private setValuesInternal(Ljava/util/ArrayList;)V
-    .locals 2
-    .param p1    # Ljava/util/ArrayList;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList<",
-            "Ljava/lang/Float;",
-            ">;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-static {p1}, Ljava/util/Collections;->sort(Ljava/util/List;)V
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    if-ne v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->dirtyConfig:Z
-
-    const/4 p1, 0x0
-
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->createLabelPool()V
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->dispatchOnChangedProgrammatically()V
-
-    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
-
-    return-void
-
-    :cond_1
-    new-instance p1, Ljava/lang/IllegalArgumentException;
-
-    const-string v0, "At least one value must be set"
-
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-.end method
-
-.method private shouldAlwaysShowLabel()Z
-    .locals 2
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelBehavior:I
-
-    const/4 v1, 0x3
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method private shouldDrawCompatHalo()Z
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->forceDrawCompatHalo:Z
-
-    if-nez v0, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
-
-    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-static {v0}, Les/cj;->a(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 v0, 0x1
-
-    :goto_1
-    return v0
-.end method
-
-.method private snapActiveThumbToValue(F)Z
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
-
-    invoke-direct {p0, v0, p1}, Lcom/google/android/material/slider/BaseSlider;->snapThumbToValue(IF)Z
-
-    move-result p1
-
-    return p1
-.end method
-
-.method private snapPosition(F)D
-    .locals 5
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    const/4 v1, 0x0
-
-    cmpl-float v1, v0, v1
-
-    if-lez v1, :cond_0
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    sub-float/2addr v1, v2
-
-    div-float/2addr v1, v0
-
-    float-to-int v0, v1
-
-    int-to-float v1, v0
-
-    mul-float p1, p1, v1
-
-    invoke-static {p1}, Ljava/lang/Math;->round(F)I
-
-    move-result p1
-
-    int-to-double v1, p1
-
-    int-to-double v3, v0
-
-    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
-
-    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
-
-    div-double/2addr v1, v3
-
-    return-wide v1
-
-    :cond_0
-    float-to-double v0, p1
-
-    return-wide v0
-.end method
-
-.method private snapThumbToValue(IF)Z
-    .locals 5
-
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Float;
-
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
-
-    move-result v0
-
-    sub-float v0, p2, v0
-
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
-
-    move-result v0
-
-    float-to-double v0, v0
-
-    const-wide v2, 0x3f1a36e2eb1c432dL    # 1.0E-4
-
-    cmpg-double v4, v0, v2
-
-    if-gez v4, :cond_0
-
-    const/4 p1, 0x0
-
-    return p1
-
-    :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/google/android/material/slider/BaseSlider;->getClampedValue(IF)F
-
-    move-result p2
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p2
-
-    invoke-virtual {v0, p1, p2}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
-
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->dispatchOnChangedFromUser(I)V
-
-    const/4 p1, 0x1
-
-    return p1
-.end method
-
-.method private snapTouchPosition()Z
-    .locals 1
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->getValueOfTouchPosition()F
-
-    move-result v0
-
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->snapActiveThumbToValue(F)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private updateHaloHotspot()V
-    .locals 6
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->shouldDrawCompatHalo()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/view/View;->getMeasuredWidth()I
-
-    move-result v0
-
-    if-lez v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-static {v0}, Les/cj;->a(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Float;
-
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
-
-    move-result v1
-
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
-
-    move-result v1
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
-
-    int-to-float v2, v2
-
-    mul-float v1, v1, v2
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v2, v2
-
-    add-float/2addr v1, v2
-
-    float-to-int v1, v1
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->calculateTrackCenter()I
-
-    move-result v2
-
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->haloRadius:I
-
-    sub-int v4, v1, v3
-
-    sub-int v5, v2, v3
-
-    add-int/2addr v1, v3
-
-    add-int/2addr v2, v3
-
-    invoke-static {v0, v4, v5, v1, v2}, Landroidx/core/graphics/drawable/DrawableCompat;->setHotspotBounds(Landroid/graphics/drawable/Drawable;IIII)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private updateLabels()V
-    .locals 3
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelBehavior:I
-
-    if-eqz v0, :cond_3
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_3
-
-    const/4 v1, 0x2
-
-    if-eq v0, v1, :cond_2
-
-    const/4 v1, 0x3
-
-    if-ne v0, v1, :cond_1
-
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->isSliderVisibleOnScreen()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->ensureLabelsAdded()V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->ensureLabelsRemoved()V
-
-    goto :goto_0
-
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Unexpected labelBehavior: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->labelBehavior:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->ensureLabelsRemoved()V
-
-    goto :goto_0
-
-    :cond_3
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_4
-
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->ensureLabelsAdded()V
-
-    goto :goto_0
-
-    :cond_4
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->ensureLabelsRemoved()V
-
-    :goto_0
-    return-void
-.end method
-
-.method private updateTrack(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;)V
-    .locals 8
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
-
-    int-to-float v1, v0
-
-    const/high16 v2, 0x40000000    # 2.0f
-
-    div-float/2addr v1, v2
-
-    int-to-float v0, v0
-
-    div-float/2addr v0, v2
-
-    sget-object v3, Lcom/google/android/material/slider/BaseSlider$3;->$SwitchMap$com$google$android$material$slider$BaseSlider$FullCornerDirection:[I
-
-    invoke-virtual {p4}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v4
-
-    aget v4, v3, v4
-
-    const/4 v5, 0x3
-
-    const/4 v6, 0x2
-
-    const/4 v7, 0x1
-
-    if-eq v4, v7, :cond_2
-
-    if-eq v4, v6, :cond_1
-
-    if-eq v4, v5, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackInsideCornerSize:I
-
-    int-to-float v1, v1
-
-    goto :goto_1
-
-    :cond_1
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackInsideCornerSize:I
-
-    :goto_0
-    int-to-float v0, v0
-
-    goto :goto_1
-
-    :cond_2
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackInsideCornerSize:I
-
-    int-to-float v1, v0
-
-    goto :goto_0
-
-    :goto_1
-    sget-object v4, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {p2, v4}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    sget-object v4, Landroid/graphics/Paint$Cap;->BUTT:Landroid/graphics/Paint$Cap;
-
-    invoke-virtual {p2, v4}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
-
-    invoke-virtual {p2, v7}, Landroid/graphics/Paint;->setAntiAlias(Z)V
-
-    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->trackPath:Landroid/graphics/Path;
-
-    invoke-virtual {v4}, Landroid/graphics/Path;->reset()V
-
-    invoke-virtual {p3}, Landroid/graphics/RectF;->width()F
-
-    move-result v4
-
-    add-float v7, v1, v0
-
-    cmpl-float v4, v4, v7
-
-    if-ltz v4, :cond_3
-
-    iget-object p4, p0, Lcom/google/android/material/slider/BaseSlider;->trackPath:Landroid/graphics/Path;
-
-    invoke-direct {p0, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->getCornerRadii(FF)[F
-
-    move-result-object v0
-
-    sget-object v1, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
-
-    invoke-virtual {p4, p3, v0, v1}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;[FLandroid/graphics/Path$Direction;)V
-
-    iget-object p3, p0, Lcom/google/android/material/slider/BaseSlider;->trackPath:Landroid/graphics/Path;
-
-    invoke-virtual {p1, p3, p2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-
-    goto :goto_3
-
-    :cond_3
-    invoke-static {v1, v0}, Ljava/lang/Math;->min(FF)F
-
-    move-result v4
-
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(FF)F
-
-    move-result v0
-
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackPath:Landroid/graphics/Path;
-
-    sget-object v7, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
-
-    invoke-virtual {v1, p3, v4, v4, v7}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackPath:Landroid/graphics/Path;
-
-    invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
-
-    invoke-virtual {p4}, Ljava/lang/Enum;->ordinal()I
-
-    move-result p4
-
-    aget p4, v3, p4
-
-    if-eq p4, v6, :cond_5
-
-    if-eq p4, v5, :cond_4
-
-    iget-object p4, p0, Lcom/google/android/material/slider/BaseSlider;->cornerRect:Landroid/graphics/RectF;
-
-    invoke-virtual {p3}, Landroid/graphics/RectF;->centerX()F
-
-    move-result v1
-
-    sub-float/2addr v1, v0
-
-    iget v2, p3, Landroid/graphics/RectF;->top:F
-
-    invoke-virtual {p3}, Landroid/graphics/RectF;->centerX()F
-
-    move-result v3
-
-    add-float/2addr v3, v0
-
-    iget p3, p3, Landroid/graphics/RectF;->bottom:F
-
-    invoke-virtual {p4, v1, v2, v3, p3}, Landroid/graphics/RectF;->set(FFFF)V
-
-    goto :goto_2
-
-    :cond_4
-    iget-object p4, p0, Lcom/google/android/material/slider/BaseSlider;->cornerRect:Landroid/graphics/RectF;
-
-    iget v1, p3, Landroid/graphics/RectF;->right:F
-
-    mul-float v2, v2, v0
-
-    sub-float v2, v1, v2
-
-    iget v3, p3, Landroid/graphics/RectF;->top:F
-
-    iget p3, p3, Landroid/graphics/RectF;->bottom:F
-
-    invoke-virtual {p4, v2, v3, v1, p3}, Landroid/graphics/RectF;->set(FFFF)V
-
-    goto :goto_2
-
-    :cond_5
-    iget-object p4, p0, Lcom/google/android/material/slider/BaseSlider;->cornerRect:Landroid/graphics/RectF;
-
-    iget v1, p3, Landroid/graphics/RectF;->left:F
-
-    iget v3, p3, Landroid/graphics/RectF;->top:F
-
-    mul-float v2, v2, v0
-
-    add-float/2addr v2, v1
-
-    iget p3, p3, Landroid/graphics/RectF;->bottom:F
-
-    invoke-virtual {p4, v1, v3, v2, p3}, Landroid/graphics/RectF;->set(FFFF)V
-
-    :goto_2
-    iget-object p3, p0, Lcom/google/android/material/slider/BaseSlider;->cornerRect:Landroid/graphics/RectF;
-
-    invoke-virtual {p1, p3, v0, v0, p2}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
-
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
-
-    :goto_3
-    return-void
-.end method
-
-.method private updateTrackWidth(I)V
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    mul-int/lit8 v0, v0, 0x2
-
-    sub-int/2addr p1, v0
-
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->maybeCalculateTicksCoordinates()V
-
-    return-void
-.end method
-
-.method private updateWidgetLayout()V
-    .locals 2
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->maybeIncreaseWidgetHeight()Z
-
-    move-result v0
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->maybeIncreaseTrackSidePadding()Z
-
-    move-result v1
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
-
-    goto :goto_0
-
-    :cond_0
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method private validateConfigurationIfDirty()V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->dirtyConfig:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->validateValueFrom()V
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->validateValueTo()V
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->validateStepSize()V
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->validateValues()V
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->validateMinSeparation()V
-
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->warnAboutFloatingPointError()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->dirtyConfig:Z
-
-    :cond_0
-    return-void
-.end method
-
-.method private validateMinSeparation()V
-    .locals 6
-
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->getMinSeparation()F
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    cmpg-float v4, v0, v3
-
-    if-ltz v4, :cond_3
-
-    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    cmpl-float v5, v4, v3
-
-    if-lez v5, :cond_2
-
-    cmpl-float v3, v0, v3
-
-    if-lez v3, :cond_2
-
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->separationUnit:I
-
-    const/4 v5, 0x2
-
-    if-ne v3, v2, :cond_1
-
-    cmpg-float v3, v0, v4
-
-    if-ltz v3, :cond_0
-
-    float-to-double v3, v0
-
-    invoke-direct {p0, v3, v4}, Lcom/google/android/material/slider/BaseSlider;->isMultipleOfStepSize(D)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v3, Ljava/lang/IllegalStateException;
-
-    const/4 v4, 0x3
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v4, v1
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v4, v2
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v4, v5
-
-    const-string v0, "minSeparation(%s) must be greater or equal and a multiple of stepSize(%s) when using stepSize(%s)"
-
-    invoke-static {v0, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_1
-    new-instance v3, Ljava/lang/IllegalStateException;
-
-    new-array v4, v5, [Ljava/lang/Object;
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v4, v1
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v4, v2
-
-    const-string v0, "minSeparation(%s) cannot be set as a dimension when using stepSize(%s)"
-
-    invoke-static {v0, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_2
-    :goto_0
-    return-void
-
-    :cond_3
-    new-instance v3, Ljava/lang/IllegalStateException;
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v2, v1
-
-    const-string v0, "minSeparation(%s) must be greater or equal to 0"
-
-    invoke-static {v0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-.end method
-
-.method private validateStepSize()V
-    .locals 4
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    const/4 v1, 0x0
-
-    cmpl-float v0, v0, v1
-
-    if-lez v0, :cond_1
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->valueLandsOnTick(F)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const/4 v1, 0x3
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    const/4 v3, 0x2
-
-    aput-object v2, v1, v3
-
-    const-string v2, "The stepSize(%s) must be 0, or a factor of the valueFrom(%s)-valueTo(%s) range"
-
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method private validateValueFrom()V
-    .locals 4
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    cmpl-float v0, v0, v1
-
-    if-gez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    const-string v2, "valueFrom(%s) must be smaller than valueTo(%s)"
-
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method private validateValueTo()V
-    .locals 4
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    cmpg-float v0, v0, v1
-
-    if-lez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    const-string v2, "valueTo(%s) must be greater than valueFrom(%s)"
-
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method private validateValues()V
-    .locals 8
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :cond_0
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Float;
-
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
-
-    move-result v2
-
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    const/4 v4, 0x3
-
-    const/4 v5, 0x2
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    cmpg-float v2, v2, v3
-
-    if-ltz v2, :cond_2
-
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
-
-    move-result v2
-
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    cmpl-float v2, v2, v3
-
-    if-gtz v2, :cond_2
-
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    const/4 v3, 0x0
-
-    cmpl-float v2, v2, v3
-
-    if-lez v2, :cond_0
-
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
-
-    move-result v2
-
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->valueLandsOnTick(F)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const/4 v2, 0x4
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    aput-object v1, v2, v7
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v1
-
-    aput-object v1, v2, v6
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v1
-
-    aput-object v1, v2, v5
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v1
-
-    aput-object v1, v2, v4
-
-    const-string v1, "Value(%s) must be equal to valueFrom(%s) plus a multiple of stepSize(%s) when using stepSize(%s)"
-
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    new-array v2, v4, [Ljava/lang/Object;
-
-    aput-object v1, v2, v7
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v1
-
-    aput-object v1, v2, v6
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v1
-
-    aput-object v1, v2, v5
-
-    const-string v1, "Slider value(%s) must be greater or equal to valueFrom(%s), and lower or equal to valueTo(%s)"
-
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_3
-    return-void
-.end method
-
-.method private valueLandsOnTick(F)Z
-    .locals 2
-
-    new-instance v0, Ljava/math/BigDecimal;
-
-    invoke-static {p1}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {v0, p1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/math/BigDecimal;
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    invoke-static {v1}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p1, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
-
-    sget-object v1, Ljava/math/MathContext;->DECIMAL64:Ljava/math/MathContext;
-
-    invoke-virtual {v0, p1, v1}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/math/BigDecimal;->doubleValue()D
-
-    move-result-wide v0
-
-    invoke-direct {p0, v0, v1}, Lcom/google/android/material/slider/BaseSlider;->isMultipleOfStepSize(D)Z
-
-    move-result p1
-
-    return p1
-.end method
-
-.method private valueToX(F)F
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
-
-    move-result p1
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
-
-    int-to-float v0, v0
-
-    mul-float p1, p1, v0
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
-
-    int-to-float v0, v0
-
-    add-float/2addr p1, v0
-
-    return p1
-.end method
-
-.method private warnAboutFloatingPointError()V
-    .locals 8
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
-
-    const/4 v1, 0x0
-
-    cmpl-float v1, v0, v1
-
-    if-nez v1, :cond_0
-
-    return-void
-
-    :cond_0
-    float-to-int v1, v0
-
-    int-to-float v1, v1
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x2
-
-    const-string v5, "Floating point value used for %s(%s). Using floats can have rounding errors which may result in incorrect values. Instead, consider using integers with a custom LabelFormatter to display the value correctly."
-
-    cmpl-float v1, v1, v0
-
-    if-eqz v1, :cond_1
-
-    sget-object v1, Lcom/google/android/material/slider/BaseSlider;->TAG:Ljava/lang/String;
-
-    new-array v6, v4, [Ljava/lang/Object;
-
-    const-string v7, "stepSize"
-
-    aput-object v7, v6, v3
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v6, v2
-
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
-
-    float-to-int v1, v0
-
-    int-to-float v1, v1
-
-    cmpl-float v1, v1, v0
-
-    if-eqz v1, :cond_2
-
-    sget-object v1, Lcom/google/android/material/slider/BaseSlider;->TAG:Ljava/lang/String;
-
-    new-array v6, v4, [Ljava/lang/Object;
-
-    const-string v7, "valueFrom"
-
-    aput-object v7, v6, v3
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v6, v2
-
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
-
-    float-to-int v1, v0
-
-    int-to-float v1, v1
-
-    cmpl-float v1, v1, v0
-
-    if-eqz v1, :cond_3
-
-    sget-object v1, Lcom/google/android/material/slider/BaseSlider;->TAG:Ljava/lang/String;
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const-string v6, "valueTo"
-
-    aput-object v6, v4, v3
-
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    aput-object v0, v4, v2
-
-    invoke-static {v5, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    return-void
-.end method
-
-
-# virtual methods
-.method public addOnChangeListener(Lcom/google/android/material/slider/BaseOnChangeListener;)V
-    .locals 1
-    .param p1    # Lcom/google/android/material/slider/BaseOnChangeListener;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(T",
-            "L;",
-            ")V"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->changeListeners:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public addOnSliderTouchListener(Lcom/google/android/material/slider/BaseOnSliderTouchListener;)V
-    .locals 1
-    .param p1    # Lcom/google/android/material/slider/BaseOnSliderTouchListener;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->touchListeners:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public clearOnChangeListeners()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->changeListeners:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    return-void
-.end method
-
-.method public clearOnSliderTouchListeners()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->touchListeners:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    return-void
-.end method
-
 .method public dispatchHoverEvent(Landroid/view/MotionEvent;)Z
     .locals 1
     .param p1    # Landroid/view/MotionEvent;
@@ -5892,9 +3197,9 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityHelper:Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->h:Lcom/google/android/material/slider/BaseSlider$d;
 
-    invoke-virtual {v0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
+    invoke-virtual {v0, p1}, Landroidx/customview/widget/a;->i(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
@@ -5940,57 +3245,57 @@
 
     invoke-super {p0}, Landroid/view/View;->drawableStateChanged()V
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorInactive:Landroid/content/res/ColorStateList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->l0:Landroid/content/res/ColorStateList;
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeTrackPaint:Landroid/graphics/Paint;
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorActive:Landroid/content/res/ColorStateList;
-
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTicksPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->b:Landroid/graphics/Paint;
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorInactive:Landroid/content/res/ColorStateList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->k0:Landroid/content/res/ColorStateList;
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
-
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeTicksPaint:Landroid/graphics/Paint;
-
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorActive:Landroid/content/res/ColorStateList;
-
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->stopIndicatorPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->e:Landroid/graphics/Paint;
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorActive:Landroid/content/res/ColorStateList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->j0:Landroid/content/res/ColorStateList;
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->f:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->i0:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->g:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->k0:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -6008,9 +3313,9 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/android/material/tooltip/TooltipDrawable;
+    check-cast v1, Lwc/a;
 
-    invoke-virtual {v1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->isStateful()Z
+    invoke-virtual {v1}, Luc/i;->isStateful()Z
 
     move-result v2
 
@@ -6025,15 +3330,15 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->isStateful()Z
+    invoke-virtual {v0}, Luc/i;->isStateful()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
     invoke-virtual {p0}, Landroid/view/View;->getDrawableState()[I
 
@@ -6042,17 +3347,17 @@
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
     :cond_2
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->d:Landroid/graphics/Paint;
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->haloColor:Landroid/content/res/ColorStateList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->h0:Landroid/content/res/ColorStateList;
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->d:Landroid/graphics/Paint;
 
     const/16 v1, 0x3f
 
@@ -6061,14 +3366,78 @@
     return-void
 .end method
 
-.method public forceDrawCompatHalo(Z)V
-    .locals 0
-    .annotation build Landroidx/annotation/VisibleForTesting;
-    .end annotation
+.method public final e0(I)V
+    .locals 2
 
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->forceDrawCompatHalo:Z
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->j:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, v1}, Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;-><init>(Lcom/google/android/material/slider/BaseSlider;Lcom/google/android/material/slider/BaseSlider$a;)V
+
+    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->j:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    :goto_0
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->j:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
+
+    invoke-virtual {v0, p1}, Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;->setVirtualViewId(I)V
+
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->j:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
+
+    const-wide/16 v0, 0xc8
+
+    invoke-virtual {p0, p1, v0, v1}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
+.end method
+
+.method public final f0(Lwc/a;F)V
+    .locals 1
+
+    invoke-virtual {p0, p2}, Lcom/google/android/material/slider/BaseSlider;->A(F)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lwc/a;->E0(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/slider/BaseSlider;->c0(Lwc/a;F)V
+
+    invoke-static {p0}, Lcom/google/android/material/internal/f0;->k(Landroid/view/View;)Lcom/google/android/material/internal/d0;
+
+    move-result-object p2
+
+    invoke-interface {p2, p1}, Lcom/google/android/material/internal/d0;->a(Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+.end method
+
+.method public final g0()Z
+    .locals 2
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->B:I
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
 .method public getAccessibilityClassName()Ljava/lang/CharSequence;
@@ -6087,12 +3456,10 @@
 
 .method public final getAccessibilityFocusedVirtualViewId()I
     .locals 1
-    .annotation build Landroidx/annotation/VisibleForTesting;
-    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityHelper:Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->h:Lcom/google/android/material/slider/BaseSlider$d;
 
-    invoke-virtual {v0}, Landroidx/customview/widget/ExploreByTouchHelper;->getAccessibilityFocusedVirtualViewId()I
+    invoke-virtual {v0}, Landroidx/customview/widget/a;->k()I
 
     move-result v0
 
@@ -6102,7 +3469,7 @@
 .method public getActiveThumbIndex()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     return v0
 .end method
@@ -6110,17 +3477,15 @@
 .method public getFocusedThumbIndex()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
     return v0
 .end method
 
 .method public getHaloRadius()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloRadius:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->G:I
 
     return v0
 .end method
@@ -6130,7 +3495,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloColor:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->h0:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
@@ -6138,7 +3503,7 @@
 .method public getLabelBehavior()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelBehavior:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->B:I
 
     return v0
 .end method
@@ -6154,7 +3519,7 @@
 .method public getStepSize()F
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
     return v0
 .end method
@@ -6162,9 +3527,9 @@
 .method public getThumbElevation()F
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->getElevation()F
+    invoke-virtual {v0}, Luc/i;->y()F
 
     move-result v0
 
@@ -6173,20 +3538,16 @@
 
 .method public getThumbHeight()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
 
     return v0
 .end method
 
 .method public getThumbRadius()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
     div-int/lit8 v0, v0, 0x2
 
@@ -6196,9 +3557,9 @@
 .method public getThumbStrokeColor()Landroid/content/res/ColorStateList;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->getStrokeColor()Landroid/content/res/ColorStateList;
+    invoke-virtual {v0}, Luc/i;->H()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
@@ -6208,9 +3569,9 @@
 .method public getThumbStrokeWidth()F
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->getStrokeWidth()F
+    invoke-virtual {v0}, Luc/i;->J()F
 
     move-result v0
 
@@ -6222,9 +3583,9 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->getFillColor()Landroid/content/res/ColorStateList;
+    invoke-virtual {v0}, Luc/i;->z()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
@@ -6234,27 +3595,23 @@
 .method public getThumbTrackGapSize()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
 
     return v0
 .end method
 
 .method public getThumbWidth()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
     return v0
 .end method
 
 .method public getTickActiveRadius()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickActiveRadius:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->b0:I
 
     return v0
 .end method
@@ -6264,17 +3621,15 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorActive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->i0:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
 
 .method public getTickInactiveRadius()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickInactiveRadius:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->c0:I
 
     return v0
 .end method
@@ -6284,7 +3639,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorInactive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->j0:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
@@ -6294,9 +3649,9 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorInactive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->j0:Landroid/content/res/ColorStateList;
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorActive:Landroid/content/res/ColorStateList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->i0:Landroid/content/res/ColorStateList;
 
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -6304,7 +3659,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorActive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->i0:Landroid/content/res/ColorStateList;
 
     return-object v0
 
@@ -6323,17 +3678,15 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorActive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->k0:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
 
 .method public getTrackHeight()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
 
     return v0
 .end method
@@ -6343,7 +3696,7 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorInactive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l0:Landroid/content/res/ColorStateList;
 
     return-object v0
 .end method
@@ -6351,17 +3704,15 @@
 .method public getTrackInsideCornerSize()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackInsideCornerSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->L:I
 
     return v0
 .end method
 
 .method public getTrackSidePadding()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
     return v0
 .end method
@@ -6369,7 +3720,7 @@
 .method public getTrackStopIndicatorSize()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackStopIndicatorSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->K:I
 
     return v0
 .end method
@@ -6379,9 +3730,9 @@
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorInactive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l0:Landroid/content/res/ColorStateList;
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorActive:Landroid/content/res/ColorStateList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->k0:Landroid/content/res/ColorStateList;
 
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -6389,7 +3740,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorActive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->k0:Landroid/content/res/ColorStateList;
 
     return-object v0
 
@@ -6405,10 +3756,8 @@
 
 .method public getTrackWidth()I
     .locals 1
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
     return v0
 .end method
@@ -6416,7 +3765,7 @@
 .method public getValueFrom()F
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     return v0
 .end method
@@ -6424,7 +3773,7 @@
 .method public getValueTo()F
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
     return v0
 .end method
@@ -6445,57 +3794,971 @@
 
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     return-object v0
 .end method
 
-.method public hasLabelFormatter()Z
+.method public final h(Landroid/graphics/drawable/Drawable;)V
+    .locals 5
+
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    const/4 v3, -0x1
+
+    if-ne v0, v3, :cond_0
+
+    if-ne v1, v3, :cond_0
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
+
+    invoke-virtual {p1, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    goto :goto_0
+
+    :cond_0
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
+
+    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
+
+    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v4
+
+    int-to-float v4, v4
+
+    div-float/2addr v3, v4
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, v3
+
+    float-to-int v0, v0
+
+    int-to-float v1, v1
+
+    mul-float/2addr v1, v3
+
+    float-to-int v1, v1
+
+    invoke-virtual {p1, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    :goto_0
+    return-void
+.end method
+
+.method public final h0()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->formatter:Lcom/google/android/material/slider/LabelFormatter;
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->e0:Z
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_1
 
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    instance-of v0, v0, Landroid/graphics/drawable/RippleDrawable;
+
+    if-nez v0, :cond_0
 
     goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
 
+    goto :goto_1
+
+    :cond_1
     :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
     return v0
 .end method
 
-.method public final isRtl()Z
-    .locals 2
+.method public hasLabelFormatter()Z
+    .locals 1
 
-    invoke-static {p0}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
+    const/4 v0, 0x0
 
-    move-result v0
+    return v0
+.end method
 
-    const/4 v1, 0x1
+.method public final i(Lwc/a;)V
+    .locals 1
 
-    if-ne v0, v1, :cond_0
+    invoke-static {p0}, Lcom/google/android/material/internal/f0;->j(Landroid/view/View;)Landroid/view/ViewGroup;
 
-    goto :goto_0
+    move-result-object v0
 
-    :cond_0
-    const/4 v1, 0x0
+    invoke-virtual {p1, v0}, Lwc/a;->C0(Landroid/view/View;)V
 
-    :goto_0
-    return v1
+    return-void
+.end method
+
+.method public final i0(F)Z
+    .locals 1
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
+
+    invoke-virtual {p0, v0, p1}, Lcom/google/android/material/slider/BaseSlider;->k0(IF)Z
+
+    move-result p1
+
+    return p1
 .end method
 
 .method public isTickVisible()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickVisible:Z
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->a0:Z
 
     return v0
+.end method
+
+.method public final j(I)Ljava/lang/Float;
+    .locals 2
+    .annotation build Landroidx/annotation/Nullable;
+    .end annotation
+
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->f0:Z
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x14
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->l(I)F
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->k()F
+
+    move-result v0
+
+    :goto_0
+    const/16 v1, 0x15
+
+    if-eq p1, v1, :cond_5
+
+    const/16 v1, 0x16
+
+    if-eq p1, v1, :cond_3
+
+    const/16 v1, 0x45
+
+    if-eq p1, v1, :cond_2
+
+    const/16 v1, 0x46
+
+    if-eq p1, v1, :cond_1
+
+    const/16 v1, 0x51
+
+    if-eq p1, v1, :cond_1
+
+    const/4 p1, 0x0
+
+    return-object p1
+
+    :cond_1
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_2
+    neg-float p1, v0
+
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_4
+
+    neg-float v0, v0
+
+    :cond_4
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_5
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_6
+
+    goto :goto_1
+
+    :cond_6
+    neg-float v0, v0
+
+    :goto_1
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final j0(F)D
+    .locals 5
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    const/4 v1, 0x0
+
+    cmpl-float v1, v0, v1
+
+    if-lez v1, :cond_0
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    sub-float/2addr v1, v2
+
+    div-float/2addr v1, v0
+
+    float-to-int v0, v1
+
+    int-to-float v1, v0
+
+    mul-float/2addr p1, v1
+
+    invoke-static {p1}, Ljava/lang/Math;->round(F)I
+
+    move-result p1
+
+    int-to-double v1, p1
+
+    int-to-double v3, v0
+
+    div-double/2addr v1, v3
+
+    return-wide v1
+
+    :cond_0
+    float-to-double v0, p1
+
+    return-wide v0
+.end method
+
+.method public final k()F
+    .locals 2
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    const/4 v1, 0x0
+
+    cmpl-float v1, v0, v1
+
+    if-nez v1, :cond_0
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    :cond_0
+    return v0
+.end method
+
+.method public final k0(IF)Z
+    .locals 4
+
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    sub-float v0, p2, v0
+
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+
+    move-result v0
+
+    float-to-double v0, v0
+
+    const-wide v2, 0x3f1a36e2eb1c432dL    # 1.0E-4
+
+    cmpg-double v0, v0, v2
+
+    if-gez v0, :cond_0
+
+    const/4 p1, 0x0
+
+    return p1
+
+    :cond_0
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/slider/BaseSlider;->C(IF)F
+
+    move-result p2
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p2
+
+    invoke-virtual {v0, p1, p2}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->r(I)V
+
+    const/4 p1, 0x1
+
+    return p1
+.end method
+
+.method public final l(I)F
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->k()F
+
+    move-result v0
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    sub-float/2addr v1, v2
+
+    div-float/2addr v1, v0
+
+    int-to-float p1, p1
+
+    cmpg-float v2, v1, p1
+
+    if-gtz v2, :cond_0
+
+    return v0
+
+    :cond_0
+    div-float/2addr v1, p1
+
+    invoke-static {v1}, Ljava/lang/Math;->round(F)I
+
+    move-result p1
+
+    int-to-float p1, p1
+
+    mul-float/2addr p1, v0
+
+    return p1
+.end method
+
+.method public final l0()Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->getValueOfTouchPosition()F
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->i0(F)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public final m()I
+    .locals 4
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->A:I
+
+    div-int/lit8 v0, v0, 0x2
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->B:I
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    if-eq v1, v2, :cond_0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->g0()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lwc/a;
+
+    invoke-virtual {v1}, Lwc/a;->getIntrinsicHeight()I
+
+    move-result v3
+
+    :cond_1
+    add-int/2addr v0, v3
+
+    return v0
+.end method
+
+.method public m0(ILandroid/graphics/Rect;)V
+    .locals 5
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->getValues()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
+
+    move-result p1
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
+
+    int-to-float v1, v1
+
+    mul-float/2addr p1, v1
+
+    float-to-int p1, p1
+
+    add-int/2addr v0, p1
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->m()I
+
+    move-result p1
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
+
+    div-int/lit8 v1, v1, 0x2
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->y:I
+
+    div-int/lit8 v2, v2, 0x2
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
+
+    div-int/lit8 v2, v2, 0x2
+
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->y:I
+
+    div-int/lit8 v3, v3, 0x2
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    sub-int v3, v0, v1
+
+    sub-int v4, p1, v2
+
+    add-int/2addr v0, v1
+
+    add-int/2addr p1, v2
+
+    invoke-virtual {p2, v3, v4, v0, p1}, Landroid/graphics/Rect;->set(IIII)V
+
+    return-void
+.end method
+
+.method public final n(Z)Landroid/animation/ValueAnimator;
+    .locals 4
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_0
+
+    move v2, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v2, v0
+
+    :goto_0
+    if-eqz p1, :cond_1
+
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->q:Landroid/animation/ValueAnimator;
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->p:Landroid/animation/ValueAnimator;
+
+    :goto_1
+    invoke-static {v3, v2}, Lcom/google/android/material/slider/BaseSlider;->B(Landroid/animation/ValueAnimator;F)F
+
+    move-result v2
+
+    if-eqz p1, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    move v0, v1
+
+    :goto_2
+    const/4 v1, 0x2
+
+    new-array v1, v1, [F
+
+    const/4 v3, 0x0
+
+    aput v2, v1, v3
+
+    const/4 v2, 0x1
+
+    aput v0, v1, v2
+
+    invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    if-eqz p1, :cond_3
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    sget v1, Lcom/google/android/material/slider/BaseSlider;->x0:I
+
+    const/16 v2, 0x53
+
+    invoke-static {p1, v1, v2}, Lpc/j;->f(Landroid/content/Context;II)I
+
+    move-result p1
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    sget v2, Lcom/google/android/material/slider/BaseSlider;->z0:I
+
+    sget-object v3, Lec/b;->e:Landroid/animation/TimeInterpolator;
+
+    invoke-static {v1, v2, v3}, Lpc/j;->g(Landroid/content/Context;ILandroid/animation/TimeInterpolator;)Landroid/animation/TimeInterpolator;
+
+    move-result-object v1
+
+    goto :goto_3
+
+    :cond_3
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    sget v1, Lcom/google/android/material/slider/BaseSlider;->y0:I
+
+    const/16 v2, 0x75
+
+    invoke-static {p1, v1, v2}, Lpc/j;->f(Landroid/content/Context;II)I
+
+    move-result p1
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    sget v2, Lcom/google/android/material/slider/BaseSlider;->A0:I
+
+    sget-object v3, Lec/b;->c:Landroid/animation/TimeInterpolator;
+
+    invoke-static {v1, v2, v3}, Lpc/j;->g(Landroid/content/Context;ILandroid/animation/TimeInterpolator;)Landroid/animation/TimeInterpolator;
+
+    move-result-object v1
+
+    :goto_3
+    int-to-long v2, p1
+
+    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    new-instance p1, Lcom/google/android/material/slider/BaseSlider$a;
+
+    invoke-direct {p1, p0}, Lcom/google/android/material/slider/BaseSlider$a;-><init>(Lcom/google/android/material/slider/BaseSlider;)V
+
+    invoke-virtual {v0, p1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    return-object v0
+.end method
+
+.method public final n0()V
+    .locals 6
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->h0()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/View;->getMeasuredWidth()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    instance-of v1, v0, Landroid/graphics/drawable/RippleDrawable;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Float;
+
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
+
+    move-result v1
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
+
+    int-to-float v2, v2
+
+    mul-float/2addr v1, v2
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    int-to-float v2, v2
+
+    add-float/2addr v1, v2
+
+    float-to-int v1, v1
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->m()I
+
+    move-result v2
+
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->G:I
+
+    sub-int v4, v1, v3
+
+    sub-int v5, v2, v3
+
+    add-int/2addr v1, v3
+
+    add-int/2addr v2, v3
+
+    invoke-static {v0, v4, v5, v1, v2}, Lg1/a;->l(Landroid/graphics/drawable/Drawable;IIII)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final o()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-le v0, v1, :cond_2
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/List;->subList(II)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lwc/a;
+
+    invoke-static {p0}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->p(Lwc/a;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    :cond_2
+    :goto_1
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-ge v0, v1, :cond_3
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->k:I
+
+    invoke-static {v0, v1, v2, v3}, Lwc/a;->w0(Landroid/content/Context;Landroid/util/AttributeSet;II)Lwc/a;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-static {p0}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->i(Lwc/a;)V
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    move v2, v1
+
+    :goto_2
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_3
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lwc/a;
+
+    int-to-float v3, v2
+
+    invoke-virtual {v1, v3}, Luc/i;->o0(F)V
+
+    goto :goto_3
+
+    :cond_5
+    return-void
+.end method
+
+.method public final o0()V
+    .locals 3
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->B:I
+
+    if-eqz v0, :cond_3
+
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_3
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_2
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->N()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->x()V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->y()V
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Unexpected labelBehavior: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->B:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->y()V
+
+    goto :goto_0
+
+    :cond_3
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_4
+
+    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->x()V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->y()V
+
+    :goto_0
+    return-void
 .end method
 
 .method public onAttachedToWindow()V
@@ -6507,11 +4770,11 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->onScrollChangedListener:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->u0:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnScrollChangedListener(Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -6528,9 +4791,9 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/android/material/tooltip/TooltipDrawable;
+    check-cast v1, Lwc/a;
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->attachLabelToContentView(Lcom/google/android/material/tooltip/TooltipDrawable;)V
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->i(Lwc/a;)V
 
     goto :goto_0
 
@@ -6541,7 +4804,7 @@
 .method public onDetachedFromWindow()V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityEventSender:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->j:Lcom/google/android/material/slider/BaseSlider$AccessibilityEventSender;
 
     if-eqz v0, :cond_0
 
@@ -6550,9 +4813,9 @@
     :cond_0
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelsAreAnimatedIn:Z
+    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->o:Z
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -6569,9 +4832,9 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/android/material/tooltip/TooltipDrawable;
+    check-cast v1, Lwc/a;
 
-    invoke-direct {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->detachLabelFromContentView(Lcom/google/android/material/tooltip/TooltipDrawable;)V
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->p(Lwc/a;)V
 
     goto :goto_0
 
@@ -6580,7 +4843,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->onScrollChangedListener:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->u0:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->removeOnScrollChangedListener(Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V
 
@@ -6596,22 +4859,22 @@
         .end annotation
     .end param
 
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->dirtyConfig:Z
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->g0:Z
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->validateConfigurationIfDirty()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->s0()V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->maybeCalculateTicksCoordinates()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->P()V
 
     :cond_0
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->calculateTrackCenter()I
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->m()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     const/4 v2, 0x0
 
@@ -6625,7 +4888,7 @@
 
     move-result v1
 
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
@@ -6645,13 +4908,13 @@
 
     move-result v2
 
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
     cmpg-float v3, v2, v3
 
     if-ltz v3, :cond_1
 
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
@@ -6659,34 +4922,34 @@
 
     if-le v3, v4, :cond_2
 
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     cmpl-float v1, v1, v3
 
     if-lez v1, :cond_2
 
     :cond_1
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
-    invoke-direct {p0, p1, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->drawInactiveTrack(Landroid/graphics/Canvas;II)V
+    invoke-virtual {p0, p1, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->u(Landroid/graphics/Canvas;II)V
 
     :cond_2
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     cmpl-float v1, v2, v1
 
     if-lez v1, :cond_3
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
-    invoke-direct {p0, p1, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->drawActiveTrack(Landroid/graphics/Canvas;II)V
+    invoke-virtual {p0, p1, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->t(Landroid/graphics/Canvas;II)V
 
     :cond_3
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->maybeDrawTicks(Landroid/graphics/Canvas;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->S(Landroid/graphics/Canvas;)V
 
-    invoke-direct {p0, p1, v0}, Lcom/google/android/material/slider/BaseSlider;->maybeDrawStopIndicator(Landroid/graphics/Canvas;I)V
+    invoke-virtual {p0, p1, v0}, Lcom/google/android/material/slider/BaseSlider;->R(Landroid/graphics/Canvas;I)V
 
-    iget-boolean v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbIsPressed:Z
+    iget-boolean v1, p0, Lcom/google/android/material/slider/BaseSlider;->P:Z
 
     if-nez v1, :cond_4
 
@@ -6703,16 +4966,16 @@
 
     if-eqz v1, :cond_5
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
-    invoke-direct {p0, p1, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->maybeDrawCompatHalo(Landroid/graphics/Canvas;II)V
+    invoke-virtual {p0, p1, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->Q(Landroid/graphics/Canvas;II)V
 
     :cond_5
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateLabels()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->o0()V
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
-    invoke-direct {p0, p1, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->drawThumbs(Landroid/graphics/Canvas;II)V
+    invoke-virtual {p0, p1, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->w(Landroid/graphics/Canvas;II)V
 
     return-void
 .end method
@@ -6730,24 +4993,24 @@
 
     const/4 p1, -0x1
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityHelper:Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->h:Lcom/google/android/material/slider/BaseSlider$d;
 
-    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
-    invoke-virtual {p1, p2}, Landroidx/customview/widget/ExploreByTouchHelper;->clearKeyboardFocusForVirtualView(I)Z
+    invoke-virtual {p1, p2}, Landroidx/customview/widget/a;->b(I)Z
 
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0, p2}, Lcom/google/android/material/slider/BaseSlider;->focusThumbOnFocusGained(I)V
+    invoke-virtual {p0, p2}, Lcom/google/android/material/slider/BaseSlider;->z(I)V
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityHelper:Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->h:Lcom/google/android/material/slider/BaseSlider$d;
 
-    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
-    invoke-virtual {p1, p2}, Landroidx/customview/widget/ExploreByTouchHelper;->requestKeyboardFocusForVirtualView(I)Z
+    invoke-virtual {p1, p2}, Landroidx/customview/widget/a;->I(I)Z
 
     :goto_0
     return-void
@@ -6773,7 +5036,7 @@
     return p1
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -6785,16 +5048,16 @@
 
     if-ne v0, v2, :cond_1
 
-    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     :cond_1
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     const/4 v3, -0x1
 
     if-ne v0, v3, :cond_3
 
-    invoke-direct {p0, p1, p2}, Lcom/google/android/material/slider/BaseSlider;->onKeyDownNoActiveThumb(ILandroid/view/KeyEvent;)Ljava/lang/Boolean;
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/material/slider/BaseSlider;->Y(ILandroid/view/KeyEvent;)Ljava/lang/Boolean;
 
     move-result-object v0
 
@@ -6815,7 +5078,7 @@
     return p1
 
     :cond_3
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->isLongPress:Z
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->f0:Z
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->isLongPress()Z
 
@@ -6823,17 +5086,17 @@
 
     or-int/2addr v0, v4
 
-    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->isLongPress:Z
+    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->f0:Z
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->calculateIncrementForKey(I)Ljava/lang/Float;
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->j(I)Ljava/lang/Float;
 
     move-result-object v0
 
     if-eqz v0, :cond_5
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
-    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     invoke-virtual {p1, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -6851,13 +5114,13 @@
 
     add-float/2addr p1, p2
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->snapActiveThumbToValue(F)Z
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->i0(F)Z
 
     move-result p1
 
     if-eqz p1, :cond_4
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->n0()V
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -6890,7 +5153,7 @@
 
     if-eqz p1, :cond_7
 
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
 
     move-result p1
 
@@ -6903,7 +5166,7 @@
 
     if-eqz p1, :cond_8
 
-    invoke-direct {p0, v3}, Lcom/google/android/material/slider/BaseSlider;->moveFocus(I)Z
+    invoke-virtual {p0, v3}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
 
     move-result p1
 
@@ -6913,7 +5176,7 @@
     return v1
 
     :cond_9
-    iput v3, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iput v3, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -6929,7 +5192,7 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->isLongPress:Z
+    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->f0:Z
 
     invoke-super {p0, p1, p2}, Landroid/view/View;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
@@ -6941,9 +5204,9 @@
 .method public onMeasure(II)V
     .locals 3
 
-    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->widgetHeight:I
+    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->A:I
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelBehavior:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->B:I
 
     const/4 v1, 0x1
 
@@ -6951,22 +5214,22 @@
 
     if-eq v0, v1, :cond_0
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->shouldAlwaysShowLabel()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->g0()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
 
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/android/material/tooltip/TooltipDrawable;
+    check-cast v0, Lwc/a;
 
-    invoke-virtual {v0}, Lcom/google/android/material/tooltip/TooltipDrawable;->getIntrinsicHeight()I
+    invoke-virtual {v0}, Lwc/a;->getIntrinsicHeight()I
 
     move-result v2
 
@@ -6995,23 +5258,23 @@
 
     invoke-super {p0, v0}, Landroid/view/View;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    iget v0, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->valueFrom:F
+    iget v0, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->a:F
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
-    iget v0, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->valueTo:F
+    iget v0, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->b:F
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
-    iget-object v0, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->values:Ljava/util/ArrayList;
+    iget-object v0, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->c:Ljava/util/ArrayList;
 
     invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->setValuesInternal(Ljava/util/ArrayList;)V
 
-    iget v0, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->stepSize:F
+    iget v0, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->d:F
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
-    iget-boolean p1, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->hasFocus:Z
+    iget-boolean p1, p1, Lcom/google/android/material/slider/BaseSlider$SliderState;->e:Z
 
     if-eqz p1, :cond_0
 
@@ -7032,31 +5295,31 @@
 
     invoke-direct {v1, v0}, Lcom/google/android/material/slider/BaseSlider$SliderState;-><init>(Landroid/os/Parcelable;)V
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
-    iput v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->valueFrom:F
+    iput v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->a:F
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
-    iput v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->valueTo:F
+    iput v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->b:F
 
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-direct {v0, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    iput-object v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->values:Ljava/util/ArrayList;
+    iput-object v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->c:Ljava/util/ArrayList;
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
-    iput v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->stepSize:F
+    iput v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->d:F
 
     invoke-virtual {p0}, Landroid/view/View;->hasFocus()Z
 
     move-result v0
 
-    iput-boolean v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->hasFocus:Z
+    iput-boolean v0, v1, Lcom/google/android/material/slider/BaseSlider$SliderState;->e:Z
 
     return-object v1
 .end method
@@ -7064,9 +5327,9 @@
 .method public onSizeChanged(IIII)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->updateTrackWidth(I)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->q0(I)V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->n0()V
 
     return-void
 .end method
@@ -7093,19 +5356,19 @@
 
     move-result v0
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
     int-to-float v2, v2
 
     sub-float v2, v0, v2
 
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
 
     int-to-float v3, v3
 
     div-float/2addr v2, v3
 
-    iput v2, p0, Lcom/google/android/material/slider/BaseSlider;->touchPosition:F
+    iput v2, p0, Lcom/google/android/material/slider/BaseSlider;->s0:F
 
     const/4 v3, 0x0
 
@@ -7113,7 +5376,7 @@
 
     move-result v2
 
-    iput v2, p0, Lcom/google/android/material/slider/BaseSlider;->touchPosition:F
+    iput v2, p0, Lcom/google/android/material/slider/BaseSlider;->s0:F
 
     const/high16 v3, 0x3f800000    # 1.0f
 
@@ -7121,7 +5384,7 @@
 
     move-result v2
 
-    iput v2, p0, Lcom/google/android/material/slider/BaseSlider;->touchPosition:F
+    iput v2, p0, Lcom/google/android/material/slider/BaseSlider;->s0:F
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -7144,17 +5407,17 @@
     goto/16 :goto_0
 
     :cond_1
-    iget-boolean v2, p0, Lcom/google/android/material/slider/BaseSlider;->thumbIsPressed:Z
+    iget-boolean v2, p0, Lcom/google/android/material/slider/BaseSlider;->P:Z
 
     if-nez v2, :cond_3
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->isPotentialVerticalScroll(Landroid/view/MotionEvent;)Z
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->L(Landroid/view/MotionEvent;)Z
 
     move-result v2
 
     if-eqz v2, :cond_2
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->touchDownX:F
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->N:F
 
     sub-float/2addr v0, v2
 
@@ -7162,7 +5425,7 @@
 
     move-result v0
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->scaledTouchSlop:I
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->r:I
 
     int-to-float v2, v2
 
@@ -7179,10 +5442,10 @@
 
     invoke-interface {v0, v4}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->onStartTrackingTouch()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->Z()V
 
     :cond_3
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->pickActiveThumb()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->b0()Z
 
     move-result v0
 
@@ -7191,20 +5454,20 @@
     goto/16 :goto_0
 
     :cond_4
-    iput-boolean v4, p0, Lcom/google/android/material/slider/BaseSlider;->thumbIsPressed:Z
+    iput-boolean v4, p0, Lcom/google/android/material/slider/BaseSlider;->P:Z
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->snapTouchPosition()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->l0()Z
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->n0()V
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     goto/16 :goto_0
 
     :cond_5
-    iput-boolean v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbIsPressed:Z
+    iput-boolean v1, p0, Lcom/google/android/material/slider/BaseSlider;->P:Z
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->lastEvent:Landroid/view/MotionEvent;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->O:Landroid/view/MotionEvent;
 
     if-eqz v0, :cond_6
 
@@ -7214,7 +5477,7 @@
 
     if-nez v0, :cond_6
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->lastEvent:Landroid/view/MotionEvent;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->O:Landroid/view/MotionEvent;
 
     invoke-virtual {v0}, Landroid/view/MotionEvent;->getX()F
 
@@ -7230,7 +5493,7 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->scaledTouchSlop:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->r:I
 
     int-to-float v1, v1
 
@@ -7238,7 +5501,7 @@
 
     if-gtz v0, :cond_6
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->lastEvent:Landroid/view/MotionEvent;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->O:Landroid/view/MotionEvent;
 
     invoke-virtual {v0}, Landroid/view/MotionEvent;->getY()F
 
@@ -7254,7 +5517,7 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->scaledTouchSlop:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->r:I
 
     int-to-float v1, v1
 
@@ -7262,49 +5525,49 @@
 
     if-gtz v0, :cond_6
 
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->pickActiveThumb()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->b0()Z
 
     move-result v0
 
     if-eqz v0, :cond_6
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->onStartTrackingTouch()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->Z()V
 
     :cond_6
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_8
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->snapTouchPosition()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->l0()Z
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->n0()V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->hasGapBetweenThumbAndTrack()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->F()Z
 
     move-result v0
 
     if-eqz v0, :cond_7
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbWidth:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->I:I
 
     if-eq v0, v1, :cond_7
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbTrackGapSize:I
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->J:I
 
     if-eq v2, v1, :cond_7
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->setThumbWidth(I)V
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbTrackGapSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->J:I
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->setThumbTrackGapSize(I)V
 
     :cond_7
-    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->onStopTrackingTouch()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->a0()V
 
     :cond_8
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
@@ -7312,9 +5575,9 @@
     goto :goto_0
 
     :cond_9
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->touchDownX:F
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->N:F
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->isPotentialVerticalScroll(Landroid/view/MotionEvent;)Z
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->L(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
@@ -7329,7 +5592,7 @@
 
     invoke-interface {v0, v4}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->pickActiveThumb()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->b0()Z
 
     move-result v0
 
@@ -7340,43 +5603,43 @@
     :cond_b
     invoke-virtual {p0}, Landroid/view/View;->requestFocus()Z
 
-    iput-boolean v4, p0, Lcom/google/android/material/slider/BaseSlider;->thumbIsPressed:Z
+    iput-boolean v4, p0, Lcom/google/android/material/slider/BaseSlider;->P:Z
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->snapTouchPosition()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->l0()Z
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateHaloHotspot()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->n0()V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->hasGapBetweenThumbAndTrack()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->F()Z
 
     move-result v0
 
     if-eqz v0, :cond_c
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
-    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbWidth:I
+    iput v0, p0, Lcom/google/android/material/slider/BaseSlider;->I:I
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
 
-    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbTrackGapSize:I
+    iput v1, p0, Lcom/google/android/material/slider/BaseSlider;->J:I
 
     int-to-float v0, v0
 
     const/high16 v1, 0x3f000000    # 0.5f
 
-    mul-float v0, v0, v1
+    mul-float/2addr v0, v1
 
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
 
     move-result v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
     sub-int/2addr v1, v0
 
     invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->setThumbWidth(I)V
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
 
     div-int/2addr v1, v3
 
@@ -7387,10 +5650,10 @@
     :cond_c
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->onStartTrackingTouch()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->Z()V
 
     :goto_0
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbIsPressed:Z
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->P:Z
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setPressed(Z)V
 
@@ -7398,7 +5661,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->lastEvent:Landroid/view/MotionEvent;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->O:Landroid/view/MotionEvent;
 
     return v4
 .end method
@@ -7414,7 +5677,7 @@
 
     if-eqz p2, :cond_1
 
-    invoke-static {p0}, Lcom/google/android/material/internal/ViewUtils;->getContentViewOverlay(Landroid/view/View;)Lcom/google/android/material/internal/ViewOverlayImpl;
+    invoke-static {p0}, Lcom/google/android/material/internal/f0;->k(Landroid/view/View;)Lcom/google/android/material/internal/d0;
 
     move-result-object p1
 
@@ -7423,7 +5686,7 @@
     return-void
 
     :cond_0
-    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->labels:Ljava/util/List;
+    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
 
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -7440,9 +5703,9 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/android/material/tooltip/TooltipDrawable;
+    check-cast v0, Lwc/a;
 
-    invoke-interface {p1, v0}, Lcom/google/android/material/internal/ViewOverlayImpl;->remove(Landroid/graphics/drawable/Drawable;)V
+    invoke-interface {p1, v0}, Lcom/google/android/material/internal/d0;->b(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
@@ -7450,204 +5713,369 @@
     return-void
 .end method
 
-.method public pickActiveThumb()Z
-    .locals 11
+.method public final p(Lwc/a;)V
+    .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    invoke-static {p0}, Lcom/google/android/material/internal/f0;->k(Landroid/view/View;)Lcom/google/android/material/internal/d0;
 
-    const/4 v1, 0x1
+    move-result-object v0
 
-    const/4 v2, -0x1
+    if-eqz v0, :cond_0
 
-    if-eq v0, v2, :cond_0
+    invoke-interface {v0, p1}, Lcom/google/android/material/internal/d0;->b(Landroid/graphics/drawable/Drawable;)V
 
-    return v1
+    invoke-static {p0}, Lcom/google/android/material/internal/f0;->j(Landroid/view/View;)Landroid/view/ViewGroup;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lwc/a;->y0(Landroid/view/View;)V
 
     :cond_0
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->getValueOfTouchPositionAbsolute()F
+    return-void
+.end method
 
-    move-result v0
+.method public final p0(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;)V
+    .locals 8
 
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->valueToX(F)F
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
 
-    move-result v3
+    int-to-float v1, v0
 
-    const/4 v4, 0x0
+    const/high16 v2, 0x40000000    # 2.0f
 
-    iput v4, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    div-float/2addr v1, v2
 
-    iget-object v5, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    int-to-float v0, v0
 
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    div-float/2addr v0, v2
 
-    move-result-object v5
+    sget-object v3, Lcom/google/android/material/slider/BaseSlider$c;->a:[I
 
-    check-cast v5, Ljava/lang/Float;
+    invoke-virtual {p4}, Ljava/lang/Enum;->ordinal()I
 
-    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
+    move-result v4
 
-    move-result v5
+    aget v4, v3, v4
 
-    sub-float/2addr v5, v0
+    const/4 v5, 0x3
 
-    invoke-static {v5}, Ljava/lang/Math;->abs(F)F
+    const/4 v6, 0x2
 
-    move-result v5
+    const/4 v7, 0x1
 
-    const/4 v6, 0x1
+    if-eq v4, v7, :cond_2
 
-    :goto_0
-    iget-object v7, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    if-eq v4, v6, :cond_1
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
-
-    move-result v7
-
-    if-ge v6, v7, :cond_7
-
-    iget-object v7, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/Float;
-
-    invoke-virtual {v7}, Ljava/lang/Float;->floatValue()F
-
-    move-result v7
-
-    sub-float/2addr v7, v0
-
-    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
-
-    move-result v7
-
-    iget-object v8, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
-
-    invoke-virtual {v8, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Ljava/lang/Float;
-
-    invoke-virtual {v8}, Ljava/lang/Float;->floatValue()F
-
-    move-result v8
-
-    invoke-direct {p0, v8}, Lcom/google/android/material/slider/BaseSlider;->valueToX(F)F
-
-    move-result v8
-
-    invoke-static {v7, v5}, Ljava/lang/Float;->compare(FF)I
-
-    move-result v9
-
-    if-lez v9, :cond_1
-
-    goto :goto_4
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->isRtl()Z
-
-    move-result v9
-
-    const/4 v10, 0x0
-
-    if-eqz v9, :cond_3
-
-    sub-float v9, v8, v3
-
-    cmpl-float v9, v9, v10
-
-    if-lez v9, :cond_2
-
-    :goto_1
-    const/4 v9, 0x1
-
-    goto :goto_2
-
-    :cond_2
-    const/4 v9, 0x0
-
-    goto :goto_2
-
-    :cond_3
-    sub-float v9, v8, v3
-
-    cmpg-float v9, v9, v10
-
-    if-gez v9, :cond_2
+    if-eq v4, v5, :cond_0
 
     goto :goto_1
 
-    :goto_2
-    invoke-static {v7, v5}, Ljava/lang/Float;->compare(FF)I
+    :cond_0
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->L:I
 
-    move-result v10
+    int-to-float v1, v1
 
-    if-gez v10, :cond_4
+    goto :goto_1
 
-    iput v6, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    :cond_1
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->L:I
 
-    goto :goto_3
+    :goto_0
+    int-to-float v0, v0
 
-    :cond_4
-    invoke-static {v7, v5}, Ljava/lang/Float;->compare(FF)I
+    goto :goto_1
 
-    move-result v10
+    :cond_2
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->L:I
 
-    if-nez v10, :cond_6
-
-    sub-float/2addr v8, v3
-
-    invoke-static {v8}, Ljava/lang/Math;->abs(F)F
-
-    move-result v8
-
-    iget v10, p0, Lcom/google/android/material/slider/BaseSlider;->scaledTouchSlop:I
-
-    int-to-float v10, v10
-
-    cmpg-float v8, v8, v10
-
-    if-gez v8, :cond_5
-
-    iput v2, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
-
-    return v4
-
-    :cond_5
-    if-eqz v9, :cond_6
-
-    iput v6, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
-
-    :goto_3
-    move v5, v7
-
-    :cond_6
-    add-int/lit8 v6, v6, 0x1
+    int-to-float v1, v0
 
     goto :goto_0
 
-    :cond_7
-    :goto_4
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    :goto_1
+    sget-object v4, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
-    if-eq v0, v2, :cond_8
+    invoke-virtual {p2, v4}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    goto :goto_5
+    sget-object v4, Landroid/graphics/Paint$Cap;->BUTT:Landroid/graphics/Paint$Cap;
 
-    :cond_8
-    const/4 v1, 0x0
+    invoke-virtual {p2, v4}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    :goto_5
-    return v1
+    invoke-virtual {p2, v7}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->m0:Landroid/graphics/Path;
+
+    invoke-virtual {v4}, Landroid/graphics/Path;->reset()V
+
+    invoke-virtual {p3}, Landroid/graphics/RectF;->width()F
+
+    move-result v4
+
+    add-float v7, v1, v0
+
+    cmpl-float v4, v4, v7
+
+    if-ltz v4, :cond_3
+
+    iget-object p4, p0, Lcom/google/android/material/slider/BaseSlider;->m0:Landroid/graphics/Path;
+
+    invoke-virtual {p0, v1, v0}, Lcom/google/android/material/slider/BaseSlider;->E(FF)[F
+
+    move-result-object v0
+
+    sget-object v1, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+
+    invoke-virtual {p4, p3, v0, v1}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;[FLandroid/graphics/Path$Direction;)V
+
+    iget-object p3, p0, Lcom/google/android/material/slider/BaseSlider;->m0:Landroid/graphics/Path;
+
+    invoke-virtual {p1, p3, p2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    goto :goto_3
+
+    :cond_3
+    invoke-static {v1, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result v4
+
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(FF)F
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->m0:Landroid/graphics/Path;
+
+    sget-object v7, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+
+    invoke-virtual {v1, p3, v4, v4, v7}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->m0:Landroid/graphics/Path;
+
+    invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
+
+    invoke-virtual {p4}, Ljava/lang/Enum;->ordinal()I
+
+    move-result p4
+
+    aget p4, v3, p4
+
+    if-eq p4, v6, :cond_5
+
+    if-eq p4, v5, :cond_4
+
+    iget-object p4, p0, Lcom/google/android/material/slider/BaseSlider;->o0:Landroid/graphics/RectF;
+
+    invoke-virtual {p3}, Landroid/graphics/RectF;->centerX()F
+
+    move-result v1
+
+    sub-float/2addr v1, v0
+
+    iget v2, p3, Landroid/graphics/RectF;->top:F
+
+    invoke-virtual {p3}, Landroid/graphics/RectF;->centerX()F
+
+    move-result v3
+
+    add-float/2addr v3, v0
+
+    iget p3, p3, Landroid/graphics/RectF;->bottom:F
+
+    invoke-virtual {p4, v1, v2, v3, p3}, Landroid/graphics/RectF;->set(FFFF)V
+
+    goto :goto_2
+
+    :cond_4
+    iget-object p4, p0, Lcom/google/android/material/slider/BaseSlider;->o0:Landroid/graphics/RectF;
+
+    iget v1, p3, Landroid/graphics/RectF;->right:F
+
+    mul-float/2addr v2, v0
+
+    sub-float v2, v1, v2
+
+    iget v3, p3, Landroid/graphics/RectF;->top:F
+
+    iget p3, p3, Landroid/graphics/RectF;->bottom:F
+
+    invoke-virtual {p4, v2, v3, v1, p3}, Landroid/graphics/RectF;->set(FFFF)V
+
+    goto :goto_2
+
+    :cond_5
+    iget-object p4, p0, Lcom/google/android/material/slider/BaseSlider;->o0:Landroid/graphics/RectF;
+
+    iget v1, p3, Landroid/graphics/RectF;->left:F
+
+    iget v3, p3, Landroid/graphics/RectF;->top:F
+
+    mul-float/2addr v2, v0
+
+    add-float/2addr v2, v1
+
+    iget p3, p3, Landroid/graphics/RectF;->bottom:F
+
+    invoke-virtual {p4, v1, v3, v2, p3}, Landroid/graphics/RectF;->set(FFFF)V
+
+    :goto_2
+    iget-object p3, p0, Lcom/google/android/material/slider/BaseSlider;->o0:Landroid/graphics/RectF;
+
+    invoke-virtual {p1, p3, v0, v0, p2}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
+
+    :goto_3
+    return-void
 .end method
 
-.method public removeOnChangeListener(Lcom/google/android/material/slider/BaseOnChangeListener;)V
+.method public final q(F)F
+    .locals 2
+
+    const/4 v0, 0x0
+
+    cmpl-float v1, p1, v0
+
+    if-nez v1, :cond_0
+
+    return v0
+
+    :cond_0
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    int-to-float v0, v0
+
+    sub-float/2addr p1, v0
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
+
+    int-to-float v0, v0
+
+    div-float/2addr p1, v0
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    sub-float v1, v0, v1
+
+    mul-float/2addr p1, v1
+
+    add-float/2addr p1, v0
+
+    return p1
+.end method
+
+.method public final q0(I)V
     .locals 1
-    .param p1    # Lcom/google/android/material/slider/BaseOnChangeListener;
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    mul-int/lit8 v0, v0, 0x2
+
+    sub-int/2addr p1, v0
+
+    const/4 v0, 0x0
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->P()V
+
+    return-void
+.end method
+
+.method public final r(I)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->m:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/google/android/material/slider/a;
+
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Float;
+
+    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    invoke-interface {v1, p0, v2, v3}, Lcom/google/android/material/slider/a;->a(Ljava/lang/Object;FZ)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->i:Landroid/view/accessibility/AccessibilityManager;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->e0(I)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public final r0()V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->U()Z
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->T()Z
+
+    move-result v1
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+
+    goto :goto_0
+
+    :cond_0
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method public removeOnChangeListener(Lcom/google/android/material/slider/a;)V
+    .locals 1
+    .param p1    # Lcom/google/android/material/slider/a;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
@@ -7659,16 +6087,16 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->changeListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->m:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public removeOnSliderTouchListener(Lcom/google/android/material/slider/BaseOnSliderTouchListener;)V
+.method public removeOnSliderTouchListener(Lcom/google/android/material/slider/b;)V
     .locals 1
-    .param p1    # Lcom/google/android/material/slider/BaseOnSliderTouchListener;
+    .param p1    # Lcom/google/android/material/slider/b;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
@@ -7678,27 +6106,105 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->touchListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->n:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
+.method public final s()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->m:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/google/android/material/slider/a;
+
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Float;
+
+    invoke-virtual {v3}, Ljava/lang/Float;->floatValue()F
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    invoke-interface {v1, p0, v3, v4}, Lcom/google/android/material/slider/a;->a(Ljava/lang/Object;FZ)V
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
+.method public final s0()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->g0:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->v0()V
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->w0()V
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->u0()V
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->x0()V
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->t0()V
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->A0()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->g0:Z
+
+    :cond_0
+    return-void
+.end method
+
 .method public setActiveThumbIndex(I)V
     .locals 0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->activeThumbIdx:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->T:I
 
     return-void
 .end method
 
 .method public setCustomThumbDrawable(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DrawableRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -7720,13 +6226,13 @@
         .end annotation
     .end param
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->initializeCustomThumbDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->G(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawable:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->q0:Landroid/graphics/drawable/Drawable;
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawablesForValues:Ljava/util/List;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->r0:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->clear()V
 
@@ -7738,9 +6244,6 @@
 .method public varargs setCustomThumbDrawablesForValues([I)V
     .locals 4
     .param p1    # [I
-        .annotation build Landroidx/annotation/DrawableRes;
-        .end annotation
-
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
@@ -7787,13 +6290,13 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawable:Landroid/graphics/drawable/Drawable;
+    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->q0:Landroid/graphics/drawable/Drawable;
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawablesForValues:Ljava/util/List;
+    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->r0:Ljava/util/List;
 
     array-length v0, p1
 
@@ -7804,9 +6307,9 @@
 
     aget-object v2, p1, v1
 
-    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawablesForValues:Ljava/util/List;
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->r0:Ljava/util/List;
 
-    invoke-direct {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->initializeCustomThumbDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->G(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -7849,7 +6352,7 @@
 
     if-ltz p1, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->values:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -7857,11 +6360,11 @@
 
     if-ge p1, v0, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->focusedThumbIdx:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->accessibilityHelper:Lcom/google/android/material/slider/BaseSlider$AccessibilityHelper;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->h:Lcom/google/android/material/slider/BaseSlider$d;
 
-    invoke-virtual {v0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->requestKeyboardFocusForVirtualView(I)Z
+    invoke-virtual {v0, p1}, Landroidx/customview/widget/a;->I(I)Z
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -7879,47 +6382,35 @@
 
 .method public setHaloRadius(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
 
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloRadius:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->G:I
 
     if-ne p1, v0, :cond_0
 
     return-void
 
     :cond_0
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->haloRadius:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->G:I
 
     invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->shouldDrawCompatHalo()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->h0()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    invoke-static {p1}, Les/cj;->a(Ljava/lang/Object;)Z
-
-    move-result v0
+    instance-of v0, p1, Landroid/graphics/drawable/RippleDrawable;
 
     if-eqz v0, :cond_1
 
-    invoke-static {p1}, Les/dg3;->a(Ljava/lang/Object;)Landroid/graphics/drawable/RippleDrawable;
+    check-cast p1, Landroid/graphics/drawable/RippleDrawable;
 
-    move-result-object p1
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->G:I
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloRadius:I
-
-    invoke-static {p1, v0}, Lcom/google/android/material/drawable/DrawableUtils;->setRippleDrawableRadius(Landroid/graphics/drawable/RippleDrawable;I)V
+    invoke-static {p1, v0}, Lkc/d;->m(Landroid/graphics/drawable/RippleDrawable;I)V
 
     return-void
 
@@ -7931,10 +6422,6 @@
 
 .method public setHaloRadiusResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -7956,7 +6443,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloColor:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->h0:Landroid/content/res/ColorStateList;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -7967,42 +6454,38 @@
     return-void
 
     :cond_0
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->haloColor:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->h0:Landroid/content/res/ColorStateList;
 
     invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->shouldDrawCompatHalo()Z
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->h0()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    invoke-static {v0}, Les/cj;->a(Ljava/lang/Object;)Z
-
-    move-result v1
+    instance-of v1, v0, Landroid/graphics/drawable/RippleDrawable;
 
     if-eqz v1, :cond_1
 
-    invoke-static {v0}, Les/dg3;->a(Ljava/lang/Object;)Landroid/graphics/drawable/RippleDrawable;
+    check-cast v0, Landroid/graphics/drawable/RippleDrawable;
 
-    move-result-object v0
-
-    invoke-static {v0, p1}, Les/eg3;->a(Landroid/graphics/drawable/RippleDrawable;Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/RippleDrawable;->setColor(Landroid/content/res/ColorStateList;)V
 
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->haloPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->d:Landroid/graphics/Paint;
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result p1
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->haloPaint:Landroid/graphics/Paint;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->d:Landroid/graphics/Paint;
 
     const/16 v0, 0x3f
 
@@ -8016,11 +6499,11 @@
 .method public setLabelBehavior(I)V
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->labelBehavior:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->B:I
 
     if-eq v0, p1, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->labelBehavior:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->B:I
 
     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
 
@@ -8028,14 +6511,12 @@
     return-void
 .end method
 
-.method public setLabelFormatter(Lcom/google/android/material/slider/LabelFormatter;)V
+.method public setLabelFormatter(Lcom/google/android/material/slider/d;)V
     .locals 0
-    .param p1    # Lcom/google/android/material/slider/LabelFormatter;
+    .param p1    # Lcom/google/android/material/slider/d;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
-
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->formatter:Lcom/google/android/material/slider/LabelFormatter;
 
     return-void
 .end method
@@ -8043,11 +6524,11 @@
 .method public setSeparationUnit(I)V
     .locals 0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->separationUnit:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->t0:I
 
     const/4 p1, 0x1
 
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->dirtyConfig:Z
+    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->g0:Z
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -8055,25 +6536,25 @@
 .end method
 
 .method public setStepSize(F)V
-    .locals 4
+    .locals 6
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    cmpg-float v0, p1, v0
+    cmpg-float v1, p1, v1
 
-    if-ltz v0, :cond_1
+    if-ltz v1, :cond_1
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
-    cmpl-float v0, v0, p1
+    cmpl-float v1, v1, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->stepSize:F
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
 
-    iput-boolean v1, p0, Lcom/google/android/material/slider/BaseSlider;->dirtyConfig:Z
+    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->g0:Z
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -8081,65 +6562,61 @@
     return-void
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const/4 v2, 0x3
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object p1
 
-    aput-object p1, v2, v3
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
-    iget p1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    move-result-object v2
 
-    move-result-object p1
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
-    aput-object p1, v2, v1
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    iget p1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    move-result-object v3
 
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    const/4 v4, 0x3
 
-    move-result-object p1
+    new-array v4, v4, [Ljava/lang/Object;
 
-    const/4 v1, 0x2
+    const/4 v5, 0x0
 
-    aput-object p1, v2, v1
+    aput-object p1, v4, v5
+
+    aput-object v2, v4, v0
+
+    const/4 p1, 0x2
+
+    aput-object v3, v4, p1
 
     const-string p1, "The stepSize(%s) must be 0, or a factor of the valueFrom(%s)-valueTo(%s) range"
 
-    invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public setThumbElevation(F)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setElevation(F)V
+    invoke-virtual {v0, p1}, Luc/i;->c0(F)V
 
     return-void
 .end method
 
 .method public setThumbElevationResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -8156,40 +6633,32 @@
 
 .method public setThumbHeight(I)V
     .locals 3
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
 
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
 
     if-ne p1, v0, :cond_0
 
     return-void
 
     :cond_0
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2, v2, v1, p1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->q0:Landroid/graphics/drawable/Drawable;
 
     if-eqz p1, :cond_1
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->adjustCustomThumbDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->h(Landroid/graphics/drawable/Drawable;)V
 
     :cond_1
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawablesForValues:Ljava/util/List;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->r0:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -8208,22 +6677,18 @@
 
     check-cast v0, Landroid/graphics/drawable/Drawable;
 
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->adjustCustomThumbDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->h(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
     :cond_2
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateWidgetLayout()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->r0()V
 
     return-void
 .end method
 
 .method public setThumbHeightResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -8240,14 +6705,6 @@
 
 .method public setThumbRadius(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
     mul-int/lit8 p1, p1, 0x2
 
@@ -8260,10 +6717,6 @@
 
 .method public setThumbRadiusResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -8285,9 +6738,9 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setStrokeColor(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v0, p1}, Luc/i;->n0(Landroid/content/res/ColorStateList;)V
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -8296,10 +6749,6 @@
 
 .method public setThumbStrokeColorResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/ColorRes;
-        .end annotation
-    .end param
 
     if-eqz p1, :cond_0
 
@@ -8307,7 +6756,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Landroidx/appcompat/content/res/AppCompatResources;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+    invoke-static {v0, p1}, Lh/a;->a(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object p1
 
@@ -8320,9 +6769,9 @@
 .method public setThumbStrokeWidth(F)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setStrokeWidth(F)V
+    invoke-virtual {v0, p1}, Luc/i;->o0(F)V
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -8331,10 +6780,6 @@
 
 .method public setThumbStrokeWidthResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     if-eqz p1, :cond_0
 
@@ -8359,9 +6804,9 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->getFillColor()Landroid/content/res/ColorStateList;
+    invoke-virtual {v0}, Luc/i;->z()Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
@@ -8374,9 +6819,9 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setFillColor(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v0, p1}, Luc/i;->d0(Landroid/content/res/ColorStateList;)V
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
@@ -8385,19 +6830,15 @@
 
 .method public setThumbTrackGapSize(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
 
     if-ne v0, p1, :cond_0
 
     return-void
 
     :cond_0
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbTrackGapSize:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
@@ -8406,31 +6847,23 @@
 
 .method public setThumbWidth(I)V
     .locals 3
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
 
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
     if-ne p1, v0, :cond_0
 
     return-void
 
     :cond_0
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    invoke-static {}, Lcom/google/android/material/shape/ShapeAppearanceModel;->builder()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
+    invoke-static {}, Luc/n;->a()Luc/n$b;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
     int-to-float v1, v1
 
@@ -8440,32 +6873,32 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v2, v1}, Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;->setAllCorners(IF)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;
+    invoke-virtual {v0, v2, v1}, Luc/n$b;->q(IF)Luc/n$b;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;->build()Lcom/google/android/material/shape/ShapeAppearanceModel;
+    invoke-virtual {v0}, Luc/n$b;->m()Luc/n;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Lcom/google/android/material/shape/MaterialShapeDrawable;->setShapeAppearanceModel(Lcom/google/android/material/shape/ShapeAppearanceModel;)V
+    invoke-virtual {p1, v0}, Luc/i;->setShapeAppearanceModel(Luc/n;)V
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->defaultThumbDrawable:Lcom/google/android/material/shape/MaterialShapeDrawable;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->E:I
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->F:I
 
     invoke-virtual {p1, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->q0:Landroid/graphics/drawable/Drawable;
 
     if-eqz p1, :cond_1
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->adjustCustomThumbDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->h(Landroid/graphics/drawable/Drawable;)V
 
     :cond_1
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->customThumbDrawablesForValues:Ljava/util/List;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->r0:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -8484,22 +6917,18 @@
 
     check-cast v0, Landroid/graphics/drawable/Drawable;
 
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->adjustCustomThumbDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->h(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
     :cond_2
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateWidgetLayout()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->r0()V
 
     return-void
 .end method
 
 .method public setThumbWidthResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/DimenRes;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
@@ -8516,22 +6945,14 @@
 
 .method public setTickActiveRadius(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
 
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickActiveRadius:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->b0:I
 
     if-eq v0, p1, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->tickActiveRadius:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->b0:I
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeTicksPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->f:Landroid/graphics/Paint;
 
     mul-int/lit8 p1, p1, 0x2
 
@@ -8539,7 +6960,7 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateWidgetLayout()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->r0()V
 
     :cond_0
     return-void
@@ -8552,7 +6973,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorActive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->i0:Landroid/content/res/ColorStateList;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -8563,11 +6984,11 @@
     return-void
 
     :cond_0
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorActive:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->i0:Landroid/content/res/ColorStateList;
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeTicksPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->f:Landroid/graphics/Paint;
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result p1
 
@@ -8580,22 +7001,14 @@
 
 .method public setTickInactiveRadius(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
 
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickInactiveRadius:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->c0:I
 
     if-eq v0, p1, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->tickInactiveRadius:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->c0:I
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTicksPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->e:Landroid/graphics/Paint;
 
     mul-int/lit8 p1, p1, 0x2
 
@@ -8603,7 +7016,7 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateWidgetLayout()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->r0()V
 
     :cond_0
     return-void
@@ -8616,7 +7029,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorInactive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->j0:Landroid/content/res/ColorStateList;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -8627,11 +7040,11 @@
     return-void
 
     :cond_0
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->tickColorInactive:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->j0:Landroid/content/res/ColorStateList;
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTicksPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->e:Landroid/graphics/Paint;
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result p1
 
@@ -8659,11 +7072,11 @@
 .method public setTickVisible(Z)V
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->tickVisible:Z
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->a0:Z
 
     if-eq v0, p1, :cond_0
 
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->tickVisible:Z
+    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->a0:Z
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -8678,7 +7091,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorActive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->k0:Landroid/content/res/ColorStateList;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -8689,21 +7102,21 @@
     return-void
 
     :cond_0
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorActive:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->k0:Landroid/content/res/ColorStateList;
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->activeTrackPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->b:Landroid/graphics/Paint;
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result p1
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->stopIndicatorPaint:Landroid/graphics/Paint;
+    iget-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->g:Landroid/graphics/Paint;
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorActive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->k0:Landroid/content/res/ColorStateList;
 
-    invoke-direct {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result v0
 
@@ -8716,24 +7129,16 @@
 
 .method public setTrackHeight(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/IntRange;
-            from = 0x0L
-        .end annotation
 
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
-
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
 
     if-eq v0, p1, :cond_0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->trackHeight:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->invalidateTrack()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->H()V
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->updateWidgetLayout()V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->r0()V
 
     :cond_0
     return-void
@@ -8746,7 +7151,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorInactive:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->l0:Landroid/content/res/ColorStateList;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -8757,11 +7162,11 @@
     return-void
 
     :cond_0
-    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->trackColorInactive:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Lcom/google/android/material/slider/BaseSlider;->l0:Landroid/content/res/ColorStateList;
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->inactiveTrackPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->getColorForState(Landroid/content/res/ColorStateList;)I
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->D(Landroid/content/res/ColorStateList;)I
 
     move-result p1
 
@@ -8774,19 +7179,15 @@
 
 .method public setTrackInsideCornerSize(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackInsideCornerSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->L:I
 
     if-ne v0, p1, :cond_0
 
     return-void
 
     :cond_0
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->trackInsideCornerSize:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->L:I
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
@@ -8795,21 +7196,17 @@
 
 .method public setTrackStopIndicatorSize(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/Px;
-        .end annotation
-    .end param
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackStopIndicatorSize:I
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->K:I
 
     if-ne v0, p1, :cond_0
 
     return-void
 
     :cond_0
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->trackStopIndicatorSize:I
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->K:I
 
-    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->stopIndicatorPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->g:Landroid/graphics/Paint;
 
     int-to-float p1, p1
 
@@ -8837,11 +7234,11 @@
 .method public setValueFrom(F)V
     .locals 0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->valueFrom:F
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
 
     const/4 p1, 0x1
 
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->dirtyConfig:Z
+    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->g0:Z
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -8851,11 +7248,11 @@
 .method public setValueTo(F)V
     .locals 0
 
-    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->valueTo:F
+    iput p1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
 
     const/4 p1, 0x1
 
-    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->dirtyConfig:Z
+    iput-boolean p1, p0, Lcom/google/android/material/slider/BaseSlider;->g0:Z
 
     invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
@@ -8904,76 +7301,1457 @@
     return-void
 .end method
 
-.method public updateBoundsForVirtualViewId(ILandroid/graphics/Rect;)V
-    .locals 5
+.method public final t(Landroid/graphics/Canvas;II)V
+    .locals 11
+    .param p1    # Landroid/graphics/Canvas;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
 
-    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->trackSidePadding:I
+    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->getActiveRange()[F
 
-    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->getValues()Ljava/util/List;
+    move-result-object v0
 
-    move-result-object v1
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
 
-    invoke-interface {v1, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    int-to-float v2, v1
 
-    move-result-object p1
+    const/4 v3, 0x1
 
-    check-cast p1, Ljava/lang/Float;
+    aget v4, v0, v3
 
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+    int-to-float p2, p2
 
-    move-result p1
+    mul-float/2addr v4, p2
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->normalizeValue(F)F
-
-    move-result p1
-
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->trackWidth:I
+    add-float v8, v2, v4
 
     int-to-float v1, v1
 
-    mul-float p1, p1, v1
+    const/4 v2, 0x0
 
-    float-to-int p1, p1
+    aget v0, v0, v2
 
-    add-int/2addr v0, p1
+    mul-float/2addr v0, p2
 
-    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->calculateTrackCenter()I
+    add-float v6, v1, v0
 
-    move-result p1
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->F()Z
 
-    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->thumbWidth:I
+    move-result p2
 
-    div-int/lit8 v1, v1, 0x2
+    if-eqz p2, :cond_9
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->minTouchTargetSize:I
+    sget-object p2, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->NONE:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
 
-    div-int/lit8 v2, v2, 0x2
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-ne v0, v3, :cond_1
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_0
+
+    sget-object p2, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->RIGHT:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
+
+    goto :goto_0
+
+    :cond_0
+    sget-object p2, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->LEFT:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
+
+    :cond_1
+    :goto_0
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-ge v2, v0, :cond_a
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-le v0, v3, :cond_4
+
+    if-lez v2, :cond_2
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    add-int/lit8 v1, v2, -0x1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->z0(F)F
+
+    move-result v6
+
+    :cond_2
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->z0(F)F
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->M()Z
 
     move-result v1
 
-    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->thumbHeight:I
+    if-eqz v1, :cond_3
 
-    div-int/lit8 v2, v2, 0x2
+    move v8, v6
 
-    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->minTouchTargetSize:I
+    move v6, v0
 
-    div-int/lit8 v3, v3, 0x2
+    goto :goto_1
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->max(II)I
+    :cond_3
+    move v8, v0
+
+    :cond_4
+    :goto_1
+    sget-object v0, Lcom/google/android/material/slider/BaseSlider$c;->a:[I
+
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
+
+    move-result v1
+
+    aget v0, v0, v1
+
+    const/high16 v1, 0x40000000    # 2.0f
+
+    if-eq v0, v3, :cond_7
+
+    const/4 v4, 0x2
+
+    if-eq v0, v4, :cond_6
+
+    const/4 v4, 0x3
+
+    if-eq v0, v4, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
+
+    int-to-float v0, v0
+
+    add-float/2addr v6, v0
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
+
+    int-to-float v0, v0
+
+    div-float/2addr v0, v1
+
+    add-float/2addr v8, v0
+
+    goto :goto_3
+
+    :cond_6
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
+
+    int-to-float v0, v0
+
+    div-float/2addr v0, v1
+
+    sub-float/2addr v6, v0
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
+
+    :goto_2
+    int-to-float v0, v0
+
+    sub-float/2addr v8, v0
+
+    goto :goto_3
+
+    :cond_7
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
+
+    int-to-float v4, v0
+
+    add-float/2addr v6, v4
+
+    goto :goto_2
+
+    :goto_3
+    cmpl-float v0, v6, v8
+
+    if-ltz v0, :cond_8
+
+    goto :goto_4
+
+    :cond_8
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->n0:Landroid/graphics/RectF;
+
+    int-to-float v4, p3
+
+    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
+
+    int-to-float v7, v5
+
+    div-float/2addr v7, v1
+
+    sub-float v7, v4, v7
+
+    int-to-float v5, v5
+
+    div-float/2addr v5, v1
+
+    add-float/2addr v4, v5
+
+    invoke-virtual {v0, v6, v7, v8, v4}, Landroid/graphics/RectF;->set(FFFF)V
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->b:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->n0:Landroid/graphics/RectF;
+
+    invoke-virtual {p0, p1, v0, v1, p2}, Lcom/google/android/material/slider/BaseSlider;->p0(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;)V
+
+    :goto_4
+    add-int/lit8 v2, v2, 0x1
+
+    goto/16 :goto_0
+
+    :cond_9
+    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->b:Landroid/graphics/Paint;
+
+    sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->b:Landroid/graphics/Paint;
+
+    sget-object v0, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+
+    int-to-float v9, p3
+
+    iget-object v10, p0, Lcom/google/android/material/slider/BaseSlider;->b:Landroid/graphics/Paint;
+
+    move-object v5, p1
+
+    move v7, v9
+
+    invoke-virtual/range {v5 .. v10}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+
+    :cond_a
+    return-void
+.end method
+
+.method public final t0()V
+    .locals 8
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->getMinSeparation()F
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    cmpg-float v5, v3, v4
+
+    if-ltz v5, :cond_3
+
+    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    cmpl-float v6, v5, v4
+
+    if-lez v6, :cond_2
+
+    cmpl-float v4, v3, v4
+
+    if-lez v4, :cond_2
+
+    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->t0:I
+
+    if-ne v4, v2, :cond_1
+
+    cmpg-float v4, v3, v5
+
+    if-ltz v4, :cond_0
+
+    float-to-double v4, v3
+
+    invoke-virtual {p0, v4, v5}, Lcom/google/android/material/slider/BaseSlider;->K(D)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v5
+
+    iget v6, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v6
+
+    const/4 v7, 0x3
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    aput-object v3, v7, v1
+
+    aput-object v5, v7, v2
+
+    aput-object v6, v7, v0
+
+    const-string v0, "minSeparation(%s) must be greater or equal and a multiple of stepSize(%s) when using stepSize(%s)"
+
+    invoke-static {v0, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v4, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_1
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v5
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    aput-object v3, v0, v1
+
+    aput-object v5, v0, v2
+
+    const-string v1, "minSeparation(%s) cannot be set as a dimension when using stepSize(%s)"
+
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v4, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_2
+    :goto_0
+    return-void
+
+    :cond_3
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object v3, v2, v1
+
+    const-string v1, "minSeparation(%s) must be greater or equal to 0"
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final u(Landroid/graphics/Canvas;II)V
+    .locals 11
+    .param p1    # Landroid/graphics/Canvas;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    invoke-direct {p0}, Lcom/google/android/material/slider/BaseSlider;->getActiveRange()[F
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    int-to-float v2, v1
+
+    const/4 v3, 0x1
+
+    aget v3, v0, v3
+
+    int-to-float v4, p2
+
+    mul-float/2addr v3, v4
+
+    add-float v6, v2, v3
+
+    add-int/2addr v1, p2
+
+    int-to-float v1, v1
+
+    cmpg-float v1, v6, v1
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    if-gez v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->F()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->n0:Landroid/graphics/RectF;
+
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
+
+    int-to-float v3, v3
+
+    add-float/2addr v6, v3
+
+    int-to-float v3, p3
+
+    iget v5, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
+
+    int-to-float v7, v5
+
+    div-float/2addr v7, v2
+
+    sub-float v7, v3, v7
+
+    iget v8, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    add-int/2addr v8, p2
+
+    int-to-float p2, v8
+
+    int-to-float v8, v5
+
+    div-float/2addr v8, v2
+
+    add-float/2addr p2, v8
+
+    int-to-float v5, v5
+
+    div-float/2addr v5, v2
+
+    add-float/2addr v3, v5
+
+    invoke-virtual {v1, v6, v7, p2, v3}, Landroid/graphics/RectF;->set(FFFF)V
+
+    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->n0:Landroid/graphics/RectF;
+
+    sget-object v3, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->RIGHT:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
+
+    invoke-virtual {p0, p1, p2, v1, v3}, Lcom/google/android/material/slider/BaseSlider;->p0(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
+
+    sget-object v3, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
+
+    sget-object v3, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+
+    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+
+    int-to-float v9, p3
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    add-int/2addr v1, p2
+
+    int-to-float v8, v1
+
+    iget-object v10, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
+
+    move-object v5, p1
+
+    move v7, v9
+
+    invoke-virtual/range {v5 .. v10}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+
+    :cond_1
+    :goto_0
+    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    int-to-float v1, p2
+
+    const/4 v3, 0x0
+
+    aget v0, v0, v3
+
+    mul-float/2addr v0, v4
+
+    add-float v6, v1, v0
+
+    int-to-float p2, p2
+
+    cmpl-float p2, v6, p2
+
+    if-lez p2, :cond_3
+
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->F()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_2
+
+    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->n0:Landroid/graphics/RectF;
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    int-to-float v0, v0
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->C:I
+
+    int-to-float v3, v1
+
+    div-float/2addr v3, v2
+
+    sub-float/2addr v0, v3
+
+    int-to-float p3, p3
+
+    int-to-float v3, v1
+
+    div-float/2addr v3, v2
+
+    sub-float v3, p3, v3
+
+    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->H:I
+
+    int-to-float v4, v4
+
+    sub-float/2addr v6, v4
+
+    int-to-float v1, v1
+
+    div-float/2addr v1, v2
+
+    add-float/2addr p3, v1
+
+    invoke-virtual {p2, v0, v3, v6, p3}, Landroid/graphics/RectF;->set(FFFF)V
+
+    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
+
+    iget-object p3, p0, Lcom/google/android/material/slider/BaseSlider;->n0:Landroid/graphics/RectF;
+
+    sget-object v0, Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;->LEFT:Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;
+
+    invoke-virtual {p0, p1, p2, p3, v0}, Lcom/google/android/material/slider/BaseSlider;->p0(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;Lcom/google/android/material/slider/BaseSlider$FullCornerDirection;)V
+
+    goto :goto_1
+
+    :cond_2
+    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
+
+    sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    iget-object p2, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
+
+    sget-object v0, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+
+    iget p2, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    int-to-float v4, p2
+
+    int-to-float v7, p3
+
+    iget-object v8, p0, Lcom/google/android/material/slider/BaseSlider;->a:Landroid/graphics/Paint;
+
+    move-object v3, p1
+
+    move v5, v7
+
+    invoke-virtual/range {v3 .. v8}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+
+    :cond_3
+    :goto_1
+    return-void
+.end method
+
+.method public final u0()V
+    .locals 6
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    const/4 v1, 0x0
+
+    cmpl-float v0, v0, v1
+
+    if-lez v0, :cond_1
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->y0(F)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    const/4 v4, 0x3
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object v1, v4, v5
+
+    const/4 v1, 0x1
+
+    aput-object v2, v4, v1
+
+    const/4 v1, 0x2
+
+    aput-object v3, v4, v1
+
+    const-string v1, "The stepSize(%s) must be 0, or a factor of the valueFrom(%s)-valueTo(%s) range"
+
+    invoke-static {v1, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method public final v(Landroid/graphics/Canvas;IIFLandroid/graphics/drawable/Drawable;)V
+    .locals 1
+    .param p1    # Landroid/graphics/Canvas;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p5    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    invoke-virtual {p0, p4}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
+
+    move-result p4
+
+    int-to-float p2, p2
+
+    mul-float/2addr p4, p2
+
+    float-to-int p2, p4
+
+    add-int/2addr v0, p2
+
+    int-to-float p2, v0
+
+    invoke-virtual {p5}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object p4
+
+    invoke-virtual {p4}, Landroid/graphics/Rect;->width()I
+
+    move-result p4
+
+    int-to-float p4, p4
+
+    const/high16 v0, 0x40000000    # 2.0f
+
+    div-float/2addr p4, v0
+
+    sub-float/2addr p2, p4
+
+    int-to-float p3, p3
+
+    invoke-virtual {p5}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object p4
+
+    invoke-virtual {p4}, Landroid/graphics/Rect;->height()I
+
+    move-result p4
+
+    int-to-float p4, p4
+
+    div-float/2addr p4, v0
+
+    sub-float/2addr p3, p4
+
+    invoke-virtual {p1, p2, p3}, Landroid/graphics/Canvas;->translate(FF)V
+
+    invoke-virtual {p5, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
+
+    return-void
+.end method
+
+.method public final v0()V
+    .locals 5
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    cmpl-float v0, v0, v1
+
+    if-gez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v2
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object v1, v3, v4
+
+    const/4 v1, 0x1
+
+    aput-object v2, v3, v1
+
+    const-string v1, "valueFrom(%s) must be smaller than valueTo(%s)"
+
+    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final w(Landroid/graphics/Canvas;II)V
+    .locals 8
+    .param p1    # Landroid/graphics/Canvas;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_3
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Float;
+
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+
+    move-result v6
+
+    iget-object v7, p0, Lcom/google/android/material/slider/BaseSlider;->q0:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v7, :cond_0
+
+    move-object v2, p0
+
+    move-object v3, p1
+
+    move v4, p2
+
+    move v5, p3
+
+    invoke-virtual/range {v2 .. v7}, Lcom/google/android/material/slider/BaseSlider;->v(Landroid/graphics/Canvas;IIFLandroid/graphics/drawable/Drawable;)V
+
+    goto :goto_1
+
+    :cond_0
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->r0:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_1
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->r0:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v7, v1
+
+    check-cast v7, Landroid/graphics/drawable/Drawable;
+
+    move-object v2, p0
+
+    move-object v3, p1
+
+    move v4, p2
+
+    move v5, p3
+
+    invoke-virtual/range {v2 .. v7}, Lcom/google/android/material/slider/BaseSlider;->v(Landroid/graphics/Canvas;IIFLandroid/graphics/drawable/Drawable;)V
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {p0, v6}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
 
     move-result v2
 
-    sub-int v3, v0, v1
+    int-to-float v3, p2
 
-    sub-int v4, p1, v2
+    mul-float/2addr v2, v3
 
-    add-int/2addr v0, v1
+    add-float/2addr v1, v2
 
-    add-int/2addr p1, v2
+    int-to-float v2, p3
 
-    invoke-virtual {p2, v3, v4, v0, p1}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p0}, Lcom/google/android/material/slider/BaseSlider;->getThumbRadius()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->c:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+
+    :cond_2
+    iget-object v7, p0, Lcom/google/android/material/slider/BaseSlider;->p0:Luc/i;
+
+    move-object v2, p0
+
+    move-object v3, p1
+
+    move v4, p2
+
+    move v5, p3
+
+    invoke-virtual/range {v2 .. v7}, Lcom/google/android/material/slider/BaseSlider;->v(Landroid/graphics/Canvas;IIFLandroid/graphics/drawable/Drawable;)V
+
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    return-void
+.end method
+
+.method public final w0()V
+    .locals 5
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    cmpg-float v0, v0, v1
+
+    if-lez v0, :cond_0
 
     return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v2
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object v1, v3, v4
+
+    const/4 v1, 0x1
+
+    aput-object v2, v3, v1
+
+    const-string v1, "valueTo(%s) must be greater than valueFrom(%s)"
+
+    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public final x()V
+    .locals 6
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    iget-boolean v2, p0, Lcom/google/android/material/slider/BaseSlider;->o:Z
+
+    if-nez v2, :cond_0
+
+    iput-boolean v1, p0, Lcom/google/android/material/slider/BaseSlider;->o:Z
+
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->n(Z)Landroid/animation/ValueAnimator;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->p:Landroid/animation/ValueAnimator;
+
+    const/4 v3, 0x0
+
+    iput-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->q:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v2}, Landroid/animation/ValueAnimator;->start()V
+
+    :cond_0
+    iget-object v2, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    move v3, v0
+
+    :goto_0
+    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    if-ge v3, v4, :cond_2
+
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    iget v4, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
+
+    if-ne v3, v4, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lwc/a;
+
+    iget-object v5, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Float;
+
+    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
+
+    move-result v5
+
+    invoke-virtual {p0, v4, v5}, Lcom/google/android/material/slider/BaseSlider;->f0(Lwc/a;F)V
+
+    :goto_1
+    add-int/2addr v3, v1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lwc/a;
+
+    iget-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    iget v2, p0, Lcom/google/android/material/slider/BaseSlider;->U:I
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Float;
+
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+
+    move-result v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/google/android/material/slider/BaseSlider;->f0(Lwc/a;F)V
+
+    return-void
+
+    :cond_3
+    new-instance v2, Ljava/lang/IllegalStateException;
+
+    iget-object v3, p0, Lcom/google/android/material/slider/BaseSlider;->l:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    aput-object v3, v5, v0
+
+    aput-object v4, v5, v1
+
+    const-string v0, "Not enough labels(%d) to display all the values(%d)"
+
+    invoke-static {v0, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+.end method
+
+.method public final x0()V
+    .locals 10
+
+    const/4 v0, 0x3
+
+    const/4 v1, 0x2
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    iget-object v4, p0, Lcom/google/android/material/slider/BaseSlider;->S:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_0
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Float;
+
+    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
+
+    move-result v6
+
+    iget v7, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    cmpg-float v6, v6, v7
+
+    if-ltz v6, :cond_2
+
+    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
+
+    move-result v6
+
+    iget v7, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    cmpl-float v6, v6, v7
+
+    if-gtz v6, :cond_2
+
+    iget v6, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    const/4 v7, 0x0
+
+    cmpl-float v6, v6, v7
+
+    if-lez v6, :cond_0
+
+    invoke-virtual {v5}, Ljava/lang/Float;->floatValue()F
+
+    move-result v6
+
+    invoke-virtual {p0, v6}, Lcom/google/android/material/slider/BaseSlider;->y0(F)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    iget v6, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v6
+
+    iget v7, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    invoke-static {v7}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v7
+
+    iget v8, p0, Lcom/google/android/material/slider/BaseSlider;->V:F
+
+    invoke-static {v8}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v8
+
+    const/4 v9, 0x4
+
+    new-array v9, v9, [Ljava/lang/Object;
+
+    aput-object v5, v9, v3
+
+    aput-object v6, v9, v2
+
+    aput-object v7, v9, v1
+
+    aput-object v8, v9, v0
+
+    const-string v0, "Value(%s) must be equal to valueFrom(%s) plus a multiple of stepSize(%s) when using stepSize(%s)"
+
+    invoke-static {v0, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v4, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_2
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    iget v6, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v6
+
+    iget v7, p0, Lcom/google/android/material/slider/BaseSlider;->R:F
+
+    invoke-static {v7}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v7
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    aput-object v5, v0, v3
+
+    aput-object v6, v0, v2
+
+    aput-object v7, v0, v1
+
+    const-string v1, "Slider value(%s) must be greater or equal to valueFrom(%s), and lower or equal to valueTo(%s)"
+
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v4, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_3
+    return-void
+.end method
+
+.method public final y()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->o:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/google/android/material/slider/BaseSlider;->o:Z
+
+    invoke-virtual {p0, v0}, Lcom/google/android/material/slider/BaseSlider;->n(Z)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->q:Landroid/animation/ValueAnimator;
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/google/android/material/slider/BaseSlider;->p:Landroid/animation/ValueAnimator;
+
+    new-instance v1, Lcom/google/android/material/slider/BaseSlider$b;
+
+    invoke-direct {v1, p0}, Lcom/google/android/material/slider/BaseSlider$b;-><init>(Lcom/google/android/material/slider/BaseSlider;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    iget-object v0, p0, Lcom/google/android/material/slider/BaseSlider;->q:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final y0(F)Z
+    .locals 2
+
+    new-instance v0, Ljava/math/BigDecimal;
+
+    invoke-static {p1}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+
+    new-instance p1, Ljava/math/BigDecimal;
+
+    iget v1, p0, Lcom/google/android/material/slider/BaseSlider;->Q:F
+
+    invoke-static {v1}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p1, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+
+    sget-object v1, Ljava/math/MathContext;->DECIMAL64:Ljava/math/MathContext;
+
+    invoke-virtual {v0, p1, v1}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/math/BigDecimal;->doubleValue()D
+
+    move-result-wide v0
+
+    invoke-virtual {p0, v0, v1}, Lcom/google/android/material/slider/BaseSlider;->K(D)Z
+
+    move-result p1
+
+    return p1
+.end method
+
+.method public final z(I)V
+    .locals 3
+
+    const/4 v0, 0x1
+
+    const v1, 0x7fffffff
+
+    if-eq p1, v0, :cond_3
+
+    const/4 v0, 0x2
+
+    const/high16 v2, -0x80000000
+
+    if-eq p1, v0, :cond_2
+
+    const/16 v0, 0x11
+
+    if-eq p1, v0, :cond_1
+
+    const/16 v0, 0x42
+
+    if-eq p1, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->W(I)Z
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->W(I)Z
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p0, v2}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {p0, v1}, Lcom/google/android/material/slider/BaseSlider;->V(I)Z
+
+    :goto_0
+    return-void
+.end method
+
+.method public final z0(F)F
+    .locals 1
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->X(F)F
+
+    move-result p1
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->d0:I
+
+    int-to-float v0, v0
+
+    mul-float/2addr p1, v0
+
+    iget v0, p0, Lcom/google/android/material/slider/BaseSlider;->D:I
+
+    int-to-float v0, v0
+
+    add-float/2addr p1, v0
+
+    return p1
 .end method

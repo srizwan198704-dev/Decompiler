@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/Predicate;
+.implements Lcom/google/common/base/n;
 .implements Ljava/io/Serializable;
 
 
@@ -22,7 +22,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/Predicate<",
+        "Lcom/google/common/base/n<",
         "TT;>;",
         "Ljava/io/Serializable;"
     }
@@ -53,6 +53,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -65,7 +71,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -131,7 +137,7 @@
 
     iget-object p1, p1, Lcom/google/common/base/Equivalence$EquivalentToPredicate;->target:Ljava/lang/Object;
 
-    invoke-static {v1, p1}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, p1}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -140,7 +146,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     return v0
@@ -150,25 +156,25 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x2
+    iget-object v0, p0, Lcom/google/common/base/Equivalence$EquivalentToPredicate;->equivalence:Lcom/google/common/base/Equivalence;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    iget-object v1, p0, Lcom/google/common/base/Equivalence$EquivalentToPredicate;->target:Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x2
 
-    iget-object v2, p0, Lcom/google/common/base/Equivalence$EquivalentToPredicate;->equivalence:Lcom/google/common/base/Equivalence;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x0
 
-    const/4 v1, 0x1
+    aput-object v0, v2, v3
 
-    iget-object v2, p0, Lcom/google/common/base/Equivalence$EquivalentToPredicate;->target:Ljava/lang/Object;
+    const/4 v0, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v2, v0
 
-    invoke-static {v0}, Lcom/google/common/base/Objects;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v2}, Lcom/google/common/base/j;->b([Ljava/lang/Object;)I
 
     move-result v0
 

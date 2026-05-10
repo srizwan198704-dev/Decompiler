@@ -1,5 +1,5 @@
 .class abstract Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;
-.super Lcom/google/common/collect/ForwardingConcurrentMap;
+.super Lcom/google/common/collect/l2;
 
 # interfaces
 .implements Ljava/io/Serializable;
@@ -22,7 +22,7 @@
         "V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/ForwardingConcurrentMap<",
+        "Lcom/google/common/collect/l2<",
         "TK;TV;>;",
         "Ljava/io/Serializable;"
     }
@@ -71,6 +71,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/MapMakerInternalMap$Strength;Lcom/google/common/collect/MapMakerInternalMap$Strength;Lcom/google/common/base/Equivalence;Lcom/google/common/base/Equivalence;ILjava/util/concurrent/ConcurrentMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -89,7 +95,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/ForwardingConcurrentMap;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/l2;-><init>()V
 
     iput-object p1, p0, Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;->keyStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
@@ -145,9 +151,6 @@
 
 .method public readEntries(Ljava/io/ObjectInputStream;)V
     .locals 3
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -178,9 +181,6 @@
 
 .method public readMapMaker(Ljava/io/ObjectInputStream;)Lcom/google/common/collect/MapMaker;
     .locals 1
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -195,31 +195,31 @@
 
     invoke-direct {v0}, Lcom/google/common/collect/MapMaker;-><init>()V
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/MapMaker;->initialCapacity(I)Lcom/google/common/collect/MapMaker;
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/MapMaker;->g(I)Lcom/google/common/collect/MapMaker;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;->keyStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
-    invoke-virtual {p1, v0}, Lcom/google/common/collect/MapMaker;->setKeyStrength(Lcom/google/common/collect/MapMakerInternalMap$Strength;)Lcom/google/common/collect/MapMaker;
+    invoke-virtual {p1, v0}, Lcom/google/common/collect/MapMaker;->j(Lcom/google/common/collect/MapMakerInternalMap$Strength;)Lcom/google/common/collect/MapMaker;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;->valueStrength:Lcom/google/common/collect/MapMakerInternalMap$Strength;
 
-    invoke-virtual {p1, v0}, Lcom/google/common/collect/MapMaker;->setValueStrength(Lcom/google/common/collect/MapMakerInternalMap$Strength;)Lcom/google/common/collect/MapMaker;
+    invoke-virtual {p1, v0}, Lcom/google/common/collect/MapMaker;->k(Lcom/google/common/collect/MapMakerInternalMap$Strength;)Lcom/google/common/collect/MapMaker;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;->keyEquivalence:Lcom/google/common/base/Equivalence;
 
-    invoke-virtual {p1, v0}, Lcom/google/common/collect/MapMaker;->keyEquivalence(Lcom/google/common/base/Equivalence;)Lcom/google/common/collect/MapMaker;
+    invoke-virtual {p1, v0}, Lcom/google/common/collect/MapMaker;->h(Lcom/google/common/base/Equivalence;)Lcom/google/common/collect/MapMaker;
 
     move-result-object p1
 
     iget v0, p0, Lcom/google/common/collect/MapMakerInternalMap$AbstractSerializationProxy;->concurrencyLevel:I
 
-    invoke-virtual {p1, v0}, Lcom/google/common/collect/MapMaker;->concurrencyLevel(I)Lcom/google/common/collect/MapMaker;
+    invoke-virtual {p1, v0}, Lcom/google/common/collect/MapMaker;->a(I)Lcom/google/common/collect/MapMaker;
 
     move-result-object p1
 

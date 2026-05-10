@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;
+.implements Landroidx/viewpager/widget/ViewPager$h;
 
 
 # annotations
@@ -36,6 +36,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/android/material/tabs/TabLayout;)V
     .locals 1
 
@@ -111,13 +117,13 @@
     goto :goto_0
 
     :cond_0
-    const/4 v4, 0x0
+    move v4, v1
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v4, 0x1
+    move v4, v3
 
     :goto_1
     if-ne p3, v2, :cond_3
@@ -129,13 +135,13 @@
     goto :goto_2
 
     :cond_2
-    const/4 p3, 0x0
+    move p3, v1
 
     goto :goto_3
 
     :cond_3
     :goto_2
-    const/4 p3, 0x1
+    move p3, v3
 
     :goto_3
     const/4 v5, 0x0

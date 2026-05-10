@@ -1,38 +1,30 @@
-.class public final synthetic Lcom/google/common/util/concurrent/p;
-.super Ljava/lang/Object;
+.class public abstract Lcom/google/common/util/concurrent/p;
+.super Lcom/google/common/util/concurrent/AbstractFuture;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lcom/google/common/util/concurrent/AbstractFuture<",
+        "TV;>;"
+    }
+.end annotation
 
 
 # direct methods
-.method public static bridge synthetic a(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
-    invoke-interface {p0, p1}, Lcom/google/common/util/concurrent/ListeningExecutorService;->submit(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/ListenableFuture;
-
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method
 
-.method public static bridge synthetic b(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;
-    .locals 0
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
-
-    invoke-interface {p0, p1, p2}, Lcom/google/common/util/concurrent/ListeningExecutorService;->submit(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static bridge synthetic c(Lcom/google/common/util/concurrent/ListeningExecutorService;Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+.method public constructor <init>()V
     .locals 0
 
-    invoke-interface {p0, p1}, Lcom/google/common/util/concurrent/ListeningExecutorService;->submit(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture;-><init>()V
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method

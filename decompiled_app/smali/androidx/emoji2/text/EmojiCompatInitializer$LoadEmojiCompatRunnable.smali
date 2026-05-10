@@ -17,6 +17,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -33,19 +39,19 @@
     :try_start_0
     const-string v0, "EmojiCompat.EmojiCompatInitializer.run"
 
-    invoke-static {v0}, Landroidx/core/os/TraceCompat;->beginSection(Ljava/lang/String;)V
+    invoke-static {v0}, Landroidx/core/os/s;->a(Ljava/lang/String;)V
 
-    invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->isConfigured()Z
+    invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->i()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->get()Landroidx/emoji2/text/EmojiCompat;
+    invoke-static {}, Landroidx/emoji2/text/EmojiCompat;->c()Landroidx/emoji2/text/EmojiCompat;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidx/emoji2/text/EmojiCompat;->load()V
+    invoke-virtual {v0}, Landroidx/emoji2/text/EmojiCompat;->l()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -58,12 +64,12 @@
 
     :cond_0
     :goto_0
-    invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
+    invoke-static {}, Landroidx/core/os/s;->b()V
 
     return-void
 
     :goto_1
-    invoke-static {}, Landroidx/core/os/TraceCompat;->endSection()V
+    invoke-static {}, Landroidx/core/os/s;->b()V
 
     throw v0
 .end method

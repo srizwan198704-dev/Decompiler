@@ -2,32 +2,29 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/swiperefreshlayout/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "layout"
-.end annotation
-
-
 # static fields
-.field public static final notification_action:I = 0x7f0d046d
+.field public static custom_dialog:I = 0x7f0d00ed
 
-.field public static final notification_action_tombstone:I = 0x7f0d046e
+.field public static notification_action:I = 0x7f0d047d
 
-.field public static final notification_template_custom_big:I = 0x7f0d0481
+.field public static notification_action_tombstone:I = 0x7f0d047e
 
-.field public static final notification_template_icon_group:I = 0x7f0d0482
+.field public static notification_template_custom_big:I = 0x7f0d048b
 
-.field public static final notification_template_part_chronometer:I = 0x7f0d0486
+.field public static notification_template_icon_group:I = 0x7f0d048c
 
-.field public static final notification_template_part_time:I = 0x7f0d0487
+.field public static notification_template_part_chronometer:I = 0x7f0d0490
+
+.field public static notification_template_part_time:I = 0x7f0d0491
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 

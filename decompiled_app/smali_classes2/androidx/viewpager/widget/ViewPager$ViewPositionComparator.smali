@@ -26,6 +26,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -43,17 +49,17 @@
 
     move-result-object p1
 
-    check-cast p1, Landroidx/viewpager/widget/ViewPager$LayoutParams;
+    check-cast p1, Landroidx/viewpager/widget/ViewPager$e;
 
     invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object p2
 
-    check-cast p2, Landroidx/viewpager/widget/ViewPager$LayoutParams;
+    check-cast p2, Landroidx/viewpager/widget/ViewPager$e;
 
-    iget-boolean v0, p1, Landroidx/viewpager/widget/ViewPager$LayoutParams;->isDecor:Z
+    iget-boolean v0, p1, Landroidx/viewpager/widget/ViewPager$e;->a:Z
 
-    iget-boolean v1, p2, Landroidx/viewpager/widget/ViewPager$LayoutParams;->isDecor:Z
+    iget-boolean v1, p2, Landroidx/viewpager/widget/ViewPager$e;->a:Z
 
     if-eq v0, v1, :cond_1
 
@@ -70,9 +76,9 @@
     return p1
 
     :cond_1
-    iget p1, p1, Landroidx/viewpager/widget/ViewPager$LayoutParams;->position:I
+    iget p1, p1, Landroidx/viewpager/widget/ViewPager$e;->e:I
 
-    iget p2, p2, Landroidx/viewpager/widget/ViewPager$LayoutParams;->position:I
+    iget p2, p2, Landroidx/viewpager/widget/ViewPager$e;->e:I
 
     sub-int/2addr p1, p2
 

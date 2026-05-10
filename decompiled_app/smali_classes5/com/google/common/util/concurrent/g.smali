@@ -6,16 +6,22 @@
 
 
 # instance fields
-.field public final synthetic a:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
+.field public final synthetic a:Ljava/lang/AutoCloseable;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Ljava/lang/AutoCloseable;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/g;->a:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/g;->a:Ljava/lang/AutoCloseable;
 
     return-void
 .end method
@@ -25,9 +31,9 @@
 .method public final run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/g;->a:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/g;->a:Ljava/lang/AutoCloseable;
 
-    invoke-static {v0}, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->b(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)V
+    invoke-static {v0}, Lcom/google/common/util/concurrent/ClosingFuture;->a(Ljava/lang/AutoCloseable;)V
 
     return-void
 .end method

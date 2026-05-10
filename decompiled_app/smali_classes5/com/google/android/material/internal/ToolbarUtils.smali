@@ -2,16 +2,8 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
-.field private static final VIEW_TOP_COMPARATOR:Ljava/util/Comparator;
+.field public static final a:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Comparator<",
@@ -30,33 +22,21 @@
 
     invoke-direct {v0}, Lcom/google/android/material/internal/ToolbarUtils$1;-><init>()V
 
-    sput-object v0, Lcom/google/android/material/internal/ToolbarUtils;->VIEW_TOP_COMPARATOR:Ljava/util/Comparator;
+    sput-object v0, Lcom/google/android/material/internal/ToolbarUtils;->a:Ljava/util/Comparator;
 
     return-void
 .end method
 
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public static getActionMenuItemView(Landroidx/appcompat/widget/Toolbar;I)Landroidx/appcompat/view/menu/ActionMenuItemView;
+.method public static a(Landroidx/appcompat/widget/Toolbar;I)Landroidx/appcompat/view/menu/ActionMenuItemView;
     .locals 3
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .param p1    # I
-        .annotation build Landroidx/annotation/IdRes;
-        .end annotation
-    .end param
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    invoke-static {p0}, Lcom/google/android/material/internal/ToolbarUtils;->getActionMenuView(Landroidx/appcompat/widget/Toolbar;)Landroidx/appcompat/widget/ActionMenuView;
+    invoke-static {p0}, Lcom/google/android/material/internal/ToolbarUtils;->b(Landroidx/appcompat/widget/Toolbar;)Landroidx/appcompat/widget/ActionMenuView;
 
     move-result-object p0
 
@@ -81,11 +61,11 @@
 
     check-cast v1, Landroidx/appcompat/view/menu/ActionMenuItemView;
 
-    invoke-virtual {v1}, Landroidx/appcompat/view/menu/ActionMenuItemView;->getItemData()Landroidx/appcompat/view/menu/MenuItemImpl;
+    invoke-virtual {v1}, Landroidx/appcompat/view/menu/ActionMenuItemView;->getItemData()Landroidx/appcompat/view/menu/h;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroidx/appcompat/view/menu/MenuItemImpl;->getItemId()I
+    invoke-virtual {v2}, Landroidx/appcompat/view/menu/h;->getItemId()I
 
     move-result v2
 
@@ -104,7 +84,7 @@
     return-object p0
 .end method
 
-.method public static getActionMenuView(Landroidx/appcompat/widget/Toolbar;)Landroidx/appcompat/widget/ActionMenuView;
+.method public static b(Landroidx/appcompat/widget/Toolbar;)Landroidx/appcompat/widget/ActionMenuView;
     .locals 3
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
@@ -145,7 +125,7 @@
     return-object p0
 .end method
 
-.method private static getImageView(Landroidx/appcompat/widget/Toolbar;Landroid/graphics/drawable/Drawable;)Landroid/widget/ImageView;
+.method public static c(Landroidx/appcompat/widget/Toolbar;Landroid/graphics/drawable/Drawable;)Landroid/widget/ImageView;
     .locals 5
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
@@ -221,7 +201,7 @@
     return-object v0
 .end method
 
-.method public static getLogoImageView(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/ImageView;
+.method public static d(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/ImageView;
     .locals 1
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
@@ -234,14 +214,14 @@
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Lcom/google/android/material/internal/ToolbarUtils;->getImageView(Landroidx/appcompat/widget/Toolbar;Landroid/graphics/drawable/Drawable;)Landroid/widget/ImageView;
+    invoke-static {p0, v0}, Lcom/google/android/material/internal/ToolbarUtils;->c(Landroidx/appcompat/widget/Toolbar;Landroid/graphics/drawable/Drawable;)Landroid/widget/ImageView;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static getNavigationIconButton(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/ImageButton;
+.method public static e(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/ImageButton;
     .locals 5
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
@@ -297,7 +277,7 @@
     return-object v1
 .end method
 
-.method public static getSecondaryActionMenuItemView(Landroidx/appcompat/widget/Toolbar;)Landroid/view/View;
+.method public static f(Landroidx/appcompat/widget/Toolbar;)Landroid/view/View;
     .locals 2
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
@@ -306,7 +286,7 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    invoke-static {p0}, Lcom/google/android/material/internal/ToolbarUtils;->getActionMenuView(Landroidx/appcompat/widget/Toolbar;)Landroidx/appcompat/widget/ActionMenuView;
+    invoke-static {p0}, Lcom/google/android/material/internal/ToolbarUtils;->b(Landroidx/appcompat/widget/Toolbar;)Landroidx/appcompat/widget/ActionMenuView;
 
     move-result-object p0
 
@@ -334,7 +314,7 @@
     return-object p0
 .end method
 
-.method public static getSubtitleTextView(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/TextView;
+.method public static g(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/TextView;
     .locals 1
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
@@ -347,7 +327,7 @@
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Lcom/google/android/material/internal/ToolbarUtils;->getTextViewsWithText(Landroidx/appcompat/widget/Toolbar;Ljava/lang/CharSequence;)Ljava/util/List;
+    invoke-static {p0, v0}, Lcom/google/android/material/internal/ToolbarUtils;->h(Landroidx/appcompat/widget/Toolbar;Ljava/lang/CharSequence;)Ljava/util/List;
 
     move-result-object p0
 
@@ -362,7 +342,7 @@
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/google/android/material/internal/ToolbarUtils;->VIEW_TOP_COMPARATOR:Ljava/util/Comparator;
+    sget-object v0, Lcom/google/android/material/internal/ToolbarUtils;->a:Ljava/util/Comparator;
 
     invoke-static {p0, v0}, Ljava/util/Collections;->max(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;
 
@@ -374,7 +354,7 @@
     return-object p0
 .end method
 
-.method private static getTextViewsWithText(Landroidx/appcompat/widget/Toolbar;Ljava/lang/CharSequence;)Ljava/util/List;
+.method public static h(Landroidx/appcompat/widget/Toolbar;Ljava/lang/CharSequence;)Ljava/util/List;
     .locals 4
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
@@ -436,7 +416,7 @@
     return-object v0
 .end method
 
-.method public static getTitleTextView(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/TextView;
+.method public static i(Landroidx/appcompat/widget/Toolbar;)Landroid/widget/TextView;
     .locals 1
     .param p0    # Landroidx/appcompat/widget/Toolbar;
         .annotation build Landroidx/annotation/NonNull;
@@ -449,7 +429,7 @@
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Lcom/google/android/material/internal/ToolbarUtils;->getTextViewsWithText(Landroidx/appcompat/widget/Toolbar;Ljava/lang/CharSequence;)Ljava/util/List;
+    invoke-static {p0, v0}, Lcom/google/android/material/internal/ToolbarUtils;->h(Landroidx/appcompat/widget/Toolbar;Ljava/lang/CharSequence;)Ljava/util/List;
 
     move-result-object p0
 
@@ -464,7 +444,7 @@
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/google/android/material/internal/ToolbarUtils;->VIEW_TOP_COMPARATOR:Ljava/util/Comparator;
+    sget-object v0, Lcom/google/android/material/internal/ToolbarUtils;->a:Ljava/util/Comparator;
 
     invoke-static {p0, v0}, Ljava/util/Collections;->min(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;
 

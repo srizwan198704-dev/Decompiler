@@ -32,7 +32,13 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/google/common/primitives/ImmutableDoubleArray;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/primitives/ImmutableDoubleArray;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
@@ -42,7 +48,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/primitives/ImmutableDoubleArray;Lcom/google/common/primitives/ImmutableDoubleArray$1;)V
+.method public synthetic constructor <init>(Lcom/google/common/primitives/ImmutableDoubleArray;Lcom/google/common/primitives/ImmutableDoubleArray$a;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/common/primitives/ImmutableDoubleArray$AsList;-><init>(Lcom/google/common/primitives/ImmutableDoubleArray;)V

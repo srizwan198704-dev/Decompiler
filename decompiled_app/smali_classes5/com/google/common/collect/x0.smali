@@ -2,10 +2,16 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/Function;
+.implements Ljava/util/function/Supplier;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public synthetic constructor <init>()V
     .locals 0
 
@@ -16,14 +22,12 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final get()Ljava/lang/Object;
+    .locals 1
 
-    check-cast p1, Ljava/util/Collection;
+    invoke-static {}, Lcom/google/common/collect/LinkedHashMultiset;->create()Lcom/google/common/collect/LinkedHashMultiset;
 
-    invoke-static {p1}, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;->b(Ljava/util/Collection;)Ljava/util/Collection;
+    move-result-object v0
 
-    move-result-object p1
-
-    return-object p1
+    return-object v0
 .end method

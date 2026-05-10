@@ -1,29 +1,65 @@
-.class public final synthetic Lcom/google/common/util/concurrent/n;
-.super Ljava/lang/Object;
+.class public abstract Lcom/google/common/util/concurrent/n;
+.super Lcom/google/common/util/concurrent/m;
 
 # interfaces
-.implements Lcom/google/common/base/Function;
+.implements Lcom/google/common/util/concurrent/t;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/common/util/concurrent/n$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lcom/google/common/util/concurrent/m<",
+        "TV;>;",
+        "Lcom/google/common/util/concurrent/t<",
+        "TV;>;"
+    }
+.end annotation
 
 
 # direct methods
-.method public synthetic constructor <init>()V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/m;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    .locals 1
 
-    check-cast p1, Ljava/lang/reflect/Constructor;
+    invoke-virtual {p0}, Lcom/google/common/util/concurrent/n;->n()Lcom/google/common/util/concurrent/t;
 
-    invoke-static {p1}, Lcom/google/common/util/concurrent/FuturesGetChecked;->a(Ljava/lang/reflect/Constructor;)Ljava/util/List;
+    move-result-object v0
 
-    move-result-object p1
+    invoke-interface {v0, p1, p2}, Lcom/google/common/util/concurrent/t;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
-    return-object p1
+    return-void
+.end method
+
+.method public abstract n()Lcom/google/common/util/concurrent/t;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/google/common/util/concurrent/t<",
+            "+TV;>;"
+        }
+    .end annotation
 .end method

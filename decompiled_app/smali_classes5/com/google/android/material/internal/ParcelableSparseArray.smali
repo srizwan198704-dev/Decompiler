@@ -6,12 +6,6 @@
 
 
 # annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroid/util/SparseArray<",
@@ -38,9 +32,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/internal/ParcelableSparseArray$1;
+    new-instance v0, Lcom/google/android/material/internal/ParcelableSparseArray$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/internal/ParcelableSparseArray$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/internal/ParcelableSparseArray$a;-><init>()V
 
     sput-object v0, Lcom/google/android/material/internal/ParcelableSparseArray;->CREATOR:Landroid/os/Parcelable$Creator;
 

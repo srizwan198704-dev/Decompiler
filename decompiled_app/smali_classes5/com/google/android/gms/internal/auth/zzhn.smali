@@ -1,152 +1,382 @@
-.class final Lcom/google/android/gms/internal/auth/zzhn;
-.super Ljava/lang/Object;
+.class public final enum Lcom/google/android/gms/internal/auth/zzhn;
+.super Ljava/lang/Enum;
 
 
 # static fields
-.field public static final synthetic zza:I
+.field public static final enum zza:Lcom/google/android/gms/internal/auth/zzhn;
 
-.field private static final zzb:Lcom/google/android/gms/internal/auth/zzhl;
+.field public static final enum zzb:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzc:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzd:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zze:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzf:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzg:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzh:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzi:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzj:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzk:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzl:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzm:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzn:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzo:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzp:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzq:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field public static final enum zzr:Lcom/google/android/gms/internal/auth/zzhn;
+
+.field private static final synthetic zzs:[Lcom/google/android/gms/internal/auth/zzhn;
+
+
+# instance fields
+.field private final zzt:Lcom/google/android/gms/internal/auth/zzho;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 22
 
-    invoke-static {}, Lcom/google/android/gms/internal/auth/zzhj;->zzu()Z
+    new-instance v0, Lcom/google/android/gms/internal/auth/zzhn;
 
-    move-result v0
+    sget-object v1, Lcom/google/android/gms/internal/auth/zzho;->zzd:Lcom/google/android/gms/internal/auth/zzho;
 
-    if-eqz v0, :cond_0
+    const-string v2, "DOUBLE"
 
-    invoke-static {}, Lcom/google/android/gms/internal/auth/zzhj;->zzv()Z
+    const/4 v3, 0x0
 
-    move-result v0
+    const/4 v4, 0x1
 
-    if-eqz v0, :cond_0
+    invoke-direct {v0, v2, v3, v1, v4}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
 
-    sget v0, Lcom/google/android/gms/internal/auth/zzds;->zza:I
+    sput-object v0, Lcom/google/android/gms/internal/auth/zzhn;->zza:Lcom/google/android/gms/internal/auth/zzhn;
 
-    :cond_0
-    new-instance v0, Lcom/google/android/gms/internal/auth/zzhm;
+    new-instance v1, Lcom/google/android/gms/internal/auth/zzhn;
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/auth/zzhm;-><init>()V
+    sget-object v2, Lcom/google/android/gms/internal/auth/zzho;->zzc:Lcom/google/android/gms/internal/auth/zzho;
 
-    sput-object v0, Lcom/google/android/gms/internal/auth/zzhn;->zzb:Lcom/google/android/gms/internal/auth/zzhl;
+    const-string v5, "FLOAT"
+
+    const/4 v6, 0x5
+
+    invoke-direct {v1, v5, v4, v2, v6}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v1, Lcom/google/android/gms/internal/auth/zzhn;->zzb:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v2, Lcom/google/android/gms/internal/auth/zzhn;
+
+    sget-object v5, Lcom/google/android/gms/internal/auth/zzho;->zzb:Lcom/google/android/gms/internal/auth/zzho;
+
+    const-string v7, "INT64"
+
+    const/4 v8, 0x2
+
+    invoke-direct {v2, v7, v8, v5, v3}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v2, Lcom/google/android/gms/internal/auth/zzhn;->zzc:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v7, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v9, "UINT64"
+
+    const/4 v10, 0x3
+
+    invoke-direct {v7, v9, v10, v5, v3}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v7, Lcom/google/android/gms/internal/auth/zzhn;->zzd:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v9, Lcom/google/android/gms/internal/auth/zzhn;
+
+    sget-object v11, Lcom/google/android/gms/internal/auth/zzho;->zza:Lcom/google/android/gms/internal/auth/zzho;
+
+    const-string v12, "INT32"
+
+    const/4 v13, 0x4
+
+    invoke-direct {v9, v12, v13, v11, v3}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v9, Lcom/google/android/gms/internal/auth/zzhn;->zze:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v12, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v14, "FIXED64"
+
+    invoke-direct {v12, v14, v6, v5, v4}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v12, Lcom/google/android/gms/internal/auth/zzhn;->zzf:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v14, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v15, "FIXED32"
+
+    const/4 v13, 0x6
+
+    invoke-direct {v14, v15, v13, v11, v6}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v14, Lcom/google/android/gms/internal/auth/zzhn;->zzg:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v15, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const/4 v13, 0x7
+
+    sget-object v4, Lcom/google/android/gms/internal/auth/zzho;->zze:Lcom/google/android/gms/internal/auth/zzho;
+
+    const-string v6, "BOOL"
+
+    invoke-direct {v15, v6, v13, v4, v3}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v15, Lcom/google/android/gms/internal/auth/zzhn;->zzh:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v4, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const/16 v6, 0x8
+
+    sget-object v13, Lcom/google/android/gms/internal/auth/zzho;->zzf:Lcom/google/android/gms/internal/auth/zzho;
+
+    const-string v3, "STRING"
+
+    invoke-direct {v4, v3, v6, v13, v8}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v4, Lcom/google/android/gms/internal/auth/zzhn;->zzi:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v3, Lcom/google/android/gms/internal/auth/zzhn;
+
+    sget-object v13, Lcom/google/android/gms/internal/auth/zzho;->zzi:Lcom/google/android/gms/internal/auth/zzho;
+
+    const-string v6, "GROUP"
+
+    const/16 v8, 0x9
+
+    invoke-direct {v3, v6, v8, v13, v10}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v3, Lcom/google/android/gms/internal/auth/zzhn;->zzj:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v6, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v8, "MESSAGE"
+
+    const/16 v10, 0xa
+
+    move-object/from16 v16, v3
+
+    const/4 v3, 0x2
+
+    invoke-direct {v6, v8, v10, v13, v3}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v6, Lcom/google/android/gms/internal/auth/zzhn;->zzk:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v8, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const/16 v13, 0xb
+
+    sget-object v10, Lcom/google/android/gms/internal/auth/zzho;->zzg:Lcom/google/android/gms/internal/auth/zzho;
+
+    move-object/from16 v17, v6
+
+    const-string v6, "BYTES"
+
+    invoke-direct {v8, v6, v13, v10, v3}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v8, Lcom/google/android/gms/internal/auth/zzhn;->zzl:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v3, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v6, "UINT32"
+
+    const/16 v10, 0xc
+
+    const/4 v13, 0x0
+
+    invoke-direct {v3, v6, v10, v11, v13}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v3, Lcom/google/android/gms/internal/auth/zzhn;->zzm:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v6, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const/16 v10, 0xd
+
+    move-object/from16 v18, v3
+
+    sget-object v3, Lcom/google/android/gms/internal/auth/zzho;->zzh:Lcom/google/android/gms/internal/auth/zzho;
+
+    move-object/from16 v19, v8
+
+    const-string v8, "ENUM"
+
+    invoke-direct {v6, v8, v10, v3, v13}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v6, Lcom/google/android/gms/internal/auth/zzhn;->zzn:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v3, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v8, "SFIXED32"
+
+    const/16 v13, 0xe
+
+    const/4 v10, 0x5
+
+    invoke-direct {v3, v8, v13, v11, v10}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v3, Lcom/google/android/gms/internal/auth/zzhn;->zzo:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v8, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v10, "SFIXED64"
+
+    const/16 v13, 0xf
+
+    move-object/from16 v20, v3
+
+    const/4 v3, 0x1
+
+    invoke-direct {v8, v10, v13, v5, v3}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v8, Lcom/google/android/gms/internal/auth/zzhn;->zzp:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v3, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v10, "SINT32"
+
+    const/16 v13, 0x10
+
+    move-object/from16 v21, v8
+
+    const/4 v8, 0x0
+
+    invoke-direct {v3, v10, v13, v11, v8}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v3, Lcom/google/android/gms/internal/auth/zzhn;->zzq:Lcom/google/android/gms/internal/auth/zzhn;
+
+    new-instance v10, Lcom/google/android/gms/internal/auth/zzhn;
+
+    const-string v11, "SINT64"
+
+    const/16 v13, 0x11
+
+    invoke-direct {v10, v11, v13, v5, v8}, Lcom/google/android/gms/internal/auth/zzhn;-><init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+
+    sput-object v10, Lcom/google/android/gms/internal/auth/zzhn;->zzr:Lcom/google/android/gms/internal/auth/zzhn;
+
+    const/16 v5, 0x12
+
+    new-array v5, v5, [Lcom/google/android/gms/internal/auth/zzhn;
+
+    aput-object v0, v5, v8
+
+    const/4 v0, 0x1
+
+    aput-object v1, v5, v0
+
+    const/4 v0, 0x2
+
+    aput-object v2, v5, v0
+
+    const/4 v0, 0x3
+
+    aput-object v7, v5, v0
+
+    const/4 v0, 0x4
+
+    aput-object v9, v5, v0
+
+    const/4 v0, 0x5
+
+    aput-object v12, v5, v0
+
+    const/4 v0, 0x6
+
+    aput-object v14, v5, v0
+
+    const/4 v0, 0x7
+
+    aput-object v15, v5, v0
+
+    const/16 v0, 0x8
+
+    aput-object v4, v5, v0
+
+    const/16 v0, 0x9
+
+    aput-object v16, v5, v0
+
+    const/16 v0, 0xa
+
+    aput-object v17, v5, v0
+
+    const/16 v0, 0xb
+
+    aput-object v19, v5, v0
+
+    const/16 v0, 0xc
+
+    aput-object v18, v5, v0
+
+    const/16 v0, 0xd
+
+    aput-object v6, v5, v0
+
+    const/16 v0, 0xe
+
+    aput-object v20, v5, v0
+
+    const/16 v0, 0xf
+
+    aput-object v21, v5, v0
+
+    const/16 v0, 0x10
+
+    aput-object v3, v5, v0
+
+    aput-object v10, v5, v13
+
+    sput-object v5, Lcom/google/android/gms/internal/auth/zzhn;->zzs:[Lcom/google/android/gms/internal/auth/zzhn;
 
     return-void
 .end method
 
-.method public static bridge synthetic zza([BII)I
-    .locals 6
+.method private constructor <init>(Ljava/lang/String;ILcom/google/android/gms/internal/auth/zzho;I)V
+    .locals 0
 
-    sub-int/2addr p2, p1
+    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    add-int/lit8 v0, p1, -0x1
+    iput-object p3, p0, Lcom/google/android/gms/internal/auth/zzhn;->zzt:Lcom/google/android/gms/internal/auth/zzho;
 
-    aget-byte v0, p0, v0
-
-    const/16 v1, -0xc
-
-    const/4 v2, -0x1
-
-    if-eqz p2, :cond_5
-
-    const/4 v3, 0x1
-
-    const/16 v4, -0x41
-
-    if-eq p2, v3, :cond_3
-
-    const/4 v5, 0x2
-
-    if-ne p2, v5, :cond_2
-
-    aget-byte p2, p0, p1
-
-    add-int/2addr p1, v3
-
-    aget-byte p0, p0, p1
-
-    if-gt v0, v1, :cond_0
-
-    if-gt p2, v4, :cond_0
-
-    if-le p0, v4, :cond_1
-
-    :cond_0
-    :goto_0
-    const/4 v0, -0x1
-
-    goto :goto_1
-
-    :cond_1
-    shl-int/lit8 p1, p2, 0x8
-
-    shl-int/lit8 p0, p0, 0x10
-
-    xor-int/2addr p1, v0
-
-    xor-int v0, p1, p0
-
-    goto :goto_1
-
-    :cond_2
-    new-instance p0, Ljava/lang/AssertionError;
-
-    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
-
-    throw p0
-
-    :cond_3
-    aget-byte p0, p0, p1
-
-    if-gt v0, v1, :cond_0
-
-    if-le p0, v4, :cond_4
-
-    goto :goto_0
-
-    :cond_4
-    shl-int/lit8 p0, p0, 0x8
-
-    xor-int/2addr v0, p0
-
-    goto :goto_1
-
-    :cond_5
-    if-le v0, v1, :cond_6
-
-    goto :goto_0
-
-    :cond_6
-    :goto_1
-    return v0
+    return-void
 .end method
 
-.method public static zzb([B)Z
-    .locals 3
-
-    sget-object v0, Lcom/google/android/gms/internal/auth/zzhn;->zzb:Lcom/google/android/gms/internal/auth/zzhl;
-
-    array-length v1, p0
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, p0, v2, v1}, Lcom/google/android/gms/internal/auth/zzhl;->zzb([BII)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static zzc([BII)Z
+.method public static values()[Lcom/google/android/gms/internal/auth/zzhn;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/auth/zzhn;->zzb:Lcom/google/android/gms/internal/auth/zzhl;
+    sget-object v0, Lcom/google/android/gms/internal/auth/zzhn;->zzs:[Lcom/google/android/gms/internal/auth/zzhn;
 
-    invoke-virtual {v0, p0, p1, p2}, Lcom/google/android/gms/internal/auth/zzhl;->zzb([BII)Z
+    invoke-virtual {v0}, [Lcom/google/android/gms/internal/auth/zzhn;->clone()Ljava/lang/Object;
 
-    move-result p0
+    move-result-object v0
 
-    return p0
+    check-cast v0, [Lcom/google/android/gms/internal/auth/zzhn;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public final zza()Lcom/google/android/gms/internal/auth/zzho;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/auth/zzhn;->zzt:Lcom/google/android/gms/internal/auth/zzho;
+
+    return-object v0
 .end method

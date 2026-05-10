@@ -26,7 +26,7 @@
 
 
 # static fields
-.field private static final INSTANCE:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
+.field public static final a:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
 
 .field private static final serialVersionUID:J
 
@@ -39,7 +39,7 @@
 
     invoke-direct {v0}, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;-><init>()V
 
-    sput-object v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
+    sput-object v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->a:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
 
     return-void
 .end method
@@ -51,7 +51,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0, v0, v1}, Lcom/google/common/collect/DiscreteDomain;-><init>(ZLcom/google/common/collect/DiscreteDomain$1;)V
+    invoke-direct {p0, v0, v1}, Lcom/google/common/collect/DiscreteDomain;-><init>(ZLcom/google/common/collect/DiscreteDomain$a;)V
 
     return-void
 .end method
@@ -59,7 +59,7 @@
 .method public static synthetic access$000()Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
     .locals 1
 
-    sget-object v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
+    sget-object v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->a:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
 
     return-object v0
 .end method
@@ -67,7 +67,7 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
-    sget-object v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
+    sget-object v0, Lcom/google/common/collect/DiscreteDomain$IntegerDomain;->a:Lcom/google/common/collect/DiscreteDomain$IntegerDomain;
 
     return-object v0
 .end method
@@ -207,7 +207,7 @@
 
     const-string v0, "distance"
 
-    invoke-static {p2, p3, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(JLjava/lang/String;)J
+    invoke-static {p2, p3, v0}, Lcom/google/common/collect/e2;->c(JLjava/lang/String;)J
 
     invoke-virtual {p1}, Ljava/lang/Integer;->longValue()J
 
@@ -215,7 +215,7 @@
 
     add-long/2addr v0, p2
 
-    invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->checkedCast(J)I
+    invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->d(J)I
 
     move-result p1
 

@@ -1,24 +1,14 @@
 .class public final Lcom/google/common/collect/EnumMultiset;
-.super Lcom/google/common/collect/AbstractMultiset;
+.super Lcom/google/common/collect/d;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-.end annotation
-
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/EnumMultiset$Itr;
+        Lcom/google/common/collect/EnumMultiset$c;
     }
 .end annotation
 
@@ -27,7 +17,7 @@
         "<E:",
         "Ljava/lang/Enum<",
         "TE;>;>",
-        "Lcom/google/common/collect/AbstractMultiset<",
+        "Lcom/google/common/collect/d<",
         "TE;>;",
         "Ljava/io/Serializable;"
     }
@@ -36,9 +26,6 @@
 
 # static fields
 .field private static final serialVersionUID:J
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-.end field
 
 
 # instance fields
@@ -67,6 +54,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>(Ljava/lang/Class;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -77,7 +70,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/AbstractMultiset;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/d;-><init>()V
 
     iput-object p1, p0, Lcom/google/common/collect/EnumMultiset;->type:Ljava/lang/Class;
 
@@ -85,7 +78,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
 
     invoke-virtual {p1}, Ljava/lang/Class;->getEnumConstants()[Ljava/lang/Object;
 
@@ -147,7 +140,7 @@
 .method private checkIsE(Ljava/lang/Object;)V
     .locals 3
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/EnumMultiset;->isActuallyE(Ljava/lang/Object;)Z
 
@@ -232,7 +225,7 @@
 
     const-string v2, "EnumMultiset constructor passed empty Iterable"
 
-    invoke-static {v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+    invoke-static {v1, v2}, Lcom/google/common/base/m;->e(ZLjava/lang/Object;)V
 
     new-instance v1, Lcom/google/common/collect/EnumMultiset;
 
@@ -248,7 +241,7 @@
 
     invoke-direct {v1, v0}, Lcom/google/common/collect/EnumMultiset;-><init>(Ljava/lang/Class;)V
 
-    invoke-static {v1, p0}, Lcom/google/common/collect/Iterables;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
+    invoke-static {v1, p0}, Lcom/google/common/collect/g3;->a(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
     return-object v1
 .end method
@@ -273,7 +266,7 @@
 
     move-result-object p1
 
-    invoke-static {p1, p0}, Lcom/google/common/collect/Iterables;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
+    invoke-static {p1, p0}, Lcom/google/common/collect/g3;->a(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
     return-object p1
 .end method
@@ -311,9 +304,6 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -347,16 +337,13 @@
 
     iput-object v0, p0, Lcom/google/common/collect/EnumMultiset;->counts:[I
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/Serialization;->populateMultiset(Lcom/google/common/collect/Multiset;Ljava/io/ObjectInputStream;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/w3;->f(Lcom/google/common/collect/l3;Ljava/io/ObjectInputStream;)V
 
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -369,7 +356,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/Serialization;->writeMultiset(Lcom/google/common/collect/Multiset;Ljava/io/ObjectOutputStream;)V
+    invoke-static {p0, p1}, Lcom/google/common/collect/w3;->k(Lcom/google/common/collect/l3;Ljava/io/ObjectOutputStream;)V
 
     return-void
 .end method
@@ -377,10 +364,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Enum;I)I
-    .locals 8
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I)I"
@@ -391,7 +375,7 @@
 
     const-string v0, "occurrences"
 
-    invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
+    invoke-static {p2, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
 
     if-nez p2, :cond_0
 
@@ -418,35 +402,35 @@
 
     const-wide/32 v5, 0x7fffffff
 
-    const/4 p2, 0x1
-
-    cmp-long v7, v1, v5
-
-    if-gtz v7, :cond_1
+    cmp-long p2, v1, v5
 
     const/4 v5, 0x1
+
+    if-gtz p2, :cond_1
+
+    move p2, v5
 
     goto :goto_0
 
     :cond_1
-    const/4 v5, 0x0
+    const/4 p2, 0x0
 
     :goto_0
     const-string v6, "too many occurrences: %s"
 
-    invoke-static {v5, v6, v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
+    invoke-static {p2, v6, v1, v2}, Lcom/google/common/base/m;->h(ZLjava/lang/String;J)V
 
-    iget-object v5, p0, Lcom/google/common/collect/EnumMultiset;->counts:[I
+    iget-object p2, p0, Lcom/google/common/collect/EnumMultiset;->counts:[I
 
-    long-to-int v2, v1
+    long-to-int v1, v1
 
-    aput v2, v5, p1
+    aput v1, p2, p1
 
     if-nez v0, :cond_2
 
     iget p1, p0, Lcom/google/common/collect/EnumMultiset;->distinctElements:I
 
-    add-int/2addr p1, p2
+    add-int/2addr p1, v5
 
     iput p1, p0, Lcom/google/common/collect/EnumMultiset;->distinctElements:I
 
@@ -462,8 +446,6 @@
 
 .method public bridge synthetic add(Ljava/lang/Object;I)I
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     check-cast p1, Ljava/lang/Enum;
 
@@ -495,7 +477,7 @@
 .method public bridge synthetic contains(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractMultiset;->contains(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/d;->contains(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -553,9 +535,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/EnumMultiset$1;
+    new-instance v0, Lcom/google/common/collect/EnumMultiset$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/EnumMultiset$1;-><init>(Lcom/google/common/collect/EnumMultiset;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/EnumMultiset$a;-><init>(Lcom/google/common/collect/EnumMultiset;)V
 
     return-object v0
 .end method
@@ -563,7 +545,7 @@
 .method public bridge synthetic elementSet()Ljava/util/Set;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractMultiset;->elementSet()Ljava/util/Set;
+    invoke-super {p0}, Lcom/google/common/collect/d;->elementSet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -576,14 +558,14 @@
         value = {
             "()",
             "Ljava/util/Iterator<",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TE;>;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/EnumMultiset$2;
+    new-instance v0, Lcom/google/common/collect/EnumMultiset$b;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/EnumMultiset$2;-><init>(Lcom/google/common/collect/EnumMultiset;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/EnumMultiset$b;-><init>(Lcom/google/common/collect/EnumMultiset;)V
 
     return-object v0
 .end method
@@ -591,7 +573,7 @@
 .method public bridge synthetic entrySet()Ljava/util/Set;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractMultiset;->entrySet()Ljava/util/Set;
+    invoke-super {p0}, Lcom/google/common/collect/d;->entrySet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -601,7 +583,7 @@
 .method public bridge synthetic isEmpty()Z
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractMultiset;->isEmpty()Z
+    invoke-super {p0}, Lcom/google/common/collect/d;->isEmpty()Z
 
     move-result v0
 
@@ -618,7 +600,7 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/collect/Multisets;->iteratorImpl(Lcom/google/common/collect/Multiset;)Ljava/util/Iterator;
+    invoke-static {p0}, Lcom/google/common/collect/Multisets;->i(Lcom/google/common/collect/l3;)Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -627,8 +609,6 @@
 
 .method public remove(Ljava/lang/Object;I)I
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -649,7 +629,7 @@
 
     const-string v2, "occurrences"
 
-    invoke-static {p2, v2}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
+    invoke-static {p2, v2}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
 
     if-nez p2, :cond_1
 
@@ -716,9 +696,6 @@
 
 .method public setCount(Ljava/lang/Enum;I)I
     .locals 6
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I)I"
@@ -729,7 +706,7 @@
 
     const-string v0, "count"
 
-    invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
+    invoke-static {p2, v0}, Lcom/google/common/collect/e2;->b(ILjava/lang/String;)I
 
     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
@@ -781,8 +758,6 @@
 
 .method public bridge synthetic setCount(Ljava/lang/Object;I)I
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     check-cast p1, Ljava/lang/Enum;
 
@@ -795,14 +770,8 @@
 
 .method public bridge synthetic setCount(Ljava/lang/Object;II)Z
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
-    invoke-super {p0, p1, p2, p3}, Lcom/google/common/collect/AbstractMultiset;->setCount(Ljava/lang/Object;II)Z
+    invoke-super {p0, p1, p2, p3}, Lcom/google/common/collect/d;->setCount(Ljava/lang/Object;II)Z
 
     move-result p1
 
@@ -814,7 +783,7 @@
 
     iget-wide v0, p0, Lcom/google/common/collect/EnumMultiset;->size:J
 
-    invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->saturatedCast(J)I
+    invoke-static {v0, v1}, Lcom/google/common/primitives/Ints;->n(J)I
 
     move-result v0
 

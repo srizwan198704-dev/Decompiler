@@ -6,13 +6,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-.end annotation
-
-.annotation runtime Lcom/google/common/primitives/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Number;",
@@ -87,15 +80,15 @@
 .end method
 
 .method public static valueOf(J)Lcom/google/common/primitives/UnsignedInteger;
-    .locals 3
+    .locals 2
 
     const-wide v0, 0xffffffffL
 
     and-long/2addr v0, p0
 
-    cmp-long v2, v0, p0
+    cmp-long v0, v0, p0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -107,11 +100,11 @@
     :goto_0
     const-string v1, "value (%s) is outside the range for an unsigned integer value"
 
-    invoke-static {v0, v1, p0, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;J)V
+    invoke-static {v0, v1, p0, p1}, Lcom/google/common/base/m;->h(ZLjava/lang/String;J)V
 
-    long-to-int p1, p0
+    long-to-int p0, p0
 
-    invoke-static {p1}, Lcom/google/common/primitives/UnsignedInteger;->fromIntBits(I)Lcom/google/common/primitives/UnsignedInteger;
+    invoke-static {p0}, Lcom/google/common/primitives/UnsignedInteger;->fromIntBits(I)Lcom/google/common/primitives/UnsignedInteger;
 
     move-result-object p0
 
@@ -133,7 +126,7 @@
 .method public static valueOf(Ljava/lang/String;I)Lcom/google/common/primitives/UnsignedInteger;
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/google/common/primitives/UnsignedInts;->parseUnsignedInt(Ljava/lang/String;I)I
+    invoke-static {p0, p1}, Lcom/google/common/primitives/UnsignedInts;->d(Ljava/lang/String;I)I
 
     move-result p0
 
@@ -147,7 +140,7 @@
 .method public static valueOf(Ljava/math/BigInteger;)Lcom/google/common/primitives/UnsignedInteger;
     .locals 2
 
-    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0}, Ljava/math/BigInteger;->signum()I
 
@@ -173,7 +166,7 @@
     :goto_0
     const-string v1, "value (%s) is outside the range for an unsigned integer value"
 
-    invoke-static {v0, v1, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     invoke-virtual {p0}, Ljava/math/BigInteger;->intValue()I
 
@@ -205,13 +198,13 @@
 .method public compareTo(Lcom/google/common/primitives/UnsignedInteger;)I
     .locals 1
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
     iget p1, p1, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {v0, p1}, Lcom/google/common/primitives/UnsignedInts;->compare(II)I
+    invoke-static {v0, p1}, Lcom/google/common/primitives/UnsignedInts;->a(II)I
 
     move-result p1
 
@@ -235,7 +228,7 @@
 
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -243,7 +236,7 @@
 
     iget p1, p1, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {v0, p1}, Lcom/google/common/primitives/UnsignedInts;->divide(II)I
+    invoke-static {v0, p1}, Lcom/google/common/primitives/UnsignedInts;->b(II)I
 
     move-result p1
 
@@ -322,7 +315,7 @@
 
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {v0}, Lcom/google/common/primitives/UnsignedInts;->toLong(I)J
+    invoke-static {v0}, Lcom/google/common/primitives/UnsignedInts;->f(I)J
 
     move-result-wide v0
 
@@ -334,7 +327,7 @@
 
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -356,7 +349,7 @@
 
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -364,7 +357,7 @@
 
     iget p1, p1, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {v0, p1}, Lcom/google/common/primitives/UnsignedInts;->remainder(II)I
+    invoke-static {v0, p1}, Lcom/google/common/primitives/UnsignedInts;->e(II)I
 
     move-result p1
 
@@ -380,7 +373,7 @@
 
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -399,15 +392,10 @@
 
 .method public times(Lcom/google/common/primitives/UnsignedInteger;)Lcom/google/common/primitives/UnsignedInteger;
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -415,7 +403,7 @@
 
     iget p1, p1, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    mul-int v0, v0, p1
+    mul-int/2addr v0, p1
 
     invoke-static {v0}, Lcom/google/common/primitives/UnsignedInteger;->fromIntBits(I)Lcom/google/common/primitives/UnsignedInteger;
 
@@ -441,7 +429,7 @@
 
     iget v0, p0, Lcom/google/common/primitives/UnsignedInteger;->value:I
 
-    invoke-static {v0, p1}, Lcom/google/common/primitives/UnsignedInts;->toString(II)Ljava/lang/String;
+    invoke-static {v0, p1}, Lcom/google/common/primitives/UnsignedInts;->g(II)Ljava/lang/String;
 
     move-result-object p1
 

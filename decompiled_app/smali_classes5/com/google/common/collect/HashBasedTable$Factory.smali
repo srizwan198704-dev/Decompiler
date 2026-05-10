@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/Supplier;
+.implements Lcom/google/common/base/q;
 .implements Ljava/io/Serializable;
 
 
@@ -24,7 +24,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/Supplier<",
+        "Lcom/google/common/base/q<",
         "Ljava/util/Map<",
         "TC;TV;>;>;",
         "Ljava/io/Serializable;"
@@ -41,6 +41,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(I)V
     .locals 0
 
@@ -75,7 +81,7 @@
 
     iget v0, p0, Lcom/google/common/collect/HashBasedTable$Factory;->expectedSize:I
 
-    invoke-static {v0}, Lcom/google/common/collect/Maps;->newLinkedHashMapWithExpectedSize(I)Ljava/util/LinkedHashMap;
+    invoke-static {v0}, Lcom/google/common/collect/Maps;->s(I)Ljava/util/LinkedHashMap;
 
     move-result-object v0
 

@@ -2,74 +2,117 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
+.implements Lq4/c$c;
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000e\n\u0002\u0008\u0004\n\u0002\u0010\u000b\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0005\u0008\u0000\u0018\u00002\u00020\u0001B\u0017\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\u0006\u0010\u0005\u001a\u00020\u0004\u00a2\u0006\u0004\u0008\u0006\u0010\u0007J\u000f\u0010\t\u001a\u00020\u0008H\u0016\u00a2\u0006\u0004\u0008\t\u0010\nJ\r\u0010\u000c\u001a\u00020\u000b\u00a2\u0006\u0004\u0008\u000c\u0010\rJ\u0017\u0010\u0010\u001a\u0004\u0018\u00010\u00082\u0006\u0010\u000f\u001a\u00020\u000e\u00a2\u0006\u0004\u0008\u0010\u0010\u0011R\u0014\u0010\u0003\u001a\u00020\u00028\u0002X\u0082\u0004\u00a2\u0006\u0006\n\u0004\u0008\u0010\u0010\u0012R\u0016\u0010\u0016\u001a\u00020\u00138\u0002@\u0002X\u0082\u000e\u00a2\u0006\u0006\n\u0004\u0008\u0014\u0010\u0015R\u0018\u0010\u0018\u001a\u0004\u0018\u00010\u00088\u0002@\u0002X\u0082\u000e\u00a2\u0006\u0006\n\u0004\u0008\u000c\u0010\u0017R\u001b\u0010\u001d\u001a\u00020\u00198BX\u0082\u0084\u0002\u00a2\u0006\u000c\n\u0004\u0008\u001a\u0010\u001b\u001a\u0004\u0008\u0014\u0010\u001c\u00a8\u0006\u001e"
+    }
+    d2 = {
+        "Landroidx/lifecycle/SavedStateHandlesProvider;",
+        "Lq4/c$c;",
+        "Lq4/c;",
+        "savedStateRegistry",
+        "Landroidx/lifecycle/z0;",
+        "viewModelStoreOwner",
+        "<init>",
+        "(Lq4/c;Landroidx/lifecycle/z0;)V",
+        "Landroid/os/Bundle;",
+        "saveState",
+        "()Landroid/os/Bundle;",
+        "",
+        "c",
+        "()V",
+        "",
+        "key",
+        "a",
+        "(Ljava/lang/String;)Landroid/os/Bundle;",
+        "Lq4/c;",
+        "",
+        "b",
+        "Z",
+        "restored",
+        "Landroid/os/Bundle;",
+        "restoredState",
+        "Landroidx/lifecycle/q0;",
+        "d",
+        "Lkotlin/Lazy;",
+        "()Landroidx/lifecycle/q0;",
+        "viewModel",
+        "lifecycle-viewmodel-savedstate_release"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+.annotation build Lkotlin/jvm/internal/SourceDebugExtension;
+.end annotation
 
 
 # instance fields
-.field private restored:Z
+.field public final a:Lq4/c;
 
-.field private restoredState:Landroid/os/Bundle;
+.field public b:Z
 
-.field private final savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
+.field public c:Landroid/os/Bundle;
 
-.field private final viewModel$delegate:Les/q23;
+.field public final d:Lkotlin/Lazy;
 
 
 # direct methods
-.method public constructor <init>(Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/ViewModelStoreOwner;)V
+.method static constructor <clinit>()V
     .locals 1
-
-    const-string v0, "savedStateRegistry"
-
-    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "viewModelStoreOwner"
-
-    invoke-static {p2, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
-
-    new-instance p1, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;
-
-    invoke-direct {p1, p2}, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;-><init>(Landroidx/lifecycle/ViewModelStoreOwner;)V
-
-    invoke-static {p1}, Les/t23;->b(Lkotlin/jvm/functions/Function0;)Les/q23;
-
-    move-result-object p1
-
-    iput-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->viewModel$delegate:Les/q23;
 
     return-void
 .end method
 
-.method private final getViewModel()Landroidx/lifecycle/SavedStateHandlesVM;
+.method public constructor <init>(Lq4/c;Landroidx/lifecycle/z0;)V
     .locals 1
 
-    iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->viewModel$delegate:Les/q23;
+    const-string v0, "savedStateRegistry"
 
-    invoke-interface {v0}, Les/q23;->getValue()Ljava/lang/Object;
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move-result-object v0
+    const-string v0, "viewModelStoreOwner"
 
-    check-cast v0, Landroidx/lifecycle/SavedStateHandlesVM;
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
-    return-object v0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->a:Lq4/c;
+
+    new-instance p1, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;
+
+    invoke-direct {p1, p2}, Landroidx/lifecycle/SavedStateHandlesProvider$viewModel$2;-><init>(Landroidx/lifecycle/z0;)V
+
+    invoke-static {p1}, Lkotlin/LazyKt__LazyJVMKt;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+
+    move-result-object p1
+
+    iput-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->d:Lkotlin/Lazy;
+
+    return-void
 .end method
 
 
 # virtual methods
-.method public final consumeRestoredStateForKey(Ljava/lang/String;)Landroid/os/Bundle;
+.method public final a(Ljava/lang/String;)Landroid/os/Bundle;
     .locals 3
 
     const-string v0, "key"
 
-    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroidx/lifecycle/SavedStateHandlesProvider;->performRestore()V
+    invoke-virtual {p0}, Landroidx/lifecycle/SavedStateHandlesProvider;->c()V
 
-    iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
+    iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->c:Landroid/os/Bundle;
 
     const/4 v1, 0x0
 
@@ -85,18 +128,18 @@
     move-object v0, v1
 
     :goto_0
-    iget-object v2, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
+    iget-object v2, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->c:Landroid/os/Bundle;
 
     if-eqz v2, :cond_1
 
     invoke-virtual {v2, p1}, Landroid/os/Bundle;->remove(Ljava/lang/String;)V
 
     :cond_1
-    iget-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
+    iget-object p1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->c:Landroid/os/Bundle;
 
     if-eqz p1, :cond_2
 
-    invoke-virtual {p1}, Landroid/os/Bundle;->isEmpty()Z
+    invoke-virtual {p1}, Landroid/os/BaseBundle;->isEmpty()Z
 
     move-result p1
 
@@ -104,24 +147,38 @@
 
     if-ne p1, v2, :cond_2
 
-    iput-object v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
+    iput-object v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->c:Landroid/os/Bundle;
 
     :cond_2
     return-object v0
 .end method
 
-.method public final performRestore()V
+.method public final b()Landroidx/lifecycle/q0;
+    .locals 1
+
+    iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->d:Lkotlin/Lazy;
+
+    invoke-interface {v0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/lifecycle/q0;
+
+    return-object v0
+.end method
+
+.method public final c()V
     .locals 3
 
-    iget-boolean v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restored:Z
+    iget-boolean v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->b:Z
 
     if-nez v0, :cond_2
 
-    iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->savedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
+    iget-object v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->a:Lq4/c;
 
     const-string v1, "androidx.lifecycle.internal.SavedStateHandlesProvider"
 
-    invoke-virtual {v0, v1}, Landroidx/savedstate/SavedStateRegistry;->consumeRestoredStateForKey(Ljava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {v0, v1}, Lq4/c;->b(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -129,7 +186,7 @@
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    iget-object v2, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
+    iget-object v2, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->c:Landroid/os/Bundle;
 
     if-eqz v2, :cond_0
 
@@ -141,13 +198,13 @@
     invoke-virtual {v1, v0}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     :cond_1
-    iput-object v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
+    iput-object v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->c:Landroid/os/Bundle;
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restored:Z
+    iput-boolean v0, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->b:Z
 
-    invoke-direct {p0}, Landroidx/lifecycle/SavedStateHandlesProvider;->getViewModel()Landroidx/lifecycle/SavedStateHandlesVM;
+    invoke-virtual {p0}, Landroidx/lifecycle/SavedStateHandlesProvider;->b()Landroidx/lifecycle/q0;
 
     :cond_2
     return-void
@@ -160,18 +217,18 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    iget-object v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restoredState:Landroid/os/Bundle;
+    iget-object v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->c:Landroid/os/Bundle;
 
     if-eqz v1, :cond_0
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     :cond_0
-    invoke-direct {p0}, Landroidx/lifecycle/SavedStateHandlesProvider;->getViewModel()Landroidx/lifecycle/SavedStateHandlesVM;
+    invoke-virtual {p0}, Landroidx/lifecycle/SavedStateHandlesProvider;->b()Landroidx/lifecycle/q0;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroidx/lifecycle/SavedStateHandlesVM;->getHandles()Ljava/util/Map;
+    invoke-virtual {v1}, Landroidx/lifecycle/q0;->b()Ljava/util/Map;
 
     move-result-object v1
 
@@ -207,19 +264,19 @@
 
     move-result-object v2
 
-    check-cast v2, Landroidx/lifecycle/SavedStateHandle;
+    check-cast v2, Landroidx/lifecycle/m0;
 
-    invoke-virtual {v2}, Landroidx/lifecycle/SavedStateHandle;->savedStateProvider()Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
+    invoke-virtual {v2}, Landroidx/lifecycle/m0;->c()Lq4/c$c;
 
     move-result-object v2
 
-    invoke-interface {v2}, Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;->saveState()Landroid/os/Bundle;
+    invoke-interface {v2}, Lq4/c$c;->saveState()Landroid/os/Bundle;
 
     move-result-object v2
 
     sget-object v4, Landroid/os/Bundle;->EMPTY:Landroid/os/Bundle;
 
-    invoke-static {v2, v4}, Les/uw2;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -232,7 +289,7 @@
     :cond_2
     const/4 v1, 0x0
 
-    iput-boolean v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->restored:Z
+    iput-boolean v1, p0, Landroidx/lifecycle/SavedStateHandlesProvider;->b:Z
 
     return-object v0
 .end method

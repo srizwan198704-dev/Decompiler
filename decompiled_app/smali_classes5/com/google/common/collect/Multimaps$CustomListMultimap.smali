@@ -27,19 +27,13 @@
 
 # static fields
 .field private static final serialVersionUID:J
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-.end field
 
 
 # instance fields
-.field transient factory:Lcom/google/common/base/Supplier;
+.field transient factory:Lcom/google/common/base/q;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/Supplier<",
+            "Lcom/google/common/base/q<",
             "+",
             "Ljava/util/List<",
             "TV;>;>;"
@@ -49,7 +43,13 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/Map;Lcom/google/common/base/Supplier;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/util/Map;Lcom/google/common/base/q;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -58,7 +58,7 @@
             "TK;",
             "Ljava/util/Collection<",
             "TV;>;>;",
-            "Lcom/google/common/base/Supplier<",
+            "Lcom/google/common/base/q<",
             "+",
             "Ljava/util/List<",
             "TV;>;>;)V"
@@ -67,25 +67,19 @@
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/AbstractListMultimap;-><init>(Ljava/util/Map;)V
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/base/Supplier;
+    check-cast p1, Lcom/google/common/base/q;
 
-    iput-object p1, p0, Lcom/google/common/collect/Multimaps$CustomListMultimap;->factory:Lcom/google/common/base/Supplier;
+    iput-object p1, p0, Lcom/google/common/collect/Multimaps$CustomListMultimap;->factory:Lcom/google/common/base/q;
 
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -101,9 +95,9 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/google/common/base/Supplier;
+    check-cast v0, Lcom/google/common/base/q;
 
-    iput-object v0, p0, Lcom/google/common/collect/Multimaps$CustomListMultimap;->factory:Lcom/google/common/base/Supplier;
+    iput-object v0, p0, Lcom/google/common/collect/Multimaps$CustomListMultimap;->factory:Lcom/google/common/base/q;
 
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
@@ -120,12 +114,6 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -134,7 +122,7 @@
 
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    iget-object v0, p0, Lcom/google/common/collect/Multimaps$CustomListMultimap;->factory:Lcom/google/common/base/Supplier;
+    iget-object v0, p0, Lcom/google/common/collect/Multimaps$CustomListMultimap;->factory:Lcom/google/common/base/q;
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
@@ -188,9 +176,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/Multimaps$CustomListMultimap;->factory:Lcom/google/common/base/Supplier;
+    iget-object v0, p0, Lcom/google/common/collect/Multimaps$CustomListMultimap;->factory:Lcom/google/common/base/q;
 
-    invoke-interface {v0}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/google/common/base/q;->get()Ljava/lang/Object;
 
     move-result-object v0
 

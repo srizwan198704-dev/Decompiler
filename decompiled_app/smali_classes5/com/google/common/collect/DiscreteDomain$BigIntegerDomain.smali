@@ -26,11 +26,11 @@
 
 
 # static fields
-.field private static final INSTANCE:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
+.field public static final a:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
 
-.field private static final MAX_LONG:Ljava/math/BigInteger;
+.field public static final b:Ljava/math/BigInteger;
 
-.field private static final MIN_LONG:Ljava/math/BigInteger;
+.field public static final c:Ljava/math/BigInteger;
 
 .field private static final serialVersionUID:J
 
@@ -43,7 +43,7 @@
 
     invoke-direct {v0}, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;-><init>()V
 
-    sput-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
+    sput-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->a:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
 
     const-wide/high16 v0, -0x8000000000000000L
 
@@ -51,7 +51,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->MIN_LONG:Ljava/math/BigInteger;
+    sput-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->b:Ljava/math/BigInteger;
 
     const-wide v0, 0x7fffffffffffffffL
 
@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->MAX_LONG:Ljava/math/BigInteger;
+    sput-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->c:Ljava/math/BigInteger;
 
     return-void
 .end method
@@ -71,7 +71,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0, v0, v1}, Lcom/google/common/collect/DiscreteDomain;-><init>(ZLcom/google/common/collect/DiscreteDomain$1;)V
+    invoke-direct {p0, v0, v1}, Lcom/google/common/collect/DiscreteDomain;-><init>(ZLcom/google/common/collect/DiscreteDomain$a;)V
 
     return-void
 .end method
@@ -79,7 +79,7 @@
 .method public static synthetic access$300()Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
     .locals 1
 
-    sget-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
+    sget-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->a:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
 
     return-object v0
 .end method
@@ -87,7 +87,7 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
-    sget-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
+    sget-object v0, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->a:Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;
 
     return-object v0
 .end method
@@ -115,13 +115,13 @@
 
     move-result-object p1
 
-    sget-object p2, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->MIN_LONG:Ljava/math/BigInteger;
+    sget-object p2, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->b:Ljava/math/BigInteger;
 
     invoke-virtual {p1, p2}, Ljava/math/BigInteger;->max(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object p1
 
-    sget-object p2, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->MAX_LONG:Ljava/math/BigInteger;
+    sget-object p2, Lcom/google/common/collect/DiscreteDomain$BigIntegerDomain;->c:Ljava/math/BigInteger;
 
     invoke-virtual {p1, p2}, Ljava/math/BigInteger;->min(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
@@ -175,7 +175,7 @@
 
     const-string v0, "distance"
 
-    invoke-static {p2, p3, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(JLjava/lang/String;)J
+    invoke-static {p2, p3, v0}, Lcom/google/common/collect/e2;->c(JLjava/lang/String;)J
 
     invoke-static {p2, p3}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 

@@ -41,11 +41,11 @@
 
     new-array v0, v0, [Lcom/google/common/collect/Iterators$EmptyModifiableIterator;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/google/common/collect/Iterators$EmptyModifiableIterator;->INSTANCE:Lcom/google/common/collect/Iterators$EmptyModifiableIterator;
 
-    sget-object v2, Lcom/google/common/collect/Iterators$EmptyModifiableIterator;->INSTANCE:Lcom/google/common/collect/Iterators$EmptyModifiableIterator;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     return-object v0
 .end method
@@ -138,7 +138,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {v0}, Lcom/google/common/collect/CollectPreconditions;->checkRemove(Z)V
+    invoke-static {v0}, Lcom/google/common/collect/e2;->e(Z)V
 
     return-void
 .end method

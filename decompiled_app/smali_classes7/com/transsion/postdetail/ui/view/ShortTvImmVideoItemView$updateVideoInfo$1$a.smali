@@ -1,0 +1,101 @@
+.class public final Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView$updateVideoInfo$1$a;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lkotlinx/coroutines/flow/b;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView$updateVideoInfo$1;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lkotlinx/coroutines/flow/b;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    k = 0x3
+    mv = {
+        0x2,
+        0x1,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView$updateVideoInfo$1$a;->a:Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Landroid/graphics/Bitmap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/graphics/Bitmap;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    iget-object p2, p0, Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView$updateVideoInfo$1$a;->a:Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView;
+
+    invoke-static {p2}, Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView;->access$getViewBinding$p(Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView;)Ljr/g0;
+
+    move-result-object p2
+
+    iget-object p2, p2, Ljr/g0;->f:Landroidx/appcompat/widget/AppCompatImageView;
+
+    invoke-virtual {p2, p1}, Landroidx/appcompat/widget/AppCompatImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    return-object p1
+.end method
+
+.method public bridge synthetic emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 0
+
+    check-cast p1, Landroid/graphics/Bitmap;
+
+    invoke-virtual {p0, p1, p2}, Lcom/transsion/postdetail/ui/view/ShortTvImmVideoItemView$updateVideoInfo$1$a;->a(Landroid/graphics/Bitmap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method

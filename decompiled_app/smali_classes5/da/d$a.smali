@@ -1,0 +1,73 @@
+.class public final Lda/d$a;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lda/d;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "a"
+.end annotation
+
+
+# instance fields
+.field public a:J
+
+.field public b:J
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lda/d$a;->a:J
+
+    iput-wide v0, p0, Lda/d$a;->b:J
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()Lda/d;
+    .locals 5
+
+    new-instance v0, Lda/d;
+
+    iget-wide v1, p0, Lda/d$a;->a:J
+
+    iget-wide v3, p0, Lda/d$a;->b:J
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lda/d;-><init>(JJ)V
+
+    return-object v0
+.end method
+
+.method public b(J)Lda/d$a;
+    .locals 0
+
+    iput-wide p1, p0, Lda/d$a;->a:J
+
+    return-object p0
+.end method
+
+.method public c(J)Lda/d$a;
+    .locals 0
+
+    iput-wide p1, p0, Lda/d$a;->b:J
+
+    return-object p0
+.end method

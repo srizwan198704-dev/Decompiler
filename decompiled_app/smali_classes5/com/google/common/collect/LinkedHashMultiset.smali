@@ -3,14 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-    serializable = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -23,6 +15,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(I)V
     .locals 0
 
@@ -85,7 +83,7 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/collect/Multisets;->inferDistinctElements(Ljava/lang/Iterable;)I
+    invoke-static {p0}, Lcom/google/common/collect/Multisets;->h(Ljava/lang/Iterable;)I
 
     move-result v0
 
@@ -93,7 +91,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p0}, Lcom/google/common/collect/Iterables;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
+    invoke-static {v0, p0}, Lcom/google/common/collect/g3;->a(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
     return-object v0
 .end method
@@ -103,7 +101,7 @@
 .method public bridge synthetic contains(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/google/common/collect/AbstractMultiset;->contains(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lcom/google/common/collect/d;->contains(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -113,7 +111,7 @@
 .method public bridge synthetic elementSet()Ljava/util/Set;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractMultiset;->elementSet()Ljava/util/Set;
+    invoke-super {p0}, Lcom/google/common/collect/d;->elementSet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -123,7 +121,7 @@
 .method public bridge synthetic entrySet()Ljava/util/Set;
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractMultiset;->entrySet()Ljava/util/Set;
+    invoke-super {p0}, Lcom/google/common/collect/d;->entrySet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -133,26 +131,26 @@
 .method public bridge synthetic isEmpty()Z
     .locals 1
 
-    invoke-super {p0}, Lcom/google/common/collect/AbstractMultiset;->isEmpty()Z
+    invoke-super {p0}, Lcom/google/common/collect/d;->isEmpty()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public newBackingMap(I)Lcom/google/common/collect/ObjectCountHashMap;
+.method public newBackingMap(I)Lcom/google/common/collect/o3;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/ObjectCountHashMap<",
+            "Lcom/google/common/collect/o3<",
             "TE;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ObjectCountLinkedHashMap;
+    new-instance v0, Lcom/google/common/collect/p3;
 
-    invoke-direct {v0, p1}, Lcom/google/common/collect/ObjectCountLinkedHashMap;-><init>(I)V
+    invoke-direct {v0, p1}, Lcom/google/common/collect/p3;-><init>(I)V
 
     return-object v0
 .end method

@@ -2,34 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
-
-
-# instance fields
-.field public final synthetic a:Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;
+.implements Ljava/util/function/Supplier;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/common/collect/h0;->a:Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final get()Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/h0;->a:Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;
+    invoke-static {}, Lcom/google/common/collect/ImmutableList;->builder()Lcom/google/common/collect/ImmutableList$a;
 
-    check-cast p1, Ljava/lang/Enum;
+    move-result-object v0
 
-    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/CollectCollectors$EnumMapAccumulator;->put(Ljava/lang/Enum;Ljava/lang/Object;)V
-
-    return-void
+    return-object v0
 .end method

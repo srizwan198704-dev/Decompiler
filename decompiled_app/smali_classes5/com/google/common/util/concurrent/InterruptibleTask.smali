@@ -6,17 +6,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    emulated = true
-.end annotation
-
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation build Lcom/google/j2objc/annotations/ReflectionSupport;
-    value = .enum Lcom/google/j2objc/annotations/ReflectionSupport$Level;->FULL:Lcom/google/j2objc/annotations/ReflectionSupport$Level;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/util/concurrent/InterruptibleTask$Blocker;,
@@ -53,13 +42,13 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/google/common/util/concurrent/InterruptibleTask$DoNothingRunnable;-><init>(Lcom/google/common/util/concurrent/InterruptibleTask$1;)V
+    invoke-direct {v0, v1}, Lcom/google/common/util/concurrent/InterruptibleTask$DoNothingRunnable;-><init>(Lcom/google/common/util/concurrent/InterruptibleTask$a;)V
 
     sput-object v0, Lcom/google/common/util/concurrent/InterruptibleTask;->DONE:Ljava/lang/Runnable;
 
     new-instance v0, Lcom/google/common/util/concurrent/InterruptibleTask$DoNothingRunnable;
 
-    invoke-direct {v0, v1}, Lcom/google/common/util/concurrent/InterruptibleTask$DoNothingRunnable;-><init>(Lcom/google/common/util/concurrent/InterruptibleTask$1;)V
+    invoke-direct {v0, v1}, Lcom/google/common/util/concurrent/InterruptibleTask$DoNothingRunnable;-><init>(Lcom/google/common/util/concurrent/InterruptibleTask$a;)V
 
     sput-object v0, Lcom/google/common/util/concurrent/InterruptibleTask;->PARKED:Ljava/lang/Runnable;
 
@@ -87,9 +76,9 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    move v3, v1
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     instance-of v5, v0, Lcom/google/common/util/concurrent/InterruptibleTask$Blocker;
@@ -149,13 +138,13 @@
     goto :goto_2
 
     :cond_5
-    const/4 v3, 0x0
+    move v3, v1
 
     goto :goto_3
 
     :cond_6
     :goto_2
-    const/4 v3, 0x1
+    move v3, v5
 
     :goto_3
     invoke-static {v2}, Ljava/util/concurrent/locks/LockSupport;->park(Ljava/lang/Object;)V
@@ -182,10 +171,6 @@
 .end method
 
 .method public abstract afterRanInterruptiblySuccess(Ljava/lang/Object;)V
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -210,7 +195,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/google/common/util/concurrent/InterruptibleTask$Blocker;-><init>(Lcom/google/common/util/concurrent/InterruptibleTask;Lcom/google/common/util/concurrent/InterruptibleTask$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/google/common/util/concurrent/InterruptibleTask$Blocker;-><init>(Lcom/google/common/util/concurrent/InterruptibleTask;Lcom/google/common/util/concurrent/InterruptibleTask$a;)V
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -303,9 +288,7 @@
 
     move-result v2
 
-    xor-int/lit8 v2, v2, 0x1
-
-    if-eqz v2, :cond_4
+    if-nez v2, :cond_4
 
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/InterruptibleTask;->runInterruptibly()Ljava/lang/Object;
@@ -320,7 +303,7 @@
     move-exception v3
 
     :try_start_1
-    invoke-static {v3}, Lcom/google/common/util/concurrent/Platform;->restoreInterruptIfIsInterruptedException(Ljava/lang/Throwable;)V
+    invoke-static {v3}, Lcom/google/common/util/concurrent/z;->b(Ljava/lang/Throwable;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -335,7 +318,7 @@
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/InterruptibleTask;->waitForInterrupt(Ljava/lang/Thread;)V
 
     :cond_1
-    if-eqz v2, :cond_6
+    if-nez v2, :cond_6
 
     invoke-virtual {p0, v3}, Lcom/google/common/util/concurrent/InterruptibleTask;->afterRanInterruptiblyFailure(Ljava/lang/Throwable;)V
 
@@ -355,9 +338,9 @@
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/InterruptibleTask;->waitForInterrupt(Ljava/lang/Thread;)V
 
     :cond_2
-    if-eqz v2, :cond_3
+    if-nez v2, :cond_3
 
-    invoke-static {v1}, Lcom/google/common/util/concurrent/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/google/common/util/concurrent/x;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -379,9 +362,9 @@
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/InterruptibleTask;->waitForInterrupt(Ljava/lang/Thread;)V
 
     :cond_5
-    if-eqz v2, :cond_6
+    if-nez v2, :cond_6
 
-    invoke-static {v1}, Lcom/google/common/util/concurrent/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/google/common/util/concurrent/x;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -393,9 +376,6 @@
 .end method
 
 .method public abstract runInterruptibly()Ljava/lang/Object;
-    .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"

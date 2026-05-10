@@ -3,20 +3,17 @@
 
 
 # annotations
-.annotation runtime Lcom/google/common/hash/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/hash/HashCode$BytesHashCode;,
+        Lcom/google/common/hash/HashCode$IntHashCode;,
         Lcom/google/common/hash/HashCode$LongHashCode;,
-        Lcom/google/common/hash/HashCode$IntHashCode;
+        Lcom/google/common/hash/HashCode$BytesHashCode;
     }
 .end annotation
 
 
 # static fields
-.field private static final hexDigits:[C
+.field public static final a:[C
 
 
 # direct methods
@@ -29,7 +26,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/google/common/hash/HashCode;->hexDigits:[C
+    sput-object v0, Lcom/google/common/hash/HashCode;->a:[C
 
     return-void
 .end method
@@ -42,7 +39,7 @@
     return-void
 .end method
 
-.method private static decode(C)I
+.method public static a(C)I
     .locals 3
 
     const/16 v0, 0x30
@@ -109,7 +106,7 @@
     :goto_0
     const-string v0, "A HashCode must contain at least 1 byte."
 
-    invoke-static {v1, v0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/google/common/base/m;->e(ZLjava/lang/Object;)V
 
     invoke-virtual {p0}, [B->clone()Ljava/lang/Object;
 
@@ -169,17 +166,17 @@
 
     if-lt v0, v3, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     const-string v4, "input string (%s) must have at least 2 characters"
 
-    invoke-static {v0, v4, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v4, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -192,12 +189,12 @@
     goto :goto_1
 
     :cond_1
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_1
     const-string v0, "input string (%s) must have an even number of characters"
 
-    invoke-static {v2, v0, p0}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v2, v0, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -218,7 +215,7 @@
 
     move-result v2
 
-    invoke-static {v2}, Lcom/google/common/hash/HashCode;->decode(C)I
+    invoke-static {v2}, Lcom/google/common/hash/HashCode;->a(C)I
 
     move-result v2
 
@@ -230,7 +227,7 @@
 
     move-result v3
 
-    invoke-static {v3}, Lcom/google/common/hash/HashCode;->decode(C)I
+    invoke-static {v3}, Lcom/google/common/hash/HashCode;->a(C)I
 
     move-result v3
 
@@ -394,7 +391,7 @@
 
     aget-byte v4, v0, v3
 
-    sget-object v5, Lcom/google/common/hash/HashCode;->hexDigits:[C
+    sget-object v5, Lcom/google/common/hash/HashCode;->a:[C
 
     shr-int/lit8 v6, v4, 0x4
 
@@ -424,8 +421,6 @@
 
 .method public writeBytesTo([BII)I
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-virtual {p0}, Lcom/google/common/hash/HashCode;->bits()I
 
@@ -437,7 +432,7 @@
 
     move-result-object p3
 
-    invoke-static {p3}, Lcom/google/common/primitives/Ints;->min([I)I
+    invoke-static {p3}, Lcom/google/common/primitives/Ints;->m([I)I
 
     move-result p3
 
@@ -445,7 +440,7 @@
 
     array-length v1, p1
 
-    invoke-static {p2, v0, v1}, Lcom/google/common/base/Preconditions;->checkPositionIndexes(III)V
+    invoke-static {p2, v0, v1}, Lcom/google/common/base/m;->t(III)V
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/common/hash/HashCode;->writeBytesToImpl([BII)V
 

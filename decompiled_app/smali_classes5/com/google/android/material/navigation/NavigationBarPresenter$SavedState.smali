@@ -29,21 +29,21 @@
 
 
 # instance fields
-.field badgeSavedStates:Lcom/google/android/material/internal/ParcelableSparseArray;
+.field public a:I
+
+.field public b:Lcom/google/android/material/internal/ParcelableSparseArray;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
-
-.field selectedItemId:I
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState$1;
+    new-instance v0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState$a;-><init>()V
 
     sput-object v0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -71,7 +71,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->selectedItemId:I
+    iput v0, p0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->a:I
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -87,7 +87,7 @@
 
     check-cast p1, Lcom/google/android/material/internal/ParcelableSparseArray;
 
-    iput-object p1, p0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->badgeSavedStates:Lcom/google/android/material/internal/ParcelableSparseArray;
+    iput-object p1, p0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->b:Lcom/google/android/material/internal/ParcelableSparseArray;
 
     return-void
 .end method
@@ -109,11 +109,11 @@
         .end annotation
     .end param
 
-    iget p2, p0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->selectedItemId:I
+    iget p2, p0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->a:I
 
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object p2, p0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->badgeSavedStates:Lcom/google/android/material/internal/ParcelableSparseArray;
+    iget-object p2, p0, Lcom/google/android/material/navigation/NavigationBarPresenter$SavedState;->b:Lcom/google/android/material/internal/ParcelableSparseArray;
 
     const/4 v0, 0x0
 

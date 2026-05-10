@@ -21,13 +21,13 @@
 
 .field private static final SAVED_THEME:Ljava/lang/String; = "android:theme"
 
-.field public static final STYLE_NORMAL:I = 0x0
+.field public static final STYLE_NORMAL:I
 
-.field public static final STYLE_NO_FRAME:I = 0x2
+.field public static final STYLE_NO_FRAME:I
 
-.field public static final STYLE_NO_INPUT:I = 0x3
+.field public static final STYLE_NO_INPUT:I
 
-.field public static final STYLE_NO_TITLE:I = 0x1
+.field public static final STYLE_NO_TITLE:I
 
 
 # instance fields
@@ -50,11 +50,11 @@
 
 .field private mHandler:Landroid/os/Handler;
 
-.field private mObserver:Landroidx/lifecycle/Observer;
+.field private mObserver:Landroidx/lifecycle/d0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroidx/lifecycle/Observer<",
-            "Landroidx/lifecycle/LifecycleOwner;",
+            "Landroidx/lifecycle/d0<",
+            "Landroidx/lifecycle/u;",
             ">;"
         }
     .end annotation
@@ -76,6 +76,44 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const v0, 0x228
+
+    invoke-static {v0}, Lnp/NPFog;->d(I)I
+
+    move-result v0
+
+    sput v0, Landroidx/fragment/app/DialogFragment;->STYLE_NORMAL:I
+
+    const v0, 0x22a
+
+    invoke-static {v0}, Lnp/NPFog;->d(I)I
+
+    move-result v0
+
+    sput v0, Landroidx/fragment/app/DialogFragment;->STYLE_NO_FRAME:I
+
+    const v0, 0x22b
+
+    invoke-static {v0}, Lnp/NPFog;->d(I)I
+
+    move-result v0
+
+    sput v0, Landroidx/fragment/app/DialogFragment;->STYLE_NO_INPUT:I
+
+    const v0, 0x229
+
+    invoke-static {v0}, Lnp/NPFog;->d(I)I
+
+    move-result v0
+
+    sput v0, Landroidx/fragment/app/DialogFragment;->STYLE_NO_TITLE:I
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -87,15 +125,15 @@
 
     iput-object v0, p0, Landroidx/fragment/app/DialogFragment;->mDismissRunnable:Ljava/lang/Runnable;
 
-    new-instance v0, Landroidx/fragment/app/DialogFragment$2;
+    new-instance v0, Landroidx/fragment/app/DialogFragment$a;
 
-    invoke-direct {v0, p0}, Landroidx/fragment/app/DialogFragment$2;-><init>(Landroidx/fragment/app/DialogFragment;)V
+    invoke-direct {v0, p0}, Landroidx/fragment/app/DialogFragment$a;-><init>(Landroidx/fragment/app/DialogFragment;)V
 
     iput-object v0, p0, Landroidx/fragment/app/DialogFragment;->mOnCancelListener:Landroid/content/DialogInterface$OnCancelListener;
 
-    new-instance v0, Landroidx/fragment/app/DialogFragment$3;
+    new-instance v0, Landroidx/fragment/app/DialogFragment$b;
 
-    invoke-direct {v0, p0}, Landroidx/fragment/app/DialogFragment$3;-><init>(Landroidx/fragment/app/DialogFragment;)V
+    invoke-direct {v0, p0}, Landroidx/fragment/app/DialogFragment$b;-><init>(Landroidx/fragment/app/DialogFragment;)V
 
     iput-object v0, p0, Landroidx/fragment/app/DialogFragment;->mOnDismissListener:Landroid/content/DialogInterface$OnDismissListener;
 
@@ -115,11 +153,11 @@
 
     iput v1, p0, Landroidx/fragment/app/DialogFragment;->mBackStackId:I
 
-    new-instance v1, Landroidx/fragment/app/DialogFragment$4;
+    new-instance v1, Landroidx/fragment/app/DialogFragment$c;
 
-    invoke-direct {v1, p0}, Landroidx/fragment/app/DialogFragment$4;-><init>(Landroidx/fragment/app/DialogFragment;)V
+    invoke-direct {v1, p0}, Landroidx/fragment/app/DialogFragment$c;-><init>(Landroidx/fragment/app/DialogFragment;)V
 
-    iput-object v1, p0, Landroidx/fragment/app/DialogFragment;->mObserver:Landroidx/lifecycle/Observer;
+    iput-object v1, p0, Landroidx/fragment/app/DialogFragment;->mObserver:Landroidx/lifecycle/d0;
 
     iput-boolean v0, p0, Landroidx/fragment/app/DialogFragment;->mDialogCreated:Z
 
@@ -128,10 +166,6 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/LayoutRes;
-        .end annotation
-    .end param
 
     invoke-direct {p0, p1}, Landroidx/fragment/app/Fragment;-><init>(I)V
 
@@ -141,15 +175,15 @@
 
     iput-object p1, p0, Landroidx/fragment/app/DialogFragment;->mDismissRunnable:Ljava/lang/Runnable;
 
-    new-instance p1, Landroidx/fragment/app/DialogFragment$2;
+    new-instance p1, Landroidx/fragment/app/DialogFragment$a;
 
-    invoke-direct {p1, p0}, Landroidx/fragment/app/DialogFragment$2;-><init>(Landroidx/fragment/app/DialogFragment;)V
+    invoke-direct {p1, p0}, Landroidx/fragment/app/DialogFragment$a;-><init>(Landroidx/fragment/app/DialogFragment;)V
 
     iput-object p1, p0, Landroidx/fragment/app/DialogFragment;->mOnCancelListener:Landroid/content/DialogInterface$OnCancelListener;
 
-    new-instance p1, Landroidx/fragment/app/DialogFragment$3;
+    new-instance p1, Landroidx/fragment/app/DialogFragment$b;
 
-    invoke-direct {p1, p0}, Landroidx/fragment/app/DialogFragment$3;-><init>(Landroidx/fragment/app/DialogFragment;)V
+    invoke-direct {p1, p0}, Landroidx/fragment/app/DialogFragment$b;-><init>(Landroidx/fragment/app/DialogFragment;)V
 
     iput-object p1, p0, Landroidx/fragment/app/DialogFragment;->mOnDismissListener:Landroid/content/DialogInterface$OnDismissListener;
 
@@ -169,11 +203,11 @@
 
     iput v0, p0, Landroidx/fragment/app/DialogFragment;->mBackStackId:I
 
-    new-instance v0, Landroidx/fragment/app/DialogFragment$4;
+    new-instance v0, Landroidx/fragment/app/DialogFragment$c;
 
-    invoke-direct {v0, p0}, Landroidx/fragment/app/DialogFragment$4;-><init>(Landroidx/fragment/app/DialogFragment;)V
+    invoke-direct {v0, p0}, Landroidx/fragment/app/DialogFragment$c;-><init>(Landroidx/fragment/app/DialogFragment;)V
 
-    iput-object v0, p0, Landroidx/fragment/app/DialogFragment;->mObserver:Landroidx/lifecycle/Observer;
+    iput-object v0, p0, Landroidx/fragment/app/DialogFragment;->mObserver:Landroidx/lifecycle/d0;
 
     iput-boolean p1, p0, Landroidx/fragment/app/DialogFragment;->mDialogCreated:Z
 
@@ -277,7 +311,7 @@
 
     iget p2, p0, Landroidx/fragment/app/DialogFragment;->mBackStackId:I
 
-    invoke-virtual {p1, p2, v0}, Landroidx/fragment/app/FragmentManager;->popBackStackImmediate(II)Z
+    invoke-virtual {p1, p2, v0}, Landroidx/fragment/app/FragmentManager;->h1(II)Z
 
     goto :goto_1
 
@@ -288,7 +322,7 @@
 
     iget p3, p0, Landroidx/fragment/app/DialogFragment;->mBackStackId:I
 
-    invoke-virtual {p2, p3, v0, p1}, Landroidx/fragment/app/FragmentManager;->popBackStack(IIZ)V
+    invoke-virtual {p2, p3, v0, p1}, Landroidx/fragment/app/FragmentManager;->e1(IIZ)V
 
     :goto_1
     const/4 p1, -0x1
@@ -302,29 +336,29 @@
 
     move-result-object p2
 
-    invoke-virtual {p2}, Landroidx/fragment/app/FragmentManager;->beginTransaction()Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p2}, Landroidx/fragment/app/FragmentManager;->n()Landroidx/fragment/app/v;
 
     move-result-object p2
 
-    invoke-virtual {p2, v0}, Landroidx/fragment/app/FragmentTransaction;->setReorderingAllowed(Z)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p2, v0}, Landroidx/fragment/app/v;->y(Z)Landroidx/fragment/app/v;
 
-    invoke-virtual {p2, p0}, Landroidx/fragment/app/FragmentTransaction;->remove(Landroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p2, p0}, Landroidx/fragment/app/v;->s(Landroidx/fragment/app/Fragment;)Landroidx/fragment/app/v;
 
     if-eqz p3, :cond_5
 
-    invoke-virtual {p2}, Landroidx/fragment/app/FragmentTransaction;->commitNow()V
+    invoke-virtual {p2}, Landroidx/fragment/app/v;->l()V
 
     goto :goto_2
 
     :cond_5
     if-eqz p1, :cond_6
 
-    invoke-virtual {p2}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
+    invoke-virtual {p2}, Landroidx/fragment/app/v;->k()I
 
     goto :goto_2
 
     :cond_6
-    invoke-virtual {p2}, Landroidx/fragment/app/FragmentTransaction;->commit()I
+    invoke-virtual {p2}, Landroidx/fragment/app/v;->j()I
 
     :goto_2
     return-void
@@ -438,18 +472,18 @@
 
 
 # virtual methods
-.method public createFragmentContainer()Landroidx/fragment/app/FragmentContainer;
+.method public createFragmentContainer()Landroidx/fragment/app/f;
     .locals 2
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
-    invoke-super {p0}, Landroidx/fragment/app/Fragment;->createFragmentContainer()Landroidx/fragment/app/FragmentContainer;
+    invoke-super {p0}, Landroidx/fragment/app/Fragment;->createFragmentContainer()Landroidx/fragment/app/f;
 
     move-result-object v0
 
-    new-instance v1, Landroidx/fragment/app/DialogFragment$5;
+    new-instance v1, Landroidx/fragment/app/DialogFragment$d;
 
-    invoke-direct {v1, p0, v0}, Landroidx/fragment/app/DialogFragment$5;-><init>(Landroidx/fragment/app/DialogFragment;Landroidx/fragment/app/FragmentContainer;)V
+    invoke-direct {v1, p0, v0}, Landroidx/fragment/app/DialogFragment$d;-><init>(Landroidx/fragment/app/DialogFragment;Landroidx/fragment/app/f;)V
 
     return-object v1
 .end method
@@ -478,8 +512,6 @@
 
 .method public dismissNow()V
     .locals 2
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -510,8 +542,6 @@
 
 .method public getTheme()I
     .locals 1
-    .annotation build Landroidx/annotation/StyleRes;
-    .end annotation
 
     iget v0, p0, Landroidx/fragment/app/DialogFragment;->mTheme:I
 
@@ -532,9 +562,6 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -549,8 +576,6 @@
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onAttach(Landroid/content/Context;)V
 
@@ -558,9 +583,9 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Landroidx/fragment/app/DialogFragment;->mObserver:Landroidx/lifecycle/Observer;
+    iget-object v0, p0, Landroidx/fragment/app/DialogFragment;->mObserver:Landroidx/lifecycle/d0;
 
-    invoke-virtual {p1, v0}, Landroidx/lifecycle/LiveData;->observeForever(Landroidx/lifecycle/Observer;)V
+    invoke-virtual {p1, v0}, Landroidx/lifecycle/LiveData;->k(Landroidx/lifecycle/d0;)V
 
     iget-boolean p1, p0, Landroidx/fragment/app/DialogFragment;->mShownByMe:Z
 
@@ -590,8 +615,6 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -609,12 +632,12 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     iput-boolean v0, p0, Landroidx/fragment/app/DialogFragment;->mShowsDialog:Z
@@ -623,7 +646,7 @@
 
     const-string v0, "android:style"
 
-    invoke-virtual {p1, v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v0, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
@@ -631,7 +654,7 @@
 
     const-string v0, "android:theme"
 
-    invoke-virtual {p1, v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v0, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
@@ -639,7 +662,7 @@
 
     const-string v0, "android:cancelable"
 
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -649,7 +672,7 @@
 
     iget-boolean v1, p0, Landroidx/fragment/app/DialogFragment;->mShowsDialog:Z
 
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -659,7 +682,7 @@
 
     const/4 v1, -0x1
 
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
 
     move-result p1
 
@@ -675,15 +698,12 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
-
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
     const/4 p1, 0x3
 
-    invoke-static {p1}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
+    invoke-static {p1}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
 
     move-result p1
 
@@ -699,16 +719,8 @@
 
     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "FragmentManager"
-
-    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_0
-    new-instance p1, Landroidx/activity/ComponentDialog;
+    new-instance p1, Landroidx/activity/q;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->requireContext()Landroid/content/Context;
 
@@ -718,15 +730,13 @@
 
     move-result v1
 
-    invoke-direct {p1, v0, v1}, Landroidx/activity/ComponentDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p1, v0, v1}, Landroidx/activity/q;-><init>(Landroid/content/Context;I)V
 
     return-object p1
 .end method
 
 .method public onDestroyView()V
     .locals 2
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     invoke-super {p0}, Landroidx/fragment/app/Fragment;->onDestroyView()V
 
@@ -767,8 +777,6 @@
 
 .method public onDetach()V
     .locals 2
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     invoke-super {p0}, Landroidx/fragment/app/Fragment;->onDetach()V
 
@@ -789,9 +797,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroidx/fragment/app/DialogFragment;->mObserver:Landroidx/lifecycle/Observer;
+    iget-object v1, p0, Landroidx/fragment/app/DialogFragment;->mObserver:Landroidx/lifecycle/d0;
 
-    invoke-virtual {v0, v1}, Landroidx/lifecycle/LiveData;->removeObserver(Landroidx/lifecycle/Observer;)V
+    invoke-virtual {v0, v1}, Landroidx/lifecycle/LiveData;->o(Landroidx/lifecycle/d0;)V
 
     return-void
 .end method
@@ -809,7 +817,7 @@
 
     const/4 p1, 0x3
 
-    invoke-static {p1}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
+    invoke-static {p1}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
 
     move-result p1
 
@@ -824,14 +832,6 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "FragmentManager"
-
-    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     const/4 p1, 0x0
@@ -866,7 +866,7 @@
 .end method
 
 .method public onGetLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
-    .locals 4
+    .locals 3
     .param p1    # Landroid/os/Bundle;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
@@ -882,8 +882,6 @@
 
     const/4 v2, 0x2
 
-    const-string v3, "FragmentManager"
-
     if-eqz v1, :cond_3
 
     iget-boolean v1, p0, Landroidx/fragment/app/DialogFragment;->mCreatingDialog:Z
@@ -895,7 +893,7 @@
     :cond_0
     invoke-direct {p0, p1}, Landroidx/fragment/app/DialogFragment;->prepareDialog(Landroid/os/Bundle;)V
 
-    invoke-static {v2}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
+    invoke-static {v2}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
 
     move-result p1
 
@@ -915,12 +913,6 @@
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v3, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_1
     iget-object p1, p0, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
@@ -939,7 +931,7 @@
 
     :cond_3
     :goto_0
-    invoke-static {v2}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
+    invoke-static {v2}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
 
     move-result p1
 
@@ -973,12 +965,6 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v3, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     goto :goto_1
 
     :cond_4
@@ -991,12 +977,6 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v3, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
     :goto_1
@@ -1017,8 +997,6 @@
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
@@ -1034,7 +1012,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
     const-string v1, "android:savedDialogState"
 
@@ -1047,7 +1025,7 @@
 
     const-string v1, "android:style"
 
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {p1, v1, v0}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
     :cond_1
     iget v0, p0, Landroidx/fragment/app/DialogFragment;->mTheme:I
@@ -1056,7 +1034,7 @@
 
     const-string v1, "android:theme"
 
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {p1, v1, v0}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
     :cond_2
     iget-boolean v0, p0, Landroidx/fragment/app/DialogFragment;->mCancelable:Z
@@ -1065,7 +1043,7 @@
 
     const-string v1, "android:cancelable"
 
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {p1, v1, v0}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
     :cond_3
     iget-boolean v0, p0, Landroidx/fragment/app/DialogFragment;->mShowsDialog:Z
@@ -1074,7 +1052,7 @@
 
     const-string v1, "android:showsDialog"
 
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {p1, v1, v0}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
 
     :cond_4
     iget v0, p0, Landroidx/fragment/app/DialogFragment;->mBackStackId:I
@@ -1085,7 +1063,7 @@
 
     const-string v1, "android:backStackId"
 
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {p1, v1, v0}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
 
     :cond_5
     return-void
@@ -1093,8 +1071,6 @@
 
 .method public onStart()V
     .locals 2
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     invoke-super {p0}, Landroidx/fragment/app/Fragment;->onStart()V
 
@@ -1118,11 +1094,11 @@
 
     move-result-object v0
 
-    invoke-static {v0, p0}, Landroidx/lifecycle/ViewTreeLifecycleOwner;->set(Landroid/view/View;Landroidx/lifecycle/LifecycleOwner;)V
+    invoke-static {v0, p0}, Landroidx/lifecycle/ViewTreeLifecycleOwner;->b(Landroid/view/View;Landroidx/lifecycle/u;)V
 
-    invoke-static {v0, p0}, Landroidx/lifecycle/ViewTreeViewModelStoreOwner;->set(Landroid/view/View;Landroidx/lifecycle/ViewModelStoreOwner;)V
+    invoke-static {v0, p0}, Landroidx/lifecycle/ViewTreeViewModelStoreOwner;->b(Landroid/view/View;Landroidx/lifecycle/z0;)V
 
-    invoke-static {v0, p0}, Landroidx/savedstate/ViewTreeSavedStateRegistryOwner;->set(Landroid/view/View;Landroidx/savedstate/SavedStateRegistryOwner;)V
+    invoke-static {v0, p0}, Landroidx/savedstate/ViewTreeSavedStateRegistryOwner;->b(Landroid/view/View;Lq4/e;)V
 
     :cond_0
     return-void
@@ -1130,8 +1106,6 @@
 
 .method public onStop()V
     .locals 1
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     invoke-super {p0}, Landroidx/fragment/app/Fragment;->onStop()V
 
@@ -1151,8 +1125,6 @@
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/MainThread;
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onViewStateRestored(Landroid/os/Bundle;)V
 
@@ -1285,14 +1257,10 @@
 
 .method public setStyle(II)V
     .locals 3
-    .param p2    # I
-        .annotation build Landroidx/annotation/StyleRes;
-        .end annotation
-    .end param
 
     const/4 v0, 0x2
 
-    invoke-static {v0}, Landroidx/fragment/app/FragmentManager;->isLoggingEnabled(I)Z
+    invoke-static {v0}, Landroidx/fragment/app/FragmentManager;->J0(I)Z
 
     move-result v1
 
@@ -1319,14 +1287,6 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "FragmentManager"
-
-    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     iput p1, p0, Landroidx/fragment/app/DialogFragment;->mStyle:I
@@ -1357,11 +1317,6 @@
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
-    .annotation build Landroidx/annotation/RestrictTo;
-        value = {
-            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -1395,9 +1350,9 @@
     return-void
 .end method
 
-.method public show(Landroidx/fragment/app/FragmentTransaction;Ljava/lang/String;)I
+.method public show(Landroidx/fragment/app/v;Ljava/lang/String;)I
     .locals 2
-    .param p1    # Landroidx/fragment/app/FragmentTransaction;
+    .param p1    # Landroidx/fragment/app/v;
         .annotation build Landroidx/annotation/NonNull;
         .end annotation
     .end param
@@ -1414,11 +1369,11 @@
 
     iput-boolean v1, p0, Landroidx/fragment/app/DialogFragment;->mShownByMe:Z
 
-    invoke-virtual {p1, p0, p2}, Landroidx/fragment/app/FragmentTransaction;->add(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1, p0, p2}, Landroidx/fragment/app/v;->e(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/v;
 
     iput-boolean v0, p0, Landroidx/fragment/app/DialogFragment;->mViewDestroyed:Z
 
-    invoke-virtual {p1}, Landroidx/fragment/app/FragmentTransaction;->commit()I
+    invoke-virtual {p1}, Landroidx/fragment/app/v;->j()I
 
     move-result p1
 
@@ -1446,15 +1401,15 @@
 
     iput-boolean v0, p0, Landroidx/fragment/app/DialogFragment;->mShownByMe:Z
 
-    invoke-virtual {p1}, Landroidx/fragment/app/FragmentManager;->beginTransaction()Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1}, Landroidx/fragment/app/FragmentManager;->n()Landroidx/fragment/app/v;
 
     move-result-object p1
 
-    invoke-virtual {p1, v0}, Landroidx/fragment/app/FragmentTransaction;->setReorderingAllowed(Z)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1, v0}, Landroidx/fragment/app/v;->y(Z)Landroidx/fragment/app/v;
 
-    invoke-virtual {p1, p0, p2}, Landroidx/fragment/app/FragmentTransaction;->add(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1, p0, p2}, Landroidx/fragment/app/v;->e(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/v;
 
-    invoke-virtual {p1}, Landroidx/fragment/app/FragmentTransaction;->commit()I
+    invoke-virtual {p1}, Landroidx/fragment/app/v;->j()I
 
     return-void
 .end method
@@ -1478,15 +1433,15 @@
 
     iput-boolean v0, p0, Landroidx/fragment/app/DialogFragment;->mShownByMe:Z
 
-    invoke-virtual {p1}, Landroidx/fragment/app/FragmentManager;->beginTransaction()Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1}, Landroidx/fragment/app/FragmentManager;->n()Landroidx/fragment/app/v;
 
     move-result-object p1
 
-    invoke-virtual {p1, v0}, Landroidx/fragment/app/FragmentTransaction;->setReorderingAllowed(Z)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1, v0}, Landroidx/fragment/app/v;->y(Z)Landroidx/fragment/app/v;
 
-    invoke-virtual {p1, p0, p2}, Landroidx/fragment/app/FragmentTransaction;->add(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1, p0, p2}, Landroidx/fragment/app/v;->e(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/v;
 
-    invoke-virtual {p1}, Landroidx/fragment/app/FragmentTransaction;->commitNow()V
+    invoke-virtual {p1}, Landroidx/fragment/app/v;->l()V
 
     return-void
 .end method

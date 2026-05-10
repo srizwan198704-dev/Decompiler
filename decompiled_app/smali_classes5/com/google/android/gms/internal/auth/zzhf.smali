@@ -1,76 +1,116 @@
 .class final Lcom/google/android/gms/internal/auth/zzhf;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Ljava/security/PrivilegedExceptionAction;
+.super Lcom/google/android/gms/internal/auth/zzhh;
 
 
 # direct methods
-.method public constructor <init>()V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lsun/misc/Unsafe;)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/auth/zzhh;-><init>(Lsun/misc/Unsafe;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final bridge synthetic run()Ljava/lang/Object;
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
+.method public final zza(Ljava/lang/Object;J)D
+    .locals 0
 
-    const-class v0, Lsun/misc/Unsafe;
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/gms/internal/auth/zzhh;->zzj(Ljava/lang/Object;J)J
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
+    move-result-wide p1
 
-    move-result-object v1
+    invoke-static {p1, p2}, Ljava/lang/Double;->longBitsToDouble(J)D
 
-    array-length v2, v1
+    move-result-wide p1
 
-    const/4 v3, 0x0
+    return-wide p1
+.end method
 
-    :goto_0
-    const/4 v4, 0x0
+.method public final zzb(Ljava/lang/Object;J)F
+    .locals 0
 
-    if-ge v3, v2, :cond_1
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/gms/internal/auth/zzhh;->zzi(Ljava/lang/Object;J)I
 
-    aget-object v5, v1, v3
+    move-result p1
 
-    const/4 v6, 0x1
+    invoke-static {p1}, Ljava/lang/Float;->intBitsToFloat(I)F
 
-    invoke-virtual {v5, v6}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+    move-result p1
 
-    invoke-virtual {v5, v4}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    return p1
+.end method
 
-    move-result-object v4
+.method public final zzc(Ljava/lang/Object;JZ)V
+    .locals 1
 
-    invoke-virtual {v0, v4}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
+    sget-boolean v0, Lcom/google/android/gms/internal/auth/zzhi;->zza:Z
 
-    move-result v5
+    if-eqz v0, :cond_0
 
-    if-eqz v5, :cond_0
+    invoke-static {p1, p2, p3, p4}, Lcom/google/android/gms/internal/auth/zzhi;->zzi(Ljava/lang/Object;JZ)V
 
-    invoke-virtual {v0, v4}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v4, v0
-
-    check-cast v4, Lsun/misc/Unsafe;
-
-    goto :goto_1
+    return-void
 
     :cond_0
-    add-int/lit8 v3, v3, 0x1
+    invoke-static {p1, p2, p3, p4}, Lcom/google/android/gms/internal/auth/zzhi;->zzj(Ljava/lang/Object;JZ)V
 
-    goto :goto_0
+    return-void
+.end method
 
-    :cond_1
-    :goto_1
-    return-object v4
+.method public final zzd(Ljava/lang/Object;JD)V
+    .locals 6
+
+    invoke-static {p4, p5}, Ljava/lang/Double;->doubleToLongBits(D)J
+
+    move-result-wide v4
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-wide v2, p2
+
+    invoke-virtual/range {v0 .. v5}, Lcom/google/android/gms/internal/auth/zzhh;->zzn(Ljava/lang/Object;JJ)V
+
+    return-void
+.end method
+
+.method public final zze(Ljava/lang/Object;JF)V
+    .locals 0
+
+    invoke-static {p4}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    move-result p4
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/android/gms/internal/auth/zzhh;->zzm(Ljava/lang/Object;JI)V
+
+    return-void
+.end method
+
+.method public final zzf(Ljava/lang/Object;J)Z
+    .locals 1
+
+    sget-boolean v0, Lcom/google/android/gms/internal/auth/zzhi;->zza:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p1, p2, p3}, Lcom/google/android/gms/internal/auth/zzhi;->zzq(Ljava/lang/Object;J)Z
+
+    move-result p1
+
+    return p1
+
+    :cond_0
+    invoke-static {p1, p2, p3}, Lcom/google/android/gms/internal/auth/zzhi;->zzr(Ljava/lang/Object;J)Z
+
+    move-result p1
+
+    return p1
 .end method

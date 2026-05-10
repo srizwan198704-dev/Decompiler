@@ -30,19 +30,19 @@
 
 
 # instance fields
-.field private final backwardFunction:Lcom/google/common/base/Function;
+.field private final backwardFunction:Lcom/google/common/base/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "-TB;+TA;>;"
         }
     .end annotation
 .end field
 
-.field private final forwardFunction:Lcom/google/common/base/Function;
+.field private final forwardFunction:Lcom/google/common/base/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "-TA;+TB;>;"
         }
     .end annotation
@@ -50,43 +50,49 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/google/common/base/Function;Lcom/google/common/base/Function;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/base/f;Lcom/google/common/base/f;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "-TA;+TB;>;",
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "-TB;+TA;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Lcom/google/common/base/Converter;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/base/Function;
+    check-cast p1, Lcom/google/common/base/f;
 
-    iput-object p1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/Function;
+    iput-object p1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/f;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/base/Function;
+    check-cast p1, Lcom/google/common/base/f;
 
-    iput-object p1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/Function;
+    iput-object p1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/f;
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/base/Function;Lcom/google/common/base/Function;Lcom/google/common/base/Converter$1;)V
+.method public synthetic constructor <init>(Lcom/google/common/base/f;Lcom/google/common/base/f;Lcom/google/common/base/Converter$a;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/google/common/base/Converter$FunctionBasedConverter;-><init>(Lcom/google/common/base/Function;Lcom/google/common/base/Function;)V
+    invoke-direct {p0, p1, p2}, Lcom/google/common/base/Converter$FunctionBasedConverter;-><init>(Lcom/google/common/base/f;Lcom/google/common/base/f;)V
 
     return-void
 .end method
@@ -101,9 +107,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/Function;
+    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/f;
 
-    invoke-interface {v0, p1}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lcom/google/common/base/f;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -118,9 +124,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/Function;
+    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/f;
 
-    invoke-interface {v0, p1}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lcom/google/common/base/f;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -138,21 +144,21 @@
 
     check-cast p1, Lcom/google/common/base/Converter$FunctionBasedConverter;
 
-    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/Function;
+    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/f;
 
-    iget-object v2, p1, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/Function;
+    iget-object v2, p1, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/f;
 
-    invoke-interface {v0, v2}, Lcom/google/common/base/Function;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Lcom/google/common/base/f;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/Function;
+    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/f;
 
-    iget-object p1, p1, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/Function;
+    iget-object p1, p1, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/f;
 
-    invoke-interface {v0, p1}, Lcom/google/common/base/Function;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lcom/google/common/base/f;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -167,7 +173,7 @@
 .method public hashCode()I
     .locals 2
 
-    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/Function;
+    iget-object v0, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/f;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
@@ -175,7 +181,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/Function;
+    iget-object v1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/f;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
@@ -197,7 +203,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/Function;
+    iget-object v1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->forwardFunction:Lcom/google/common/base/f;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -205,7 +211,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/Function;
+    iget-object v1, p0, Lcom/google/common/base/Converter$FunctionBasedConverter;->backwardFunction:Lcom/google/common/base/f;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

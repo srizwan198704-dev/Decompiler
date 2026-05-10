@@ -21,6 +21,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/android/material/progressindicator/BaseProgressIndicator;)V
     .locals 0
 
@@ -38,7 +44,7 @@
 
     iget-object v0, p0, Lcom/google/android/material/progressindicator/BaseProgressIndicator$1;->this$0:Lcom/google/android/material/progressindicator/BaseProgressIndicator;
 
-    invoke-static {v0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->access$000(Lcom/google/android/material/progressindicator/BaseProgressIndicator;)V
+    invoke-static {v0}, Lcom/google/android/material/progressindicator/BaseProgressIndicator;->a(Lcom/google/android/material/progressindicator/BaseProgressIndicator;)V
 
     return-void
 .end method

@@ -1,18 +1,11 @@
 .class Lcom/google/common/collect/ImmutableEntry;
-.super Lcom/google/common/collect/AbstractMapEntry;
+.super Lcom/google/common/collect/b;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    serializable = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -20,7 +13,7 @@
         "V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/AbstractMapEntry<",
+        "Lcom/google/common/collect/b<",
         "TK;TV;>;",
         "Ljava/io/Serializable;"
     }
@@ -33,9 +26,6 @@
 
 # instance fields
 .field final key:Ljava/lang/Object;
-    .annotation runtime Lcom/google/common/collect/ParametricNullness;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TK;"
@@ -44,9 +34,6 @@
 .end field
 
 .field final value:Ljava/lang/Object;
-    .annotation runtime Lcom/google/common/collect/ParametricNullness;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TV;"
@@ -56,23 +43,21 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/AbstractMapEntry;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/b;-><init>()V
 
     iput-object p1, p0, Lcom/google/common/collect/ImmutableEntry;->key:Ljava/lang/Object;
 
@@ -85,9 +70,6 @@
 # virtual methods
 .method public final getKey()Ljava/lang/Object;
     .locals 1
-    .annotation runtime Lcom/google/common/collect/ParametricNullness;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -101,9 +83,6 @@
 
 .method public final getValue()Ljava/lang/Object;
     .locals 1
-    .annotation runtime Lcom/google/common/collect/ParametricNullness;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -117,13 +96,6 @@
 
 .method public final setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation runtime Lcom/google/common/collect/ParametricNullness;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"

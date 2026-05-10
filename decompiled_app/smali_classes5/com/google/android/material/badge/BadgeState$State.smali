@@ -34,77 +34,36 @@
 
 # instance fields
 .field private additionalHorizontalOffset:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-.end field
 
 .field private additionalVerticalOffset:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-.end field
 
 .field private alpha:I
 
 .field private autoAdjustToWithinGrandparentBounds:Ljava/lang/Boolean;
 
 .field private backgroundColor:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/ColorInt;
-    .end annotation
-.end field
 
 .field private badgeGravity:Ljava/lang/Integer;
 
 .field private badgeHorizontalPadding:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
-.end field
 
 .field private badgeResId:I
-    .annotation build Landroidx/annotation/XmlRes;
-    .end annotation
-.end field
 
 .field private badgeShapeAppearanceOverlayResId:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/StyleRes;
-    .end annotation
-.end field
 
 .field private badgeShapeAppearanceResId:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/StyleRes;
-    .end annotation
-.end field
 
 .field private badgeTextAppearanceResId:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/StyleRes;
-    .end annotation
-.end field
 
 .field private badgeTextColor:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/ColorInt;
-    .end annotation
-.end field
 
 .field private badgeVerticalPadding:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Px;
-    .end annotation
-.end field
 
 .field private badgeWithTextShapeAppearanceOverlayResId:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/StyleRes;
-    .end annotation
-.end field
 
 .field private badgeWithTextShapeAppearanceResId:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/StyleRes;
-    .end annotation
-.end field
 
 .field private contentDescriptionExceedsMaxBadgeNumberRes:I
-    .annotation build Landroidx/annotation/StringRes;
-    .end annotation
-.end field
 
 .field private contentDescriptionForText:Ljava/lang/CharSequence;
     .annotation build Landroidx/annotation/Nullable;
@@ -117,29 +76,14 @@
 .end field
 
 .field private contentDescriptionQuantityStrings:I
-    .annotation build Landroidx/annotation/PluralsRes;
-    .end annotation
-.end field
 
 .field private horizontalOffsetWithText:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-.end field
 
 .field private horizontalOffsetWithoutText:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-.end field
 
 .field private isVisible:Ljava/lang/Boolean;
 
 .field private largeFontVerticalOffsetAdjustment:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-.end field
 
 .field private maxCharacterCount:I
 
@@ -155,25 +99,17 @@
 .end field
 
 .field private verticalOffsetWithText:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-.end field
 
 .field private verticalOffsetWithoutText:Ljava/lang/Integer;
-    .annotation build Landroidx/annotation/Dimension;
-        unit = 0x1
-    .end annotation
-.end field
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/badge/BadgeState$State$1;
+    new-instance v0, Lcom/google/android/material/badge/BadgeState$State$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/badge/BadgeState$State$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/badge/BadgeState$State$a;-><init>()V
 
     sput-object v0, Lcom/google/android/material/badge/BadgeState$State;->CREATOR:Landroid/os/Parcelable$Creator;
 

@@ -15,12 +15,14 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/view/View;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -31,14 +33,6 @@
 
 .method private dispatchNestedScrollInternal(IIII[II[I)Z
     .locals 15
-    .param p5    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p7    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
 
     move-object v0, p0
 
@@ -103,9 +97,9 @@
     goto :goto_1
 
     :cond_3
-    const/4 v13, 0x0
+    move v13, v3
 
-    const/4 v14, 0x0
+    move v14, v13
 
     :goto_1
     if-nez p7, :cond_4
@@ -294,14 +288,6 @@
 
 .method public dispatchNestedPreScroll(II[I[I)Z
     .locals 6
-    .param p3    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p4    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
 
     const/4 v5, 0x0
 
@@ -324,14 +310,6 @@
 
 .method public dispatchNestedPreScroll(II[I[II)Z
     .locals 10
-    .param p3    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p4    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
 
     invoke-virtual {p0}, Landroidx/core/view/NestedScrollingChildHelper;->isNestedScrollingEnabled()Z
 
@@ -386,9 +364,9 @@
     goto :goto_1
 
     :cond_3
-    const/4 v8, 0x0
+    move v8, v1
 
-    const/4 v9, 0x0
+    move v9, v8
 
     :goto_1
     if-nez p3, :cond_4
@@ -442,7 +420,7 @@
     if-eqz p1, :cond_7
 
     :cond_6
-    const/4 v1, 0x1
+    move v1, v0
 
     :cond_7
     :goto_2
@@ -451,14 +429,6 @@
 
 .method public dispatchNestedScroll(IIII[II[I)V
     .locals 0
-    .param p5    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p7    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
 
     invoke-direct/range {p0 .. p7}, Landroidx/core/view/NestedScrollingChildHelper;->dispatchNestedScrollInternal(IIII[II[I)Z
 
@@ -467,10 +437,6 @@
 
 .method public dispatchNestedScroll(IIII[I)Z
     .locals 8
-    .param p5    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
 
     const/4 v6, 0x0
 
@@ -497,10 +463,6 @@
 
 .method public dispatchNestedScroll(IIII[II)Z
     .locals 8
-    .param p5    # [I
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
 
     const/4 v7, 0x0
 
@@ -577,10 +539,6 @@
 
 .method public onStopNestedScroll(Landroid/view/View;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     iget-object p1, p0, Landroidx/core/view/NestedScrollingChildHelper;->mView:Landroid/view/View;
 

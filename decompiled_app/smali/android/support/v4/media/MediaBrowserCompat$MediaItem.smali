@@ -48,9 +48,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$MediaItem$1;
+    new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$MediaItem$a;
 
-    invoke-direct {v0}, Landroid/support/v4/media/MediaBrowserCompat$MediaItem$1;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/media/MediaBrowserCompat$MediaItem$a;-><init>()V
 
     sput-object v0, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -130,26 +130,15 @@
 .method public static fromMediaItem(Ljava/lang/Object;)Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
     .locals 2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    check-cast p0, Landroid/media/browse/MediaBrowser$MediaItem;
 
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-static {p0}, Les/uo3;->a(Ljava/lang/Object;)Landroid/media/browse/MediaBrowser$MediaItem;
-
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/support/v4/media/MediaBrowserCompat$Api21Impl;->getFlags(Landroid/media/browse/MediaBrowser$MediaItem;)I
+    invoke-static {p0}, Landroid/support/v4/media/MediaBrowserCompat$a;->b(Landroid/media/browse/MediaBrowser$MediaItem;)I
 
     move-result v0
 
-    invoke-static {p0}, Landroid/support/v4/media/MediaBrowserCompat$Api21Impl;->getDescription(Landroid/media/browse/MediaBrowser$MediaItem;)Landroid/media/MediaDescription;
+    invoke-static {p0}, Landroid/support/v4/media/MediaBrowserCompat$a;->a(Landroid/media/browse/MediaBrowser$MediaItem;)Landroid/media/MediaDescription;
 
     move-result-object p0
 
@@ -163,8 +152,7 @@
 
     return-object v1
 
-    :cond_1
-    :goto_0
+    :cond_0
     const/4 p0, 0x0
 
     return-object p0
@@ -183,17 +171,8 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
-    goto :goto_1
-
-    :cond_0
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -211,7 +190,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -225,11 +204,10 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     return-object v0
 
-    :cond_2
-    :goto_1
+    :cond_1
     const/4 p0, 0x0
 
     return-object p0

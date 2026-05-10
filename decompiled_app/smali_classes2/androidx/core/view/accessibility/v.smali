@@ -1,0 +1,20 @@
+.class public final synthetic Landroidx/core/view/accessibility/v;
+.super Ljava/lang/Object;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public static bridge synthetic a(Landroid/view/accessibility/AccessibilityNodeInfo;)Z
+    .locals 0
+
+    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->isImportantForAccessibility()Z
+
+    move-result p0
+
+    return p0
+.end method

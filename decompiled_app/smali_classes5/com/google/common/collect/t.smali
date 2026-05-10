@@ -1,27 +1,20 @@
 .class public final synthetic Lcom/google/common/collect/t;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Ljava/util/function/Supplier;
-
 
 # direct methods
-.method public synthetic constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
+.method public static bridge synthetic a(Ljava/util/function/ToIntFunction;Ljava/lang/Object;)I
+    .locals 0
 
-# virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+    invoke-interface {p0, p1}, Ljava/util/function/ToIntFunction;->applyAsInt(Ljava/lang/Object;)I
 
-    invoke-static {}, Lcom/google/common/collect/CollectCollectors;->y()Lcom/google/common/collect/CollectCollectors$EnumSetAccumulator;
+    move-result p0
 
-    move-result-object v0
-
-    return-object v0
+    return p0
 .end method

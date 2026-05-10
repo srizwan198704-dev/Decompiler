@@ -35,9 +35,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroidx/appcompat/widget/Toolbar$SavedState$1;
+    new-instance v0, Landroidx/appcompat/widget/Toolbar$SavedState$a;
 
-    invoke-direct {v0}, Landroidx/appcompat/widget/Toolbar$SavedState$1;-><init>()V
+    invoke-direct {v0}, Landroidx/appcompat/widget/Toolbar$SavedState$a;-><init>()V
 
     sput-object v0, Landroidx/appcompat/widget/Toolbar$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 

@@ -32,11 +32,11 @@
 
     new-instance v0, Lcom/google/android/gms/internal/fido/zzax;
 
-    const/4 v3, 0x0
-
     const/4 v5, 0x0
 
     const/4 v6, 0x0
+
+    const/4 v3, 0x0
 
     move-object v1, v0
 

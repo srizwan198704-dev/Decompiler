@@ -28,6 +28,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Comparable;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -36,7 +42,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -217,7 +223,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/google/common/collect/Cut$1;->$SwitchMap$com$google$common$collect$BoundType:[I
+    sget-object v0, Lcom/google/common/collect/Cut$a;->a:[I
 
     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
@@ -281,7 +287,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/google/common/collect/Cut$1;->$SwitchMap$com$google$common$collect$BoundType:[I
+    sget-object v0, Lcom/google/common/collect/Cut$a;->a:[I
 
     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 

@@ -40,11 +40,11 @@
 
     new-array v0, v0, [Lcom/google/common/primitives/Booleans$LexicographicalComparator;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/google/common/primitives/Booleans$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/Booleans$LexicographicalComparator;
 
-    sget-object v2, Lcom/google/common/primitives/Booleans$LexicographicalComparator;->INSTANCE:Lcom/google/common/primitives/Booleans$LexicographicalComparator;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     return-object v0
 .end method
@@ -148,7 +148,7 @@
 
     aget-boolean v3, p2, v1
 
-    invoke-static {v2, v3}, Lcom/google/common/primitives/Booleans;->compare(ZZ)I
+    invoke-static {v2, v3}, Ljava/lang/Boolean;->compare(ZZ)I
 
     move-result v2
 

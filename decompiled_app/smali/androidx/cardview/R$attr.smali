@@ -2,44 +2,39 @@
 .super Ljava/lang/Object;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/cardview/R;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = "attr"
-.end annotation
-
-
 # static fields
-.field public static final cardBackgroundColor:I = 0x7f040101
+.field public static cardBackgroundColor:I = 0x7f0401f7
 
-.field public static final cardCornerRadius:I = 0x7f040102
+.field public static cardCornerRadius:I = 0x7f0401f8
 
-.field public static final cardElevation:I = 0x7f040103
+.field public static cardElevation:I = 0x7f0401f9
 
-.field public static final cardMaxElevation:I = 0x7f040105
+.field public static cardMaxElevation:I = 0x7f0401fb
 
-.field public static final cardPreventCornerOverlap:I = 0x7f040106
+.field public static cardPreventCornerOverlap:I = 0x7f0401fc
 
-.field public static final cardUseCompatPadding:I = 0x7f040107
+.field public static cardUseCompatPadding:I = 0x7f0401fd
 
-.field public static final cardViewStyle:I = 0x7f040108
+.field public static cardViewStyle:I = 0x7f0401fe
 
-.field public static final contentPadding:I = 0x7f0401d4
+.field public static contentPadding:I = 0x7f0402ab
 
-.field public static final contentPaddingBottom:I = 0x7f0401d5
+.field public static contentPaddingBottom:I = 0x7f0402ac
 
-.field public static final contentPaddingLeft:I = 0x7f0401d7
+.field public static contentPaddingLeft:I = 0x7f0402ae
 
-.field public static final contentPaddingRight:I = 0x7f0401d8
+.field public static contentPaddingRight:I = 0x7f0402af
 
-.field public static final contentPaddingTop:I = 0x7f0401da
+.field public static contentPaddingTop:I = 0x7f0402b1
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 

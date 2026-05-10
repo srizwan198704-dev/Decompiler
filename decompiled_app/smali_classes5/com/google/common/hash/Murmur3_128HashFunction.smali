@@ -1,28 +1,22 @@
 .class final Lcom/google/common/hash/Murmur3_128HashFunction;
-.super Lcom/google/common/hash/AbstractHashFunction;
+.super Lcom/google/common/hash/a;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation runtime Lcom/google/common/hash/ElementTypesAreNonnullByDefault;
-.end annotation
-
-.annotation runtime Lcom/google/errorprone/annotations/Immutable;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/hash/Murmur3_128HashFunction$Murmur3_128Hasher;
+        Lcom/google/common/hash/Murmur3_128HashFunction$a;
     }
 .end annotation
 
 
 # static fields
-.field static final GOOD_FAST_HASH_128:Lcom/google/common/hash/HashFunction;
+.field static final GOOD_FAST_HASH_128:Lcom/google/common/hash/d;
 
-.field static final MURMUR3_128:Lcom/google/common/hash/HashFunction;
+.field static final MURMUR3_128:Lcom/google/common/hash/d;
 
 .field private static final serialVersionUID:J
 
@@ -41,15 +35,15 @@
 
     invoke-direct {v0, v1}, Lcom/google/common/hash/Murmur3_128HashFunction;-><init>(I)V
 
-    sput-object v0, Lcom/google/common/hash/Murmur3_128HashFunction;->MURMUR3_128:Lcom/google/common/hash/HashFunction;
+    sput-object v0, Lcom/google/common/hash/Murmur3_128HashFunction;->MURMUR3_128:Lcom/google/common/hash/d;
 
     new-instance v0, Lcom/google/common/hash/Murmur3_128HashFunction;
 
-    sget v1, Lcom/google/common/hash/Hashing;->GOOD_FAST_HASH_SEED:I
+    sget v1, Lcom/google/common/hash/f;->a:I
 
     invoke-direct {v0, v1}, Lcom/google/common/hash/Murmur3_128HashFunction;-><init>(I)V
 
-    sput-object v0, Lcom/google/common/hash/Murmur3_128HashFunction;->GOOD_FAST_HASH_128:Lcom/google/common/hash/HashFunction;
+    sput-object v0, Lcom/google/common/hash/Murmur3_128HashFunction;->GOOD_FAST_HASH_128:Lcom/google/common/hash/d;
 
     return-void
 .end method
@@ -57,7 +51,7 @@
 .method public constructor <init>(I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/common/hash/AbstractHashFunction;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/hash/a;-><init>()V
 
     iput p1, p0, Lcom/google/common/hash/Murmur3_128HashFunction;->seed:I
 
@@ -113,14 +107,14 @@
     return v0
 .end method
 
-.method public newHasher()Lcom/google/common/hash/Hasher;
+.method public newHasher()Lcom/google/common/hash/e;
     .locals 2
 
-    new-instance v0, Lcom/google/common/hash/Murmur3_128HashFunction$Murmur3_128Hasher;
+    new-instance v0, Lcom/google/common/hash/Murmur3_128HashFunction$a;
 
     iget v1, p0, Lcom/google/common/hash/Murmur3_128HashFunction;->seed:I
 
-    invoke-direct {v0, v1}, Lcom/google/common/hash/Murmur3_128HashFunction$Murmur3_128Hasher;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/google/common/hash/Murmur3_128HashFunction$a;-><init>(I)V
 
     return-object v0
 .end method

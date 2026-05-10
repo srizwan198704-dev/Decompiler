@@ -2,20 +2,14 @@
 .super Lcom/google/common/collect/ImmutableMultiset;
 
 # interfaces
-.implements Lcom/google/common/collect/SortedMultiset;
+.implements Lcom/google/common/collect/a4;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtIncompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;,
-        Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+        Lcom/google/common/collect/ImmutableSortedMultiset$a;,
+        Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;
     }
 .end annotation
 
@@ -26,7 +20,7 @@
         ">",
         "Lcom/google/common/collect/ImmutableMultiset<",
         "TE;>;",
-        "Lcom/google/common/collect/SortedMultiset<",
+        "Lcom/google/common/collect/a4<",
         "TE;>;"
     }
 .end annotation
@@ -38,9 +32,6 @@
 
 # instance fields
 .field transient descendingMultiset:Lcom/google/common/collect/ImmutableSortedMultiset;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSortedMultiset<",
@@ -51,6 +42,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -59,28 +56,24 @@
     return-void
 .end method
 
-.method public static synthetic b(Ljava/util/Comparator;)Lcom/google/common/collect/Multiset;
+.method public static synthetic b(Ljava/util/Comparator;)Lcom/google/common/collect/l3;
     .locals 0
 
-    invoke-static {p0}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$1(Ljava/util/Comparator;)Lcom/google/common/collect/Multiset;
+    invoke-static {p0}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$1(Ljava/util/Comparator;)Lcom/google/common/collect/l3;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static builder()Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+.method public static builder()Lcom/google/common/collect/ImmutableSortedMultiset$a;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Use naturalOrder."
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/google/common/collect/ImmutableSortedMultiset$Builder<",
+            "Lcom/google/common/collect/ImmutableSortedMultiset$a<",
             "TE;>;"
         }
     .end annotation
@@ -95,10 +88,10 @@
     throw v0
 .end method
 
-.method public static synthetic c(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;Lcom/google/common/collect/Multiset;Ljava/lang/Object;)V
+.method public static synthetic c(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;Lcom/google/common/collect/l3;Ljava/lang/Object;)V
     .locals 0
 
-    invoke-static {p0, p1, p2, p3}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$2(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;Lcom/google/common/collect/Multiset;Ljava/lang/Object;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$2(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;Lcom/google/common/collect/l3;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -186,15 +179,15 @@
     return-object v0
 
     :cond_1
-    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedMultiset$a;-><init>(Ljava/util/Comparator;)V
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;->addAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset$a;->p(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSortedMultiset$a;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;->build()Lcom/google/common/collect/ImmutableSortedMultiset;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedMultiset$a;->s()Lcom/google/common/collect/ImmutableSortedMultiset;
 
     move-result-object p0
 
@@ -217,17 +210,17 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedMultiset$a;-><init>(Ljava/util/Comparator;)V
 
-    invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;->addAll(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+    invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset$a;->q(Ljava/util/Iterator;)Lcom/google/common/collect/ImmutableSortedMultiset$a;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;->build()Lcom/google/common/collect/ImmutableSortedMultiset;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedMultiset$a;->s()Lcom/google/common/collect/ImmutableSortedMultiset;
 
     move-result-object p0
 
@@ -288,10 +281,6 @@
 
 .method public static copyOf([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Elements must be Comparable. (Or, pass a Comparator to orderedBy or copyOf.)"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Z:",
@@ -312,29 +301,29 @@
     throw p0
 .end method
 
-.method public static copyOfSorted(Lcom/google/common/collect/SortedMultiset;)Lcom/google/common/collect/ImmutableSortedMultiset;
+.method public static copyOfSorted(Lcom/google/common/collect/a4;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/collect/SortedMultiset<",
+            "Lcom/google/common/collect/a4<",
             "TE;>;)",
             "Lcom/google/common/collect/ImmutableSortedMultiset<",
             "TE;>;"
         }
     .end annotation
 
-    invoke-interface {p0}, Lcom/google/common/collect/SortedMultiset;->comparator()Ljava/util/Comparator;
+    invoke-interface {p0}, Lcom/google/common/collect/a4;->comparator()Ljava/util/Comparator;
 
     move-result-object v0
 
-    invoke-interface {p0}, Lcom/google/common/collect/SortedMultiset;->entrySet()Ljava/util/Set;
+    invoke-interface {p0}, Lcom/google/common/collect/a4;->entrySet()Ljava/util/Set;
 
     move-result-object p0
 
-    invoke-static {p0}, Lcom/google/common/collect/Lists;->newArrayList(Ljava/lang/Iterable;)Ljava/util/ArrayList;
+    invoke-static {p0}, Lcom/google/common/collect/Lists;->j(Ljava/lang/Iterable;)Ljava/util/ArrayList;
 
     move-result-object p0
 
@@ -355,7 +344,7 @@
             "Ljava/util/Comparator<",
             "-TE;>;",
             "Ljava/util/Collection<",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TE;>;>;)",
             "Lcom/google/common/collect/ImmutableSortedMultiset<",
             "TE;>;"
@@ -375,13 +364,13 @@
     return-object p0
 
     :cond_0
-    new-instance v0, Lcom/google/common/collect/ImmutableList$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableList$a;
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
 
     move-result v1
 
-    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableList$Builder;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableList$a;-><init>(I)V
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
 
@@ -397,7 +386,7 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -410,19 +399,19 @@
 
     move-result-object v5
 
-    check-cast v5, Lcom/google/common/collect/Multiset$Entry;
+    check-cast v5, Lcom/google/common/collect/l3$a;
 
-    invoke-interface {v5}, Lcom/google/common/collect/Multiset$Entry;->getElement()Ljava/lang/Object;
+    invoke-interface {v5}, Lcom/google/common/collect/l3$a;->getElement()Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-virtual {v0, v6}, Lcom/google/common/collect/ImmutableList$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$Builder;
+    invoke-virtual {v0, v6}, Lcom/google/common/collect/ImmutableList$a;->j(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList$a;
 
     add-int/lit8 v6, v4, 0x1
 
     aget-wide v7, v1, v4
 
-    invoke-interface {v5}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
+    invoke-interface {v5}, Lcom/google/common/collect/l3$a;->getCount()I
 
     move-result v4
 
@@ -441,7 +430,7 @@
 
     new-instance v4, Lcom/google/common/collect/RegularImmutableSortedSet;
 
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$Builder;->build()Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableList$a;->n()Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
@@ -456,24 +445,14 @@
     return-object v2
 .end method
 
-.method public static synthetic d(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/Multiset;
+.method public static synthetic d(Ljava/lang/Object;)I
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$3(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/Multiset;
+    invoke-static {p0}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$0(Ljava/lang/Object;)I
 
-    move-result-object p0
+    move-result p0
 
-    return-object p0
-.end method
-
-.method public static synthetic e(Ljava/util/Comparator;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/ImmutableSortedMultiset;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$4(Ljava/util/Comparator;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/ImmutableSortedMultiset;
-
-    move-result-object p0
-
-    return-object p0
+    return p0
 .end method
 
 .method public static emptyMultiset(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -512,14 +491,24 @@
     return-object v0
 .end method
 
-.method public static synthetic f(Ljava/lang/Object;)I
+.method public static synthetic f(Ljava/util/Comparator;Lcom/google/common/collect/l3;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
 
-    invoke-static {p0}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$0(Ljava/lang/Object;)I
+    invoke-static {p0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$4(Ljava/util/Comparator;Lcom/google/common/collect/l3;)Lcom/google/common/collect/ImmutableSortedMultiset;
 
-    move-result p0
+    move-result-object p0
 
-    return p0
+    return-object p0
+.end method
+
+.method public static synthetic g(Lcom/google/common/collect/l3;Lcom/google/common/collect/l3;)Lcom/google/common/collect/l3;
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset;->lambda$toImmutableSortedMultiset$3(Lcom/google/common/collect/l3;Lcom/google/common/collect/l3;)Lcom/google/common/collect/l3;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private static synthetic lambda$toImmutableSortedMultiset$0(Ljava/lang/Object;)I
@@ -530,7 +519,7 @@
     return p0
 .end method
 
-.method private static synthetic lambda$toImmutableSortedMultiset$1(Ljava/util/Comparator;)Lcom/google/common/collect/Multiset;
+.method private static synthetic lambda$toImmutableSortedMultiset$1(Ljava/util/Comparator;)Lcom/google/common/collect/l3;
     .locals 0
 
     invoke-static {p0}, Lcom/google/common/collect/TreeMultiset;->create(Ljava/util/Comparator;)Lcom/google/common/collect/TreeMultiset;
@@ -540,15 +529,15 @@
     return-object p0
 .end method
 
-.method private static synthetic lambda$toImmutableSortedMultiset$2(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;Lcom/google/common/collect/Multiset;Ljava/lang/Object;)V
+.method private static synthetic lambda$toImmutableSortedMultiset$2(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;Lcom/google/common/collect/l3;Ljava/lang/Object;)V
     .locals 0
 
-    invoke-static {p3, p2, p0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset;->mapAndAdd(Ljava/lang/Object;Lcom/google/common/collect/Multiset;Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)V
+    invoke-static {p3, p2, p0, p1}, Lcom/google/common/collect/ImmutableSortedMultiset;->mapAndAdd(Ljava/lang/Object;Lcom/google/common/collect/l3;Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)V
 
     return-void
 .end method
 
-.method private static synthetic lambda$toImmutableSortedMultiset$3(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/Multiset;
+.method private static synthetic lambda$toImmutableSortedMultiset$3(Lcom/google/common/collect/l3;Lcom/google/common/collect/l3;)Lcom/google/common/collect/l3;
     .locals 0
 
     invoke-interface {p0, p1}, Ljava/util/Collection;->addAll(Ljava/util/Collection;)Z
@@ -556,10 +545,10 @@
     return-object p0
 .end method
 
-.method private static synthetic lambda$toImmutableSortedMultiset$4(Ljava/util/Comparator;Lcom/google/common/collect/Multiset;)Lcom/google/common/collect/ImmutableSortedMultiset;
+.method private static synthetic lambda$toImmutableSortedMultiset$4(Ljava/util/Comparator;Lcom/google/common/collect/l3;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
 
-    invoke-interface {p1}, Lcom/google/common/collect/Multiset;->entrySet()Ljava/util/Set;
+    invoke-interface {p1}, Lcom/google/common/collect/l3;->entrySet()Ljava/util/Set;
 
     move-result-object p1
 
@@ -570,11 +559,8 @@
     return-object p0
 .end method
 
-.method private static mapAndAdd(Ljava/lang/Object;Lcom/google/common/collect/Multiset;Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)V
+.method private static mapAndAdd(Ljava/lang/Object;Lcom/google/common/collect/l3;Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)V
     .locals 0
-    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -582,7 +568,7 @@
             "E:",
             "Ljava/lang/Object;",
             ">(TT;",
-            "Lcom/google/common/collect/Multiset<",
+            "Lcom/google/common/collect/l3<",
             "TE;>;",
             "Ljava/util/function/Function<",
             "-TT;+TE;>;",
@@ -591,42 +577,42 @@
         }
     .end annotation
 
-    invoke-static {p2, p0}, Les/tf7;->a(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2, p0}, Lcom/google/common/collect/p;->a(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
 
-    invoke-static {p3, p0}, Les/na0;->a(Ljava/util/function/ToIntFunction;Ljava/lang/Object;)I
+    invoke-static {p3, p0}, Lcom/google/common/collect/t;->a(Ljava/util/function/ToIntFunction;Ljava/lang/Object;)I
 
     move-result p0
 
-    invoke-interface {p1, p2, p0}, Lcom/google/common/collect/Multiset;->add(Ljava/lang/Object;I)I
+    invoke-interface {p1, p2, p0}, Lcom/google/common/collect/l3;->add(Ljava/lang/Object;I)I
 
     return-void
 .end method
 
-.method public static naturalOrder()Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+.method public static naturalOrder()Lcom/google/common/collect/ImmutableSortedMultiset$a;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
             "Ljava/lang/Comparable<",
             "*>;>()",
-            "Lcom/google/common/collect/ImmutableSortedMultiset$Builder<",
+            "Lcom/google/common/collect/ImmutableSortedMultiset$a<",
             "TE;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$a;
 
     invoke-static {}, Lcom/google/common/collect/Ordering;->natural()Lcom/google/common/collect/Ordering;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableSortedMultiset$a;-><init>(Ljava/util/Comparator;)V
 
     return-object v0
 .end method
@@ -887,7 +873,7 @@
 
     add-int/2addr v0, v1
 
-    invoke-static {v0}, Lcom/google/common/collect/Lists;->newArrayListWithCapacity(I)Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/google/common/collect/Lists;->m(I)Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -934,10 +920,6 @@
 
 .method public static of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Elements must be Comparable. (Or, pass a Comparator to orderedBy or copyOf.)"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -960,10 +942,6 @@
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Elements must be Comparable. (Or, pass a Comparator to orderedBy or copyOf.)"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -986,10 +964,6 @@
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Elements must be Comparable. (Or, pass a Comparator to orderedBy or copyOf.)"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1012,10 +986,6 @@
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Elements must be Comparable. (Or, pass a Comparator to orderedBy or copyOf.)"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1038,10 +1008,6 @@
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Elements must be Comparable. (Or, pass a Comparator to orderedBy or copyOf.)"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1064,10 +1030,6 @@
 
 .method public static varargs of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Elements must be Comparable. (Or, pass a Comparator to orderedBy or copyOf.)"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1088,7 +1050,7 @@
     throw p0
 .end method
 
-.method public static orderedBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+.method public static orderedBy(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSortedMultiset$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1097,23 +1059,20 @@
             ">(",
             "Ljava/util/Comparator<",
             "TE;>;)",
-            "Lcom/google/common/collect/ImmutableSortedMultiset$Builder<",
+            "Lcom/google/common/collect/ImmutableSortedMultiset$a<",
             "TE;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$a;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedMultiset$a;-><init>(Ljava/util/Comparator;)V
 
     return-object v0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -1129,19 +1088,19 @@
     throw p1
 .end method
 
-.method public static reverseOrder()Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+.method public static reverseOrder()Lcom/google/common/collect/ImmutableSortedMultiset$a;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
             "Ljava/lang/Comparable<",
             "*>;>()",
-            "Lcom/google/common/collect/ImmutableSortedMultiset$Builder<",
+            "Lcom/google/common/collect/ImmutableSortedMultiset$a<",
             "TE;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$a;
 
     invoke-static {}, Lcom/google/common/collect/Ordering;->natural()Lcom/google/common/collect/Ordering;
 
@@ -1151,20 +1110,13 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableSortedMultiset$Builder;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, v1}, Lcom/google/common/collect/ImmutableSortedMultiset$a;-><init>(Ljava/util/Comparator;)V
 
     return-object v0
 .end method
 
 .method public static toImmutableMultiset()Ljava/util/stream/Collector;
     .locals 1
-    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Use toImmutableSortedMultiset."
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1189,13 +1141,6 @@
 
 .method public static toImmutableMultiset(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;
     .locals 0
-    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Use toImmutableSortedMultiset."
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1226,9 +1171,6 @@
 
 .method public static toImmutableSortedMultiset(Ljava/util/Comparator;)Ljava/util/stream/Collector;
     .locals 2
-    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1243,13 +1185,13 @@
         }
     .end annotation
 
-    invoke-static {}, Les/uq2;->a()Ljava/util/function/Function;
+    invoke-static {}, Lcom/google/common/collect/w2;->a()Ljava/util/function/Function;
 
     move-result-object v0
 
-    new-instance v1, Les/br2;
+    new-instance v1, Lcom/google/common/collect/f3;
 
-    invoke-direct {v1}, Les/br2;-><init>()V
+    invoke-direct {v1}, Lcom/google/common/collect/f3;-><init>()V
 
     invoke-static {p0, v0, v1}, Lcom/google/common/collect/ImmutableSortedMultiset;->toImmutableSortedMultiset(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;
 
@@ -1260,9 +1202,6 @@
 
 .method public static toImmutableSortedMultiset(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;
     .locals 2
-    .annotation build Lcom/google/common/collect/IgnoreJRERequirement;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1283,33 +1222,33 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Les/cr2;
+    new-instance v0, Lcom/google/common/collect/b3;
 
-    invoke-direct {v0, p0}, Les/cr2;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/b3;-><init>(Ljava/util/Comparator;)V
 
-    new-instance v1, Les/dr2;
+    new-instance v1, Lcom/google/common/collect/c3;
 
-    invoke-direct {v1, p1, p2}, Les/dr2;-><init>(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)V
+    invoke-direct {v1, p1, p2}, Lcom/google/common/collect/c3;-><init>(Ljava/util/function/Function;Ljava/util/function/ToIntFunction;)V
 
-    new-instance p1, Les/er2;
+    new-instance p1, Lcom/google/common/collect/d3;
 
-    invoke-direct {p1}, Les/er2;-><init>()V
+    invoke-direct {p1}, Lcom/google/common/collect/d3;-><init>()V
 
-    new-instance p2, Les/fr2;
+    new-instance p2, Lcom/google/common/collect/e3;
 
-    invoke-direct {p2, p0}, Les/fr2;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {p2, p0}, Lcom/google/common/collect/e3;-><init>(Ljava/util/Comparator;)V
 
     const/4 p0, 0x0
 
     new-array p0, p0, [Ljava/util/stream/Collector$Characteristics;
 
-    invoke-static {v0, v1, p1, p2, p0}, Les/fc0;->a(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;
+    invoke-static {v0, v1, p1, p2, p0}, Lcom/google/common/collect/l;->a(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;
 
     move-result-object p0
 
@@ -1337,6 +1276,9 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public abstract synthetic count(Ljava/lang/Object;)I
 .end method
 
 .method public descendingMultiset()Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -1389,7 +1331,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic descendingMultiset()Lcom/google/common/collect/SortedMultiset;
+.method public bridge synthetic descendingMultiset()Lcom/google/common/collect/a4;
     .locals 1
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedMultiset;->descendingMultiset()Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -1449,6 +1391,9 @@
     return-object v0
 .end method
 
+.method public abstract synthetic firstEntry()Lcom/google/common/collect/l3$a;
+.end method
+
 .method public abstract headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1461,7 +1406,7 @@
     .end annotation
 .end method
 
-.method public bridge synthetic headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
+.method public bridge synthetic headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/a4;
     .locals 0
 
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ImmutableSortedMultiset;->headMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -1471,19 +1416,15 @@
     return-object p1
 .end method
 
-.method public final pollFirstEntry()Lcom/google/common/collect/Multiset$Entry;
+.method public abstract synthetic lastEntry()Lcom/google/common/collect/l3$a;
+.end method
+
+.method public final pollFirstEntry()Lcom/google/common/collect/l3$a;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Always throws UnsupportedOperationException"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TE;>;"
         }
     .end annotation
@@ -1498,19 +1439,12 @@
     throw v0
 .end method
 
-.method public final pollLastEntry()Lcom/google/common/collect/Multiset$Entry;
+.method public final pollLastEntry()Lcom/google/common/collect/l3$a;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/DoNotCall;
-        value = "Always throws UnsupportedOperationException"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TE;>;"
         }
     .end annotation
@@ -1559,7 +1493,7 @@
     :goto_0
     const-string v1, "Expected lowerBound <= upperBound but %s > %s"
 
-    invoke-static {v0, v1, p1, p3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p1, p3}, Lcom/google/common/base/m;->k(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ImmutableSortedMultiset;->tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
 
@@ -1572,7 +1506,7 @@
     return-object p1
 .end method
 
-.method public bridge synthetic subMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
+.method public bridge synthetic subMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/a4;
     .locals 0
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/common/collect/ImmutableSortedMultiset;->subMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -1594,7 +1528,7 @@
     .end annotation
 .end method
 
-.method public bridge synthetic tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/SortedMultiset;
+.method public bridge synthetic tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/a4;
     .locals 0
 
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ImmutableSortedMultiset;->tailMultiset(Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/ImmutableSortedMultiset;
@@ -1606,12 +1540,10 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     new-instance v0, Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;
 
-    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;-><init>(Lcom/google/common/collect/SortedMultiset;)V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableSortedMultiset$SerializedForm;-><init>(Lcom/google/common/collect/a4;)V
 
     return-object v0
 .end method

@@ -1,33 +1,35 @@
-.class public final synthetic Lcom/google/android/material/slider/a;
+.class public interface abstract Lcom/google/android/material/slider/a;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
-
-# instance fields
-.field public final synthetic a:Lcom/google/android/material/slider/BaseSlider;
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<S:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;"
+    }
+.end annotation
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/google/android/material/slider/BaseSlider;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/material/slider/a;->a:Lcom/google/android/material/slider/BaseSlider;
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onScrollChanged()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/material/slider/a;->a:Lcom/google/android/material/slider/BaseSlider;
-
-    invoke-static {v0}, Lcom/google/android/material/slider/BaseSlider;->a(Lcom/google/android/material/slider/BaseSlider;)V
-
-    return-void
+.method public abstract a(Ljava/lang/Object;FZ)V
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroidx/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TS;FZ)V"
+        }
+    .end annotation
 .end method

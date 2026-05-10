@@ -20,7 +20,7 @@
         "Lcom/google/common/collect/MapMakerInternalMap$Segment<",
         "TK;",
         "Lcom/google/common/collect/MapMaker$Dummy;",
-        "Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry<",
+        "Lcom/google/common/collect/MapMakerInternalMap$q<",
         "TK;>;",
         "Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueSegment<",
         "TK;>;>;"
@@ -40,6 +40,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -48,7 +54,7 @@
             "Lcom/google/common/collect/MapMakerInternalMap<",
             "TK;",
             "Lcom/google/common/collect/MapMaker$Dummy;",
-            "Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry<",
+            "Lcom/google/common/collect/MapMakerInternalMap$q<",
             "TK;>;",
             "Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueSegment<",
             "TK;>;>;I)V"
@@ -76,31 +82,31 @@
 
 
 # virtual methods
-.method public bridge synthetic castForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
+.method public bridge synthetic castForTesting(Lcom/google/common/collect/MapMakerInternalMap$h;)Lcom/google/common/collect/MapMakerInternalMap$h;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueSegment;->castForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueSegment;->castForTesting(Lcom/google/common/collect/MapMakerInternalMap$h;)Lcom/google/common/collect/MapMakerInternalMap$q;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public castForTesting(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;
+.method public castForTesting(Lcom/google/common/collect/MapMakerInternalMap$h;)Lcom/google/common/collect/MapMakerInternalMap$q;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/MapMakerInternalMap$InternalEntry<",
+            "Lcom/google/common/collect/MapMakerInternalMap$h<",
             "TK;",
             "Lcom/google/common/collect/MapMaker$Dummy;",
             "*>;)",
-            "Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry<",
+            "Lcom/google/common/collect/MapMakerInternalMap$q<",
             "TK;>;"
         }
     .end annotation
 
-    check-cast p1, Lcom/google/common/collect/MapMakerInternalMap$WeakKeyDummyValueEntry;
+    check-cast p1, Lcom/google/common/collect/MapMakerInternalMap$q;
 
     return-object p1
 .end method

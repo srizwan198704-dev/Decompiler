@@ -2,10 +2,16 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BinaryOperator;
+.implements Ljava/util/function/Supplier;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public synthetic constructor <init>()V
     .locals 0
 
@@ -16,12 +22,12 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final get()Ljava/lang/Object;
+    .locals 1
 
-    invoke-static {p1, p2}, Lcom/google/common/collect/TableCollectors;->h(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v0, Lcom/google/common/collect/ImmutableMap$b;
 
-    move-result-object p1
+    invoke-direct {v0}, Lcom/google/common/collect/ImmutableMap$b;-><init>()V
 
-    return-object p1
+    return-object v0
 .end method

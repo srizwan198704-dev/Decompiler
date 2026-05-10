@@ -49,7 +49,7 @@
 
     move-result-object v1
 
-    const-class v2, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;
+    const-class v2, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$b;
 
     invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -64,14 +64,14 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;)V
+.method public constructor <init>(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$b;Lcom/google/common/util/concurrent/CycleDetectingLockFactory$b;)V
     .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p1}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;->getLockName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$b;->a()Ljava/lang/String;
 
     move-result-object p1
 
@@ -81,7 +81,7 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$LockGraphNode;->getLockName()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$b;->a()Ljava/lang/String;
 
     move-result-object p1
 
@@ -104,7 +104,7 @@
     :goto_0
     if-ge v0, p2, :cond_2
 
-    const-class v1, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$WithExplicitOrdering;
+    const-class v1, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$c;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 

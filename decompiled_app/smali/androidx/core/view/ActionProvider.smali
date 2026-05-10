@@ -24,12 +24,14 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,8 +44,6 @@
 # virtual methods
 .method public getContext()Landroid/content/Context;
     .locals 1
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/view/ActionProvider;->mContext:Landroid/content/Context;
 
@@ -67,18 +67,10 @@
 .end method
 
 .method public abstract onCreateActionView()Landroid/view/View;
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
 .end method
 
 .method public onCreateActionView(Landroid/view/MenuItem;)Landroid/view/View;
     .locals 0
-    .param p1    # Landroid/view/MenuItem;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroidx/annotation/NonNull;
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/core/view/ActionProvider;->onCreateActionView()Landroid/view/View;
 
@@ -97,10 +89,6 @@
 
 .method public onPrepareSubMenu(Landroid/view/SubMenu;)V
     .locals 0
-    .param p1    # Landroid/view/SubMenu;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 
     return-void
 .end method
@@ -140,11 +128,6 @@
 
 .method public reset()V
     .locals 1
-    .annotation build Landroidx/annotation/RestrictTo;
-        value = {
-            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -157,15 +140,6 @@
 
 .method public setSubUiVisibilityListener(Landroidx/core/view/ActionProvider$SubUiVisibilityListener;)V
     .locals 0
-    .param p1    # Landroidx/core/view/ActionProvider$SubUiVisibilityListener;
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroidx/annotation/RestrictTo;
-        value = {
-            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/view/ActionProvider;->mSubUiVisibilityListener:Landroidx/core/view/ActionProvider$SubUiVisibilityListener;
 
@@ -174,10 +148,6 @@
 
 .method public setVisibilityListener(Landroidx/core/view/ActionProvider$VisibilityListener;)V
     .locals 2
-    .param p1    # Landroidx/core/view/ActionProvider$VisibilityListener;
-        .annotation build Landroidx/annotation/Nullable;
-        .end annotation
-    .end param
 
     iget-object v0, p0, Landroidx/core/view/ActionProvider;->mVisibilityListener:Landroidx/core/view/ActionProvider$VisibilityListener;
 
@@ -223,11 +193,6 @@
 
 .method public subUiVisibilityChanged(Z)V
     .locals 1
-    .annotation build Landroidx/annotation/RestrictTo;
-        value = {
-            .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/view/ActionProvider;->mSubUiVisibilityListener:Landroidx/core/view/ActionProvider$SubUiVisibilityListener;
 

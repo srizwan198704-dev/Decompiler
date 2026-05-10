@@ -1,35 +1,20 @@
 .class public final synthetic Lcom/google/common/collect/q;
 .super Ljava/lang/Object;
 
-# interfaces
-.implements Ljava/util/function/Function;
-
-
-# instance fields
-.field public final synthetic a:Ljava/util/function/Function;
-
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/function/Function;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/common/collect/q;->a:Ljava/util/function/Function;
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
+.method public static bridge synthetic a(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;
+    .locals 0
 
-# virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    invoke-static {p0, p1, p2, p3}, Ljava/util/stream/Collector;->of(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;
 
-    iget-object v0, p0, Lcom/google/common/collect/q;->a:Ljava/util/function/Function;
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lcom/google/common/collect/CollectCollectors;->t(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/util/stream/Stream;
-
-    move-result-object p1
-
-    return-object p1
+    return-object p0
 .end method

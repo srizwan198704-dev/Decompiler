@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/common/base/Predicate;
+.implements Lcom/google/common/base/n;
 .implements Ljava/io/Serializable;
 
 
@@ -22,7 +22,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/common/base/Predicate<",
+        "Lcom/google/common/base/n<",
         "TT;>;",
         "Ljava/io/Serializable;"
     }
@@ -34,10 +34,10 @@
 
 
 # instance fields
-.field final predicate:Lcom/google/common/base/Predicate;
+.field final predicate:Lcom/google/common/base/n;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/base/Predicate<",
+            "Lcom/google/common/base/n<",
             "TT;>;"
         }
     .end annotation
@@ -45,25 +45,31 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/common/base/Predicate;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/base/n;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/base/Predicate<",
+            "Lcom/google/common/base/n<",
             "TT;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/base/Predicate;
+    check-cast p1, Lcom/google/common/base/n;
 
-    iput-object p1, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
+    iput-object p1, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/n;
 
     return-void
 .end method
@@ -72,19 +78,15 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/base/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
+    iget-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/n;
 
-    invoke-interface {v0, p1}, Lcom/google/common/base/Predicate;->apply(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lcom/google/common/base/n;->apply(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -102,11 +104,11 @@
 
     check-cast p1, Lcom/google/common/base/Predicates$NotPredicate;
 
-    iget-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
+    iget-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/n;
 
-    iget-object p1, p1, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
+    iget-object p1, p1, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/n;
 
-    invoke-interface {v0, p1}, Lcom/google/common/base/Predicate;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lcom/google/common/base/n;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -121,13 +123,13 @@
 .method public hashCode()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
+    iget-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/n;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    xor-int/lit8 v0, v0, -0x1
+    not-int v0, v0
 
     return v0
 .end method
@@ -143,7 +145,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
+    iget-object v1, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/n;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

@@ -6,12 +6,9 @@
 
 
 # annotations
-.annotation runtime Lcom/google/common/hash/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/hash/BloomFilterStrategies$LockFreeBitArray;
+        Lcom/google/common/hash/BloomFilterStrategies$a;
     }
 .end annotation
 
@@ -41,17 +38,17 @@
 
     new-array v0, v0, [Lcom/google/common/hash/BloomFilterStrategies;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/google/common/hash/BloomFilterStrategies;->MURMUR128_MITZ_32:Lcom/google/common/hash/BloomFilterStrategies;
 
-    sget-object v2, Lcom/google/common/hash/BloomFilterStrategies;->MURMUR128_MITZ_32:Lcom/google/common/hash/BloomFilterStrategies;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    sget-object v1, Lcom/google/common/hash/BloomFilterStrategies;->MURMUR128_MITZ_64:Lcom/google/common/hash/BloomFilterStrategies;
 
-    sget-object v2, Lcom/google/common/hash/BloomFilterStrategies;->MURMUR128_MITZ_64:Lcom/google/common/hash/BloomFilterStrategies;
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     return-object v0
 .end method
@@ -135,4 +132,12 @@
     check-cast v0, [Lcom/google/common/hash/BloomFilterStrategies;
 
     return-object v0
+.end method
+
+
+# virtual methods
+.method public abstract synthetic mightContain(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$a;)Z
+.end method
+
+.method public abstract synthetic put(Ljava/lang/Object;Lcom/google/common/hash/Funnel;ILcom/google/common/hash/BloomFilterStrategies$a;)Z
 .end method

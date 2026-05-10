@@ -21,6 +21,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/lifecycle/LiveData;)V
     .locals 0
 
@@ -38,20 +44,20 @@
 
     iget-object v0, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
 
-    iget-object v0, v0, Landroidx/lifecycle/LiveData;->mDataLock:Ljava/lang/Object;
+    iget-object v0, v0, Landroidx/lifecycle/LiveData;->a:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
     iget-object v1, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
 
-    iget-object v1, v1, Landroidx/lifecycle/LiveData;->mPendingData:Ljava/lang/Object;
+    iget-object v1, v1, Landroidx/lifecycle/LiveData;->f:Ljava/lang/Object;
 
     iget-object v2, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
 
-    sget-object v3, Landroidx/lifecycle/LiveData;->NOT_SET:Ljava/lang/Object;
+    sget-object v3, Landroidx/lifecycle/LiveData;->k:Ljava/lang/Object;
 
-    iput-object v3, v2, Landroidx/lifecycle/LiveData;->mPendingData:Ljava/lang/Object;
+    iput-object v3, v2, Landroidx/lifecycle/LiveData;->f:Ljava/lang/Object;
 
     monitor-exit v0
     :try_end_0
@@ -59,7 +65,7 @@
 
     iget-object v0, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
 
-    invoke-virtual {v0, v1}, Landroidx/lifecycle/LiveData;->setValue(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Landroidx/lifecycle/LiveData;->q(Ljava/lang/Object;)V
 
     return-void
 

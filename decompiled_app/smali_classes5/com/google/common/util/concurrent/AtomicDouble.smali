@@ -5,11 +5,6 @@
 .implements Ljava/io/Serializable;
 
 
-# annotations
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
-
 # static fields
 .field private static final serialVersionUID:J
 
@@ -19,6 +14,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -96,8 +97,6 @@
 # virtual methods
 .method public final addAndGet(D)D
     .locals 7
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     :cond_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicDouble;->value:Ljava/util/concurrent/atomic/AtomicLong;
@@ -187,8 +186,6 @@
 
 .method public final getAndAdd(D)D
     .locals 7
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     :cond_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/AtomicDouble;->value:Ljava/util/concurrent/atomic/AtomicLong;

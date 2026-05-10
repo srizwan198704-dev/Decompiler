@@ -3,8 +3,20 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public static zza(IILjava/lang/String;)I
     .locals 5
+
+    const/4 p2, 0x2
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
 
     if-ltz p0, :cond_1
 
@@ -17,13 +29,7 @@
 
     :cond_1
     :goto_0
-    new-instance p2, Ljava/lang/IndexOutOfBoundsException;
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x2
+    new-instance v2, Ljava/lang/IndexOutOfBoundsException;
 
     const-string v3, "index"
 
@@ -52,23 +58,23 @@
     throw p0
 
     :cond_2
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
     const/4 v4, 0x3
 
     new-array v4, v4, [Ljava/lang/Object;
 
     aput-object v3, v4, v1
 
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
     aput-object p0, v4, v0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    aput-object p0, v4, v2
+    aput-object p1, v4, p2
 
     const-string p0, "%s (%s) must be less than size (%s)"
 
@@ -79,13 +85,13 @@
     goto :goto_1
 
     :cond_3
-    new-array p1, v2, [Ljava/lang/Object;
-
-    aput-object v3, p1, v1
-
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p0
+
+    new-array p1, p2, [Ljava/lang/Object;
+
+    aput-object v3, p1, v1
 
     aput-object p0, p1, v0
 
@@ -96,9 +102,9 @@
     move-result-object p0
 
     :goto_1
-    invoke-direct {p2, p0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, p0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v2
 .end method
 
 .method public static zzb(IILjava/lang/String;)I
@@ -149,15 +155,15 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
+    invoke-static {p2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+
+    move-result-object p2
+
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const/4 v1, 0x0
-
-    invoke-static {p2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
-
-    move-result-object p2
 
     aput-object p2, v0, v1
 
@@ -199,23 +205,23 @@
     goto :goto_1
 
     :cond_2
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
     const/4 p2, 0x2
 
     new-array p2, p2, [Ljava/lang/Object;
 
     const/4 v1, 0x0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
     aput-object p1, p2, v1
 
     const/4 p1, 0x1
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
 
     aput-object p0, p2, p1
 
@@ -261,13 +267,13 @@
 
     if-gez p0, :cond_0
 
-    new-array p1, v2, [Ljava/lang/Object;
-
-    aput-object p2, p1, v1
-
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p0
+
+    new-array p1, v2, [Ljava/lang/Object;
+
+    aput-object p2, p1, v1
 
     aput-object p0, p1, v0
 
@@ -282,23 +288,23 @@
     :cond_0
     if-ltz p1, :cond_1
 
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
     const/4 v3, 0x3
 
     new-array v3, v3, [Ljava/lang/Object;
 
     aput-object p2, v3, v1
 
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
     aput-object p0, v3, v0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    aput-object p0, v3, v2
+    aput-object p1, v3, v2
 
     const-string p0, "%s (%s) must not be greater than size (%s)"
 

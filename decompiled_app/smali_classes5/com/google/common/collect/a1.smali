@@ -1,14 +1,35 @@
 .class public final synthetic Lcom/google/common/collect/a1;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Ljava/util/function/Function;
+
 
 # direct methods
-.method public static bridge synthetic a(Lcom/google/common/collect/SortedMultisetBridge;)Ljava/util/Set;
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>()V
     .locals 0
 
-    invoke-interface {p0}, Lcom/google/common/collect/SortedMultisetBridge;->elementSet()Ljava/util/SortedSet;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-result-object p0
+    return-void
+.end method
 
-    return-object p0
+
+# virtual methods
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+
+    check-cast p1, Lcom/google/common/collect/l3;
+
+    invoke-static {p1}, Lcom/google/common/collect/d2;->h(Lcom/google/common/collect/l3;)Lcom/google/common/collect/ImmutableMultiset;
+
+    move-result-object p1
+
+    return-object p1
 .end method

@@ -1,0 +1,45 @@
+.class public final synthetic Lcom/transsnet/login/email/t;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# instance fields
+.field public final synthetic a:Li20/c;
+
+.field public final synthetic b:Lcom/transsnet/login/email/LoginEmailPwdActivity;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Li20/c;Lcom/transsnet/login/email/LoginEmailPwdActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/transsnet/login/email/t;->a:Li20/c;
+
+    iput-object p2, p0, Lcom/transsnet/login/email/t;->b:Lcom/transsnet/login/email/LoginEmailPwdActivity;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onClick(Landroid/view/View;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/transsnet/login/email/t;->a:Li20/c;
+
+    iget-object v1, p0, Lcom/transsnet/login/email/t;->b:Lcom/transsnet/login/email/LoginEmailPwdActivity;
+
+    invoke-static {v0, v1, p1}, Lcom/transsnet/login/email/LoginEmailPwdActivity;->N(Li20/c;Lcom/transsnet/login/email/LoginEmailPwdActivity;Landroid/view/View;)V
+
+    return-void
+.end method

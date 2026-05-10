@@ -1,23 +1,17 @@
 .class public final Lcom/google/common/collect/EvictingQueue;
-.super Lcom/google/common/collect/ForwardingQueue;
+.super Lcom/google/common/collect/r2;
 
 # interfaces
 .implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/collect/ForwardingQueue<",
+        "Lcom/google/common/collect/r2<",
         "TE;>;",
         "Ljava/io/Serializable;"
     }
@@ -39,16 +33,19 @@
 .end field
 
 .field final maxSize:I
-    .annotation build Lcom/google/common/annotations/VisibleForTesting;
-    .end annotation
-.end field
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>(I)V
     .locals 2
 
-    invoke-direct {p0}, Lcom/google/common/collect/ForwardingQueue;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/r2;-><init>()V
 
     if-ltz p1, :cond_0
 
@@ -62,7 +59,7 @@
     :goto_0
     const-string v1, "maxSize (%s) must >= 0"
 
-    invoke-static {v0, v1, p1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;I)V
+    invoke-static {v0, v1, p1}, Lcom/google/common/base/m;->f(ZLjava/lang/String;I)V
 
     new-instance v0, Ljava/util/ArrayDeque;
 
@@ -98,16 +95,13 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget v0, p0, Lcom/google/common/collect/EvictingQueue;->maxSize:I
 
@@ -118,7 +112,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {p0}, Lcom/google/common/collect/ForwardingCollection;->size()I
+    invoke-virtual {p0}, Lcom/google/common/collect/k2;->size()I
 
     move-result v0
 
@@ -140,9 +134,6 @@
 
 .method public addAll(Ljava/util/Collection;)Z
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -159,24 +150,24 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ForwardingCollection;->clear()V
+    invoke-virtual {p0}, Lcom/google/common/collect/k2;->clear()V
 
     iget v1, p0, Lcom/google/common/collect/EvictingQueue;->maxSize:I
 
     sub-int/2addr v0, v1
 
-    invoke-static {p1, v0}, Lcom/google/common/collect/Iterables;->skip(Ljava/lang/Iterable;I)Ljava/lang/Iterable;
+    invoke-static {p1, v0}, Lcom/google/common/collect/g3;->n(Ljava/lang/Iterable;I)Ljava/lang/Iterable;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/google/common/collect/Iterables;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
+    invoke-static {p0, p1}, Lcom/google/common/collect/g3;->a(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
     move-result p1
 
     return p1
 
     :cond_0
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/ForwardingCollection;->standardAddAll(Ljava/util/Collection;)Z
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/k2;->standardAddAll(Ljava/util/Collection;)Z
 
     move-result p1
 
@@ -220,9 +211,6 @@
 
 .method public offer(Ljava/lang/Object;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -241,7 +229,7 @@
 
     iget v0, p0, Lcom/google/common/collect/EvictingQueue;->maxSize:I
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ForwardingCollection;->size()I
+    invoke-virtual {p0}, Lcom/google/common/collect/k2;->size()I
 
     move-result v1
 
@@ -252,10 +240,8 @@
 
 .method public toArray()[Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
-    invoke-super {p0}, Lcom/google/common/collect/ForwardingCollection;->toArray()[Ljava/lang/Object;
+    invoke-super {p0}, Lcom/google/common/collect/k2;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
 

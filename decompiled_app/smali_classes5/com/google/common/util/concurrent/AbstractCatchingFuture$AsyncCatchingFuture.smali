@@ -21,44 +21,50 @@
         ">",
         "Lcom/google/common/util/concurrent/AbstractCatchingFuture<",
         "TV;TX;",
-        "Lcom/google/common/util/concurrent/AsyncFunction<",
+        "Lcom/google/common/util/concurrent/f<",
         "-TX;+TV;>;",
-        "Lcom/google/common/util/concurrent/ListenableFuture<",
+        "Lcom/google/common/util/concurrent/t<",
         "+TV;>;>;"
     }
 .end annotation
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Lcom/google/common/util/concurrent/AsyncFunction;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/util/concurrent/t;Ljava/lang/Class;Lcom/google/common/util/concurrent/f;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TV;>;",
             "Ljava/lang/Class<",
             "TX;>;",
-            "Lcom/google/common/util/concurrent/AsyncFunction<",
+            "Lcom/google/common/util/concurrent/f<",
             "-TX;+TV;>;)V"
         }
     .end annotation
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/common/util/concurrent/AbstractCatchingFuture;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/common/util/concurrent/AbstractCatchingFuture;-><init>(Lcom/google/common/util/concurrent/t;Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public doFallback(Lcom/google/common/util/concurrent/AsyncFunction;Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
+.method public doFallback(Lcom/google/common/util/concurrent/f;Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/t;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/AsyncFunction<",
+            "Lcom/google/common/util/concurrent/f<",
             "-TX;+TV;>;TX;)",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TV;>;"
         }
     .end annotation
@@ -69,13 +75,13 @@
         }
     .end annotation
 
-    invoke-interface {p1, p2}, Lcom/google/common/util/concurrent/AsyncFunction;->apply(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-interface {p1, p2}, Lcom/google/common/util/concurrent/f;->apply(Ljava/lang/Object;)Lcom/google/common/util/concurrent/t;
 
     move-result-object p2
 
     const-string v0, "AsyncFunction.apply returned null instead of a Future. Did you mean to return immediateFuture(null)? %s"
 
-    invoke-static {p2, v0, p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2, v0, p1}, Lcom/google/common/base/m;->q(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-object p2
 .end method
@@ -88,26 +94,26 @@
         }
     .end annotation
 
-    check-cast p1, Lcom/google/common/util/concurrent/AsyncFunction;
+    check-cast p1, Lcom/google/common/util/concurrent/f;
 
-    invoke-virtual {p0, p1, p2}, Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture;->doFallback(Lcom/google/common/util/concurrent/AsyncFunction;Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-virtual {p0, p1, p2}, Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture;->doFallback(Lcom/google/common/util/concurrent/f;Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/t;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public setResult(Lcom/google/common/util/concurrent/ListenableFuture;)V
+.method public setResult(Lcom/google/common/util/concurrent/t;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TV;>;)V"
         }
     .end annotation
 
-    invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
+    invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/t;)Z
 
     return-void
 .end method
@@ -115,9 +121,9 @@
 .method public bridge synthetic setResult(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/google/common/util/concurrent/ListenableFuture;
+    check-cast p1, Lcom/google/common/util/concurrent/t;
 
-    invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture;->setResult(Lcom/google/common/util/concurrent/ListenableFuture;)V
+    invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AbstractCatchingFuture$AsyncCatchingFuture;->setResult(Lcom/google/common/util/concurrent/t;)V
 
     return-void
 .end method

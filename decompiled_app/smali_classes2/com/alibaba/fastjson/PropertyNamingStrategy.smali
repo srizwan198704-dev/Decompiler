@@ -19,6 +19,10 @@
 
 .field public static final enum KebabCase:Lcom/alibaba/fastjson/PropertyNamingStrategy;
 
+.field public static final enum NeverUseThisValueExceptDefaultValue:Lcom/alibaba/fastjson/PropertyNamingStrategy;
+
+.field public static final enum NoChange:Lcom/alibaba/fastjson/PropertyNamingStrategy;
+
 .field public static final enum PascalCase:Lcom/alibaba/fastjson/PropertyNamingStrategy;
 
 .field public static final enum SnakeCase:Lcom/alibaba/fastjson/PropertyNamingStrategy;
@@ -26,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 13
 
     new-instance v0, Lcom/alibaba/fastjson/PropertyNamingStrategy;
 
@@ -68,19 +72,43 @@
 
     sput-object v5, Lcom/alibaba/fastjson/PropertyNamingStrategy;->KebabCase:Lcom/alibaba/fastjson/PropertyNamingStrategy;
 
-    const/4 v7, 0x4
+    new-instance v7, Lcom/alibaba/fastjson/PropertyNamingStrategy;
 
-    new-array v7, v7, [Lcom/alibaba/fastjson/PropertyNamingStrategy;
+    const-string v9, "NoChange"
 
-    aput-object v0, v7, v2
+    const/4 v10, 0x4
 
-    aput-object v1, v7, v4
+    invoke-direct {v7, v9, v10}, Lcom/alibaba/fastjson/PropertyNamingStrategy;-><init>(Ljava/lang/String;I)V
 
-    aput-object v3, v7, v6
+    sput-object v7, Lcom/alibaba/fastjson/PropertyNamingStrategy;->NoChange:Lcom/alibaba/fastjson/PropertyNamingStrategy;
 
-    aput-object v5, v7, v8
+    new-instance v9, Lcom/alibaba/fastjson/PropertyNamingStrategy;
 
-    sput-object v7, Lcom/alibaba/fastjson/PropertyNamingStrategy;->$VALUES:[Lcom/alibaba/fastjson/PropertyNamingStrategy;
+    const-string v11, "NeverUseThisValueExceptDefaultValue"
+
+    const/4 v12, 0x5
+
+    invoke-direct {v9, v11, v12}, Lcom/alibaba/fastjson/PropertyNamingStrategy;-><init>(Ljava/lang/String;I)V
+
+    sput-object v9, Lcom/alibaba/fastjson/PropertyNamingStrategy;->NeverUseThisValueExceptDefaultValue:Lcom/alibaba/fastjson/PropertyNamingStrategy;
+
+    const/4 v11, 0x6
+
+    new-array v11, v11, [Lcom/alibaba/fastjson/PropertyNamingStrategy;
+
+    aput-object v0, v11, v2
+
+    aput-object v1, v11, v4
+
+    aput-object v3, v11, v6
+
+    aput-object v5, v11, v8
+
+    aput-object v7, v11, v10
+
+    aput-object v9, v11, v12
+
+    sput-object v11, Lcom/alibaba/fastjson/PropertyNamingStrategy;->$VALUES:[Lcom/alibaba/fastjson/PropertyNamingStrategy;
 
     return-void
 .end method
@@ -131,7 +159,7 @@
 .method public translate(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
 
-    sget-object v0, Lcom/alibaba/fastjson/PropertyNamingStrategy$1;->$SwitchMap$com$alibaba$fastjson$PropertyNamingStrategy:[I
+    sget-object v0, Lcom/alibaba/fastjson/PropertyNamingStrategy$a;->a:[I
 
     invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 

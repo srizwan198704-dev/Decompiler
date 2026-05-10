@@ -1,37 +1,57 @@
-.class public final synthetic Lcom/google/common/reflect/b;
+.class public final Lcom/google/common/reflect/b;
 .super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/google/common/base/Function;
-
-
-# instance fields
-.field public final synthetic a:Lcom/google/common/reflect/Types$JavaVersion;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/google/common/reflect/Types$JavaVersion;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/common/reflect/b;->a:Lcom/google/common/reflect/Types$JavaVersion;
+.method static constructor <clinit>()V
+    .locals 1
 
     return-void
 .end method
 
+.method public static a(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Class<",
+            "TT;>;",
+            "Ljava/lang/reflect/InvocationHandler;",
+            ")TT;"
+        }
+    .end annotation
 
-# virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/google/common/reflect/b;->a:Lcom/google/common/reflect/Types$JavaVersion;
+    invoke-virtual {p0}, Ljava/lang/Class;->isInterface()Z
 
-    check-cast p1, Ljava/lang/reflect/Type;
+    move-result v0
 
-    invoke-virtual {v0, p1}, Lcom/google/common/reflect/Types$JavaVersion;->typeName(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    const-string v1, "%s is not an interface"
+
+    invoke-static {v0, v1, p0}, Lcom/google/common/base/m;->j(ZLjava/lang/String;Ljava/lang/Object;)V
+
+    invoke-virtual {p0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Class;
+
+    const/4 v2, 0x0
+
+    aput-object p0, v1, v2
+
+    invoke-static {v0, v1, p1}, Ljava/lang/reflect/Proxy;->newProxyInstance(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
 
     move-result-object p1
 
-    return-object p1
+    invoke-virtual {p0, p1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
 .end method

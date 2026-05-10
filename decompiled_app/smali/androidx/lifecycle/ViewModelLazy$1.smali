@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/lifecycle/ViewModelLazy;-><init>(Les/nz2;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILes/wv0;)V
+    value = Landroidx/lifecycle/ViewModelLazy;-><init>(Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,8 +19,28 @@
     value = {
         "Lkotlin/jvm/internal/Lambda;",
         "Lkotlin/jvm/functions/Function0<",
-        "Landroidx/lifecycle/viewmodel/CreationExtras$Empty;",
+        "Ly1/a$a;",
         ">;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\u0010\u0005\u001a\u00020\u0002\"\u0008\u0008\u0000\u0010\u0001*\u00020\u0000H\n\u00a2\u0006\u0004\u0008\u0003\u0010\u0004"
+    }
+    d2 = {
+        "Landroidx/lifecycle/u0;",
+        "VM",
+        "Ly1/a$a;",
+        "invoke",
+        "()Ly1/a$a;",
+        "<anonymous>"
+    }
+    k = 0x3
+    mv = {
+        0x1,
+        0x8,
+        0x0
     }
 .end annotation
 
@@ -54,20 +74,20 @@
 
 
 # virtual methods
-.method public final invoke()Landroidx/lifecycle/viewmodel/CreationExtras$Empty;
+.method public bridge synthetic invoke()Ljava/lang/Object;
     .locals 1
 
-    sget-object v0, Landroidx/lifecycle/viewmodel/CreationExtras$Empty;->INSTANCE:Landroidx/lifecycle/viewmodel/CreationExtras$Empty;
+    invoke-virtual {p0}, Landroidx/lifecycle/ViewModelLazy$1;->invoke()Ly1/a$a;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic invoke()Ljava/lang/Object;
+.method public final invoke()Ly1/a$a;
     .locals 1
 
-    invoke-virtual {p0}, Landroidx/lifecycle/ViewModelLazy$1;->invoke()Landroidx/lifecycle/viewmodel/CreationExtras$Empty;
-
-    move-result-object v0
+    sget-object v0, Ly1/a$a;->b:Ly1/a$a;
 
     return-object v0
 .end method

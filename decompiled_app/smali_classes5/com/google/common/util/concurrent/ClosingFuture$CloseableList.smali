@@ -18,7 +18,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/util/IdentityHashMap<",
-        "Ljava/io/Closeable;",
+        "Ljava/lang/AutoCloseable;",
         "Ljava/util/concurrent/Executor;",
         ">;",
         "Ljava/io/Closeable;"
@@ -29,27 +29,33 @@
 # instance fields
 .field private volatile closed:Z
 
-.field private final closer:Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
+.field private final closer:Lcom/google/common/util/concurrent/ClosingFuture$c;
 
 .field private volatile whenClosed:Ljava/util/concurrent/CountDownLatch;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/util/IdentityHashMap;-><init>()V
 
-    new-instance v0, Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
+    new-instance v0, Lcom/google/common/util/concurrent/ClosingFuture$c;
 
-    invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;-><init>(Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)V
+    invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/ClosingFuture$c;-><init>(Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)V
 
-    iput-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
+    iput-object v0, p0, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$c;
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/ClosingFuture$1;)V
+.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/h;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;-><init>()V
@@ -57,20 +63,20 @@
     return-void
 .end method
 
-.method public static synthetic access$300(Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
+.method public static synthetic access$300(Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)Lcom/google/common/util/concurrent/ClosingFuture$c;
     .locals 0
 
-    iget-object p0, p0, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
+    iget-object p0, p0, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$c;
 
     return-object p0
 .end method
 
 
 # virtual methods
-.method public add(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
+.method public add(Ljava/lang/AutoCloseable;Ljava/util/concurrent/Executor;)V
     .locals 1
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     if-nez p1, :cond_0
 
@@ -100,7 +106,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {p1, p2}, Lcom/google/common/util/concurrent/ClosingFuture;->access$3200(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
+    invoke-static {p1, p2}, Lcom/google/common/util/concurrent/ClosingFuture;->f(Ljava/lang/AutoCloseable;Ljava/util/concurrent/Executor;)V
 
     return-void
 
@@ -113,12 +119,8 @@
     throw p1
 .end method
 
-.method public applyAsyncClosingFunction(Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction;Ljava/lang/Object;)Lcom/google/common/util/concurrent/FluentFuture;
+.method public applyAsyncClosingFunction(Lcom/google/common/util/concurrent/ClosingFuture$a;Ljava/lang/Object;)Lcom/google/common/util/concurrent/k;
     .locals 2
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -126,9 +128,9 @@
             "U:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction<",
+            "Lcom/google/common/util/concurrent/ClosingFuture$a<",
             "TV;TU;>;TV;)",
-            "Lcom/google/common/util/concurrent/FluentFuture<",
+            "Lcom/google/common/util/concurrent/k<",
             "TU;>;"
         }
     .end annotation
@@ -144,46 +146,42 @@
     invoke-direct {v0}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;-><init>()V
 
     :try_start_0
-    iget-object v1, v0, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
+    iget-object v1, v0, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$c;
 
-    invoke-interface {p1, v1, p2}, Lcom/google/common/util/concurrent/ClosingFuture$AsyncClosingFunction;->apply(Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ClosingFuture;
+    invoke-interface {p1, v1, p2}, Lcom/google/common/util/concurrent/ClosingFuture$a;->a(Lcom/google/common/util/concurrent/ClosingFuture$c;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ClosingFuture;
 
     move-result-object p1
 
-    invoke-static {p1, v0}, Lcom/google/common/util/concurrent/ClosingFuture;->access$1000(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)V
+    invoke-static {p1, v0}, Lcom/google/common/util/concurrent/ClosingFuture;->g(Lcom/google/common/util/concurrent/ClosingFuture;Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;)V
 
-    invoke-static {p1}, Lcom/google/common/util/concurrent/ClosingFuture;->access$000(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/FluentFuture;
+    invoke-static {p1}, Lcom/google/common/util/concurrent/ClosingFuture;->b(Lcom/google/common/util/concurrent/ClosingFuture;)Lcom/google/common/util/concurrent/k;
 
     move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->directExecutor()Ljava/util/concurrent/Executor;
+    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->a()Ljava/util/concurrent/Executor;
 
     move-result-object p2
 
-    invoke-virtual {p0, v0, p2}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->add(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
+    invoke-virtual {p0, v0, p2}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->add(Ljava/lang/AutoCloseable;Ljava/util/concurrent/Executor;)V
 
     return-object p1
 
     :catchall_0
     move-exception p1
 
-    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->directExecutor()Ljava/util/concurrent/Executor;
+    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->a()Ljava/util/concurrent/Executor;
 
     move-result-object p2
 
-    invoke-virtual {p0, v0, p2}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->add(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
+    invoke-virtual {p0, v0, p2}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->add(Ljava/lang/AutoCloseable;Ljava/util/concurrent/Executor;)V
 
     throw p1
 .end method
 
-.method public applyClosingFunction(Lcom/google/common/util/concurrent/ClosingFuture$ClosingFunction;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
+.method public applyClosingFunction(Lcom/google/common/util/concurrent/ClosingFuture$b;Ljava/lang/Object;)Lcom/google/common/util/concurrent/t;
     .locals 2
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -191,9 +189,9 @@
             "U:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/util/concurrent/ClosingFuture$ClosingFunction<",
+            "Lcom/google/common/util/concurrent/ClosingFuture$b<",
             "-TV;TU;>;TV;)",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "TU;>;"
         }
     .end annotation
@@ -209,34 +207,34 @@
     invoke-direct {v0}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;-><init>()V
 
     :try_start_0
-    iget-object v1, v0, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;
+    iget-object v1, v0, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->closer:Lcom/google/common/util/concurrent/ClosingFuture$c;
 
-    invoke-interface {p1, v1, p2}, Lcom/google/common/util/concurrent/ClosingFuture$ClosingFunction;->apply(Lcom/google/common/util/concurrent/ClosingFuture$DeferredCloser;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1, p2}, Lcom/google/common/util/concurrent/ClosingFuture$b;->a(Lcom/google/common/util/concurrent/ClosingFuture$c;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/common/util/concurrent/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-static {p1}, Lcom/google/common/util/concurrent/Futures;->f(Ljava/lang/Object;)Lcom/google/common/util/concurrent/t;
 
     move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->directExecutor()Ljava/util/concurrent/Executor;
+    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->a()Ljava/util/concurrent/Executor;
 
     move-result-object p2
 
-    invoke-virtual {p0, v0, p2}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->add(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
+    invoke-virtual {p0, v0, p2}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->add(Ljava/lang/AutoCloseable;Ljava/util/concurrent/Executor;)V
 
     return-object p1
 
     :catchall_0
     move-exception p1
 
-    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->directExecutor()Ljava/util/concurrent/Executor;
+    invoke-static {}, Lcom/google/common/util/concurrent/MoreExecutors;->a()Ljava/util/concurrent/Executor;
 
     move-result-object p2
 
-    invoke-virtual {p0, v0, p2}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->add(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
+    invoke-virtual {p0, v0, p2}, Lcom/google/common/util/concurrent/ClosingFuture$CloseableList;->add(Ljava/lang/AutoCloseable;Ljava/util/concurrent/Executor;)V
 
     throw p1
 .end method
@@ -301,7 +299,7 @@
 
     move-result-object v2
 
-    check-cast v2, Ljava/io/Closeable;
+    check-cast v2, Ljava/lang/AutoCloseable;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -309,7 +307,7 @@
 
     check-cast v1, Ljava/util/concurrent/Executor;
 
-    invoke-static {v2, v1}, Lcom/google/common/util/concurrent/ClosingFuture;->access$3200(Ljava/io/Closeable;Ljava/util/concurrent/Executor;)V
+    invoke-static {v2, v1}, Lcom/google/common/util/concurrent/ClosingFuture;->f(Ljava/lang/AutoCloseable;Ljava/util/concurrent/Executor;)V
 
     goto :goto_0
 
@@ -333,13 +331,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_3
-
-    :goto_2
     throw v0
-
-    :goto_3
-    goto :goto_2
 .end method
 
 .method public whenClosedCountDown()Ljava/util/concurrent/CountDownLatch;
@@ -385,10 +377,10 @@
 
     if-nez v0, :cond_2
 
-    const/4 v1, 0x1
+    move v1, v2
 
     :cond_2
-    invoke-static {v1}, Lcom/google/common/base/Preconditions;->checkState(Z)V
+    invoke-static {v1}, Lcom/google/common/base/m;->u(Z)V
 
     new-instance v0, Ljava/util/concurrent/CountDownLatch;
 

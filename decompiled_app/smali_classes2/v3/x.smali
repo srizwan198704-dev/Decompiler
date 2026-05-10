@@ -1,0 +1,49 @@
+.class public final Lv3/x;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lb3/q0;
+
+
+# instance fields
+.field public final a:I
+
+.field public final b:Lcom/google/common/primitives/ImmutableIntArray;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(I[I)V
+    .locals 0
+    .param p2    # [I
+        .annotation build Landroidx/annotation/Nullable;
+        .end annotation
+    .end param
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lv3/x;->a:I
+
+    if-eqz p2, :cond_0
+
+    invoke-static {p2}, Lcom/google/common/primitives/ImmutableIntArray;->copyOf([I)Lcom/google/common/primitives/ImmutableIntArray;
+
+    move-result-object p1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {}, Lcom/google/common/primitives/ImmutableIntArray;->of()Lcom/google/common/primitives/ImmutableIntArray;
+
+    move-result-object p1
+
+    :goto_0
+    iput-object p1, p0, Lv3/x;->b:Lcom/google/common/primitives/ImmutableIntArray;
+
+    return-void
+.end method

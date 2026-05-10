@@ -21,6 +21,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
     .locals 0
 
@@ -38,7 +44,7 @@
 
     iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$ListSelectorHider;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->clearListSelection()V
+    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->q()V
 
     return-void
 .end method

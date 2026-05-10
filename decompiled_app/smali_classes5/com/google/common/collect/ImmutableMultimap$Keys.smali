@@ -25,6 +25,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
     .locals 0
 
@@ -37,12 +43,6 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InvalidObjectException;
@@ -129,12 +129,12 @@
     return-object v0
 .end method
 
-.method public getEntry(I)Lcom/google/common/collect/Multiset$Entry;
+.method public getEntry(I)Lcom/google/common/collect/l3$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "TK;>;"
         }
     .end annotation
@@ -171,7 +171,7 @@
 
     move-result p1
 
-    invoke-static {v0, p1}, Lcom/google/common/collect/Multisets;->immutableEntry(Ljava/lang/Object;I)Lcom/google/common/collect/Multiset$Entry;
+    invoke-static {v0, p1}, Lcom/google/common/collect/Multisets;->g(Ljava/lang/Object;I)Lcom/google/common/collect/l3$a;
 
     move-result-object p1
 
@@ -200,11 +200,6 @@
 
 .method public writeReplace()Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/common/annotations/GwtIncompatible;
-    .end annotation
-
-    .annotation build Lcom/google/common/annotations/J2ktIncompatible;
-    .end annotation
 
     new-instance v0, Lcom/google/common/collect/ImmutableMultimap$KeysSerializedForm;
 

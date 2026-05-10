@@ -22,7 +22,7 @@
 
 
 # static fields
-.field private static final INSTANCE:Lcom/google/common/collect/Cut$BelowAll;
+.field public static final a:Lcom/google/common/collect/Cut$BelowAll;
 
 .field private static final serialVersionUID:J
 
@@ -35,7 +35,7 @@
 
     invoke-direct {v0}, Lcom/google/common/collect/Cut$BelowAll;-><init>()V
 
-    sput-object v0, Lcom/google/common/collect/Cut$BelowAll;->INSTANCE:Lcom/google/common/collect/Cut$BelowAll;
+    sput-object v0, Lcom/google/common/collect/Cut$BelowAll;->a:Lcom/google/common/collect/Cut$BelowAll;
 
     return-void
 .end method
@@ -53,7 +53,7 @@
 .method public static synthetic access$000()Lcom/google/common/collect/Cut$BelowAll;
     .locals 1
 
-    sget-object v0, Lcom/google/common/collect/Cut$BelowAll;->INSTANCE:Lcom/google/common/collect/Cut$BelowAll;
+    sget-object v0, Lcom/google/common/collect/Cut$BelowAll;->a:Lcom/google/common/collect/Cut$BelowAll;
 
     return-object v0
 .end method
@@ -61,7 +61,7 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
-    sget-object v0, Lcom/google/common/collect/Cut$BelowAll;->INSTANCE:Lcom/google/common/collect/Cut$BelowAll;
+    sget-object v0, Lcom/google/common/collect/Cut$BelowAll;->a:Lcom/google/common/collect/Cut$BelowAll;
 
     return-object v0
 .end method

@@ -33,9 +33,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState$1;
+    new-instance v0, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState$a;-><init>()V
 
     sput-object v0, Lcom/google/android/material/sidesheet/SideSheetBehavior$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -91,7 +91,7 @@
 
     invoke-direct {p0, p1}, Landroidx/customview/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
 
-    invoke-static {p2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->access$000(Lcom/google/android/material/sidesheet/SideSheetBehavior;)I
+    invoke-static {p2}, Lcom/google/android/material/sidesheet/SideSheetBehavior;->H(Lcom/google/android/material/sidesheet/SideSheetBehavior;)I
 
     move-result p1
 

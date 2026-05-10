@@ -7,6 +7,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
 
@@ -49,7 +55,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    move p2, v1
 
     :goto_0
     invoke-static {p2}, Lcom/google/android/gms/internal/fido/zzam;->zzc(Z)V

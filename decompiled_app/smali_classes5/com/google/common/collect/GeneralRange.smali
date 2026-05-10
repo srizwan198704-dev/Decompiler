@@ -6,13 +6,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-    serializable = true
-.end annotation
-
-.annotation runtime Lcom/google/common/collect/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",
@@ -25,6 +18,15 @@
 
 
 # instance fields
+.field public transient a:Lcom/google/common/collect/GeneralRange;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/common/collect/GeneralRange<",
+            "TT;>;"
+        }
+    .end annotation
+.end field
+
 .field private final comparator:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -48,18 +50,6 @@
     .end annotation
 .end field
 
-.field private transient reverse:Lcom/google/common/collect/GeneralRange;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/common/collect/GeneralRange<",
-            "TT;>;"
-        }
-    .end annotation
-.end field
-
 .field private final upperBoundType:Lcom/google/common/collect/BoundType;
 
 .field private final upperEndpoint:Ljava/lang/Object;
@@ -72,7 +62,13 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/util/Comparator;ZLjava/lang/Object;Lcom/google/common/collect/BoundType;ZLjava/lang/Object;Lcom/google/common/collect/BoundType;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/util/Comparator;ZLjava/lang/Object;Lcom/google/common/collect/BoundType;ZLjava/lang/Object;Lcom/google/common/collect/BoundType;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,7 +84,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -102,7 +98,7 @@
 
     iput-object p3, p0, Lcom/google/common/collect/GeneralRange;->lowerEndpoint:Ljava/lang/Object;
 
-    invoke-static {p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p4}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -112,7 +108,7 @@
 
     iput-object p6, p0, Lcom/google/common/collect/GeneralRange;->upperEndpoint:Ljava/lang/Object;
 
-    invoke-static {p7}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p7}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -122,11 +118,11 @@
 
     if-eqz p2, :cond_0
 
-    invoke-static {p3}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-static {p3}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -135,11 +131,11 @@
     :cond_0
     if-eqz p5, :cond_1
 
-    invoke-static {p6}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p6}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-static {p6}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p6}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -150,11 +146,11 @@
 
     if-eqz p5, :cond_5
 
-    invoke-static {p3}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p2
 
-    invoke-static {p6}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p6}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p5
 
@@ -162,40 +158,37 @@
 
     move-result p1
 
-    const/4 p2, 0x1
+    const/4 p2, 0x0
 
-    const/4 p5, 0x0
+    const/4 p5, 0x1
 
     if-gtz p1, :cond_2
 
-    const/4 v0, 0x1
+    move v0, p5
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, p2
 
     :goto_0
     const-string v1, "lowerEndpoint (%s) > upperEndpoint (%s)"
 
-    invoke-static {v0, v1, p3, p6}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v1, p3, p6}, Lcom/google/common/base/m;->k(ZLjava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
 
     if-nez p1, :cond_5
 
     sget-object p1, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
 
-    if-ne p4, p1, :cond_4
+    if-ne p4, p1, :cond_3
 
-    if-eq p7, p1, :cond_3
-
-    goto :goto_1
+    if-eq p7, p1, :cond_4
 
     :cond_3
-    const/4 p2, 0x0
+    move p2, p5
 
     :cond_4
-    :goto_1
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {p2}, Lcom/google/common/base/m;->d(Z)V
 
     :cond_5
     return-void
@@ -217,15 +210,15 @@
 
     new-instance v8, Lcom/google/common/collect/GeneralRange;
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
     sget-object v7, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
 
     const/4 v5, 0x0
 
     const/4 v6, 0x0
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
 
     move-object v0, v8
 
@@ -240,10 +233,6 @@
 
 .method public static downTo(Ljava/util/Comparator;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/GeneralRange;
     .locals 9
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -260,13 +249,13 @@
 
     new-instance v8, Lcom/google/common/collect/GeneralRange;
 
-    const/4 v2, 0x1
-
-    const/4 v5, 0x0
-
     const/4 v6, 0x0
 
     sget-object v7, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
+
+    const/4 v2, 0x1
+
+    const/4 v5, 0x0
 
     move-object v0, v8
 
@@ -393,14 +382,6 @@
 
 .method public static range(Ljava/util/Comparator;Ljava/lang/Object;Lcom/google/common/collect/BoundType;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/GeneralRange;
     .locals 9
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
-    .param p3    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -442,10 +423,6 @@
 
 .method public static upTo(Ljava/util/Comparator;Ljava/lang/Object;Lcom/google/common/collect/BoundType;)Lcom/google/common/collect/GeneralRange;
     .locals 9
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -462,13 +439,13 @@
 
     new-instance v8, Lcom/google/common/collect/GeneralRange;
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
     sget-object v4, Lcom/google/common/collect/BoundType;->OPEN:Lcom/google/common/collect/BoundType;
 
     const/4 v5, 0x1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
 
     move-object v0, v8
 
@@ -502,10 +479,6 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -604,7 +577,7 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v2}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -618,7 +591,7 @@
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/google/common/base/j;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p1
 
@@ -689,51 +662,51 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 7
 
-    const/4 v0, 0x5
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/google/common/collect/GeneralRange;->comparator:Ljava/util/Comparator;
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x1
+    iget-object v0, p0, Lcom/google/common/collect/GeneralRange;->comparator:Ljava/util/Comparator;
 
     invoke-virtual {p0}, Lcom/google/common/collect/GeneralRange;->getLowerEndpoint()Ljava/lang/Object;
 
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x2
+    move-result-object v1
 
     invoke-virtual {p0}, Lcom/google/common/collect/GeneralRange;->getLowerBoundType()Lcom/google/common/collect/BoundType;
 
     move-result-object v2
 
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x3
-
     invoke-virtual {p0}, Lcom/google/common/collect/GeneralRange;->getUpperEndpoint()Ljava/lang/Object;
 
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x4
+    move-result-object v3
 
     invoke-virtual {p0}, Lcom/google/common/collect/GeneralRange;->getUpperBoundType()Lcom/google/common/collect/BoundType;
 
-    move-result-object v2
+    move-result-object v4
 
-    aput-object v2, v0, v1
+    const/4 v5, 0x5
 
-    invoke-static {v0}, Lcom/google/common/base/Objects;->hashCode([Ljava/lang/Object;)I
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object v0, v5, v6
+
+    const/4 v0, 0x1
+
+    aput-object v1, v5, v0
+
+    const/4 v0, 0x2
+
+    aput-object v2, v5, v0
+
+    const/4 v0, 0x3
+
+    aput-object v3, v5, v0
+
+    const/4 v0, 0x4
+
+    aput-object v4, v5, v0
+
+    invoke-static {v5}, Lcom/google/common/base/j;->b([Ljava/lang/Object;)I
 
     move-result v0
 
@@ -752,7 +725,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/google/common/collect/GeneralRange;->comparator:Ljava/util/Comparator;
 
@@ -762,7 +735,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
+    invoke-static {v0}, Lcom/google/common/base/m;->d(Z)V
 
     iget-boolean v0, p0, Lcom/google/common/collect/GeneralRange;->hasLowerBound:Z
 
@@ -985,7 +958,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1006,7 +979,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1038,7 +1011,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/GeneralRange;->reverse:Lcom/google/common/collect/GeneralRange;
+    iget-object v0, p0, Lcom/google/common/collect/GeneralRange;->a:Lcom/google/common/collect/GeneralRange;
 
     if-nez v0, :cond_0
 
@@ -1078,9 +1051,9 @@
 
     invoke-direct/range {v1 .. v8}, Lcom/google/common/collect/GeneralRange;-><init>(Ljava/util/Comparator;ZLjava/lang/Object;Lcom/google/common/collect/BoundType;ZLjava/lang/Object;Lcom/google/common/collect/BoundType;)V
 
-    iput-object p0, v0, Lcom/google/common/collect/GeneralRange;->reverse:Lcom/google/common/collect/GeneralRange;
+    iput-object p0, v0, Lcom/google/common/collect/GeneralRange;->a:Lcom/google/common/collect/GeneralRange;
 
-    iput-object v0, p0, Lcom/google/common/collect/GeneralRange;->reverse:Lcom/google/common/collect/GeneralRange;
+    iput-object v0, p0, Lcom/google/common/collect/GeneralRange;->a:Lcom/google/common/collect/GeneralRange;
 
     :cond_0
     return-object v0
@@ -1172,10 +1145,6 @@
 
 .method public tooHigh(Ljava/lang/Object;)Z
     .locals 5
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -1197,7 +1166,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1211,22 +1180,22 @@
 
     if-lez p1, :cond_1
 
-    const/4 v2, 0x1
+    move v2, v0
 
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-nez p1, :cond_2
 
-    const/4 p1, 0x1
+    move p1, v0
 
     goto :goto_1
 
     :cond_2
-    const/4 p1, 0x0
+    move p1, v1
 
     :goto_1
     invoke-virtual {p0}, Lcom/google/common/collect/GeneralRange;->getUpperBoundType()Lcom/google/common/collect/BoundType;
@@ -1237,7 +1206,7 @@
 
     if-ne v3, v4, :cond_3
 
-    const/4 v1, 0x1
+    move v1, v0
 
     :cond_3
     and-int/2addr p1, v1
@@ -1249,10 +1218,6 @@
 
 .method public tooLow(Ljava/lang/Object;)Z
     .locals 5
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/collect/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -1274,7 +1239,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/common/collect/m3;->a(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1288,22 +1253,22 @@
 
     if-gez p1, :cond_1
 
-    const/4 v2, 0x1
+    move v2, v0
 
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     if-nez p1, :cond_2
 
-    const/4 p1, 0x1
+    move p1, v0
 
     goto :goto_1
 
     :cond_2
-    const/4 p1, 0x0
+    move p1, v1
 
     :goto_1
     invoke-virtual {p0}, Lcom/google/common/collect/GeneralRange;->getLowerBoundType()Lcom/google/common/collect/BoundType;
@@ -1314,7 +1279,7 @@
 
     if-ne v3, v4, :cond_3
 
-    const/4 v1, 0x1
+    move v1, v0
 
     :cond_3
     and-int/2addr p1, v1

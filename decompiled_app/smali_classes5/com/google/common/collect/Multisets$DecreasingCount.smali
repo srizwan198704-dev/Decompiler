@@ -19,7 +19,7 @@
     value = {
         "Ljava/lang/Object;",
         "Ljava/util/Comparator<",
-        "Lcom/google/common/collect/Multiset$Entry<",
+        "Lcom/google/common/collect/l3$a<",
         "*>;>;"
     }
 .end annotation
@@ -30,7 +30,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Comparator<",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "*>;>;"
         }
     .end annotation
@@ -60,23 +60,23 @@
 
 
 # virtual methods
-.method public compare(Lcom/google/common/collect/Multiset$Entry;Lcom/google/common/collect/Multiset$Entry;)I
+.method public compare(Lcom/google/common/collect/l3$a;Lcom/google/common/collect/l3$a;)I
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "*>;",
-            "Lcom/google/common/collect/Multiset$Entry<",
+            "Lcom/google/common/collect/l3$a<",
             "*>;)I"
         }
     .end annotation
 
-    invoke-interface {p2}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
+    invoke-interface {p2}, Lcom/google/common/collect/l3$a;->getCount()I
 
     move-result p2
 
-    invoke-interface {p1}, Lcom/google/common/collect/Multiset$Entry;->getCount()I
+    invoke-interface {p1}, Lcom/google/common/collect/l3$a;->getCount()I
 
     move-result p1
 
@@ -88,11 +88,11 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
-    check-cast p1, Lcom/google/common/collect/Multiset$Entry;
+    check-cast p1, Lcom/google/common/collect/l3$a;
 
-    check-cast p2, Lcom/google/common/collect/Multiset$Entry;
+    check-cast p2, Lcom/google/common/collect/l3$a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Multisets$DecreasingCount;->compare(Lcom/google/common/collect/Multiset$Entry;Lcom/google/common/collect/Multiset$Entry;)I
+    invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Multisets$DecreasingCount;->compare(Lcom/google/common/collect/l3$a;Lcom/google/common/collect/l3$a;)I
 
     move-result p1
 

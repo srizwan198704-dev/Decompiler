@@ -12,6 +12,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/os/IBinder;Ljava/lang/String;)V
     .locals 0
 

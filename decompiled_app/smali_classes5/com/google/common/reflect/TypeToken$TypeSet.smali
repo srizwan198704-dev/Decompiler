@@ -1,5 +1,5 @@
 .class public Lcom/google/common/reflect/TypeToken$TypeSet;
-.super Lcom/google/common/collect/ForwardingSet;
+.super Lcom/google/common/collect/s2;
 
 # interfaces
 .implements Ljava/io/Serializable;
@@ -17,7 +17,7 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/google/common/collect/ForwardingSet<",
+        "Lcom/google/common/collect/s2<",
         "Lcom/google/common/reflect/TypeToken<",
         "-TT;>;>;",
         "Ljava/io/Serializable;"
@@ -44,12 +44,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/reflect/TypeToken;)V
     .locals 0
 
     iput-object p1, p0, Lcom/google/common/reflect/TypeToken$TypeSet;->this$0:Lcom/google/common/reflect/TypeToken;
 
-    invoke-direct {p0}, Lcom/google/common/collect/ForwardingSet;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/collect/s2;-><init>()V
 
     return-void
 .end method
@@ -72,7 +78,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/google/common/reflect/TypeToken$ClassSet;-><init>(Lcom/google/common/reflect/TypeToken;Lcom/google/common/reflect/TypeToken$1;)V
+    invoke-direct {v0, v1, v2}, Lcom/google/common/reflect/TypeToken$ClassSet;-><init>(Lcom/google/common/reflect/TypeToken;Lcom/google/common/reflect/TypeToken$a;)V
 
     return-object v0
 .end method
@@ -112,25 +118,25 @@
 
     if-nez v0, :cond_0
 
-    sget-object v0, Lcom/google/common/reflect/TypeToken$TypeCollector;->FOR_GENERIC_TYPE:Lcom/google/common/reflect/TypeToken$TypeCollector;
+    sget-object v0, Lcom/google/common/reflect/TypeToken$TypeCollector;->a:Lcom/google/common/reflect/TypeToken$TypeCollector;
 
     iget-object v1, p0, Lcom/google/common/reflect/TypeToken$TypeSet;->this$0:Lcom/google/common/reflect/TypeToken;
 
-    invoke-virtual {v0, v1}, Lcom/google/common/reflect/TypeToken$TypeCollector;->collectTypes(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {v0, v1}, Lcom/google/common/reflect/TypeToken$TypeCollector;->d(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/FluentIterable;->from(Ljava/lang/Iterable;)Lcom/google/common/collect/FluentIterable;
+    invoke-static {v0}, Lcom/google/common/collect/j2;->d(Ljava/lang/Iterable;)Lcom/google/common/collect/j2;
 
     move-result-object v0
 
     sget-object v1, Lcom/google/common/reflect/TypeToken$TypeFilter;->IGNORE_TYPE_VARIABLE_OR_WILDCARD:Lcom/google/common/reflect/TypeToken$TypeFilter;
 
-    invoke-virtual {v0, v1}, Lcom/google/common/collect/FluentIterable;->filter(Lcom/google/common/base/Predicate;)Lcom/google/common/collect/FluentIterable;
+    invoke-virtual {v0, v1}, Lcom/google/common/collect/j2;->c(Lcom/google/common/base/n;)Lcom/google/common/collect/j2;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/FluentIterable;->toSet()Lcom/google/common/collect/ImmutableSet;
+    invoke-virtual {v0}, Lcom/google/common/collect/j2;->g()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 
@@ -170,7 +176,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/google/common/reflect/TypeToken$TypeCollector;->FOR_RAW_TYPE:Lcom/google/common/reflect/TypeToken$TypeCollector;
+    sget-object v0, Lcom/google/common/reflect/TypeToken$TypeCollector;->b:Lcom/google/common/reflect/TypeToken$TypeCollector;
 
     iget-object v1, p0, Lcom/google/common/reflect/TypeToken$TypeSet;->this$0:Lcom/google/common/reflect/TypeToken;
 
@@ -178,7 +184,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/google/common/reflect/TypeToken$TypeCollector;->collectTypes(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {v0, v1}, Lcom/google/common/reflect/TypeToken$TypeCollector;->c(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 

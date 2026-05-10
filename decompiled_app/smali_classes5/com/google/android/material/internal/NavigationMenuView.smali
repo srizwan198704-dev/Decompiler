@@ -2,18 +2,16 @@
 .super Landroidx/recyclerview/widget/RecyclerView;
 
 # interfaces
-.implements Landroidx/appcompat/view/menu/MenuView;
-
-
-# annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
+.implements Landroidx/appcompat/view/menu/m;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -47,7 +45,7 @@
 
     invoke-direct {p2, p1, p3, v0}, Landroidx/recyclerview/widget/LinearLayoutManager;-><init>(Landroid/content/Context;IZ)V
 
-    invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
+    invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$m;)V
 
     return-void
 .end method
@@ -62,7 +60,7 @@
     return v0
 .end method
 
-.method public initialize(Landroidx/appcompat/view/menu/MenuBuilder;)V
+.method public initialize(Landroidx/appcompat/view/menu/f;)V
     .locals 0
 
     return-void

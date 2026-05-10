@@ -2,19 +2,10 @@
 .super Ljava/util/concurrent/FutureTask;
 
 # interfaces
-.implements Lcom/google/common/util/concurrent/ListenableFuture;
+.implements Lcom/google/common/util/concurrent/t;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtIncompatible;
-.end annotation
-
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<V:",
@@ -22,23 +13,25 @@
         ">",
         "Ljava/util/concurrent/FutureTask<",
         "TV;>;",
-        "Lcom/google/common/util/concurrent/ListenableFuture<",
+        "Lcom/google/common/util/concurrent/t<",
         "TV;>;"
     }
 .end annotation
 
 
 # instance fields
-.field private final executionList:Lcom/google/common/util/concurrent/ExecutionList;
+.field private final executionList:Lcom/google/common/util/concurrent/i;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Runnable;Ljava/lang/Object;)V
     .locals 0
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,11 +42,11 @@
 
     invoke-direct {p0, p1, p2}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/lang/Runnable;Ljava/lang/Object;)V
 
-    new-instance p1, Lcom/google/common/util/concurrent/ExecutionList;
+    new-instance p1, Lcom/google/common/util/concurrent/i;
 
-    invoke-direct {p1}, Lcom/google/common/util/concurrent/ExecutionList;-><init>()V
+    invoke-direct {p1}, Lcom/google/common/util/concurrent/i;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/ListenableFutureTask;->executionList:Lcom/google/common/util/concurrent/ExecutionList;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/ListenableFutureTask;->executionList:Lcom/google/common/util/concurrent/i;
 
     return-void
 .end method
@@ -70,21 +63,17 @@
 
     invoke-direct {p0, p1}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/util/concurrent/Callable;)V
 
-    new-instance p1, Lcom/google/common/util/concurrent/ExecutionList;
+    new-instance p1, Lcom/google/common/util/concurrent/i;
 
-    invoke-direct {p1}, Lcom/google/common/util/concurrent/ExecutionList;-><init>()V
+    invoke-direct {p1}, Lcom/google/common/util/concurrent/i;-><init>()V
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/ListenableFutureTask;->executionList:Lcom/google/common/util/concurrent/ExecutionList;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/ListenableFutureTask;->executionList:Lcom/google/common/util/concurrent/i;
 
     return-void
 .end method
 
 .method public static create(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFutureTask;
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -130,9 +119,9 @@
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/ListenableFutureTask;->executionList:Lcom/google/common/util/concurrent/ExecutionList;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/ListenableFutureTask;->executionList:Lcom/google/common/util/concurrent/i;
 
-    invoke-virtual {v0, p1, p2}, Lcom/google/common/util/concurrent/ExecutionList;->add(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-virtual {v0, p1, p2}, Lcom/google/common/util/concurrent/i;->a(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     return-void
 .end method
@@ -140,21 +129,15 @@
 .method public done()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/ListenableFutureTask;->executionList:Lcom/google/common/util/concurrent/ExecutionList;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/ListenableFutureTask;->executionList:Lcom/google/common/util/concurrent/i;
 
-    invoke-virtual {v0}, Lcom/google/common/util/concurrent/ExecutionList;->execute()V
+    invoke-virtual {v0}, Lcom/google/common/util/concurrent/i;->b()V
 
     return-void
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
     .locals 5
-    .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",

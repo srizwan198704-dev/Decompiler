@@ -3,6 +3,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public static zza(IILjava/math/RoundingMode;)I
     .locals 5
 
@@ -73,7 +79,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v3, 0x0
+    move v3, v4
 
     :goto_0
     and-int/lit8 p1, v0, 0x1

@@ -3,6 +3,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public static zza(Landroid/content/Context;)Lcom/google/android/gms/internal/auth/zzg;
     .locals 1
 

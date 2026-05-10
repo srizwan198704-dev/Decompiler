@@ -6,6 +6,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -27,9 +33,9 @@
 
     const/4 v2, 0x0
 
-    move-object v2, v1
+    move v3, v2
 
-    const/4 v3, 0x0
+    move-object v2, v1
 
     :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I

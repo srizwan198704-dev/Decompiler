@@ -26,7 +26,7 @@
 
 
 # static fields
-.field private static final INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
+.field public static final a:Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
 .field private static final serialVersionUID:J
 
@@ -39,7 +39,7 @@
 
     invoke-direct {v0}, Lcom/google/common/collect/DiscreteDomain$LongDomain;-><init>()V
 
-    sput-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
+    sput-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->a:Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
     return-void
 .end method
@@ -51,7 +51,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0, v0, v1}, Lcom/google/common/collect/DiscreteDomain;-><init>(ZLcom/google/common/collect/DiscreteDomain$1;)V
+    invoke-direct {p0, v0, v1}, Lcom/google/common/collect/DiscreteDomain;-><init>(ZLcom/google/common/collect/DiscreteDomain$a;)V
 
     return-void
 .end method
@@ -59,7 +59,7 @@
 .method public static synthetic access$200()Lcom/google/common/collect/DiscreteDomain$LongDomain;
     .locals 1
 
-    sget-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
+    sget-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->a:Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
     return-object v0
 .end method
@@ -67,7 +67,7 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
-    sget-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->INSTANCE:Lcom/google/common/collect/DiscreteDomain$LongDomain;
+    sget-object v0, Lcom/google/common/collect/DiscreteDomain$LongDomain;->a:Lcom/google/common/collect/DiscreteDomain$LongDomain;
 
     return-object v0
 .end method
@@ -89,7 +89,7 @@
 .end method
 
 .method public distance(Ljava/lang/Long;Ljava/lang/Long;)J
-    .locals 9
+    .locals 7
 
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
@@ -109,13 +109,13 @@
 
     move-result-wide v4
 
-    const-wide/16 v6, 0x0
+    cmp-long v2, v2, v4
 
-    cmp-long v8, v2, v4
+    const-wide/16 v3, 0x0
 
-    if-lez v8, :cond_0
+    if-lez v2, :cond_0
 
-    cmp-long v2, v0, v6
+    cmp-long v2, v0, v3
 
     if-gez v2, :cond_0
 
@@ -126,17 +126,17 @@
     :cond_0
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v2
+    move-result-wide v5
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide p1
 
-    cmp-long v4, v2, p1
+    cmp-long p1, v5, p1
 
-    if-gez v4, :cond_1
+    if-gez p1, :cond_1
 
-    cmp-long p1, v0, v6
+    cmp-long p1, v0, v3
 
     if-lez p1, :cond_1
 
@@ -251,7 +251,7 @@
 
     const-string v0, "distance"
 
-    invoke-static {p2, p3, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(JLjava/lang/String;)J
+    invoke-static {p2, p3, v0}, Lcom/google/common/collect/e2;->c(JLjava/lang/String;)J
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
@@ -283,7 +283,7 @@
     :goto_0
     const-string p2, "overflow"
 
-    invoke-static {p1, p2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+    invoke-static {p1, p2}, Lcom/google/common/base/m;->e(ZLjava/lang/Object;)V
 
     :cond_1
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;

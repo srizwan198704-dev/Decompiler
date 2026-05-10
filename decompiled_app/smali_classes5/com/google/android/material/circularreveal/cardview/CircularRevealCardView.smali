@@ -2,17 +2,23 @@
 .super Lcom/google/android/material/card/MaterialCardView;
 
 # interfaces
-.implements Lcom/google/android/material/circularreveal/CircularRevealWidget;
+.implements Lcom/google/android/material/circularreveal/c;
 
 
 # instance fields
-.field private final helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+.field public final r:Lcom/google/android/material/circularreveal/b;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -28,11 +34,11 @@
 
     invoke-direct {p0, p1, p2}, Lcom/google/android/material/card/MaterialCardView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    new-instance p1, Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    new-instance p1, Lcom/google/android/material/circularreveal/b;
 
-    invoke-direct {p1, p0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;-><init>(Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;)V
+    invoke-direct {p1, p0}, Lcom/google/android/material/circularreveal/b;-><init>(Lcom/google/android/material/circularreveal/b$a;)V
 
-    iput-object p1, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iput-object p1, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
     return-void
 .end method
@@ -60,9 +66,9 @@
 .method public buildCircularRevealCache()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
-    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->buildCircularRevealCache()V
+    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/b;->a()V
 
     return-void
 .end method
@@ -70,9 +76,9 @@
 .method public destroyCircularRevealCache()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
-    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->destroyCircularRevealCache()V
+    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/b;->b()V
 
     return-void
 .end method
@@ -80,11 +86,11 @@
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/b;->c(Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
@@ -100,9 +106,9 @@
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
-    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->getCircularRevealOverlayDrawable()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/b;->e()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -112,23 +118,23 @@
 .method public getCircularRevealScrimColor()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
-    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->getCircularRevealScrimColor()I
+    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/b;->f()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public getRevealInfo()Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
+.method public getRevealInfo()Lcom/google/android/material/circularreveal/c$e;
     .locals 1
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
-    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->getRevealInfo()Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
+    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/b;->h()Lcom/google/android/material/circularreveal/c$e;
 
     move-result-object v0
 
@@ -138,11 +144,11 @@
 .method public isOpaque()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->isOpaque()Z
+    invoke-virtual {v0}, Lcom/google/android/material/circularreveal/b;->j()Z
 
     move-result v0
 
@@ -163,37 +169,33 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->setCircularRevealOverlayDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/b;->k(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
 .method public setCircularRevealScrimColor(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroidx/annotation/ColorInt;
-        .end annotation
-    .end param
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->setCircularRevealScrimColor(I)V
+    invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/b;->l(I)V
 
     return-void
 .end method
 
-.method public setRevealInfo(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
+.method public setRevealInfo(Lcom/google/android/material/circularreveal/c$e;)V
     .locals 1
-    .param p1    # Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;
+    .param p1    # Lcom/google/android/material/circularreveal/c$e;
         .annotation build Landroidx/annotation/Nullable;
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->helper:Lcom/google/android/material/circularreveal/CircularRevealHelper;
+    iget-object v0, p0, Lcom/google/android/material/circularreveal/cardview/CircularRevealCardView;->r:Lcom/google/android/material/circularreveal/b;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/CircularRevealHelper;->setRevealInfo(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V
+    invoke-virtual {v0, p1}, Lcom/google/android/material/circularreveal/b;->m(Lcom/google/android/material/circularreveal/c$e;)V
 
     return-void
 .end method

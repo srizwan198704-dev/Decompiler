@@ -25,7 +25,7 @@
 
 
 # instance fields
-.field private final transient allTypes:Lcom/google/common/reflect/TypeToken$TypeSet;
+.field public final transient a:Lcom/google/common/reflect/TypeToken$TypeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/reflect/TypeToken<",
@@ -34,7 +34,7 @@
     .end annotation
 .end field
 
-.field private transient interfaces:Lcom/google/common/collect/ImmutableSet;
+.field public transient b:Lcom/google/common/collect/ImmutableSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSet<",
@@ -48,6 +48,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/reflect/TypeToken;Lcom/google/common/reflect/TypeToken$TypeSet;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -62,7 +68,7 @@
 
     invoke-direct {p0, p1}, Lcom/google/common/reflect/TypeToken$TypeSet;-><init>(Lcom/google/common/reflect/TypeToken;)V
 
-    iput-object p2, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->allTypes:Lcom/google/common/reflect/TypeToken$TypeSet;
+    iput-object p2, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->a:Lcom/google/common/reflect/TypeToken$TypeSet;
 
     return-void
 .end method
@@ -135,27 +141,27 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->interfaces:Lcom/google/common/collect/ImmutableSet;
+    iget-object v0, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->b:Lcom/google/common/collect/ImmutableSet;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->allTypes:Lcom/google/common/reflect/TypeToken$TypeSet;
+    iget-object v0, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->a:Lcom/google/common/reflect/TypeToken$TypeSet;
 
-    invoke-static {v0}, Lcom/google/common/collect/FluentIterable;->from(Ljava/lang/Iterable;)Lcom/google/common/collect/FluentIterable;
+    invoke-static {v0}, Lcom/google/common/collect/j2;->d(Ljava/lang/Iterable;)Lcom/google/common/collect/j2;
 
     move-result-object v0
 
     sget-object v1, Lcom/google/common/reflect/TypeToken$TypeFilter;->INTERFACE_ONLY:Lcom/google/common/reflect/TypeToken$TypeFilter;
 
-    invoke-virtual {v0, v1}, Lcom/google/common/collect/FluentIterable;->filter(Lcom/google/common/base/Predicate;)Lcom/google/common/collect/FluentIterable;
+    invoke-virtual {v0, v1}, Lcom/google/common/collect/j2;->c(Lcom/google/common/base/n;)Lcom/google/common/collect/j2;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/FluentIterable;->toSet()Lcom/google/common/collect/ImmutableSet;
+    invoke-virtual {v0}, Lcom/google/common/collect/j2;->g()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->interfaces:Lcom/google/common/collect/ImmutableSet;
+    iput-object v0, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->b:Lcom/google/common/collect/ImmutableSet;
 
     :cond_0
     return-object v0
@@ -185,7 +191,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/google/common/reflect/TypeToken$TypeCollector;->FOR_RAW_TYPE:Lcom/google/common/reflect/TypeToken$TypeCollector;
+    sget-object v0, Lcom/google/common/reflect/TypeToken$TypeCollector;->b:Lcom/google/common/reflect/TypeToken$TypeCollector;
 
     iget-object v1, p0, Lcom/google/common/reflect/TypeToken$InterfaceSet;->this$0:Lcom/google/common/reflect/TypeToken;
 
@@ -193,23 +199,23 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/google/common/reflect/TypeToken$TypeCollector;->collectTypes(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {v0, v1}, Lcom/google/common/reflect/TypeToken$TypeCollector;->c(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/common/collect/FluentIterable;->from(Ljava/lang/Iterable;)Lcom/google/common/collect/FluentIterable;
+    invoke-static {v0}, Lcom/google/common/collect/j2;->d(Ljava/lang/Iterable;)Lcom/google/common/collect/j2;
 
     move-result-object v0
 
-    new-instance v1, Les/te6;
+    new-instance v1, Lcom/google/common/reflect/f;
 
-    invoke-direct {v1}, Les/te6;-><init>()V
+    invoke-direct {v1}, Lcom/google/common/reflect/f;-><init>()V
 
-    invoke-virtual {v0, v1}, Lcom/google/common/collect/FluentIterable;->filter(Lcom/google/common/base/Predicate;)Lcom/google/common/collect/FluentIterable;
+    invoke-virtual {v0, v1}, Lcom/google/common/collect/j2;->c(Lcom/google/common/base/n;)Lcom/google/common/collect/j2;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/common/collect/FluentIterable;->toSet()Lcom/google/common/collect/ImmutableSet;
+    invoke-virtual {v0}, Lcom/google/common/collect/j2;->g()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 

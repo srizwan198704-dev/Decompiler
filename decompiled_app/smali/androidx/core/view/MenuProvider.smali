@@ -2,35 +2,23 @@
 .super Ljava/lang/Object;
 
 
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public abstract onCreateMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
-    .param p1    # Landroid/view/Menu;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/view/MenuInflater;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract onMenuClosed(Landroid/view/Menu;)V
-    .param p1    # Landroid/view/Menu;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract onMenuItemSelected(Landroid/view/MenuItem;)Z
-    .param p1    # Landroid/view/MenuItem;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract onPrepareMenu(Landroid/view/Menu;)V
-    .param p1    # Landroid/view/Menu;
-        .annotation build Landroidx/annotation/NonNull;
-        .end annotation
-    .end param
 .end method

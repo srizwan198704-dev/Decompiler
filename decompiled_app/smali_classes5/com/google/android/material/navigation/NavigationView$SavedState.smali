@@ -36,9 +36,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/navigation/NavigationView$SavedState$1;
+    new-instance v0, Lcom/google/android/material/navigation/NavigationView$SavedState$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/navigation/NavigationView$SavedState$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/navigation/NavigationView$SavedState$a;-><init>()V
 
     sput-object v0, Lcom/google/android/material/navigation/NavigationView$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 

@@ -2,26 +2,18 @@
 .super Lcom/google/android/material/navigation/NavigationBarMenuView;
 
 
-# annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # instance fields
-.field private final activeItemMaxWidth:I
+.field public final H:I
 
-.field private final activeItemMinWidth:I
+.field public final I:I
 
-.field private final inactiveItemMaxWidth:I
+.field public final J:I
 
-.field private final inactiveItemMinWidth:I
+.field public final K:I
 
-.field private itemHorizontalTranslationEnabled:Z
+.field public L:Z
 
-.field private final tempChildWidths:Ljava/util/List;
+.field public final M:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -33,6 +25,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .param p1    # Landroid/content/Context;
@@ -46,7 +44,7 @@
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->tempChildWidths:Ljava/util/List;
+    iput-object p1, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->M:Ljava/util/List;
 
     new-instance p1, Landroid/widget/FrameLayout$LayoutParams;
 
@@ -70,7 +68,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->inactiveItemMaxWidth:I
+    iput v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->H:I
 
     sget v0, Lcom/google/android/material/R$dimen;->design_bottom_navigation_item_min_width:I
 
@@ -78,7 +76,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->inactiveItemMinWidth:I
+    iput v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->I:I
 
     sget v0, Lcom/google/android/material/R$dimen;->design_bottom_navigation_active_item_max_width:I
 
@@ -86,7 +84,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->activeItemMaxWidth:I
+    iput v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->J:I
 
     sget v0, Lcom/google/android/material/R$dimen;->design_bottom_navigation_active_item_min_width:I
 
@@ -94,14 +92,14 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->activeItemMinWidth:I
+    iput p1, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->K:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createNavigationBarItemView(Landroid/content/Context;)Lcom/google/android/material/navigation/NavigationBarItemView;
+.method public d(Landroid/content/Context;)Lcom/google/android/material/navigation/NavigationBarItemView;
     .locals 1
     .param p1    # Landroid/content/Context;
         .annotation build Landroidx/annotation/NonNull;
@@ -120,7 +118,7 @@
 .method public isItemHorizontalTranslationEnabled()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->itemHorizontalTranslationEnabled:Z
+    iget-boolean v0, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->L:Z
 
     return v0
 .end method
@@ -138,9 +136,9 @@
 
     const/4 p2, 0x0
 
-    const/4 p3, 0x0
+    move p3, p2
 
-    const/4 v0, 0x0
+    move v0, p3
 
     :goto_0
     if-ge p3, p1, :cond_2
@@ -208,7 +206,7 @@
 .method public onMeasure(II)V
     .locals 11
 
-    invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarMenuView;->getMenu()Landroidx/appcompat/view/menu/MenuBuilder;
+    invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationBarMenuView;->getMenu()Landroidx/appcompat/view/menu/f;
 
     move-result-object v0
 
@@ -216,7 +214,7 @@
 
     move-result p1
 
-    invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuBuilder;->getVisibleItems()Ljava/util/ArrayList;
+    invoke-virtual {v0}, Landroidx/appcompat/view/menu/f;->G()Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -228,7 +226,7 @@
 
     move-result v1
 
-    iget-object v2, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->tempChildWidths:Ljava/util/List;
+    iget-object v2, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->M:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->clear()V
 
@@ -246,7 +244,7 @@
 
     move-result v4
 
-    invoke-virtual {p0, v4, v0}, Lcom/google/android/material/navigation/NavigationBarMenuView;->isShifting(II)Z
+    invoke-virtual {p0, v4, v0}, Lcom/google/android/material/navigation/NavigationBarMenuView;->f(II)Z
 
     move-result v4
 
@@ -272,7 +270,7 @@
 
     move-result-object v4
 
-    iget v8, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->activeItemMinWidth:I
+    iget v8, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->K:I
 
     invoke-virtual {v4}, Landroid/view/View;->getVisibility()I
 
@@ -280,7 +278,7 @@
 
     if-eq v9, v5, :cond_0
 
-    iget v9, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->activeItemMaxWidth:I
+    iget v9, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->J:I
 
     const/high16 v10, -0x80000000
 
@@ -305,23 +303,23 @@
 
     if-eq v4, v5, :cond_1
 
-    const/4 v4, 0x1
+    move v4, v7
 
     goto :goto_0
 
     :cond_1
-    const/4 v4, 0x0
+    move v4, v6
 
     :goto_0
     sub-int/2addr v0, v4
 
-    iget v4, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->inactiveItemMinWidth:I
+    iget v4, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->I:I
 
-    mul-int v4, v4, v0
+    mul-int/2addr v4, v0
 
     sub-int v4, p1, v4
 
-    iget v9, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->activeItemMaxWidth:I
+    iget v9, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->J:I
 
     invoke-static {v8, v9}, Ljava/lang/Math;->min(II)I
 
@@ -343,17 +341,17 @@
     :goto_1
     div-int v7, p1, v7
 
-    iget v8, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->inactiveItemMaxWidth:I
+    iget v8, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->H:I
 
     invoke-static {v7, v8}, Ljava/lang/Math;->min(II)I
 
     move-result v7
 
-    mul-int v0, v0, v7
+    mul-int/2addr v0, v7
 
     sub-int/2addr p1, v0
 
-    const/4 v0, 0x0
+    move v0, v6
 
     :goto_2
     if-ge v0, v1, :cond_a
@@ -391,11 +389,11 @@
     goto :goto_4
 
     :cond_4
-    const/4 v8, 0x0
+    move v8, v6
 
     :cond_5
     :goto_4
-    iget-object v9, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->tempChildWidths:Ljava/util/List;
+    iget-object v9, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->M:Ljava/util/List;
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -418,17 +416,17 @@
     :goto_5
     div-int v4, p1, v7
 
-    iget v7, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->activeItemMaxWidth:I
+    iget v7, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->J:I
 
     invoke-static {v4, v7}, Ljava/lang/Math;->min(II)I
 
     move-result v4
 
-    mul-int v0, v0, v4
+    mul-int/2addr v0, v4
 
     sub-int/2addr p1, v0
 
-    const/4 v0, 0x0
+    move v0, v6
 
     :goto_6
     if-ge v0, v1, :cond_a
@@ -457,10 +455,10 @@
     goto :goto_7
 
     :cond_9
-    const/4 v7, 0x0
+    move v7, v6
 
     :goto_7
-    iget-object v8, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->tempChildWidths:Ljava/util/List;
+    iget-object v8, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->M:Ljava/util/List;
 
     invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -473,7 +471,7 @@
     goto :goto_6
 
     :cond_a
-    const/4 p1, 0x0
+    move p1, v6
 
     :goto_8
     if-ge v6, v1, :cond_c
@@ -491,7 +489,7 @@
     goto :goto_9
 
     :cond_b
-    iget-object v4, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->tempChildWidths:Ljava/util/List;
+    iget-object v4, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->M:Ljava/util/List;
 
     invoke-interface {v4, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -539,7 +537,7 @@
 .method public setItemHorizontalTranslationEnabled(Z)V
     .locals 0
 
-    iput-boolean p1, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->itemHorizontalTranslationEnabled:Z
+    iput-boolean p1, p0, Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;->L:Z
 
     return-void
 .end method

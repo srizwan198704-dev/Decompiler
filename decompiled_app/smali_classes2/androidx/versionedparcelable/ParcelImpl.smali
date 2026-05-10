@@ -12,12 +12,6 @@
     }
 .end annotation
 
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
@@ -32,16 +26,16 @@
 
 
 # instance fields
-.field private final mParcel:Landroidx/versionedparcelable/VersionedParcelable;
+.field private final mParcel:Lz4/c;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Landroidx/versionedparcelable/ParcelImpl$1;
+    new-instance v0, Landroidx/versionedparcelable/ParcelImpl$a;
 
-    invoke-direct {v0}, Landroidx/versionedparcelable/ParcelImpl$1;-><init>()V
+    invoke-direct {v0}, Landroidx/versionedparcelable/ParcelImpl$a;-><init>()V
 
     sput-object v0, Landroidx/versionedparcelable/ParcelImpl;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -53,25 +47,25 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Landroidx/versionedparcelable/VersionedParcelParcel;
+    new-instance v0, Lz4/b;
 
-    invoke-direct {v0, p1}, Landroidx/versionedparcelable/VersionedParcelParcel;-><init>(Landroid/os/Parcel;)V
+    invoke-direct {v0, p1}, Lz4/b;-><init>(Landroid/os/Parcel;)V
 
-    invoke-virtual {v0}, Landroidx/versionedparcelable/VersionedParcel;->readVersionedParcelable()Landroidx/versionedparcelable/VersionedParcelable;
+    invoke-virtual {v0}, Landroidx/versionedparcelable/VersionedParcel;->u()Lz4/c;
 
     move-result-object p1
 
-    iput-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
+    iput-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Lz4/c;
 
     return-void
 .end method
 
-.method public constructor <init>(Landroidx/versionedparcelable/VersionedParcelable;)V
+.method public constructor <init>(Lz4/c;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
+    iput-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Lz4/c;
 
     return-void
 .end method
@@ -86,17 +80,17 @@
     return v0
 .end method
 
-.method public getVersionedParcel()Landroidx/versionedparcelable/VersionedParcelable;
+.method public getVersionedParcel()Lz4/c;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
-            "Landroidx/versionedparcelable/VersionedParcelable;",
+            "Lz4/c;",
             ">()TT;"
         }
     .end annotation
 
-    iget-object v0, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
+    iget-object v0, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Lz4/c;
 
     return-object v0
 .end method
@@ -104,13 +98,13 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
 
-    new-instance p2, Landroidx/versionedparcelable/VersionedParcelParcel;
+    new-instance p2, Lz4/b;
 
-    invoke-direct {p2, p1}, Landroidx/versionedparcelable/VersionedParcelParcel;-><init>(Landroid/os/Parcel;)V
+    invoke-direct {p2, p1}, Lz4/b;-><init>(Landroid/os/Parcel;)V
 
-    iget-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
+    iget-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Lz4/c;
 
-    invoke-virtual {p2, p1}, Landroidx/versionedparcelable/VersionedParcel;->writeVersionedParcelable(Landroidx/versionedparcelable/VersionedParcelable;)V
+    invoke-virtual {p2, p1}, Landroidx/versionedparcelable/VersionedParcel;->L(Lz4/c;)V
 
     return-void
 .end method

@@ -2,24 +2,22 @@
 .super Landroid/widget/FrameLayout;
 
 
-# annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # instance fields
-.field private cornerRadius:F
-
-.field private path:Landroid/graphics/Path;
+.field public a:Landroid/graphics/Path;
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
+.field public b:F
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
     .param p1    # Landroid/content/Context;
@@ -69,7 +67,7 @@
 .method public dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
+    iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->a:Landroid/graphics/Path;
 
     if-nez v0, :cond_0
 
@@ -82,7 +80,7 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
+    iget-object v1, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->a:Landroid/graphics/Path;
 
     invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
 
@@ -96,7 +94,7 @@
 .method public getCornerRadius()F
     .locals 1
 
-    iget v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->cornerRadius:F
+    iget v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->b:F
 
     return v0
 .end method
@@ -106,11 +104,11 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
+    iput-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->a:Landroid/graphics/Path;
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->cornerRadius:F
+    iput v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->b:F
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
@@ -168,7 +166,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
+    iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->a:Landroid/graphics/Path;
 
     if-nez v0, :cond_0
 
@@ -176,22 +174,22 @@
 
     invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
+    iput-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->a:Landroid/graphics/Path;
 
     :cond_0
-    iput p2, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->cornerRadius:F
+    iput p2, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->b:F
 
-    iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
+    iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->a:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
 
-    iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
+    iget-object v0, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->a:Landroid/graphics/Path;
 
     sget-object v1, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
 
     invoke-virtual {v0, p1, p2, p2, v1}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
 
-    iget-object p1, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->path:Landroid/graphics/Path;
+    iget-object p1, p0, Lcom/google/android/material/internal/ClippableRoundedCornerLayout;->a:Landroid/graphics/Path;
 
     invoke-virtual {p1}, Landroid/graphics/Path;->close()V
 

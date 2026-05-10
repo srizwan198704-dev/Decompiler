@@ -30,8 +30,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/Ordering<",
-            "Lcom/google/common/collect/Range<",
-            "*>;>;"
+            "*>;"
         }
     .end annotation
 .end field
@@ -74,7 +73,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/google/common/collect/ComparisonChain;->start()Lcom/google/common/collect/ComparisonChain;
+    invoke-static {}, Lcom/google/common/collect/h2;->k()Lcom/google/common/collect/h2;
 
     move-result-object v0
 
@@ -82,7 +81,7 @@
 
     iget-object v2, p2, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/common/collect/ComparisonChain;->compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ComparisonChain;
+    invoke-virtual {v0, v1, v2}, Lcom/google/common/collect/h2;->f(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/h2;
 
     move-result-object v0
 
@@ -90,11 +89,11 @@
 
     iget-object p2, p2, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
-    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/ComparisonChain;->compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/ComparisonChain;
+    invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/h2;->f(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lcom/google/common/collect/h2;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/google/common/collect/ComparisonChain;->result()I
+    invoke-virtual {p1}, Lcom/google/common/collect/h2;->j()I
 
     move-result p1
 

@@ -1,21 +1,15 @@
 .class Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
-.super Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;
+.super Lcom/google/common/util/concurrent/k$a;
 
 # interfaces
 .implements Ljava/util/concurrent/RunnableFuture;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleAsyncTask;,
-        Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;
+        Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;,
+        Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleAsyncTask;
     }
 .end annotation
 
@@ -24,7 +18,7 @@
         "<V:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture<",
+        "Lcom/google/common/util/concurrent/k$a<",
         "TV;>;",
         "Ljava/util/concurrent/RunnableFuture<",
         "TV;>;"
@@ -44,21 +38,27 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/common/util/concurrent/AsyncCallable;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/util/concurrent/e;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/AsyncCallable<",
+            "Lcom/google/common/util/concurrent/e<",
             "TV;>;)V"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/k$a;-><init>()V
 
     new-instance v0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleAsyncTask;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleAsyncTask;-><init>(Lcom/google/common/util/concurrent/TrustedListenableFutureTask;Lcom/google/common/util/concurrent/AsyncCallable;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleAsyncTask;-><init>(Lcom/google/common/util/concurrent/TrustedListenableFutureTask;Lcom/google/common/util/concurrent/e;)V
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;->task:Lcom/google/common/util/concurrent/InterruptibleTask;
 
@@ -75,7 +75,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/k$a;-><init>()V
 
     new-instance v0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;
 
@@ -86,14 +86,14 @@
     return-void
 .end method
 
-.method public static create(Lcom/google/common/util/concurrent/AsyncCallable;)Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
+.method public static create(Lcom/google/common/util/concurrent/e;)Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/util/concurrent/AsyncCallable<",
+            "Lcom/google/common/util/concurrent/e<",
             "TV;>;)",
             "Lcom/google/common/util/concurrent/TrustedListenableFutureTask<",
             "TV;>;"
@@ -102,17 +102,13 @@
 
     new-instance v0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
 
-    invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;-><init>(Lcom/google/common/util/concurrent/AsyncCallable;)V
+    invoke-direct {v0, p0}, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;-><init>(Lcom/google/common/util/concurrent/e;)V
 
     return-object v0
 .end method
 
 .method public static create(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",

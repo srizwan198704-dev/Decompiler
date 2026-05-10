@@ -3,9 +3,6 @@
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/J2ktIncompatible;
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/ImmutableBiMap;
 .end annotation
@@ -33,6 +30,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/common/collect/ImmutableBiMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -50,27 +53,27 @@
 
 
 # virtual methods
-.method public makeBuilder(I)Lcom/google/common/collect/ImmutableBiMap$Builder;
+.method public makeBuilder(I)Lcom/google/common/collect/ImmutableBiMap$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/google/common/collect/ImmutableBiMap$Builder<",
+            "Lcom/google/common/collect/ImmutableBiMap$a<",
             "TK;TV;>;"
         }
     .end annotation
 
-    new-instance v0, Lcom/google/common/collect/ImmutableBiMap$Builder;
+    new-instance v0, Lcom/google/common/collect/ImmutableBiMap$a;
 
-    invoke-direct {v0, p1}, Lcom/google/common/collect/ImmutableBiMap$Builder;-><init>(I)V
+    invoke-direct {v0, p1}, Lcom/google/common/collect/ImmutableBiMap$a;-><init>(I)V
 
     return-object v0
 .end method
 
-.method public bridge synthetic makeBuilder(I)Lcom/google/common/collect/ImmutableMap$Builder;
+.method public bridge synthetic makeBuilder(I)Lcom/google/common/collect/ImmutableMap$b;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableBiMap$SerializedForm;->makeBuilder(I)Lcom/google/common/collect/ImmutableBiMap$Builder;
+    invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableBiMap$SerializedForm;->makeBuilder(I)Lcom/google/common/collect/ImmutableBiMap$a;
 
     move-result-object p1
 

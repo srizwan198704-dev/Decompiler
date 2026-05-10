@@ -29,6 +29,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;)V
     .locals 0
 

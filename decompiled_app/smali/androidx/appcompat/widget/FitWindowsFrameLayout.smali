@@ -1,23 +1,18 @@
 .class public Landroidx/appcompat/widget/FitWindowsFrameLayout;
 .super Landroid/widget/FrameLayout;
 
-# interfaces
-.implements Landroidx/appcompat/widget/FitWindowsViewGroup;
-
-
-# annotations
-.annotation build Landroidx/annotation/RestrictTo;
-    value = {
-        .enum Landroidx/annotation/RestrictTo$Scope;->LIBRARY_GROUP_PREFIX:Landroidx/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 
 # instance fields
-.field private mListener:Landroidx/appcompat/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
+.field public a:Landroidx/appcompat/widget/z;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
     .param p1    # Landroid/content/Context;
@@ -51,11 +46,11 @@
 .method public fitSystemWindows(Landroid/graphics/Rect;)Z
     .locals 1
 
-    iget-object v0, p0, Landroidx/appcompat/widget/FitWindowsFrameLayout;->mListener:Landroidx/appcompat/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
+    iget-object v0, p0, Landroidx/appcompat/widget/FitWindowsFrameLayout;->a:Landroidx/appcompat/widget/z;
 
     if-eqz v0, :cond_0
 
-    invoke-interface {v0, p1}, Landroidx/appcompat/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;->onFitSystemWindows(Landroid/graphics/Rect;)V
+    invoke-interface {v0, p1}, Landroidx/appcompat/widget/z;->a(Landroid/graphics/Rect;)V
 
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->fitSystemWindows(Landroid/graphics/Rect;)Z
@@ -65,10 +60,8 @@
     return p1
 .end method
 
-.method public setOnFitSystemWindowsListener(Landroidx/appcompat/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;)V
+.method public setOnFitSystemWindowsListener(Landroidx/appcompat/widget/z;)V
     .locals 0
-
-    iput-object p1, p0, Landroidx/appcompat/widget/FitWindowsFrameLayout;->mListener:Landroidx/appcompat/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;
 
     return-void
 .end method

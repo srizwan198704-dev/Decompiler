@@ -44,6 +44,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>([Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
     .locals 1
 
@@ -51,11 +57,11 @@
 
     const-string v0, "lower bound for wildcard"
 
-    invoke-static {p1, v0}, Lcom/google/common/reflect/Types;->access$200([Ljava/lang/reflect/Type;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lcom/google/common/reflect/Types;->b([Ljava/lang/reflect/Type;Ljava/lang/String;)V
 
     const-string v0, "upper bound for wildcard"
 
-    invoke-static {p2, v0}, Lcom/google/common/reflect/Types;->access$200([Ljava/lang/reflect/Type;Ljava/lang/String;)V
+    invoke-static {p2, v0}, Lcom/google/common/reflect/Types;->b([Ljava/lang/reflect/Type;Ljava/lang/String;)V
 
     sget-object v0, Lcom/google/common/reflect/Types$JavaVersion;->CURRENT:Lcom/google/common/reflect/Types$JavaVersion;
 
@@ -130,7 +136,7 @@
 
     iget-object v0, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->lowerBounds:Lcom/google/common/collect/ImmutableList;
 
-    invoke-static {v0}, Lcom/google/common/reflect/Types;->access$300(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
+    invoke-static {v0}, Lcom/google/common/reflect/Types;->c(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
 
     move-result-object v0
 
@@ -142,7 +148,7 @@
 
     iget-object v0, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->upperBounds:Lcom/google/common/collect/ImmutableList;
 
-    invoke-static {v0}, Lcom/google/common/reflect/Types;->access$300(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
+    invoke-static {v0}, Lcom/google/common/reflect/Types;->c(Ljava/util/Collection;)[Ljava/lang/reflect/Type;
 
     move-result-object v0
 
@@ -180,7 +186,7 @@
 
     iget-object v1, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->lowerBounds:Lcom/google/common/collect/ImmutableList;
 
-    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableList;->iterator()Lcom/google/common/collect/r4;
 
     move-result-object v1
 
@@ -214,7 +220,7 @@
     :cond_0
     iget-object v1, p0, Lcom/google/common/reflect/Types$WildcardTypeImpl;->upperBounds:Lcom/google/common/collect/ImmutableList;
 
-    invoke-static {v1}, Lcom/google/common/reflect/Types;->access$600(Ljava/lang/Iterable;)Ljava/lang/Iterable;
+    invoke-static {v1}, Lcom/google/common/reflect/Types;->e(Ljava/lang/Iterable;)Ljava/lang/Iterable;
 
     move-result-object v1
 

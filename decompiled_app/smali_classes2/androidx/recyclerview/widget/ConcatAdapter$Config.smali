@@ -14,23 +14,22 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/recyclerview/widget/ConcatAdapter$Config$Builder;,
         Landroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;
     }
 .end annotation
 
 
 # static fields
-.field public static final DEFAULT:Landroidx/recyclerview/widget/ConcatAdapter$Config;
+.field public static final c:Landroidx/recyclerview/widget/ConcatAdapter$Config;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
 
 
 # instance fields
-.field public final isolateViewTypes:Z
+.field public final a:Z
 
-.field public final stableIdMode:Landroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;
+.field public final b:Landroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
@@ -48,7 +47,7 @@
 
     invoke-direct {v0, v1, v2}, Landroidx/recyclerview/widget/ConcatAdapter$Config;-><init>(ZLandroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;)V
 
-    sput-object v0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->DEFAULT:Landroidx/recyclerview/widget/ConcatAdapter$Config;
+    sput-object v0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->c:Landroidx/recyclerview/widget/ConcatAdapter$Config;
 
     return-void
 .end method
@@ -62,9 +61,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean p1, p0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->isolateViewTypes:Z
+    iput-boolean p1, p0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->a:Z
 
-    iput-object p2, p0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->stableIdMode:Landroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;
+    iput-object p2, p0, Landroidx/recyclerview/widget/ConcatAdapter$Config;->b:Landroidx/recyclerview/widget/ConcatAdapter$Config$StableIdMode;
 
     return-void
 .end method

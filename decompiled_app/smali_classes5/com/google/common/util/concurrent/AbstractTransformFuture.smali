@@ -1,21 +1,15 @@
 .class abstract Lcom/google/common/util/concurrent/AbstractTransformFuture;
-.super Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;
+.super Lcom/google/common/util/concurrent/k$a;
 
 # interfaces
 .implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation build Lcom/google/common/annotations/GwtCompatible;
-.end annotation
-
-.annotation runtime Lcom/google/common/util/concurrent/ElementTypesAreNonnullByDefault;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/util/concurrent/AbstractTransformFuture$TransformFuture;,
-        Lcom/google/common/util/concurrent/AbstractTransformFuture$AsyncTransformFuture;
+        Lcom/google/common/util/concurrent/AbstractTransformFuture$AsyncTransformFuture;,
+        Lcom/google/common/util/concurrent/AbstractTransformFuture$TransformFuture;
     }
 .end annotation
 
@@ -30,7 +24,7 @@
         "T:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture<",
+        "Lcom/google/common/util/concurrent/k$a<",
         "TO;>;",
         "Ljava/lang/Runnable;"
     }
@@ -46,10 +40,10 @@
     .end annotation
 .end field
 
-.field inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+.field inputFuture:Lcom/google/common/util/concurrent/t;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TI;>;"
         }
     .end annotation
@@ -57,27 +51,33 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/lang/Object;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/google/common/util/concurrent/t;Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "+TI;>;TF;)V"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;-><init>()V
+    invoke-direct {p0}, Lcom/google/common/util/concurrent/k$a;-><init>()V
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Lcom/google/common/util/concurrent/ListenableFuture;
+    check-cast p1, Lcom/google/common/util/concurrent/t;
 
-    iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -86,7 +86,7 @@
     return-void
 .end method
 
-.method public static create(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/base/Function;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
+.method public static create(Lcom/google/common/util/concurrent/t;Lcom/google/common/base/f;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/t;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,33 +95,33 @@
             "O:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "TI;>;",
-            "Lcom/google/common/base/Function<",
+            "Lcom/google/common/base/f<",
             "-TI;+TO;>;",
             "Ljava/util/concurrent/Executor;",
             ")",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "TO;>;"
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lcom/google/common/util/concurrent/AbstractTransformFuture$TransformFuture;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/AbstractTransformFuture$TransformFuture;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/base/Function;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/AbstractTransformFuture$TransformFuture;-><init>(Lcom/google/common/util/concurrent/t;Lcom/google/common/base/f;)V
 
-    invoke-static {p2, v0}, Lcom/google/common/util/concurrent/MoreExecutors;->rejectionPropagatingExecutor(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
+    invoke-static {p2, v0}, Lcom/google/common/util/concurrent/MoreExecutors;->c(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
 
     move-result-object p1
 
-    invoke-interface {p0, v0, p1}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-interface {p0, v0, p1}, Lcom/google/common/util/concurrent/t;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     return-object v0
 .end method
 
-.method public static create(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/AsyncFunction;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;
+.method public static createAsync(Lcom/google/common/util/concurrent/t;Lcom/google/common/util/concurrent/f;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/t;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,28 +130,28 @@
             "O:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "TI;>;",
-            "Lcom/google/common/util/concurrent/AsyncFunction<",
+            "Lcom/google/common/util/concurrent/f<",
             "-TI;+TO;>;",
             "Ljava/util/concurrent/Executor;",
             ")",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Lcom/google/common/util/concurrent/t<",
             "TO;>;"
         }
     .end annotation
 
-    invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/common/base/m;->o(Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lcom/google/common/util/concurrent/AbstractTransformFuture$AsyncTransformFuture;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/AbstractTransformFuture$AsyncTransformFuture;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;Lcom/google/common/util/concurrent/AsyncFunction;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/common/util/concurrent/AbstractTransformFuture$AsyncTransformFuture;-><init>(Lcom/google/common/util/concurrent/t;Lcom/google/common/util/concurrent/f;)V
 
-    invoke-static {p2, v0}, Lcom/google/common/util/concurrent/MoreExecutors;->rejectionPropagatingExecutor(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
+    invoke-static {p2, v0}, Lcom/google/common/util/concurrent/MoreExecutors;->c(Ljava/util/concurrent/Executor;Lcom/google/common/util/concurrent/AbstractFuture;)Ljava/util/concurrent/Executor;
 
     move-result-object p1
 
-    invoke-interface {p0, v0, p1}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-interface {p0, v0, p1}, Lcom/google/common/util/concurrent/t;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     return-object v0
 .end method
@@ -161,13 +161,13 @@
 .method public final afterDone()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->maybePropagateCancellationTo(Ljava/util/concurrent/Future;)V
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iput-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->function:Ljava/lang/Object;
 
@@ -175,16 +175,6 @@
 .end method
 
 .method public abstract doTransform(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .param p2    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-    .end annotation
-
-    .annotation build Lcom/google/errorprone/annotations/ForOverride;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TI;)TT;"
@@ -201,7 +191,7 @@
 .method public pendingToString()Ljava/lang/String;
     .locals 5
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->function:Ljava/lang/Object;
 
@@ -285,11 +275,11 @@
 .method public final run()V
     .locals 6
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->function:Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;->isCancelled()Z
+    invoke-virtual {p0}, Lcom/google/common/util/concurrent/k$a;->isCancelled()Z
 
     move-result v2
 
@@ -299,12 +289,12 @@
 
     if-nez v0, :cond_0
 
-    const/4 v5, 0x1
+    move v5, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v5, 0x0
+    move v5, v4
 
     :goto_0
     or-int/2addr v2, v5
@@ -314,7 +304,7 @@
     goto :goto_1
 
     :cond_1
-    const/4 v3, 0x0
+    move v3, v4
 
     :goto_1
     or-int/2addr v2, v3
@@ -326,7 +316,7 @@
     :cond_2
     const/4 v2, 0x0
 
-    iput-object v2, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iput-object v2, p0, Lcom/google/common/util/concurrent/AbstractTransformFuture;->inputFuture:Lcom/google/common/util/concurrent/t;
 
     invoke-interface {v0}, Ljava/util/concurrent/Future;->isCancelled()Z
 
@@ -334,13 +324,13 @@
 
     if-eqz v3, :cond_3
 
-    invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
+    invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/t;)Z
 
     return-void
 
     :cond_3
     :try_start_0
-    invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/common/util/concurrent/Futures;->d(Ljava/util/concurrent/Future;)Ljava/lang/Object;
 
     move-result-object v0
     :try_end_0
@@ -366,7 +356,7 @@
     move-exception v0
 
     :try_start_2
-    invoke-static {v0}, Lcom/google/common/util/concurrent/Platform;->restoreInterruptIfIsInterruptedException(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lcom/google/common/util/concurrent/z;->b(Ljava/lang/Throwable;)V
 
     invoke-virtual {p0, v0}, Lcom/google/common/util/concurrent/AbstractFuture;->setException(Ljava/lang/Throwable;)Z
     :try_end_2
@@ -409,19 +399,12 @@
     return-void
 
     :catch_3
-    invoke-virtual {p0, v4}, Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;->cancel(Z)Z
+    invoke-virtual {p0, v4}, Lcom/google/common/util/concurrent/k$a;->cancel(Z)Z
 
     return-void
 .end method
 
 .method public abstract setResult(Ljava/lang/Object;)V
-    .param p1    # Ljava/lang/Object;
-        .annotation runtime Lcom/google/common/util/concurrent/ParametricNullness;
-        .end annotation
-    .end param
-    .annotation build Lcom/google/errorprone/annotations/ForOverride;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"

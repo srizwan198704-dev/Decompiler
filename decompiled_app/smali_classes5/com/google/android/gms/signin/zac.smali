@@ -5,6 +5,14 @@
 .implements Lcom/google/android/gms/common/api/Api$ApiOptions$HasOptions;
 
 
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
     .locals 0

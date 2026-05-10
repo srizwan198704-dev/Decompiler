@@ -1,0 +1,58 @@
+.class public final Landroidx/core/R$drawable;
+.super Ljava/lang/Object;
+
+
+# static fields
+.field public static ic_call_answer:I = 0x7f0802b9
+
+.field public static ic_call_answer_low:I = 0x7f0802ba
+
+.field public static ic_call_answer_video:I = 0x7f0802bb
+
+.field public static ic_call_answer_video_low:I = 0x7f0802bc
+
+.field public static ic_call_decline:I = 0x7f0802bd
+
+.field public static ic_call_decline_low:I = 0x7f0802be
+
+.field public static notification_action_background:I = 0x7f080563
+
+.field public static notification_bg:I = 0x7f080564
+
+.field public static notification_bg_low:I = 0x7f080565
+
+.field public static notification_bg_low_normal:I = 0x7f080566
+
+.field public static notification_bg_low_pressed:I = 0x7f080567
+
+.field public static notification_bg_normal:I = 0x7f080568
+
+.field public static notification_bg_normal_pressed:I = 0x7f080569
+
+.field public static notification_icon_background:I = 0x7f08056a
+
+.field public static notification_oversize_large_icon_bg:I = 0x7f08056b
+
+.field public static notification_template_icon_bg:I = 0x7f08056c
+
+.field public static notification_template_icon_low_bg:I = 0x7f08056d
+
+.field public static notification_tile_bg:I = 0x7f08056e
+
+.field public static notify_panel_notification_icon_bg:I = 0x7f08056f
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method

@@ -14,9 +14,58 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/activity/result/IntentSenderRequest$Builder;,
-        Landroidx/activity/result/IntentSenderRequest$Companion;
+        Landroidx/activity/result/IntentSenderRequest$a;,
+        Landroidx/activity/result/IntentSenderRequest$c;
     }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\u0006\n\u0002\u0010\u0002\n\u0002\u0008\u000f\u0008\u0007\u0018\u0000 \u001e2\u00020\u0001:\u0002\u001f B1\u0008\u0000\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\n\u0008\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0004\u0012\u0008\u0008\u0002\u0010\u0007\u001a\u00020\u0006\u0012\u0008\u0008\u0002\u0010\u0008\u001a\u00020\u0006\u00a2\u0006\u0004\u0008\t\u0010\nB\u0011\u0008\u0010\u0012\u0006\u0010\u000c\u001a\u00020\u000b\u00a2\u0006\u0004\u0008\t\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0006H\u0016\u00a2\u0006\u0004\u0008\u000e\u0010\u000fJ\u001f\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0010\u001a\u00020\u000b2\u0006\u0010\u0011\u001a\u00020\u0006H\u0016\u00a2\u0006\u0004\u0008\u0013\u0010\u0014R\u0017\u0010\u0003\u001a\u00020\u00028\u0006\u00a2\u0006\u000c\n\u0004\u0008\u0003\u0010\u0015\u001a\u0004\u0008\u0016\u0010\u0017R\u0019\u0010\u0005\u001a\u0004\u0018\u00010\u00048\u0006\u00a2\u0006\u000c\n\u0004\u0008\u0005\u0010\u0018\u001a\u0004\u0008\u0019\u0010\u001aR\u0017\u0010\u0007\u001a\u00020\u00068\u0006\u00a2\u0006\u000c\n\u0004\u0008\u0007\u0010\u001b\u001a\u0004\u0008\u001c\u0010\u000fR\u0017\u0010\u0008\u001a\u00020\u00068\u0006\u00a2\u0006\u000c\n\u0004\u0008\u0008\u0010\u001b\u001a\u0004\u0008\u001d\u0010\u000f\u00a8\u0006!"
+    }
+    d2 = {
+        "Landroidx/activity/result/IntentSenderRequest;",
+        "Landroid/os/Parcelable;",
+        "Landroid/content/IntentSender;",
+        "intentSender",
+        "Landroid/content/Intent;",
+        "fillInIntent",
+        "",
+        "flagsMask",
+        "flagsValues",
+        "<init>",
+        "(Landroid/content/IntentSender;Landroid/content/Intent;II)V",
+        "Landroid/os/Parcel;",
+        "parcel",
+        "(Landroid/os/Parcel;)V",
+        "describeContents",
+        "()I",
+        "dest",
+        "flags",
+        "",
+        "writeToParcel",
+        "(Landroid/os/Parcel;I)V",
+        "Landroid/content/IntentSender;",
+        "getIntentSender",
+        "()Landroid/content/IntentSender;",
+        "Landroid/content/Intent;",
+        "getFillInIntent",
+        "()Landroid/content/Intent;",
+        "I",
+        "getFlagsMask",
+        "getFlagsValues",
+        "Companion",
+        "a",
+        "c",
+        "activity_release"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x8,
+        0x0
+    }
+    xi = 0x30
 .end annotation
 
 
@@ -29,9 +78,12 @@
             ">;"
         }
     .end annotation
+
+    .annotation build Lkotlin/jvm/JvmField;
+    .end annotation
 .end field
 
-.field public static final Companion:Landroidx/activity/result/IntentSenderRequest$Companion;
+.field public static final Companion:Landroidx/activity/result/IntentSenderRequest$c;
 
 
 # instance fields
@@ -48,17 +100,17 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Landroidx/activity/result/IntentSenderRequest$Companion;
+    new-instance v0, Landroidx/activity/result/IntentSenderRequest$c;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Landroidx/activity/result/IntentSenderRequest$Companion;-><init>(Les/wv0;)V
+    invoke-direct {v0, v1}, Landroidx/activity/result/IntentSenderRequest$c;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    sput-object v0, Landroidx/activity/result/IntentSenderRequest;->Companion:Landroidx/activity/result/IntentSenderRequest$Companion;
+    sput-object v0, Landroidx/activity/result/IntentSenderRequest;->Companion:Landroidx/activity/result/IntentSenderRequest$c;
 
-    new-instance v0, Landroidx/activity/result/IntentSenderRequest$Companion$CREATOR$1;
+    new-instance v0, Landroidx/activity/result/IntentSenderRequest$b;
 
-    invoke-direct {v0}, Landroidx/activity/result/IntentSenderRequest$Companion$CREATOR$1;-><init>()V
+    invoke-direct {v0}, Landroidx/activity/result/IntentSenderRequest$b;-><init>()V
 
     sput-object v0, Landroidx/activity/result/IntentSenderRequest;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -70,7 +122,7 @@
 
     const-string v0, "intentSender"
 
-    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -85,7 +137,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Landroid/content/IntentSender;Landroid/content/Intent;IIILes/wv0;)V
+.method public synthetic constructor <init>(Landroid/content/IntentSender;Landroid/content/Intent;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 1
 
     and-int/lit8 p6, p5, 0x2
@@ -101,14 +153,14 @@
 
     if-eqz p6, :cond_1
 
-    const/4 p3, 0x0
+    move p3, v0
 
     :cond_1
     and-int/lit8 p5, p5, 0x8
 
     if-eqz p5, :cond_2
 
-    const/4 p4, 0x0
+    move p4, v0
 
     :cond_2
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/activity/result/IntentSenderRequest;-><init>(Landroid/content/IntentSender;Landroid/content/Intent;II)V
@@ -121,7 +173,7 @@
 
     const-string v0, "parcel"
 
-    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
     const-class v0, Landroid/content/IntentSender;
 
@@ -133,7 +185,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Les/uw2;->c(Ljava/lang/Object;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;)V
 
     check-cast v0, Landroid/content/IntentSender;
 
@@ -209,7 +261,7 @@
 
     const-string v0, "dest"
 
-    invoke-static {p1, v0}, Les/uw2;->f(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Landroidx/activity/result/IntentSenderRequest;->intentSender:Landroid/content/IntentSender;
 

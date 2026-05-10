@@ -7,6 +7,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
@@ -105,29 +111,29 @@
 .end method
 
 .method public final hashCode()I
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x2
+    const/4 v0, 0x3
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/4 v1, 0x3
+    move-result-object v0
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iget-object v1, p0, Lcom/google/android/gms/internal/fido/zzbj;->zza:Ljava/lang/String;
 
-    move-result-object v1
+    const/4 v2, 0x2
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object v1, v0, v2
+    const/4 v3, 0x0
 
-    const/4 v1, 0x1
+    aput-object v0, v2, v3
 
-    iget-object v2, p0, Lcom/google/android/gms/internal/fido/zzbj;->zza:Ljava/lang/String;
+    const/4 v0, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v2, v0
 
-    invoke-static {v0}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v2}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
     move-result v0
 

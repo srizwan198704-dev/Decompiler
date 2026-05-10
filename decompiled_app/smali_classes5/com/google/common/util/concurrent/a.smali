@@ -1,35 +1,162 @@
-.class public final synthetic Lcom/google/common/util/concurrent/a;
-.super Ljava/lang/Object;
+.class public abstract Lcom/google/common/util/concurrent/a;
+.super Ljava/util/concurrent/AbstractExecutorService;
 
 # interfaces
-.implements Lcom/google/common/base/Supplier;
-
-
-# instance fields
-.field public final synthetic a:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
+.implements Lcom/google/common/util/concurrent/v;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/common/util/concurrent/a;->a:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
+    invoke-direct {p0}, Ljava/util/concurrent/AbstractExecutorService;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public a(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/t;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Runnable;",
+            ")",
+            "Lcom/google/common/util/concurrent/t<",
+            "*>;"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/google/common/util/concurrent/a;->a:Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;
+    invoke-super {p0, p1}, Ljava/util/concurrent/AbstractExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
-    invoke-static {v0}, Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;->b(Lcom/google/common/util/concurrent/AbstractExecutionThreadService$1;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lcom/google/common/util/concurrent/t;
 
-    return-object v0
+    return-object p1
+.end method
+
+.method public b(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/t;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Runnable;",
+            "TT;)",
+            "Lcom/google/common/util/concurrent/t<",
+            "TT;>;"
+        }
+    .end annotation
+
+    invoke-super {p0, p1, p2}, Ljava/util/concurrent/AbstractExecutorService;->submit(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/google/common/util/concurrent/t;
+
+    return-object p1
+.end method
+
+.method public final newTaskFor(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/RunnableFuture;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Runnable;",
+            "TT;)",
+            "Ljava/util/concurrent/RunnableFuture<",
+            "TT;>;"
+        }
+    .end annotation
+
+    invoke-static {p1, p2}, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;->create(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final newTaskFor(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/RunnableFuture;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/concurrent/Callable<",
+            "TT;>;)",
+            "Ljava/util/concurrent/RunnableFuture<",
+            "TT;>;"
+        }
+    .end annotation
+
+    invoke-static {p1}, Lcom/google/common/util/concurrent/TrustedListenableFutureTask;->create(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public submit(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/t;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/concurrent/Callable<",
+            "TT;>;)",
+            "Lcom/google/common/util/concurrent/t<",
+            "TT;>;"
+        }
+    .end annotation
+
+    invoke-super {p0, p1}, Ljava/util/concurrent/AbstractExecutorService;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/google/common/util/concurrent/t;
+
+    return-object p1
+.end method
+
+.method public bridge synthetic submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/a;->a(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/t;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic submit(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/google/common/util/concurrent/a;->b(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/t;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public bridge synthetic submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/a;->submit(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/t;
+
+    move-result-object p1
+
+    return-object p1
 .end method

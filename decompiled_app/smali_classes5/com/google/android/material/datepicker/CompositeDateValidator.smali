@@ -8,15 +8,15 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+        Lcom/google/android/material/datepicker/CompositeDateValidator$d;
     }
 .end annotation
 
 
 # static fields
-.field private static final ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+.field private static final ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
-.field private static final ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+.field private static final ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
 .field private static final COMPARATOR_ALL_ID:I = 0x2
 
@@ -34,7 +34,7 @@
 
 
 # instance fields
-.field private final operator:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+.field private final operator:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 .end field
@@ -57,28 +57,28 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator$1;
+    new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator$a;
 
-    invoke-direct {v0}, Lcom/google/android/material/datepicker/CompositeDateValidator$1;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/datepicker/CompositeDateValidator$a;-><init>()V
 
-    sput-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    sput-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
-    new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator$2;
+    new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator$b;
 
-    invoke-direct {v0}, Lcom/google/android/material/datepicker/CompositeDateValidator$2;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/datepicker/CompositeDateValidator$b;-><init>()V
 
-    sput-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    sput-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
-    new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator$3;
+    new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator$c;
 
-    invoke-direct {v0}, Lcom/google/android/material/datepicker/CompositeDateValidator$3;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/material/datepicker/CompositeDateValidator$c;-><init>()V
 
     sput-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;)V
+.method private constructor <init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$d;)V
     .locals 0
     .param p1    # Ljava/util/List;
         .annotation build Landroidx/annotation/NonNull;
@@ -90,7 +90,7 @@
             "Ljava/util/List<",
             "Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;",
             ">;",
-            "Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;",
+            "Lcom/google/android/material/datepicker/CompositeDateValidator$d;",
             ")V"
         }
     .end annotation
@@ -99,31 +99,31 @@
 
     iput-object p1, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->validators:Ljava/util/List;
 
-    iput-object p2, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    iput-object p2, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;Lcom/google/android/material/datepicker/CompositeDateValidator$1;)V
+.method public synthetic constructor <init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$d;Lcom/google/android/material/datepicker/CompositeDateValidator$a;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/google/android/material/datepicker/CompositeDateValidator;-><init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;)V
+    invoke-direct {p0, p1, p2}, Lcom/google/android/material/datepicker/CompositeDateValidator;-><init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$d;)V
 
     return-void
 .end method
 
-.method public static synthetic access$000()Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+.method public static synthetic access$000()Lcom/google/android/material/datepicker/CompositeDateValidator$d;
     .locals 1
 
-    sget-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    sget-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
     return-object v0
 .end method
 
-.method public static synthetic access$100()Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+.method public static synthetic access$100()Lcom/google/android/material/datepicker/CompositeDateValidator$d;
     .locals 1
 
-    sget-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    sget-object v0, Lcom/google/android/material/datepicker/CompositeDateValidator;->ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
     return-object v0
 .end method
@@ -149,9 +149,9 @@
 
     new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator;
 
-    sget-object v1, Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    sget-object v1, Lcom/google/android/material/datepicker/CompositeDateValidator;->ALL_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/android/material/datepicker/CompositeDateValidator;-><init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/android/material/datepicker/CompositeDateValidator;-><init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$d;)V
 
     return-object v0
 .end method
@@ -177,9 +177,9 @@
 
     new-instance v0, Lcom/google/android/material/datepicker/CompositeDateValidator;
 
-    sget-object v1, Lcom/google/android/material/datepicker/CompositeDateValidator;->ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    sget-object v1, Lcom/google/android/material/datepicker/CompositeDateValidator;->ANY_OPERATOR:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
-    invoke-direct {v0, p0, v1}, Lcom/google/android/material/datepicker/CompositeDateValidator;-><init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/android/material/datepicker/CompositeDateValidator;-><init>(Ljava/util/List;Lcom/google/android/material/datepicker/CompositeDateValidator$d;)V
 
     return-object v0
 .end method
@@ -225,15 +225,15 @@
 
     if-eqz v1, :cond_2
 
-    iget-object v1, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    iget-object v1, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
-    invoke-interface {v1}, Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;->getId()I
+    invoke-interface {v1}, Lcom/google/android/material/datepicker/CompositeDateValidator$d;->getId()I
 
     move-result v1
 
-    iget-object p1, p1, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    iget-object p1, p1, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
-    invoke-interface {p1}, Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;->getId()I
+    invoke-interface {p1}, Lcom/google/android/material/datepicker/CompositeDateValidator$d;->getId()I
 
     move-result p1
 
@@ -242,7 +242,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v2
 
     :goto_0
     return v0
@@ -263,11 +263,11 @@
 .method public isValid(J)Z
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    iget-object v0, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
     iget-object v1, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->validators:Ljava/util/List;
 
-    invoke-interface {v0, v1, p1, p2}, Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;->isValid(Ljava/util/List;J)Z
+    invoke-interface {v0, v1, p1, p2}, Lcom/google/android/material/datepicker/CompositeDateValidator$d;->a(Ljava/util/List;J)Z
 
     move-result p1
 
@@ -285,9 +285,9 @@
 
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
 
-    iget-object p2, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;
+    iget-object p2, p0, Lcom/google/android/material/datepicker/CompositeDateValidator;->operator:Lcom/google/android/material/datepicker/CompositeDateValidator$d;
 
-    invoke-interface {p2}, Lcom/google/android/material/datepicker/CompositeDateValidator$Operator;->getId()I
+    invoke-interface {p2}, Lcom/google/android/material/datepicker/CompositeDateValidator$d;->getId()I
 
     move-result p2
 

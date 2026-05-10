@@ -23,6 +23,12 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/android/material/navigation/NavigationBarItemView;I)V
     .locals 0
 
@@ -44,7 +50,7 @@
 
     iget v1, p0, Lcom/google/android/material/navigation/NavigationBarItemView$2;->val$width:I
 
-    invoke-static {v0, v1}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$400(Lcom/google/android/material/navigation/NavigationBarItemView;I)V
+    invoke-static {v0, v1}, Lcom/google/android/material/navigation/NavigationBarItemView;->c(Lcom/google/android/material/navigation/NavigationBarItemView;I)V
 
     return-void
 .end method
