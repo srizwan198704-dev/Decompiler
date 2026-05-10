@@ -1,0 +1,19 @@
+name: List Smali Files
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  list-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: List All Smali Files
+        run: |
+          find decompiled_app -name "*.smali" > all_files.txt
+          cat all_files.txt
