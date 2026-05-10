@@ -1,3 +1,0 @@
-.class public synthetic Lcom/umeng/analytics/CoreProtocol$1;
-.super Ljava/lang/Object;
-.source "I48E"

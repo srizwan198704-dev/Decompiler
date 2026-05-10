@@ -1,3 +1,0 @@
-.class public synthetic Lorg/simpleframework/xml/stream/HyphenBuilder$1;
-.super Ljava/lang/Object;
-.source "VA9O"

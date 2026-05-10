@@ -1,71 +1,99 @@
 .class public Lcom/google/android/material/theme/MaterialComponentsViewInflater;
-.super Landroidx/appcompat/app/AppCompatViewInflater;
-.source "K21C"
+.super Landroidx/appcompat/app/x;
+.source "source.java"
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .line 39
-    invoke-direct {p0}, Landroidx/appcompat/app/AppCompatViewInflater;-><init>()V
+    .line 1
+    invoke-direct {p0}, Landroidx/appcompat/app/x;-><init>()V
 
+    .line 2
+    .line 3
+    .line 4
     return-void
 .end method
 
 
 # virtual methods
-.method public createAutoCompleteTextView(Landroid/content/Context;Landroid/util/AttributeSet;)Ll/۟ۧ;
+.method protected c(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;
     .locals 1
 
-    .line 68
+    .line 1
     new-instance v0, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;
 
+    .line 2
+    .line 3
     invoke-direct {v0, p1, p2}, Lcom/google/android/material/textfield/MaterialAutoCompleteTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    .line 4
+    .line 5
+    .line 6
     return-object v0
 .end method
 
-.method public createButton(Landroid/content/Context;Landroid/util/AttributeSet;)Ll/ܺۧ;
+.method protected d(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatButton;
     .locals 1
 
-    .line 43
+    .line 1
     new-instance v0, Lcom/google/android/material/button/MaterialButton;
 
+    .line 2
+    .line 3
     invoke-direct {v0, p1, p2}, Lcom/google/android/material/button/MaterialButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    .line 4
+    .line 5
+    .line 6
     return-object v0
 .end method
 
-.method public createCheckBox(Landroid/content/Context;Landroid/util/AttributeSet;)Ll/ۛۧ;
+.method protected e(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatCheckBox;
     .locals 1
 
-    .line 49
+    .line 1
     new-instance v0, Lcom/google/android/material/checkbox/MaterialCheckBox;
 
+    .line 2
+    .line 3
     invoke-direct {v0, p1, p2}, Lcom/google/android/material/checkbox/MaterialCheckBox;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    .line 4
+    .line 5
+    .line 6
     return-object v0
 .end method
 
-.method public createRadioButton(Landroid/content/Context;Landroid/util/AttributeSet;)Ll/ܰۧ;
+.method protected k(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatRadioButton;
     .locals 1
 
-    .line 55
+    .line 1
     new-instance v0, Lcom/google/android/material/radiobutton/MaterialRadioButton;
 
+    .line 2
+    .line 3
     invoke-direct {v0, p1, p2}, Lcom/google/android/material/radiobutton/MaterialRadioButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    .line 4
+    .line 5
+    .line 6
     return-object v0
 .end method
 
-.method public createTextView(Landroid/content/Context;Landroid/util/AttributeSet;)Ll/ܰۡ;
+.method protected o(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatTextView;
     .locals 1
 
-    .line 61
+    .line 1
     new-instance v0, Lcom/google/android/material/textview/MaterialTextView;
 
+    .line 2
+    .line 3
     invoke-direct {v0, p1, p2}, Lcom/google/android/material/textview/MaterialTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    .line 4
+    .line 5
+    .line 6
     return-object v0
 .end method

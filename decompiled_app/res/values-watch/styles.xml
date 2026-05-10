@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="APKTOOL_DUPLICATE_style_0x7f130066" parent="@style/APKTOOL_DUPLICATE_style_0x7f1300bb">
+    <style name="Base.Theme.AppCompat.Dialog" parent="@style/Base.V21.Theme.AppCompat.Dialog">
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowElevation">0.0dip</item>
     </style>
-    <style name="APKTOOL_DUPLICATE_style_0x7f13006d" parent="@style/APKTOOL_DUPLICATE_style_0x7f1300bd">
+    <style name="Base.Theme.AppCompat.Light.Dialog" parent="@style/Base.V21.Theme.AppCompat.Light.Dialog">
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowElevation">0.0dip</item>
     </style>
-    <style name="APKTOOL_DUPLICATE_style_0x7f130095" parent="@style/APKTOOL_DUPLICATE_style_0x7f1300c2">
+    <style name="Base.ThemeOverlay.AppCompat.Dialog" parent="@style/Base.V21.ThemeOverlay.AppCompat.Dialog">
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowElevation">0.0dip</item>
     </style>

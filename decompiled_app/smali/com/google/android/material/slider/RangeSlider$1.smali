@@ -1,3 +1,0 @@
-.class public synthetic Lcom/google/android/material/slider/RangeSlider$1;
-.super Ljava/lang/Object;
-.source "91DR"

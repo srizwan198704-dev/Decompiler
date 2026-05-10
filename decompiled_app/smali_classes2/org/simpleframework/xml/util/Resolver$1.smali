@@ -1,3 +1,0 @@
-.class public synthetic Lorg/simpleframework/xml/util/Resolver$1;
-.super Ljava/lang/Object;
-.source "QAC6"

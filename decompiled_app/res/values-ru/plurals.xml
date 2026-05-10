@@ -1,96 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="MT_Protector">
-        <item quantity="one">Удалить исходный файл</item>
-        <item quantity="few">Удалить исходные файлы</item>
-        <item quantity="many">Удалить исходные файлы</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110001">
-        <item quantity="one">Удалить исходный файл после сжатия</item>
-        <item quantity="few">Удалить исходные файлы после сжатия</item>
-        <item quantity="many">Удалить исходные файлы после сжатия</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110002">
-        <item quantity="one">Удалить исходный файл после извлечения</item>
-        <item quantity="few">Удалить исходные файлы после извлечения</item>
-        <item quantity="many">Удалить исходные файлы после извлечения</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110003">
+    <plurals name="exo_controls_fastforward_by_amount_description">
         <item quantity="other">Перемотать на %d секунды вперед</item>
         <item quantity="one">Перемотать на %d секунду вперед</item>
         <item quantity="few">Перемотать на %d секунды вперед</item>
         <item quantity="many">Перемотать на %d секунд вперед</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110004">
+    <plurals name="exo_controls_rewind_by_amount_description">
         <item quantity="other">Перемотать на %d секунды назад</item>
         <item quantity="one">Перемотать на %d секунду назад</item>
         <item quantity="few">Перемотать на %d секунды назад</item>
         <item quantity="many">Перемотать на %d секунд назад</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110005">
-        <item quantity="one">Файл: %d</item>
-        <item quantity="few">Файл: %d</item>
-        <item quantity="many">Файлы: %d</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110006">
-        <item quantity="one">Папка: %d</item>
-        <item quantity="few">Папки: %d</item>
-        <item quantity="many">Папки: %d</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110007">
+    <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d нового уведомления</item>
         <item quantity="one">%d новое уведомление</item>
         <item quantity="few">%d новых уведомления</item>
         <item quantity="many">%d новых уведомлений</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110008">
-        <item quantity="one">%d день назад</item>
-        <item quantity="few">%d дня назад</item>
-        <item quantity="many">%d дней назад</item>
+    <plurals name="str_views">
+        <item quantity="other">%1$s просмотра</item>
+        <item quantity="one">%1$s просмотр</item>
+        <item quantity="few">%1$s просмотра</item>
+        <item quantity="many">%1$s просмотров</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110009">
-        <item quantity="one">%d час назад</item>
-        <item quantity="few">%d часа назад</item>
-        <item quantity="many">%d часов назад</item>
+    <plurals name="time_days_ago">
+        <item quantity="other">%1$d дня назад</item>
+        <item quantity="one">%1$d день назад</item>
+        <item quantity="few">%1$d дня назад</item>
+        <item quantity="many">%1$d дней назад</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000a">
-        <item quantity="one">%d минуту назад</item>
-        <item quantity="few">%d минуты назад</item>
-        <item quantity="many">%d минут назад</item>
+    <plurals name="time_hours_ago">
+        <item quantity="other">%1$d часа назад</item>
+        <item quantity="one">%1$d час назад</item>
+        <item quantity="few">%1$d часа назад</item>
+        <item quantity="many">%1$d часов назад</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000b">
-        <item quantity="one">%d секунду назад</item>
-        <item quantity="few">%d секунды назад</item>
-        <item quantity="many">%d секунд назад</item>
+    <plurals name="time_minutes_ago">
+        <item quantity="other">%1$d минуты назад</item>
+        <item quantity="one">%1$d минуту назад</item>
+        <item quantity="few">%1$d минуты назад</item>
+        <item quantity="many">%1$d минут назад</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000c">
-        <item quantity="one">%d интерфейс</item>
-        <item quantity="few">%d интерфейса</item>
-        <item quantity="many">%d интерфейсов</item>
+    <plurals name="time_months_ago">
+        <item quantity="other">%1$d месяца назад</item>
+        <item quantity="one">%1$d месяц назад</item>
+        <item quantity="few">%1$d месяца назад</item>
+        <item quantity="many">%1$d месяцев назад</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000d">
-        <item quantity="one">%d переводчик</item>
-        <item quantity="few">%d переводчика</item>
-        <item quantity="many">%d переводчиков</item>
+    <plurals name="time_weeks_ago">
+        <item quantity="other">%1$d недели назад</item>
+        <item quantity="one">%1$d неделю назад</item>
+        <item quantity="few">%1$d недели назад</item>
+        <item quantity="many">%1$d недель назад</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000e">
-        <item quantity="one">Разделить на %d файл</item>
-        <item quantity="few">Разделить на %d файлов</item>
-        <item quantity="many">Разделить на %d файлов</item>
+    <plurals name="time_years_ago">
+        <item quantity="other">%1$d года назад</item>
+        <item quantity="one">%1$d год назад</item>
+        <item quantity="few">%1$d года назад</item>
+        <item quantity="many">%1$d лет назад</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000f">
-        <item quantity="one">%d задача выполняется</item>
-        <item quantity="few">%d задач выполняется</item>
-        <item quantity="many">%d задач выполняется</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110010">
-        <item quantity="one">%d сессия</item>
-        <item quantity="few">%d сессии</item>
-        <item quantity="many">%d сессий</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110011">
-        <item quantity="one">VIP истекает через %d день</item>
-        <item quantity="few">VIP истекает через %d дней</item>
-        <item quantity="many">VIP истекает через %d дней</item>
+    <plurals name="videos_count_text">
+        <item quantity="other">%1$s видео</item>
+        <item quantity="one">%1$s видео</item>
+        <item quantity="few">%1$s видео</item>
+        <item quantity="many">%1$s видео</item>
     </plurals>
 </resources>

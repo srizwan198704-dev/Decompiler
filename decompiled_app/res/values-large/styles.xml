@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="APKTOOL_DUPLICATE_style_0x7f13006a" parent="@style/APKTOOL_DUPLICATE_style_0x7f130068" />
-    <style name="APKTOOL_DUPLICATE_style_0x7f130071" parent="@style/APKTOOL_DUPLICATE_style_0x7f13006f" />
-    <style name="APKTOOL_DUPLICATE_style_0x7f130076" parent="@style/APKTOOL_DUPLICATE_style_0x7f130075" />
-    <style name="APKTOOL_DUPLICATE_style_0x7f13007c" parent="@style/APKTOOL_DUPLICATE_style_0x7f13007b" />
-    <style name="APKTOOL_DUPLICATE_style_0x7f130086" parent="@style/APKTOOL_DUPLICATE_style_0x7f130084" />
-    <style name="APKTOOL_DUPLICATE_style_0x7f130090" parent="@style/APKTOOL_DUPLICATE_style_0x7f13008e" />
+    <style name="Base.Theme.AppCompat.DialogWhenLarge" parent="@style/Base.Theme.AppCompat.Dialog.FixedSize" />
+    <style name="Base.Theme.AppCompat.Light.DialogWhenLarge" parent="@style/Base.Theme.AppCompat.Light.Dialog.FixedSize" />
+    <style name="Base.Theme.Material3.Dark.DialogWhenLarge" parent="@style/Base.Theme.Material3.Dark.Dialog.FixedSize" />
+    <style name="Base.Theme.Material3.Light.DialogWhenLarge" parent="@style/Base.Theme.Material3.Light.Dialog.FixedSize" />
+    <style name="Base.Theme.MaterialComponents.DialogWhenLarge" parent="@style/Base.Theme.MaterialComponents.Dialog.FixedSize" />
+    <style name="Base.Theme.MaterialComponents.Light.DialogWhenLarge" parent="@style/Base.Theme.MaterialComponents.Light.Dialog.FixedSize" />
 </resources>

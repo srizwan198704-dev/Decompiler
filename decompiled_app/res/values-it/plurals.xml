@@ -1,67 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <plurals name="MT_Protector">
-        <item quantity="other">Elimina i file di origine</item>
-        <item quantity="one">Elimina il file di origine</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110003">
+    <plurals name="exo_controls_fastforward_by_amount_description">
         <item quantity="other">Avanti di %d secondi</item>
         <item quantity="one">Avanti di %d secondo</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110004">
+    <plurals name="exo_controls_rewind_by_amount_description">
         <item quantity="other">Indietro di %d secondi</item>
         <item quantity="one">Indietro di %d secondo</item>
     </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110005">
-        <item quantity="other">File: %d</item>
-        <item quantity="one">File: %d</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110006">
-        <item quantity="other">Cartelle: %d</item>
-        <item quantity="one">Cartella: %d</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110007">
+    <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d nuove notifiche</item>
         <item quantity="one">%d nuova notifica</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110008">
-        <item quantity="other">%d giorni fa</item>
-        <item quantity="one">%d giorno fa</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110009">
-        <item quantity="other">%d ore fa</item>
-        <item quantity="one">%d ora fa</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000a">
-        <item quantity="other">%d minuti fa</item>
-        <item quantity="one">%d minuto fa</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000b">
-        <item quantity="other">%d secondi fa</item>
-        <item quantity="one">%d secondo fa</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000c">
-        <item quantity="other">%d altre interfacce</item>
-        <item quantity="one">%d altra interfaccia</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000d">
-        <item quantity="other">%d interfacce di traduzione</item>
-        <item quantity="one">%d interfaccia di traduzione</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000e">
-        <item quantity="other">Dividi in %d file</item>
-        <item quantity="one">Dividi in %d file</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f11000f">
-        <item quantity="other">%d operazioni sono in esecuzione</item>
-        <item quantity="one">%d operazione è in esecuzione</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110010">
-        <item quantity="other">%d sessioni</item>
-        <item quantity="one">%d sessione</item>
-    </plurals>
-    <plurals name="APKTOOL_DUPLICATE_plurals_0x7f110011">
-        <item quantity="other">VIP termina in %d giorni</item>
-        <item quantity="one">VIP termina in %d giorno</item>
     </plurals>
 </resources>
