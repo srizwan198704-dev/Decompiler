@@ -23,19 +23,21 @@ jobs:
 
       - name: Install apktool
         run: |
-          sudo wget -q https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar \
-            -O /usr/local/bin/apktool.jar
-          echo '#!/bin/sh' | sudo tee /usr/local/bin/apktool > /dev/null
-          echo 'exec java -jar /usr/local/bin/apktool.jar "$@"' \
-            | sudo tee -a /usr/local/bin/apktool > /dev/null
+          wget -q https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar -O apktool.jar
+          sudo mv apktool.jar /usr/local/bin/apktool.jar
+          echo '#!/bin/sh' | sudo tee /usr/local/bin/apktool
+          echo 'exec java -jar /usr/local/bin/apktool.jar "$@"' | sudo tee -a /usr/local/bin/apktool
           sudo chmod +x /usr/local/bin/apktool
           apktool --version
 
-      - name: Setup Android SDK
+      - name: Verify decompiled_app
         run: |
-          sudo apt-get update
-          sudo apt-get install -y android-sdk-build-tools
-          echo "ANDROID_HOME=/usr/lib/android-sdk" >> $GITHUB_ENV
+          ls -la decompiled_app/
+          echo "=== Checking apktool.yml ==="
+          cat decompiled_app/apktool.yml | head -20
+          
+          echo "=== Checking AndroidManifest.xml ==="
+          head -5 decompiled_app/AndroidManifest.xml
 
       - name: Auto-generate keystore
         run: |
@@ -48,122 +50,110 @@ jobs:
             -storepass W4bStore2024! \
             -keypass W4bKey2024! \
             -dname "CN=WhatsApp W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD"
-          echo "Keystore generated"
 
-      - name: Replace package name in AndroidManifest.xml
+      - name: Modify package name
         run: |
-          MANIFEST="decompiled_app/AndroidManifest.xml"
-          ORIGINAL_PKG=$(grep -oP 'package="\K[^"]+' "$MANIFEST" | head -1)
-          echo "Original package: $ORIGINAL_PKG"
+          # Get original package
+          ORIGINAL_PKG=$(grep -oP 'package="\K[^"]+' decompiled_app/AndroidManifest.xml | head -1)
+          echo "Original: $ORIGINAL_PKG"
           NEW_PKG="com.whatsapp.w4b"
-          sed -i "s|${ORIGINAL_PKG}|${NEW_PKG}|g" "$MANIFEST"
+          
+          # Replace in AndroidManifest
+          sed -i "s|package=\"${ORIGINAL_PKG}\"|package=\"${NEW_PKG}\"|g" decompiled_app/AndroidManifest.xml
+          sed -i "s|${ORIGINAL_PKG}|${NEW_PKG}|g" decompiled_app/AndroidManifest.xml
+          
+          # Update apktool.yml
+          sed -i '/renameManifestPackage:/d' decompiled_app/apktool.yml
+          echo "renameManifestPackage: ${NEW_PKG}" >> decompiled_app/apktool.yml
+          
+          echo "✅ Package changed to: $NEW_PKG"
 
-      - name: Update apktool.yml
+      - name: Fix resource issues (CRITICAL)
         run: |
-          APKTOOL_YML="decompiled_app/apktool.yml"
-          if grep -q "renameManifestPackage:" "$APKTOOL_YML"; then
-            sed -i "s|renameManifestPackage:.*|renameManifestPackage: com.whatsapp.w4b|" "$APKTOOL_YML"
-          else
-            echo "renameManifestPackage: com.whatsapp.w4b" >> "$APKTOOL_YML"
+          # Method 1: Remove resources.arsc
+          if [ -f "decompiled_app/resources.arsc" ]; then
+            rm -f decompiled_app/resources.arsc
+            echo "Removed resources.arsc - will be regenerated"
           fi
+          
+          # Method 2: Clean raw folder
+          if [ -d "decompiled_app/res/raw" ]; then
+            rm -rf decompiled_app/res/raw
+            echo "Removed raw folder - common issue"
+          fi
+          
+          # Method 3: Remove problematic PNGs
+          find decompiled_app/res -name "*.9.png" -exec rm -f {} \;
+          
+          # Method 4: Remove values issues
+          find decompiled_app/res/values -type f -name "*.xml" -exec sed -i '/<eat-comment>/d' {} \;
 
-      - name: Recompile with apktool (Attempt 1 - AAPT2)
-        id: recompile1
-        continue-on-error: true
+      - name: Recompile (Simple method)
         run: |
-          apktool b decompiled_app --output output_unsigned.apk --use-aapt2 -f
+          # Try simplest recompile first
+          apktool b decompiled_app -o output_unsigned.apk -f 2>&1 | tee build.log
+          
+          if [ ! -f "output_unsigned.apk" ]; then
+            echo "Failed, trying with --use-aapt1..."
+            apktool b decompiled_app -o output_unsigned.apk --use-aapt1 -f 2>&1 | tee build.log
+          fi
+          
+          if [ ! -f "output_unsigned.apk" ]; then
+            echo "Still failed, trying without resources..."
+            apktool b decompiled_app -o output_unsigned.apk --no-res -f
+          fi
+          
+          # Check if successful
           if [ -f "output_unsigned.apk" ] && [ -s "output_unsigned.apk" ]; then
-            echo "success=true" >> $GITHUB_OUTPUT
+            echo "✅ Recompilation successful!"
+            ls -lh output_unsigned.apk
           else
-            echo "success=false" >> $GITHUB_OUTPUT
+            echo "❌ All recompilation attempts failed"
+            echo "=== Last error ==="
+            tail -30 build.log
             exit 1
-          fi
-
-      - name: Recompile with apktool (Attempt 2 - AAPT1)
-        id: recompile2
-        if: steps.recompile1.outputs.success != 'true'
-        continue-on-error: true
-        run: |
-          apktool b decompiled_app --output output_unsigned.apk --use-aapt1 -f
-          if [ -f "output_unsigned.apk" ] && [ -s "output_unsigned.apk" ]; then
-            echo "success=true" >> $GITHUB_OUTPUT
-          else
-            echo "success=false" >> $GITHUB_OUTPUT
-            exit 1
-          fi
-
-      - name: Recompile with apktool (Attempt 3 - No Resources)
-        if: steps.recompile2.outputs.success != 'true'
-        run: |
-          apktool b decompiled_app --output output_unsigned.apk --no-res -f
-          if [ ! -f "output_unsigned.apk" ] || [ ! -s "output_unsigned.apk" ]; then
-            echo "All recompilation attempts failed!"
-            exit 1
-          fi
-
-      - name: Zipalign APK
-        run: |
-          ZIPALIGN=$(find /usr -name "zipalign" 2>/dev/null | head -1)
-          if [ -z "$ZIPALIGN" ]; then
-            echo "Warning: zipalign not found, copying without alignment"
-            cp output_unsigned.apk output_aligned.apk
-          else
-            "$ZIPALIGN" -v -p 4 output_unsigned.apk output_aligned.apk
           fi
 
       - name: Sign APK
         run: |
-          APKSIGNER=$(find /usr -name "apksigner" 2>/dev/null | head -1)
-          if [ -z "$APKSIGNER" ]; then
-            jarsigner -verbose \
-              -keystore release.keystore \
-              -storepass W4bStore2024! \
-              -keypass W4bKey2024! \
-              output_aligned.apk w4b-key
-            mv output_aligned.apk output_signed.apk
-          else
-            "$APKSIGNER" sign \
-              --ks release.keystore \
-              --ks-key-alias w4b-key \
-              --ks-pass pass:W4bStore2024! \
-              --key-pass pass:W4bKey2024! \
-              --out output_signed.apk \
-              output_aligned.apk
-          fi
+          jarsigner -verbose \
+            -keystore release.keystore \
+            -storepass W4bStore2024! \
+            -keypass W4bKey2024! \
+            -sigalg SHA1withRSA \
+            -digestalg SHA1 \
+            output_unsigned.apk w4b-key
+          
+          mv output_unsigned.apk output_signed.apk
+          echo "✅ Signed successfully"
 
-      - name: Rename and release
+      - name: Finalize
         run: |
           TAG="${{ github.ref_name }}"
-          if [ "$TAG" = "" ] || [ "$TAG" = "refs/heads/main" ]; then
-            TAG="build-${{ github.run_number }}"
-          fi
+          [ -z "$TAG" ] && TAG="build-${{ github.run_number }}"
           FINAL_NAME="whatsapp-w4b-${TAG}.apk"
           mv output_signed.apk "$FINAL_NAME"
           echo "APK_NAME=$FINAL_NAME" >> $GITHUB_ENV
+          echo "✅ APK ready: $FINAL_NAME"
           ls -lh "$FINAL_NAME"
 
-      - name: Upload APK
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: whatsapp-w4b-apk
           path: ${{ env.APK_NAME }}
           retention-days: 30
 
-      - name: Create GitHub Release
+      - name: Create Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: ${{ env.APK_NAME }}
           name: "WhatsApp W4B ${{ github.ref_name }}"
-          body: "Package: com.whatsapp.w4b\nBuild: #${{ github.run_number }}\nRecompiled with apktool 2.9.3"
-          draft: false
-          prerelease: false
+          body: "Build #${{ github.run_number }}\nPackage: com.whatsapp.w4b"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cleanup
         if: always()
-        run: |
-          rm -f release.keystore
-          rm -f output_unsigned.apk
-          rm -f output_aligned.apk
+        run: rm -f release.keystore output_unsigned.apk build.log
