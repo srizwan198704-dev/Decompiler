@@ -46,7 +46,6 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends \
             openjdk-17-jre-headless \
-            zipalign \
             wget \
             unzip \
             python3 \
@@ -78,13 +77,14 @@ jobs:
           sudo ln -sf "$BT_PATH/apksigner"  /usr/local/bin/apksigner
           sudo ln -sf "$BT_PATH/zipalign"   /usr/local/bin/zipalign
 
-          echo "$BT_PATH"          >> $GITHUB_PATH
+          echo "$BT_PATH"                          >> $GITHUB_PATH
           echo "ANDROID_SDK_ROOT=/opt/android-sdk" >> $GITHUB_ENV
 
           echo "=== Tool versions ==="
           aapt2 version
           apksigner version
-          zipalign
+          # zipalign prints usage and exits with code 2 when called with no args — suppress exit
+          zipalign 2>&1 | head -3 || true
 
       # ─────────────────────────────────────────────
       # 4. APKTOOL (with -m / merge support)
@@ -117,11 +117,13 @@ jobs:
             echo "WARNING: Could not detect package — defaulting to $OLD_PACKAGE"
           fi
 
-          echo "OLD_PACKAGE=$OLD_PACKAGE"       >> $GITHUB_ENV
+          NEW_PKG="${{ env.NEW_PACKAGE }}"
+
+          echo "OLD_PACKAGE=$OLD_PACKAGE"                    >> $GITHUB_ENV
           echo "OLD_PATH=$(echo $OLD_PACKAGE | tr '.' '/')" >> $GITHUB_ENV
-          echo "NEW_PATH=$(echo ${{ env.NEW_PACKAGE }} | tr '.' '/')" >> $GITHUB_ENV
-          echo "Detected old package: $OLD_PACKAGE"
-          echo "Target new package : ${{ env.NEW_PACKAGE }}"
+          echo "NEW_PATH=$(echo $NEW_PKG | tr '.' '/')"     >> $GITHUB_ENV
+          echo "Detected old package : $OLD_PACKAGE"
+          echo "Target  new package  : $NEW_PKG"
 
       # ─────────────────────────────────────────────
       # 6. FIX MALFORMED SMALI FILENAMES
@@ -206,7 +208,7 @@ jobs:
           OLD_DOT=$(echo "${{ env.OLD_PACKAGE }}" | sed 's/\./\\./g')
           NEW_DOT="${{ env.NEW_PACKAGE }}"
 
-          echo "Path-based: $OLD_PATH -> $NEW_PATH"
+          echo "Path-based : $OLD_PATH -> $NEW_PATH"
 
           # Smali class/type references (Lcom/whatsapp/... style)
           find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
@@ -365,6 +367,7 @@ jobs:
       - name: Zipalign APK
         run: |
           zipalign -v -p 4 recompiled_unsigned.apk aligned.apk
+          # -c exits non-zero if misaligned — that IS a real error worth surfacing
           zipalign -c -v 4 aligned.apk && echo "Alignment: PASSED ✓" || echo "Alignment: FAILED ✗"
 
       # ─────────────────────────────────────────────
@@ -423,7 +426,7 @@ jobs:
             - `AndroidManifest.xml` validated after replacement
 
             ### Build strategy
-            `apktool m` (merge) → `apktool m --use-aapt2` → `apktool b` → `apktool b --use-aapt2` → `apktool b --use-aapt2 --no-crunch`
+            `apktool m` → `apktool m --use-aapt2` → `apktool b` → `apktool b --use-aapt2` → `apktool b --use-aapt2 --no-crunch`
           files: signed_app.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
