@@ -1,443 +1,150 @@
-name: W4B Recompile
+name: Build, Sign & Release APK
 
 on:
+  push:
+    tags:
+      - 'v*'
   workflow_dispatch:
-    inputs:
-      decompiled_folder:
-        description: 'Decompiled folder name'
-        required: true
-        default: 'decompiled_app'
-      new_package:
-        description: 'New package name (leave blank = com.whatsapp.w4b)'
-        required: false
-        default: 'com.whatsapp.w4b'
-      apktool_version:
-        description: 'APKTool version'
-        required: false
-        default: '2.10.0'
-      build_tools_version:
-        description: 'Android build-tools version'
-        required: false
-        default: '34.0.0'
 
 jobs:
-  recompile:
+  build:
+    name: Recompile, Sign & Release
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    env:
-      NEW_PACKAGE: ${{ github.event.inputs.new_package || 'com.whatsapp.w4b' }}
-      APKTOOL_VER: ${{ github.event.inputs.apktool_version || '2.10.0' }}
-      BUILD_TOOLS_VER: ${{ github.event.inputs.build_tools_version || '34.0.0' }}
 
     steps:
-      # ─────────────────────────────────────────────
-      # 1. CHECKOUT
-      # ─────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ─────────────────────────────────────────────
-      # 2. JAVA + SYSTEM DEPS
-      # ─────────────────────────────────────────────
-      - name: Setup Java 17 & system dependencies
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Install apktool
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends \
-            openjdk-17-jre-headless \
-            wget \
-            unzip \
-            python3 \
-            xmlstarlet \
-            findutils \
-            coreutils
-          java -version
-
-      # ─────────────────────────────────────────────
-      # 3. ANDROID SDK + BUILD-TOOLS
-      # ─────────────────────────────────────────────
-      - name: Setup Android SDK
-        run: |
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip \
-            -O cmdline-tools.zip
-          sudo mkdir -p /opt/android-sdk/cmdline-tools
-          sudo unzip -q cmdline-tools.zip -d /opt/android-sdk/cmdline-tools
-          sudo mv /opt/android-sdk/cmdline-tools/cmdline-tools \
-                  /opt/android-sdk/cmdline-tools/latest
-
-          export ANDROID_SDK_ROOT=/opt/android-sdk
-          export PATH="$PATH:/opt/android-sdk/cmdline-tools/latest/bin"
-
-          yes | sdkmanager --licenses > /dev/null 2>&1 || true
-          sdkmanager "build-tools;${{ env.BUILD_TOOLS_VER }}"
-
-          BT_PATH="/opt/android-sdk/build-tools/${{ env.BUILD_TOOLS_VER }}"
-          sudo ln -sf "$BT_PATH/aapt2"      /usr/local/bin/aapt2
-          sudo ln -sf "$BT_PATH/apksigner"  /usr/local/bin/apksigner
-          sudo ln -sf "$BT_PATH/zipalign"   /usr/local/bin/zipalign
-
-          echo "$BT_PATH"                          >> $GITHUB_PATH
-          echo "ANDROID_SDK_ROOT=/opt/android-sdk" >> $GITHUB_ENV
-
-          echo "=== Tool versions ==="
-          aapt2 version
-          apksigner version
-          # zipalign exits non-zero with no args (prints usage) — suppress
-          zipalign 2>&1 | head -2 || true
-
-      # ─────────────────────────────────────────────
-      # 4. APKTOOL
-      # ─────────────────────────────────────────────
-      - name: Setup APKTool ${{ env.APKTOOL_VER }}
-        run: |
-          sudo wget -q \
-            https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool \
-            -O /usr/local/bin/apktool
-          sudo wget -q \
-            "https://github.com/iBotPeaches/Apktool/releases/download/v${{ env.APKTOOL_VER }}/apktool_${{ env.APKTOOL_VER }}.jar" \
+          wget -q https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.9.3.jar \
             -O /usr/local/bin/apktool.jar
-          sudo chmod +x /usr/local/bin/apktool /usr/local/bin/apktool.jar
-          apktool --version
+          echo '#!/bin/sh' | sudo tee /usr/local/bin/apktool > /dev/null
+          echo 'exec java -jar /usr/local/bin/apktool.jar "$@"' \
+            | sudo tee -a /usr/local/bin/apktool > /dev/null
+          sudo chmod +x /usr/local/bin/apktool
 
-      # ─────────────────────────────────────────────
-      # 5. DETECT OLD PACKAGE NAME
-      # ─────────────────────────────────────────────
-      - name: Detect old package name
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          OLD_PACKAGE=""
-
-          if [ -f "$DECOMPILED_DIR/AndroidManifest.xml" ]; then
-            OLD_PACKAGE=$(grep -oP 'package="\K[^"]+' "$DECOMPILED_DIR/AndroidManifest.xml" | head -1)
-          fi
-
-          if [ -z "$OLD_PACKAGE" ]; then
-            OLD_PACKAGE="com.whatsapp"
-            echo "WARNING: Could not detect package — defaulting to $OLD_PACKAGE"
-          fi
-
-          NEW_PKG="${{ env.NEW_PACKAGE }}"
-
-          echo "OLD_PACKAGE=$OLD_PACKAGE"                    >> $GITHUB_ENV
-          echo "OLD_PATH=$(echo $OLD_PACKAGE | tr '.' '/')" >> $GITHUB_ENV
-          echo "NEW_PATH=$(echo $NEW_PKG | tr '.' '/')"     >> $GITHUB_ENV
-          echo "Detected old package : $OLD_PACKAGE"
-          echo "Target  new package  : $NEW_PKG"
-
-      # ─────────────────────────────────────────────
-      # 6. FIX MALFORMED SMALI FILENAMES
-      # ─────────────────────────────────────────────
-      - name: Fix malformed smali filenames
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          RENAMED=0
-
-          while IFS= read -r -d '' file; do
-            if [[ "$file" =~ [^a-zA-Z0-9_./-] ]]; then
-              dir=$(dirname "$file")
-              safe_name=$(echo "$(basename "$file" .smali)" | md5sum | cut -c1-16)
-              safe_file="$dir/${safe_name}.smali"
-              echo "Renaming: $file -> $safe_file"
-              mv "$file" "$safe_file"
-              RENAMED=$((RENAMED + 1))
-            fi
-          done < <(find "$DECOMPILED_DIR" -type f -name "*.smali" -print0)
-
-          echo "Renamed $RENAMED malformed smali files"
-
-      # ─────────────────────────────────────────────
-      # 7. FIX INVALID DIRECTIVES IN SMALI
-      # ─────────────────────────────────────────────
-      - name: Fix invalid directives in smali files
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-
-          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
-            -e 's/\.whatsapp\b/Lcom\/whatsapp/g' \
-            -e 's/\.w4b\b/Lcom\/w4b/g' \
-            -e 's/\.whatsapp\/Features\b/Lcom\/whatsapp\/Features/g' \
-            -e 's/\.w4b\/Features\b/Lcom\/w4b\/Features/g' \
-            -e 's/\bLcom\b/L/g' \
-            -e 's/L\./L/g' {} +
-
-          echo "Invalid-directive fix done"
-
-      # ─────────────────────────────────────────────
-      # 8. PACKAGE RENAME – AndroidManifest.xml
-      # ─────────────────────────────────────────────
-      - name: Rename package in AndroidManifest.xml
-        run: |
-          MANIFEST="${{ github.event.inputs.decompiled_folder }}/AndroidManifest.xml"
-          OLD="${{ env.OLD_PACKAGE }}"
-          NEW="${{ env.NEW_PACKAGE }}"
-
-          cp "$MANIFEST" "$MANIFEST.bak"
-
-          python3 - "$OLD" "$NEW" "$MANIFEST" << 'PYEOF'
-          import re, sys, xml.etree.ElementTree as ET
-
-          old, new, path = sys.argv[1], sys.argv[2], sys.argv[3]
-
-          with open(path, "r", encoding="utf-8") as f:
-              content = f.read()
-
-          result = re.sub(r'\b' + re.escape(old) + r'\b', new, content)
-
-          with open(path, "w", encoding="utf-8") as f:
-              f.write(result)
-
-          print(f"Replaced: {old} -> {new}")
-
-          try:
-              ET.parse(path)
-              print("XML validation: OK")
-          except ET.ParseError as e:
-              print(f"XML ERROR: {e}")
-              sys.exit(1)
-          PYEOF
-
-      # ─────────────────────────────────────────────
-      # 9. PACKAGE RENAME – SMALI FILES
-      # ─────────────────────────────────────────────
-      - name: Rename package in smali & xml files
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          OLD_PATH="${{ env.OLD_PATH }}"
-          NEW_PATH="${{ env.NEW_PATH }}"
-          OLD_DOT=$(echo "${{ env.OLD_PACKAGE }}" | sed 's/\./\\./g')
-          NEW_DOT="${{ env.NEW_PACKAGE }}"
-
-          echo "Path-based : $OLD_PATH -> $NEW_PATH"
-
-          # Smali class/type references (Lcom/whatsapp/... style)
-          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
-            -e "s|L${OLD_PATH}/|L${NEW_PATH}/|g" \
-            -e "s|${OLD_PATH}/|${NEW_PATH}/|g" {} +
-
-          # Dot-notation in smali + xml
-          find "$DECOMPILED_DIR" -type f \( -name "*.smali" -o -name "*.xml" \) \
-            -exec sed -i "s/\b${OLD_DOT}\b/${NEW_DOT}/g" {} +
-
-          echo "Package rename in smali/xml done"
-
-      # ─────────────────────────────────────────────
-      # 10. CLEANUP MALFORMED DIRECTIVES
-      # ─────────────────────────────────────────────
-      - name: Cleanup remaining malformed directives
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-
-          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
-            -e 's/\.whatsapp\b//g' \
-            -e 's/\.w4b\b//g' \
-            -e 's/\binvalid directive\b//gi' \
-            -e '/^\.class/s/[^a-zA-Z0-9_$. \/;:-]//g' {} +
-
-          echo "Cleanup done"
-
-      # ─────────────────────────────────────────────
-      # 11. FIX SMALI SYNTAX ERRORS
-      # ─────────────────────────────────────────────
-      - name: Fix smali syntax errors
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-
-          find "$DECOMPILED_DIR" -type f -name "*.smali" -exec sed -i \
-            -e 's/Features;/Lcom\/whatsapp\/w4b\/Features;/g' \
-            -e 's/\/Features /\/Features;/g' {} +
-
-          echo "Syntax fix done"
-
-      # ─────────────────────────────────────────────
-      # 12. VALIDATE SMALI (pre-build check)
-      # ─────────────────────────────────────────────
-      - name: Validate smali files (pre-build)
-        run: |
-          DECOMPILED_DIR="${{ github.event.inputs.decompiled_folder }}"
-          echo "=== Checking for residual invalid directives ==="
-
-          ISSUES=$(find "$DECOMPILED_DIR" -name "*.smali" -exec grep -Hn '^\.' {} \; | \
-            grep -v \
-              -e '\.class' -e '\.super' -e '\.source' \
-              -e '\.method' -e '\.end method' \
-              -e '\.field' -e '\.end field' \
-              -e '\.annotation' -e '\.end annotation' \
-              -e '\.line' -e '\.parameter' -e '\.param' \
-              -e '\.locals' -e '\.registers' \
-              -e '\.prologue' -e '\.epilogue' \
-              -e '\.catch' -e '\.catchall' \
-              -e '\.packed-switch' -e '\.sparse-switch' \
-              -e '\.end packed-switch' -e '\.end sparse-switch' \
-              -e '\.array-data' -e '\.end array-data' \
-              -e '\.restart' -e '\.implements' -e '\.enum' \
-              -e '\.value' -e '\.subannotation' -e '\.end subannotation' \
-            2>/dev/null | head -30)
-
-          if [ -n "$ISSUES" ]; then
-            echo "WARNINGS (may be non-fatal):"
-            echo "$ISSUES"
-          else
-            echo "No major smali issues found ✓"
-          fi
-
-      # ─────────────────────────────────────────────
-      # 13. RECOMPILE APK — apktool b with fallbacks
-      #
-      # NOTE: apktool has no "m" (merge) command.
-      # Valid commands: d[ecode], b[uild], if|install-framework
-      # The -o flag writes to an explicit path — without it
-      # apktool writes to dist/<foldername>.apk inside the project.
-      # ─────────────────────────────────────────────
-      - name: Recompile APK (apktool b with fallbacks)
-        run: |
-          DIR="${{ github.event.inputs.decompiled_folder }}"
-          OUT="${GITHUB_WORKSPACE}/recompiled_unsigned.apk"
-
-          # Always clear cached framework first
-          apktool empty-framework-dir --force 2>/dev/null || true
-
-          BUILD_SUCCESS=false
-
-          # ── Strategy 1: apktool b  ──────────────────────────────
-          echo "=== Strategy 1: apktool b (standard) ==="
-          if apktool b "$DIR" -o "$OUT" -f 2>&1; then
-            echo "✓ Build success — standard"
-            BUILD_SUCCESS=true
-
-          # ── Strategy 2: apktool b --use-aapt2 ─────────────────
-          elif apktool b "$DIR" -o "$OUT" -f --use-aapt2 2>&1; then
-            echo "✓ Build success — aapt2"
-            BUILD_SUCCESS=true
-
-          # ── Strategy 3: apktool b --use-aapt2 --no-crunch ─────
-          elif apktool b "$DIR" -o "$OUT" -f --use-aapt2 --no-crunch 2>&1; then
-            echo "✓ Build success — aapt2 + no-crunch"
-            BUILD_SUCCESS=true
-
-          # ── Strategy 4: skip resources (-r flag on decode side)
-          #    Re-decode without resources, then rebuild ───────────
-          else
-            echo "=== Strategy 4: rebuild without resources ==="
-            TMP_DIR="${GITHUB_WORKSPACE}/tmp_nores"
-            rm -rf "$TMP_DIR"
-            # Find the original APK in dist/ if it exists
-            ORIG_APK=$(find "$DIR/dist" -name "*.apk" 2>/dev/null | head -1)
-            if [ -n "$ORIG_APK" ]; then
-              apktool d "$ORIG_APK" -o "$TMP_DIR" -f -r 2>&1 || true
-              if apktool b "$TMP_DIR" -o "$OUT" -f 2>&1; then
-                echo "✓ Build success — no-res fallback"
-                BUILD_SUCCESS=true
-              fi
-            fi
-          fi
-
-          if [ "$BUILD_SUCCESS" != "true" ] || [ ! -f "$OUT" ]; then
-            echo ""
-            echo "ERROR: All build strategies failed. APK not created."
-            echo "=== Listing dist/ folder (apktool default output) ==="
-            find "$DIR" -name "*.apk" 2>/dev/null || echo "No APK found anywhere"
-            exit 1
-          fi
-
-          ls -lh "$OUT"
-
-      # ─────────────────────────────────────────────
-      # 14. VERIFY APK STRUCTURE
-      # ─────────────────────────────────────────────
-      - name: Verify APK structure
-        run: |
-          OUT="${GITHUB_WORKSPACE}/recompiled_unsigned.apk"
-          echo "=== aapt2 badging ==="
-          aapt2 dump badging "$OUT" 2>&1 | head -10 || \
-            echo "Warning: aapt2 dump failed (APK may still be installable)"
-
-          echo "=== APK entry count ==="
-          unzip -l "$OUT" | tail -3
-
-      # ─────────────────────────────────────────────
-      # 15. GENERATE KEYSTORE
-      # ─────────────────────────────────────────────
-      - name: Generate signing keystore
+      - name: Auto-generate keystore
         run: |
           keytool -genkey -v \
-            -keystore my.keystore \
-            -alias w4b \
+            -keystore release.keystore \
+            -alias w4b-key \
             -keyalg RSA \
             -keysize 2048 \
             -validity 10000 \
-            -storepass w4b123 \
-            -keypass w4b123 \
-            -dname "CN=W4B,OU=Dev,O=W4B,L=Dhaka,ST=Dhaka,C=BD" \
-            -noprompt
-          echo "Keystore generated ✓"
+            -storepass W4bStore2024! \
+            -keypass W4bKey2024! \
+            -dname "CN=WhatsApp W4B, OU=Dev, O=W4B, L=Dhaka, ST=Dhaka, C=BD"
+          echo "Keystore generated successfully"
+          keytool -list -v -keystore release.keystore \
+            -storepass W4bStore2024! | grep -E "Alias|Valid|SHA"
 
-      # ─────────────────────────────────────────────
-      # 16. ZIPALIGN  (must come BEFORE apksigner)
-      # ─────────────────────────────────────────────
+      - name: Replace package name in AndroidManifest.xml
+        run: |
+          MANIFEST="decompiled_app/AndroidManifest.xml"
+          ORIGINAL_PKG=$(grep -oP 'package="\K[^"]+' "$MANIFEST" | head -1)
+          echo "Original package: $ORIGINAL_PKG"
+          NEW_PKG="com.whatsapp.w4b"
+
+          sed -i "s|${ORIGINAL_PKG}|${NEW_PKG}|g" "$MANIFEST"
+
+          echo "=== Verification ==="
+          grep -n "package=" "$MANIFEST"
+          echo "=== Old package remaining ==="
+          grep -c "$ORIGINAL_PKG" "$MANIFEST" || echo "0 — clean!"
+
+      - name: Update apktool.yml
+        run: |
+          APKTOOL_YML="decompiled_app/apktool.yml"
+          if [ -f "$APKTOOL_YML" ]; then
+            sed -i "s|renameManifestPackage:.*|renameManifestPackage: com.whatsapp.w4b|" \
+              "$APKTOOL_YML"
+            echo "apktool.yml updated:"
+            cat "$APKTOOL_YML"
+          else
+            echo "apktool.yml not found, skipping"
+          fi
+
+      - name: Recompile with apktool
+        run: |
+          apktool b decompiled_app \
+            --output output_unsigned.apk \
+            --use-aapt2 \
+            -f
+
       - name: Zipalign APK
         run: |
-          OUT="${GITHUB_WORKSPACE}/recompiled_unsigned.apk"
-          zipalign -v -p 4 "$OUT" aligned.apk
-          zipalign -c -v 4 aligned.apk && echo "Alignment: PASSED ✓" || echo "Alignment: FAILED ✗"
+          ZIPALIGN=$(find $ANDROID_HOME -name "zipalign" | sort -r | head -1)
+          echo "Using zipalign: $ZIPALIGN"
+          "$ZIPALIGN" -v -p 4 output_unsigned.apk output_aligned.apk
 
-      # ─────────────────────────────────────────────
-      # 17. SIGN WITH apksigner (v2 + v3 schemes)
-      # ─────────────────────────────────────────────
       - name: Sign APK with apksigner
         run: |
-          apksigner sign \
-            --ks my.keystore \
-            --ks-pass pass:w4b123 \
-            --key-pass pass:w4b123 \
-            --ks-key-alias w4b \
-            --v2-signing-enabled true \
-            --v3-signing-enabled true \
-            --out signed_app.apk \
-            aligned.apk
+          APKSIGNER=$(find $ANDROID_HOME -name "apksigner" | sort -r | head -1)
+          echo "Using apksigner: $APKSIGNER"
+          "$APKSIGNER" sign \
+            --ks release.keystore \
+            --ks-key-alias w4b-key \
+            --ks-pass pass:W4bStore2024! \
+            --key-pass pass:W4bKey2024! \
+            --out output_signed.apk \
+            output_aligned.apk
 
-          echo "Signing done ✓"
-          apksigner verify --verbose --print-certs signed_app.apk 2>&1 | head -20
-          ls -lh signed_app.apk
+          echo "=== Signature Verification ==="
+          "$APKSIGNER" verify --verbose output_signed.apk
 
-      # ─────────────────────────────────────────────
-      # 18. UPLOAD ARTIFACT
-      # ─────────────────────────────────────────────
+      - name: Rename final APK
+        run: |
+          TAG="${{ github.ref_name }}"
+          # workflow_dispatch হলে tag নাও, নইলে commit sha ব্যবহার করো
+          if [ "$TAG" = "" ] || [ "$TAG" = "refs/heads/main" ]; then
+            TAG="build-${{ github.run_number }}"
+          fi
+          FINAL_NAME="whatsapp-w4b-${TAG}.apk"
+          mv output_signed.apk "$FINAL_NAME"
+          echo "APK_NAME=$FINAL_NAME" >> $GITHUB_ENV
+          echo "Final APK: $FINAL_NAME"
+          ls -lh "$FINAL_NAME"
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: w4b-apk-${{ github.run_number }}
-          path: signed_app.apk
-          retention-days: 90
+          name: whatsapp-w4b-apk
+          path: ${{ env.APK_NAME }}
+          retention-days: 30
 
-      # ─────────────────────────────────────────────
-      # 19. CREATE GITHUB RELEASE
-      # ─────────────────────────────────────────────
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          tag_name: w4b-v1.0.${{ github.run_number }}
-          name: "W4B v1.0.${{ github.run_number }}"
+          files: ${{ env.APK_NAME }}
+          name: "WhatsApp W4B ${{ github.ref_name }}"
           body: |
-            ## W4B Recompile — Build #${{ github.run_number }}
+            ## WhatsApp Business W4B ${{ github.ref_name }}
 
-            | Field        | Value |
-            |---|---|
-            | 📦 Old package | `${{ env.OLD_PACKAGE }}` |
-            | ✅ New package | `${{ env.NEW_PACKAGE }}` |
-            | 🔧 APKTool    | v${{ env.APKTOOL_VER }} |
-            | 🛠 Build-tools | ${{ env.BUILD_TOOLS_VER }} |
-            | 🔑 Signed     | v2 + v3 (apksigner) |
+            **Package:** `com.whatsapp.w4b`
+            **Build:** #${{ github.run_number }}
+            **Commit:** ${{ github.sha }}
 
-            ### Fixes applied
-            - Malformed smali filenames renamed (md5 safe names)
-            - Invalid `.whatsapp` / `.w4b` directives corrected
-            - Broken `Features;` class references repaired
-            - Dot-notation & path-based package references replaced
-            - `AndroidManifest.xml` validated after replacement
-
-            ### Build strategy used
-            `apktool b` → `apktool b --use-aapt2` → `apktool b --use-aapt2 --no-crunch` → no-res fallback
-          files: signed_app.apk
+            ### What changed
+            - Package name → `com.whatsapp.w4b`
+            - Recompiled with apktool 2.9.3
+            - Auto-signed with generated keystore
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cleanup sensitive files
+        if: always()
+        run: |
+          rm -f release.keystore
+          rm -f output_unsigned.apk
+          rm -f output_aligned.apk
+          echo "Cleanup done"
